@@ -1,8 +1,9 @@
 export const assetRegistry = {
   hero: {
     key: "hero.main",
-    status: "placeholder",
+    status: "candidate",
     path: "/assets/bookcraft/hero/hero-main.webp",
+    candidatePath: "/assets/bookcraft/hero/candidates/hero-main-v1.png",
     role: "Main hero character / central visual",
     desktop: { width: 760, height: 610, fit: "contain" },
     tablet: { width: 620, height: 520, fit: "contain" },

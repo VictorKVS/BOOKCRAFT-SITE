@@ -14,6 +14,12 @@ const services = [
   {to:"/images", title:"Генерация изображений", text:"Персонажи, иллюстрации и стабильный визуальный стиль", tag:"IMAGE", kind:"images", preview:"IMAGE WORLD"},
 ];
 
+const coreFlows = [
+  {to:"/mailing", number:"01", title:"Рассылка", text:"Тема и аудитория → готовый текст письма", meta:"LLM FLOW · DEMO"},
+  {to:"/podcast", number:"02", title:"Подкаст", text:"Сценарий → подготовка аудио и TTS-пайплайна", meta:"TTS FLOW · DEMO"},
+  {to:"/video-avatar", number:"03", title:"Видео-аватар", text:"Голос + аватар + сценарий → видео-пайплайн", meta:"EXTERNAL API · DEMO"},
+];
+
 export default function HomePage() {
   const [videoOpen, setVideoOpen] = useState(false);
 
@@ -30,13 +36,21 @@ export default function HomePage() {
           </h1>
 
           <p className="lead">
-            Превращайте идеи в истории. Создавайте рассылки, подкасты,
-            видео-аватары и изображения в одном AI-продукте.
+            Превращайте одну идею в связанный набор контента: рассылку,
+            подкаст, видео-аватар, изображения, сценарии и длинные истории.
           </p>
 
           <div className="heroActions">
             <SpectralAction to="/create" variant="primary">✦ Начать создавать →</SpectralAction>
-            <SpectralAction variant="ghost" onClick={() => setVideoOpen(true)}>▶ Смотреть видео</SpectralAction>
+            <SpectralAction variant="ghost" onClick={() => setVideoOpen(true)}>▶ Смотреть демо</SpectralAction>
+          </div>
+
+          <div className="heroProof">
+            <span>01 · ИДЕЯ</span>
+            <i>→</i>
+            <span>02 · ПРОИЗВОДСТВО</span>
+            <i>→</i>
+            <span>03 · ПУБЛИКАЦИЯ</span>
           </div>
 
           <div className="metrics">
@@ -48,7 +62,7 @@ export default function HomePage() {
             <div>
               <span className="metricIcon">▦</span>
               <b>4 в 1</b>
-              <span>все инструменты в одном месте</span>
+              <span>контентные форматы в одном месте</span>
             </div>
             <div>
               <span className="metricIcon">∞</span>
@@ -63,11 +77,7 @@ export default function HomePage() {
 
           <div className="heroHudColumn">
             <AudienceGrowthHud />
-
-            <div className="contentPlanSlot">
-              <ContentPlan />
-            </div>
-
+            <div className="contentPlanSlot"><ContentPlan /></div>
             <PodcastHud />
             <VideoAvatarHud />
           </div>
@@ -89,6 +99,30 @@ export default function HomePage() {
         ))}
       </section>
 
+      <section className="productionSection">
+        <div className="productionSection__head">
+          <div>
+            <small>ДЗ 18 · CORE WORKFLOWS</small>
+            <h2>Три рабочих потока в одном продукте</h2>
+          </div>
+          <p>Главная страница теперь ведёт прямо в обязательные сценарии задания. Реальные API подключаются после визуальной доводки интерфейса.</p>
+        </div>
+
+        <div className="productionFlowGrid">
+          {coreFlows.map((flow) => (
+            <Link to={flow.to} className="productionFlowCard spectralSurface" key={flow.to}>
+              <div className="productionFlowCard__top">
+                <span>{flow.number}</span>
+                <small>{flow.meta}</small>
+              </div>
+              <h3>{flow.title}</h3>
+              <p>{flow.text}</p>
+              <b>Открыть рабочее место →</b>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       {videoOpen && (
         <div className="modalBackdrop" role="presentation" onMouseDown={() => setVideoOpen(false)}>
           <div className="videoModal" role="dialog" aria-modal="true" aria-label="Видео о BOOK-CRAFT" onMouseDown={(e) => e.stopPropagation()}>
@@ -96,7 +130,7 @@ export default function HomePage() {
             <small>DEMO VIDEO SLOT</small>
             <h2>BOOK-CRAFT за 60–75 секунд</h2>
             <div className="videoPlaceholder">▶</div>
-            <p>Сюда подключим финальное демонстрационное видео после сборки рабочих модулей.</p>
+            <p>Финальный ролик подключим после завершения рабочих модулей и визуального прохода.</p>
           </div>
         </div>
       )}
