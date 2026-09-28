@@ -2084,54 +2084,71 @@ animation:spectralSpin var(--speed) linear infinite}
 
 /* ============================================================
    BOOK-CRAFT v1.11 — STEP 01 HERO CENTERING
-   Conservative override: only desktop hero composition.
-   Existing routes, cards, HUD and responsive layout untouched.
+   Refinement after screenshot review:
+   heroine higher/larger, laptop lower/right, tagline contained.
+   Only desktop hero composition is touched.
    ============================================================ */
 
 @media(min-width:941px){
-  /* Move the real heroine from the left side of the stage
-     into the visual center between copy and intelligence HUD. */
   .heroStage--art .heroStage__portraitFrame{
-    left:14%;
-    top:-18px;
-    bottom:18px;
-    width:76%;
-    max-width:520px;
+    left:8%;
+    top:-74px;
+    bottom:4px;
+    width:80%;
+    max-width:560px;
   }
 
   .heroStage--art .heroStage__characterAsset{
     object-position:center bottom;
-    transform:scale(1.04);
+    transform:scale(1.14);
     transform-origin:center bottom;
     filter:
-      saturate(1.00)
+      saturate(1.02)
       contrast(1.04)
-      drop-shadow(0 16px 38px rgba(0,0,0,.44))
-      drop-shadow(0 0 20px rgba(68,194,255,.10));
+      drop-shadow(0 18px 40px rgba(0,0,0,.46))
+      drop-shadow(0 0 22px rgba(68,194,255,.12));
   }
 
-  /* Laptop remains in front of the heroine and moves slightly
-     to the right, matching the approved prototype composition. */
   .heroStage--art .heroStage__laptop{
-    left:58%;
-    bottom:72px;
+    left:66%;
+    bottom:26px;
+    width:286px;
+    height:178px;
+  }
+
+  .heroStage--art .heroStage__tagline{
+    right:6%;
+    top:78px;
+    width:158px;
+  }
+
+  .heroStage--art .heroStage__assetBadge{
+    display:none;
   }
 }
 
 @media(max-width:1180px) and (min-width:941px){
   .heroStage--art .heroStage__portraitFrame{
-    left:11%;
-    top:-8px;
-    bottom:24px;
-    width:78%;
+    left:5%;
+    top:-48px;
+    bottom:10px;
+    width:84%;
+    max-width:500px;
   }
 
   .heroStage--art .heroStage__characterAsset{
-    transform:scale(1.01);
+    transform:scale(1.08);
   }
 
   .heroStage--art .heroStage__laptop{
-    left:55%;
+    left:63%;
+    bottom:30px;
+    width:270px;
+    height:168px;
+  }
+
+  .heroStage--art .heroStage__tagline{
+    right:2%;
+    top:68px;
   }
 }
-
