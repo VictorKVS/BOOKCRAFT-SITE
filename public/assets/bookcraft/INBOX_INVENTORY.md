@@ -1,60 +1,19 @@
-# BOOK-CRAFT Asset Inbox Inventory
+# Asset Inbox Inventory — processed
 
-## Status
+Initial upload contained **94 assets**.
 
-Initial inventory of uploaded visual assets.
+## Automatic sorting result
 
-| Inbox | Intended scope | Files |
-|---|---|---:|
-| `_inbox` | BOOK-CRAFT | 21 |
-| `_inbox2` | FATHER | 11 |
-| `_inbox3` | Mixed assets for all projects | 62 |
-| **Total** |  | **94** |
+- BOOK-CRAFT source inbox: 21
+- FATHER source inbox: 11
+- Mixed source inbox: 62
 
-## Sorting policy
+Statuses after first pass:
+- CANDIDATE: 26
+- REFERENCE: 8
+- NEEDS_VISUAL_REVIEW: 59
+- SELECTED: 1
 
-Assets are sorted only after project/purpose can be identified with sufficient confidence.
+Opaque and timestamp-only mixed-project files were intentionally placed in `public/assets/projects/_needs-review/` rather than guessed into the wrong project.
 
-Statuses:
-- `SELECTED` — chosen for active use
-- `CANDIDATE` — good alternate
-- `REFERENCE` — visual reference only
-- `DRAFT` — work in progress
-- `UNUSED` — not currently used
-- `ARCHIVE` — retained but removed from active set
-- `NEEDS_VISUAL_REVIEW` — filename is insufficient to classify safely
-
-## Target structure
-
-```text
-public/assets/
-├── bookcraft/
-│   ├── hero/
-│   ├── backgrounds/
-│   ├── cards/
-│   ├── modules/
-│   ├── props/
-│   └── archive/
-├── father/
-│   ├── brand/
-│   ├── hero/
-│   ├── agents/
-│   ├── architecture/
-│   ├── dashboards/
-│   ├── illustrations/
-│   └── archive/
-└── projects/
-    ├── alina/
-    ├── makar/
-    ├── osint/
-    ├── secgraph/
-    ├── otus/
-    ├── media/
-    ├── games/
-    ├── shared/
-    └── archive/
-```
-
-## Current rule
-
-Do not guess project assignment from opaque UUID/timestamp filenames. Those files remain in their inbox until visual review is completed. Original filenames remain recoverable from Git history after rename/move.
+See `public/assets/ASSET_MOVE_LOG.md` for every source→destination mapping.
