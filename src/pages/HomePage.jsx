@@ -8,10 +8,46 @@ import AudienceGrowthHud from "../components/AudienceGrowthHud.jsx";
 import HeroStage from "../components/HeroStage.jsx";
 
 const services = [
-  {to:"/books", title:"Книги", text:"Сюжет, главы, герои и литературный мир", tag:"BOOK", kind:"books", preview:"BOOK WORLD"},
-  {to:"/scripts", title:"Сценарии клипов", text:"Сцены, кадры, реплики и визуальная драматургия", tag:"STORY", kind:"scripts", preview:"STORYBOARD"},
-  {to:"/video-avatar", title:"Видео-аватар", text:"Реалистичные AI-аватары для роликов и презентаций", tag:"AVATAR", kind:"avatar", preview:"AVATAR PREVIEW"},
-  {to:"/images", title:"Генерация изображений", text:"Персонажи, иллюстрации и стабильный визуальный стиль", tag:"IMAGE", kind:"images", preview:"IMAGE WORLD"},
+  {
+    to: "/books",
+    title: "Книги",
+    text: "Сюжет, главы, герои и литературный мир",
+    tag: "BOOK",
+    kind: "books",
+    preview: "BOOK WORLD",
+    icon: "▤",
+    image: "/assets/bookcraft/candidates/2026-09-28/bookcraft-20260928-171126-1.png",
+  },
+  {
+    to: "/scripts",
+    title: "Сценарии клипов",
+    text: "Сцены, кадры, реплики и визуальная драматургия",
+    tag: "STORY",
+    kind: "scripts",
+    preview: "STORYBOARD",
+    icon: "▣",
+    image: "/assets/bookcraft/candidates/2026-09-28/bookcraft-20260928-171128-2.png",
+  },
+  {
+    to: "/video-avatar",
+    title: "Видео-аватар",
+    text: "Реалистичные AI-аватары для роликов и презентаций",
+    tag: "AVATAR",
+    kind: "avatar",
+    preview: "AVATAR PREVIEW",
+    icon: "◎",
+    image: "/assets/bookcraft/candidates/2026-09-28/bookcraft-20260928-171130-3.png",
+  },
+  {
+    to: "/images",
+    title: "Генерация изображений",
+    text: "Персонажи, иллюстрации и стабильный визуальный стиль",
+    tag: "IMAGE",
+    kind: "images",
+    preview: "IMAGE WORLD",
+    icon: "▧",
+    image: "/assets/bookcraft/candidates/2026-09-28/bookcraft-20260928-171133-4.png",
+  },
 ];
 
 const coreFlows = [
@@ -25,7 +61,7 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="hero">
+      <section className="hero hero--cinematic">
         <div className="heroCopy">
           <div className="eyebrow">✦ NARRATIVE KNOWLEDGE STUDIO</div>
 
@@ -41,8 +77,14 @@ export default function HomePage() {
           </p>
 
           <div className="heroActions">
-            <SpectralAction to="/create" variant="primary">✦ Начать создавать →</SpectralAction>
-            <SpectralAction variant="ghost" onClick={() => setVideoOpen(true)}>▶ Смотреть демо</SpectralAction>
+            <SpectralAction to="/create" variant="primary">
+              <span className="heroActionIcon">✦</span>
+              Начать создавать →
+            </SpectralAction>
+            <SpectralAction variant="ghost" onClick={() => setVideoOpen(true)}>
+              <span className="heroPlayIcon">▶</span>
+              Смотреть демо
+            </SpectralAction>
           </div>
 
           <div className="heroProof">
@@ -84,17 +126,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="serviceGrid" aria-label="Продукты BOOK-CRAFT">
+      <section className="serviceGrid serviceGrid--cinematic" aria-label="Продукты BOOK-CRAFT">
         {services.map((item) => (
-          <Link to={item.to} className={`serviceCard spectralSurface serviceCard--${item.kind}`} key={item.to}>
-            <div className="serviceTag">{item.tag}</div>
+          <Link
+            to={item.to}
+            className={`serviceCard spectralSurface serviceCard--${item.kind}`}
+            key={item.to}
+          >
+            <div className="serviceCard__topline">
+              <span className="serviceIcon" aria-hidden="true">{item.icon}</span>
+              <div className="serviceTag">{item.tag}</div>
+              <span className="serviceArrow">→</span>
+            </div>
+
             <h2>{item.title}</h2>
             <p>{item.text}</p>
-            <div className="servicePreview">
-              <span className="servicePreview__art" aria-hidden="true" />
+
+            <div className="servicePreview servicePreview--photo">
+              <img src={item.image} alt="" className="servicePreview__image" aria-hidden="true" />
+              <span className="servicePreview__veil" aria-hidden="true" />
               <small>{item.preview}</small>
             </div>
-            <span className="serviceArrow">→</span>
           </Link>
         ))}
       </section>
