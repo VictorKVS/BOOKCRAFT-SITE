@@ -17,3 +17,19 @@
 - аналитика встроена боковой панелью в рабочие модули.
 
 Проверяем сначала только каркас и переходы. Реальные AI-функции подключаются следующим этапом.
+
+## Visual assets
+
+The current visual library is tracked in GitHub and kept separate from the React UI.
+
+**Current hero candidate**
+
+![BOOK-CRAFT hero candidate](public/assets/bookcraft/hero/candidates/hero-main-v1.png)
+
+- [BOOK-CRAFT asset catalog](public/assets/bookcraft/README.md)
+- [Asset inventory](public/assets/bookcraft/INBOX_INVENTORY.md)
+- [Full move log](public/assets/ASSET_MOVE_LOG.md)
+- [FATHER visual assets](public/assets/father/README.md)
+
+The image library is still in review: candidates are not treated as final runtime assets until selected and wired into the UI.
+
