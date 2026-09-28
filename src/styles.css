@@ -2081,3 +2081,57 @@ animation:spectralSpin var(--speed) linear infinite}
 @media(max-width:520px){
   .bookPipeline,.storyboardStudio{grid-template-columns:1fr}
 }
+
+/* ============================================================
+   BOOK-CRAFT v1.11 — STEP 01 HERO CENTERING
+   Conservative override: only desktop hero composition.
+   Existing routes, cards, HUD and responsive layout untouched.
+   ============================================================ */
+
+@media(min-width:941px){
+  /* Move the real heroine from the left side of the stage
+     into the visual center between copy and intelligence HUD. */
+  .heroStage--art .heroStage__portraitFrame{
+    left:14%;
+    top:-18px;
+    bottom:18px;
+    width:76%;
+    max-width:520px;
+  }
+
+  .heroStage--art .heroStage__characterAsset{
+    object-position:center bottom;
+    transform:scale(1.04);
+    transform-origin:center bottom;
+    filter:
+      saturate(1.00)
+      contrast(1.04)
+      drop-shadow(0 16px 38px rgba(0,0,0,.44))
+      drop-shadow(0 0 20px rgba(68,194,255,.10));
+  }
+
+  /* Laptop remains in front of the heroine and moves slightly
+     to the right, matching the approved prototype composition. */
+  .heroStage--art .heroStage__laptop{
+    left:58%;
+    bottom:72px;
+  }
+}
+
+@media(max-width:1180px) and (min-width:941px){
+  .heroStage--art .heroStage__portraitFrame{
+    left:11%;
+    top:-8px;
+    bottom:24px;
+    width:78%;
+  }
+
+  .heroStage--art .heroStage__characterAsset{
+    transform:scale(1.01);
+  }
+
+  .heroStage--art .heroStage__laptop{
+    left:55%;
+  }
+}
+
