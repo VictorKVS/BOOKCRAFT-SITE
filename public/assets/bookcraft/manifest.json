@@ -1,0 +1,67 @@
+{
+  "version": "1.0",
+  "policy": {
+    "ui_baked_into_images": false,
+    "final_text_baked_into_images": false,
+    "routes_baked_into_images": false,
+    "preferred_format": "webp",
+    "retina_source_multiplier": 2,
+    "transparent_background_for_character": true
+  },
+  "assets": [
+    {
+      "key": "hero.main",
+      "path": "hero/hero-main.webp",
+      "status": "missing",
+      "desktop_slot": "760x610"
+    },
+    {
+      "key": "hero.background",
+      "path": "backgrounds/studio-main.webp",
+      "status": "missing",
+      "desktop_slot": "1200x610"
+    },
+    {
+      "key": "props.script",
+      "path": "props/script.webp",
+      "status": "optional",
+      "desktop_slot": "180x128"
+    },
+    {
+      "key": "props.storyboard",
+      "path": "props/storyboard.webp",
+      "status": "optional",
+      "desktop_slot": "200x132"
+    },
+    {
+      "key": "props.desk",
+      "path": "props/desk.webp",
+      "status": "optional",
+      "desktop_slot": "850x170"
+    },
+    {
+      "key": "card.books",
+      "path": "cards/books.webp",
+      "status": "missing",
+      "desktop_slot": "360x86"
+    },
+    {
+      "key": "card.scripts",
+      "path": "cards/scripts.webp",
+      "status": "missing",
+      "desktop_slot": "360x86"
+    },
+    {
+      "key": "card.avatar",
+      "path": "cards/avatar.webp",
+      "status": "missing",
+      "desktop_slot": "360x86"
+    },
+    {
+      "key": "card.images",
+      "path": "cards/images.webp",
+      "status": "missing",
+      "desktop_slot": "360x86"
+    }
+  ]
+}
