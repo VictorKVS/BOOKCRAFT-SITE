@@ -2649,3 +2649,318 @@ animation:spectralSpin var(--speed) linear infinite}
   }
 }
 
+/* ============================================================
+   BOOK-CRAFT v1.14 — FULL-WIDTH PHOTO HERO
+   Approved composition:
+   studio photo spans the WHOLE hero;
+   live copy / CTA / metrics / HUD sit above it;
+   ALINA remains an independent foreground layer.
+   ============================================================ */
+
+.hero--cinematic{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background-image:url("/assets/bookcraft/backgrounds/hero-studio-ru-v1.png");
+  background-size:cover;
+  background-position:center 51%;
+  background-repeat:no-repeat;
+}
+
+/* Readability layer: dark on the copy side, light in the center,
+   darkened slightly under the live intelligence rail. */
+.hero--cinematic::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8,7,14,.96) 0%,
+      rgba(10,8,15,.91) 24%,
+      rgba(9,8,15,.68) 38%,
+      rgba(6,10,18,.16) 53%,
+      rgba(4,11,20,.10) 72%,
+      rgba(3,10,20,.42) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(4,8,16,.18) 0%,
+      rgba(4,8,16,.03) 58%,
+      rgba(4,8,16,.26) 100%
+    );
+}
+
+.hero--cinematic::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 63% 40%,rgba(255,155,88,.12),transparent 25%),
+    radial-gradient(circle at 82% 38%,rgba(56,205,255,.09),transparent 30%);
+}
+
+.hero--cinematic > .heroCopy,
+.hero--cinematic > .heroVisual{
+  position:relative;
+  z-index:3;
+}
+
+.hero--cinematic .heroCopy{
+  text-shadow:0 2px 16px rgba(0,0,0,.34);
+}
+
+.hero--cinematic .heroVisual{
+  background:none!important;
+}
+
+/* HeroStage is now foreground ALINA only. */
+.heroStage--layered{
+  left:-42px;
+  right:0;
+  top:-72px;
+  bottom:0;
+  overflow:visible;
+  pointer-events:none;
+  border-radius:0;
+  isolation:isolate;
+  background:none!important;
+}
+
+.heroStage--layered .heroStage__backgroundAsset,
+.heroStage--layered .heroStage__backgroundShade{
+  display:none!important;
+}
+
+.heroStage--layered .heroStage__halo{
+  z-index:1;
+  opacity:.18;
+}
+
+.heroStage--layered .heroStage__portraitFrame{
+  left:8%;
+  top:-46px;
+  bottom:-6px;
+  width:74%;
+  max-width:610px;
+  z-index:3;
+  overflow:visible;
+  border-radius:0;
+  background:none;
+  -webkit-mask-image:none;
+  mask-image:none;
+}
+
+.heroStage--layered .heroStage__characterAsset{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center bottom;
+  transform:scale(1.08);
+  transform-origin:center bottom;
+  filter:
+    saturate(1.02)
+    contrast(1.04)
+    drop-shadow(0 22px 46px rgba(0,0,0,.40))
+    drop-shadow(0 0 22px rgba(63,200,255,.11));
+}
+
+/* HUD remains a live, readable layer above the photo. */
+.hero--cinematic .heroHudColumn{
+  z-index:10;
+}
+
+/* Remove the old seam that existed when the photo lived only
+   inside the right hero column. */
+.hero--cinematic .heroVisual::before{
+  display:none!important;
+}
+
+/* ============================================================
+   APPROVED BANNER CARDS
+   More artwork, larger icon, smaller readable text.
+   ============================================================ */
+
+.serviceGrid--cinematic{
+  gap:12px;
+  margin-top:-8px;
+}
+
+.serviceGrid--cinematic .serviceCard{
+  min-height:205px;
+  padding:11px 12px 10px;
+  display:flex;
+  flex-direction:column;
+  border-radius:18px;
+  border-color:rgba(55,194,255,.62);
+  background:rgba(5,15,29,.94);
+  box-shadow:
+    0 0 0 1px rgba(179,72,255,.07),
+    0 0 16px rgba(54,194,255,.06);
+}
+
+.serviceGrid--cinematic .serviceCard__topline{
+  display:grid;
+  grid-template-columns:46px 1fr 36px;
+  align-items:center;
+  gap:9px;
+  margin-bottom:5px;
+}
+
+.serviceGrid--cinematic .serviceIcon{
+  width:46px;
+  height:46px;
+  border-radius:12px;
+  font-size:23px;
+  border-color:rgba(176,93,255,.80);
+  box-shadow:
+    0 0 13px rgba(159,83,255,.34),
+    0 0 20px rgba(58,212,255,.10);
+}
+
+.serviceGrid--cinematic .serviceTag{
+  font-size:8px;
+  letter-spacing:.11em;
+}
+
+.serviceGrid--cinematic .serviceArrow{
+  width:36px;
+  height:36px;
+  font-size:20px;
+  border-color:rgba(80,220,255,.38);
+}
+
+.serviceGrid--cinematic .serviceCard h2{
+  margin:3px 0 2px;
+  font-size:17px;
+  line-height:1.08;
+}
+
+.serviceGrid--cinematic .serviceCard p{
+  margin:0 0 6px;
+  min-height:24px;
+  font-size:9px;
+  line-height:1.28;
+  color:rgba(232,240,250,.88);
+}
+
+.serviceGrid--cinematic .servicePreview--photo{
+  position:relative;
+  left:auto;
+  right:auto;
+  bottom:auto;
+  width:100%;
+  height:112px!important;
+  margin-top:auto;
+  overflow:hidden;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.10);
+}
+
+.serviceGrid--cinematic .servicePreview__image{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  transform:scale(1.015);
+  filter:saturate(1.08) contrast(1.04) brightness(.94);
+}
+
+.serviceGrid--cinematic .servicePreview__veil{
+  background:
+    linear-gradient(180deg,transparent 36%,rgba(3,8,16,.12) 62%,rgba(3,8,16,.70)),
+    linear-gradient(90deg,rgba(3,8,16,.18),transparent 48%);
+}
+
+.serviceGrid--cinematic .servicePreview--photo small{
+  left:9px;
+  bottom:7px;
+  font-size:7px;
+  letter-spacing:.08em;
+}
+
+.serviceGrid--cinematic .serviceCard:hover{
+  border-color:rgba(79,224,255,.85);
+  box-shadow:
+    0 0 18px rgba(45,216,255,.16),
+    0 0 18px rgba(207,71,255,.09);
+}
+
+.serviceGrid--cinematic .serviceCard:hover .servicePreview__image{
+  transform:scale(1.055);
+  filter:saturate(1.12) contrast(1.05) brightness(1);
+}
+
+@media(max-width:1180px) and (min-width:941px){
+  .hero--cinematic{
+    background-position:center 50%;
+  }
+
+  .heroStage--layered{
+    left:-28px;
+    top:-48px;
+  }
+
+  .heroStage--layered .heroStage__portraitFrame{
+    left:5%;
+    top:-30px;
+    width:78%;
+    max-width:535px;
+  }
+
+  .heroStage--layered .heroStage__characterAsset{
+    transform:scale(1.03);
+  }
+
+  .serviceGrid--cinematic .servicePreview--photo{
+    height:102px!important;
+  }
+}
+
+@media(max-width:940px){
+  .hero--cinematic{
+    background-position:58% center;
+  }
+
+  .hero--cinematic::before{
+    background:
+      linear-gradient(180deg,rgba(5,9,18,.56),rgba(5,9,18,.14) 42%,rgba(5,9,18,.34)),
+      linear-gradient(90deg,rgba(7,8,15,.70),rgba(7,8,15,.12));
+  }
+
+  .heroStage--layered{
+    left:0;
+    top:0;
+  }
+
+  .heroStage--layered .heroStage__portraitFrame{
+    left:50%;
+    top:-18px;
+    bottom:0;
+    width:min(78%,455px);
+    transform:translateX(-50%);
+  }
+
+  .heroStage--layered .heroStage__characterAsset{
+    transform:scale(1.00);
+  }
+}
+
+@media(max-width:680px){
+  .hero--cinematic{
+    background-position:62% center;
+  }
+
+  .serviceGrid--cinematic .serviceCard{
+    min-height:196px;
+  }
+
+  .serviceGrid--cinematic .servicePreview--photo{
+    height:100px!important;
+  }
+}
+

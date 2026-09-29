@@ -20,7 +20,8 @@
       "path": "backgrounds/hero-studio-ru-v1.png",
       "status": "selected",
       "desktop_slot": "1200x610",
-      "alternate_path": "backgrounds/hero-studio-en-v1.png"
+      "alternate_path": "backgrounds/hero-studio-en-v1.png",
+      "usage": "full-width hero background; live UI and ALINA layered above"
     },
     {
       "key": "props.script",

@@ -15,11 +15,11 @@ export const assetRegistry = {
     status: "selected",
     path: "/assets/bookcraft/backgrounds/hero-studio-ru-v1.png",
     alternatePath: "/assets/bookcraft/backgrounds/hero-studio-en-v1.png",
-    role: "Hero studio environment / decorative narrative scene",
+    role: "Full-width hero studio environment / decorative narrative scene",
     desktop: { width: 1200, height: 610, fit: "cover" },
     tablet: { width: 940, height: 520, fit: "cover" },
     mobile: { width: 680, height: 360, fit: "cover" },
-    notes: "Russian background is active. English variant is retained for future locale switching. Live navigation, CTA and analytics HUD remain React."
+    notes: "Russian background spans the entire hero. English variant is retained for future locale switching. ALINA, navigation, headline, CTA, metrics and analytics HUD remain independent live layers."
   },
   props: {
     script: {
