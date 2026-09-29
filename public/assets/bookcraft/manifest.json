@@ -17,9 +17,10 @@
     },
     {
       "key": "hero.background",
-      "path": "backgrounds/studio-main.webp",
-      "status": "missing",
-      "desktop_slot": "1200x610"
+      "path": "backgrounds/hero-studio-ru-v1.png",
+      "status": "selected",
+      "desktop_slot": "1200x610",
+      "alternate_path": "backgrounds/hero-studio-en-v1.png"
     },
     {
       "key": "props.script",

@@ -114,3 +114,19 @@
 
 Full source→destination history is in [../ASSET_MOVE_LOG.md](../ASSET_MOVE_LOG.md).
 
+
+### Selected hero background
+
+Russian active background:
+
+![Hero studio RU](backgrounds/hero-studio-ru-v1.png)
+
+`backgrounds/hero-studio-ru-v1.png` — SELECTED.
+
+English alternate:
+
+![Hero studio EN](backgrounds/hero-studio-en-v1.png)
+
+`backgrounds/hero-studio-en-v1.png` — ALTERNATE / future locale.
+
+The heroine remains a separate foreground asset so position, scale and future wardrobe/accessory variants can change independently from the scene.

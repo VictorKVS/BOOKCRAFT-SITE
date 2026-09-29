@@ -2507,3 +2507,145 @@ animation:spectralSpin var(--speed) linear infinite}
   }
 }
 
+/* ============================================================
+   BOOK-CRAFT v1.13 — LAYERED HERO BACKGROUND
+   Large studio art is the scene layer. ALINA stays independent.
+   Live React copy, CTA and HUD remain above the artwork.
+   ============================================================ */
+
+.heroStage--layered{
+  left:-10px;
+  right:0;
+  top:-56px;
+  bottom:0;
+  overflow:hidden;
+  pointer-events:none;
+  border-radius:0 0 26px 26px;
+  isolation:isolate;
+}
+
+.heroStage--layered .heroStage__backgroundAsset{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 52%;
+  filter:saturate(1.04) contrast(1.03) brightness(.84);
+}
+
+.heroStage--layered .heroStage__backgroundShade{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:
+    linear-gradient(90deg,rgba(6,10,20,.24) 0%,rgba(6,10,20,.04) 32%,rgba(3,10,22,.08) 62%,rgba(3,10,22,.34) 100%),
+    linear-gradient(180deg,rgba(4,9,18,.04),rgba(4,9,18,.02) 70%,rgba(4,9,18,.22));
+}
+
+.heroStage--layered .heroStage__halo{
+  z-index:1;
+  opacity:.26;
+}
+
+.heroStage--layered .heroStage__portraitFrame{
+  left:21%;
+  top:-84px;
+  bottom:-2px;
+  width:57%;
+  max-width:555px;
+  z-index:3;
+  overflow:visible;
+  border-radius:0;
+  background:none;
+  -webkit-mask-image:none;
+  mask-image:none;
+}
+
+.heroStage--layered .heroStage__characterAsset{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center bottom;
+  transform:scale(1.16);
+  transform-origin:center bottom;
+  filter:
+    saturate(1.03)
+    contrast(1.04)
+    drop-shadow(0 22px 46px rgba(0,0,0,.44))
+    drop-shadow(0 0 24px rgba(79,201,255,.10));
+}
+
+/* Live HUD always wins over decorative background panels. */
+.hero .heroHudColumn{
+  z-index:8;
+}
+
+/* Blend the photo into the dark copy column without baking copy into art. */
+@media(min-width:941px){
+  .hero--cinematic .heroVisual::before{
+    content:"";
+    position:absolute;
+    inset:0 auto 0 -70px;
+    width:150px;
+    z-index:4;
+    pointer-events:none;
+    background:linear-gradient(90deg,#120d14 0%,rgba(18,13,20,.76) 38%,transparent 100%);
+  }
+}
+
+@media(max-width:1180px) and (min-width:941px){
+  .heroStage--layered{
+    left:0;
+    top:-34px;
+  }
+
+  .heroStage--layered .heroStage__portraitFrame{
+    left:18%;
+    top:-54px;
+    width:61%;
+    max-width:500px;
+  }
+
+  .heroStage--layered .heroStage__characterAsset{
+    transform:scale(1.10);
+  }
+}
+
+@media(max-width:940px){
+  .heroStage--layered{
+    left:0;
+    right:0;
+    top:0;
+    border-radius:22px;
+  }
+
+  .heroStage--layered .heroStage__backgroundAsset{
+    object-position:center;
+  }
+
+  .heroStage--layered .heroStage__portraitFrame{
+    left:50%;
+    top:-24px;
+    bottom:0;
+    width:min(78%,460px);
+    transform:translateX(-50%);
+  }
+
+  .heroStage--layered .heroStage__characterAsset{
+    transform:scale(1.03);
+  }
+}
+
+@media(max-width:680px){
+  .heroStage--layered .heroStage__backgroundAsset{
+    filter:saturate(.95) contrast(1.02) brightness(.66);
+  }
+
+  .heroStage--layered .heroStage__portraitFrame{
+    width:min(88%,370px);
+    top:0;
+  }
+}
+

@@ -12,13 +12,14 @@ export const assetRegistry = {
   },
   background: {
     key: "hero.background",
-    status: "placeholder",
-    path: "/assets/bookcraft/backgrounds/studio-main.webp",
-    role: "Hero environment / studio background",
+    status: "selected",
+    path: "/assets/bookcraft/backgrounds/hero-studio-ru-v1.png",
+    alternatePath: "/assets/bookcraft/backgrounds/hero-studio-en-v1.png",
+    role: "Hero studio environment / decorative narrative scene",
     desktop: { width: 1200, height: 610, fit: "cover" },
     tablet: { width: 940, height: 520, fit: "cover" },
     mobile: { width: 680, height: 360, fit: "cover" },
-    notes: "Atmosphere only; UI remains live React."
+    notes: "Russian background is active. English variant is retained for future locale switching. Live navigation, CTA and analytics HUD remain React."
   },
   props: {
     script: {
