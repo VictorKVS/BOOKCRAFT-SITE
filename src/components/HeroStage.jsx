@@ -15,7 +15,7 @@ export default function HeroStage() {
       <img
         className="heroStage__laptopLayer"
         data-layer="laptop"
-        src="/assets/bookcraft/hero/objects/laptop/laptop-front-v1.png"
+        src="/assets/bookcraft/hero/objects/laptop/laptop-angle-v1.png"
         alt=""
         aria-hidden="true"
       />

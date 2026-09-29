@@ -74,11 +74,11 @@
     },
     {
       "key": "hero.laptop",
-      "path": "hero/objects/laptop/laptop-front-v1.png",
-      "alternate_path": "hero/objects/laptop/laptop-angle-v1.png",
+      "path": "hero/objects/laptop/laptop-angle-v1.png",
+      "alternate_path": "hero/objects/laptop/laptop-front-v1.png",
       "status": "selected",
       "desktop_slot": "420x300",
-      "notes": "Foreground laptop layer in front of character."
+      "notes": "Angled transparent PNG selected as foreground laptop; front view retained as alternate."
     }
   ],
   "layer_order": [

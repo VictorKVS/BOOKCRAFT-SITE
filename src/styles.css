@@ -3603,3 +3603,49 @@ animation:spectralSpin var(--speed) linear infinite}
   }
 }
 
+/* ============================================================
+   BOOK-CRAFT v1.18 — ANGLED LAPTOP POSITION
+   Selected angled laptop sits on the desk in front of ALINA.
+   ============================================================ */
+
+@media(min-width:941px){
+  .heroStage--layered .heroStage__laptopLayer{
+    left:34%;
+    bottom:-18px;
+    width:55%;
+    max-width:455px;
+    transform:rotate(-1.5deg);
+    transform-origin:center bottom;
+    filter:
+      drop-shadow(0 18px 30px rgba(0,0,0,.48))
+      drop-shadow(0 0 13px rgba(255,143,59,.12))
+      drop-shadow(0 0 12px rgba(55,205,255,.10));
+  }
+}
+
+@media(max-width:1180px) and (min-width:941px){
+  .heroStage--layered .heroStage__laptopLayer{
+    left:32%;
+    bottom:-12px;
+    width:54%;
+    max-width:410px;
+  }
+}
+
+@media(max-width:940px){
+  .heroStage--layered .heroStage__laptopLayer{
+    left:45%;
+    bottom:-8px;
+    width:min(60%,370px);
+    transform:translateX(-8%) rotate(-1deg);
+  }
+}
+
+@media(max-width:680px){
+  .heroStage--layered .heroStage__laptopLayer{
+    left:43%;
+    bottom:-3px;
+    width:min(66%,320px);
+  }
+}
+
