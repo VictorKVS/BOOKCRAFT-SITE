@@ -3649,3 +3649,94 @@ animation:spectralSpin var(--speed) linear infinite}
   }
 }
 
+/* ============================================================
+   BOOK-CRAFT v1.19 — HERO PROPORTION MATCH
+   Match approved reference: ALINA larger and seated behind desk,
+   angled laptop lower/smaller in foreground.
+   ============================================================ */
+
+@media(min-width:1181px){
+  .heroStage--layered{
+    left:-34px;
+    top:-76px;
+  }
+
+  .heroStage--layered .heroStage__portraitFrame{
+    left:4%;
+    top:-72px;
+    bottom:-18px;
+    width:79%;
+    max-width:635px;
+  }
+
+  .heroStage--layered .heroStage__characterAsset{
+    transform:scale(1.14);
+    transform-origin:center bottom;
+  }
+
+  .heroStage--layered .heroStage__laptopLayer{
+    left:40%;
+    bottom:-48px;
+    width:44%;
+    max-width:385px;
+    transform:rotate(-1.4deg);
+    transform-origin:center bottom;
+  }
+}
+
+@media(max-width:1180px) and (min-width:941px){
+  .heroStage--layered{
+    left:-24px;
+    top:-54px;
+  }
+
+  .heroStage--layered .heroStage__portraitFrame{
+    left:3%;
+    top:-48px;
+    bottom:-12px;
+    width:80%;
+    max-width:555px;
+  }
+
+  .heroStage--layered .heroStage__characterAsset{
+    transform:scale(1.09);
+  }
+
+  .heroStage--layered .heroStage__laptopLayer{
+    left:39%;
+    bottom:-36px;
+    width:45%;
+    max-width:350px;
+    transform:rotate(-1.2deg);
+  }
+}
+
+@media(max-width:940px){
+  .heroStage--layered .heroStage__portraitFrame{
+    left:50%;
+    top:-20px;
+    bottom:-6px;
+    width:min(82%,470px);
+    transform:translateX(-50%);
+  }
+
+  .heroStage--layered .heroStage__characterAsset{
+    transform:scale(1.03);
+  }
+
+  .heroStage--layered .heroStage__laptopLayer{
+    left:50%;
+    bottom:-24px;
+    width:min(48%,330px);
+    transform:translateX(-4%) rotate(-1deg);
+  }
+}
+
+@media(max-width:680px){
+  .heroStage--layered .heroStage__laptopLayer{
+    left:48%;
+    bottom:-12px;
+    width:min(54%,300px);
+  }
+}
+
