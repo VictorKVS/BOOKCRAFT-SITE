@@ -3226,3 +3226,269 @@ animation:spectralSpin var(--speed) linear infinite}
   }
 }
 
+/* ============================================================
+   BOOK-CRAFT v1.16 — FULL-IMAGE SERVICE CARDS
+   All 4 product buttons become image-first banners:
+   full-bleed art + live icon/tag/title/description/arrow above it.
+   ============================================================ */
+
+.serviceGrid--cinematic .serviceCard{
+  position:relative;
+  min-height:205px;
+  padding:14px 15px 13px;
+  display:block;
+  overflow:hidden;
+  isolation:isolate;
+  border-radius:18px;
+  border:1px solid rgba(74,205,255,.68);
+  background:#07101d;
+  box-shadow:
+    0 0 0 1px rgba(176,75,255,.05),
+    0 0 17px rgba(50,205,255,.08);
+}
+
+/* Full-card artwork */
+.serviceGrid--cinematic .servicePreview--photo{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  margin:0!important;
+  border:0!important;
+  border-radius:0!important;
+  overflow:hidden;
+  z-index:0;
+  background:#07101d;
+}
+
+.serviceGrid--cinematic .servicePreview__image{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  transform:scale(1.01);
+  filter:saturate(1.08) contrast(1.06) brightness(.82);
+  transition:
+    transform .38s ease,
+    filter .38s ease;
+}
+
+/* Main readability overlay */
+.serviceGrid--cinematic .servicePreview__veil{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3,8,17,.76) 0%,
+      rgba(3,8,17,.48) 34%,
+      rgba(3,8,17,.10) 60%,
+      rgba(3,8,17,.28) 76%,
+      rgba(3,8,17,.76) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(3,8,17,.54) 0%,
+      rgba(3,8,17,.20) 56%,
+      rgba(3,8,17,.12) 100%
+    );
+}
+
+/* Keep live UI above the image */
+.serviceGrid--cinematic .serviceCard__topline,
+.serviceGrid--cinematic .serviceCard h2,
+.serviceGrid--cinematic .serviceCard p{
+  position:relative;
+  z-index:3;
+}
+
+.serviceGrid--cinematic .serviceCard__topline{
+  display:grid;
+  grid-template-columns:52px 1fr 42px;
+  align-items:center;
+  gap:10px;
+  margin-bottom:10px;
+}
+
+.serviceGrid--cinematic .serviceIcon{
+  width:52px;
+  height:52px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  font-size:25px;
+  color:#fff;
+  background:
+    radial-gradient(circle at 32% 26%,rgba(204,139,255,.52),transparent 54%),
+    linear-gradient(180deg,rgba(117,51,241,.88),rgba(55,20,127,.84));
+  border:1px solid rgba(192,125,255,.96);
+  box-shadow:
+    inset 0 0 14px rgba(255,255,255,.09),
+    0 0 16px rgba(159,83,255,.48),
+    0 0 24px rgba(42,204,255,.16);
+  backdrop-filter:blur(8px);
+}
+
+.serviceGrid--cinematic .serviceTag{
+  align-self:start;
+  padding-top:5px;
+  color:#e098ff;
+  font-size:9px;
+  line-height:1;
+  font-weight:900;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  text-shadow:0 1px 8px rgba(0,0,0,.85);
+}
+
+.serviceGrid--cinematic .serviceArrow{
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  border-radius:999px;
+  color:#effcff;
+  font-size:21px;
+  font-weight:800;
+  border:1px solid rgba(96,224,255,.68);
+  background:rgba(5,20,38,.64);
+  box-shadow:
+    inset 0 0 12px rgba(255,255,255,.05),
+    0 0 14px rgba(50,214,255,.24);
+  backdrop-filter:blur(10px);
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    border-color .22s ease;
+}
+
+.serviceGrid--cinematic .serviceCard h2{
+  margin:0 0 5px;
+  max-width:88%;
+  color:#fff;
+  font-size:20px;
+  line-height:1.05;
+  font-weight:850;
+  letter-spacing:-.025em;
+  text-shadow:
+    0 2px 12px rgba(0,0,0,.92),
+    0 0 8px rgba(0,0,0,.56);
+}
+
+.serviceGrid--cinematic .serviceCard p{
+  margin:0;
+  max-width:82%;
+  color:rgba(246,249,255,.94);
+  font-size:10px;
+  line-height:1.32;
+  text-shadow:
+    0 2px 10px rgba(0,0,0,.90),
+    0 0 6px rgba(0,0,0,.56);
+}
+
+/* Bottom label also stays live over the image */
+.serviceGrid--cinematic .servicePreview--photo small{
+  position:absolute;
+  left:14px;
+  bottom:10px;
+  z-index:3;
+  color:rgba(255,255,255,.94)!important;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+  text-shadow:0 2px 10px rgba(0,0,0,.95);
+}
+
+/* Per-card crop tuning */
+.serviceGrid--cinematic .serviceCard--books .servicePreview__image{
+  object-position:center 57%;
+}
+
+.serviceGrid--cinematic .serviceCard--scripts .servicePreview__image{
+  object-position:center 52%;
+}
+
+.serviceGrid--cinematic .serviceCard--avatar .servicePreview__image{
+  object-position:center 34%;
+}
+
+.serviceGrid--cinematic .serviceCard--images .servicePreview__image{
+  object-position:center 54%;
+}
+
+/* Hover: image comes alive, controls glow */
+.serviceGrid--cinematic .serviceCard:hover{
+  border-color:rgba(98,232,255,.90);
+  box-shadow:
+    0 0 20px rgba(48,218,255,.18),
+    0 0 24px rgba(207,79,255,.12);
+}
+
+.serviceGrid--cinematic .serviceCard:hover .servicePreview__image{
+  transform:scale(1.055);
+  filter:saturate(1.14) contrast(1.07) brightness(.94);
+}
+
+.serviceGrid--cinematic .serviceCard:hover .serviceArrow{
+  transform:translateY(-2px) scale(1.04);
+  border-color:rgba(125,239,255,.96);
+  box-shadow:
+    0 0 18px rgba(50,222,255,.38),
+    0 0 22px rgba(190,83,255,.14);
+}
+
+.serviceGrid--cinematic .serviceCard:active .serviceArrow{
+  transform:translateY(0) scale(.97);
+}
+
+@media(max-width:1180px){
+  .serviceGrid--cinematic .serviceCard{
+    min-height:196px;
+  }
+
+  .serviceGrid--cinematic .serviceCard h2{
+    font-size:18px;
+  }
+
+  .serviceGrid--cinematic .serviceCard p{
+    font-size:9px;
+  }
+}
+
+@media(max-width:680px){
+  .serviceGrid--cinematic .serviceCard{
+    min-height:190px;
+    padding:12px;
+  }
+
+  .serviceGrid--cinematic .serviceCard__topline{
+    grid-template-columns:48px 1fr 40px;
+  }
+
+  .serviceGrid--cinematic .serviceIcon{
+    width:48px;
+    height:48px;
+    font-size:23px;
+  }
+
+  .serviceGrid--cinematic .serviceArrow{
+    width:40px;
+    height:40px;
+    font-size:19px;
+  }
+
+  .serviceGrid--cinematic .serviceCard h2{
+    font-size:17px;
+    max-width:94%;
+  }
+
+  .serviceGrid--cinematic .serviceCard p{
+    max-width:92%;
+    font-size:9px;
+  }
+}
+
