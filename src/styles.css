@@ -2964,3 +2964,265 @@ animation:spectralSpin var(--speed) linear infinite}
   }
 }
 
+/* ============================================================
+   BOOK-CRAFT v1.15 — BUTTONS AND BANNER CARDS
+   Finalizes card icon/arrow controls and hero CTA controls
+   closer to approved prototype.
+   ============================================================ */
+
+/* HERO CTA */
+.hero--cinematic .heroActions{
+  align-items:center;
+  gap:14px;
+}
+
+.hero--cinematic .spectralAction{
+  min-height:48px;
+  border-radius:15px;
+  font-weight:800;
+  letter-spacing:-.01em;
+}
+
+.hero--cinematic .spectralAction--primary{
+  min-width:278px;
+  justify-content:center;
+  padding:0 22px;
+  color:#fff;
+  border:1px solid rgba(255,214,132,.68);
+  background:
+    linear-gradient(105deg,#ff7b3f 0%,#f14ca9 42%,#654cff 70%,#23d6ff 100%);
+  box-shadow:
+    0 0 0 1px rgba(255,218,148,.12),
+    0 0 18px rgba(255,103,70,.30),
+    0 0 26px rgba(45,210,255,.20);
+}
+
+.hero--cinematic .spectralAction--primary:hover{
+  transform:translateY(-2px);
+  box-shadow:
+    0 0 0 1px rgba(255,226,164,.20),
+    0 0 24px rgba(255,108,74,.42),
+    0 0 32px rgba(45,214,255,.28);
+}
+
+.hero--cinematic .spectralAction--ghost{
+  min-width:210px;
+  justify-content:center;
+  padding:0 20px;
+  color:#f4f7fb;
+  border:1px solid rgba(98,204,255,.32);
+  background:
+    linear-gradient(180deg,rgba(8,17,31,.88),rgba(7,14,26,.96));
+  box-shadow:
+    inset 0 0 14px rgba(71,215,255,.03),
+    0 0 18px rgba(78,205,255,.06);
+}
+
+.hero--cinematic .spectralAction--ghost:hover{
+  transform:translateY(-2px);
+  border-color:rgba(111,226,255,.56);
+  box-shadow:
+    inset 0 0 16px rgba(92,226,255,.05),
+    0 0 22px rgba(83,219,255,.12);
+}
+
+.heroActionIcon{
+  margin-right:8px;
+  font-size:17px;
+  color:#fff6c9;
+  text-shadow:0 0 11px rgba(255,194,96,.85);
+}
+
+.heroPlayIcon{
+  margin-right:9px;
+  flex:none;
+}
+
+/* PRODUCT CARD BUTTONS */
+.serviceGrid--cinematic .serviceCard{
+  position:relative;
+  overflow:hidden;
+  padding:13px 13px 11px;
+  min-height:214px;
+}
+
+.serviceGrid--cinematic .serviceCard__topline{
+  display:grid;
+  grid-template-columns:52px 1fr 42px;
+  align-items:center;
+  gap:10px;
+  margin-bottom:7px;
+}
+
+.serviceGrid--cinematic .serviceIcon{
+  width:52px;
+  height:52px;
+  border-radius:15px;
+  display:grid;
+  place-items:center;
+  font-size:25px;
+  color:#f3ecff;
+  background:
+    radial-gradient(circle at 30% 28%,rgba(180,109,255,.44),transparent 55%),
+    linear-gradient(180deg,rgba(124,62,255,.48),rgba(52,20,108,.72));
+  border:1px solid rgba(169,104,255,.95);
+  box-shadow:
+    inset 0 0 16px rgba(255,255,255,.07),
+    0 0 18px rgba(157,82,255,.34),
+    0 0 26px rgba(42,204,255,.12);
+}
+
+.serviceGrid--cinematic .serviceTag{
+  font-size:9px;
+  line-height:1;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:#d98cff;
+  font-weight:800;
+  align-self:start;
+  padding-top:4px;
+}
+
+.serviceGrid--cinematic .serviceArrow{
+  width:42px;
+  height:42px;
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  font-size:21px;
+  font-weight:800;
+  color:#dff8ff;
+  background:
+    radial-gradient(circle at 30% 30%,rgba(37,213,255,.18),transparent 55%),
+    linear-gradient(180deg,rgba(8,29,55,.94),rgba(5,17,35,.98));
+  border:1px solid rgba(58,214,255,.56);
+  box-shadow:
+    inset 0 0 10px rgba(255,255,255,.04),
+    0 0 12px rgba(39,205,255,.18);
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    border-color .22s ease,
+    background .22s ease;
+}
+
+.serviceGrid--cinematic .serviceCard h2{
+  margin:3px 0 3px;
+  font-size:18px;
+  line-height:1.06;
+  font-weight:800;
+  letter-spacing:-.02em;
+}
+
+.serviceGrid--cinematic .serviceCard p{
+  margin:0 0 7px;
+  min-height:24px;
+  font-size:10px;
+  line-height:1.28;
+  color:rgba(235,240,248,.90);
+}
+
+.serviceGrid--cinematic .servicePreview--photo{
+  height:118px!important;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.02),
+    0 0 18px rgba(116,69,255,.09);
+}
+
+.serviceGrid--cinematic .servicePreview__image{
+  object-fit:cover;
+  object-position:center;
+  transform:scale(1.02);
+  filter:saturate(1.08) contrast(1.04) brightness(.94);
+  transition:transform .35s ease,filter .35s ease;
+}
+
+.serviceGrid--cinematic .servicePreview__veil{
+  background:
+    linear-gradient(180deg,transparent 42%,rgba(3,8,18,.08) 64%,rgba(3,8,18,.68) 100%);
+}
+
+.serviceGrid--cinematic .servicePreview--photo small{
+  left:10px;
+  bottom:8px;
+  font-size:8px;
+  letter-spacing:.10em;
+  font-weight:800;
+  color:rgba(255,255,255,.90);
+}
+
+.serviceGrid--cinematic .serviceCard:hover .serviceArrow{
+  transform:translateY(-2px) scale(1.04);
+  border-color:rgba(103,235,255,.92);
+  box-shadow:
+    0 0 18px rgba(48,220,255,.32),
+    0 0 20px rgba(194,84,255,.12);
+  background:
+    radial-gradient(circle at 30% 30%,rgba(63,229,255,.26),transparent 55%),
+    linear-gradient(180deg,rgba(11,39,70,.97),rgba(7,23,43,.99));
+}
+
+.serviceGrid--cinematic .serviceCard:active .serviceArrow{
+  transform:translateY(0) scale(.97);
+}
+
+.serviceGrid--cinematic .serviceCard:hover .servicePreview__image{
+  transform:scale(1.055);
+  filter:saturate(1.12) contrast(1.05) brightness(1);
+}
+
+@media(max-width:1180px){
+  .serviceGrid--cinematic .serviceCard{
+    min-height:208px;
+  }
+
+  .serviceGrid--cinematic .servicePreview--photo{
+    height:110px!important;
+  }
+}
+
+@media(max-width:680px){
+  .hero--cinematic .heroActions{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .hero--cinematic .spectralAction--primary,
+  .hero--cinematic .spectralAction--ghost{
+    min-width:0;
+    width:100%;
+  }
+
+  .serviceGrid--cinematic .serviceCard__topline{
+    grid-template-columns:48px 1fr 40px;
+  }
+
+  .serviceGrid--cinematic .serviceIcon{
+    width:48px;
+    height:48px;
+    font-size:23px;
+    border-radius:13px;
+  }
+
+  .serviceGrid--cinematic .serviceArrow{
+    width:40px;
+    height:40px;
+    font-size:19px;
+  }
+
+  .serviceGrid--cinematic .serviceCard h2{
+    font-size:17px;
+  }
+
+  .serviceGrid--cinematic .serviceCard p{
+    font-size:10px;
+  }
+
+  .serviceGrid--cinematic .servicePreview--photo{
+    height:104px!important;
+  }
+}
+
