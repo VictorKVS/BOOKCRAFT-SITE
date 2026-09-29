@@ -1,5 +1,5 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "policy": {
     "ui_baked_into_images": false,
     "final_text_baked_into_images": false,
@@ -11,9 +11,10 @@
   "assets": [
     {
       "key": "hero.main",
-      "path": "hero/hero-main.webp",
-      "status": "missing",
-      "desktop_slot": "760x610"
+      "path": "hero/character/active/alina-v1.png",
+      "status": "selected",
+      "desktop_slot": "760x610",
+      "notes": "Active independent character layer."
     },
     {
       "key": "hero.background",
@@ -64,6 +65,27 @@
       "path": "cards/images.webp",
       "status": "missing",
       "desktop_slot": "360x86"
+    },
+    {
+      "key": "hero.character.candidate.alina-v2",
+      "path": "hero/character/candidates/alina-v2.png",
+      "status": "candidate",
+      "notes": "Latest portrait candidate; do not activate until transparency/background cleanup is complete."
+    },
+    {
+      "key": "hero.laptop",
+      "path": "hero/objects/laptop/laptop-front-v1.png",
+      "alternate_path": "hero/objects/laptop/laptop-angle-v1.png",
+      "status": "selected",
+      "desktop_slot": "420x300",
+      "notes": "Foreground laptop layer in front of character."
     }
+  ],
+  "layer_order": [
+    "hero.background",
+    "hero.main",
+    "hero.laptop",
+    "live-ui",
+    "hud"
   ]
 }

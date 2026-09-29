@@ -4,13 +4,21 @@ export default function HeroStage() {
       <div className="heroStage__halo heroStage__halo--warm" aria-hidden="true" />
       <div className="heroStage__halo heroStage__halo--cyan" aria-hidden="true" />
 
-      <div className="heroStage__portraitFrame">
+      <div className="heroStage__portraitFrame" data-layer="character">
         <img
           className="heroStage__characterAsset"
-          src="/assets/bookcraft/hero/candidates/hero-main-v1.png"
+          src="/assets/bookcraft/hero/character/active/alina-v1.png"
           alt="Креативный AI-редактор BOOK-CRAFT"
         />
       </div>
+
+      <img
+        className="heroStage__laptopLayer"
+        data-layer="laptop"
+        src="/assets/bookcraft/hero/objects/laptop/laptop-front-v1.png"
+        alt=""
+        aria-hidden="true"
+      />
     </div>
   );
 }

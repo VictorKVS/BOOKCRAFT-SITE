@@ -24,9 +24,9 @@
 
 ### Hero
 
-![Hero candidate](hero/candidates/hero-main-v1.png)
+![Active ALINA](hero/character/active/alina-v1.png)
 
-`hero/candidates/hero-main-v1.png` — CANDIDATE.
+`hero/character/active/alina-v1.png` — ACTIVE CHARACTER.
 
 ### Historical references
 
@@ -130,3 +130,30 @@ English alternate:
 `backgrounds/hero-studio-en-v1.png` — ALTERNATE / future locale.
 
 The heroine remains a separate foreground asset so position, scale and future wardrobe/accessory variants can change independently from the scene.
+
+
+### Modular hero layers
+
+Runtime order:
+
+1. `backgrounds/hero-studio-ru-v1.png` — full-width studio background.
+2. `hero/character/active/alina-v1.png` — active ALINA foreground character.
+3. `hero/objects/laptop/laptop-front-v1.png` — selected laptop in front of character.
+4. Live React headline / CTA / metrics.
+5. Live analytics HUD.
+
+Alternate assets:
+
+![ALINA v2 candidate](hero/character/candidates/alina-v2.png)
+
+`hero/character/candidates/alina-v2.png` — CANDIDATE. It stays inactive until transparency/background cleanup is complete.
+
+![Laptop front](hero/objects/laptop/laptop-front-v1.png)
+
+`hero/objects/laptop/laptop-front-v1.png` — SELECTED.
+
+![Laptop angle](hero/objects/laptop/laptop-angle-v1.png)
+
+`hero/objects/laptop/laptop-angle-v1.png` — ALTERNATE.
+
+This structure allows ALINA to be replaced later by another character (for example another persona or wardrobe variant) without changing the studio background, laptop, copy or HUD.
