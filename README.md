@@ -45,3 +45,11 @@ The image library is still in review: candidates are not treated as final runtim
 - `/images?demo=1` — bonus image workflow.
 
 Полный список имён и URL: `docs/DZ_PRO_SCREENSHOTS.md`.
+
+
+## DZ PRO evidence
+
+- screenshots: `evidence/screenshots/`
+- video: `evidence/video/`
+- screenshot map: `docs/DZ_PRO_SCREENSHOTS.md`
+- video script: `docs/DZ_PRO_VIDEO_SCRIPT.md`
