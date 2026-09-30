@@ -3897,3 +3897,184 @@ animation:spectralSpin var(--speed) linear infinite}
       );
   }
 }
+
+
+/* BOOKCRAFT:HERO_ROTATION:START */
+
+.heroStage--rotating{
+  left:-34px;
+  top:-76px;
+  right:0;
+  bottom:-8px;
+  overflow:visible;
+  isolation:isolate;
+}
+
+.heroStage__rotationLayer{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+
+.heroStage__rotationLayer--character{z-index:20}
+.heroStage__rotationLayer--books{z-index:28}
+.heroStage__rotationLayer--laptop{z-index:34}
+
+.heroStage__rotatingAsset{
+  position:absolute;
+  opacity:0;
+  pointer-events:none;
+  transition:
+    opacity .9s ease,
+    transform 1.05s cubic-bezier(.2,.7,.2,1),
+    filter .9s ease;
+  will-change:opacity,transform;
+}
+
+.heroStage__rotatingAsset.is-active{
+  opacity:1;
+}
+
+/* Character contract: every ALINA variant uses the same slot. */
+.heroStage--rotating .heroStage__characterAsset{
+  left:3%;
+  top:-46px;
+  width:79%;
+  height:calc(100% + 72px);
+  object-fit:contain;
+  object-position:center bottom;
+  transform:translateY(8px) scale(1.08);
+  transform-origin:center bottom;
+  filter:
+    saturate(1.02)
+    contrast(1.03)
+    drop-shadow(0 22px 44px rgba(0,0,0,.42))
+    drop-shadow(0 0 18px rgba(68,200,255,.10));
+}
+
+.heroStage--rotating .heroStage__characterAsset.is-active{
+  transform:translateY(0) scale(1.11);
+}
+
+/* Books + drink sit on the front-left part of the desk. */
+.heroStage--rotating .heroStage__booksLayer{
+  left:-1%;
+  bottom:-40px;
+  width:46%;
+  max-width:410px;
+  height:auto;
+  object-fit:contain;
+  transform:translateY(10px) scale(.98);
+  transform-origin:left bottom;
+  filter:
+    drop-shadow(0 18px 28px rgba(0,0,0,.46))
+    drop-shadow(0 0 10px rgba(255,157,62,.10));
+}
+
+.heroStage--rotating .heroStage__booksLayer.is-active{
+  transform:translateY(0) scale(1);
+}
+
+/* Laptop remains a separate foreground layer in front of the character. */
+.heroStage--rotating .heroStage__laptopLayer{
+  left:42%;
+  bottom:-46px;
+  width:43%;
+  max-width:385px;
+  height:auto;
+  object-fit:contain;
+  transform:translateY(9px) rotate(-1.2deg) scale(.98);
+  transform-origin:center bottom;
+  filter:
+    drop-shadow(0 18px 30px rgba(0,0,0,.50))
+    drop-shadow(0 0 11px rgba(255,143,59,.11))
+    drop-shadow(0 0 10px rgba(55,205,255,.09));
+}
+
+.heroStage--rotating .heroStage__laptopLayer.is-active{
+  transform:translateY(0) rotate(-1.2deg) scale(1);
+}
+
+.hero--cinematic .heroHudColumn{
+  z-index:50;
+}
+
+@media(max-width:1180px) and (min-width:941px){
+  .heroStage--rotating{
+    left:-24px;
+    top:-54px;
+  }
+
+  .heroStage--rotating .heroStage__characterAsset{
+    left:2%;
+    top:-34px;
+    width:80%;
+    height:calc(100% + 52px);
+  }
+
+  .heroStage--rotating .heroStage__booksLayer{
+    left:-2%;
+    bottom:-30px;
+    width:45%;
+    max-width:350px;
+  }
+
+  .heroStage--rotating .heroStage__laptopLayer{
+    left:41%;
+    bottom:-34px;
+    width:43%;
+    max-width:345px;
+  }
+}
+
+@media(max-width:940px){
+  .heroStage--rotating{
+    left:0;
+    top:0;
+  }
+
+  .heroStage--rotating .heroStage__characterAsset{
+    left:50%;
+    top:-16px;
+    width:min(82%,470px);
+    height:100%;
+    transform:translateX(-50%) translateY(8px) scale(1);
+  }
+
+  .heroStage--rotating .heroStage__characterAsset.is-active{
+    transform:translateX(-50%) translateY(0) scale(1.02);
+  }
+
+  .heroStage--rotating .heroStage__booksLayer{
+    left:2%;
+    bottom:-12px;
+    width:min(45%,330px);
+  }
+
+  .heroStage--rotating .heroStage__laptopLayer{
+    left:51%;
+    bottom:-18px;
+    width:min(44%,320px);
+  }
+}
+
+@media(max-width:680px){
+  .heroStage--rotating .heroStage__booksLayer{
+    left:-3%;
+    width:48%;
+  }
+
+  .heroStage--rotating .heroStage__laptopLayer{
+    left:48%;
+    width:50%;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .heroStage__rotatingAsset{
+    transition:none;
+  }
+}
+
+/* BOOKCRAFT:HERO_ROTATION:END */
+
