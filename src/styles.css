@@ -3937,13 +3937,13 @@ animation:spectralSpin var(--speed) linear infinite}
 
 /* Character contract: every ALINA variant uses the same slot. */
 .heroStage--rotating .heroStage__characterAsset{
-  left:10%;
-  top:-16px;
-  width:63%;
-  height:calc(100% + 18px);
+  left:11%;
+  top:-8px;
+  width:59%;
+  height:calc(100% + 8px);
   object-fit:contain;
   object-position:center bottom;
-  transform:translateY(8px) scale(.92);
+  transform:translateY(10px) scale(.86);
   transform-origin:center bottom;
   filter:
     saturate(1.02)
@@ -3953,7 +3953,7 @@ animation:spectralSpin var(--speed) linear infinite}
 }
 
 .heroStage--rotating .heroStage__characterAsset.is-active{
-  transform:translateY(0) scale(.95);
+  transform:translateY(2px) scale(.89);
 }
 
 /* Books + drink sit on the front-left part of the desk. */
@@ -4006,10 +4006,10 @@ animation:spectralSpin var(--speed) linear infinite}
   }
 
   .heroStage--rotating .heroStage__characterAsset{
-    left:10%;
-    top:-14px;
-    width:64%;
-    height:calc(100% + 16px);
+    left:11%;
+    top:-8px;
+    width:60%;
+    height:calc(100% + 8px);
   }
 
   .heroStage--rotating .heroStage__booksLayer{
@@ -4036,13 +4036,13 @@ animation:spectralSpin var(--speed) linear infinite}
   .heroStage--rotating .heroStage__characterAsset{
     left:50%;
     top:-16px;
-    width:min(65%,390px);
-    height:92%;
-    transform:translateX(-50%) translateY(8px) scale(.90);
+    width:min(60%,365px);
+    height:89%;
+    transform:translateX(-50%) translateY(10px) scale(.86);
   }
 
   .heroStage--rotating .heroStage__characterAsset.is-active{
-    transform:translateX(-50%) translateY(0) scale(.93);
+    transform:translateX(-50%) translateY(2px) scale(.89);
   }
 
   .heroStage--rotating .heroStage__booksLayer{
