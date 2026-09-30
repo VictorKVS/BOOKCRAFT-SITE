@@ -157,3 +157,19 @@ Alternate assets:
 `hero/objects/laptop/laptop-angle-v1.png` — ALTERNATE.
 
 This structure allows ALINA to be replaced later by another character (for example another persona or wardrobe variant) without changing the studio background, laptop, copy or HUD.
+
+## Runtime hero rotation v0.3.1
+
+Главный hero теперь собирается из независимых слоёв и переключает согласованный preset каждые **10 секунд**:
+
+`background → ALINA → books/cup → laptop → live React UI → HUD`
+
+Активные каталоги:
+
+- `hero/backgrounds/studio-01.png` — фон;
+- `hero/characters/alina/alina-01.png ... alina-06.png` — 6 вариантов Алины;
+- `hero/foreground/books/books-01.png ... books-03.png` — 3 варианта книг/напитка;
+- `hero/equipment/laptop/laptop-angle-01.png` и `laptop-front-01.png` — 2 ноутбука.
+
+Синхронные пары и интервал задаются в `src/config/heroVisualConfig.js`.
+
