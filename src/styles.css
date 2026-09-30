@@ -176,8 +176,8 @@ animation:spectralSpin var(--speed) linear infinite}
 
 
 /* ============================================================
-   BOOK-CRAFT v1.4 — RIGHT INTELLIGENCE COLUMN
-   Growth → Content Plan → Podcast → Video Avatar
+   BOOK-CRAFT v1.4 РІР‚вЂќ RIGHT INTELLIGENCE COLUMN
+   Growth РІвЂ вЂ™ Content Plan РІвЂ вЂ™ Podcast РІвЂ вЂ™ Video Avatar
    ============================================================ */
 
 .heroHudColumn{
@@ -512,7 +512,7 @@ animation:spectralSpin var(--speed) linear infinite}
 
 
 /* ============================================================
-   BOOK-CRAFT v1.5 — CENTRAL HERO STAGE
+   BOOK-CRAFT v1.5 РІР‚вЂќ CENTRAL HERO STAGE
    Structural scene only. Final heroine/art is still an asset slot.
    ============================================================ */
 
@@ -1064,9 +1064,9 @@ animation:spectralSpin var(--speed) linear infinite}
 
 
 /* ============================================================
-   BOOK-CRAFT v1.6 — DESKTOP GEOMETRY LOCK
-   Based on the current 1575×878 implementation screenshot and
-   the approved 1672×941 reference. No new product zones added.
+   BOOK-CRAFT v1.6 РІР‚вЂќ DESKTOP GEOMETRY LOCK
+   Based on the current 1575Р“вЂ”878 implementation screenshot and
+   the approved 1672Р“вЂ”941 reference. No new product zones added.
    ============================================================ */
 
 @media(min-width:941px){
@@ -1310,7 +1310,7 @@ animation:spectralSpin var(--speed) linear infinite}
   }
 
   .serviceCard--books .servicePreview__art::before{
-    content:"▰  ▰  ▰";
+    content:"РІвЂ“В°  РІвЂ“В°  РІвЂ“В°";
     position:absolute;
     left:16px;
     bottom:25px;
@@ -1326,7 +1326,7 @@ animation:spectralSpin var(--speed) linear infinite}
   }
 
   .serviceCard--scripts .servicePreview__art::before{
-    content:"▣  ▣  ▣";
+    content:"РІвЂ“Р€  РІвЂ“Р€  РІвЂ“Р€";
     position:absolute;
     left:20px;
     top:17px;
@@ -1344,7 +1344,7 @@ animation:spectralSpin var(--speed) linear infinite}
   }
 
   .serviceCard--avatar .servicePreview__art::before{
-    content:"◉  ◉  ◉";
+    content:"РІвЂ”вЂ°  РІвЂ”вЂ°  РІвЂ”вЂ°";
     position:absolute;
     left:16px;
     bottom:20px;
@@ -1397,7 +1397,7 @@ animation:spectralSpin var(--speed) linear infinite}
 
 
 /* ============================================================
-   BOOK-CRAFT v1.7 — CARCASS LOCK
+   BOOK-CRAFT v1.7 РІР‚вЂќ CARCASS LOCK
    UI/route/state verification only. No final artwork.
    ============================================================ */
 
@@ -1685,7 +1685,7 @@ animation:spectralSpin var(--speed) linear infinite}
 
 
 /* ============================================================
-   BOOK-CRAFT v1.9 — VISUAL PASS 01
+   BOOK-CRAFT v1.9 РІР‚вЂќ VISUAL PASS 01
    Home + Create + Mailing + Podcast + Video Avatar + Images.
    Real external generation remains explicitly DEMO/NEXT.
    ============================================================ */
@@ -1995,7 +1995,7 @@ animation:spectralSpin var(--speed) linear infinite}
 
 
 /* ============================================================
-   BOOK-CRAFT v1.10 — SECONDARY PAGES VISUAL PASS
+   BOOK-CRAFT v1.10 РІР‚вЂќ SECONDARY PAGES VISUAL PASS
    Product, showcase, plans, editorial, studio, books, scripts,
    analytics and account.
    ============================================================ */
@@ -2083,7 +2083,7 @@ animation:spectralSpin var(--speed) linear infinite}
 }
 
 /* ============================================================
-   BOOK-CRAFT v1.12 — CINEMATIC HOME PASS
+   BOOK-CRAFT v1.12 РІР‚вЂќ CINEMATIC HOME PASS
    Based on approved prototype: warm/cyan studio, centered heroine,
    richer scene props, stronger CTA/HUD, real card candidate art.
    ============================================================ */
@@ -2508,7 +2508,7 @@ animation:spectralSpin var(--speed) linear infinite}
 }
 
 /* ============================================================
-   BOOK-CRAFT v1.13 — LAYERED HERO BACKGROUND
+   BOOK-CRAFT v1.13 РІР‚вЂќ LAYERED HERO BACKGROUND
    Large studio art is the scene layer. ALINA stays independent.
    Live React copy, CTA and HUD remain above the artwork.
    ============================================================ */
@@ -2650,7 +2650,7 @@ animation:spectralSpin var(--speed) linear infinite}
 }
 
 /* ============================================================
-   BOOK-CRAFT v1.14 — FULL-WIDTH PHOTO HERO
+   BOOK-CRAFT v1.14 РІР‚вЂќ FULL-WIDTH PHOTO HERO
    Approved composition:
    studio photo spans the WHOLE hero;
    live copy / CTA / metrics / HUD sit above it;
@@ -2965,7 +2965,7 @@ animation:spectralSpin var(--speed) linear infinite}
 }
 
 /* ============================================================
-   BOOK-CRAFT v1.15 — BUTTONS AND BANNER CARDS
+   BOOK-CRAFT v1.15 РІР‚вЂќ BUTTONS AND BANNER CARDS
    Finalizes card icon/arrow controls and hero CTA controls
    closer to approved prototype.
    ============================================================ */
@@ -3227,7 +3227,7 @@ animation:spectralSpin var(--speed) linear infinite}
 }
 
 /* ============================================================
-   BOOK-CRAFT v1.16 — FULL-IMAGE SERVICE CARDS
+   BOOK-CRAFT v1.16 РІР‚вЂќ FULL-IMAGE SERVICE CARDS
    All 4 product buttons become image-first banners:
    full-bleed art + live icon/tag/title/description/arrow above it.
    ============================================================ */
@@ -3493,7 +3493,7 @@ animation:spectralSpin var(--speed) linear infinite}
 }
 
 /* ============================================================
-   BOOK-CRAFT v1.17 — MODULAR HERO LAYERS
+   BOOK-CRAFT v1.17 РІР‚вЂќ MODULAR HERO LAYERS
    Background / character / laptop are independent replaceable assets.
    ============================================================ */
 
@@ -3501,7 +3501,7 @@ animation:spectralSpin var(--speed) linear infinite}
   overflow:visible;
 }
 
-/* LAYER 20 — active character */
+/* LAYER 20 РІР‚вЂќ active character */
 .heroStage--layered .heroStage__portraitFrame{
   left:7%;
   top:-42px;
@@ -3530,7 +3530,7 @@ animation:spectralSpin var(--speed) linear infinite}
     drop-shadow(0 0 20px rgba(69,202,255,.10));
 }
 
-/* LAYER 30 — laptop in front of character */
+/* LAYER 30 РІР‚вЂќ laptop in front of character */
 .heroStage--layered .heroStage__laptopLayer{
   position:absolute;
   left:38%;
@@ -3604,7 +3604,7 @@ animation:spectralSpin var(--speed) linear infinite}
 }
 
 /* ============================================================
-   BOOK-CRAFT v1.18 — ANGLED LAPTOP POSITION
+   BOOK-CRAFT v1.18 РІР‚вЂќ ANGLED LAPTOP POSITION
    Selected angled laptop sits on the desk in front of ALINA.
    ============================================================ */
 
@@ -3650,7 +3650,7 @@ animation:spectralSpin var(--speed) linear infinite}
 }
 
 /* ============================================================
-   BOOK-CRAFT v1.19 — HERO PROPORTION MATCH
+   BOOK-CRAFT v1.19 РІР‚вЂќ HERO PROPORTION MATCH
    Match approved reference: ALINA larger and seated behind desk,
    angled laptop lower/smaller in foreground.
    ============================================================ */
@@ -3699,7 +3699,7 @@ animation:spectralSpin var(--speed) linear infinite}
   }
 
   .heroStage--layered .heroStage__characterAsset{
-    transform:scale(1.09);
+    transform:scale(0.84);
   }
 
   .heroStage--layered .heroStage__laptopLayer{
@@ -3740,3 +3740,160 @@ animation:spectralSpin var(--speed) linear infinite}
   }
 }
 
+
+/* =========================================================
+   BOOKCRAFT HERO вЂ” FULL SCENE BACKGROUND
+   Background belongs to the complete Hero, not HeroStage.
+   ========================================================= */
+
+.hero--cinematic {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.heroCinematicBackground {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.heroCinematicBackground img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Preserve readability of the editorial column. */
+.heroCinematicBackground::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 7, 16, .91) 0%,
+      rgba(3, 7, 16, .78) 24%,
+      rgba(3, 7, 16, .42) 42%,
+      rgba(3, 7, 16, .10) 61%,
+      rgba(3, 7, 16, .04) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(3, 7, 16, .20) 0%,
+      transparent 32%
+    );
+}
+
+/* Foreground UI stays above the scene. */
+.hero--cinematic .heroCopy {
+  position: relative;
+  z-index: 8;
+}
+
+.hero--cinematic .heroVisual {
+  position: relative;
+  z-index: 4;
+  background: transparent;
+}
+
+@media (max-width: 680px) {
+  .heroCinematicBackground img {
+    object-position: 62% center;
+  }
+
+  .heroCinematicBackground::after {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(3, 7, 16, .78) 0%,
+        rgba(3, 7, 16, .42) 55%,
+        rgba(3, 7, 16, .72) 100%
+      );
+  }
+}
+
+/* =========================================================
+   BOOKCRAFT HERO — CANONICAL FULL-WIDTH BACKGROUND
+   ========================================================= */
+
+.hero.hero--cinematic {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #050914;
+}
+
+.hero.hero--cinematic::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background-image:
+    url("/assets/bookcraft/hero/backgrounds/studio-01.png");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.hero.hero--cinematic::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 6, 14, 0.92) 0%,
+      rgba(3, 6, 14, 0.80) 22%,
+      rgba(3, 6, 14, 0.48) 38%,
+      rgba(3, 6, 14, 0.16) 55%,
+      rgba(3, 6, 14, 0.04) 72%,
+      rgba(3, 6, 14, 0.02) 100%
+    );
+}
+
+.hero.hero--cinematic > .heroCopy,
+.hero.hero--cinematic > .heroVisual {
+  position: relative;
+}
+
+.hero.hero--cinematic > .heroCopy {
+  z-index: 8;
+}
+
+.hero.hero--cinematic > .heroVisual {
+  z-index: 4;
+  background: transparent;
+}
+
+@media (max-width: 940px) {
+  .hero.hero--cinematic::before {
+    background-position: 60% center;
+  }
+}
+
+@media (max-width: 680px) {
+  .hero.hero--cinematic::before {
+    background-position: 66% center;
+  }
+
+  .hero.hero--cinematic::after {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(3, 6, 14, 0.78) 0%,
+        rgba(3, 6, 14, 0.38) 52%,
+        rgba(3, 6, 14, 0.72) 100%
+      );
+  }
+}
