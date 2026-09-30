@@ -3,11 +3,18 @@ import { useSearchParams } from "react-router-dom";
 import WorkspacePage from "../components/WorkspacePage.jsx";
 import SpectralAction from "../components/SpectralAction.jsx";
 
-const demoResult = {
-  subject: "Истории, которые превращают идеи в контент",
-  preheader: "BOOK-CRAFT собирает текст, аудио, видео и визуалы в один narrative workflow",
-  body: "Здравствуйте!\n\nПредставляем BOOK-CRAFT — AI-студию для авторов и команд, которым нужно быстро превращать одну идею в связанный набор контента.\n\nИз одной темы можно подготовить рассылку, подкаст, сценарий видео-аватара, изображения и длинную историю — в едином визуальном и смысловом стиле.\n\nГлавное преимущество — общий контекст: материалы не создаются изолированно, а продолжают одну историю.\n\nПопробуйте собрать первую кампанию и сравните, сколько ручных переходов между инструментами удалось убрать.\n\nBOOK-CRAFT · Narrative AI Studio"
-};
+const demoResults = [
+  {
+    subject: "Истории, которые превращают идеи в контент",
+    preheader: "BOOK-CRAFT собирает текст, аудио, видео и визуалы в один narrative workflow",
+    body: "Здравствуйте!\n\nПредставляем BOOK-CRAFT — AI-студию для авторов и команд, которым нужно быстро превращать одну идею в связанный набор контента.\n\nИз одной темы можно подготовить рассылку, подкаст, сценарий видео-аватара, изображения и длинную историю — в едином визуальном и смысловом стиле.\n\nГлавное преимущество — общий контекст: материалы не создаются изолированно, а продолжают одну историю.\n\nПопробуйте собрать первую кампанию и сравните, сколько ручных переходов между инструментами удалось убрать.\n\nBOOK-CRAFT · Narrative AI Studio"
+  },
+  {
+    subject: "Одна идея — пять форматов: новый workflow BOOK-CRAFT",
+    preheader: "Рассылка, подкаст, видео-аватар, изображения и лонгрид из единого контекста",
+    body: "Здравствуйте!\n\nОдна идея редко заканчивается одним текстом. Её приходится переносить между редактором, аудио, видео и визуальными инструментами.\n\nBOOK-CRAFT собирает эти шаги в единый narrative workflow. Вы задаёте тему и аудиторию, а затем развиваете материал в нужных форматах без потери контекста.\n\nДля команды это означает меньше ручного копирования, единый тон и понятную цепочку производства.\n\nОткройте первый проект и соберите свою контентную историю.\n\nBOOK-CRAFT · Narrative AI Studio"
+  }
+];
 
 export default function MailingPage() {
   const [searchParams] = useSearchParams();
@@ -15,24 +22,36 @@ export default function MailingPage() {
 
   const [topic, setTopic] = useState(demoMode ? "Запуск BOOK-CRAFT Narrative AI Studio" : "");
   const [audience, setAudience] = useState(demoMode ? "Авторы, маркетологи и небольшие креативные команды" : "");
-  const [goal, setGoal] = useState(demoMode ? "Заинтересовать" : "Заинтересовать");
+  const [goal, setGoal] = useState("Заинтересовать");
   const [tone, setTone] = useState(demoMode ? "Премиальный" : "Деловой");
-  const [result, setResult] = useState(demoMode ? demoResult : null);
+  const [result, setResult] = useState(demoMode ? demoResults[0] : null);
+  const [phase, setPhase] = useState(demoMode ? "ready" : "idle");
+  const [run, setRun] = useState(0);
 
   function generateDemo() {
+    if (phase === "processing") return;
+
     const safeTopic = topic.trim() || "новый продукт";
     const safeAudience = audience.trim() || "аудитория проекта";
 
-    if (demoMode) {
-      setResult(demoResult);
-      return;
-    }
+    setPhase("processing");
+    setResult(null);
 
-    setResult({
-      subject: `${safeTopic}: коротко о главном`,
-      preheader: `${tone} формат для сегмента «${safeAudience}»`,
-      body: `Здравствуйте!\n\nПодготовили материал по теме «${safeTopic}». Цель сообщения — ${goal.toLowerCase()}. В рабочей версии здесь будет текст, созданный реальной LLM по системному промпту BOOK-CRAFT.\n\nDEMO: структура интерфейса и состояния уже готовы.`
-    });
+    window.setTimeout(() => {
+      if (demoMode) {
+        const nextRun = run + 1;
+        setRun(nextRun);
+        setResult(demoResults[nextRun % demoResults.length]);
+      } else {
+        setResult({
+          subject: `${safeTopic}: коротко о главном`,
+          preheader: `${tone} формат для сегмента «${safeAudience}»`,
+          body: `Здравствуйте!\n\nПодготовили материал по теме «${safeTopic}». Цель сообщения — ${goal.toLowerCase()}.\n\nDEMO: здесь будет результат реальной LLM после подключения серверного API.`
+        });
+      }
+
+      setPhase("ready");
+    }, 1400);
   }
 
   function reset() {
@@ -41,6 +60,7 @@ export default function MailingPage() {
     setGoal("Заинтересовать");
     setTone("Деловой");
     setResult(null);
+    setPhase("idle");
   }
 
   return (
@@ -48,7 +68,7 @@ export default function MailingPage() {
       eyebrow="✦ MAILING"
       title="Рассылка"
       description="Рабочее место для подготовки письма: задаём тему, аудиторию, цель и тон — затем получаем редактируемый результат."
-      status={demoMode ? "DZ PRO · SCREENSHOT DEMO" : "UI DEMO · LLM NEXT"}
+      status={demoMode ? "DZ PRO · INTERACTIVE DEMO" : "UI DEMO · LLM NEXT"}
     >
       <div className="moduleHero moduleHero--mail">
         <div><small>INPUT CONTRACT</small><b>Тема + аудитория + цель + тон</b></div>
@@ -93,25 +113,32 @@ export default function MailingPage() {
           </div>
 
           <div className="formActions">
-            <SpectralAction variant="primary" onClick={generateDemo}>✦ Сгенерировать DEMO</SpectralAction>
+            <SpectralAction variant="primary" onClick={generateDemo}>
+              {phase === "processing" ? "✦ Генерирую…" : result ? "✦ Сгенерировать заново" : "✦ Сгенерировать DEMO"}
+            </SpectralAction>
             <button className="secondaryButton" type="button" onClick={reset}>Очистить</button>
           </div>
 
-          {demoMode && (
-            <div className="demoEvidence">
-              <small>SCREENSHOT STATE</small>
-              <b>Входные данные заполнены · результат готов</b>
-              <span>Этот URL предназначен для итогового тестирования и скриншота.</span>
+          <div className={`demoRunStatus demoRunStatus--${phase}`}>
+            <div className="demoRunStatus__line">
+              <span>{phase === "processing" ? "LLM DEMO PROCESS" : phase === "ready" ? "RESULT READY" : "WAITING INPUT"}</span>
+              <b>{phase === "processing" ? "анализ → структура → текст" : phase === "ready" ? "SUBJECT + PREHEADER + BODY ✓" : "заполните brief"}</b>
             </div>
-          )}
+            <i className="demoRunStatus__progress" />
+          </div>
         </div>
 
-        <div className={`outputEditor ${result ? "isReady" : ""}`}>
+        <div className={`outputEditor ${result ? "isReady" : ""} ${phase === "processing" ? "isProcessing" : ""}`}>
           <div className="outputEditor__head">
             <span>RESULT</span>
-            <small>{result ? "DEMO READY" : "WAITING INPUT"}</small>
+            <small>{phase === "processing" ? "GENERATING…" : result ? "DEMO READY" : "WAITING INPUT"}</small>
           </div>
-          {result ? (
+
+          {phase === "processing" ? (
+            <div className="demoSkeleton">
+              <i /><i /><i /><i /><i />
+            </div>
+          ) : result ? (
             <>
               <label><small>SUBJECT</small><b>{result.subject}</b></label>
               <label><small>PREHEADER</small><span>{result.preheader}</span></label>

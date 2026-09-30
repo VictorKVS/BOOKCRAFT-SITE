@@ -18,13 +18,26 @@ export default function LongreadPage() {
   const [audience, setAudience] = useState(demoMode ? "Креативные команды и авторы" : "");
   const [tone, setTone] = useState(demoMode ? "Редакционный / премиальный" : "Редакционный");
   const [ready, setReady] = useState(demoMode);
+  const [phase, setPhase] = useState(demoMode ? "ready" : "idle");
+
+  function generate() {
+    if (phase === "processing") return;
+
+    setReady(false);
+    setPhase("processing");
+
+    window.setTimeout(() => {
+      setReady(true);
+      setPhase("ready");
+    }, 1400);
+  }
 
   return (
     <WorkspacePage
       eyebrow="✦ EXTRA TAB"
       title="Лонгрид"
       description="Дополнительная вкладка ДЗ PRO: из темы и аудитории собираем структуру большого материала и редакционный черновик."
-      status="DZ PRO · EXTRA TAB"
+      status={demoMode ? "DZ PRO · INTERACTIVE DEMO" : "DZ PRO · EXTRA TAB"}
     >
       <div className="moduleHero moduleHero--longread">
         <div><small>BRIEF</small><b>Тема + аудитория</b></div>
@@ -56,33 +69,40 @@ export default function LongreadPage() {
             </select>
           </label>
 
-          <SpectralAction variant="primary" onClick={() => setReady(true)}>✦ Собрать структуру</SpectralAction>
+          <SpectralAction variant="primary" onClick={generate}>
+            {phase === "processing" ? "✦ Строю лонгрид…" : ready ? "✦ Пересобрать структуру" : "✦ Собрать структуру"}
+          </SpectralAction>
 
-          {demoMode && (
-            <div className="demoEvidence">
-              <small>REQUIREMENT</small>
-              <b>Дополнительная вкладка — выполнено</b>
-              <span>Лонгрид использует отдельную логику и собственный визуальный workflow.</span>
+          <div className={`demoRunStatus demoRunStatus--${phase}`}>
+            <div className="demoRunStatus__line">
+              <span>{phase === "processing" ? "EDITOR DEMO PROCESS" : phase === "ready" ? "LONGREAD READY" : "WAITING BRIEF"}</span>
+              <b>{phase === "processing" ? "thesis → outline → narrative arc" : phase === "ready" ? "4 раздела · структура готова ✓" : "задайте тему"}</b>
             </div>
-          )}
+            <i className="demoRunStatus__progress" />
+          </div>
         </div>
 
-        <article className={`longreadPreview ${ready ? "isReady" : ""}`}>
+        <article className={`longreadPreview ${ready ? "isReady" : ""} ${phase === "processing" ? "isProcessing" : ""}`}>
           <div className="longreadPreview__head">
             <small>BOOK-CRAFT EDITORIAL</small>
-            <span>8–10 MIN READ</span>
+            <span>{phase === "processing" ? "BUILDING…" : "8–10 MIN READ"}</span>
           </div>
-          <h2>{ready ? topic : "Здесь появится архитектура лонгрида"}</h2>
-          <p className="longreadDek">{ready ? `Для: ${audience} · Тон: ${tone}` : "Сначала задайте тему и аудиторию."}</p>
 
-          <div className="longreadSections">
-            {(ready ? demoSections : []).map(([n, title, text]) => (
-              <section key={n}>
-                <small>{n}</small>
-                <div><b>{title}</b><p>{text}</p></div>
-              </section>
-            ))}
-          </div>
+          <h2>{phase === "processing" ? "Собираю архитектуру материала…" : ready ? topic : "Здесь появится архитектура лонгрида"}</h2>
+          <p className="longreadDek">{ready ? `Для: ${audience} · Тон: ${tone}` : phase === "processing" ? "Анализ темы и аудитории…" : "Сначала задайте тему и аудиторию."}</p>
+
+          {phase === "processing" ? (
+            <div className="demoSkeleton demoSkeleton--longread"><i /><i /><i /><i /><i /><i /></div>
+          ) : (
+            <div className="longreadSections">
+              {(ready ? demoSections : []).map(([n, title, text], index) => (
+                <section key={n} style={{animationDelay:`${index * 90}ms`}}>
+                  <small>{n}</small>
+                  <div><b>{title}</b><p>{text}</p></div>
+                </section>
+              ))}
+            </div>
+          )}
         </article>
       </div>
     </WorkspacePage>

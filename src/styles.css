@@ -4395,3 +4395,290 @@ animation:spectralSpin var(--speed) linear infinite}
   .demoShowcase__footer{align-items:flex-start;flex-direction:column}
   .demoShowcase__footer b{margin-left:0}
 }
+
+
+/* BOOKCRAFT:DZ_INTERACTIVE_DEMO:START */
+
+.demoRunStatus{
+  margin-top:14px;
+  padding:11px 12px 9px;
+  overflow:hidden;
+  border:1px solid rgba(83,165,224,.22);
+  border-radius:12px;
+  background:rgba(5,15,28,.76);
+}
+
+.demoRunStatus__line{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:center;
+}
+
+.demoRunStatus__line span{
+  color:#a67cff;
+  font-size:7px;
+  font-weight:900;
+  letter-spacing:.12em;
+}
+
+.demoRunStatus__line b{
+  color:#8ba0b8;
+  font-size:8px;
+  font-weight:700;
+}
+
+.demoRunStatus__progress{
+  display:block;
+  width:100%;
+  height:3px;
+  margin-top:9px;
+  overflow:hidden;
+  border-radius:999px;
+  background:rgba(255,255,255,.07);
+}
+
+.demoRunStatus__progress::after{
+  content:"";
+  display:block;
+  width:34%;
+  height:100%;
+  border-radius:inherit;
+  background:linear-gradient(90deg,#ff8a48,#d451ff,#45e4ff);
+  transform:translateX(-120%);
+  opacity:.32;
+}
+
+.demoRunStatus--processing{
+  border-color:rgba(69,225,255,.42);
+  box-shadow:0 0 24px rgba(62,214,255,.06);
+}
+
+.demoRunStatus--processing .demoRunStatus__progress::after{
+  opacity:1;
+  animation:demoProgressSweep 1.05s linear infinite;
+}
+
+.demoRunStatus--ready{
+  border-color:rgba(96,229,255,.30);
+}
+
+.demoRunStatus--ready .demoRunStatus__progress::after{
+  width:100%;
+  transform:none;
+  opacity:.72;
+}
+
+@keyframes demoProgressSweep{
+  from{transform:translateX(-120%)}
+  to{transform:translateX(340%)}
+}
+
+.demoSkeleton{
+  padding:18px 0;
+  display:grid;
+  gap:12px;
+}
+
+.demoSkeleton i{
+  display:block;
+  height:11px;
+  border-radius:999px;
+  background:linear-gradient(90deg,rgba(255,255,255,.05),rgba(88,225,255,.18),rgba(197,80,255,.12),rgba(255,255,255,.05));
+  background-size:220% 100%;
+  animation:demoSkeleton 1s linear infinite;
+}
+
+.demoSkeleton i:nth-child(1){width:70%}
+.demoSkeleton i:nth-child(2){width:92%}
+.demoSkeleton i:nth-child(3){width:84%}
+.demoSkeleton i:nth-child(4){width:76%}
+.demoSkeleton i:nth-child(5){width:88%}
+.demoSkeleton i:nth-child(6){width:62%}
+
+@keyframes demoSkeleton{
+  from{background-position:180% 0}
+  to{background-position:-40% 0}
+}
+
+.outputEditor.isProcessing,
+.longreadPreview.isProcessing{
+  border-color:rgba(71,219,255,.30);
+  box-shadow:inset 0 0 44px rgba(56,205,255,.035);
+}
+
+.podcastConsole.isProcessing{
+  opacity:.76;
+}
+
+.podcastConsole.isPlaying .waveConsole i{
+  animation:demoWave .72s ease-in-out infinite alternate;
+}
+
+@keyframes demoWave{
+  from{transform:scaleY(.55);filter:brightness(.92)}
+  to{transform:scaleY(1.18);filter:brightness(1.35)}
+}
+
+.audioProgressTrack{
+  width:100%;
+  height:4px;
+  overflow:hidden;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+}
+
+.audioProgressTrack i{
+  display:block;
+  height:100%;
+  border-radius:inherit;
+  background:linear-gradient(90deg,#44e5ff,#a24cff,#ff7d58);
+  transition:width .18s linear;
+}
+
+.audioProgressLabel{
+  display:block;
+  margin-top:7px;
+  color:#7792a9;
+  font-size:7px;
+  letter-spacing:.11em;
+}
+
+.apiProofBanner.isProcessing{
+  border-color:rgba(76,225,255,.54);
+  animation:demoPanelPulse .9s ease-in-out infinite alternate;
+}
+
+@keyframes demoPanelPulse{
+  from{box-shadow:0 0 0 rgba(66,223,255,0)}
+  to{box-shadow:0 0 26px rgba(66,223,255,.10)}
+}
+
+.catalogLoading{
+  grid-column:1/-1;
+  min-height:150px;
+  padding:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  border:1px dashed rgba(86,216,255,.25);
+  border-radius:14px;
+  color:#8ba1b7;
+}
+
+.catalogLoading i{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#62e5ff;
+  animation:demoDot .8s ease-in-out infinite alternate;
+}
+
+.catalogLoading i:nth-child(2){animation-delay:.15s;background:#ae63ff}
+.catalogLoading i:nth-child(3){animation-delay:.30s;background:#ff8154}
+.catalogLoading i:nth-child(4){animation-delay:.45s}
+
+.catalogLoading b{
+  margin-left:8px;
+  font-size:9px;
+}
+
+@keyframes demoDot{
+  from{transform:translateY(0);opacity:.35}
+  to{transform:translateY(-7px);opacity:1}
+}
+
+.videoJobBar.isProcessing button{
+  position:relative;
+  overflow:hidden;
+  color:white;
+}
+
+.videoJobBar.isProcessing button::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.20),transparent);
+  transform:translateX(-120%);
+  animation:demoJobSweep 1s linear infinite;
+}
+
+@keyframes demoJobSweep{
+  to{transform:translateX(120%)}
+}
+
+.longreadSections section{
+  animation:demoSectionIn .42s ease both;
+}
+
+@keyframes demoSectionIn{
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.imageGrid.isProcessing button{
+  opacity:.58;
+  pointer-events:none;
+}
+
+.imageGrid.isProcessing .generatedArt{
+  filter:saturate(.35) brightness(.62);
+  animation:demoImageRender 1s ease-in-out infinite alternate;
+}
+
+@keyframes demoImageRender{
+  from{transform:scale(.985);filter:saturate(.25) brightness(.55)}
+  to{transform:scale(1.01);filter:saturate(.6) brightness(.82)}
+}
+
+.demoInteractionHint{
+  margin-top:14px;
+  padding:13px 16px;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:14px;
+  align-items:center;
+  border:1px solid rgba(86,224,255,.25);
+  border-radius:14px;
+  background:linear-gradient(90deg,rgba(25,16,38,.82),rgba(7,25,39,.82));
+}
+
+.demoInteractionHint span{
+  color:#cb83ff;
+  font-size:7px;
+  font-weight:900;
+  letter-spacing:.12em;
+}
+
+.demoInteractionHint b{
+  font-size:9px;
+}
+
+.demoInteractionHint small{
+  color:#6ee7ff;
+  font-size:8px;
+}
+
+@media(max-width:680px){
+  .demoRunStatus__line,
+  .demoInteractionHint{
+    grid-template-columns:1fr;
+    display:grid;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .demoRunStatus--processing .demoRunStatus__progress::after,
+  .demoSkeleton i,
+  .podcastConsole.isPlaying .waveConsole i,
+  .apiProofBanner.isProcessing,
+  .catalogLoading i,
+  .videoJobBar.isProcessing button::after,
+  .imageGrid.isProcessing .generatedArt{
+    animation:none!important;
+  }
+}
+
+/* BOOKCRAFT:DZ_INTERACTIVE_DEMO:END */
+

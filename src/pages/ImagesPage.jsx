@@ -14,10 +14,20 @@ export default function ImagesPage() {
   const [ratio, setRatio] = useState("16:9");
   const [generated, setGenerated] = useState(demoMode);
   const [selected, setSelected] = useState(demoMode ? 2 : 0);
+  const [phase, setPhase] = useState(demoMode ? "ready" : "idle");
 
   function generate() {
-    setGenerated(true);
-    setSelected(1);
+    if (phase === "processing") return;
+
+    setGenerated(false);
+    setSelected(0);
+    setPhase("processing");
+
+    window.setTimeout(() => {
+      setGenerated(true);
+      setSelected(1);
+      setPhase("ready");
+    }, 1700);
   }
 
   return (
@@ -25,7 +35,7 @@ export default function ImagesPage() {
       eyebrow="✦ IMAGE ENGINE"
       title="Генерация изображений"
       description="Бонусный визуальный модуль: промпт, стиль, формат, варианты и выбор результата."
-      status={demoMode ? "DZ PRO · BONUS SCREENSHOT" : "UI DEMO · COMFYUI NEXT"}
+      status={demoMode ? "DZ PRO · INTERACTIVE DEMO" : "UI DEMO · COMFYUI NEXT"}
     >
       <div className="moduleHero moduleHero--images">
         <div><small>PROMPT</small><b>Описание сцены</b></div>
@@ -56,20 +66,36 @@ export default function ImagesPage() {
           <div>{ratios.map((item) => <button key={item} type="button" className={ratio === item ? "active" : ""} onClick={() => setRatio(item)}>{item}</button>)}</div>
         </div>
 
-        <SpectralAction variant="primary" onClick={generate}>✦ Создать DEMO-варианты</SpectralAction>
+        <SpectralAction variant="primary" onClick={generate}>
+          {phase === "processing" ? "✦ Рендерю варианты…" : generated ? "✦ Сгенерировать заново" : "✦ Создать DEMO-варианты"}
+        </SpectralAction>
       </div>
 
-      <div className={`imageGrid imageGrid--studio ${generated ? "isReady" : ""}`}>
+      <div className={`demoRunStatus demoRunStatus--${phase} demoRunStatus--images`}>
+        <div className="demoRunStatus__line">
+          <span>{phase === "processing" ? "IMAGE DEMO PROCESS" : phase === "ready" ? "4 VARIANTS READY" : "WAITING PROMPT"}</span>
+          <b>{phase === "processing" ? "prompt → composition → render" : phase === "ready" ? `${style} · ${ratio} ✓` : "задайте сцену"}</b>
+        </div>
+        <i className="demoRunStatus__progress" />
+      </div>
+
+      <div className={`imageGrid imageGrid--studio ${generated ? "isReady" : ""} ${phase === "processing" ? "isProcessing" : ""}`}>
         {[1,2,3,4].map((n) => (
           <button key={n} type="button" className={selected === n ? "selected" : ""} onClick={() => generated && setSelected(n)}>
             <div className={`generatedArt generatedArt--${n}`} />
-            <span>{generated ? `VARIANT 0${n}` : "IMAGE SLOT"}</span>
-            <small>{generated ? `${style} · ${ratio}` : "waiting"}</small>
+            <span>{phase === "processing" ? `RENDER 0${n}` : generated ? `VARIANT 0${n}` : "IMAGE SLOT"}</span>
+            <small>{phase === "processing" ? "processing…" : generated ? `${style} · ${ratio}` : "waiting"}</small>
           </button>
         ))}
       </div>
 
-      {selected > 0 && <div className="selectionSummary isReady"><small>SELECTED</small><b>Variant 0{selected}</b><span>Готов к использованию в контентном пайплайне.</span></div>}
+      {selected > 0 && (
+        <div className="selectionSummary isReady">
+          <small>SELECTED</small>
+          <b>Variant 0{selected}</b>
+          <span>Готов к использованию в контентном пайплайне.</span>
+        </div>
+      )}
     </WorkspacePage>
   );
 }
