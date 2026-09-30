@@ -63,26 +63,26 @@ export const assetRegistry = {
   cards: {
     books: {
       key: "card.books",
-      status: "candidate",
-      path: "/assets/bookcraft/candidates/2026-09-28/bookcraft-20260928-171126-1.png",
+      status: "selected",
+      path: "/assets/bookcraft/cards/books.webp",
       role: "Books full-image button artwork"
     },
     scripts: {
       key: "card.scripts",
-      status: "candidate",
-      path: "/assets/bookcraft/candidates/2026-09-28/bookcraft-20260928-171128-2.png",
+      status: "selected",
+      path: "/assets/bookcraft/cards/scripts.webp",
       role: "Scripts full-image button artwork"
     },
     avatar: {
       key: "card.avatar",
-      status: "candidate",
-      path: "/assets/bookcraft/candidates/2026-09-28/bookcraft-20260928-171130-3.png",
+      status: "selected",
+      path: "/assets/bookcraft/cards/avatar.webp",
       role: "Video avatar full-image button artwork"
     },
     images: {
       key: "card.images",
-      status: "candidate",
-      path: "/assets/bookcraft/candidates/2026-09-28/bookcraft-20260928-171133-4.png",
+      status: "selected",
+      path: "/assets/bookcraft/cards/images.webp",
       role: "Image generation full-image button artwork"
     }
   }
