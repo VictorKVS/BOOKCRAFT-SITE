@@ -1,91 +1,76 @@
 {
-    "version":  "1.2",
-    "policy":  {
-                   "ui_baked_into_images":  false,
-                   "final_text_baked_into_images":  false,
-                   "routes_baked_into_images":  false,
-                   "preferred_format":  "webp",
-                   "retina_source_multiplier":  2,
-                   "transparent_background_for_character":  true
-               },
-    "assets":  [
-                   {
-                       "key":  "hero.main",
-                       "path":  "hero/character/active/alina-v1.png",
-                       "status":  "selected",
-                       "desktop_slot":  "760x610",
-                       "notes":  "Active independent character layer."
-                   },
-                   {
-                       "key":  "hero.background",
-                       "path":  "backgrounds/hero-studio-ru-v1.png",
-                       "status":  "selected",
-                       "desktop_slot":  "1200x610",
-                       "alternate_path":  "backgrounds/hero-studio-en-v1.png",
-                       "usage":  "full-width hero background; live UI and ALINA layered above"
-                   },
-                   {
-                       "key":  "props.script",
-                       "path":  "props/script.webp",
-                       "status":  "optional",
-                       "desktop_slot":  "180x128"
-                   },
-                   {
-                       "key":  "props.storyboard",
-                       "path":  "props/storyboard.webp",
-                       "status":  "optional",
-                       "desktop_slot":  "200x132"
-                   },
-                   {
-                       "key":  "props.desk",
-                       "path":  "props/desk.webp",
-                       "status":  "optional",
-                       "desktop_slot":  "850x170"
-                   },
-                   {
-                       "key":  "card.books",
-                       "path":  "cards/books.webp",
-                       "status":  "selected",
-                       "desktop_slot":  "360x86"
-                   },
-                   {
-                       "key":  "card.scripts",
-                       "path":  "cards/scripts.webp",
-                       "status":  "selected",
-                       "desktop_slot":  "360x86"
-                   },
-                   {
-                       "key":  "card.avatar",
-                       "path":  "cards/avatar.webp",
-                       "status":  "selected",
-                       "desktop_slot":  "360x86"
-                   },
-                   {
-                       "key":  "card.images",
-                       "path":  "cards/images.webp",
-                       "status":  "selected",
-                       "desktop_slot":  "360x86"
-                   },
-                   {
-                       "key":  "hero.character.candidate.alina-v2",
-                       "path":  "hero/character/candidates/alina-v2.png",
-                       "status":  "candidate",
-                       "notes":  "Latest portrait candidate; do not activate until transparency/background cleanup is complete."
-                   },
-                   {
-                       "key":  "hero.laptop",
-                       "path":  "hero/objects/laptop/laptop-angle-v1.png",
-                       "alternate_path":  "hero/objects/laptop/laptop-front-v1.png",
-                       "status":  "selected",
-                       "desktop_slot":  "420x300",
-                       "notes":  "Angled transparent PNG selected as foreground laptop; front view retained as alternate."
-                   }
-               ],
-    "layer_order":  [
-                        "hero.background",
-                        "hero.main",
-                        "hero.laptop",
-                        "live-ui",
-                        "hud"
-                    ]
+  "version": "1.3",
+  "policy": {
+    "ui_baked_into_images": false,
+    "final_text_baked_into_images": false,
+    "routes_baked_into_images": false,
+    "preferred_format": "webp",
+    "retina_source_multiplier": 2,
+    "transparent_background_for_character": true
+  },
+  "rotation": {
+    "interval_ms": 10000,
+    "mode": "coordinated-layer-presets",
+    "scene_count": 6,
+    "character_count": 6,
+    "books_count": 3,
+    "laptop_count": 2
+  },
+  "assets": [
+    {
+      "key": "hero.background",
+      "path": "hero/backgrounds/studio-01.png",
+      "status": "selected",
+      "usage": "full-width hero background"
+    },
+    {
+      "key": "hero.characters",
+      "path": "hero/characters/alina/",
+      "status": "selected",
+      "count": 6,
+      "usage": "rotating foreground character layer"
+    },
+    {
+      "key": "hero.books",
+      "path": "hero/foreground/books/",
+      "status": "selected",
+      "count": 3,
+      "usage": "rotating books/cup foreground layer"
+    },
+    {
+      "key": "hero.laptops",
+      "path": "hero/equipment/laptop/",
+      "status": "selected",
+      "count": 2,
+      "usage": "rotating laptop foreground layer"
+    },
+    {
+      "key": "card.books",
+      "path": "cards/books.webp",
+      "status": "selected"
+    },
+    {
+      "key": "card.scripts",
+      "path": "cards/scripts.webp",
+      "status": "selected"
+    },
+    {
+      "key": "card.avatar",
+      "path": "cards/avatar.webp",
+      "status": "selected"
+    },
+    {
+      "key": "card.images",
+      "path": "cards/images.webp",
+      "status": "selected"
+    }
+  ],
+  "layer_order": [
+    "hero.background",
+    "hero.character",
+    "hero.books",
+    "hero.laptop",
+    "live-ui",
+    "hud"
+  ]
 }
