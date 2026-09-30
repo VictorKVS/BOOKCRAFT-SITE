@@ -4078,3 +4078,320 @@ animation:spectralSpin var(--speed) linear infinite}
 
 /* BOOKCRAFT:HERO_ROTATION:END */
 
+/* ============================================================
+   DZ PRO — FINAL DEMO / SCREENSHOT STATES
+   ============================================================ */
+
+.workspaceToolRail{
+  grid-template-columns:repeat(5,minmax(0,1fr));
+}
+
+.choiceCard--longread{
+  background:
+    radial-gradient(circle at 88% 12%,rgba(255,137,80,.18),transparent 35%),
+    linear-gradient(145deg,#1f161d,#11182a);
+}
+
+.moduleHero--longread{
+  box-shadow:inset 3px 0 0 rgba(255,167,86,.52);
+}
+
+.demoEvidence,
+.apiProofBanner{
+  margin-top:14px;
+  padding:12px 14px;
+  display:grid;
+  gap:4px;
+  border:1px solid rgba(77,224,255,.25);
+  border-radius:12px;
+  background:
+    radial-gradient(circle at 92% 10%,rgba(178,75,255,.12),transparent 42%),
+    rgba(7,18,32,.88);
+}
+
+.demoEvidence small,
+.apiProofBanner span{
+  color:#c989ff;
+  font-size:7px;
+  font-weight:900;
+  letter-spacing:.12em;
+}
+
+.demoEvidence b,
+.apiProofBanner b{
+  font-size:11px;
+}
+
+.demoEvidence span,
+.apiProofBanner small{
+  color:#8395ad;
+  font-size:9px;
+  line-height:1.5;
+}
+
+.apiProofBanner{
+  margin:0 0 16px;
+  grid-template-columns:auto auto 1fr;
+  align-items:center;
+  gap:12px;
+}
+
+.apiProofBanner small{
+  text-align:right;
+}
+
+.longreadPreview{
+  min-height:420px;
+  padding:22px;
+  border:1px dashed rgba(88,183,225,.24);
+  border-radius:16px;
+  background:
+    radial-gradient(circle at 88% 6%,rgba(255,160,76,.10),transparent 28%),
+    linear-gradient(155deg,#0a1625,#0c1220 62%,#17111e);
+}
+
+.longreadPreview.isReady{
+  border-style:solid;
+  border-color:rgba(93,224,255,.28);
+  box-shadow:inset 0 0 42px rgba(79,200,255,.03);
+}
+
+.longreadPreview__head{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  padding-bottom:12px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.longreadPreview__head small{
+  color:#d28bff;
+  font-size:7px;
+  letter-spacing:.13em;
+}
+
+.longreadPreview__head span{
+  color:#6adfff;
+  font-size:7px;
+}
+
+.longreadPreview h2{
+  margin:20px 0 8px;
+  max-width:620px;
+  font:700 clamp(25px,3vw,40px)/1.05 Georgia,serif;
+}
+
+.longreadDek{
+  margin:0 0 22px;
+  color:#8fa0b7;
+  font-size:10px;
+}
+
+.longreadSections{
+  display:grid;
+  gap:10px;
+}
+
+.longreadSections section{
+  padding:12px 0;
+  display:grid;
+  grid-template-columns:34px 1fr;
+  gap:12px;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+
+.longreadSections section>small{
+  color:#56e4ff;
+  font:italic 700 16px Georgia,serif;
+}
+
+.longreadSections b{
+  font-size:11px;
+}
+
+.longreadSections p{
+  margin:4px 0 0;
+  color:#8495ab;
+  font-size:9px;
+  line-height:1.55;
+}
+
+.demoShowcase{
+  padding:48px 0 72px;
+}
+
+.demoShowcase__hero{
+  min-height:270px;
+  padding:34px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:end;
+  gap:28px;
+  border:1px solid rgba(90,218,255,.28);
+  border-radius:26px;
+  background:
+    radial-gradient(circle at 72% 15%,rgba(52,218,255,.13),transparent 30%),
+    radial-gradient(circle at 15% 100%,rgba(255,121,62,.14),transparent 31%),
+    radial-gradient(circle at 88% 82%,rgba(195,69,255,.14),transparent 32%),
+    linear-gradient(135deg,#07101d,#0c1424 55%,#111022);
+  overflow:hidden;
+}
+
+.demoShowcase__hero h1{
+  margin:16px 0 12px;
+  font:700 clamp(48px,6vw,78px)/.92 Georgia,serif;
+}
+
+.demoShowcase__hero h1 em{
+  font-weight:700;
+  color:#f0b6ff;
+}
+
+.demoShowcase__hero p{
+  max-width:720px;
+  margin:0;
+  color:#9cacbf;
+  line-height:1.65;
+}
+
+.demoShowcase__score{
+  min-width:150px;
+  padding:20px;
+  display:grid;
+  gap:5px;
+  border:1px solid rgba(91,226,255,.30);
+  border-radius:20px;
+  background:rgba(5,17,31,.72);
+  box-shadow:0 0 30px rgba(70,208,255,.08);
+}
+
+.demoShowcase__score small{
+  color:#c584ff;
+  font-size:8px;
+  letter-spacing:.13em;
+}
+
+.demoShowcase__score b{
+  font:700 42px Georgia,serif;
+  color:#64e7ff;
+}
+
+.demoShowcase__score span{
+  color:#8494a8;
+  font-size:9px;
+}
+
+.demoShotGrid{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+
+.demoShotCard{
+  min-height:190px;
+  padding:17px;
+  display:grid;
+  align-content:space-between;
+  gap:10px;
+  color:white;
+  text-decoration:none;
+  border:1px solid rgba(93,155,220,.28);
+  border-radius:18px;
+  background:
+    radial-gradient(circle at 95% 4%,rgba(160,73,255,.11),transparent 34%),
+    linear-gradient(150deg,rgba(13,27,46,.96),rgba(7,15,28,.96));
+}
+
+.demoShotCard:hover{
+  border-color:rgba(78,225,255,.62);
+  transform:translateY(-2px);
+}
+
+.demoShotCard__top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.demoShotNumber{
+  font:italic 700 25px Georgia,serif;
+  color:#58e4ff;
+}
+
+.demoShotCard__top small{
+  color:#d18cff;
+  font-size:7px;
+  letter-spacing:.12em;
+}
+
+.demoShotCard>b{
+  font-size:14px;
+  line-height:1.25;
+}
+
+.demoShotCard p{
+  margin:0;
+  color:#8fa0b6;
+  font-size:10px;
+  line-height:1.5;
+}
+
+.demoShotCard code{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  padding:8px 9px;
+  border-radius:9px;
+  background:#050d18;
+  color:#78dff3;
+  font-size:8px;
+}
+
+.demoShotCard__open{
+  color:#63e5ff;
+  font-size:9px;
+  font-weight:800;
+}
+
+.demoShowcase__footer{
+  margin-top:18px;
+  padding:15px 18px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  border:1px solid rgba(90,145,200,.18);
+  border-radius:14px;
+  background:#081321;
+}
+
+.demoShowcase__footer span{
+  color:#b57eff;
+  font-size:8px;
+  letter-spacing:.12em;
+}
+
+.demoShowcase__footer code{
+  color:#65e3ff;
+  font-size:10px;
+}
+
+.demoShowcase__footer b{
+  margin-left:auto;
+  font-size:10px;
+}
+
+@media(max-width:940px){
+  .workspaceToolRail{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .demoShotGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+@media(max-width:680px){
+  .workspaceToolRail{grid-template-columns:1fr 1fr}
+  .apiProofBanner{grid-template-columns:1fr}
+  .apiProofBanner small{text-align:left}
+  .demoShowcase__hero{grid-template-columns:1fr}
+  .demoShotGrid{grid-template-columns:1fr}
+  .demoShowcase__footer{align-items:flex-start;flex-direction:column}
+  .demoShowcase__footer b{margin-left:0}
+}

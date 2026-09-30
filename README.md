@@ -33,3 +33,15 @@ The current visual library is tracked in GitHub and kept separate from the React
 
 The image library is still in review: candidates are not treated as final runtime assets until selected and wired into the UI.
 
+## DZ PRO AI Content Maker — final demo
+
+Итоговая демонстрация:
+
+- `/demo` — карта всех screenshot-state страниц;
+- `/mailing?demo=1` — готовая рассылка;
+- `/podcast?demo=1` — готовый podcast/TTS UI;
+- `/video-avatar?demo=1` — каталог voices + avatars и video-job contract;
+- `/longread?demo=1` — дополнительная вкладка;
+- `/images?demo=1` — bonus image workflow.
+
+Полный список имён и URL: `docs/DZ_PRO_SCREENSHOTS.md`.

@@ -16,6 +16,8 @@ import SearchPage from "./pages/SearchPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import BooksPage from "./pages/BooksPage.jsx";
 import ScriptsPage from "./pages/ScriptsPage.jsx";
+import LongreadPage from "./pages/LongreadPage.jsx";
+import DemoShowcasePage from "./pages/DemoShowcasePage.jsx";
 
 export default function App() {
   return (
@@ -30,6 +32,8 @@ export default function App() {
         <Route path="/analytics" element={<AnalyticsPage />} />
         <Route path="/books" element={<BooksPage />} />
         <Route path="/scripts" element={<ScriptsPage />} />
+        <Route path="/longread" element={<LongreadPage />} />
+        <Route path="/demo" element={<DemoShowcasePage />} />
         <Route path="/features" element={<FeaturesPage />} />
         <Route path="/examples" element={<ExamplesPage />} />
         <Route path="/pricing" element={<PricingPage />} />

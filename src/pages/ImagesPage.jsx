@@ -1,32 +1,36 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import WorkspacePage from "../components/WorkspacePage.jsx";
 import SpectralAction from "../components/SpectralAction.jsx";
 
 const ratios = ["16:9","1:1","4:5","9:16"];
 
 export default function ImagesPage() {
-  const [prompt, setPrompt] = useState("");
+  const [searchParams] = useSearchParams();
+  const demoMode = searchParams.get("demo") === "1";
+
+  const [prompt, setPrompt] = useState(demoMode ? "Кинематографичная обложка: ночная библиотека, золотой свет, открытая книга превращается в фантастический город, premium editorial look" : "");
   const [style, setStyle] = useState("Cinematic");
   const [ratio, setRatio] = useState("16:9");
-  const [generated, setGenerated] = useState(false);
-  const [selected, setSelected] = useState(0);
+  const [generated, setGenerated] = useState(demoMode);
+  const [selected, setSelected] = useState(demoMode ? 2 : 0);
 
   function generate() {
     setGenerated(true);
-    setSelected(0);
+    setSelected(1);
   }
 
   return (
     <WorkspacePage
       eyebrow="✦ IMAGE ENGINE"
       title="Генерация изображений"
-      description="Рабочее место для локальной ComfyUI-интеграции: промпт, стиль, формат, варианты и выбор результата."
-      status="UI DEMO · COMFYUI NEXT"
+      description="Бонусный визуальный модуль: промпт, стиль, формат, варианты и выбор результата."
+      status={demoMode ? "DZ PRO · BONUS SCREENSHOT" : "UI DEMO · COMFYUI NEXT"}
     >
       <div className="moduleHero moduleHero--images">
         <div><small>PROMPT</small><b>Описание сцены</b></div>
         <span>→</span>
-        <div><small>MODEL</small><b>Local image engine</b></div>
+        <div><small>MODEL</small><b>Image engine</b></div>
         <span>→</span>
         <div><small>SELECT</small><b>Лучший вариант</b></div>
       </div>
@@ -65,7 +69,7 @@ export default function ImagesPage() {
         ))}
       </div>
 
-      {selected > 0 && <div className="selectionSummary isReady"><small>SELECTED</small><b>Variant 0{selected}</b><span>Готов к дальнейшему использованию в контентном пайплайне.</span></div>}
+      {selected > 0 && <div className="selectionSummary isReady"><small>SELECTED</small><b>Variant 0{selected}</b><span>Готов к использованию в контентном пайплайне.</span></div>}
     </WorkspacePage>
   );
 }

@@ -8,6 +8,7 @@ const modules = [
   {to:"/images", number:"04", title:"Изображения", text:"Промпт → варианты → выбор", status:"BONUS", kind:"images"},
   {to:"/books", number:"05", title:"Книги", text:"Идея → главы → редактура", status:"EXPANSION", kind:"books"},
   {to:"/scripts", number:"06", title:"Сценарии клипов", text:"Идея → сцены → storyboard", status:"EXPANSION", kind:"scripts"},
+  {to:"/longread?demo=1", number:"07", title:"Лонгрид", text:"Тема → структура → готовая статья", status:"DZ PRO · EXTRA TAB", kind:"longread"},
 ];
 
 export default function CreatePage() {

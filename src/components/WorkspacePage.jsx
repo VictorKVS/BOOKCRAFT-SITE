@@ -4,6 +4,7 @@ const studioTools = [
   ["/mailing", "Рассылка"],
   ["/podcast", "Подкаст"],
   ["/video-avatar", "Видео-аватар"],
+  ["/longread", "Лонгрид"],
   ["/images", "Изображения"],
 ];
 
