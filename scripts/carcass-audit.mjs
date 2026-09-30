@@ -46,7 +46,10 @@ const homePath = path.join(root, "src/pages/HomePage.jsx");
 const home = fs.existsSync(homePath) ? fs.readFileSync(homePath, "utf8") : "";
 
 for (const target of ["/books", "/scripts", "/video-avatar", "/images"]) {
-  if (!home.includes(`to:"${target}"`)) {
+  const escapedTarget = target.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const targetPattern = new RegExp(`to\\s*:\\s*["']${escapedTarget}["']`);
+
+  if (!targetPattern.test(home)) {
     errors.push(`HOME CARD TARGET MISSING: ${target}`);
   }
 }
