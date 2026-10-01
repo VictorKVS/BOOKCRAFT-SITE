@@ -53,3 +53,5 @@ The image library is still in review: candidates are not treated as final runtim
 - video: `evidence/video/`
 - screenshot map: `docs/DZ_PRO_SCREENSHOTS.md`
 - video script: `docs/DZ_PRO_VIDEO_SCRIPT.md`
+
+- final report: `docs/DZ_PRO_REPORT.md`
