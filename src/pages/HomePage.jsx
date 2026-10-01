@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import SpectralAction from "../components/SpectralAction.jsx";
 import ContentPlan from "../components/ContentPlan.jsx";
 import VideoAvatarHud from "../components/VideoAvatarHud.jsx";
@@ -56,9 +55,38 @@ const coreFlows = [
   {to:"/video-avatar", number:"03", title:"Видео-аватар", text:"Голос + аватар + сценарий → видео-пайплайн", meta:"EXTERNAL API · DEMO"},
 ];
 
-export default function HomePage() {
-  const [videoOpen, setVideoOpen] = useState(false);
+const demoMenuItems = [
+  {
+    to: "/mailing?demo=1",
+    icon: "✎",
+    type: "ТЕКСТ",
+    title: "Рассылка",
+    text: "Brief → генерация → SUBJECT / PREHEADER / BODY",
+  },
+  {
+    to: "/podcast?demo=1",
+    icon: "◉",
+    type: "АУДИО",
+    title: "Подкаст",
+    text: "Сценарий → голос → waveform → воспроизведение",
+  },
+  {
+    to: "/video-avatar?demo=1",
+    icon: "▶",
+    type: "ВИДЕО",
+    title: "Видео-Аватар",
+    text: "Аватар + голос + сценарий → video job",
+  },
+  {
+    to: "/longread?demo=1",
+    icon: "▤",
+    type: "EXTRA",
+    title: "Лонгрид",
+    text: "Дополнительная вкладка задания → структура материала",
+  },
+];
 
+export default function HomePage() {
   return (
     <>
       <section className="hero hero--cinematic">
@@ -81,10 +109,51 @@ export default function HomePage() {
               <span className="heroActionIcon">✦</span>
               Начать создавать →
             </SpectralAction>
-            <SpectralAction variant="ghost" onClick={() => setVideoOpen(true)}>
-              <span className="heroPlayIcon">▶</span>
-              Смотреть демо
-            </SpectralAction>
+            <div className="heroDemoMenu">
+              <SpectralAction
+                to="/demo"
+                variant="ghost"
+                className="heroDemoMenu__trigger"
+                ariaLabel="Открыть меню демонстраций BOOK-CRAFT"
+              >
+                <span className="heroPlayIcon">▶</span>
+                Смотреть демо
+                <span className="heroDemoChevron" aria-hidden="true">⌄</span>
+              </SpectralAction>
+
+              <div className="heroDemoDropdown" role="menu" aria-label="Демонстрации по заданию">
+                <div className="heroDemoDropdown__head">
+                  <div>
+                    <small>ДЗ PRO · AI CONTENT MAKER</small>
+                    <b>Выберите формат</b>
+                  </div>
+                  <span>DEMO</span>
+                </div>
+
+                <div className="heroDemoDropdown__grid">
+                  {demoMenuItems.map((item) => (
+                    <Link
+                      key={item.to}
+                      to={item.to}
+                      className="heroDemoItem"
+                      role="menuitem"
+                    >
+                      <span className="heroDemoItem__icon" aria-hidden="true">{item.icon}</span>
+                      <span className="heroDemoItem__copy">
+                        <small>{item.type}</small>
+                        <b>{item.title}</b>
+                        <em>{item.text}</em>
+                      </span>
+                      <span className="heroDemoItem__arrow" aria-hidden="true">→</span>
+                    </Link>
+                  ))}
+                </div>
+
+                <Link to="/demo" className="heroDemoDropdown__all">
+                  Все демонстрации и карта скриншотов →
+                </Link>
+              </div>
+            </div>
           </div>
 
           <div className="heroProof">
@@ -175,17 +244,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {videoOpen && (
-        <div className="modalBackdrop" role="presentation" onMouseDown={() => setVideoOpen(false)}>
-          <div className="videoModal" role="dialog" aria-modal="true" aria-label="Видео о BOOK-CRAFT" onMouseDown={(e) => e.stopPropagation()}>
-            <button className="modalClose" type="button" onClick={() => setVideoOpen(false)} aria-label="Закрыть">×</button>
-            <small>DEMO VIDEO SLOT</small>
-            <h2>BOOK-CRAFT за 60–75 секунд</h2>
-            <div className="videoPlaceholder">▶</div>
-            <p>Финальный ролик подключим после завершения рабочих модулей и визуального прохода.</p>
-          </div>
-        </div>
-      )}
+
     </>
   );
 }
