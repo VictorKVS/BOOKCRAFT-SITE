@@ -58,7 +58,7 @@ export default function HeroStage() {
   return (
     <div
       className="heroStage heroStage--layered heroStage--rotating"
-      aria-label="Сценическая зона BOOK-CRAFT"
+      aria-label="Сцена творческой студии BOOK-CRAFT"
       data-scene={sceneIndex + 1}
     >
       <div

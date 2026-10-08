@@ -1,8 +1,10 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { useState } from "react";
 import SpectralAction from "./SpectralAction.jsx";
+import AlinaAssistant from "./AlinaAssistant.jsx";
 
 const nav = [
+  ["/story-studio", "\u0418\u0441\u0442\u043e\u0440\u0438\u0438"],
   ["/features", "Возможности"],
   ["/examples", "Примеры"],
   ["/pricing", "Тарифы"],
@@ -73,6 +75,8 @@ export default function AppShell() {
       <main className="pageWrap">
         <Outlet />
       </main>
+
+      <AlinaAssistant />
     </div>
   );
 }

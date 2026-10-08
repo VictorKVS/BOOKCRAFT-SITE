@@ -1,3 +1,4 @@
+import DemoIntelligencePage from "./pages/DemoIntelligencePage";
 import { Navigate, Route, Routes } from "react-router-dom";
 import AppShell from "./components/AppShell.jsx";
 import HomePage from "./pages/HomePage.jsx";
@@ -18,10 +19,12 @@ import BooksPage from "./pages/BooksPage.jsx";
 import ScriptsPage from "./pages/ScriptsPage.jsx";
 import LongreadPage from "./pages/LongreadPage.jsx";
 import DemoShowcasePage from "./pages/DemoShowcasePage.jsx";
+import StoryStudioPage from "./pages/StoryStudioPage.jsx";
 
 export default function App() {
   return (
     <Routes>
+        <Route path="/demo-intelligence" element={<DemoIntelligencePage />} />
       <Route element={<AppShell />}>
         <Route path="/" element={<HomePage />} />
         <Route path="/create" element={<CreatePage />} />
@@ -34,6 +37,7 @@ export default function App() {
         <Route path="/scripts" element={<ScriptsPage />} />
         <Route path="/longread" element={<LongreadPage />} />
         <Route path="/demo" element={<DemoShowcasePage />} />
+        <Route path="/story-studio" element={<StoryStudioPage />} />
         <Route path="/features" element={<FeaturesPage />} />
         <Route path="/examples" element={<ExamplesPage />} />
         <Route path="/pricing" element={<PricingPage />} />
