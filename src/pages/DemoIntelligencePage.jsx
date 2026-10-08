@@ -32,9 +32,9 @@ const sources = [
   { title: "Exploding Topics", url: "https://explodingtopics.com/", description: "Поиск растущих тематик и ранних сигналов" },
 ];
 const demoVisuals = [
-  { title: "Книжная студия", src: "/assets/bookcraft/hero/foreground/books/books-01.png" },
-  { title: "Алина — AI-редактор", src: "/assets/bookcraft/hero/characters/alina/alina-01.png" },
-  { title: "Кинематографическая студия", src: "/assets/bookcraft/hero/backgrounds/studio-01.png" },
+  { title: "Книжная студия", src: "/assets/bookcraft/demo/bookcraft-books-studio-v1.png" },
+  { title: "Алина — AI-редактор", src: "/assets/bookcraft/demo/alina-ai-studio-v1.png" },
+  { title: "Кинематографическая студия", src: "/assets/bookcraft/demo/bookcraft-cinematic-studio-v1.png" },
 ];
 function buildDraft({ topic, audience, mode, tone, duration }) {
   const a = audienceMap[audience];
