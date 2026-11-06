@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "work_id": "sto_let_tomu_vpered",
+  "store_type": "TRUSTED_STATE_TRANSITIONS",
+  "semantics": {
+    "confirmed_transition": "Requires explicit transition evidence; textual succession alone is insufficient.",
+    "causality": "Requires explicit causal evidence; temporal adjacency never proves causality."
+  },
+  "records": []
+}
