@@ -2,13 +2,16 @@
 
 ## Goal
 
-Allow any accepted narrative scene to be selected and rendered as an image without losing canon, character identity, scene continuity or visual state.
+Allow any accepted narrative scene to be selected and rendered as an image without losing canon, character identity, scene continuity, cultural recognizability or visual state.
 
 ## Pipeline
 
 ```text
 SELECTED SCENE
 → NARRATIVE STATE
+→ LITERARY CANON
+→ CHARACTER / WORLD BIBLE
+→ USER-LOCKED CULTURAL VISUAL CANON
 → VISUAL SCENE CONTRACT
 → CHARACTER VISUAL STATE
 → CAMERA / COMPOSITION
@@ -16,6 +19,7 @@ SELECTED SCENE
 → IMAGE PROMPT
 → IMAGE GENERATOR
 → VISUAL CRITIC
+→ CANON / IDENTITY CHECK
 → ACCEPT / REGENERATE
 → SCENE ASSET
 ```
@@ -28,13 +32,40 @@ It receives:
 - accepted scene prose;
 - scene state;
 - character state;
-- canon;
+- literary canon;
+- user-locked cultural visual canon;
 - location;
 - objects;
 - time;
 - weather/environment;
 - visual continuity;
-- allowed / forbidden visual changes.
+- allowed / forbidden visual changes;
+- identity-reference package.
+
+Every visual rule carries provenance:
+- SOURCE_CANON;
+- USER_LOCKED_CANON;
+- USER_LOCKED_CULTURAL_CANON;
+- DERIVED;
+- HYPOTHESIS.
+
+## Identity Lock
+
+For culturally recognizable characters, ALINA maintains a stable `visual_identity_lock`.
+
+It may include:
+- age band;
+- facial geometry descriptors;
+- hair colour / length / shape;
+- eye colour;
+- body proportions;
+- habitual expression;
+- default outfit;
+- alternate canonical outfits;
+- reference-image IDs where legally and operationally available;
+- features that must not drift.
+
+The identity lock is inherited by every panel and illustration.
 
 ## Visual Scene Contract
 
@@ -52,6 +83,7 @@ It receives:
   "lighting": {},
   "mood": {},
   "continuity": {},
+  "identity_locks": [],
   "forbidden_changes": [],
   "prompt": ""
 }
@@ -73,7 +105,8 @@ For each character:
 - expression;
 - action;
 - position in frame;
-- interaction with other characters.
+- interaction with other characters;
+- identity-lock provenance.
 
 ## Scene visual state
 
@@ -104,11 +137,12 @@ The visual system must explicitly encode:
 
 ## Continuity rule
 
-A later image may inherit visual state from the previous accepted image.
+A later image inherits accepted visual state from prior assets.
 
 ```text
-IMAGE N
+ACCEPTED IMAGE N
 → VISUAL STATE DELTA
+→ IDENTITY LOCK
 → IMAGE N+1
 ```
 
@@ -126,7 +160,10 @@ IMAGE N
 
 An image is accepted only after:
 - scene alignment;
+- literary-canon alignment;
+- cultural-visual-canon alignment where locked;
 - character identity consistency;
+- age consistency;
 - object consistency;
 - location consistency;
 - continuity check;
@@ -136,6 +173,7 @@ An image is accepted only after:
 
 ```text
 projects/<project_id>/visual/
+├── bibles/
 ├── contracts/
 ├── prompts/
 ├── generated/
