@@ -18,7 +18,7 @@
             "value": "это вещи приезжих друзей Николая Николаевича",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "CANON_ELIGIBLE",
+            "acceptance": "FINAL_CANON_CANDIDATE",
             "evidence": [
               {
                 "chunk_id": "primary-0002",
@@ -37,6 +37,12 @@
               "mode": "CHARACTER_BELIEF",
               "canon_eligible": true,
               "reason": "Коля думает, что вещи принадлежат приезжим друзьям Николая Николаевича.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст подтверждают, что Коля предполагает, что вещи принадлежат приезжим друзьям Николая Николаевича.",
+              "error_type": "NONE",
               "model": "qwen2.5:7b"
             }
           },
@@ -121,7 +127,7 @@
             "value": "систему переключателей и кнопок",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "CANON_ELIGIBLE",
+            "acceptance": "FINAL_CANON_CANDIDATE",
             "evidence": [
               {
                 "chunk_id": "primary-0002",
@@ -140,6 +146,12 @@
               "mode": "NARRATOR_FACT",
               "canon_eligible": true,
               "reason": "рассказчик описывает фактическую структуру приборной панели",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно описывает приборную панель как систему переключателей и кнопок, что подтверждает утверждение.",
+              "error_type": "NONE",
               "model": "qwen2.5:7b"
             }
           }
@@ -188,7 +200,7 @@
             "value": "переключатели и кнопки",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "CANON_ELIGIBLE",
+            "acceptance": "FINAL_CANON_CANDIDATE",
             "evidence": [
               {
                 "chunk_id": "primary-0002",
@@ -207,6 +219,12 @@
               "mode": "CHARACTER_BELIEF",
               "canon_eligible": true,
               "reason": "Коля думает о том, что он рассматривает панель, переключатели и кнопки.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Коля исследует переключатели и кнопки на приборной панели, что соответствует цитате и контексту.",
+              "error_type": "NONE",
               "model": "qwen2.5:7b"
             }
           }

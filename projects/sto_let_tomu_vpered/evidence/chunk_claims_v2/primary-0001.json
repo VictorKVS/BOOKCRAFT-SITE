@@ -145,7 +145,7 @@
             "value": "друзя по имени Фима",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "CANON_ELIGIBLE",
+            "acceptance": "REJECTED_BY_PRECISION_GATE",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -164,6 +164,12 @@
               "mode": "NARRATOR_FACT",
               "canon_eligible": true,
               "reason": "Рассказчик сообщает факт о существовании друга Коли по имени Фима.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REJECT",
+              "reason": "Цитата и контекст подтверждают наличие у Коли друга по имени Фима.",
+              "error_type": "NONE",
               "model": "qwen2.5:7b"
             }
           },
@@ -321,7 +327,7 @@
             "value": "в гости к Николаю Николаевичу",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "CANON_ELIGIBLE",
+            "acceptance": "FINAL_CANON_CANDIDATE",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -340,6 +346,12 @@
               "mode": "CHARACTER_BELIEF",
               "canon_eligible": true,
               "reason": "Фраза является мыслью персонажа, а не прямой речью.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст подтверждают, что Фима Королев просил в гости к Николаю Николаевичу.",
+              "error_type": "NONE",
               "model": "qwen2.5:7b"
             }
           }
@@ -361,7 +373,7 @@
             "value": "свободное время",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "CANON_ELIGIBLE",
+            "acceptance": "FINAL_CANON_CANDIDATE",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -380,6 +392,12 @@
               "mode": "NARRATOR_FACT",
               "canon_eligible": true,
               "reason": "Рассказчик сообщает о факте: Коля проснулся и увидел записку, что подразумевает наличие свободного времени.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата подтверждает, что Коля проснулся и увидел записку с просьбой сходить за кефиром и рубль, что указывает на наличие свободного времени.",
+              "error_type": "NONE",
               "model": "qwen2.5:7b"
             }
           }
@@ -495,7 +513,7 @@
             "value": "старинный кремнёвый пистолет",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "CANON_ELIGIBLE",
+            "acceptance": "FINAL_CANON_CANDIDATE",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -514,6 +532,12 @@
               "mode": "NARRATOR_FACT",
               "canon_eligible": true,
               "reason": "Рассказчик сообщает о действии персонажа, подтверждающем наличие у него пистолета.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата подтверждает, что у Коля есть старинный кремнёвый пистолет, что соответствует предикату.",
+              "error_type": "NONE",
               "model": "qwen2.5:7b"
             }
           }

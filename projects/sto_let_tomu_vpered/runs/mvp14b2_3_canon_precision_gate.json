@@ -1,0 +1,13 @@
+{
+  "stage": "MVP-14B2_3_CANON_PRECISION_GATE",
+  "result": "PASS",
+  "files_checked": 3,
+  "claims_checked": 9,
+  "final_canon_candidates": 7,
+  "review": 0,
+  "rejected": 2,
+  "error_types": {
+    "NONE": 9
+  },
+  "model": "qwen2.5:7b"
+}

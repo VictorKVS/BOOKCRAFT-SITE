@@ -18,7 +18,7 @@
             "value": "двадцать лет назад",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "CANON_ELIGIBLE",
+            "acceptance": "REJECTED_BY_PRECISION_GATE",
             "evidence": [
               {
                 "chunk_id": "primary-0003",
@@ -38,6 +38,12 @@
               "canon_eligible": true,
               "reason": "Рассказчик сообщает факт о пропаже Коли двадцать лет назад.",
               "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REJECT",
+              "reason": "Цитата подтверждает, что Коля пропал двадцать лет назад.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
             }
           },
           {
@@ -46,7 +52,7 @@
             "value": "на лестнице",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "CANON_ELIGIBLE",
+            "acceptance": "FINAL_CANON_CANDIDATE",
             "evidence": [
               {
                 "chunk_id": "primary-0003",
@@ -65,6 +71,12 @@
               "mode": "NARRATOR_FACT",
               "canon_eligible": true,
               "reason": "Рассказчик сообщает о факте, который происходит в мире рассказа.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата подтверждает, что Коля встретил уборщика на лестнице, что соответствует заданному предикату.",
+              "error_type": "NONE",
               "model": "qwen2.5:7b"
             }
           }
