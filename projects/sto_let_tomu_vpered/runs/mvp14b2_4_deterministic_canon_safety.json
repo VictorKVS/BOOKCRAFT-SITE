@@ -3,11 +3,13 @@
   "result": "PASS",
   "candidate_claims": 9,
   "claims_checked": 9,
-  "safe_canon_candidates": 7,
+  "safe_canon_candidates": 4,
   "review": 0,
-  "rejected": 2,
+  "rejected": 5,
   "error_types": {
-    "NONE": 7,
+    "RELATIONSHIP_OVERREACH": 1,
+    "NONE": 4,
+    "PREDICATE_OVERREACH": 2,
     "NARRATIVE_MODE": 1,
     "IDENTITY_OVERREACH": 1
   }

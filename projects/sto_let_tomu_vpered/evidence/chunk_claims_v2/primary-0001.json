@@ -145,7 +145,7 @@
             "value": "друзя по имени Фима",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SAFE_CANON_CANDIDATE",
+            "acceptance": "REJECTED_BY_DETERMINISTIC_SAFETY",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -173,9 +173,9 @@
               "model": "qwen2.5:7b"
             },
             "deterministic_safety": {
-              "verdict": "PASS",
-              "error_type": "NONE",
-              "reason": "Детерминированных блокирующих признаков не найдено."
+              "verdict": "REJECT",
+              "error_type": "RELATIONSHIP_OVERREACH",
+              "reason": "Claim вводит отношение 'друг', которого нет в доказательной цитате."
             }
           },
           {
@@ -383,7 +383,7 @@
             "value": "свободное время",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SAFE_CANON_CANDIDATE",
+            "acceptance": "REJECTED_BY_DETERMINISTIC_SAFETY",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -411,9 +411,9 @@
               "model": "qwen2.5:7b"
             },
             "deterministic_safety": {
-              "verdict": "PASS",
-              "error_type": "NONE",
-              "reason": "Детерминированных блокирующих признаков не найдено."
+              "verdict": "REJECT",
+              "error_type": "PREDICATE_OVERREACH",
+              "reason": "Доказательная цитата показывает доступ/использование, но не подтверждает владение."
             }
           }
         ]
@@ -528,7 +528,7 @@
             "value": "старинный кремнёвый пистолет",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SAFE_CANON_CANDIDATE",
+            "acceptance": "REJECTED_BY_DETERMINISTIC_SAFETY",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -556,9 +556,9 @@
               "model": "qwen2.5:7b"
             },
             "deterministic_safety": {
-              "verdict": "PASS",
-              "error_type": "NONE",
-              "reason": "Детерминированных блокирующих признаков не найдено."
+              "verdict": "REJECT",
+              "error_type": "PREDICATE_OVERREACH",
+              "reason": "Доказательная цитата показывает доступ/использование, но не подтверждает владение."
             }
           }
         ]
