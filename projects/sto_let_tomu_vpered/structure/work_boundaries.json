@@ -1,0 +1,23 @@
+[
+  {
+    "work_id": "sto_let_tomu_vpered",
+    "title": "Сто лет тому вперед (Гостья из будущего)",
+    "start_paragraph": 0,
+    "end_paragraph": 3976,
+    "paragraph_count": 3977,
+    "status": "PRIMARY_SELECTED",
+    "boundary_evidence": {
+      "next_work_paragraph": 3977,
+      "next_work_title": "Пленники астероида",
+      "next_work_style": "Heading2"
+    }
+  },
+  {
+    "work_id": "plenniki_asteroida",
+    "title": "Пленники астероида",
+    "start_paragraph": 3977,
+    "end_paragraph": 5062,
+    "paragraph_count": 1086,
+    "status": "DETECTED_NOT_SELECTED"
+  }
+]
