@@ -1,0 +1,27 @@
+{
+  "project_id": "example-project",
+  "title": "Example Project",
+  "project_type": "SINGLE_BOOK",
+  "language": "ru",
+  "status": "CREATED",
+  "created_at": null,
+  "updated_at": null,
+  "source_files": [],
+  "structure": {
+    "volumes": 0,
+    "parts": 0,
+    "chapters": 0,
+    "scenes": 0
+  },
+  "models": {
+    "analyst": "qwen2.5:7b",
+    "writer": "qwen2.5:7b",
+    "semantic_critic": "qwen2.5:7b"
+  },
+  "settings": {
+    "evidence_required": true,
+    "strict_character_knowledge": true,
+    "strict_canon": true,
+    "allow_branching": true
+  }
+}
