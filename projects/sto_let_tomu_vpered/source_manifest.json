@@ -12,7 +12,8 @@
     "paragraph_count": 5063,
     "chapter_count": 39,
     "chunk_count": 79,
-    "generated_at_utc": "2026-11-06T18:15:03.747469+00:00"
+    "structure_candidate_count": 35,
+    "generated_at_utc": "2026-11-06T19:52:24.509766+00:00"
   },
   "status": "SOURCE_INGEST_PASS"
 }
