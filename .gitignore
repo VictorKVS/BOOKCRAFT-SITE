@@ -6,3 +6,7 @@ dist/
 *.log
 .DS_Store
 Thumbs.db
+
+# Local book/source files: keep analysis artifacts in Git, not copyrighted source binaries/text
+projects/*/sources/*
+!projects/*/sources/.gitkeep
