@@ -135,7 +135,7 @@ class IngestValidator:
 
     @staticmethod
     def _source_sentences(source_text: str) -> List[str]:
-        parts = re.split(r"(?<=[.!?])\\s+", IngestValidator._norm(source_text))
+        parts = re.split(r"(?<=[.!?])\s+", IngestValidator._norm(source_text))
         return [p.strip() for p in parts if p.strip()]
 
     @staticmethod
@@ -201,6 +201,7 @@ class IngestValidator:
             issues.append("NO_EVENTS")
 
         source_norm = self._norm(source_text)
+        source_norm_lower = source_norm.lower()
         evidence_items = []
         for item in state.get("locations", []):
             evidence_items.append(item.get("evidence", ""))
@@ -212,7 +213,7 @@ class IngestValidator:
         unsupported = []
         for evidence in evidence_items:
             e = self._norm(evidence)
-            if e and e not in source_norm:
+            if e and e.lower() not in source_norm_lower:
                 unsupported.append(e)
 
         if unsupported:
