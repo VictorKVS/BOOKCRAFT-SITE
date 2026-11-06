@@ -15,7 +15,7 @@ REPORTS = PROJECT / "reports"
 RUNS = PROJECT / "runs"
 
 RELATION_WORDS = {
-    "друг": ("друг", "друж"),
+    "друг": ("друг", "друж", "друз"),
     "подруга": ("подруг", "друж"),
     "брат": ("брат",),
     "сестра": ("сестр",),
@@ -124,13 +124,14 @@ def deterministic_verdict(subject: str, claim: dict[str,Any], context: str) -> t
             )
 
     # 4. Ownership overreach.
+    # Ownership must be explicit in the evidence itself. Access/use/taking is insufficient.
     if predicate in {"имеет","владеет","принадлежит"}:
-        possession_stems=("имеет","владе","принадлеж","его ","ее ","свой ")
-        if not contains_any(ctx,possession_stems):
+        possession_stems=("имеет","владе","принадлеж","его собствен", "ее собствен", "свой собствен")
+        if not contains_any(quote,possession_stems):
             return (
-                "REVIEW",
+                "REJECT",
                 "PREDICATE_OVERREACH",
-                "Контекст показывает доступ/использование, но не доказывает владение."
+                "Доказательная цитата показывает доступ/использование, но не подтверждает владение."
             )
 
     return ("PASS","NONE","Детерминированных блокирующих признаков не найдено.")
