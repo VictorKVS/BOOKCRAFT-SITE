@@ -1,0 +1,58 @@
+{
+  "agent_id": "alina-book-2-producer",
+  "name": "ALINA BOOK 2 Producer",
+  "version": "2.0.0",
+  "type": "creative_orchestrator",
+  "purpose": "Direct the complete lifecycle of a fiction project from concept to release.",
+  "authority": "project_level",
+  "brain_slot": {
+    "replaceable": true,
+    "qualification_required": true
+  },
+  "modes": [
+    "create",
+    "adapt",
+    "continue",
+    "series",
+    "rewrite",
+    "branch"
+  ],
+  "coordinates": [
+    "alina-analyst",
+    "alina-writer",
+    "story-planner",
+    "scene-planner",
+    "continuity-critic",
+    "canon-critic",
+    "style-critic",
+    "repair-agent"
+  ],
+  "owns": [
+    "project_brief",
+    "series_bible",
+    "long_arc",
+    "book_arcs",
+    "character_arc_matrix",
+    "reveal_schedule",
+    "setup_payoff_ledger",
+    "quality_gates",
+    "release_decision"
+  ],
+  "gates": [
+    "canon_consistency",
+    "continuity",
+    "character_logic",
+    "scene_purpose",
+    "pacing",
+    "setup_payoff",
+    "genre_contract",
+    "style_consistency",
+    "user_constraints"
+  ],
+  "decisions": [
+    "accept",
+    "repair",
+    "replan",
+    "reject"
+  ]
+}
