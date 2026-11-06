@@ -1,0 +1,48 @@
+{
+  "agent_id": "alina-writer",
+  "name": "ALINA WRITER",
+  "version": "0.1.0",
+  "type": "creative_specialist",
+  "separate_from": "alina-analyst",
+  "purpose": "Create, continue, alter and expand fictional narratives from structured narrative state.",
+  "modes": [
+    "continue",
+    "alter",
+    "series"
+  ],
+  "brain_slot": {
+    "policy": "replaceable",
+    "qualification_required": true
+  },
+  "requires": [
+    "narrative_state",
+    "canon_registry",
+    "character_states",
+    "timeline",
+    "plot_threads",
+    "style_profile"
+  ],
+  "roles": [
+    "story_planner",
+    "scene_planner",
+    "draft_writer",
+    "dialogue_specialist",
+    "continuity_critic",
+    "canon_critic",
+    "style_critic",
+    "repair_agent"
+  ],
+  "gates": [
+    "canon_consistency",
+    "continuity",
+    "character_consistency",
+    "style_constraints",
+    "scene_objective_complete"
+  ],
+  "outputs": [
+    "prose",
+    "state_delta",
+    "continuity_report",
+    "canon_report"
+  ]
+}
