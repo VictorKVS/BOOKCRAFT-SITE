@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "pipeline": [
     "INGEST",
     "STRUCTURE",
@@ -7,6 +7,8 @@
     "CHARACTER_BIBLE",
     "WORLD_BIBLE",
     "KNOWLEDGE_STATE",
+    "BOOK_GLOSSARY",
+    "CULTURAL_EMBODIMENTS",
     "CULTURAL_CANON_LOCKS",
     "VISUAL_BIBLE",
     "CONTRADICTION_CHECK",
@@ -32,11 +34,25 @@
     "world_bible",
     "visual_bible",
     "forbidden_contradictions",
-    "canon_acceptance"
+    "canon_acceptance",
+    "book_glossary",
+    "cultural_embodiments_registry"
   ],
   "cultural_canon_policy": {
     "may_override_visual_adaptation": true,
     "may_rewrite_literal_source_facts": false,
     "must_keep_provenance": true
+  },
+  "glossary_policy": {
+    "source_first": true,
+    "external_knowledge_requires_separate_provenance": true,
+    "must_keep_evidence": true,
+    "allow_unresolved_terms": true
+  },
+  "cultural_embodiments_policy": {
+    "separate_from_literary_canon": true,
+    "user_selects_locked_reference": true,
+    "may_inform_visual_identity": true,
+    "may_not_rewrite_source_facts": true
   }
 }
