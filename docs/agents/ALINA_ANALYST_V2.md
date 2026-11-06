@@ -15,7 +15,7 @@ ALINA ANALYST v2
   ↓
 NARRATIVE STATE
   ↓
-PRODUCER / WRITER / CRITICS
+PRODUCER / WRITER / COMIC PRODUCER / CRITICS
 ```
 
 ## Core responsibility
@@ -43,9 +43,13 @@ The Analyst owns understanding of:
 - world rules;
 - contradictions;
 - uncertainty;
-- source evidence.
+- source evidence;
+- literary canon;
+- visual canon;
+- cultural-recognition canon;
+- adaptation constraints.
 
-## Principle
+## Truth and provenance principle
 
 ```text
 GROUND TRUTH
@@ -54,9 +58,20 @@ GROUND TRUTH
 ≠ CHARACTER BELIEF
 ≠ CHARACTER LIE
 ≠ ANALYST HYPOTHESIS
+≠ CULTURAL VISUAL CANON
 ```
 
-These layers must never be silently merged.
+Every extracted or locked fact must carry provenance:
+
+```text
+SOURCE_CANON
+USER_LOCKED_CANON
+USER_LOCKED_CULTURAL_CANON
+DERIVED
+HYPOTHESIS
+```
+
+A cultural visual lock must never be silently presented as a literal fact from the source text.
 
 ## Analysis pipeline
 
@@ -65,25 +80,55 @@ SOURCE INGESTION
    ↓
 STRUCTURAL SEGMENTATION
    ↓
-ENTITY EXTRACTION
-   ↓
-EVENT EXTRACTION
-   ↓
-RELATION EXTRACTION
+ENTITY / EVENT / RELATION EXTRACTION
    ↓
 CHARACTER STATE EXTRACTION
    ↓
 BELIEF / KNOWLEDGE / SECRET MODEL
    ↓
-TIMELINE
+TIMELINE + CAUSE / CONSEQUENCE GRAPH
    ↓
-CAUSE / CONSEQUENCE GRAPH
+LITERARY CANON EXTRACTION
    ↓
-PLOT THREADS
+WORLD BIBLE
+   ↓
+CHARACTER BIBLE
+   ↓
+USER / CULTURAL CANON LOCKS
+   ↓
+VISUAL BIBLE
+   ↓
+ADAPTATION CONSTRAINTS
    ↓
 CONTRADICTION CHECK
    ↓
+CANON ACCEPTANCE
+   ↓
 NARRATIVE STATE
+```
+
+Creative generation is blocked until CANON ACCEPTANCE has completed.
+
+## Canon acceptance gate
+
+Before a continuation, illustration or comic adaptation may be generated, the Analyst must provide:
+
+1. source-grounded literary canon;
+2. character bible;
+3. world bible;
+4. knowledge-state boundaries;
+5. visual bible;
+6. user-locked cultural canon, if any;
+7. forbidden contradictions;
+8. unresolved uncertainties;
+9. evidence/provenance for every locked item.
+
+Gate result:
+
+```text
+PASS
+CONDITIONAL
+REJECT
 ```
 
 ## Output
@@ -94,13 +139,17 @@ Main outputs:
 
 - canon registry;
 - character registry;
+- character bible;
+- visual character bible;
 - character state ledger;
 - event graph;
 - timeline;
 - relation graph;
 - plot-thread graph;
-- world-rule registry;
+- world bible / world-rule registry;
 - knowledge/belief graph;
+- cultural-canon registry;
+- adaptation constraints;
 - contradiction report;
 - unresolved-question registry;
 - source evidence.
@@ -110,6 +159,9 @@ Main outputs:
 ### INGEST
 Initial decomposition of a full work.
 
+### CANONIZE
+Build literary canon, character/world bibles, cultural locks and visual locks before creative work.
+
 ### UPDATE
 Apply a newly approved scene or chapter and update state.
 
@@ -117,7 +169,7 @@ Apply a newly approved scene or chapter and update state.
 Check a claim, scene, proposed change or continuation against canon.
 
 ### COMPARE
-Compare two versions or branches.
+Compare two versions, branches or an adaptation against source canon.
 
 ### EXPLAIN
 Produce evidence-linked explanation of motives, causes, state or contradictions.
@@ -142,17 +194,21 @@ UNKNOWN
 
 must be preserved.
 
-## Relationship with Producer and Writer
+## Relationship with Producer, Writer and Comic Producer
 
 ```text
 ANALYST
-  tells what is true / known / uncertain
+  tells what is true / known / uncertain / visually locked
 
 PRODUCER
   decides what should happen next
 
 WRITER
   decides how it is expressed in prose
+
+COMIC PRODUCER
+  adapts accepted narrative meaning into pages and panels
+  without violating literary or visual canon
 ```
 
 ## Non-goals
@@ -163,4 +219,5 @@ The Analyst must not:
 - rewrite scenes for style;
 - resolve ambiguity just to simplify the graph;
 - override user-locked canon;
+- merge film/TV/pop-cultural appearance into literary canon without provenance;
 - treat narrator statements as automatically objective truth in unreliable-narrator works.
