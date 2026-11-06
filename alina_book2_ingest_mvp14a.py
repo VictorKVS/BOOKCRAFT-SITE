@@ -25,22 +25,30 @@ def sha256_file(path: Path) -> str:
     return h.hexdigest()
 
 
-def extract_docx_paragraphs(path: Path) -> list[str]:
+def extract_docx_paragraphs(path: Path) -> list[dict]:
     with zipfile.ZipFile(path) as zf:
         xml = zf.read("word/document.xml")
     root = ET.fromstring(xml)
-    paragraphs: list[str] = []
+    paragraphs: list[dict] = []
     for p in root.iter(W_NS + "p"):
         text = "".join((t.text or "") for t in p.iter(W_NS + "t")).strip()
-        if text:
-            paragraphs.append(text)
+        if not text:
+            continue
+        style = None
+        ppr = p.find(W_NS + "pPr")
+        if ppr is not None:
+            pstyle = ppr.find(W_NS + "pStyle")
+            if pstyle is not None:
+                style = pstyle.attrib.get(W_NS + "val")
+        paragraphs.append({"text": text, "style": style})
     return paragraphs
 
 
-def detect_chapters(paragraphs: list[str]) -> list[dict]:
+def detect_chapters(paragraphs: list[dict]) -> list[dict]:
     chapters: list[dict] = []
     current = None
-    for idx, text in enumerate(paragraphs):
+    for idx, item in enumerate(paragraphs):
+        text = item["text"]
         normalized = " ".join(text.split())
         is_part = normalized.lower().startswith("часть ")
         is_chapter = bool(CHAPTER_RE.match(normalized))
@@ -63,7 +71,30 @@ def detect_chapters(paragraphs: list[str]) -> list[dict]:
     return chapters
 
 
-def build_chunks(paragraphs: list[str], target_chars: int = 7000) -> list[dict]:
+def detect_structure_candidates(paragraphs: list[dict], chapters: list[dict]) -> list[dict]:
+    candidates = []
+    chapter_starts = {c["start_paragraph"] for c in chapters}
+    for idx, item in enumerate(paragraphs):
+        text = " ".join(item["text"].split())
+        style = (item.get("style") or "").casefold()
+        short = len(text) <= 120
+        heading_style = any(k in style for k in ("heading", "title", "заголов"))
+        looks_title = short and (
+            heading_style
+            or text.casefold().startswith(("часть ", "книга ", "повесть ", "рассказ "))
+            or (text.isupper() and len(text) >= 4)
+        )
+        if looks_title and idx not in chapter_starts:
+            candidates.append({
+                "paragraph": idx,
+                "text": text,
+                "style": item.get("style"),
+                "reason": "heading_style_or_title_pattern"
+            })
+    return candidates
+
+
+def build_chunks(paragraphs: list[dict], target_chars: int = 7000) -> list[dict]:
     chunks: list[dict] = []
     buf: list[str] = []
     start = 0
@@ -84,7 +115,8 @@ def build_chunks(paragraphs: list[str], target_chars: int = 7000) -> list[dict]:
         buf = []
         chars = 0
 
-    for idx, p in enumerate(paragraphs):
+    for idx, item in enumerate(paragraphs):
+        p = item["text"]
         if not buf:
             start = idx
         projected = chars + len(p) + 2
@@ -128,6 +160,9 @@ def main() -> int:
         return 1
     print(f"PASS chapters_detected: {len(chapters)}")
 
+    structure_candidates = detect_structure_candidates(paragraphs, chapters)
+    print(f"PASS structure_candidates_detected: {len(structure_candidates)}")
+
     chunks = build_chunks(paragraphs)
     print(f"PASS analysis_chunks_built: {len(chunks)}")
 
@@ -152,6 +187,7 @@ def main() -> int:
             "paragraph_count": len(paragraphs),
             "chapter_count": len(chapters),
             "chunk_count": len(chunks),
+            "structure_candidate_count": len(structure_candidates),
             "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         },
         "status": "SOURCE_INGEST_PASS",
@@ -163,10 +199,13 @@ def main() -> int:
     (structure_dir / "chapters.json").write_text(
         json.dumps(chapters, ensure_ascii=False, indent=2), encoding="utf-8"
     )
+    (structure_dir / "structure_candidates.json").write_text(
+        json.dumps(structure_candidates, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
 
     # Full extracted source text stays local and ignored by Git.
     (source_dir / "source_extracted.txt").write_text(
-        "\n\n".join(paragraphs), encoding="utf-8"
+        "\n\n".join(p["text"] for p in paragraphs), encoding="utf-8"
     )
 
     # Chunks also contain source text and stay local under sources/.
@@ -190,6 +229,7 @@ def main() -> int:
         "paragraph_count": len(paragraphs),
         "chapter_count": len(chapters),
         "chunk_count": len(chunks),
+        "structure_candidate_count": len(structure_candidates),
     }
     (runs_dir / "mvp14a_source_ingest.json").write_text(
         json.dumps(run_report, ensure_ascii=False, indent=2), encoding="utf-8"
@@ -197,6 +237,7 @@ def main() -> int:
 
     print("PASS source_manifest_written")
     print("PASS chapter_structure_written")
+    print("PASS structure_candidates_written")
     print("PASS chunk_index_written")
     print("PASS local_source_text_written")
     print("=== ALINA BOOK 2 MVP-14A SOURCE INGEST: PASS ===")
