@@ -18,7 +18,7 @@
             "value": "двадцать лет назад",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED_ENTAILED",
+            "acceptance": "BLOCKED_BY_NARRATIVE_MODE",
             "evidence": [
               {
                 "chunk_id": "primary-0003",
@@ -32,6 +32,12 @@
               "verdict": "SUPPORTED",
               "reason": "Цитата прямо утверждает, что Коля пропал двадцать лет назад.",
               "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_BELIEF",
+              "canon_eligible": false,
+              "reason": "персонаж предполагает, что его сын пропал, но это не подтверждённый факт",
+              "model": "qwen2.5:7b"
             }
           },
           {
@@ -40,7 +46,7 @@
             "value": "на лестнице",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED_ENTAILED",
+            "acceptance": "BLOCKED_BY_NARRATIVE_MODE",
             "evidence": [
               {
                 "chunk_id": "primary-0003",
@@ -53,6 +59,12 @@
             "entailment": {
               "verdict": "SUPPORTED",
               "reason": "Цитата описывает человека, поднимающегося по лестнице, что подтверждает, что Коля встретил уборщика на лестнице.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_BELIEF",
+              "canon_eligible": false,
+              "reason": "Коля думает, что видит странное существо, но это его предположение.",
               "model": "qwen2.5:7b"
             }
           }
@@ -99,7 +111,7 @@
           "value": "персонаж, который спал двадцать лет и проснулся в изменившемся мире",
           "provenance": "SOURCE_CANON",
           "confidence": "CONFIRMED",
-          "acceptance": "SUPPORTED_ENTAILED",
+          "acceptance": "BLOCKED_BY_NARRATIVE_MODE",
           "evidence": [
             {
               "chunk_id": "primary-0003",
@@ -112,6 +124,12 @@
           "entailment": {
             "verdict": "SUPPORTED",
             "reason": "Цитата точно описывает персонажа Рипа Ван Винкля, который спал двадцать лет и проснулся в изменившемся мире.",
+            "model": "qwen2.5:7b"
+          },
+          "narrative_mode": {
+            "mode": "CHARACTER_SPEECH",
+            "canon_eligible": false,
+            "reason": "пересказ рассказа, а не прямое утверждение факта",
             "model": "qwen2.5:7b"
           }
         },

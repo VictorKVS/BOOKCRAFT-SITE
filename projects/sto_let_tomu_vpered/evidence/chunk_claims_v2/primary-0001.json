@@ -145,7 +145,7 @@
             "value": "друзя по имени Фима",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED_ENTAILED",
+            "acceptance": "CANON_ELIGIBLE",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -158,6 +158,12 @@
             "entailment": {
               "verdict": "SUPPORTED",
               "reason": "Цитата упоминает Фиму Королева, друга Коли, что подтверждает наличие у Коли друга по имени Фима.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Фраза является прямой речью персонажа, описывающей его мысли и действия.",
               "model": "qwen2.5:7b"
             }
           },
@@ -315,7 +321,7 @@
             "value": "в гости к Николаю Николаевичу",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED_ENTAILED",
+            "acceptance": "BLOCKED_BY_NARRATIVE_MODE",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -328,6 +334,12 @@
             "entailment": {
               "verdict": "SUPPORTED",
               "reason": "Цитата прямо указывает, что Фима Королев просил в гости к Николаю Николаевичу.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_BELIEF",
+              "canon_eligible": false,
+              "reason": "Фима Королев верит, что просит в гости к Николаю Николаевичу, но это не подтверждается фактом мира.",
               "model": "qwen2.5:7b"
             }
           }
@@ -349,7 +361,7 @@
             "value": "свободное время",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED_ENTAILED",
+            "acceptance": "CANON_ELIGIBLE",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -362,6 +374,12 @@
             "entailment": {
               "verdict": "SUPPORTED",
               "reason": "Цитата показывает, что Коля проснулся и был дома один, что подразумевает наличие свободного времени.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "Рассказчик сообщает о факте, что Коля проснулся и увидел записку.",
               "model": "qwen2.5:7b"
             }
           }
@@ -477,7 +495,7 @@
             "value": "старинный кремнёвый пистолет",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED_ENTAILED",
+            "acceptance": "CANON_ELIGIBLE",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -490,6 +508,12 @@
             "entailment": {
               "verdict": "SUPPORTED",
               "reason": "Цитата показывает, что Коля взял пистолет, что подтверждает, что у него есть старинный кремнёвый пистолет.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает о факте, который происходит в мире повествования",
               "model": "qwen2.5:7b"
             }
           }

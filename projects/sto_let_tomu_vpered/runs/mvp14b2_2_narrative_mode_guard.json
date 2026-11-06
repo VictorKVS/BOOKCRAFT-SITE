@@ -1,0 +1,10 @@
+{
+  "stage": "MVP-14B2_2_NARRATIVE_MODE_GUARD",
+  "result": "PASS",
+  "files_checked": 3,
+  "claims_checked": 0,
+  "canon_eligible": 0,
+  "blocked_by_narrative_mode": 0,
+  "modes": {},
+  "model": "qwen2.5:7b"
+}

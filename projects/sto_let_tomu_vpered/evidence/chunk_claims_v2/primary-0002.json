@@ -18,7 +18,7 @@
             "value": "это вещи приезжих друзей Николая Николаевича",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED_ENTAILED",
+            "acceptance": "BLOCKED_BY_NARRATIVE_MODE",
             "evidence": [
               {
                 "chunk_id": "primary-0002",
@@ -31,6 +31,12 @@
             "entailment": {
               "verdict": "SUPPORTED",
               "reason": "Цитата прямо подтверждает, что Коля предполагает, что вещи принадлежат приезжим друзьям Николая Николаевича.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_BELIEF",
+              "canon_eligible": false,
+              "reason": "Коля думает, что это вещи приезжих друзей Николая Николаевича, это его убеждение.",
               "model": "qwen2.5:7b"
             }
           },
@@ -115,7 +121,7 @@
             "value": "систему переключателей и кнопок",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED_ENTAILED",
+            "acceptance": "CANON_ELIGIBLE",
             "evidence": [
               {
                 "chunk_id": "primary-0002",
@@ -128,6 +134,12 @@
             "entailment": {
               "verdict": "SUPPORTED",
               "reason": "Цитата описывает приборную панель, содержащую ряды кнопок и переключателей, что соответствует утверждению о том, что она представляет собой систему переключателей и кнопок.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик описывает фактическую структуру приборной панели",
               "model": "qwen2.5:7b"
             }
           }
@@ -176,7 +188,7 @@
             "value": "переключатели и кнопки",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED_ENTAILED",
+            "acceptance": "CANON_ELIGIBLE",
             "evidence": [
               {
                 "chunk_id": "primary-0002",
@@ -189,6 +201,12 @@
             "entailment": {
               "verdict": "SUPPORTED",
               "reason": "Цитата показывает, что Коля рассматривает панель, что соответствует действию исследования переключателей и кнопок.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик описывает фактическое действие и видимые элементы приборной панели",
               "model": "qwen2.5:7b"
             }
           }
