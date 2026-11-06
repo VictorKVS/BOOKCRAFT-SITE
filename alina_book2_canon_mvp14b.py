@@ -23,6 +23,9 @@ RUNS = PROJECT / "runs"
 MODEL = os.environ.get("ALINA_CANON_MODEL", "qwen2.5:7b")
 OLLAMA = os.environ.get("OLLAMA_URL", "http://127.0.0.1:11434")
 MAX_CHUNKS = int(os.environ.get("ALINA_MAX_CHUNKS", "0"))
+THERMAL_PAUSE_C = int(os.environ.get("ALINA_THERMAL_PAUSE_C", "90"))
+THERMAL_RESUME_C = int(os.environ.get("ALINA_THERMAL_RESUME_C", "75"))
+THERMAL_POLL_SEC = int(os.environ.get("ALINA_THERMAL_POLL_SEC", "10"))
 
 
 SYSTEM = """You are ALINA Analyst. Extract canon only from the provided source chunk.
@@ -73,6 +76,40 @@ def call_ollama(prompt: str) -> Dict[str, Any]:
     return json.loads(content)
 
 
+def gpu_temperature_c() -> int | None:
+    import subprocess
+    try:
+        p = subprocess.run(
+            ["nvidia-smi", "--query-gpu=temperature.gpu", "--format=csv,noheader,nounits"],
+            capture_output=True, text=True, timeout=5, check=True
+        )
+        first = p.stdout.strip().splitlines()[0].strip()
+        return int(first)
+    except Exception:
+        return None
+
+
+def thermal_gate(chunk_id: str) -> None:
+    temp = gpu_temperature_c()
+    if temp is None:
+        print(f"THERMAL {chunk_id}: nvidia-smi unavailable; continuing without gate")
+        return
+    print(f"THERMAL {chunk_id}: {temp}C")
+    if temp < THERMAL_PAUSE_C:
+        return
+    print(f"THERMAL_GATE: PAUSE at {temp}C; resume <= {THERMAL_RESUME_C}C")
+    while True:
+        time.sleep(THERMAL_POLL_SEC)
+        temp = gpu_temperature_c()
+        if temp is None:
+            print("THERMAL_GATE: sensor unavailable during cooldown; continuing")
+            return
+        print(f"THERMAL_COOLDOWN: {temp}C")
+        if temp <= THERMAL_RESUME_C:
+            print(f"THERMAL_GATE: RESUME at {temp}C")
+            return
+
+
 def normalize_name(s: str) -> str:
     return " ".join((s or "").split()).strip()
 
@@ -115,6 +152,7 @@ def main() -> int:
         return 1
     print(f"PASS ollama_available: {OLLAMA}")
     print(f"MODEL: {MODEL}")
+    print(f"THERMAL POLICY: pause >= {THERMAL_PAUSE_C}C, resume <= {THERMAL_RESUME_C}C")
 
     chunk_index_path = STRUCTURE / "chunk_index.json"
     if not chunk_index_path.exists():
@@ -147,6 +185,7 @@ def main() -> int:
             data = json.loads(out_path.read_text(encoding="utf-8"))
             print(f"[{i}/{len(index)}] REUSE {chunk_id}")
         else:
+            thermal_gate(chunk_id)
             text = chunk_path.read_text(encoding="utf-8")
             prompt = f"""SOURCE CHUNK ID: {chunk_id}
 PARAGRAPHS: {meta['start_paragraph']}..{meta['end_paragraph']}
