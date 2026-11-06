@@ -29,12 +29,12 @@ function Invoke-AlinaStage {
 }
 
 Write-Host "=== ALINA BOOK 2 / FULL TRUSTED ANALYTICAL PIPELINE ===" -ForegroundColor Cyan
-Write-Host "WORK: Сто лет тому вперед (Гостья из будущего)"
+Write-Host "WORK_ID: sto_let_tomu_vpered"
 Write-Host "EXPECTED PRIMARY CHUNKS: 61"
 Write-Host "THERMAL: pause >= $env:ALINA_THERMAL_PAUSE_C C; resume <= $env:ALINA_THERMAL_RESUME_C C"
 
 # ---------------------------------------------------------------------
-# PHASE A — CLAIM EXTRACTION AND CANON SAFETY
+# PHASE A - CLAIM EXTRACTION AND CANON SAFETY
 # ---------------------------------------------------------------------
 Invoke-AlinaStage "MVP-14B2 CLAIM EXTRACTION" ".\alina_book2_claims_mvp14b2.py"
 Invoke-AlinaStage "MVP-14B2.1 EVIDENCE ENTAILMENT CRITIC" ".\alina_book2_evidence_critic_mvp14b21.py"
@@ -44,24 +44,24 @@ Invoke-AlinaStage "MVP-14B2.4 DETERMINISTIC CANON SAFETY" ".\alina_book2_determi
 Invoke-AlinaStage "MVP-14B2.5 CANON ADMISSION" ".\alina_book2_canon_admission_mvp14b25.py"
 
 # ---------------------------------------------------------------------
-# PHASE B — TRUSTED STORES AND GRAPH
+# PHASE B - TRUSTED STORES AND GRAPH
 # ---------------------------------------------------------------------
 Invoke-AlinaStage "MVP-14B2.6 CANON STORE" ".\alina_book2_canon_store_mvp14b26.py"
 Invoke-AlinaStage "MVP-14B2.7 ENTITY REGISTRY" ".\alina_book2_entity_registry_mvp14b27.py"
-Invoke-AlinaStage "MVP-14B2.8 RELATION & EVENT STORE" ".\alina_book2_relation_event_store_mvp14b28.py"
+Invoke-AlinaStage "MVP-14B2.8 RELATION AND EVENT STORE" ".\alina_book2_relation_event_store_mvp14b28.py"
 Invoke-AlinaStage "MVP-14B2.9 KNOWLEDGE GRAPH ASSEMBLY" ".\alina_book2_knowledge_graph_mvp14b29.py"
 
 # ---------------------------------------------------------------------
-# PHASE C — ANALYTICAL REASONING
+# PHASE C - ANALYTICAL REASONING
 # ---------------------------------------------------------------------
 Invoke-AlinaStage "MVP-14B3 CONTRADICTION ENGINE" ".\alina_book2_contradiction_engine_mvp14b3.py"
 Invoke-AlinaStage "MVP-14B4 TEMPORAL MODEL" ".\alina_book2_temporal_model_mvp14b4.py"
 Invoke-AlinaStage "MVP-14B5 STATE ENGINE" ".\alina_book2_state_engine_mvp14b5.py"
-Invoke-AlinaStage "MVP-14B6 STATE TRANSITION & CAUSAL LAYER" ".\alina_book2_state_transition_causal_mvp14b6.py"
+Invoke-AlinaStage "MVP-14B6 STATE TRANSITION AND CAUSAL LAYER" ".\alina_book2_state_transition_causal_mvp14b6.py"
 Invoke-AlinaStage "MVP-14B7 HYPOTHESIS ENGINE" ".\alina_book2_hypothesis_engine_mvp14b7.py"
 Invoke-AlinaStage "MVP-14B8 PREDICTION ENGINE" ".\alina_book2_prediction_engine_mvp14b8.py"
 Invoke-AlinaStage "MVP-14B9 BACKTESTING ENGINE" ".\alina_book2_backtesting_engine_mvp14b9.py"
-Invoke-AlinaStage "MVP-14B10 LEARNING & CALIBRATION" ".\alina_book2_learning_calibration_mvp14b10.py"
+Invoke-AlinaStage "MVP-14B10 LEARNING AND CALIBRATION" ".\alina_book2_learning_calibration_mvp14b10.py"
 Invoke-AlinaStage "MVP-14B11 QUALITY SCORECARD" ".\alina_book2_quality_scorecard_mvp14b11.py"
 
 # ---------------------------------------------------------------------
