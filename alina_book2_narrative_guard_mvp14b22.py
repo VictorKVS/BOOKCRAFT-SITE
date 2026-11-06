@@ -103,6 +103,7 @@ def main() -> int:
         return 1
 
     checked=eligible=blocked=0
+    candidate_claims=0
     modes={}
 
     for i,path in enumerate(files,1):
@@ -111,8 +112,10 @@ def main() -> int:
         print(f"[{i}/{len(files)}] NARRATIVE {path.stem}")
 
         for scope,subject,claim in iter_claims(validated):
-            if claim.get("acceptance") != "SUPPORTED_ENTAILED":
+            entailment = claim.get("entailment") or {}
+            if str(entailment.get("verdict","")).upper() != "SUPPORTED":
                 continue
+            candidate_claims += 1
             evs=claim.get("evidence",[])
             if not evs:
                 continue
@@ -122,7 +125,12 @@ def main() -> int:
                 f"SUBJECT: {subject}\n"
                 f"PREDICATE: {claim.get('predicate','')}\n"
                 f"VALUE: {claim.get('value','')}\n"
-                f"QUOTE: {quote}\n"
+                f"ENTAILMENT_REASON: {entailment.get('reason','')}\n"
+                f"QUOTE: {quote}\n\n"
+                "Важно: классифицируй статус САМОГО CLAIM в мире рассказа, "
+                "а не просто грамматическую форму цитаты. "
+                "Если рассказчик сообщает, что персонаж что-то сказал/попросил/увидел, "
+                "сам факт этого действия может быть NARRATOR_FACT."
             )
             result=retry(prompt)
             mode=str(result.get("mode","UNKNOWN")).upper()
@@ -147,9 +155,14 @@ def main() -> int:
     REPORTS.mkdir(parents=True,exist_ok=True)
     RUNS.mkdir(parents=True,exist_ok=True)
 
+    if candidate_claims > 0 and checked == 0:
+        print(f"FAIL zero_claims_checked_with_candidates: {candidate_claims}")
+        return 1
+
     result={
         "stage":"MVP-14B2_2_NARRATIVE_MODE_GUARD",
         "result":"PASS",
+        "candidate_claims":candidate_claims,
         "files_checked":len(files),
         "claims_checked":checked,
         "canon_eligible":eligible,
@@ -164,6 +177,7 @@ def main() -> int:
     lines=[
         "# MVP-14B2.2 Narrative Mode Guard","",
         f"- Files checked: {len(files)}",
+        f"- Candidate claims: {candidate_claims}",
         f"- Claims checked: {checked}",
         f"- CANON_ELIGIBLE: {eligible}",
         f"- BLOCKED_BY_NARRATIVE_MODE: {blocked}","",
@@ -175,6 +189,7 @@ def main() -> int:
         "\n".join(lines),encoding="utf-8"
     )
 
+    print(f"PASS candidate_claims: {candidate_claims}")
     print(f"PASS claims_checked: {checked}")
     print(f"PASS canon_eligible: {eligible}")
     print(f"CHECK blocked_by_narrative_mode: {blocked}")
