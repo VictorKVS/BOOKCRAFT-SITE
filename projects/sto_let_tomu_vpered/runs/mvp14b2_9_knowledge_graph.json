@@ -1,0 +1,18 @@
+{
+  "stage": "MVP-14B2_9_KNOWLEDGE_GRAPH_ASSEMBLY",
+  "result": "PASS",
+  "entity_nodes": 3,
+  "proposition_nodes": 2,
+  "literal_nodes": 1,
+  "event_nodes": 0,
+  "edges": 3,
+  "relation_edges": 3,
+  "event_actor_edges": 0,
+  "invariants": {
+    "no_dangling_edges": true,
+    "edge_ids_unique": true,
+    "verified_evidence_required": true,
+    "beliefs_not_promoted_to_world_state": true,
+    "trusted_stores_only": true
+  }
+}

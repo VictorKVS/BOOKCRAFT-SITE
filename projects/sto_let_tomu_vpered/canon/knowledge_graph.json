@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.0",
+  "work_id": "sto_let_tomu_vpered",
+  "graph_type": "TRUSTED_KNOWLEDGE_GRAPH",
+  "nodes": [
+    {
+      "node_id": "ent-169a1a7674e9bbc9",
+      "node_type": "ENTITY",
+      "entity_type": "CHARACTER",
+      "label": "Фима Королев",
+      "aliases": [],
+      "source_claims": [
+        "primary-0001-c-0014"
+      ]
+    },
+    {
+      "node_id": "ent-2dedc70082320885",
+      "node_type": "ENTITY",
+      "entity_type": "CHARACTER",
+      "label": "Коля",
+      "aliases": [],
+      "source_claims": [
+        "primary-0001-c-0014",
+        "primary-0002-c-0001"
+      ]
+    },
+    {
+      "node_id": "ent-73fc53190cf422dd",
+      "node_type": "ENTITY",
+      "entity_type": "TECHNOLOGY",
+      "label": "приборная панель",
+      "aliases": [],
+      "source_claims": [
+        "primary-0002-c-0005"
+      ]
+    },
+    {
+      "node_id": "lit-59646aa7a4cd8d41",
+      "node_type": "LITERAL",
+      "label": "систему переключателей и кнопок",
+      "truth_scope": "WORLD_STATE",
+      "source_claims": [
+        "primary-0002-c-0005"
+      ]
+    },
+    {
+      "node_id": "prop-55060ae7d5dc73d9",
+      "node_type": "PROPOSITION",
+      "label": "это вещи приезжих друзей Николая Николаевича",
+      "truth_scope": "CHARACTER_BELIEF",
+      "source_claims": [
+        "primary-0002-c-0001"
+      ]
+    },
+    {
+      "node_id": "prop-f9844013d645dc51",
+      "node_type": "PROPOSITION",
+      "label": "в гости к Николаю Николаевичу",
+      "truth_scope": "CHARACTER_BELIEF",
+      "source_claims": [
+        "primary-0001-c-0014"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "rel-401863e48f223192",
+      "edge_type": "RELATION",
+      "source": "ent-169a1a7674e9bbc9",
+      "predicate": "просит",
+      "target": "prop-f9844013d645dc51",
+      "truth_scope": "CHARACTER_BELIEF",
+      "claim_id": "primary-0001-c-0014",
+      "evidence": [
+        {
+          "chunk_id": "primary-0001",
+          "paragraph_start": 20,
+          "paragraph_end": 22,
+          "quote": "Когда Фима Королев из Колиного класса узнал про фрегат, он стал проситься в гости к Николаю Николаевичу, но Коля не спешил вести его в гости.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "edge_id": "rel-55506ba64a48404d",
+      "edge_type": "RELATION",
+      "source": "ent-73fc53190cf422dd",
+      "predicate": "представляет собой",
+      "target": "lit-59646aa7a4cd8d41",
+      "truth_scope": "WORLD_STATE",
+      "claim_id": "primary-0002-c-0005",
+      "evidence": [
+        {
+          "chunk_id": "primary-0002",
+          "paragraph_start": 53,
+          "paragraph_end": 55,
+          "quote": "По её нижней, вытянутой вперёд пологой части шло два ряда кнопок. Чуть повыше был ряд переключателей. Затем ряд циферблатов.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "edge_id": "rel-71ef04df3f7f6d80",
+      "edge_type": "RELATION",
+      "source": "ent-2dedc70082320885",
+      "predicate": "предполагает",
+      "target": "prop-55060ae7d5dc73d9",
+      "truth_scope": "CHARACTER_BELIEF",
+      "claim_id": "primary-0002-c-0001",
+      "evidence": [
+        {
+          "chunk_id": "primary-0002",
+          "paragraph_start": 47,
+          "paragraph_end": 49,
+          "quote": "Следопыт Коля предположил, что это вещи приезжих друзей Николая Николаевича.",
+          "quote_verified": true
+        }
+      ]
+    }
+  ]
+}
