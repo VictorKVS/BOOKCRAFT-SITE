@@ -19,6 +19,10 @@ def main():
 
     result = runner.run_two_scenes("examples/story_mvp04.txt", objectives)
 
+    if not result.get("ok"):
+        print("=== FINAL ACCEPTANCE FAILURE DETAIL ===")
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+
     print("=== SCENE 1 ===")
     print(result.get("scene_1", {}).get("prose", ""))
     print("=== SCENE 2 ===")
