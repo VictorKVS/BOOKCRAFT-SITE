@@ -1,0 +1,4 @@
+{
+  "_comment": "Export a working ComfyUI workflow in API format and replace positive prompt text with {{PROMPT}}. Optionally replace negative prompt with {{NEGATIVE_PROMPT}}.",
+  "_status": "TEMPLATE_PLACEHOLDER"
+}
