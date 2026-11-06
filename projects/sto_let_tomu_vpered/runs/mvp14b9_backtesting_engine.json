@@ -1,0 +1,33 @@
+{
+  "stage": "MVP-14B9_BACKTESTING_ENGINE",
+  "result": "PASS",
+  "schema_version": "1.0",
+  "work_id": "sto_let_tomu_vpered",
+  "prediction_cutoff_sequence_index": 2,
+  "latest_available_sequence_index": 2,
+  "future_claims_available": 0,
+  "predictions_input": 0,
+  "predictions_evaluated": 0,
+  "confirmed": 0,
+  "refuted": 0,
+  "mixed": 0,
+  "pending": 0,
+  "review_queue": 0,
+  "leakage_guard": {
+    "pre_cutoff_claims_excluded": true,
+    "only_post_cutoff_trusted_claims_considered": true
+  },
+  "regression_tests": {
+    "cutoff_leakage_guard": "PASS",
+    "confirmation_detection": "PASS",
+    "explicit_refutation_detection": "PASS",
+    "no_evidence_pending_guard": "PASS"
+  },
+  "invariants": {
+    "only_frozen_predictions_evaluated": true,
+    "pre_cutoff_evidence_excluded": true,
+    "only_trusted_future_claims_used": true,
+    "absence_of_evidence_not_treated_as_refutation": true,
+    "deterministic_backtest_ids": true
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "work_id": "sto_let_tomu_vpered",
+  "stage": "MVP-14B9_BACKTESTING_ENGINE",
+  "prediction_cutoff_sequence_index": 2,
+  "latest_available_sequence_index": 2,
+  "future_claims_available": 0,
+  "predictions_input": 0,
+  "predictions_evaluated": 0,
+  "confirmed": 0,
+  "refuted": 0,
+  "mixed": 0,
+  "pending": 0,
+  "review_queue": 0,
+  "leakage_guard": {
+    "pre_cutoff_claims_excluded": true,
+    "only_post_cutoff_trusted_claims_considered": true
+  }
+}
