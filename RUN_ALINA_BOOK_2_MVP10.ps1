@@ -9,7 +9,7 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 $models = ollama list
-if ($models -notmatch "qwen3-vl:8b") {
+if (-not ($models -match "qwen3-vl:8b")) {
     throw "Required visual critic model qwen3-vl:8b is not installed"
 }
 
