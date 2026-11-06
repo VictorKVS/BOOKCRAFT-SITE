@@ -40,6 +40,40 @@ class FullStoryContinuationPipeline:
         state.setdefault("objects", {})
         return state
 
+    def _semantic_gate(self, scene: Dict[str, Any], state: Dict[str, Any], draft: Dict[str, Any], max_repairs: int = 3) -> Dict[str, Any]:
+        history = []
+        current = draft
+        repaired = False
+
+        for attempt in range(max_repairs + 1):
+            report = self.semantic.review(scene, state, current)
+            history.append(report)
+
+            if report.get("decision") == "PASS":
+                return {
+                    "ok": True,
+                    "draft": current,
+                    "repaired": repaired,
+                    "attempts": attempt,
+                    "history": history,
+                    "final_report": report,
+                }
+
+            if attempt >= max_repairs:
+                break
+
+            current = self.semantic_repair.repair(scene, state, current, report)
+            repaired = True
+
+        return {
+            "ok": False,
+            "draft": current,
+            "repaired": repaired,
+            "attempts": max_repairs,
+            "history": history,
+            "final_report": history[-1] if history else {},
+        }
+
     def run(self, source_path: str | Path, objective: str) -> Dict[str, Any]:
         path = Path(source_path)
         source_text = path.read_text(encoding="utf-8")
@@ -59,25 +93,20 @@ class FullStoryContinuationPipeline:
         scene = self.producer.plan_scene(state, objective)
         draft = self.writer.draft(scene, state)
 
-        first = self.semantic.review(scene, state, draft)
-        repaired = False
+        gate = self._semantic_gate(scene, state, draft, max_repairs=3)
 
-        if first.get("decision") == "REPAIR":
-            draft = self.semantic_repair.repair(scene, state, draft, first)
-            repaired = True
-
-        second = self.semantic.review(scene, state, draft)
-
-        if second.get("decision") != "PASS":
+        if not gate["ok"]:
             return {
                 "ok": False,
                 "status": "SEMANTIC_BLOCKED",
                 "state": state,
                 "scene": scene,
-                "draft": draft,
-                "first_semantic_report": first,
-                "final_semantic_report": second,
-                "repaired": repaired,
+                "draft": gate["draft"],
+                "semantic_history": gate["history"],
+                "final_semantic_report": gate["final_report"],
+                "repaired": gate["repaired"],
+                "repair_attempts": gate["attempts"],
+                "ingest_validation": validation,
             }
 
         return {
@@ -85,9 +114,10 @@ class FullStoryContinuationPipeline:
             "status": "ACCEPTED_CONTINUATION",
             "state": state,
             "scene": scene,
-            "draft": draft,
-            "first_semantic_report": first,
-            "final_semantic_report": second,
-            "repaired": repaired,
+            "draft": gate["draft"],
+            "semantic_history": gate["history"],
+            "final_semantic_report": gate["final_report"],
+            "repaired": gate["repaired"],
+            "repair_attempts": gate["attempts"],
             "ingest_validation": validation,
         }
