@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "project_id": "sto_let_tomu_vpered",
+  "status": "SEED",
+  "entries": [],
+  "rules": {
+    "source_first": true,
+    "require_evidence": true,
+    "external_knowledge_separate": true,
+    "allow_hypothesis": true
+  }
+}
