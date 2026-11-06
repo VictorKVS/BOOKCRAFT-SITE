@@ -1,0 +1,128 @@
+# MVP-14C Canon Precheck
+
+Status: CONDITIONAL
+Blockers: 2
+Errors: 2
+Warnings: 106
+
+## Metrics
+- chapter_median_paragraphs: 109
+- oversized_chapters: 1
+- exact_duplicate_name_groups: 1
+- transliteration_alias_candidates: 6
+- mixed_script_occurrences: 494
+- source_like_evidence_entries: 638
+- english_evidence_entries: 473
+- entities_with_detected_contradictions: 1
+
+## Findings
+- [BLOCKER] STRUCTURE_OVERSIZED_CHAPTER: chapter_index=39 title=24. Прощай, супергерла! paragraphs=1179 threshold=327
+- [ERROR] DUPLICATE_SURFACE_NAME: алиса селезнева: ['Алиса Селезнева', 'Алиса Селезнёва']
+- [WARN] TRANSLITERATION_ALIAS_CANDIDATE: Alice <-> Алиса
+- [WARN] TRANSLITERATION_ALIAS_CANDIDATE: Alica <-> Алиса
+- [WARN] TRANSLITERATION_ALIAS_CANDIDATE: Djavat <-> Джавад
+- [WARN] TRANSLITERATION_ALIAS_CANDIDATE: Pavel <-> Павел
+- [WARN] TRANSLITERATION_ALIAS_CANDIDATE: Nikolai Nikolaevich <-> Николай Николаевич
+- [WARN] TRANSLITERATION_ALIAS_CANDIDATE: Fima <-> Фима
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[0].facts[71]: Kolya is frustrated with Alisa for risking the mieloфон.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[0].facts[75]: Kolya chases the thieves who stole the mieloфон.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[0].facts[78]: Kolya has a plan to return the mieloфон to someone he knows.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[0].facts[82]: Helped Aлиса get home.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[0].knowledge[40]: Knows about the mieloфон and its purpose.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[0].knowledge[41]: Understands the value of the mieloфон.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[0].knowledge[42]: Knows the location of the mieloфон
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[0].knowledge[44]: Kolya knows about the mieloфон and its importance.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[0].goals[22]: Protect the mieloфон from being misused.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[0].goals[24]: Catch the thieves who stole the mieloфон
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[0].goals[26]: Escape from the pirates and return the mieloфон.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[0].relationships[4]: Meets a cosmic archaeologist named Рррр.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[0].relationships[31]: Friends with Aлиса
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[0].evidence[2]: Screen showed 'Переброска завершена. Промежуточная станция'.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[0].evidence[36]: He helped Aлиса get home.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[3].evidence[1]: Время 10:12:36 t 15C. Дождя не будет.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[4].facts[0]: Рррр is a cosmic archaeologist.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[4].facts[1]: Рррр is interested in structural linguistics.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[4].facts[2]: Рррр is familiar with upcoming events on Mars.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[16].facts[10]: Electron Stepanovich explains the purpose and value of the mieloфон.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[16].knowledge[6]: Understands the history and purpose of the mieloфон.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[16].goals[4]: Educate Kolya about the mieloфон.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[25].name: Witty Bandit (Весельчак У)
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[27].facts[6]: Alica leaves her mieloфон on the shore of the pond.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[27].knowledge[3]: Knows the location of the mieloфон
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].facts[6]: Alisa is careful with the mieloфон.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].facts[53]: Helped Юлька with her secret admirer
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].facts[56]: Suspects Sadyovsky of stealing the mieloфон
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].facts[65]: Informs Юлька that she landed on Крысса, temporarily disabling him
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].facts[66]: Believes Сулима might have betrayed her
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].facts[67]: Wants to go to Сулима's house
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].facts[78]: She found a mieloфон in her portfolio.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].facts[79]: She knew the mieloфон worked.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].facts[81]: She knew the mieloфон was valuable and unique.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].facts[82]: She was going to use the mieloфон to check for pirates.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].facts[83]: Uses a mieloфон to listen to people's thoughts.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].facts[125]: Encountered a message from 'Gromkogo smеха'.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].knowledge[2]: Knows about the mieloфон and its purpose.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].knowledge[20]: Someone was following Юлька
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].knowledge[26]: Сулима might have information about her
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].knowledge[27]: Крысса is a friend of the Coronal
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].knowledge[33]: The mieloфон works.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].knowledge[34]: The mieloфон is valuable and unique.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].knowledge[35]: Can hear people's thoughts through a mieloфон.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].goals[1]: Protect the mieloфон.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].goals[14]: Protect Юлька
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].goals[16]: Uncover the truth about the mieloфон
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].goals[20]: Go to Сулима's house
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].goals[25]: Use the mieloфон to check for pirates.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].relationships[4]: Has a complex relationship with Юля.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].relationships[6]: Friend with Юлька
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].relationships[16]: friends with Юлька
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].relationships[17]: was saved by Фима
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].relationships[18]: was in the same class as Сулима
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].relationships[24]: Friend: Юлька
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].relationships[27]: Seeks to find the mieloфон
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].relationships[28]: Friends with Юлька
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].relationships[29]: Competes with Коля Сулима
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].relationships[30]: Believes Сулима might be a traitor
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].relationships[31]: Knows Крысса
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].relationships[41]: Friends with Коля Сулима, Фима Королев, Катя Михайлова, Садовский.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].relationships[55]: Works with Полина and Посейдон
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].relationships[63]: With Посейдон
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].relationships[64]: With Юдзо
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].evidence[33]: Helped Юлька with her secret admirer
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].evidence[42]: Lands on Крысса
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].evidence[43]: Believes Сулима might have betrayed her
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].evidence[49]: She found a mieloфон in her portfolio.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].evidence[50]: She knew the mieloфон worked.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].evidence[52]: She knew the mieloфон was valuable and unique.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].evidence[53]: She was going to use the mieloфон to check for pirates.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].evidence[73]: Алиса откинула угол ковра в кают-компании, чтобы найти a hidden access to the technical section of the 'Arbat'.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].evidence[79]: Tells Посейдон to release the old man
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[29].evidence[87]: But никакие живые существа не могут жить в вакууме, — сказала Алиса.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[31].goals[0]: Catch Kolya and retrieve the mieloфон.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[33].facts[3]: He supports Алиса's decision to stay in the hospital.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[33].traits[1]: Protective of Алиса.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[33].goals[0]: Keep Алиса in the hospital.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[33].relationships[1]: Doctor-patient relationship with Алиса.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[35].facts[5]: Юля is from the 6th B class.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[35].facts[6]: Юля's mother is named Наташа.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[35].facts[7]: Юля's mother brings her flowers, magazines, and a letter from school.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[35].facts[8]: She is a friend of Алиса.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[35].facts[9]: She supports Алиса's decision.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[35].traits[4]: Supportive of Алиса.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[35].goals[2]: Help Алиса find Kolja.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[35].goals[3]: Protect Алиса.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[35].relationships[2]: Has a complex relationship with Алиса.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[35].relationships[3]: Friendship with Алиса.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[35].evidence[4]: Юля knows about Brambullets and their preparation.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[35].evidence[5]: Юля knows about the 6th B class and the school.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[35].evidence[6]: She believes Алиса's father is not genuine.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[37].facts[1]: She opposes Алик Борисович's decision.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[37].relationships[0]: Nurse-patient relationship with Алиса.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[37].evidence[0]: She opposes Алик Борисович's decision.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[38].facts[11]: is Алиса's friend
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[38].facts[12]: helped Алиса get into the class
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[38].facts[13]: is part of the plan to get Алиса into the class
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[38].facts[14]: Suspects Aлиса of coming from the future.
+- [WARN] MIXED_SCRIPT_TEXT: canon.characters[38].facts[15]: Tries to get information from Aлиса about her past.
+- [ERROR] NON_SOURCE_EVIDENCE_TEXT: 473 evidence entries appear to be English/model paraphrases rather than source quotations
+- [BLOCKER] ENTITY_CONTRADICTION: Коля: conflicting facts matched
