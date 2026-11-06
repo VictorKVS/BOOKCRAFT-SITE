@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "work_id": "sto_let_tomu_vpered",
+  "model_type": "TRUSTED_TEMPORAL_MODEL",
+  "semantics": {
+    "TEXTUAL_ORDER": "Order of trusted claims by verified source position.",
+    "world_time_status": "UNKNOWN unless normalized temporal evidence exists.",
+    "warning": "TEXTUALLY_BEFORE does not prove physical-world temporal precedence when narration is non-linear."
+  },
+  "timeline": [
+    {
+      "temporal_id": "time-4ce7148e108174b9",
+      "claim_id": "primary-0001-c-0014",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "CHARACTER_BELIEF",
+      "subject": "Фима Королев",
+      "predicate": "просит",
+      "value": "в гости к Николаю Николаевичу",
+      "anchor": {
+        "chunk_id": "primary-0001",
+        "chunk_index": 1,
+        "paragraph_start": 20,
+        "paragraph_end": 22,
+        "quote": "Когда Фима Королев из Колиного класса узнал про фрегат, он стал проситься в гости к Николаю Николаевичу, но Коля не спешил вести его в гости.",
+        "quote_verified": true,
+        "order_key": [
+          1,
+          20,
+          22
+        ]
+      },
+      "sequence_index": 0,
+      "previous_temporal_id": null,
+      "next_temporal_id": "time-c5fe961cc5f64cbd"
+    },
+    {
+      "temporal_id": "time-c5fe961cc5f64cbd",
+      "claim_id": "primary-0002-c-0001",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "CHARACTER_BELIEF",
+      "subject": "Коля",
+      "predicate": "предполагает",
+      "value": "это вещи приезжих друзей Николая Николаевича",
+      "anchor": {
+        "chunk_id": "primary-0002",
+        "chunk_index": 2,
+        "paragraph_start": 47,
+        "paragraph_end": 49,
+        "quote": "Следопыт Коля предположил, что это вещи приезжих друзей Николая Николаевича.",
+        "quote_verified": true,
+        "order_key": [
+          2,
+          47,
+          49
+        ]
+      },
+      "sequence_index": 1,
+      "previous_temporal_id": "time-4ce7148e108174b9",
+      "next_temporal_id": "time-bef1a0f0d678be69"
+    },
+    {
+      "temporal_id": "time-bef1a0f0d678be69",
+      "claim_id": "primary-0002-c-0005",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "приборная панель",
+      "predicate": "представляет собой",
+      "value": "систему переключателей и кнопок",
+      "anchor": {
+        "chunk_id": "primary-0002",
+        "chunk_index": 2,
+        "paragraph_start": 53,
+        "paragraph_end": 55,
+        "quote": "По её нижней, вытянутой вперёд пологой части шло два ряда кнопок. Чуть повыше был ряд переключателей. Затем ряд циферблатов.",
+        "quote_verified": true,
+        "order_key": [
+          2,
+          53,
+          55
+        ]
+      },
+      "sequence_index": 2,
+      "previous_temporal_id": "time-c5fe961cc5f64cbd",
+      "next_temporal_id": null
+    }
+  ],
+  "order_edges": [
+    {
+      "order_id": "ord-be78a27a06d4a2c1",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-4ce7148e108174b9",
+      "target_temporal_id": "time-c5fe961cc5f64cbd",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-d86565f37379c2e9",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-c5fe961cc5f64cbd",
+      "target_temporal_id": "time-bef1a0f0d678be69",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    }
+  ]
+}
