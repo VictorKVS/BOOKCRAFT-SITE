@@ -10,3 +10,8 @@ Thumbs.db
 # Local book/source files: keep analysis artifacts in Git, not copyrighted source binaries/text
 projects/*/sources/*
 !projects/*/sources/.gitkeep
+
+# Python runtime artifacts
+__pycache__/
+**/__pycache__/
+*.pyc
