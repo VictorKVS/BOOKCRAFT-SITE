@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import json
+from difflib import SequenceMatcher
 from pathlib import Path
-from typing import Any, Dict
+import re
+from typing import Any, Dict, List, Tuple
 
 from alina_book2.llm_runtime import ollama_generate
 
@@ -71,7 +73,9 @@ class StoryIngestor:
 - не придумывай факты, которых нет в тексте;
 - знание персонажа отделяй от объективного факта;
 - если неизвестно — оставляй пусто;
-- evidence должен быть привязан к исходному тексту;
+- evidence копируй ДОСЛОВНО из исходного текста;
+- не заменяй местоимения именами и не исправляй формулировки внутри evidence;
+- если для события нужно несколько фрагментов, выбери один наиболее прямой короткий фрагмент;
 - идентификаторы делай короткими и стабильными;
 - не возвращай markdown.
 """.strip()
@@ -125,6 +129,69 @@ class StoryIngestor:
 
 
 class IngestValidator:
+    @staticmethod
+    def _norm(text: str) -> str:
+        return " ".join((text or "").split())
+
+    @staticmethod
+    def _source_sentences(source_text: str) -> List[str]:
+        parts = re.split(r"(?<=[.!?])\\s+", IngestValidator._norm(source_text))
+        return [p.strip() for p in parts if p.strip()]
+
+    @staticmethod
+    def _ground_evidence(evidence: str, source_text: str) -> Tuple[str | None, float]:
+        e = IngestValidator._norm(evidence)
+        source_norm = IngestValidator._norm(source_text)
+
+        if not e:
+            return None, 0.0
+
+        if e in source_norm:
+            return e, 1.0
+
+        sentences = IngestValidator._source_sentences(source_text)
+        if not sentences:
+            return None, 0.0
+
+        best = None
+        best_score = 0.0
+        for sentence in sentences:
+            score = SequenceMatcher(None, e.lower(), sentence.lower()).ratio()
+            if score > best_score:
+                best = sentence
+                best_score = score
+
+        return (best, best_score) if best_score >= 0.72 else (None, best_score)
+
+    def repair_evidence(self, state: Dict[str, Any], source_text: str) -> Dict[str, Any]:
+        repaired = json.loads(json.dumps(state, ensure_ascii=False))
+        repairs = []
+
+        for bucket in ("locations", "events", "facts"):
+            for item in repaired.get(bucket, []):
+                evidence = (item.get("evidence") or "").strip()
+                if not evidence:
+                    continue
+
+                grounded, score = self._ground_evidence(evidence, source_text)
+                if grounded and self._norm(evidence) != grounded:
+                    item["evidence_original"] = evidence
+                    item["evidence"] = grounded
+                    item["evidence_grounding"] = {
+                        "method": "source_sentence_alignment",
+                        "similarity": round(score, 3),
+                    }
+                    repairs.append({
+                        "bucket": bucket,
+                        "id": item.get("id") or item.get("event_id") or item.get("fact_id"),
+                        "from": evidence,
+                        "to": grounded,
+                        "similarity": round(score, 3),
+                    })
+
+        repaired["evidence_repairs"] = repairs
+        return repaired
+
     def validate(self, state: Dict[str, Any], source_text: str) -> Dict[str, Any]:
         issues = []
 
@@ -133,6 +200,7 @@ class IngestValidator:
         if not state.get("events"):
             issues.append("NO_EVENTS")
 
+        source_norm = self._norm(source_text)
         evidence_items = []
         for item in state.get("locations", []):
             evidence_items.append(item.get("evidence", ""))
@@ -143,8 +211,8 @@ class IngestValidator:
 
         unsupported = []
         for evidence in evidence_items:
-            e = (evidence or "").strip()
-            if e and e not in source_text:
+            e = self._norm(evidence)
+            if e and e not in source_norm:
                 unsupported.append(e)
 
         if unsupported:
