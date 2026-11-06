@@ -1,0 +1,44 @@
+{
+  "scene_id": "",
+  "shot_id": "",
+  "mode": "ILLUSTRATION",
+  "characters": [],
+  "location": {
+    "id": "",
+    "description": ""
+  },
+  "objects": [],
+  "actions": [],
+  "interactions": [],
+  "camera": {
+    "shot_size": "medium",
+    "angle": "eye-level",
+    "viewpoint": "",
+    "lens": ""
+  },
+  "composition": {
+    "foreground": [],
+    "midground": [],
+    "background": [],
+    "positions": {}
+  },
+  "lighting": {
+    "time_of_day": "",
+    "sources": [],
+    "contrast": "",
+    "atmosphere": ""
+  },
+  "mood": {
+    "emotion": "",
+    "tone": ""
+  },
+  "continuity": {
+    "previous_shot_id": null,
+    "inherit_character_appearance": true,
+    "inherit_clothing": true,
+    "inherit_injuries": true,
+    "inherit_objects": true
+  },
+  "forbidden_changes": [],
+  "prompt": ""
+}
