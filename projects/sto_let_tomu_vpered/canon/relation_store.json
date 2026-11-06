@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "work_id": "sto_let_tomu_vpered",
+  "store_type": "TRUSTED_RELATIONS",
+  "records": [
+    {
+      "relation_id": "rel-401863e48f223192",
+      "claim_id": "primary-0001-c-0014",
+      "source_entity_id": "ent-169a1a7674e9bbc9",
+      "source_name": "Фима Королев",
+      "predicate": "просит",
+      "target_kind": "PROPOSITION",
+      "target_value": "в гости к Николаю Николаевичу",
+      "truth_scope": "CHARACTER_BELIEF",
+      "evidence": [
+        {
+          "chunk_id": "primary-0001",
+          "paragraph_start": 20,
+          "paragraph_end": 22,
+          "quote": "Когда Фима Королев из Колиного класса узнал про фрегат, он стал проситься в гости к Николаю Николаевичу, но Коля не спешил вести его в гости.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-55506ba64a48404d",
+      "claim_id": "primary-0002-c-0005",
+      "source_entity_id": "ent-73fc53190cf422dd",
+      "source_name": "приборная панель",
+      "predicate": "представляет собой",
+      "target_kind": "LITERAL",
+      "target_value": "систему переключателей и кнопок",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0002",
+          "paragraph_start": 53,
+          "paragraph_end": 55,
+          "quote": "По её нижней, вытянутой вперёд пологой части шло два ряда кнопок. Чуть повыше был ряд переключателей. Затем ряд циферблатов.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-71ef04df3f7f6d80",
+      "claim_id": "primary-0002-c-0001",
+      "source_entity_id": "ent-2dedc70082320885",
+      "source_name": "Коля",
+      "predicate": "предполагает",
+      "target_kind": "PROPOSITION",
+      "target_value": "это вещи приезжих друзей Николая Николаевича",
+      "truth_scope": "CHARACTER_BELIEF",
+      "evidence": [
+        {
+          "chunk_id": "primary-0002",
+          "paragraph_start": 47,
+          "paragraph_end": 49,
+          "quote": "Следопыт Коля предположил, что это вещи приезжих друзей Николая Николаевича.",
+          "quote_verified": true
+        }
+      ]
+    }
+  ]
+}

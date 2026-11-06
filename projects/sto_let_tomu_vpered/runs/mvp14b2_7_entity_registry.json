@@ -1,0 +1,17 @@
+{
+  "stage": "MVP-14B2_7_ENTITY_REGISTRY",
+  "result": "PASS",
+  "canon_claims_input": 3,
+  "entities_registered": 3,
+  "entity_type_counts": {
+    "CHARACTER": 2,
+    "TECHNOLOGY": 1
+  },
+  "invariants": {
+    "stable_entity_ids": true,
+    "entity_ids_unique": true,
+    "entities_derived_from_trusted_canon_only": true,
+    "referenced_names_must_exist_in_source_mentions": true,
+    "no_freeform_entity_invention": true
+  }
+}

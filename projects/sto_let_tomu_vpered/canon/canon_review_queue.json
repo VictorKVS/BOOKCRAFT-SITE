@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "work_id": "sto_let_tomu_vpered",
+  "store_type": "CANON_REVIEW_QUEUE",
+  "records": [
+    {
+      "record_id": "canon-cab4f7599ed1e75a",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0002-c-0007",
+      "scope": "event",
+      "subject": "Коля открывает приборную панель",
+      "predicate": "исследует",
+      "value": "переключатели и кнопки",
+      "truth_scope": "CHARACTER_BELIEF",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "REVIEW",
+        "reason": "BELIEF_SCOPE_AMBIGUOUS",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_final",
+          "narrative_canon_eligible",
+          "belief_scope_requires_review"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0002",
+          "paragraph_start": 53,
+          "paragraph_end": 55,
+          "quote": "Коля стал рассматривать панель. По её нижней, вытянутой вперёд пологой части шло два ряда кнопок. Чуть повыше был ряд переключателей. Затем ряд циферблатов.",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0002.json"
+    }
+  ]
+}

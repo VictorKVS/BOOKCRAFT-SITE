@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "work_id": "sto_let_tomu_vpered",
+  "registry_type": "TRUSTED_ENTITY_REGISTRY",
+  "records": [
+    {
+      "entity_id": "ent-2dedc70082320885",
+      "canonical_name": "Коля",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0001-c-0014",
+        "primary-0002-c-0001"
+      ],
+      "source_mentions": [
+        "primary-0001-m-0001",
+        "primary-0002-m-0001",
+        "primary-0003-m-0001"
+      ],
+      "roles_in_claims": {
+        "primary-0001-c-0014": [
+          "REFERENCED"
+        ],
+        "primary-0002-c-0001": [
+          "SUBJECT"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-169a1a7674e9bbc9",
+      "canonical_name": "Фима Королев",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0001-c-0014"
+      ],
+      "source_mentions": [
+        "primary-0001-m-0003"
+      ],
+      "roles_in_claims": {
+        "primary-0001-c-0014": [
+          "SUBJECT"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-73fc53190cf422dd",
+      "canonical_name": "приборная панель",
+      "entity_type": "TECHNOLOGY",
+      "aliases": [],
+      "source_claims": [
+        "primary-0002-c-0005"
+      ],
+      "source_mentions": [
+        "primary-0002-m-0004"
+      ],
+      "roles_in_claims": {
+        "primary-0002-c-0005": [
+          "SUBJECT"
+        ]
+      }
+    }
+  ]
+}

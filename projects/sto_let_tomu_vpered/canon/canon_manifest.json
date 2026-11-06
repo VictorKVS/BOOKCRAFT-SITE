@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "work_id": "sto_let_tomu_vpered",
+  "stage": "MVP-14B2.6_CANON_STORE",
+  "generated_at_utc": "2026-11-06T22:02:36+00:00",
+  "canon_claims_file": "canon_claims.json",
+  "review_queue_file": "canon_review_queue.json",
+  "canon_claims": 3,
+  "review_queue": 1,
+  "truth_scope_counts": {
+    "CHARACTER_BELIEF": 2,
+    "WORLD_STATE": 1
+  },
+  "invariants": {
+    "canon_contains_only_admission_accept": true,
+    "review_is_physically_separated": true,
+    "verified_evidence_required": true,
+    "claim_ids_unique": true,
+    "canon_review_disjoint": true
+  }
+}

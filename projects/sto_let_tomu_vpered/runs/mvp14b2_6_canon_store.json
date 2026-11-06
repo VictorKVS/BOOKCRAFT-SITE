@@ -1,0 +1,25 @@
+{
+  "stage": "MVP-14B2_6_CANON_STORE",
+  "result": "PASS",
+  "canon_claims": 3,
+  "review_queue": 1,
+  "accepted_claim_ids": [
+    "primary-0001-c-0014",
+    "primary-0002-c-0001",
+    "primary-0002-c-0005"
+  ],
+  "review_claim_ids": [
+    "primary-0002-c-0007"
+  ],
+  "truth_scope_counts": {
+    "CHARACTER_BELIEF": 2,
+    "WORLD_STATE": 1
+  },
+  "invariants": {
+    "canon_contains_only_admission_accept": true,
+    "review_is_physically_separated": true,
+    "verified_evidence_required": true,
+    "claim_ids_unique": true,
+    "canon_review_disjoint": true
+  }
+}

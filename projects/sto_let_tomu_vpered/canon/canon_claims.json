@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0",
+  "work_id": "sto_let_tomu_vpered",
+  "store_type": "TRUSTED_CANON_CLAIMS",
+  "records": [
+    {
+      "record_id": "canon-1091a3e22effb820",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0001-c-0014",
+      "scope": "mention",
+      "subject": "Фима Королев",
+      "predicate": "просит",
+      "value": "в гости к Николаю Николаевичу",
+      "truth_scope": "CHARACTER_BELIEF",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "ACCEPT",
+        "reason": "ALL_ADMISSION_CHECKS_PASSED",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_final",
+          "narrative_canon_eligible",
+          "belief_scope_preserved",
+          "claim_complete"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0001",
+          "paragraph_start": 20,
+          "paragraph_end": 22,
+          "quote": "Когда Фима Королев из Колиного класса узнал про фрегат, он стал проситься в гости к Николаю Николаевичу, но Коля не спешил вести его в гости.",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0001.json"
+    },
+    {
+      "record_id": "canon-c3ca42787f0f2993",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0002-c-0001",
+      "scope": "mention",
+      "subject": "Коля",
+      "predicate": "предполагает",
+      "value": "это вещи приезжих друзей Николая Николаевича",
+      "truth_scope": "CHARACTER_BELIEF",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "ACCEPT",
+        "reason": "ALL_ADMISSION_CHECKS_PASSED",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_final",
+          "narrative_canon_eligible",
+          "belief_scope_preserved",
+          "claim_complete"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0002",
+          "paragraph_start": 47,
+          "paragraph_end": 49,
+          "quote": "Следопыт Коля предположил, что это вещи приезжих друзей Николая Николаевича.",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0002.json"
+    },
+    {
+      "record_id": "canon-a2721e02ea18372b",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0002-c-0005",
+      "scope": "mention",
+      "subject": "приборная панель",
+      "predicate": "представляет собой",
+      "value": "систему переключателей и кнопок",
+      "truth_scope": "WORLD_STATE",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "ACCEPT",
+        "reason": "ALL_ADMISSION_CHECKS_PASSED",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_final",
+          "narrative_canon_eligible",
+          "claim_complete"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0002",
+          "paragraph_start": 53,
+          "paragraph_end": 55,
+          "quote": "По её нижней, вытянутой вперёд пологой части шло два ряда кнопок. Чуть повыше был ряд переключателей. Затем ряд циферблатов.",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0002.json"
+    }
+  ]
+}
