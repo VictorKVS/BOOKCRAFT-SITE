@@ -1,0 +1,39 @@
+{
+  "agent_id": "alina-analyst-v2",
+  "name": "ALINA Analyst v2",
+  "version": "2.0.0",
+  "type": "narrative_intelligence",
+  "authority": "story_state",
+  "brain_slot": {
+    "replaceable": true,
+    "qualification_required": true
+  },
+  "modes": [
+    "ingest",
+    "update",
+    "verify",
+    "compare",
+    "explain",
+    "forecast"
+  ],
+  "owns": [
+    "canon_registry",
+    "character_registry",
+    "character_state_ledger",
+    "event_graph",
+    "timeline",
+    "relation_graph",
+    "plot_thread_graph",
+    "world_rules",
+    "knowledge_belief_graph",
+    "contradiction_report",
+    "unresolved_questions",
+    "evidence"
+  ],
+  "forbidden": [
+    "silent_canon_invention",
+    "style_rewrite",
+    "unmarked_hypothesis_as_fact",
+    "user_locked_canon_override"
+  ]
+}
