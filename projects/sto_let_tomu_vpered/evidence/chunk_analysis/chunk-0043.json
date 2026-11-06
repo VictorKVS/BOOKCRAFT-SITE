@@ -1,0 +1,110 @@
+{
+  "characters": [
+    {
+      "name": "Коля",
+      "aliases": [],
+      "facts": [
+        "Kolya figured out the device and shared the information with Fima.",
+        "Kolya is concerned about the consequences of his actions."
+      ],
+      "appearance": [],
+      "traits": [
+        "Intelligent",
+        "Guilty",
+        "Concerned"
+      ],
+      "knowledge": [
+        "Understands the device's function and limitations."
+      ],
+      "goals": [
+        "Avoid punishment for his actions."
+      ],
+      "relationships": [
+        "Friend with Fima"
+      ],
+      "evidence": [
+        "Kolya shared the device's function with Fima.",
+        "Kolya is worried about his future and his family's reaction."
+      ]
+    },
+    {
+      "name": "Fima",
+      "aliases": [],
+      "facts": [
+        "Fima is aware of Kolya's actions and the device's function.",
+        "Fima suggests a plan to avoid detection."
+      ],
+      "appearance": [],
+      "traits": [
+        "Smart",
+        "Resourceful",
+        "Concerned"
+      ],
+      "knowledge": [
+        "Understands the device's function and limitations."
+      ],
+      "goals": [
+        "Help Kolya avoid punishment."
+      ],
+      "relationships": [
+        "Friend with Kolya"
+      ],
+      "evidence": [
+        "Fima suggests a plan to avoid detection.",
+        "Fima is aware of Kolya's actions."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Kolya's home",
+      "facts": [],
+      "evidence": []
+    }
+  ],
+  "objects": [
+    {
+      "name": "Device",
+      "facts": [
+        "The device can receive signals from the future.",
+        "The device can be used to locate a cat named Marquis."
+      ],
+      "evidence": [
+        "Kolya shared the device's function with Fima."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Kolya shares the device's function with Fima.",
+      "participants": [
+        "Kolya",
+        "Fima"
+      ],
+      "location": "Kolya's home",
+      "causes": [
+        "Kolya's discovery of the device's function."
+      ],
+      "consequences": [
+        "Plan to avoid detection is devised."
+      ],
+      "evidence": [
+        "Kolya shared the device's function with Fima."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Those who travel through time are at risk of being punished for their actions.",
+      "evidence": [
+        "Kolya is concerned about the consequences of his actions."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What will happen to Kolya and Fima if their plan fails?",
+      "reason": "The full consequences of their actions are unknown."
+    }
+  ]
+}

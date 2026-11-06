@@ -1,0 +1,169 @@
+{
+  "characters": [
+    {
+      "name": "Алиса Селезнёва",
+      "aliases": [],
+      "facts": [
+        "searching for Kolja Naumov",
+        "knows about the mieloфон",
+        "wants to return home"
+      ],
+      "appearance": [],
+      "traits": [
+        "emotional",
+        "determined"
+      ],
+      "knowledge": [
+        "mieloфон is in Kolja Naumov's home",
+        "mieloфон is needed to return home"
+      ],
+      "goals": [
+        "find Kolja Naumov",
+        "return home using the mieloфон"
+      ],
+      "relationships": [
+        "friends with Fima Korolev",
+        "conflicted with Mila Rutkевич"
+      ],
+      "evidence": [
+        "cried when others suggested she leave"
+      ]
+    },
+    {
+      "name": "Fima Korolev",
+      "aliases": [],
+      "facts": [
+        "leading the search for Kolja Naumov",
+        "suspects pirates are hiding in the attic",
+        "has a history of making impulsive decisions"
+      ],
+      "appearance": [],
+      "traits": [
+        "determined",
+        "impulsive",
+        "protective of friends"
+      ],
+      "knowledge": [
+        "mieloфон is in Kolja Naumov's home",
+        "Kolja Naumov is hiding from pirates"
+      ],
+      "goals": [
+        "find Kolja Naumov",
+        "protect his friends"
+      ],
+      "relationships": [
+        "friends with Alica",
+        "conflicted with Mila Rutkевич"
+      ],
+      "evidence": [
+        "ordered Yulia Gribkova to check on Kolja Sulyama",
+        "suspected pirates were hiding in the attic"
+      ]
+    },
+    {
+      "name": "Mila Rutkевич",
+      "aliases": [],
+      "facts": [
+        "worried about Fima's leadership",
+        "believes Kolja Naumov is trustworthy"
+      ],
+      "appearance": [],
+      "traits": [
+        "protective",
+        "doubts Fima's judgment"
+      ],
+      "knowledge": [
+        "mieloфон is in Kolja Naumov's home",
+        "Kolja Naumov is hiding from pirates"
+      ],
+      "goals": [
+        "protect Kolja Naumov",
+        "find the mieloфон"
+      ],
+      "relationships": [
+        "friends with Alica",
+        "conflicted with Fima"
+      ],
+      "evidence": [
+        "suggested Alica and Fima go to Kolja Naumov's home",
+        "cried when others suggested she leave"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "nearby alley",
+      "facts": [
+        "pirates are hiding nearby"
+      ],
+      "evidence": [
+        "pirates are hiding nearby"
+      ]
+    },
+    {
+      "name": "Kolja Naumov's home",
+      "facts": [
+        "mieloфон is hidden under the table",
+        "pirates might try to take it"
+      ],
+      "evidence": [
+        "mieloфон is hidden under the table",
+        "pirates might try to take it"
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "mieloфон",
+      "facts": [
+        "needed to return home",
+        "hidden under the table in Kolja Naumov's home"
+      ],
+      "evidence": [
+        "needed to return home",
+        "hidden under the table in Kolja Naumov's home"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "search for Kolja Naumov",
+      "participants": [
+        "Alica",
+        "Fima",
+        "Mila",
+        "Kolja Sadyovsky",
+        "Katy Mikhailova",
+        "Yulia Gribkova"
+      ],
+      "location": "nearby alley and Kolja Naumov's home",
+      "causes": [
+        "Kolja Naumov is hiding from pirates",
+        "Alica needs the mieloфон to return home"
+      ],
+      "consequences": [
+        "Alica and Fima are tasked with going to Kolja Naumov's home",
+        "Mila suggests Alica and Fima go to Kolja Naumov's home"
+      ],
+      "evidence": [
+        "search for Kolja Naumov",
+        "Alica and Fima are tasked with going to Kolja Naumov's home"
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Pirates are hiding nearby and might try to take the mieloфон from Kolja Naumov's home.",
+      "evidence": [
+        "pirates are hiding nearby",
+        "pirates might try to take the mieloфон from Kolja Naumov's home"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "Will Alica and Fima find the mieloфон and return home?",
+      "reason": "Pirates might try to take the mieloфон from Kolja Naumov's home."
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "characters": [
+    {
+      "name": "Милену Митину",
+      "aliases": [],
+      "facts": [
+        "She is a singer.",
+        "She was born in Kostroma, not Konotop.",
+        "She found a stone on a planet called Brusk.",
+        "She has a collection of Martian stamps and star clocks."
+      ],
+      "appearance": [
+        "She wears a long, Greek-style dress."
+      ],
+      "traits": [
+        "Generous with gifts.",
+        "Has a history of being mistaken for a contemporary."
+      ],
+      "knowledge": [
+        "She knows about the history of the singer and her travels."
+      ],
+      "goals": [],
+      "relationships": [
+        "She is met by Kolya at the landing site."
+      ],
+      "evidence": [
+        "Да здравствует наша великая певица!",
+        "Тебе нравится, как я пою, мальчик?",
+        "Она протянула Коле красиво отшлифованный круглый плоский камешек."
+      ]
+    },
+    {
+      "name": "Коля",
+      "aliases": [],
+      "facts": [
+        "He is an historian.",
+        "He is from Kostroma.",
+        "He is on a mission to meet the singer.",
+        "He has a souvenir from the planet Brusk."
+      ],
+      "appearance": [],
+      "traits": [
+        "Generous with gifts.",
+        "Has a history of being mistaken for a contemporary."
+      ],
+      "knowledge": [
+        "He knows about the singer's history and travels."
+      ],
+      "goals": [],
+      "relationships": [
+        "He meets the singer at the landing site."
+      ],
+      "evidence": [
+        "Я приехал из вашего родного города Конотопа, чтобы встретить вас.",
+        "Ничего, это подарок."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Konotop",
+      "facts": [],
+      "evidence": []
+    },
+    {
+      "name": "Kostroma",
+      "facts": [],
+      "evidence": []
+    },
+    {
+      "name": "Brusk",
+      "facts": [
+        "Mila found a stone here."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "Space",
+      "facts": [
+        "Pirates operate in space."
+      ],
+      "evidence": []
+    }
+  ],
+  "objects": [
+    {
+      "name": "Stone",
+      "facts": [
+        "Found by Milena on planet Brusk."
+      ],
+      "evidence": [
+        "Она протянула Коле красиво отшлифованный круглый плоский камешек."
+      ]
+    },
+    {
+      "name": "Star clocks",
+      "facts": [
+        "Possessed by Milena."
+      ],
+      "evidence": [
+        "Милена. . . мне нечем писать, — сказала Милена. — Но возьми это на память."
+      ]
+    },
+    {
+      "name": "Martian stamps",
+      "facts": [
+        "Possessed by Milena."
+      ],
+      "evidence": [
+        "Милена. . . мне нечем писать, — сказала Милена. — Но возьми это на память."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Mila's arrival and meeting with Kolya",
+      "participants": [
+        "Mila",
+        "Kolya"
+      ],
+      "location": "Landing site",
+      "causes": [],
+      "consequences": [],
+      "evidence": [
+        "Со стороны большого голубого диска подлетел пузырь, и из него вышла красивая, немного курносая женщина, и все закричали: — Ура! Добро пожаловать!",
+        "Коля тоже кричал «ура», чтобы не выделяться.",
+        "Женщина подошла к толпе и стала здороваться со встречающими. Так она дошла до Коли и протянула руку."
+      ]
+    },
+    {
+      "event": "Pirates' activities",
+      "participants": [
+        "Veselichak U",
+        "Kryss"
+      ],
+      "location": "Space",
+      "causes": [
+        "Pirates operate in space."
+      ],
+      "consequences": [
+        "Pirates were mostly caught, but some remained."
+      ],
+      "evidence": [
+        "Весельчак У считал себя великим хитрецом. А если перехитрить было некого, то он садился сам с собой играть в карты и сам себя обыгрывал, при этом отчаянно жулил.",
+        "Крысс с Крокрыса всегда в синтетической оболочке. Чаще всего он любит изображать из себя маленького, худенького, печального человека. А под этой оболочкой скрывается насекомое с мохнатыми ногами, круглым тельцем и острыми тонкими клешнями."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Pirates operate in space.",
+      "evidence": [
+        "Когда почти всех пиратов переловили, эти два бандита объединили усилия, хотя прежде враждовали."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What are the consequences of the pirates' activities?",
+      "reason": "The text mentions that pirates were mostly caught, but some remained, but does not specify the consequences of their continued activities."
+    }
+  ]
+}

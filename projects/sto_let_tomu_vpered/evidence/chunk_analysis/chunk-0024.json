@@ -1,0 +1,236 @@
+{
+  "characters": [
+    {
+      "name": "Коля",
+      "aliases": [],
+      "facts": [
+        "Attempts to escape from the institute.",
+        "Uses the time machine to go back to his own time."
+      ],
+      "appearance": [],
+      "traits": [
+        "Resourceful",
+        "Fearful",
+        "Determined"
+      ],
+      "knowledge": [
+        "Knows how to use the time machine"
+      ],
+      "goals": [
+        "Return to his own time"
+      ],
+      "relationships": [
+        "Escapes from the institute",
+        "Avoids the pirates"
+      ],
+      "evidence": [
+        "Коля услышал, как зашипело стекло, и расплавленные ручейки, красные в вечернем свете, поплыли, затвердевая, по коралловой стене."
+      ]
+    },
+    {
+      "name": "Толстяк",
+      "aliases": [],
+      "facts": [
+        "One of the pirates",
+        "Equipped with a blaster"
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [],
+      "goals": [
+        "Capture Kolja"
+      ],
+      "relationships": [
+        "Fights with Kolja"
+      ],
+      "evidence": [
+        "Толстяк прицелился в закрытое окно первого этажа, и сверкающий луч врезался в стекло."
+      ]
+    },
+    {
+      "name": "Худенький",
+      "aliases": [],
+      "facts": [
+        "One of the pirates",
+        "Helps the Tolya to capture Kolja"
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [],
+      "goals": [
+        "Capture Kolja"
+      ],
+      "relationships": [
+        "Fights with Kolja"
+      ],
+      "evidence": [
+        "Худенький бросил на подоконник голубую накидку, а толстый начал протискиваться в узкое окошко."
+      ]
+    },
+    {
+      "name": "Алик Борисович",
+      "aliases": [
+        "Alik Borisovich"
+      ],
+      "facts": [
+        "Hospital doctor",
+        "Humorous"
+      ],
+      "appearance": [],
+      "traits": [
+        "Humorous"
+      ],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Talks to patients"
+      ],
+      "evidence": [
+        "Я же обещал, что через неделю забудешь."
+      ]
+    },
+    {
+      "name": "Юля Грибкова",
+      "aliases": [],
+      "facts": [
+        "Patient in the hospital",
+        "Concerned about Alica"
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Talks to Alica"
+      ],
+      "evidence": [
+        "Юля смотрела на Алису и жалела её."
+      ]
+    },
+    {
+      "name": "Алиса",
+      "aliases": [
+        "Alica"
+      ],
+      "facts": [
+        "Patient in the hospital",
+        "Has amnesia",
+        "Lost her belongings"
+      ],
+      "appearance": [
+        "Light hair",
+        "Short hair",
+        "Blue eyes",
+        "Long legs",
+        "Tan"
+      ],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Talks to Alik Borisovich",
+        "Talks to Yulia"
+      ],
+      "evidence": [
+        "Алиса была в шортах, куртке и в тапочках."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Institute",
+      "facts": [
+        "Contains a time machine",
+        "Under attack by pirates"
+      ],
+      "evidence": [
+        "Коля сначала присел на корточки под окном, прислушиваясь, а когда ничего не услышал, поднялся и заглянул внутрь."
+      ]
+    },
+    {
+      "name": "Hospital",
+      "facts": [
+        "Patient Alica has amnesia",
+        "Contains a time machine"
+      ],
+      "evidence": [
+        "Алиса была в шортах, куртке и в тапочках."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Time machine",
+      "facts": [
+        "Allows travel through time",
+        "Located in the institute"
+      ],
+      "evidence": [
+        "Коля включил систему и с удовольствием услышал знакомое жужжание. Машина работала."
+      ]
+    },
+    {
+      "name": "Blaster",
+      "facts": [
+        "Used by pirates",
+        "Can melt through coral"
+      ],
+      "evidence": [
+        "Худенький бросил на подоконник голубую накидку, а толстый начал протискиваться в узкое окошко."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Pirates attack the institute",
+      "participants": [
+        "Pirates",
+        "Kolja"
+      ],
+      "location": "Institute",
+      "causes": [
+        "Pirates discover the time machine"
+      ],
+      "consequences": [
+        "Kolja escapes",
+        "Pirates attempt to capture Kolja"
+      ],
+      "evidence": [
+        "Шпппш-грххх-вппр.",
+        "Гппрр-кхж-дппнр."
+      ]
+    },
+    {
+      "event": "Alica has amnesia",
+      "participants": [
+        "Alica",
+        "Doctors",
+        "Hospital staff"
+      ],
+      "location": "Hospital",
+      "causes": [
+        "Alica is hit by a tram"
+      ],
+      "consequences": [
+        "Alica cannot remember her name, where she lives, or her parents"
+      ],
+      "evidence": [
+        "Алиса была в шортах, куртке и в тапочках."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Time travel is possible",
+      "evidence": [
+        "Коля включил систему и с удовольствием услышал знакомое жужжание. Машина работала."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What happens to Alica?",
+      "reason": "Her amnesia and disappearance are unexplained."
+    }
+  ]
+}

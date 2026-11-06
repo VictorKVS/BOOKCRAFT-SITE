@@ -1,0 +1,226 @@
+{
+  "characters": [
+    {
+      "name": "Наумов",
+      "aliases": [],
+      "facts": [
+        "He is a teacher.",
+        "He is concerned about his workload.",
+        "He is aware of Alica's athletic abilities."
+      ],
+      "appearance": [],
+      "traits": [
+        "Responsible",
+        "Supportive"
+      ],
+      "knowledge": [
+        "Alica can play volleyball well."
+      ],
+      "goals": [
+        "Ensure fair play in the volleyball game."
+      ],
+      "relationships": [
+        "Teacher of the volleyball team",
+        "Friend of Alica and Katya"
+      ],
+      "evidence": [
+        "\"Мне и здесь дел по горло, — сказал Наумов.\""
+      ]
+    },
+    {
+      "name": "Alica",
+      "aliases": [],
+      "facts": [
+        "She is a sixth grader.",
+        "She is very athletic.",
+        "She is good at volleyball.",
+        "She is not from the sixth grade class.",
+        "She is confident in her abilities."
+      ],
+      "appearance": [
+        "Very tanned and slender."
+      ],
+      "traits": [
+        "Confident",
+        "Determined"
+      ],
+      "knowledge": [
+        "She can play volleyball well."
+      ],
+      "goals": [
+        "Help her class win the volleyball game."
+      ],
+      "relationships": [
+        "Friend of Katya and Yulka",
+        "Unknown to most of the sixth grade class"
+      ],
+      "evidence": [
+        "\"Я стану на подачу, — сказала Катя, которая ещё не доверяла Алисе. — А ты стой поближе к сетке. И старайся играть двумя руками сразу.\"",
+        "\"Алиса подпрыгнула так высоко, словно у неё в тапочках были резиновые пружины, рука её поднялась, пальцы только чуть коснулись мяча, и он, как ядро из пушки, под острым углом врезался в площадку семиклассниц и рикошетом отлетел к дальней стене.\""
+      ]
+    },
+    {
+      "name": "Katya",
+      "aliases": [],
+      "facts": [
+        "She is a sixth grader.",
+        "She is good at volleyball.",
+        "She is confident in her abilities.",
+        "She is supportive of Alica."
+      ],
+      "appearance": [],
+      "traits": [
+        "Confident",
+        "Supportive"
+      ],
+      "knowledge": [
+        "Alica can play volleyball well."
+      ],
+      "goals": [
+        "Help her class win the volleyball game."
+      ],
+      "relationships": [
+        "Friend of Alica and Yulka",
+        "Class representative"
+      ],
+      "evidence": [
+        "\"Я стану на подачу, — сказала Катя, которая ещё не доверяла Алисе. — А ты стой поближе к сетке. И старайся играть двумя руками сразу.\""
+      ]
+    },
+    {
+      "name": "Yulka",
+      "aliases": [],
+      "facts": [
+        "She is a sixth grader.",
+        "She is supportive of Alica."
+      ],
+      "appearance": [],
+      "traits": [
+        "Supportive"
+      ],
+      "knowledge": [
+        "Alica can play volleyball well."
+      ],
+      "goals": [
+        "Help her class win the volleyball game."
+      ],
+      "relationships": [
+        "Friend of Alica and Katya"
+      ],
+      "evidence": [
+        "\"Ты посмотрела? Может, выйдешь, а?\""
+      ]
+    },
+    {
+      "name": "Larisa",
+      "aliases": [],
+      "facts": [
+        "She is a sixth grader.",
+        "She is not good at volleyball.",
+        "She is jealous of Alica."
+      ],
+      "appearance": [],
+      "traits": [
+        "Jealous",
+        "Complaining"
+      ],
+      "knowledge": [
+        "Alica can play volleyball well."
+      ],
+      "goals": [
+        "Avoid being seen as a hindrance to the class."
+      ],
+      "relationships": [
+        "Classmate of Alica and Katya"
+      ],
+      "evidence": [
+        "\"Лучше бы тебя вообще не было! Сама не играешь и другим мешаешь. Я бы последний мяч взяла. Говорю тебе — отойди, а ты?\"",
+        "\"Пожалуйста, — сказала она, — я не буду мешать. Играйте в своё удовольствие.\""
+      ]
+    },
+    {
+      "name": "Fima",
+      "aliases": [],
+      "facts": [
+        "He is a sixth grader.",
+        "He is curious about the city."
+      ],
+      "appearance": [],
+      "traits": [
+        "Curious"
+      ],
+      "knowledge": [],
+      "goals": [
+        "Understand the city better."
+      ],
+      "relationships": [
+        "Classmate of Alica and Katya"
+      ],
+      "evidence": [
+        "\"Я ломаю голову, — сказал Фима Королев, — что это за город такой…\""
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "School",
+      "facts": [
+        "Alica and Katya practice volleyball.",
+        "There is a volleyball game between sixth and seventh graders."
+      ],
+      "evidence": [
+        "\"Когда Алиса вышла на площадку, все заметили, что она очень загорелая и стройная.\""
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Swing whistle",
+      "facts": [
+        "It is small for Fima's hand size."
+      ],
+      "evidence": [
+        "\"Эдуард достал свисток, очень маленький по сравнению с его ручищей, но свист был пронзительный.\""
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Volleyball game between sixth and seventh graders",
+      "participants": [
+        "Sixth graders (Alica, Katya, Yulka, Larisa, Fima)",
+        "Seventh graders"
+      ],
+      "location": "School",
+      "causes": [
+        "Alica's unexpected performance",
+        "Larisa's jealousy"
+      ],
+      "consequences": [
+        "Sixth graders win the game",
+        "Alica is asked to practice with the school team"
+      ],
+      "evidence": [
+        "\"Когда Алиса забила таким образом ещё пять мячей и стало ясно, что ничего с ней семиклассницы поделать не смогут, они потребовали у судьи тайм-аут и заявили: «Она вообще не из ихнего класса. Мы её раньше не видели.»\"",
+        "\"Эдуард Петрович спросил: «А ты лёгкой атлетикой занималась?»\"",
+        "\"Не подведёшь?», — сказал Эдуард Петрович."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "A player cannot play for two teams in the same game.",
+      "evidence": [
+        "\"Эдуард Петрович, — сказал Коля Наумов, когда счёт был двенадцать — пять в пользу семиклассников. — Может один и тот же игрок в двух командах играть?\"",
+        "\"Постыдись, мужчина!\"",
+        "\"При чём здесь мужчина? — сказал Фима Королев, который в майке и трусах казался ещё круглее и помидористей, чем в костюме. — У нас в классе полное равноправие.\""
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What is the future like in this world?",
+      "reason": "Characters discuss the future, but no clear answer is given."
+    }
+  ]
+}

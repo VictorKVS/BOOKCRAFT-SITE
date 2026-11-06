@@ -1,0 +1,116 @@
+{
+  "characters": [
+    {
+      "name": "Юдзо",
+      "aliases": [],
+      "facts": [
+        "He and Alice are hiding from black creatures on the 'Arbat' spaceship.",
+        "He is willing to fight but also considers dying with honor.",
+        "He is cautious and observant."
+      ],
+      "appearance": [],
+      "traits": [
+        "Willing to fight",
+        "Cautious",
+        "Observant"
+      ],
+      "knowledge": [],
+      "goals": [
+        "Survive and fight the invaders"
+      ],
+      "relationships": [
+        "With Alice"
+      ],
+      "evidence": [
+        "Юдзо, поглядывая в иллюминатор, за которым черные существа настойчиво сверлили обшивку 'Арбата', надевал шлем."
+      ]
+    },
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "She and Yuuzo are hiding from black creatures on the 'Arbat' spaceship.",
+        "She is resourceful and strategic.",
+        "She is concerned about the safety of the 'Arbat'."
+      ],
+      "appearance": [],
+      "traits": [
+        "Resourceful",
+        "Strategic",
+        "Concerned about safety"
+      ],
+      "knowledge": [],
+      "goals": [
+        "Survive and protect the 'Arbat'"
+      ],
+      "relationships": [
+        "With Yuuzo"
+      ],
+      "evidence": [
+        "Алиса откинула угол ковра в кают-компании, чтобы найти a hidden access to the technical section of the 'Arbat'.",
+        "She suggests using the hidden access to escape from the black creatures."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Arbat spaceship",
+      "facts": [
+        "Black creatures are trying to board and rob the 'Arbat'.",
+        "The spaceship has a hidden technical section.",
+        "The spaceship has been partially looted by the black creatures."
+      ],
+      "evidence": [
+        "Посейдон лазил туда, чтобы проверить системы отопления.",
+        "На корабле никого не было. Но за те минуты, пока бандиты бесчинствовали на нем, корабль преобразился."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Hidden access to the technical section",
+      "facts": [
+        "Located in the cabin.",
+        "Used by Alice and Yuuzo to escape."
+      ],
+      "evidence": [
+        "Алиса откинула угол ковра в кают-компании."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Black creatures attempt to board and rob the 'Arbat'.",
+      "participants": [
+        "Black creatures",
+        "Yuuzo and Alice"
+      ],
+      "location": "Arbat spaceship",
+      "causes": [
+        "The black creatures are searching for valuable items."
+      ],
+      "consequences": [
+        "The spaceship is partially looted.",
+        "Yuuzo and Alice hide in a hidden technical section."
+      ],
+      "evidence": [
+        "Раздался удар в люк.",
+        "Посейдон лазил туда, чтобы проверить системы отопления."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "In space, sound does not travel, but vibrations do.",
+      "evidence": [
+        "Если приложить руку в перчатке к потолку отсека, то можно угадать каждый шаг тех, кто наверху."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What is the ultimate goal of the black creatures?",
+      "reason": "Their actions suggest they are searching for something valuable, but their ultimate objective is not explicitly stated."
+    }
+  ]
+}

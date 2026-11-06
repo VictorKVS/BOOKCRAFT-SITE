@@ -1,0 +1,244 @@
+{
+  "characters": [
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "Recalls a terrible secret about Boris Messerer.",
+        "Plays chess with Edward Petrovich's group.",
+        "Wins against the grandmaster.",
+        "Recognizes chess moves.",
+        "Understands complex chess strategies."
+      ],
+      "appearance": [],
+      "traits": [
+        "Intelligent",
+        "Resourceful",
+        "Confident"
+      ],
+      "knowledge": [
+        "Chess moves and strategies",
+        "Secret about Boris Messerer"
+      ],
+      "goals": [
+        "Stay in school"
+      ],
+      "relationships": [
+        "Friends with Юлька",
+        "Competes with Коля Сулима"
+      ],
+      "evidence": [
+        "Recalled a secret about Boris Messerer.",
+        "Played chess with Edward Petrovich's group.",
+        "Won against the grandmaster.",
+        "Understood complex chess strategies."
+      ]
+    },
+    {
+      "name": "Юлька",
+      "aliases": [],
+      "facts": [
+        "Friends with Алиса",
+        "Supportive of Алиса",
+        "Interested in chess",
+        "Aims to keep Алиса in school"
+      ],
+      "appearance": [],
+      "traits": [
+        "Supportive",
+        "Determined"
+      ],
+      "knowledge": [
+        "Chess moves and strategies"
+      ],
+      "goals": [
+        "Keep Алиса in school"
+      ],
+      "relationships": [
+        "Friends with Алиса",
+        "Supportive of Алиса"
+      ],
+      "evidence": [
+        "Supportive of Алиса",
+        "Interested in chess"
+      ]
+    },
+    {
+      "name": "Коля Сулима",
+      "aliases": [],
+      "facts": [
+        "Participates in chess games",
+        "Struggles with complex chess strategies",
+        "Supports Алиса",
+        "Competes with Алиса"
+      ],
+      "appearance": [],
+      "traits": [
+        "Supportive",
+        "Struggles with chess"
+      ],
+      "knowledge": [
+        "Basic chess moves"
+      ],
+      "goals": [
+        "Win chess games"
+      ],
+      "relationships": [
+        "Supportive of Алиса",
+        "Competes with Алиса"
+      ],
+      "evidence": [
+        "Struggles with complex chess strategies",
+        "Supports Алиса"
+      ]
+    },
+    {
+      "name": "Эдуард Петрович",
+      "aliases": [],
+      "facts": [
+        "Organizes chess games",
+        "Supports Алиса",
+        "Aims to keep Алиса in school"
+      ],
+      "appearance": [],
+      "traits": [
+        "Supportive",
+        "Organized"
+      ],
+      "knowledge": [
+        "Chess rules"
+      ],
+      "goals": [
+        "Keep Алиса in school"
+      ],
+      "relationships": [
+        "Supportive of Алиса"
+      ],
+      "evidence": [
+        "Organizes chess games",
+        "Supports Алиса"
+      ]
+    },
+    {
+      "name": "Боря Мессерер",
+      "aliases": [],
+      "facts": [
+        "Participates in chess games",
+        "Supports Алиса",
+        "Competes with Алиса"
+      ],
+      "appearance": [],
+      "traits": [
+        "Supportive",
+        "Competitive"
+      ],
+      "knowledge": [
+        "Chess moves and strategies"
+      ],
+      "goals": [
+        "Win chess games"
+      ],
+      "relationships": [
+        "Supportive of Алиса",
+        "Competes with Алиса"
+      ],
+      "evidence": [
+        "Supports Алиса",
+        "Competes with Алиса"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "School chess room",
+      "facts": [
+        "Chess games are played here",
+        "A grandmaster visits to play",
+        "Students and teachers gather to watch"
+      ],
+      "evidence": [
+        "Chess games are played here",
+        "A grandmaster visits to play"
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Chess set",
+      "facts": [
+        "Used in chess games",
+        "Includes various chess pieces"
+      ],
+      "evidence": [
+        "Chess games are played here"
+      ]
+    },
+    {
+      "name": "Book 'Tvorcheskoe tvorchestvo Boris Messerera'",
+      "facts": [
+        "Contains secrets",
+        "Belongs to Алиса"
+      ],
+      "evidence": [
+        "Contains secrets"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Chess game between Алиса and the grandmaster",
+      "participants": [
+        "Алиса",
+        "Grandmaster"
+      ],
+      "location": "School chess room",
+      "causes": [
+        "Grandmaster's visit",
+        "Aлиса's chess skills"
+      ],
+      "consequences": [
+        "Aлиса wins the game",
+        "Aлиса understands complex chess strategies"
+      ],
+      "evidence": [
+        "Aлиса wins the game",
+        "Aлиса understands complex chess strategies"
+      ]
+    },
+    {
+      "event": "Chess game between Коля Сулима and the grandmaster",
+      "participants": [
+        "Коля Сулима",
+        "Grandmaster"
+      ],
+      "location": "School chess room",
+      "causes": [
+        "Grandmaster's visit",
+        "Коля Сулима's chess skills"
+      ],
+      "consequences": [
+        "Коля Сулима struggles with complex chess strategies",
+        "Коля Сулима supports Алиса"
+      ],
+      "evidence": [
+        "Коля Сулима struggles with complex chess strategies",
+        "Коля Сулима supports Алиса"
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Chess games are a significant activity in the school",
+      "evidence": [
+        "Chess games are played here",
+        "A grandmaster visits to play"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What is the secret about Boris Messerer?",
+      "reason": "Not explicitly stated in the text"
+    }
+  ]
+}

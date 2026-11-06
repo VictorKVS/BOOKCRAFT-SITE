@@ -1,0 +1,181 @@
+{
+  "characters": [
+    {
+      "name": "Юля",
+      "aliases": [],
+      "facts": [
+        "has keen insight",
+        "helps Alica recall memories",
+        "thinks Alica is hiding something",
+        "suggests Alica's father works in Moscow",
+        "thinks Alica is avoiding being found"
+      ],
+      "appearance": [],
+      "traits": [
+        "curious",
+        "determined",
+        "observant"
+      ],
+      "knowledge": [
+        "Alica's father works in Moscow",
+        "Alica's mother is not in Moscow"
+      ],
+      "goals": [
+        "help Alica recall memories",
+        "find out Alica's true identity"
+      ],
+      "relationships": [
+        "friend with Alica",
+        "friend with Shurka"
+      ],
+      "evidence": [
+        "Alica's father is a cosmonaut",
+        "Alica's mother is not in Moscow",
+        "Alica's father works in Moscow",
+        "Alica's father is a cosmo-biologist"
+      ]
+    },
+    {
+      "name": "Alica",
+      "aliases": [],
+      "facts": [
+        "has amnesia",
+        "works in applied genetics",
+        "wants to be a cosmo-biologist",
+        "father is a cosmo-biologist",
+        "mother is not in Moscow",
+        "father works in Moscow"
+      ],
+      "appearance": [],
+      "traits": [
+        "determined",
+        "secretive"
+      ],
+      "knowledge": [
+        "father's occupation",
+        "mother's location"
+      ],
+      "goals": [
+        "recover memories",
+        "avoid being found"
+      ],
+      "relationships": [
+        "friend with Yulia",
+        "friend with Shurka"
+      ],
+      "evidence": [
+        "father is a cosmo-biologist",
+        "mother is not in Moscow",
+        "father works in Moscow"
+      ]
+    },
+    {
+      "name": "Shurka",
+      "aliases": [],
+      "facts": [
+        "recently graduated from a medical school",
+        "going to medical institute",
+        "serious about medicine",
+        "invited to the movie with Alica and Yulia"
+      ],
+      "appearance": [],
+      "traits": [
+        "kind",
+        "concerned"
+      ],
+      "knowledge": [
+        "Alica's condition",
+        "movie details"
+      ],
+      "goals": [
+        "help Alica",
+        "go to the movie"
+      ],
+      "relationships": [
+        "friend with Alica",
+        "friend with Yulia"
+      ],
+      "evidence": [
+        "going to the movie",
+        "Alica's condition"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "hospital",
+      "facts": [
+        "Alica is in the hospital",
+        "Yulia and Shurka visit Alica"
+      ],
+      "evidence": [
+        "Alica is in the hospital",
+        "Yulia and Shurka visit Alica"
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "medicine",
+      "facts": [
+        "given to Alica by Shurka"
+      ],
+      "evidence": [
+        "Shurka gives medicine to Alica"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Alica and Yulia discuss Alica's condition and memories",
+      "participants": [
+        "Alica",
+        "Yulia"
+      ],
+      "location": "hospital",
+      "causes": [
+        "Alica's amnesia"
+      ],
+      "consequences": [
+        "Yulia helps Alica recall memories"
+      ],
+      "evidence": [
+        "Alica and Yulia discuss Alica's condition and memories",
+        "Yulia helps Alica recall memories"
+      ]
+    },
+    {
+      "event": "Shurka invites Yulia and Alica to a movie",
+      "participants": [
+        "Shurka",
+        "Yulia",
+        "Alica"
+      ],
+      "location": "hospital",
+      "causes": [
+        "Shurka's free time"
+      ],
+      "consequences": [
+        "Alica and Yulia discuss the movie"
+      ],
+      "evidence": [
+        "Shurka invites Yulia and Alica to a movie",
+        "Alica and Yulia discuss the movie"
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "People in pajamas in cold weather are prone to catching a cold",
+      "evidence": [
+        "Alica is in pajamas and cold weather"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "Why does Alica have amnesia?",
+      "reason": "Alica's past is unclear"
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "characters": [
+    {
+      "name": "Alicia",
+      "aliases": [],
+      "facts": [
+        "She saw a message on a bench in the zoo, leading her to believe a boy from the future had come.",
+        "She decided to take the mieloфон from the boy and return it to the Institute of Time.",
+        "She entered the Institute of Time through a broken window.",
+        "She found the time machine and activated it, going back to the present.",
+        "She chased the boy who had taken the mieloфон.",
+        "She believed pirates were following her.",
+        "She thought the pirates stole her bag.",
+        "She blamed Kolya for the situation."
+      ],
+      "appearance": [],
+      "traits": [
+        "Fearful",
+        "Decisive",
+        "Resourceful",
+        "Overreactive"
+      ],
+      "knowledge": [
+        "Future technology exists",
+        "Time travel is possible",
+        "Pirates exist and are a threat"
+      ],
+      "goals": [
+        "Retrieve the mieloфон and return it to the Institute of Time",
+        "Catch the boy who took the mieloфон"
+      ],
+      "relationships": [
+        "Friend with Julia"
+      ],
+      "evidence": [
+        "Его там не было. Там никого не было.",
+        "А где он?",
+        "Я струсила и решила: побегу к Институту времени, перехвачу мальчишку у института, отниму миелофон, а потом уж решу, что делать дальше.",
+        "Глупое решение. Если бы ты туда позвонила, его бы и без тебя перехватили.",
+        "Флипнула я к Институту времени и вижу — он заперт.",
+        "Я вбегаю в лабораторию и вижу — все правильно.",
+        "Я переместилась и очутилась в твоём году.",
+        "Я за ним. Сбежала вниз.",
+        "Я за ним. Как грохнулась головой о троллейбус — хорошо ещё, что не попала под него.",
+        "Пираты, видно, за мной следили.",
+        "Коля увидел, как они мою сумку украли. Понимаешь, он хоть и недисциплинированный и первобытный, но ведь он не вор и не бандит..."
+      ]
+    },
+    {
+      "name": "Julia",
+      "aliases": [],
+      "facts": [
+        "She is Alicia's friend.",
+        "She understands Alicia's actions.",
+        "She believes in time travel.",
+        "She does not believe in pirates."
+      ],
+      "appearance": [],
+      "traits": [
+        "Supportive",
+        "Empathetic"
+      ],
+      "knowledge": [
+        "Future technology exists",
+        "Time travel is possible"
+      ],
+      "goals": [
+        "Support Alicia"
+      ],
+      "relationships": [
+        "Friend with Alicia"
+      ],
+      "evidence": [
+        "Нет. На твоём месте я бы то же самое сделала.",
+        "Я бы тоже одурела, — сказала Юлька.",
+        "Кому как..."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Zoo",
+      "facts": [
+        "Alicia saw a message on a bench."
+      ],
+      "evidence": [
+        "Его там не было. Там никого не было."
+      ]
+    },
+    {
+      "name": "Institute of Time",
+      "facts": [
+        "Alicia entered the Institute of Time.",
+        "She found the time machine.",
+        "Pirates were following her."
+      ],
+      "evidence": [
+        "Флипнула я к Институту времени и вижу — он заперт.",
+        "Я вбегаю в лабораторию и вижу — все правильно.",
+        "Пираты, видно, за мной следили."
+      ]
+    },
+    {
+      "name": "Present Day",
+      "facts": [
+        "Alicia returned to the present day."
+      ],
+      "evidence": [
+        "Я переместилась и очутилась в твоём году."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Mielophone",
+      "facts": [
+        "Alicia was trying to retrieve it.",
+        "Pirates were interested in it."
+      ],
+      "evidence": [
+        "Перехвачу мальчишку у института, отниму миелофон, а потом уж решу, что делать дальше.",
+        "А почему пиратам миелофон?"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Alicia's journey to the future and back",
+      "participants": [
+        "Alicia",
+        "Pirates"
+      ],
+      "location": "Institute of Time",
+      "causes": [
+        "Alicia saw a message on a bench in the zoo.",
+        "A boy from the future took the mieloфон.",
+        "Pirates stole Alicia's bag."
+      ],
+      "consequences": [
+        "Alicia chased the boy and the pirates.",
+        "She returned to the present day.",
+        "She blamed Kolya for the situation."
+      ],
+      "evidence": [
+        "Я вбегаю в лабораторию и вижу — все правильно.",
+        "Я переместилась и очутилась в твоём году.",
+        "Я за ним. Как грохнулась головой о троллейбус — хорошо ещё, что не попала под него."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Time travel is possible.",
+      "evidence": [
+        "Я переместилась и очутилась в твоём году."
+      ]
+    },
+    {
+      "rule": "Pirates exist and can travel through time.",
+      "evidence": [
+        "Пираты, видно, за мной следили."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "Why did the pirates follow Alicia?",
+      "reason": "Alicia believes the pirates stole her bag, but it is not explicitly confirmed."
+    }
+  ]
+}

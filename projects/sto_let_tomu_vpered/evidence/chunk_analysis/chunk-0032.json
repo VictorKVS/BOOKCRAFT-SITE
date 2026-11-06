@@ -1,0 +1,215 @@
+{
+  "characters": [
+    {
+      "name": "Алик",
+      "aliases": [],
+      "facts": [
+        "Asked about his visit to the hospital in the evening",
+        "Wore new shoes"
+      ],
+      "appearance": [],
+      "traits": [
+        "Honest",
+        "Concerned"
+      ],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Friend with Alica",
+        "Colleague with Maria Pavlovna"
+      ],
+      "evidence": [
+        "Asked about his visit to the hospital in the evening"
+      ]
+    },
+    {
+      "name": "Мария Павловна",
+      "aliases": [],
+      "facts": [
+        "Suspected Alik of bringing Alica's father to the hospital",
+        "Thought Alik had visited the hospital in the evening",
+        "Allowed Alik to leave without questioning his story",
+        "Believed in her own hallucinations",
+        "Allowed Alik to leave without questioning his story"
+      ],
+      "appearance": [],
+      "traits": [
+        "Suspicious",
+        "Self-blaming"
+      ],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Colleague with Alik",
+        "Supervisor of the hospital"
+      ],
+      "evidence": [
+        "Suspected Alik of bringing Alica's father to the hospital",
+        "Thought Alik had visited the hospital in the evening",
+        "Allowed Alik to leave without questioning his story",
+        "Believed in her own hallucinations",
+        "Allowed Alik to leave without questioning his story"
+      ]
+    },
+    {
+      "name": "Юлька",
+      "aliases": [],
+      "facts": [
+        "Helped Alica escape from the hospital",
+        "Planned to visit Alica",
+        "Felt guilty about her actions",
+        "Rejected Alica's offer of help",
+        "Felt Alica's distrust"
+      ],
+      "appearance": [],
+      "traits": [
+        "Cunning",
+        "Guilty",
+        "Determined"
+      ],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Friend with Alica",
+        "Colleague with Alik"
+      ],
+      "evidence": [
+        "Helped Alica escape from the hospital",
+        "Planned to visit Alica",
+        "Felt guilty about her actions",
+        "Rejected Alica's offer of help",
+        "Felt Alica's distrust"
+      ]
+    },
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "Escaped from the hospital",
+        "Refused to eat muesli",
+        "Planned to live in the forest",
+        "Rejected help from others",
+        "Felt betrayed by her friends"
+      ],
+      "appearance": [],
+      "traits": [
+        "Determined",
+        "Guilty",
+        "Resilient"
+      ],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Friend with Юлька",
+        "Patient at the hospital"
+      ],
+      "evidence": [
+        "Escaped from the hospital",
+        "Refused to eat muesli",
+        "Planned to live in the forest",
+        "Rejected help from others",
+        "Felt betrayed by her friends"
+      ]
+    },
+    {
+      "name": "Мария Михайловна",
+      "aliases": [],
+      "facts": [
+        "Alica's grandmother",
+        "Offered to bring Alica food and books",
+        "Taught Alica about human relationships",
+        "Worked as an engineer and a military officer",
+        "Was Alica's caregiver"
+      ],
+      "appearance": [],
+      "traits": [
+        "Caring",
+        "Determined"
+      ],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Grandmother of Alica",
+        "Colleague with Maria Pavlovna"
+      ],
+      "evidence": [
+        "Alica's grandmother",
+        "Offered to bring Alica food and books",
+        "Taught Alica about human relationships",
+        "Worked as an engineer and a military officer",
+        "Was Alica's caregiver"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Hospital",
+      "facts": [
+        "Alica escaped from the hospital",
+        "Alik visited the hospital in the evening",
+        "Alik's shoes were new"
+      ],
+      "evidence": [
+        "Alica escaped from the hospital",
+        "Alik visited the hospital in the evening",
+        "Alik's shoes were new"
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Muesli",
+      "facts": [
+        "Alica refused to eat it"
+      ],
+      "evidence": [
+        "Alica refused to eat it"
+      ]
+    },
+    {
+      "name": "Books and Tissues",
+      "facts": [
+        "Taken by Alica's grandmother"
+      ],
+      "evidence": [
+        "Taken by Alica's grandmother"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Alica's escape from the hospital",
+      "participants": [
+        "Юлька",
+        "Alica"
+      ],
+      "location": "Hospital",
+      "causes": [
+        "Alica's memory loss",
+        "Юлька's help"
+      ],
+      "consequences": [
+        "Alica's distrust of her friends",
+        "Юлька's guilt"
+      ],
+      "evidence": [
+        "Alica's escape from the hospital",
+        "Юлька's help"
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Hospital staff must follow strict protocols",
+      "evidence": [
+        "Hospital staff must follow strict protocols"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What will happen to Alica after her escape?",
+      "reason": "Alica's future is uncertain"
+    }
+  ]
+}

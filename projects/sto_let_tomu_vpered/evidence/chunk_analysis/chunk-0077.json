@@ -1,0 +1,199 @@
+{
+  "characters": [
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "Encouraged the attack on the Aishkleks.",
+        "Realized the gravity increase would force the dragons to fall into the abyss.",
+        "Hugged the professor in relief."
+      ],
+      "appearance": [],
+      "traits": [
+        "Determined",
+        "Emotional"
+      ],
+      "knowledge": [
+        "Understood the gravity could be used to their advantage."
+      ],
+      "goals": [
+        "Save the friends and the professor."
+      ],
+      "relationships": [
+        "With the professor, friends."
+      ],
+      "evidence": [
+        "Алиса бросилась к профессору и обняла его."
+      ]
+    },
+    {
+      "name": "Профессор Комура",
+      "aliases": [],
+      "facts": [
+        "Planned the gravity increase to save the friends.",
+        "Negotiated with the Aishkleks and the robots."
+      ],
+      "appearance": [],
+      "traits": [
+        "Clever",
+        "Determined"
+      ],
+      "knowledge": [
+        "Understood the gravity could be used to their advantage."
+      ],
+      "goals": [
+        "Save the friends and the Aishkleks."
+      ],
+      "relationships": [
+        "With Alisha, son Yuudzo."
+      ],
+      "evidence": [
+        "Я выполнял свой долг, — ответил робот.",
+        "Я выполнял свой долг, — ответил робот."
+      ]
+    },
+    {
+      "name": "Полина",
+      "aliases": [],
+      "facts": [
+        "Helped Yuudzo and was attacked by the Aishkleks."
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [
+        "Understood the gravity increase would help."
+      ],
+      "goals": [
+        "Survive."
+      ],
+      "relationships": [
+        "With Yuudzo."
+      ],
+      "evidence": [
+        "Полина старалась отталкивать когти, которые скользили уже по ее скафандру."
+      ]
+    },
+    {
+      "name": "Юдзо",
+      "aliases": [],
+      "facts": [
+        "Escaped with his father.",
+        "Expressed concern for his father."
+      ],
+      "appearance": [],
+      "traits": [
+        "Resilient"
+      ],
+      "knowledge": [],
+      "goals": [
+        "Survive."
+      ],
+      "relationships": [
+        "With his father."
+      ],
+      "evidence": [
+        "Пропустите наш полк. Он вернулся с передовых позиций и желает отдохнуть."
+      ]
+    },
+    {
+      "name": "Посейдон",
+      "aliases": [],
+      "facts": [
+        "Helped the group escape.",
+        "Fought with the Aishkleks."
+      ],
+      "appearance": [],
+      "traits": [
+        "Brave"
+      ],
+      "knowledge": [],
+      "goals": [
+        "Protect the group."
+      ],
+      "relationships": [
+        "With the group."
+      ],
+      "evidence": [
+        "Посейдон, помогая Полине и мальчику, вывел их оттуда."
+      ]
+    },
+    {
+      "name": "Хозяин",
+      "aliases": [],
+      "facts": [
+        "Refused to let the group leave.",
+        "Threatened to kill the professor."
+      ],
+      "appearance": [],
+      "traits": [
+        "Intimidating"
+      ],
+      "knowledge": [],
+      "goals": [
+        "Keep the Aishkleks under control."
+      ],
+      "relationships": [
+        "With the Aishkleks, robots."
+      ],
+      "evidence": [
+        "Я бы не дала этого сделать, — сказала Алиса Полине."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Prison",
+      "facts": [
+        "Aishkleks and robots were imprisoned here.",
+        "Gravity could be increased or decreased."
+      ],
+      "evidence": [
+        "Увеличьте гравитацию в три раза."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Strengthened glass",
+      "facts": [
+        "Used to imprison the group."
+      ],
+      "evidence": [
+        "Они отступили на несколько шагов, чтобы получше разбежаться."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Escape plan",
+      "participants": [
+        "Alisha, professor, Yuudzo, Polina, Yuudzo's father, Posidon"
+      ],
+      "location": "Prison",
+      "causes": [
+        "Realization that gravity could be used to their advantage."
+      ],
+      "consequences": [
+        "Aishkleks and robots were defeated.",
+        "Group escaped."
+      ],
+      "evidence": [
+        "Увеличьте гравитацию в три раза."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Gravity can be manipulated to affect the Aishkleks.",
+      "evidence": [
+        "Увеличьте гравитацию в три раза."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What will happen to the Aishkleks and robots after the escape?",
+      "reason": "Unclear from the text."
+    }
+  ]
+}

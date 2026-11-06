@@ -1,0 +1,173 @@
+{
+  "characters": [
+    {
+      "name": "Коля",
+      "aliases": [],
+      "facts": [
+        "Kolya is a young man preparing for a masquerade.",
+        "Kolya is interested in football."
+      ],
+      "appearance": [],
+      "traits": [
+        "Inquisitive",
+        "Curious",
+        "Determined"
+      ],
+      "knowledge": [
+        "Kolya knows about the English school system.",
+        "Kolya is aware of the upcoming festival on the Moon."
+      ],
+      "goals": [
+        "Wants to visit the Moon or Mars."
+      ],
+      "relationships": [
+        "Meets an elderly man who claims to be his peer.",
+        "Meets a cosmic archaeologist named Рррр."
+      ],
+      "evidence": [
+        "Коля спохватился: — Иногда.",
+        "Коля вспомнил, что время идёт, все куда-то едут, он один бездельничает."
+      ]
+    },
+    {
+      "name": "Старик Павел",
+      "aliases": [],
+      "facts": [
+        "Pavel claims to be Kolya's peer.",
+        "Pavel is a centenarian.",
+        "Pavel talks about his past and the future.",
+        "Pavel has a device that shows time and weather."
+      ],
+      "appearance": [],
+      "traits": [
+        "Eloquent",
+        "Knowledgeable",
+        "Confident"
+      ],
+      "knowledge": [
+        "Kolya's school system.",
+        "Upcoming festival on the Moon."
+      ],
+      "goals": [
+        "Wants to share his knowledge with Kolya."
+      ],
+      "relationships": [
+        "Has a conversation with Kolya."
+      ],
+      "evidence": [
+        "Сплинтер, — сказал старик равнодушно.",
+        "Время 10:12:36 t 15C. Дождя не будет."
+      ]
+    },
+    {
+      "name": "Рррр",
+      "aliases": [],
+      "facts": [
+        "Рррр is a cosmic archaeologist.",
+        "Рррр is interested in structural linguistics.",
+        "Рррр is familiar with upcoming events on Mars."
+      ],
+      "appearance": [],
+      "traits": [
+        "Knowledgeable",
+        "Humorous"
+      ],
+      "knowledge": [
+        "Upcoming match between Mars and external bases.",
+        "Structural linguistics."
+      ],
+      "goals": [
+        "Wants to engage Kolya in conversation."
+      ],
+      "relationships": [
+        "Meets Kolya at a masquerade preparation site."
+      ],
+      "evidence": [
+        "Через полчаса. Мы успеем."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Moscow",
+      "facts": [
+        "Kolya is in Moscow.",
+        "There is a park where Kolya and the elderly man meet."
+      ],
+      "evidence": [
+        "Коля искоса поглядывал на старика, который нажал какую-то кнопку сбоку портсигара, портсигар превратился в разноцветный экран, и по нему побежали различные кадры."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Portasigar",
+      "facts": [
+        "A device that can show time and weather."
+      ],
+      "evidence": [
+        "портсигар превратился в разноцветный экран, и по нему побежали различные кадры."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Meeting between Kolya and an elderly man who claims to be his peer.",
+      "participants": [
+        "Kolya",
+        "Старик Павел"
+      ],
+      "location": "Park in Moscow",
+      "causes": [
+        "Kolya's curiosity and the elderly man's claim."
+      ],
+      "consequences": [
+        "Kolya learns about the elderly man's past and future.",
+        "Kolya considers the possibility of living a long life."
+      ],
+      "evidence": [
+        "Сплинтер, — сказал старик равнодушно.",
+        "Время 10:12:36 t 15C. Дождя не будет."
+      ]
+    },
+    {
+      "event": "Meeting between Kolya and a cosmic archaeologist.",
+      "participants": [
+        "Kolya",
+        "Рррр"
+      ],
+      "location": "Moscow, near a park",
+      "causes": [
+        "Kolya's interest in the upcoming match.",
+        "Рррр's familiarity with the event."
+      ],
+      "consequences": [
+        "Kolya learns about the upcoming match.",
+        "Kolya considers attending the match."
+      ],
+      "evidence": [
+        "Через полчаса. Мы успеем."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "People can appear to be peers despite significant age differences.",
+      "evidence": [
+        "Старик Павел и Коля обсуждают свою возрастную категорию."
+      ]
+    },
+    {
+      "rule": "Technology exists to show current time and weather.",
+      "evidence": [
+        "Время 10:12:36 t 15C. Дождя не будет."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "How does the elderly man claim to be Kolya's peer?",
+      "reason": "The elderly man's claim is not explained in the text."
+    }
+  ]
+}

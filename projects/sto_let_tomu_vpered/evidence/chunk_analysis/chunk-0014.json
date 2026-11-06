@@ -1,0 +1,118 @@
+{
+  "characters": [
+    {
+      "name": "Коля",
+      "aliases": [],
+      "facts": [
+        "Kolya sneaks onto a cargo ship.",
+        "Kolya is curious and wants to explore the ship.",
+        "Kolya is afraid of the 'squirrels' (aliens)."
+      ],
+      "appearance": [],
+      "traits": [
+        "Curious",
+        "Adventurous",
+        "Afraid"
+      ],
+      "knowledge": [
+        "He knows about the 'squirrels' and their plan to leave unnoticed.",
+        "He knows that he can't be seen by the 'squirrels'."
+      ],
+      "goals": [
+        "To explore the ship and see if he can return unnoticed."
+      ],
+      "relationships": [
+        "He is afraid of the 'squirrels'."
+      ],
+      "evidence": [
+        "Коля шёл за тележкой до тех пор, пока не увидел, что наперерез едет другая такая же тележка, на которой стоит красивая ваза в два человеческих роста."
+      ]
+    },
+    {
+      "name": "Squirrels",
+      "aliases": [],
+      "facts": [
+        "They are aliens planning to leave Earth.",
+        "They are called 'squirrels' by Kolya.",
+        "They are using a cargo ship to leave.",
+        "They are careful not to be seen by humans."
+      ],
+      "appearance": [],
+      "traits": [
+        "Cautious",
+        "Resourceful"
+      ],
+      "knowledge": [
+        "They know about Kolya's presence.",
+        "They are aware of the cargo ship's systems."
+      ],
+      "goals": [
+        "To leave Earth unnoticed."
+      ],
+      "relationships": [
+        "They are afraid of being seen by Kolya."
+      ],
+      "evidence": [
+        "Голос из-под потолка ответил:",
+        "Робот — тележка — сорок — четыре — груз — доставлен — сюда — по — ошибке — ваза — предназначена — для — подарка — на — альдебаран — верните — груз — на — главный — склад — как — понял — приём."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Cargo Ship",
+      "facts": [
+        "A large, well-protected ship.",
+        "Contains a large cargo bay and smaller storage areas.",
+        "Has a system for receiving and storing cargo."
+      ],
+      "evidence": [
+        "Коля присел за ней на корточки, чтобы его не заметили люди, которые будут принимать груз."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Vase",
+      "facts": [
+        "Huge, covered in a transparent sheath.",
+        "Used to transport a 'squirrel'."
+      ],
+      "evidence": [
+        "Ваза была покрыта полупрозрачным чехлом.",
+        "Из широкого горла вазы показалась круглая человеческая голова."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Kolya sneaks onto a cargo ship.",
+      "participants": [
+        "Kolya"
+      ],
+      "location": "Cargo Ship",
+      "causes": [],
+      "consequences": [
+        "Kolya explores the ship.",
+        "He witnesses the 'squirrels' using the ship."
+      ],
+      "evidence": [
+        "Коля шёл за тележкой до тех пор, пока не увидел, что наперерез едет другая такая же тележка, на которой стоит красивая ваза в два человеческих роста."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "There are aliens (squirrels) planning to leave Earth.",
+      "evidence": [
+        "Голос из-под потолка ответил:"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What will happen to Kolya after he witnesses the 'squirrels'?",
+      "reason": "His presence is now known to the 'squirrels'."
+    }
+  ]
+}

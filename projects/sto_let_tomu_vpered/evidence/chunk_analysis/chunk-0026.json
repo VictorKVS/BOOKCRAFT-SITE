@@ -1,0 +1,112 @@
+{
+  "characters": [
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "Alic knows how to cook Brambullets.",
+        "Alic believes all hunters are bad.",
+        "Alic is trying to find a boy named Kolja from the 6th B class.",
+        "Alic suspects the girl is not from Moscow."
+      ],
+      "appearance": [],
+      "traits": [
+        "curious",
+        "determined",
+        "confused"
+      ],
+      "knowledge": [
+        "Brambullets are made from mangosteen and petejar oil.",
+        "Hunters are considered bad by Alic."
+      ],
+      "goals": [
+        "Find Kolja from the 6th B class."
+      ],
+      "relationships": [
+        "Has a complex relationship with Юля."
+      ],
+      "evidence": [
+        "Alic mentions Brambullets and their preparation.",
+        "Alic talks about hunters and their behavior."
+      ]
+    },
+    {
+      "name": "Юля",
+      "aliases": [],
+      "facts": [
+        "Юля is from the 6th B class.",
+        "Юля's mother is named Наташа.",
+        "Юля's mother brings her flowers, magazines, and a letter from school."
+      ],
+      "appearance": [],
+      "traits": [
+        "curious",
+        "confused"
+      ],
+      "knowledge": [
+        "Brambullets are made from mangosteen and petejar oil.",
+        "Hunters are considered bad by Alic."
+      ],
+      "goals": [
+        "Help Алиса find Kolja."
+      ],
+      "relationships": [
+        "Has a complex relationship with Алиса."
+      ],
+      "evidence": [
+        "Юля knows about Brambullets and their preparation.",
+        "Юля knows about the 6th B class and the school."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Classroom",
+      "facts": [
+        "Alic and Юля discuss the 6th B class and Kolja."
+      ],
+      "evidence": []
+    }
+  ],
+  "objects": [
+    {
+      "name": "Brambullets",
+      "facts": [
+        "Brambullets are made from mangosteen and petejar oil."
+      ],
+      "evidence": [
+        "Alic mentions Brambullets and their preparation."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Alic and Юля discuss Brambullets and hunters.",
+      "participants": [
+        "Алиса",
+        "Юля"
+      ],
+      "location": "Classroom",
+      "causes": [],
+      "consequences": [],
+      "evidence": [
+        "Alic mentions Brambullets and their preparation.",
+        "Alic talks about hunters and their behavior."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Hunters are considered bad by Алиса.",
+      "evidence": [
+        "Alic believes all hunters are bad."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "Who is Алиса looking for?",
+      "reason": "Alic is trying to find a boy named Kolja from the 6th B class."
+    }
+  ]
+}

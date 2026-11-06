@@ -1,0 +1,182 @@
+{
+  "characters": [
+    {
+      "name": "Полина",
+      "aliases": [],
+      "facts": [
+        "Was captured by black creatures.",
+        "Found herself in a dimly lit room with gray walls, floor, and ceiling.",
+        "Observed messages on the wall.",
+        "Appealed to the black creatures for release."
+      ],
+      "appearance": [],
+      "traits": [
+        "Felt fear."
+      ],
+      "knowledge": [
+        "The room had no other exits.",
+        "There were messages about people not leaving alive."
+      ],
+      "goals": [
+        "To be released."
+      ],
+      "relationships": [
+        "Met with black creatures."
+      ],
+      "evidence": [
+        "Полина ни до чего не дотрагивалась.",
+        "Она медленно обошла комнату, чтобы убедиться, что она здесь одна, и выяснить, есть ли отсюда другой выход."
+      ]
+    },
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "Met Yuudo.",
+        "Found a way into the asteroid.",
+        "Encountered a message from 'Gromkogo smеха'.",
+        "Met Poseidon."
+      ],
+      "appearance": [],
+      "traits": [
+        "Cautious."
+      ],
+      "knowledge": [
+        "The air was breathable.",
+        "The temperature was 17 degrees Celsius."
+      ],
+      "goals": [
+        "To find and rescue everyone."
+      ],
+      "relationships": [
+        "Met Yuudo.",
+        "Met Poseidon."
+      ],
+      "evidence": [
+        "Алиса включила фонарь и нашла дверь, ведущую внутрь астероида.",
+        "На нем вспыхнула зеленая искра — воздух пригоден для дыхания, температура плюс семнадцать градусов."
+      ]
+    },
+    {
+      "name": "Юдзо",
+      "aliases": [],
+      "facts": [
+        "Met Alica.",
+        "Found a way into the asteroid.",
+        "Met Poseidon."
+      ],
+      "appearance": [],
+      "traits": [
+        "Quick thinking."
+      ],
+      "knowledge": [],
+      "goals": [
+        "To find and rescue everyone."
+      ],
+      "relationships": [
+        "Met Alica.",
+        "Met Poseidon."
+      ],
+      "evidence": [
+        "Юдзо присел на корточки и внимательно разглядывал убитых."
+      ]
+    },
+    {
+      "name": "Poseidon",
+      "aliases": [],
+      "facts": [
+        "Met Alica and Yuudo.",
+        "Killed some bandits.",
+        "Explained the situation to Alica."
+      ],
+      "appearance": [],
+      "traits": [
+        "Smart."
+      ],
+      "knowledge": [],
+      "goals": [
+        "To find and rescue everyone."
+      ],
+      "relationships": [
+        "Met Alica and Yuudo."
+      ],
+      "evidence": [
+        "Посейдон громко захохотал, довольный тем, что провел Алису."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Asteroid",
+      "facts": [
+        "Contains a dimly lit room with gray walls, floor, and ceiling.",
+        "Has narrow, cold, and uneven corridors with niches and branches."
+      ],
+      "evidence": [
+        "Коридор был узким, стены холодными и неровными, словно он был вытесан в скале."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Messages",
+      "facts": [
+        "Found on the wall.",
+        "One from 'Gromkogo smеха'.",
+        "Another one written in black ink or ink."
+      ],
+      "evidence": [
+        "Мы с „Громкого смеха“. Люди, уничтожьте это гнездо…",
+        "Сегодня наша очередь. Мы знаем, что никто еще не уходил живым из когтей ледяного дракона. Прощайте…"
+      ]
+    },
+    {
+      "name": "Chalice",
+      "facts": [
+        "Found by Alica.",
+        "Belonged to Alica."
+      ],
+      "evidence": [
+        "Алиса подхватила ее."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Alica and Yuudo's rescue mission",
+      "participants": [
+        "Alica",
+        "Yuudo",
+        "Poseidon"
+      ],
+      "location": "Asteroid",
+      "causes": [
+        "Black creatures captured Polina.",
+        "Bandits killed some people."
+      ],
+      "consequences": [
+        "Found a way into the asteroid.",
+        "Met Poseidon.",
+        "Discovered messages."
+      ],
+      "evidence": [
+        "Алиса и Юдзо добрались почти до самой стены, но тут они чуть было не попались.",
+        "В переходной камере, куда они попали, было темно."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Robots can be used to fight against intruders.",
+      "evidence": [
+        "Посейдон убил несколько бандитов."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "Where are the others?",
+      "reason": "Alica and Yuudo are searching for them."
+    }
+  ]
+}

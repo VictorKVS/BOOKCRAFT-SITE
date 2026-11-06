@@ -1,0 +1,159 @@
+{
+  "characters": [
+    {
+      "name": "Коля",
+      "aliases": [],
+      "facts": [
+        "Kolya is looking for a way to leave the airport.",
+        "Kolya is interested in space travel but cannot find a way to do it.",
+        "Kolya is from Konotop and studies history.",
+        "Kolya is curious about the barriers around the spaceport."
+      ],
+      "appearance": [],
+      "traits": [
+        "Curious",
+        "Determined",
+        "Inquisitive"
+      ],
+      "knowledge": [
+        "Kolya knows about space travel and the spaceport.",
+        "Kolya is aware of the barriers around the spaceport."
+      ],
+      "goals": [
+        "Find a way to leave the spaceport and see the spacecrafts."
+      ],
+      "relationships": [
+        "Kolya is skeptical of the young man who claims to have been on a spacecraft."
+      ],
+      "evidence": [
+        "Kolya is looking for a way to leave the spaceport and see the spacecrafts."
+      ]
+    },
+    {
+      "name": "Мальчик с курчавыми волосами",
+      "aliases": [],
+      "facts": [
+        "The boy is working on a satellite project.",
+        "He is from the same school as Kolya.",
+        "He is interested in space travel and has been to Mars.",
+        "He is studying to be able to go to Mars in the future."
+      ],
+      "appearance": [
+        "Very curly hair"
+      ],
+      "traits": [
+        "Curious",
+        "Determined",
+        "Knowledgeable"
+      ],
+      "knowledge": [
+        "The boy is working on a satellite project.",
+        "He has been to Mars."
+      ],
+      "goals": [
+        "To go to Mars and contribute to space exploration."
+      ],
+      "relationships": [
+        "He is skeptical of Kolya's claims about not wanting to go to Mars."
+      ],
+      "evidence": [
+        "The boy is working on a satellite project.",
+        "He has been to Mars."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Konotop airport",
+      "facts": [
+        "Kolya is at the airport looking for a way to leave.",
+        "The airport has barriers around the spaceport."
+      ],
+      "evidence": [
+        "Kolya is at the airport looking for a way to leave.",
+        "The airport has barriers around the spaceport."
+      ]
+    },
+    {
+      "name": "Spaceport",
+      "facts": [
+        "The spaceport has barriers around it.",
+        "There are models of spacecrafts on the field.",
+        "There is a satellite project being worked on."
+      ],
+      "evidence": [
+        "The spaceport has barriers around it.",
+        "There are models of spacecrafts on the field.",
+        "There is a satellite project being worked on."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Satellite model",
+      "facts": [
+        "A model of a satellite is being worked on by the boys."
+      ],
+      "evidence": [
+        "A model of a satellite is being worked on by the boys."
+      ]
+    },
+    {
+      "name": "Spacecraft models",
+      "facts": [
+        "Models of spacecrafts are on the field."
+      ],
+      "evidence": [
+        "Models of spacecrafts are on the field."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Kolya's search for a way to leave the spaceport",
+      "participants": [
+        "Kolya"
+      ],
+      "location": "Konotop airport",
+      "causes": [
+        "Kolya is interested in space travel but cannot find a way to do it."
+      ],
+      "consequences": [
+        "Kolya finds a way to enter the spaceport and observe the satellite project."
+      ],
+      "evidence": [
+        "Kolya is looking for a way to leave the spaceport and see the spacecrafts."
+      ]
+    },
+    {
+      "event": "Satellite project",
+      "participants": [
+        "The boys"
+      ],
+      "location": "Spaceport",
+      "causes": [
+        "The boys are working on a satellite project."
+      ],
+      "consequences": [
+        "The boys are working on a satellite project."
+      ],
+      "evidence": [
+        "The boys are working on a satellite project."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "There are barriers around the spaceport.",
+      "evidence": [
+        "The spaceport has barriers around it."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "Why are there barriers around the spaceport?",
+      "reason": "The boy explains that the barriers are there to prevent uneducated children from trying to enter the spaceport."
+    }
+  ]
+}

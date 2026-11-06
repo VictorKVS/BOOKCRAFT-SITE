@@ -1,0 +1,278 @@
+{
+  "characters": [
+    {
+      "name": "Юлька",
+      "aliases": [],
+      "facts": [
+        "She was worried Alice would leave.",
+        "She opened her portfolio to find a chocolate for Larisa."
+      ],
+      "appearance": [],
+      "traits": [
+        "Concerned about Alice leaving",
+        "Thoughtful"
+      ],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Friend with Larisa",
+        "Friend with Alice"
+      ],
+      "evidence": [
+        "She was worried Alice would leave.",
+        "She opened her portfolio to find a chocolate for Larisa."
+      ]
+    },
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "She found a mieloфон in her portfolio.",
+        "She knew the mieloфон worked.",
+        "She was willing to go back home.",
+        "She knew the mieloфон was valuable and unique.",
+        "She was going to use the mieloфон to check for pirates."
+      ],
+      "appearance": [],
+      "traits": [
+        "Decisive",
+        "Intelligent",
+        "Caring"
+      ],
+      "knowledge": [
+        "The mieloфон works.",
+        "The mieloфон is valuable and unique."
+      ],
+      "goals": [
+        "Use the mieloфон to check for pirates."
+      ],
+      "relationships": [
+        "Friend with Kolya Sulyma",
+        "Friend with Katya Mikhailova",
+        "Friend with Fima Korolev",
+        "Friend with Mila Rutkevich",
+        "Friend with Larisa"
+      ],
+      "evidence": [
+        "She found a mieloфон in her portfolio.",
+        "She knew the mieloфон worked.",
+        "She was willing to go back home.",
+        "She knew the mieloфон was valuable and unique.",
+        "She was going to use the mieloфон to check for pirates."
+      ]
+    },
+    {
+      "name": "Катя Михайлова",
+      "aliases": [],
+      "facts": [
+        "She suggested using the mieloфон to check for pirates.",
+        "She found a note in the mieloфон.",
+        "She knew the handwriting of the note."
+      ],
+      "appearance": [],
+      "traits": [
+        "Logical",
+        "Helpful"
+      ],
+      "knowledge": [
+        "The handwriting of the note.",
+        "The mieloфон works."
+      ],
+      "goals": [],
+      "relationships": [
+        "Friend with Алиса",
+        "Friend with Fima Korolev",
+        "Friend with Mila Rutkevich",
+        "Friend with Larisa"
+      ],
+      "evidence": [
+        "She suggested using the mieloфон to check for pirates.",
+        "She found a note in the mieloфон.",
+        "She knew the handwriting of the note."
+      ]
+    },
+    {
+      "name": "Лариса",
+      "aliases": [],
+      "facts": [
+        "She was hungry and wanted chocolate.",
+        "She was worried about being left behind."
+      ],
+      "appearance": [],
+      "traits": [
+        "Hunger",
+        "Emotional"
+      ],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Friend with Юлька",
+        "Friend with Алиса",
+        "Friend with Mila Rutkevich"
+      ],
+      "evidence": [
+        "She was hungry and wanted chocolate.",
+        "She was worried about being left behind."
+      ]
+    },
+    {
+      "name": "Мила Руткевич",
+      "aliases": [],
+      "facts": [
+        "She was worried about Алиса.",
+        "She offered to make sandwiches for everyone."
+      ],
+      "appearance": [],
+      "traits": [
+        "Caring",
+        "Thoughtful"
+      ],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Friend with Алиса",
+        "Friend with Fima Korolev",
+        "Friend with Larisa"
+      ],
+      "evidence": [
+        "She was worried about Алиса.",
+        "She offered to make sandwiches for everyone."
+      ]
+    },
+    {
+      "name": "Fima Королев",
+      "aliases": [],
+      "facts": [
+        "He was eager to use the mieloфон.",
+        "He suggested checking the attic first.",
+        "He was concerned about the lack of weapons."
+      ],
+      "appearance": [],
+      "traits": [
+        "Curious",
+        "Eager"
+      ],
+      "knowledge": [
+        "The mieloфон works."
+      ],
+      "goals": [],
+      "relationships": [
+        "Friend with Алиса",
+        "Friend with Katya Mikhailova",
+        "Friend with Mila Rutkevich",
+        "Friend with Larisa"
+      ],
+      "evidence": [
+        "He was eager to use the mieloфон.",
+        "He suggested checking the attic first.",
+        "He was concerned about the lack of weapons."
+      ]
+    },
+    {
+      "name": "Коля Сулима",
+      "aliases": [],
+      "facts": [
+        "He was part of the group checking for pirates."
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Friend with Алиса",
+        "Friend with Fima Korolev",
+        "Friend with Katya Mikhailova",
+        "Friend with Mila Rutkevich",
+        "Friend with Larisa"
+      ],
+      "evidence": [
+        "He was part of the group checking for pirates."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Юлькин класс",
+      "facts": [
+        "The group met to discuss the mieloфон."
+      ],
+      "evidence": [
+        "The group met to discuss the mieloфон."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "миелофон",
+      "facts": [
+        "It was found in Алиса's portfolio.",
+        "It worked.",
+        "It could pick up human thoughts.",
+        "It was valuable and unique."
+      ],
+      "evidence": [
+        "It was found in Алиса's portfolio.",
+        "It worked.",
+        "It could pick up human thoughts.",
+        "It was valuable and unique."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "The group discusses the mieloфон and its potential use.",
+      "participants": [
+        "Алиса",
+        "Катя Михайлова",
+        "Лариса",
+        "Мила Руткевич",
+        "Fima Королев",
+        "Коля Сулима",
+        "Юлька"
+      ],
+      "location": "Юлькин класс",
+      "causes": [
+        "Finding the mieloфон in Алиса's portfolio."
+      ],
+      "consequences": [
+        "Deciding to use the mieloфон to check for pirates."
+      ],
+      "evidence": [
+        "The group met to discuss the mieloфон."
+      ]
+    },
+    {
+      "event": "Checking the attic for pirates.",
+      "participants": [
+        "Алиса",
+        "Fima Королев",
+        "Коля Сулима",
+        "Катя Михайлова"
+      ],
+      "location": "Attic",
+      "causes": [
+        "The group decided to use the mieloфон to check for pirates."
+      ],
+      "consequences": [
+        "Finding no pirates in the attic."
+      ],
+      "evidence": [
+        "Checking the attic for pirates."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "The mieloфон can pick up human thoughts.",
+      "evidence": [
+        "The mieloфон works."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "Who put the mieloфон in Алиса's portfolio?",
+      "reason": "The note in the mieloфон was unsigned."
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "characters": [
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "Escaped from the building, hid in the basement.",
+        "Met a young man in a leather coat who was reading a detective novel."
+      ],
+      "appearance": [],
+      "traits": [
+        "Resilient",
+        "Worried"
+      ],
+      "knowledge": [
+        "Knew the pursuers were criminals.",
+        "Recognized the pursuer as a heavy man in a tattered coat."
+      ],
+      "goals": [
+        "Found the boy and the other people."
+      ],
+      "relationships": [
+        "Met a young man in the courtyard."
+      ],
+      "evidence": [
+        "Lost about ten minutes."
+      ]
+    },
+    {
+      "name": "Тренерша",
+      "aliases": [],
+      "facts": [
+        "Searched for the girl in the basement.",
+        "Failed to find the girl.",
+        "Believed in persistence in sports."
+      ],
+      "appearance": [],
+      "traits": [
+        "Persistent"
+      ],
+      "knowledge": [],
+      "goals": [
+        "Find the girl."
+      ],
+      "relationships": [],
+      "evidence": [
+        "Searched the basement."
+      ]
+    },
+    {
+      "name": "Пётр Ишутин",
+      "aliases": [],
+      "facts": [
+        "Met the pursuers in the courtyard.",
+        "Recognized Napoleon Bonaparte.",
+        "Felt threatened by the pursuers."
+      ],
+      "appearance": [
+        "Wearing a leather coat, leather shoes, and leather pants."
+      ],
+      "traits": [
+        "Resolute",
+        "Nervous"
+      ],
+      "knowledge": [
+        "Read about the pursuers."
+      ],
+      "goals": [
+        "Stayed out of trouble."
+      ],
+      "relationships": [
+        "Met the pursuers."
+      ],
+      "evidence": [
+        "Recognized Napoleon Bonaparte in the courtyard.",
+        "Felt threatened by the pursuers."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Courtyard",
+      "facts": [
+        "Contains a closed two-story wing.",
+        "Has two archways leading to the alley and another exit."
+      ],
+      "evidence": [
+        "Witnessed the pursuers and the boy."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Napoleon Bonaparte costume",
+      "facts": [
+        "Worn by a strange man in the courtyard."
+      ],
+      "evidence": [
+        "Recognized by a young man."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "A girl escapes from a building and hides in the basement.",
+      "participants": [
+        "Алиса"
+      ],
+      "location": "Basement",
+      "causes": [
+        "A girl hiding from someone."
+      ],
+      "consequences": [
+        "A girl meets a young man in the courtyard."
+      ],
+      "evidence": [
+        "A girl lost about ten minutes."
+      ]
+    },
+    {
+      "event": "A trainer searches for the girl in the basement.",
+      "participants": [
+        "Тренерша"
+      ],
+      "location": "Basement",
+      "causes": [
+        "A trainer searching for the girl."
+      ],
+      "consequences": [
+        "A trainer failed to find the girl."
+      ],
+      "evidence": [
+        "A trainer searched the basement."
+      ]
+    },
+    {
+      "event": "A young man in a leather coat meets the pursuers in the courtyard.",
+      "participants": [
+        "Пётр Ишутин"
+      ],
+      "location": "Courtyard",
+      "causes": [
+        "A young man met the pursuers."
+      ],
+      "consequences": [
+        "A young man felt threatened by the pursuers."
+      ],
+      "evidence": [
+        "A young man recognized Napoleon Bonaparte."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Characters can recognize each other in unexpected situations.",
+      "evidence": [
+        "A young man recognized Napoleon Bonaparte."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What is the purpose of the pursuers?",
+      "reason": "The pursuers' motives are not fully explained."
+    }
+  ]
+}

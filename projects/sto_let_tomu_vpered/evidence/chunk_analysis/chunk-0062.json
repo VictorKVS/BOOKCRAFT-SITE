@@ -1,0 +1,184 @@
+{
+  "characters": [
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "Astronaut, biologist, and aspiring space architect",
+        "Felt hungry and eager to eat",
+        "Worried about her mother",
+        "Planned to become a space biologist"
+      ],
+      "appearance": [],
+      "traits": [
+        "Hunger",
+        "Curiosity",
+        "Worries about family",
+        "Ambition"
+      ],
+      "knowledge": [
+        "Knows about the diameters of minor planets",
+        "Planned to visit Pluto"
+      ],
+      "goals": [
+        "Become a space biologist",
+        "Visit Pluto"
+      ],
+      "relationships": [
+        "Friend with Polina",
+        "Interested in learning from Posydon"
+      ],
+      "evidence": [
+        "Asked Posydon to stay and help with the mission",
+        "Worried about the stranded tourist",
+        "Planned to visit Pluto with Polina and Posydon"
+      ]
+    },
+    {
+      "name": "Полина",
+      "aliases": [],
+      "facts": [
+        "Astronaut and mission commander",
+        "Worried about her daughter",
+        "Planned to return home",
+        "Interested in architecture",
+        "Felt the need to work"
+      ],
+      "appearance": [],
+      "traits": [
+        "Concerned",
+        "Worried",
+        "Ambitious"
+      ],
+      "knowledge": [
+        "Minor planets' diameters",
+        "Space architecture"
+      ],
+      "goals": [
+        "Return home",
+        "Work as an architect"
+      ],
+      "relationships": [
+        "Friend with Aлиса",
+        "Interested in Posydon's company"
+      ],
+      "evidence": [
+        "Worried about her daughter's future",
+        "Planned to return home",
+        "Interested in architecture"
+      ]
+    },
+    {
+      "name": "Посейдон",
+      "aliases": [],
+      "facts": [
+        "Astronaut and mission's AI",
+        "Worried about the stranded tourist",
+        "Humorous",
+        "Has a sense of humor",
+        "Interested in learning",
+        "Has a sense of duty"
+      ],
+      "appearance": [],
+      "traits": [
+        "Humorous",
+        "Duty-bound",
+        "Curious"
+      ],
+      "knowledge": [
+        "Minor planets' diameters",
+        "Space architecture"
+      ],
+      "goals": [
+        "Learn new information",
+        "Help the mission"
+      ],
+      "relationships": [
+        "Friend with Aлиса",
+        "Respected by Polina"
+      ],
+      "evidence": [
+        "Humorous about the tourist's situation",
+        "Interested in learning",
+        "Worried about the stranded tourist"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Корабль",
+      "facts": [
+        "On a mission to Pluto",
+        "Experienced a stranded tourist",
+        "Had a training emergency"
+      ],
+      "evidence": [
+        "Stranded tourist's emergency",
+        "Training emergency"
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Корабль",
+      "facts": [
+        "On a mission to Pluto",
+        "Experienced a stranded tourist",
+        "Had a training emergency"
+      ],
+      "evidence": [
+        "Stranded tourist's emergency",
+        "Training emergency"
+      ]
+    },
+    {
+      "name": "Компьютер",
+      "facts": [
+        "Used for navigation and communication",
+        "Helped in calculating new course",
+        "Used for learning and information storage"
+      ],
+      "evidence": [
+        "Used for navigation and communication",
+        "Helped in calculating new course"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Stranded tourist emergency",
+      "participants": [
+        "Полина",
+        "Aлиса",
+        "Посейдон"
+      ],
+      "location": "Корабль",
+      "causes": [
+        "Tourist's emergency signal"
+      ],
+      "consequences": [
+        "Course change",
+        "Attempt to rescue the tourist"
+      ],
+      "evidence": [
+        "Tourist's emergency signal",
+        "Course change"
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Tourism in space is illegal",
+      "evidence": [
+        "Tourists are considered trash",
+        "Space is polluted by tourists"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What will happen to the stranded tourist?",
+      "reason": "The tourist's situation is critical and unresolved"
+    }
+  ]
+}

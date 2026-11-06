@@ -1,0 +1,147 @@
+{
+  "characters": [
+    {
+      "name": "Коля",
+      "aliases": [],
+      "facts": [
+        "He is from Konotop.",
+        "He loves mangosteen.",
+        "He is hungry and has not eaten since morning.",
+        "He is a schoolboy."
+      ],
+      "appearance": [],
+      "traits": [
+        "Resourceful",
+        "Brave"
+      ],
+      "knowledge": [
+        "He knows about the mangosteen tree on Gogol Boulevard.",
+        "He knows about the Konotop mine project."
+      ],
+      "goals": [
+        "Find a way to eat a banana."
+      ],
+      "relationships": [
+        "Finds a banana tree and a monkey nearby.",
+        "Meets a selector named Djavat."
+      ],
+      "evidence": [
+        "‘А у нас маскарад интереснее. Мы в рыцарей одевались.’"
+      ]
+    },
+    {
+      "name": "Djavat",
+      "aliases": [],
+      "facts": [
+        "He is a selector.",
+        "He is older than Kolya.",
+        "He is from Kostroma."
+      ],
+      "appearance": [],
+      "traits": [
+        "Presumptuous",
+        "Authoritative"
+      ],
+      "knowledge": [
+        "He knows about the Konotop mine project."
+      ],
+      "goals": [
+        "Prevent Kolya from eating the banana."
+      ],
+      "relationships": [
+        "Meets Kolya on Gogol Boulevard."
+      ],
+      "evidence": [
+        "‘Дурак! Что ты делаешь?’",
+        "‘А обезьяна? — сказал Коля. — Ты посмотри, сколько возле неё кожуры валяется.’",
+        "‘Пойдём, — сказал селекционер.’"
+      ]
+    },
+    {
+      "name": "Monkey",
+      "aliases": [],
+      "facts": [
+        "She is cleaning a banana.",
+        "She is a pet of the selector."
+      ],
+      "appearance": [],
+      "traits": [
+        "Cautious"
+      ],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Cleaning a banana near the banana tree."
+      ],
+      "evidence": [
+        "‘Мартышка заметила, что на неё смотрят, и на всякий случай сиганула с бананом в лапе на ветку липы.’"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Gogol Boulevard",
+      "facts": [
+        "It has changed a lot over the years.",
+        "It is wider than before.",
+        "There are banana trees and other plants.",
+        "There are plastic covers and warm air walls around some trees.",
+        "There are children with wings."
+      ],
+      "evidence": [
+        "‘На земле рядом с деревом сидела мартышка и чистила сорванный банан.’"
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Banana tree",
+      "facts": [
+        "It is a strange tree with green bananas.",
+        "It is surrounded by plastic covers and warm air walls."
+      ],
+      "evidence": [
+        "‘Мартышка заметила, что на неё смотрят, и на всякий случай сиганула с бананом в лапе на ветку липы.’"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Kolya tries to eat a banana from a tree.",
+      "participants": [
+        "Kolya",
+        "Djavat",
+        "Monkey"
+      ],
+      "location": "Gogol Boulevard",
+      "causes": [
+        "Kolya is hungry and sees a banana tree.",
+        "Djavat is conducting a selection."
+      ],
+      "consequences": [
+        "Kolya is prevented from eating the banana.",
+        "Djavat learns Kolya's name and origin."
+      ],
+      "evidence": [
+        "‘А у нас маскарад интереснее. Мы в рыцарей одевались.’",
+        "‘Дурак! Что ты делаешь?’",
+        "‘А обезьяна? — сказал Коля. — Ты посмотри, сколько возле неё кожуры валяется.’",
+        "‘Пойдём, — сказал селекционер.’"
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "People can eat fruits on Gogol Boulevard.",
+      "evidence": [
+        "‘А у нас маскарад интереснее. Мы в рыцарей одевались.’"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What is the purpose of the banana tree and the selection?",
+      "reason": "The purpose of the banana tree and the selection are not explicitly stated."
+    }
+  ]
+}

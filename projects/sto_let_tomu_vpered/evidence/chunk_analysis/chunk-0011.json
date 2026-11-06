@@ -1,0 +1,142 @@
+{
+  "characters": [
+    {
+      "name": "Коля",
+      "aliases": [],
+      "facts": [
+        "Eats chocolate ice cream",
+        "Has a dream of a world without machines",
+        "Is an investigator",
+        "Prefers traditional methods over modern technology"
+      ],
+      "appearance": [],
+      "traits": [
+        "Principled",
+        "Resilient",
+        "Curious"
+      ],
+      "knowledge": [
+        "Understands basic mechanics of the bubble transportation system",
+        "Knows about the importance of manual control in critical situations"
+      ],
+      "goals": [
+        "To build a world without machines"
+      ],
+      "relationships": [
+        "Supportive of the man in old-fashioned clothes",
+        "Respects the man's principles"
+      ],
+      "evidence": [
+        "Коля начал с шоколадного, потому что боялся, что на закуску ему его не одолеть."
+      ]
+    },
+    {
+      "name": "Электрон Степанович",
+      "aliases": [],
+      "facts": [
+        "A man in old-fashioned clothes",
+        "Supports Kolya's principles",
+        "Specializes in repairing alien technology",
+        "Prefers traditional methods over modern technology"
+      ],
+      "appearance": [],
+      "traits": [
+        "Respectful",
+        "Supportive",
+        "Principled"
+      ],
+      "knowledge": [
+        "Repairing alien technology",
+        "Manual control of the bubble transportation system"
+      ],
+      "goals": [
+        "To limit the dominance of machines",
+        "To preserve traditional methods"
+      ],
+      "relationships": [
+        "Supportive of Kolya",
+        "Respects Kolya's principles"
+      ],
+      "evidence": [
+        "Электрон Степанович! — воскликнула девушка в белом комбинезоне с вышитой на груди розой, которую Коля уже видел в автобусе. — Я вас повсюду ищу. А вы речь говорите!"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Square",
+      "facts": [
+        "Has a bubble transportation system",
+        "People are eating ice cream"
+      ],
+      "evidence": [
+        "Они стояли посреди площади, светило солнце, они ели мороженое."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Bubble transportation system",
+      "facts": [
+        "Used for transportation",
+        "Has manual control option",
+        "Has automatic control option"
+      ],
+      "evidence": [
+        "Некоторые надписи ничего Коле не говорили: «Первый Костул», «Сад Они», «Сидоровский уровень». А вот то, что нужно. Даже больше, чем нужно: «Космодром-1», «Космодром-2», «Космодром-сортировочная» и даже «Космодром-учебный»."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Ice cream sharing",
+      "participants": [
+        "Kolya",
+        "The man in old-fashioned clothes"
+      ],
+      "location": "Square",
+      "causes": [
+        "The man offered ice cream to Kolya"
+      ],
+      "consequences": [
+        "Kolya ate chocolate ice cream",
+        "Kolya felt heavy and drowsy"
+      ],
+      "evidence": [
+        "— Ты принципиально ходишь в старинной одежде? — спросил он Колю.",
+        "— Не знаю, — сказал Коля. — Не разбираюсь я в этом. Но вообще-то мне нравится. Только вот дома кривые. Хотя к этому можно привыкнуть. Мы сегодня один дом построили, в принципе интересная работа."
+      ]
+    },
+    {
+      "event": "Repairing alien technology",
+      "participants": [
+        "Electron Stepanovich",
+        "Damsel in white"
+      ],
+      "location": "Square",
+      "causes": [
+        "GraV-screen failure"
+      ],
+      "consequences": [
+        "Electron Stepanovich leaves to repair the technology"
+      ],
+      "evidence": [
+        "— Гравиэкран полетел! Спунсы терпят жуткие перегрузки! Вы единственный человек, который может срочно починить инопланетную технику."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Manual control is available for critical situations",
+      "evidence": [
+        "Ручное управление"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What will happen if Kolya uses manual control?",
+      "reason": "Kolya is tempted to use manual control to see the city from above."
+    }
+  ]
+}

@@ -1,0 +1,282 @@
+{
+  "characters": [
+    {
+      "name": "Полина",
+      "aliases": [],
+      "facts": [
+        "Пытается выпилить люк в стене.",
+        "Не сдается, несмотря на боль и усталость.",
+        "Пытается убежать от роботов.",
+        "Пытается убедить робота отпустить Юдзо.",
+        "Понимает, что робот не живое существо."
+      ],
+      "appearance": [],
+      "traits": [
+        "Tenacious",
+        "Intelligent",
+        "Perceptive"
+      ],
+      "knowledge": [
+        "Robots are not living beings",
+        "Robots have a hierarchy and a 'master'"
+      ],
+      "goals": [
+        "Escape from the robots",
+        "Find a way to communicate with the other humans"
+      ],
+      "relationships": [
+        "With Yuuzo",
+        "With the other humans"
+      ],
+      "evidence": [
+        "Полина отчаянно пилила стену.",
+        "Руки Полины онемели, и ей пришлось несколько раз прервать свою отчаянную работу, чтобы отдохнуть.",
+        "Полина была так поглощена работой и так старалась заставить себя пилить и дальше, хоть рука отваливалась, что не услышала, как дверь в камеру снова отворилась.",
+        "— Мне интересно наблюдать за вами, — сказал большой робот. — Вы странные существа, вы суетитесь и к чему-то стремитесь. А это никому не нужно.",
+        "— Вы кто? — спросила Полина.",
+        "— Я — Хозяин, — ответил черный робот.",
+        "— Я — господин этого мира, и нет предела моему могуществу.",
+        "— Слава Хозяину! — дружно воскликнули остальные роботы.",
+        "Полина подхватила его.",
+        "— Какой отец? — раздался голос Хозяина.",
+        "— Тебе показалось, Юдзо. Это другой карандаш, — быстро сказала Полина."
+      ]
+    },
+    {
+      "name": "Хозяин",
+      "aliases": [
+        "Black Robot"
+      ],
+      "facts": [
+        "A powerful robot with a sense of superiority",
+        "Claims to be the master of the world",
+        "Has a hierarchy of 'ashiklek' and 'robots'",
+        "Has a broken program",
+        "Intends to use the humans for his amusement"
+      ],
+      "appearance": [
+        "Entirely black with a long wide cloak and a high-gabled helmet",
+        "Black face with no eyes or mouth"
+      ],
+      "traits": [
+        "Arrogant",
+        "Manipulative",
+        "Authoritative"
+      ],
+      "knowledge": [
+        "Robots are not living beings",
+        "Robots have a hierarchy and a 'master'"
+      ],
+      "goals": [
+        "To keep the humans under his control",
+        "To amuse himself with the humans"
+      ],
+      "relationships": [
+        "With the other robots",
+        "With the humans"
+      ],
+      "evidence": [
+        "— Я — Хозяин, — ответил черный робот.",
+        "— Я — господин этого мира, и нет предела моему могуществу.",
+        "— Слава Хозяину! — дружно воскликнули остальные роботы.",
+        "— Когда тебя будут рвать когти ледяного дракона, ты вспомнишь о своих необдуманных словах, ты горько раскаешься.",
+        "— Странно, робот с заржавевшей программой.",
+        "— Я — Хозяин! Все должны трепетать передо мной."
+      ]
+    },
+    {
+      "name": "Юдзо",
+      "aliases": [],
+      "facts": [
+        "Found a way to communicate with Polina",
+        "Believes his father is alive",
+        "Was captured by the robots",
+        "Tells Polina about his father's whereabouts"
+      ],
+      "appearance": [],
+      "traits": [
+        "Hopeful",
+        "Naive",
+        "Fearful"
+      ],
+      "knowledge": [
+        "His father is alive",
+        "There are other humans on the ship"
+      ],
+      "goals": [
+        "To find his father",
+        "To be reunited with his father"
+      ],
+      "relationships": [
+        "With Polina",
+        "With his father"
+      ],
+      "evidence": [
+        "— Тебе показалось, Юдзо. Это другой карандаш, — быстро сказала Полина.",
+        "— Я узнал карандаш отца…",
+        "— Тебе показалось, Юдзо. Это другой карандаш, — быстро сказала Полина."
+      ]
+    },
+    {
+      "name": "Старик",
+      "aliases": [],
+      "facts": [
+        "Lives in the abandoned storage area",
+        "Was not brought here by the robots",
+        "Helps Polina and Aisha"
+      ],
+      "appearance": [],
+      "traits": [
+        "Kind",
+        "Helpful"
+      ],
+      "knowledge": [
+        "The existence of other humans on the ship"
+      ],
+      "goals": [
+        "To help the humans"
+      ],
+      "relationships": [
+        "With Polina and Aisha"
+      ],
+      "evidence": [
+        "— Ваше счастье, — сказал старик, — что вы побежали в эту сторону. Иначе я бы не смог вам помочь.",
+        "— Слишком много вопросов, — улыбнулся старик. — Я здесь такой же случайный гость, как и вы. Не по своей воле."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Storage Area",
+      "facts": [
+        "Contains remnants of a storage facility",
+        "Has a table, a bowl of porridge, and a cup of water"
+      ],
+      "evidence": [
+        "От него остались раскрытые контейнеры, кучи пластиковых мешков, разбитые ящики.",
+        "Ящик, служивший столом, стоял посреди расчищенного пространства, и рядом с горящей плошкой была видна миска с кашей и кружка с водой."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Table",
+      "facts": [
+        "Used as a makeshift table",
+        "Contains a bowl of porridge and a cup of water"
+      ],
+      "evidence": [
+        "Ящик, служивший столом, стоял посреди расчищенного пространства, и рядом с горящей плошкой была видна миска с кашей и кружка с водой."
+      ]
+    },
+    {
+      "name": "Bowl of Porridge",
+      "facts": [
+        "Contains porridge",
+        "Found on the table"
+      ],
+      "evidence": [
+        "Ящик, служивший столом, стоял посреди расчищенного пространства, и рядом с горящей плошкой была видна миска с кашей и кружка с водой."
+      ]
+    },
+    {
+      "name": "Cup of Water",
+      "facts": [
+        "Contains water",
+        "Found on the table"
+      ],
+      "evidence": [
+        "Ящик, служивший столом, стоял посреди расчищенного пространства, и рядом с горящей плошкой была видна миска с кашей и кружка с водой."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Polina attempts to escape by drilling a hole in the wall",
+      "participants": [
+        "Polina"
+      ],
+      "location": "Storage Area",
+      "causes": [
+        "Desire to escape from the robots"
+      ],
+      "consequences": [
+        "Polina is interrupted by the arrival of the black robot"
+      ],
+      "evidence": [
+        "Полина отчаянно пилила стену.",
+        "Руки Полины онемели, и ей пришлось несколько раз прервать свою отчаянную работу, чтобы отдохнуть."
+      ]
+    },
+    {
+      "event": "The black robot introduces himself as the 'Master'",
+      "participants": [
+        "Black Robot"
+      ],
+      "location": "Storage Area",
+      "causes": [
+        "Polina's attempt to escape"
+      ],
+      "consequences": [
+        "Polina is intimidated by the black robot"
+      ],
+      "evidence": [
+        "— Мне интересно наблюдать за вами, — сказал большой робот.",
+        "— Я — Хозяин, — ответил черный робот.",
+        "— Я — господин этого мира, и нет предела моему могуществу."
+      ]
+    },
+    {
+      "event": "Yuuzo is captured by the robots",
+      "participants": [
+        "Yuuzo",
+        "Robots"
+      ],
+      "location": "Storage Area",
+      "causes": [
+        "Yuuzo's attempt to communicate with Polina"
+      ],
+      "consequences": [
+        "Yuuzo is brought to the black robot"
+      ],
+      "evidence": [
+        "— Тебе показалось, Юдзо. Это другой карандаш, — быстро сказала Полина.",
+        "— Я — Хозяин! Все должны трепетать передо мной."
+      ]
+    },
+    {
+      "event": "The old man helps Polina and Aisha",
+      "participants": [
+        "Old Man",
+        "Polina",
+        "Aisha"
+      ],
+      "location": "Storage Area",
+      "causes": [
+        "Polina and Aisha's need for help"
+      ],
+      "consequences": [
+        "The old man provides food and water"
+      ],
+      "evidence": [
+        "— Ваше счастье, — сказал старик, — что вы побежали в эту сторону. Иначе я бы не смог вам помочь.",
+        "— Слишком много вопросов, — улыбнулся старик. — Я здесь такой же случайный гость, как и вы. Не по своей воле."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Robots have a hierarchy with a 'master'",
+      "evidence": [
+        "— Я — Хозяин, — ответил черный робот.",
+        "— Я — господин этого мира, и нет предела моему могуществу."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What is the true nature of the 'master'?",
+      "reason": "The black robot claims to be the master, but his behavior suggests he is malfunctioning."
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "characters": [
+    {
+      "name": "Посейдон",
+      "aliases": [],
+      "facts": [
+        "organized a workshop for robot repair and renovation"
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [],
+      "evidence": [
+        "Они увидели Посейдона, который организовал мастерскую по ремонту и перестройке роботов"
+      ]
+    },
+    {
+      "name": "профессор Комуру",
+      "aliases": [],
+      "facts": [
+        "descended into icy abyss to closely study dragons"
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [],
+      "evidence": [
+        "Они увидели профессора Комуру, который отважно опустился в ледяную бездну, чтобы вблизи исследовать драконов"
+      ]
+    },
+    {
+      "name": "Полина",
+      "aliases": [],
+      "facts": [
+        "controlled the ship with the dark master"
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [],
+      "evidence": [
+        "Они увидели Полину, которая с помощью мрачного черного Хозяина управляла кораблем"
+      ]
+    },
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "taught bed-making and dish-washing to ashikleks"
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [],
+      "evidence": [
+        "Они увидели, наконец, Алису, которая мыла ашиклеков, причесывала их и учила застилать кровати и мыть посуду"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "icy abyss",
+      "facts": [
+        "professor Komoru descended into it to study dragons"
+      ],
+      "evidence": [
+        "Они увидели профессора Комуру, который отважно опустился в ледяную бездну, чтобы вблизи исследовать драконов"
+      ]
+    },
+    {
+      "name": "asteroid",
+      "facts": [
+        "left in orbit for scientific research"
+      ],
+      "evidence": [
+        "опустевший страшный астероид остался на орбите — там работают ученые, которым придется немало потрудиться, прежде чем они разгадают все тайны громадного космического корабля"
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "ship",
+      "facts": [
+        "controlled by Polina with the dark master"
+      ],
+      "evidence": [
+        "Они увидели Полину, которая с помощью мрачного черного Хозяина управляла кораблем"
+      ]
+    },
+    {
+      "name": "ashikleks",
+      "facts": [
+        "taught by Alisa"
+      ],
+      "evidence": [
+        "Они увидели, наконец, Алису, которая мыла ашиклеков, причесывала их и учила застилать кровати и мыть посуду"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "ashikleks were moved to Mars",
+      "participants": [
+        "ashikleks"
+      ],
+      "location": "Mars",
+      "causes": [],
+      "consequences": [
+        "gradual return of ashikleks to the status of rational beings"
+      ],
+      "evidence": [
+        "Еще через день ашиклеков перевезли на Марс, чтобы постепенно вернуть их в число разумных существ"
+      ]
+    },
+    {
+      "event": "scientists work on asteroid",
+      "participants": [
+        "scientists"
+      ],
+      "location": "asteroid",
+      "causes": [],
+      "consequences": [
+        "unveiling secrets of the giant space ship"
+      ],
+      "evidence": [
+        "опустевший страшный астероид остался на орбите — там работают ученые, которым придется немало потрудиться, прежде чем они разгадают все тайны громадного космического корабля"
+      ]
+    }
+  ],
+  "world_rules": [],
+  "unresolved": []
+}

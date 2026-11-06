@@ -1,0 +1,127 @@
+{
+  "characters": [
+    {
+      "name": "Коля",
+      "aliases": [],
+      "facts": [
+        "A young man from the present day visiting the future.",
+        "Wears a costume for a masquerade.",
+        "Has a father in the hospital."
+      ],
+      "appearance": [],
+      "traits": [
+        "Adaptable",
+        "Curious",
+        "Observant"
+      ],
+      "knowledge": [
+        "Familiar with modern clothing and technology.",
+        "Unaware of the future's customs and technology."
+      ],
+      "goals": [
+        "Explore the future city.",
+        "Understand the customs of the future."
+      ],
+      "relationships": [
+        "Meets an elderly man from the future."
+      ],
+      "evidence": [
+        "Коля обрадовался. Он сказал вслух: — Ну, дела!"
+      ]
+    },
+    {
+      "name": "Павел",
+      "aliases": [
+        "Old Man"
+      ],
+      "facts": [
+        "A man from the year 2082.",
+        "Wears a circus performer's outfit.",
+        "Rides a unicycle.",
+        "Has strong muscles.",
+        "Claims to be 117 years old."
+      ],
+      "appearance": [
+        "Wears green form-fitting clothing and red slippers with long, pointed toes.",
+        "Has white hair styled like a hedgehog and long, spread-out mustache."
+      ],
+      "traits": [
+        "Talkative",
+        "Knowledgeable about past customs"
+      ],
+      "knowledge": [
+        "Familiar with past clothing and customs.",
+        "Understands the concept of a masquerade."
+      ],
+      "goals": [
+        "Guide and educate Kolya about the past."
+      ],
+      "relationships": [
+        "Meets Kolya on the street."
+      ],
+      "evidence": [
+        "Проводи меня немного, мне скучно ехать одному."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Moscow, 2082",
+      "facts": [
+        "The city has high, modern buildings with few windows and angular designs.",
+        "The Institute of Time is located in the city.",
+        "The city has advanced technology and customs."
+      ],
+      "evidence": [
+        "Дом был высокий, этажей в двадцать.",
+        "Над стеклянной стеной, сквозь которую Коля только что прошёл, по стеклу были выложены громадные золотые буквы: ИНСТИТУТ ВРЕМЕНИ."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Unicycle",
+      "facts": [
+        "Used by the elderly man.",
+        "Helps with muscle development."
+      ],
+      "evidence": [
+        "Старик ехал на одноколесном велосипеде, расставив руки для равновесия, будто цирковой акробат."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Kolya meets an elderly man from the future.",
+      "participants": [
+        "Kolya",
+        "Павел"
+      ],
+      "location": "Moscow, 2082",
+      "causes": [
+        "Kolya's exploration of the future city."
+      ],
+      "consequences": [
+        "Kolya learns about past customs and clothing.",
+        "Kolya and Павел become acquaintances."
+      ],
+      "evidence": [
+        "Проводи меня немного, мне скучно ехать одному."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "People from the future can visit the present day.",
+      "evidence": [
+        "Kolya travels to the year 2082."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "How does Kolya return to his own time?",
+      "reason": "The text does not provide information on Kolya's return."
+    }
+  ]
+}

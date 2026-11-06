@@ -1,0 +1,476 @@
+[
+  {
+    "chunk_id": "chunk-0001",
+    "start_paragraph": 0,
+    "end_paragraph": 36,
+    "char_count": 6834
+  },
+  {
+    "chunk_id": "chunk-0002",
+    "start_paragraph": 37,
+    "end_paragraph": 75,
+    "char_count": 6960
+  },
+  {
+    "chunk_id": "chunk-0003",
+    "start_paragraph": 76,
+    "end_paragraph": 107,
+    "char_count": 6773
+  },
+  {
+    "chunk_id": "chunk-0004",
+    "start_paragraph": 108,
+    "end_paragraph": 165,
+    "char_count": 6873
+  },
+  {
+    "chunk_id": "chunk-0005",
+    "start_paragraph": 166,
+    "end_paragraph": 228,
+    "char_count": 6843
+  },
+  {
+    "chunk_id": "chunk-0006",
+    "start_paragraph": 229,
+    "end_paragraph": 292,
+    "char_count": 6760
+  },
+  {
+    "chunk_id": "chunk-0007",
+    "start_paragraph": 293,
+    "end_paragraph": 356,
+    "char_count": 6967
+  },
+  {
+    "chunk_id": "chunk-0008",
+    "start_paragraph": 357,
+    "end_paragraph": 429,
+    "char_count": 6935
+  },
+  {
+    "chunk_id": "chunk-0009",
+    "start_paragraph": 430,
+    "end_paragraph": 474,
+    "char_count": 6996
+  },
+  {
+    "chunk_id": "chunk-0010",
+    "start_paragraph": 475,
+    "end_paragraph": 513,
+    "char_count": 6874
+  },
+  {
+    "chunk_id": "chunk-0011",
+    "start_paragraph": 514,
+    "end_paragraph": 550,
+    "char_count": 6940
+  },
+  {
+    "chunk_id": "chunk-0012",
+    "start_paragraph": 551,
+    "end_paragraph": 593,
+    "char_count": 6916
+  },
+  {
+    "chunk_id": "chunk-0013",
+    "start_paragraph": 594,
+    "end_paragraph": 652,
+    "char_count": 6974
+  },
+  {
+    "chunk_id": "chunk-0014",
+    "start_paragraph": 653,
+    "end_paragraph": 687,
+    "char_count": 6906
+  },
+  {
+    "chunk_id": "chunk-0015",
+    "start_paragraph": 688,
+    "end_paragraph": 756,
+    "char_count": 6916
+  },
+  {
+    "chunk_id": "chunk-0016",
+    "start_paragraph": 757,
+    "end_paragraph": 792,
+    "char_count": 6931
+  },
+  {
+    "chunk_id": "chunk-0017",
+    "start_paragraph": 793,
+    "end_paragraph": 825,
+    "char_count": 6902
+  },
+  {
+    "chunk_id": "chunk-0018",
+    "start_paragraph": 826,
+    "end_paragraph": 884,
+    "char_count": 6713
+  },
+  {
+    "chunk_id": "chunk-0019",
+    "start_paragraph": 885,
+    "end_paragraph": 941,
+    "char_count": 6866
+  },
+  {
+    "chunk_id": "chunk-0020",
+    "start_paragraph": 942,
+    "end_paragraph": 979,
+    "char_count": 6957
+  },
+  {
+    "chunk_id": "chunk-0021",
+    "start_paragraph": 980,
+    "end_paragraph": 1046,
+    "char_count": 6959
+  },
+  {
+    "chunk_id": "chunk-0022",
+    "start_paragraph": 1047,
+    "end_paragraph": 1071,
+    "char_count": 6689
+  },
+  {
+    "chunk_id": "chunk-0023",
+    "start_paragraph": 1072,
+    "end_paragraph": 1103,
+    "char_count": 6985
+  },
+  {
+    "chunk_id": "chunk-0024",
+    "start_paragraph": 1104,
+    "end_paragraph": 1156,
+    "char_count": 6964
+  },
+  {
+    "chunk_id": "chunk-0025",
+    "start_paragraph": 1157,
+    "end_paragraph": 1252,
+    "char_count": 6951
+  },
+  {
+    "chunk_id": "chunk-0026",
+    "start_paragraph": 1253,
+    "end_paragraph": 1354,
+    "char_count": 6994
+  },
+  {
+    "chunk_id": "chunk-0027",
+    "start_paragraph": 1355,
+    "end_paragraph": 1414,
+    "char_count": 6986
+  },
+  {
+    "chunk_id": "chunk-0028",
+    "start_paragraph": 1415,
+    "end_paragraph": 1477,
+    "char_count": 6983
+  },
+  {
+    "chunk_id": "chunk-0029",
+    "start_paragraph": 1478,
+    "end_paragraph": 1533,
+    "char_count": 6996
+  },
+  {
+    "chunk_id": "chunk-0030",
+    "start_paragraph": 1534,
+    "end_paragraph": 1593,
+    "char_count": 6995
+  },
+  {
+    "chunk_id": "chunk-0031",
+    "start_paragraph": 1594,
+    "end_paragraph": 1679,
+    "char_count": 6902
+  },
+  {
+    "chunk_id": "chunk-0032",
+    "start_paragraph": 1680,
+    "end_paragraph": 1741,
+    "char_count": 6980
+  },
+  {
+    "chunk_id": "chunk-0033",
+    "start_paragraph": 1742,
+    "end_paragraph": 1817,
+    "char_count": 6925
+  },
+  {
+    "chunk_id": "chunk-0034",
+    "start_paragraph": 1818,
+    "end_paragraph": 1882,
+    "char_count": 6978
+  },
+  {
+    "chunk_id": "chunk-0035",
+    "start_paragraph": 1883,
+    "end_paragraph": 1963,
+    "char_count": 6972
+  },
+  {
+    "chunk_id": "chunk-0036",
+    "start_paragraph": 1964,
+    "end_paragraph": 2053,
+    "char_count": 6998
+  },
+  {
+    "chunk_id": "chunk-0037",
+    "start_paragraph": 2054,
+    "end_paragraph": 2141,
+    "char_count": 6976
+  },
+  {
+    "chunk_id": "chunk-0038",
+    "start_paragraph": 2142,
+    "end_paragraph": 2203,
+    "char_count": 6994
+  },
+  {
+    "chunk_id": "chunk-0039",
+    "start_paragraph": 2204,
+    "end_paragraph": 2309,
+    "char_count": 6906
+  },
+  {
+    "chunk_id": "chunk-0040",
+    "start_paragraph": 2310,
+    "end_paragraph": 2386,
+    "char_count": 6977
+  },
+  {
+    "chunk_id": "chunk-0041",
+    "start_paragraph": 2387,
+    "end_paragraph": 2494,
+    "char_count": 6971
+  },
+  {
+    "chunk_id": "chunk-0042",
+    "start_paragraph": 2495,
+    "end_paragraph": 2585,
+    "char_count": 6969
+  },
+  {
+    "chunk_id": "chunk-0043",
+    "start_paragraph": 2586,
+    "end_paragraph": 2664,
+    "char_count": 6989
+  },
+  {
+    "chunk_id": "chunk-0044",
+    "start_paragraph": 2665,
+    "end_paragraph": 2744,
+    "char_count": 6957
+  },
+  {
+    "chunk_id": "chunk-0045",
+    "start_paragraph": 2745,
+    "end_paragraph": 2842,
+    "char_count": 6932
+  },
+  {
+    "chunk_id": "chunk-0046",
+    "start_paragraph": 2843,
+    "end_paragraph": 2949,
+    "char_count": 6979
+  },
+  {
+    "chunk_id": "chunk-0047",
+    "start_paragraph": 2950,
+    "end_paragraph": 3039,
+    "char_count": 6988
+  },
+  {
+    "chunk_id": "chunk-0048",
+    "start_paragraph": 3040,
+    "end_paragraph": 3118,
+    "char_count": 6987
+  },
+  {
+    "chunk_id": "chunk-0049",
+    "start_paragraph": 3119,
+    "end_paragraph": 3191,
+    "char_count": 6877
+  },
+  {
+    "chunk_id": "chunk-0050",
+    "start_paragraph": 3192,
+    "end_paragraph": 3259,
+    "char_count": 6899
+  },
+  {
+    "chunk_id": "chunk-0051",
+    "start_paragraph": 3260,
+    "end_paragraph": 3331,
+    "char_count": 6760
+  },
+  {
+    "chunk_id": "chunk-0052",
+    "start_paragraph": 3332,
+    "end_paragraph": 3395,
+    "char_count": 6919
+  },
+  {
+    "chunk_id": "chunk-0053",
+    "start_paragraph": 3396,
+    "end_paragraph": 3446,
+    "char_count": 6993
+  },
+  {
+    "chunk_id": "chunk-0054",
+    "start_paragraph": 3447,
+    "end_paragraph": 3525,
+    "char_count": 6947
+  },
+  {
+    "chunk_id": "chunk-0055",
+    "start_paragraph": 3526,
+    "end_paragraph": 3598,
+    "char_count": 6982
+  },
+  {
+    "chunk_id": "chunk-0056",
+    "start_paragraph": 3599,
+    "end_paragraph": 3677,
+    "char_count": 6994
+  },
+  {
+    "chunk_id": "chunk-0057",
+    "start_paragraph": 3678,
+    "end_paragraph": 3768,
+    "char_count": 6988
+  },
+  {
+    "chunk_id": "chunk-0058",
+    "start_paragraph": 3769,
+    "end_paragraph": 3838,
+    "char_count": 6923
+  },
+  {
+    "chunk_id": "chunk-0059",
+    "start_paragraph": 3839,
+    "end_paragraph": 3892,
+    "char_count": 6947
+  },
+  {
+    "chunk_id": "chunk-0060",
+    "start_paragraph": 3893,
+    "end_paragraph": 3956,
+    "char_count": 6837
+  },
+  {
+    "chunk_id": "chunk-0061",
+    "start_paragraph": 3957,
+    "end_paragraph": 4004,
+    "char_count": 6635
+  },
+  {
+    "chunk_id": "chunk-0062",
+    "start_paragraph": 4005,
+    "end_paragraph": 4076,
+    "char_count": 6932
+  },
+  {
+    "chunk_id": "chunk-0063",
+    "start_paragraph": 4077,
+    "end_paragraph": 4134,
+    "char_count": 6844
+  },
+  {
+    "chunk_id": "chunk-0064",
+    "start_paragraph": 4135,
+    "end_paragraph": 4202,
+    "char_count": 6869
+  },
+  {
+    "chunk_id": "chunk-0065",
+    "start_paragraph": 4203,
+    "end_paragraph": 4274,
+    "char_count": 6991
+  },
+  {
+    "chunk_id": "chunk-0066",
+    "start_paragraph": 4275,
+    "end_paragraph": 4347,
+    "char_count": 6877
+  },
+  {
+    "chunk_id": "chunk-0067",
+    "start_paragraph": 4348,
+    "end_paragraph": 4411,
+    "char_count": 6994
+  },
+  {
+    "chunk_id": "chunk-0068",
+    "start_paragraph": 4412,
+    "end_paragraph": 4468,
+    "char_count": 6812
+  },
+  {
+    "chunk_id": "chunk-0069",
+    "start_paragraph": 4469,
+    "end_paragraph": 4525,
+    "char_count": 6929
+  },
+  {
+    "chunk_id": "chunk-0070",
+    "start_paragraph": 4526,
+    "end_paragraph": 4588,
+    "char_count": 6934
+  },
+  {
+    "chunk_id": "chunk-0071",
+    "start_paragraph": 4589,
+    "end_paragraph": 4655,
+    "char_count": 6863
+  },
+  {
+    "chunk_id": "chunk-0072",
+    "start_paragraph": 4656,
+    "end_paragraph": 4723,
+    "char_count": 6971
+  },
+  {
+    "chunk_id": "chunk-0073",
+    "start_paragraph": 4724,
+    "end_paragraph": 4763,
+    "char_count": 6980
+  },
+  {
+    "chunk_id": "chunk-0074",
+    "start_paragraph": 4764,
+    "end_paragraph": 4815,
+    "char_count": 6909
+  },
+  {
+    "chunk_id": "chunk-0075",
+    "start_paragraph": 4816,
+    "end_paragraph": 4865,
+    "char_count": 6973
+  },
+  {
+    "chunk_id": "chunk-0076",
+    "start_paragraph": 4866,
+    "end_paragraph": 4926,
+    "char_count": 6879
+  },
+  {
+    "chunk_id": "chunk-0077",
+    "start_paragraph": 4927,
+    "end_paragraph": 4989,
+    "char_count": 6924
+  },
+  {
+    "chunk_id": "chunk-0078",
+    "start_paragraph": 4990,
+    "end_paragraph": 5060,
+    "char_count": 6880
+  },
+  {
+    "chunk_id": "chunk-0079",
+    "start_paragraph": 5061,
+    "end_paragraph": 5062,
+    "char_count": 665
+  }
+]

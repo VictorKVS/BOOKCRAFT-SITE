@@ -1,0 +1,190 @@
+{
+  "characters": [
+    {
+      "name": "Коля",
+      "aliases": [],
+      "facts": [
+        "Decides to use the bubble transportation for the first time.",
+        "Experiences difficulty controlling the bubble.",
+        "Sees Moscow from the bubble.",
+        "Falls into a cloud and encounters an older man.",
+        "Leaves the bubble and goes to the cosmodrome."
+      ],
+      "appearance": [],
+      "traits": [
+        "Adventurous",
+        "Curious",
+        "Learns quickly"
+      ],
+      "knowledge": [
+        "Has experience with bubble transportation",
+        "Knows about weather prediction",
+        "Reads science fiction"
+      ],
+      "goals": [
+        "Explore the city from the bubble",
+        "Reach the cosmodrome"
+      ],
+      "relationships": [
+        "Meets an older man in the cloud"
+      ],
+      "evidence": [
+        "Коля обернулся и посмотрел на Москву."
+      ]
+    },
+    {
+      "name": "老者",
+      "aliases": [],
+      "facts": [
+        "Works in meteorological service",
+        "Controls clouds and bubbles",
+        "Knows Kolya",
+        "Takes Kolya to see the clouds"
+      ],
+      "appearance": [],
+      "traits": [
+        "Experienced",
+        "Authoritative"
+      ],
+      "knowledge": [
+        "Controls weather",
+        "Works in meteorology"
+      ],
+      "goals": [
+        "Teaches Kolya about weather control"
+      ],
+      "relationships": [
+        "Knows Kolya",
+        "Helps Kolya with the bubble"
+      ],
+      "evidence": [
+        "А ну поднимитесь сюда, — сказал голос. — Хочу посмотреть на воздушного хулигана."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "莫斯科",
+      "facts": [
+        "Kolya sees Moscow from the bubble.",
+        "Kolya goes to the cosmodrome."
+      ],
+      "evidence": [
+        "Коля обернулся и посмотрел на Москву.",
+        "Коля вылез из пузыря на стоянке у космодрома."
+      ]
+    },
+    {
+      "name": "云层",
+      "facts": [
+        "Kolya falls into a cloud and meets an older man."
+      ],
+      "evidence": [
+        "А ну поднимитесь сюда, — сказал голос. — Хочу посмотреть на воздушного хулигана."
+      ]
+    },
+    {
+      "name": "莫斯科郊外",
+      "facts": [
+        "Kolya uses the bubble transportation."
+      ],
+      "evidence": [
+        "Это уже было рискованное рассуждение."
+      ]
+    },
+    {
+      "name": "莫斯科科斯莫德rom",
+      "facts": [
+        "Kolya arrives at the cosmodrome."
+      ],
+      "evidence": [
+        "Коля вылез из пузыря на стоянке у космодрома."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "气泡",
+      "facts": [
+        "Kolya uses the bubble transportation.",
+        "Kolya has difficulty controlling the bubble."
+      ],
+      "evidence": [
+        "Он переключил рычажок на ручное управление и осторожно повёл вверх другой, с надписью «Подъем».",
+        "Пузырь помчался в небо, к самому солнцу, с такой скоростью, что земля провалилась вниз и заложило уши."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Kolya's first experience with bubble transportation",
+      "participants": [
+        "Kolya"
+      ],
+      "location": "莫斯科郊外",
+      "causes": [
+        "Kolya's curiosity and desire to explore"
+      ],
+      "consequences": [
+        "Kolya gains experience with bubble transportation"
+      ],
+      "evidence": [
+        "Это уже было рискованное рассуждение.",
+        "Он переключил рычажок на ручное управление и осторожно повёл вверх другой, с надписью «Подъем»."
+      ]
+    },
+    {
+      "event": "Kolya meets an older man in the cloud",
+      "participants": [
+        "Kolya",
+        "老者"
+      ],
+      "location": "云层",
+      "causes": [
+        "Kolya's bubble falls into a cloud"
+      ],
+      "consequences": [
+        "Kolya learns about weather control"
+      ],
+      "evidence": [
+        "А ну поднимитесь сюда, — сказал голос. — Хочу посмотреть на воздушного хулигана."
+      ]
+    },
+    {
+      "event": "Kolya arrives at the cosmodrome",
+      "participants": [
+        "Kolya"
+      ],
+      "location": "莫斯科科斯莫德rom",
+      "causes": [
+        "Kolya's journey to the cosmodrome"
+      ],
+      "consequences": [
+        "Kolya sees the inside of the cosmodrome"
+      ],
+      "evidence": [
+        "Коля вылез из пузыря на стоянке у космодрома."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "People can use bubble transportation for personal exploration.",
+      "evidence": [
+        "Это уже было рискованное рассуждение."
+      ]
+    },
+    {
+      "rule": "Meteorologists control weather and clouds.",
+      "evidence": [
+        "А ну поднимитесь сюда, — сказал голос. — Хочу посмотреть на воздушного хулигана."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "Why is the cosmodrome not as expected?",
+      "reason": "No spacecraft or space-related personnel are seen."
+    }
+  ]
+}

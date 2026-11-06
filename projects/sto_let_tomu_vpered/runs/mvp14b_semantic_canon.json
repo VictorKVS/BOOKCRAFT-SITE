@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "characters": 104,
+  "locations": 90,
+  "objects": 97,
+  "events": 123,
+  "world_rules": 82,
+  "unresolved": 78,
+  "chunks_analyzed": 79,
+  "model": "qwen2.5:7b"
+}

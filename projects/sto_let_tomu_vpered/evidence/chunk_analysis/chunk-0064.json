@@ -1,0 +1,179 @@
+{
+  "characters": [
+    {
+      "name": "Юдзо Комура",
+      "aliases": [],
+      "facts": [
+        "He is a 12-year-old boy who is the son of Professor Takeo Komura.",
+        "He was found on a spacecraft and claims his father is missing.",
+        "He stole a training ship to search for his father."
+      ],
+      "appearance": [],
+      "traits": [
+        "Gullible",
+        "Determined",
+        "Honest",
+        "Tears up easily"
+      ],
+      "knowledge": [
+        "He knows his father is a geologist who went on an expedition to asteroids.",
+        "He believes his father is alive and needs his help."
+      ],
+      "goals": [
+        "Find his father",
+        "Return to Mars"
+      ],
+      "relationships": [
+        "Father: Professor Takeo Komura",
+        "Mother: Deceased",
+        "Uncle: Not mentioned",
+        "Aunt: To be sent to Osaka"
+      ],
+      "evidence": [
+        "He claims his father is alive and needs his help.",
+        "He stole a training ship to search for his father."
+      ]
+    },
+    {
+      "name": "Полина",
+      "aliases": [],
+      "facts": [
+        "She is the captain of the spacecraft.",
+        "She is traveling to Pluto.",
+        "She is friends with Alice's parents.",
+        "She is sending Alice to Pallas."
+      ],
+      "appearance": [],
+      "traits": [
+        "Empathetic",
+        "Patient"
+      ],
+      "knowledge": [
+        "She knows the spacecraft is on a mission.",
+        "She knows Alice is going to Pallas to visit her mother."
+      ],
+      "goals": [
+        "Complete the mission to Pluto"
+      ],
+      "relationships": [
+        "Friend: Alice's parents",
+        "Aunt: Alice"
+      ],
+      "evidence": [
+        "She is traveling to Pluto.",
+        "She is sending Alice to Pallas."
+      ]
+    },
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "She is the daughter of Polina's friends.",
+        "She is going to Pallas to visit her mother."
+      ],
+      "appearance": [],
+      "traits": [
+        "Supportive",
+        "Understanding"
+      ],
+      "knowledge": [
+        "She is going to Pallas to visit her mother."
+      ],
+      "goals": [
+        "Visit her mother on Pallas"
+      ],
+      "relationships": [
+        "Daughter: Not mentioned",
+        "Mother: Not mentioned"
+      ],
+      "evidence": [
+        "She is going to Pallas to visit her mother."
+      ]
+    },
+    {
+      "name": "Посейдон",
+      "aliases": [],
+      "facts": [
+        "He is a robot who serves as a universal helper.",
+        "He is concerned about the boy's safety and the potential danger he might pose."
+      ],
+      "appearance": [],
+      "traits": [
+        "Critical",
+        "Worried"
+      ],
+      "knowledge": [
+        "He believes the boy might be a dangerous criminal."
+      ],
+      "goals": [
+        "Ensure the safety of the spacecraft"
+      ],
+      "relationships": [
+        "Friend: Polina"
+      ],
+      "evidence": [
+        "He believes the boy might be a dangerous criminal."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Spacecraft",
+      "facts": [
+        "It is on a mission to Pluto.",
+        "It has a training ship on board."
+      ],
+      "evidence": [
+        "It is on a mission to Pluto.",
+        "It has a training ship on board."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Training ship",
+      "facts": [
+        "It was stolen by Yuudzo Komura.",
+        "It is used for educational purposes."
+      ],
+      "evidence": [
+        "It was stolen by Yuudzo Komura.",
+        "It is used for educational purposes."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Yuudzo Komura steals a training ship to search for his father.",
+      "participants": [
+        "Yuudzo Komura"
+      ],
+      "location": "Spacecraft",
+      "causes": [
+        "His father is missing and he believes he needs to find him."
+      ],
+      "consequences": [
+        "He is found by the spacecraft crew.",
+        "He is given a chance to explain his actions."
+      ],
+      "evidence": [
+        "Yuudzo Komura steals a training ship to search for his father."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Space travel and exploration are common.",
+      "evidence": [
+        "The spacecraft is on a mission to Pluto.",
+        "Yuudzo Komura knows about the training ship and its use."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What happened to Professor Takeo Komura?",
+      "reason": "His disappearance is unexplained."
+    }
+  ]
+}

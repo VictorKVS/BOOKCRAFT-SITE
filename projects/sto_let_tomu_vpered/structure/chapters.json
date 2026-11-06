@@ -1,0 +1,275 @@
+[
+  {
+    "chapter_index": 1,
+    "title": "1. А если за дверью анаконда?",
+    "start_paragraph": 2,
+    "end_paragraph": 41,
+    "paragraph_count": 40
+  },
+  {
+    "chapter_index": 2,
+    "title": "2. Это не Индия",
+    "start_paragraph": 42,
+    "end_paragraph": 120,
+    "paragraph_count": 79
+  },
+  {
+    "chapter_index": 3,
+    "title": "3. Дедушка-ровесник",
+    "start_paragraph": 121,
+    "end_paragraph": 197,
+    "paragraph_count": 77
+  },
+  {
+    "chapter_index": 4,
+    "title": "4. Синяя лошадь и другие лингвисты",
+    "start_paragraph": 198,
+    "end_paragraph": 249,
+    "paragraph_count": 52
+  },
+  {
+    "chapter_index": 5,
+    "title": "5. Ты любишь мангодыню?",
+    "start_paragraph": 250,
+    "end_paragraph": 376,
+    "paragraph_count": 127
+  },
+  {
+    "chapter_index": 6,
+    "title": "6. Как вырастить дом",
+    "start_paragraph": 377,
+    "end_paragraph": 440,
+    "paragraph_count": 64
+  },
+  {
+    "chapter_index": 7,
+    "title": "7. Автобус никуда не идёт",
+    "start_paragraph": 441,
+    "end_paragraph": 491,
+    "paragraph_count": 51
+  },
+  {
+    "chapter_index": 8,
+    "title": "8. Чемпион по мороженому",
+    "start_paragraph": 492,
+    "end_paragraph": 543,
+    "paragraph_count": 52
+  },
+  {
+    "chapter_index": 9,
+    "title": "9. Флипнем до космодрома!",
+    "start_paragraph": 544,
+    "end_paragraph": 585,
+    "paragraph_count": 42
+  },
+  {
+    "chapter_index": 10,
+    "title": "10. Пассажир до любой планеты",
+    "start_paragraph": 586,
+    "end_paragraph": 659,
+    "paragraph_count": 74
+  },
+  {
+    "chapter_index": 11,
+    "title": "11. «Зайцы» в вазе",
+    "start_paragraph": 660,
+    "end_paragraph": 778,
+    "paragraph_count": 119
+  },
+  {
+    "chapter_index": 12,
+    "title": "12. Пиратские неудачи",
+    "start_paragraph": 779,
+    "end_paragraph": 821,
+    "paragraph_count": 43
+  },
+  {
+    "chapter_index": 13,
+    "title": "13. Посетитель космозо",
+    "start_paragraph": 822,
+    "end_paragraph": 947,
+    "paragraph_count": 126
+  },
+  {
+    "chapter_index": 14,
+    "title": "14. Береги миелофон",
+    "start_paragraph": 948,
+    "end_paragraph": 1080,
+    "paragraph_count": 133
+  },
+  {
+    "chapter_index": 15,
+    "title": "15. Бегом к машине времени",
+    "start_paragraph": 1081,
+    "end_paragraph": 1136,
+    "paragraph_count": 56
+  },
+  {
+    "chapter_index": 16,
+    "title": "1. Она не помнит",
+    "start_paragraph": 1137,
+    "end_paragraph": 1284,
+    "paragraph_count": 148
+  },
+  {
+    "chapter_index": 17,
+    "title": "2. У нас в классе три Коли",
+    "start_paragraph": 1285,
+    "end_paragraph": 1358,
+    "paragraph_count": 74
+  },
+  {
+    "chapter_index": 18,
+    "title": "3. Я твой папочка!",
+    "start_paragraph": 1359,
+    "end_paragraph": 1459,
+    "paragraph_count": 101
+  },
+  {
+    "chapter_index": 19,
+    "title": "4. Как всё было",
+    "start_paragraph": 1460,
+    "end_paragraph": 1612,
+    "paragraph_count": 153
+  },
+  {
+    "chapter_index": 20,
+    "title": "5. Ботинки доктора Алика",
+    "start_paragraph": 1613,
+    "end_paragraph": 1788,
+    "paragraph_count": 176
+  },
+  {
+    "chapter_index": 21,
+    "title": "6. Бегство",
+    "start_paragraph": 1789,
+    "end_paragraph": 1852,
+    "paragraph_count": 64
+  },
+  {
+    "chapter_index": 22,
+    "title": "7. Туристы и другие спасители",
+    "start_paragraph": 1853,
+    "end_paragraph": 1981,
+    "paragraph_count": 129
+  },
+  {
+    "chapter_index": 23,
+    "title": "8. Будем учиться вместе",
+    "start_paragraph": 1982,
+    "end_paragraph": 2090,
+    "paragraph_count": 109
+  },
+  {
+    "chapter_index": 24,
+    "title": "9. Я её никогда не видел",
+    "start_paragraph": 2091,
+    "end_paragraph": 2280,
+    "paragraph_count": 190
+  },
+  {
+    "chapter_index": 25,
+    "title": "10. Запасной игрок",
+    "start_paragraph": 2281,
+    "end_paragraph": 2404,
+    "paragraph_count": 124
+  },
+  {
+    "chapter_index": 26,
+    "title": "11. Это бандит из будущего!",
+    "start_paragraph": 2405,
+    "end_paragraph": 2500,
+    "paragraph_count": 96
+  },
+  {
+    "chapter_index": 27,
+    "title": "12. Рассказ и вещественные доказательства",
+    "start_paragraph": 2501,
+    "end_paragraph": 2650,
+    "paragraph_count": 150
+  },
+  {
+    "chapter_index": 28,
+    "title": "13. Наполеон по заказу",
+    "start_paragraph": 2651,
+    "end_paragraph": 2728,
+    "paragraph_count": 78
+  },
+  {
+    "chapter_index": 29,
+    "title": "14. Странная девочка",
+    "start_paragraph": 2729,
+    "end_paragraph": 2804,
+    "paragraph_count": 76
+  },
+  {
+    "chapter_index": 30,
+    "title": "15. Спроси у Садовского",
+    "start_paragraph": 2805,
+    "end_paragraph": 2935,
+    "paragraph_count": 131
+  },
+  {
+    "chapter_index": 31,
+    "title": "16. Супергерла!",
+    "start_paragraph": 2936,
+    "end_paragraph": 3053,
+    "paragraph_count": 118
+  },
+  {
+    "chapter_index": 32,
+    "title": "17. Через забор и обратно",
+    "start_paragraph": 3054,
+    "end_paragraph": 3168,
+    "paragraph_count": 115
+  },
+  {
+    "chapter_index": 33,
+    "title": "18. Опасная беглянка",
+    "start_paragraph": 3169,
+    "end_paragraph": 3270,
+    "paragraph_count": 102
+  },
+  {
+    "chapter_index": 34,
+    "title": "19. Две Аллы",
+    "start_paragraph": 3271,
+    "end_paragraph": 3361,
+    "paragraph_count": 91
+  },
+  {
+    "chapter_index": 35,
+    "title": "20. Ишутин не вмешивается",
+    "start_paragraph": 3362,
+    "end_paragraph": 3477,
+    "paragraph_count": 116
+  },
+  {
+    "chapter_index": 36,
+    "title": "21. Военный совет",
+    "start_paragraph": 3478,
+    "end_paragraph": 3612,
+    "paragraph_count": 135
+  },
+  {
+    "chapter_index": 37,
+    "title": "22. Поиски",
+    "start_paragraph": 3613,
+    "end_paragraph": 3754,
+    "paragraph_count": 142
+  },
+  {
+    "chapter_index": 38,
+    "title": "23. Ишутин передумал",
+    "start_paragraph": 3755,
+    "end_paragraph": 3883,
+    "paragraph_count": 129
+  },
+  {
+    "chapter_index": 39,
+    "title": "24. Прощай, супергерла!",
+    "start_paragraph": 3884,
+    "end_paragraph": 5062,
+    "paragraph_count": 1179
+  }
+]

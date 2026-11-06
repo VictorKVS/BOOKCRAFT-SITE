@@ -1,0 +1,166 @@
+{
+  "characters": [
+    {
+      "name": "Коля",
+      "aliases": [],
+      "facts": [
+        "Tastes a buble, finds it edible.",
+        "Asks about the age of Alice.",
+        "Has a dream of growing breakfasts for the space fleet.",
+        "Is twelve years old."
+      ],
+      "appearance": [],
+      "traits": [
+        "Curious",
+        "Knowledgeable",
+        "Talkative"
+      ],
+      "knowledge": [
+        "About different building materials and their historical use.",
+        "About various construction techniques."
+      ],
+      "goals": [
+        "To grow breakfasts for the space fleet."
+      ],
+      "relationships": [
+        "Friends with Djavat.",
+        "Knows Alice."
+      ],
+      "evidence": [
+        "Коля откусил кусок от плода, и оказалось, что это самый обыкновенный бублик, не горячий, без мака, зато очень свежий."
+      ]
+    },
+    {
+      "name": "Djavat",
+      "aliases": [],
+      "facts": [
+        "Has knowledge about genetic engineering.",
+        "Helps Kolya with his dream."
+      ],
+      "appearance": [],
+      "traits": [
+        "Supportive",
+        "Informed"
+      ],
+      "knowledge": [
+        "About genetic engineering and its applications."
+      ],
+      "goals": [
+        "Support Kolya's dream."
+      ],
+      "relationships": [
+        "Friends with Kolya."
+      ],
+      "evidence": [
+        "Джавад сказал: — Будущий гений генетики. У него мечта есть. Хорошо, когда у человека есть мечта."
+      ]
+    },
+    {
+      "name": "Alice",
+      "aliases": [],
+      "facts": [
+        "Has connections in the far fleet.",
+        "Not seen by Kolya."
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Known to Kolya."
+      ],
+      "evidence": [
+        "Джават сказал: — А сколько ей лет? — Когда успела? — Сколько и нам с тобой. Одиннадцать."
+      ]
+    },
+    {
+      "name": "Arshak",
+      "aliases": [],
+      "facts": [
+        "Uses genetic engineering for speed of growth.",
+        "Collects bubes."
+      ],
+      "appearance": [],
+      "traits": [
+        "Practical",
+        "Helpful"
+      ],
+      "knowledge": [
+        "About genetic engineering."
+      ],
+      "goals": [],
+      "relationships": [
+        "Friends with Kolya."
+      ],
+      "evidence": [
+        "— Я от альдебаранских растений только скорость роста использовал. К остальному шёл через пшеницу и хлебное дерево."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Bulvar",
+      "facts": [
+        "Has young trees growing on it."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "Construction site",
+      "facts": [
+        "Uses new building techniques involving genetic engineering.",
+        "Builds a round-shaped house."
+      ],
+      "evidence": [
+        "Стена росла не равномерно, а как бы вытягивалась вдоль прутиков."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Bubes",
+      "facts": [
+        "Edible and useful for space travel.",
+        "Grown by Djavat."
+      ],
+      "evidence": [
+        "— На, по дороге на Луну пригодятся."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Construction of a new house using genetic engineering.",
+      "participants": [
+        "Djavat",
+        "Arshak",
+        "Vanya",
+        "Leva"
+      ],
+      "location": "Construction site",
+      "causes": [
+        "Djavat's research and development."
+      ],
+      "consequences": [
+        "Creation of a new type of house."
+      ],
+      "evidence": [
+        "Стена росла не равномерно, а как бы вытягивалась вдоль прутиков."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "New building techniques involve genetic engineering.",
+      "evidence": [
+        "Стена росла не равномерно, а как бы вытягивалась вдоль прутиков."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "How old is Alice?",
+      "reason": "Not explicitly stated in the text."
+    }
+  ]
+}

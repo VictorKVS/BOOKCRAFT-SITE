@@ -1,0 +1,188 @@
+{
+  "characters": [
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "Asks about the situation of the Aishklects and their treatment.",
+        "Wants to bring a friend to the asteroid.",
+        "Lost her companion Yuuzo.",
+        "Sees her companion Polina in captivity."
+      ],
+      "appearance": [],
+      "traits": [
+        "Concerned",
+        "Determined"
+      ],
+      "knowledge": [
+        "Knows Yuuzo and Polina are in captivity.",
+        "Understands the situation of the Aishklects."
+      ],
+      "goals": [
+        "Rescue her companions.",
+        "Understand the situation of the Aishklects."
+      ],
+      "relationships": [
+        "Friends with Yuuzo and Polina."
+      ],
+      "evidence": [
+        "Asks about the situation of the Aishklects and their treatment.",
+        "Wants to bring a friend to the asteroid.",
+        "Lost her companion Yuuzo.",
+        "Sees her companion Polina in captivity."
+      ]
+    },
+    {
+      "name": "Посейдон",
+      "aliases": [],
+      "facts": [
+        "Expresses concern about the treatment of the Aishklects.",
+        "Recognizes Yuuzo as the son of the professor.",
+        "Finds Yuuzo's situation concerning."
+      ],
+      "appearance": [],
+      "traits": [
+        "Concerned",
+        "Observant"
+      ],
+      "knowledge": [
+        "Recognizes Yuuzo as the son of the professor.",
+        "Understands the situation of the Aishklects."
+      ],
+      "goals": [
+        "Help the Aishklects."
+      ],
+      "relationships": [
+        "Friends with the professor.",
+        "Concerned for Yuuzo."
+      ],
+      "evidence": [
+        "Expresses concern about the treatment of the Aishklects.",
+        "Recognizes Yuuzo as the son of the professor.",
+        "Finds Yuuzo's situation concerning."
+      ]
+    },
+    {
+      "name": "Старик (профессор Комура)",
+      "aliases": [],
+      "facts": [
+        "Treats the Aishklects as children.",
+        "Has a son named Yuuzo.",
+        "Treats the Aishklects as a burden.",
+        "Tries to rescue his son and others.",
+        "Knows about the situation of the Aishklects."
+      ],
+      "appearance": [],
+      "traits": [
+        "Cynical",
+        "Concerned"
+      ],
+      "knowledge": [
+        "Knows about the situation of the Aishklects."
+      ],
+      "goals": [
+        "Rescue his son and others.",
+        "Improve the situation of the Aishklects."
+      ],
+      "relationships": [
+        "Father of Yuuzo.",
+        "Concerned for the Aishklects."
+      ],
+      "evidence": [
+        "Treats the Aishklects as children.",
+        "Has a son named Yuuzo.",
+        "Treats the Aishklects as a burden.",
+        "Tries to rescue his son and others.",
+        "Knows about the situation of the Aishklects."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Астероид",
+      "facts": [
+        "Contains Aishklects and robots.",
+        "Has internal corridors and rooms.",
+        "Has a prison and a place for observation."
+      ],
+      "evidence": [
+        "Contains Aishklects and robots.",
+        "Has internal corridors and rooms.",
+        "Has a prison and a place for observation."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Роботы-няньки",
+      "facts": [
+        "Care for the Aishklects.",
+        "Prevent the Aishklects from growing up."
+      ],
+      "evidence": [
+        "Care for the Aishklects.",
+        "Prevent the Aishklects from growing up."
+      ]
+    },
+    {
+      "name": "Сирена",
+      "facts": [
+        "Signals the time for the Aishklects to have lunch."
+      ],
+      "evidence": [
+        "Signals the time for the Aishklects to have lunch."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "A discussion about the treatment of the Aishklects and the situation of the robots.",
+      "participants": [
+        "Алиса",
+        "Посейдон",
+        "Старик (профессор Комура)"
+      ],
+      "location": "Астероид",
+      "causes": [
+        "The Aishklects' treatment and the robots' actions."
+      ],
+      "consequences": [
+        "Realization of the dire situation of the Aishklects."
+      ],
+      "evidence": [
+        "A discussion about the treatment of the Aishklects and the situation of the robots."
+      ]
+    },
+    {
+      "event": "Yuuzo's rescue attempt",
+      "participants": [
+        "Yuuzo",
+        "Профессор Комура"
+      ],
+      "location": "Астероид",
+      "causes": [
+        "Yuuzo's search for his father."
+      ],
+      "consequences": [
+        "Yuuzo's capture by the robots."
+      ],
+      "evidence": [
+        "Yuuzo's rescue attempt"
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Robots ensure the survival of the Aishklects by providing care and entertainment.",
+      "evidence": [
+        "Robots ensure the survival of the Aishklects by providing care and entertainment."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What is the fate of Polina and Yuuzo?",
+      "reason": "Their location and status are not explicitly stated."
+    }
+  ]
+}

@@ -1,0 +1,219 @@
+{
+  "characters": [
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "Escaped from the hospital.",
+        "Wore pajamas when she arrived.",
+        "Was helped by friends to get home.",
+        "Lived with the Grivkova family."
+      ],
+      "appearance": [],
+      "traits": [
+        "Determined",
+        "Resourceful"
+      ],
+      "knowledge": [
+        "Familiar with the concept of schooling in the 21st century"
+      ],
+      "goals": [
+        "Avoid going back to the hospital"
+      ],
+      "relationships": [
+        "Friends with Fima, Kolya",
+        "Lives with the Grivkova family",
+        "Meets with Yulia"
+      ],
+      "evidence": [
+        "I'm not afraid.",
+        "Pirates found me.",
+        "I was in pajamas when I arrived."
+      ]
+    },
+    {
+      "name": "Юлька Грибкова",
+      "aliases": [],
+      "facts": [
+        "Lives with her family in a five-story house.",
+        "Helped Aлиса with homework.",
+        "Was worried about Aлиса going back to the hospital."
+      ],
+      "appearance": [],
+      "traits": [
+        "Supportive",
+        "Concerned"
+      ],
+      "knowledge": [],
+      "goals": [
+        "Keep Aлиса from going back to the hospital"
+      ],
+      "relationships": [
+        "Lives with Grivkova family",
+        "Friends with Aлиса"
+      ],
+      "evidence": [
+        "I'll go with her if they take her back.",
+        "She's a bit of a troublemaker."
+      ]
+    },
+    {
+      "name": "Мария Михайловна",
+      "aliases": [],
+      "facts": [
+        "Aлиса's grandmother.",
+        "Helped Aлиса with the situation.",
+        "Contacted the hospital."
+      ],
+      "appearance": [],
+      "traits": [
+        "Supportive",
+        "Decisive"
+      ],
+      "knowledge": [],
+      "goals": [
+        "Ensure Aлиса's safety and well-being"
+      ],
+      "relationships": [
+        "Grandmother of Aлиса",
+        "Helped Aлиса"
+      ],
+      "evidence": [
+        "She will not give Aлиса back to the hospital.",
+        "She will support Aлиса."
+      ]
+    },
+    {
+      "name": "Коля",
+      "aliases": [],
+      "facts": [
+        "Helped Aлиса get home."
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Friends with Aлиса"
+      ],
+      "evidence": [
+        "He helped Aлиса get home."
+      ]
+    },
+    {
+      "name": "Fima",
+      "aliases": [],
+      "facts": [
+        "Was occupied with his own thoughts."
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Friends with Aлиса"
+      ],
+      "evidence": [
+        "He was occupied with his own thoughts."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Grivkova family's house",
+      "facts": [
+        "Five-story house with a small garden.",
+        "Aлиса lives here."
+      ],
+      "evidence": [
+        "Aлиса lives here."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Pajamas",
+      "facts": [
+        "Aлиса wore pajamas when she arrived."
+      ],
+      "evidence": [
+        "I'm in pajamas."
+      ]
+    },
+    {
+      "name": "Books",
+      "facts": [
+        "Aлиса had access to books."
+      ],
+      "evidence": [
+        "She had a book to look at."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Aлиса's escape from the hospital",
+      "participants": [
+        "Aлиса"
+      ],
+      "location": "Hospital",
+      "causes": [
+        "Hospital staff's concern about Aлиса's absence."
+      ],
+      "consequences": [
+        "Aлиса returns home with the help of friends."
+      ],
+      "evidence": [
+        "They were so happy to find me."
+      ]
+    },
+    {
+      "event": "Aлиса's arrival at the Grivkova family's house",
+      "participants": [
+        "Aлиса",
+        "Grivkova family"
+      ],
+      "location": "Grivkova family's house",
+      "causes": [
+        "Aлиса's escape from the hospital."
+      ],
+      "consequences": [
+        "Aлиса lives with the Grivkova family."
+      ],
+      "evidence": [
+        "She arrived in pajamas."
+      ]
+    },
+    {
+      "event": "Discussion about Aлиса's situation",
+      "participants": [
+        "Aлиса",
+        "Grivkova family"
+      ],
+      "location": "Grivkova family's house",
+      "causes": [
+        "Aлиса's return home."
+      ],
+      "consequences": [
+        "Aлиса will visit the hospital for check-ups."
+      ],
+      "evidence": [
+        "They agreed to keep her only on the condition that she goes to the hospital for check-ups."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Aлиса can return to the hospital for check-ups.",
+      "evidence": [
+        "They agreed to keep her only on the condition that she goes to the hospital for check-ups."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What happened to Aлиса in the hospital?",
+      "reason": "Not explicitly stated in the text."
+    }
+  ]
+}

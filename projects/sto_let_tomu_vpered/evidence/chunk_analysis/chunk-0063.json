@@ -1,0 +1,230 @@
+{
+  "characters": [
+    {
+      "name": "Полина",
+      "aliases": [],
+      "facts": [
+        "She is the captain of the 'Arbat'.",
+        "She is concerned about the safety of the crew.",
+        "She is compassionate towards the boy.",
+        "She is aware of the boy's background."
+      ],
+      "appearance": [],
+      "traits": [
+        "Compassionate",
+        "Responsible",
+        "Observant"
+      ],
+      "knowledge": [
+        "She knows about the ShUK-24 and its purpose.",
+        "She is aware of the boy's background."
+      ],
+      "goals": [
+        "Ensure the safety of the crew and the boy."
+      ],
+      "relationships": [
+        "She is the captain of the 'Arbat'.",
+        "She is concerned for Alica and the boy."
+      ],
+      "evidence": [
+        "She knows about the ShUK-24 and its purpose.",
+        "She is aware of the boy's background."
+      ]
+    },
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "She is a crew member on the 'Arbat'.",
+        "She is compassionate towards the boy.",
+        "She assists in taking care of the boy."
+      ],
+      "appearance": [],
+      "traits": [
+        "Compassionate",
+        "Helpful"
+      ],
+      "knowledge": [
+        "She knows about the ShUK-24 and its purpose."
+      ],
+      "goals": [
+        "Ensure the safety of the crew and the boy."
+      ],
+      "relationships": [
+        "She is a crew member on the 'Arbat'.",
+        "She assists in taking care of the boy."
+      ],
+      "evidence": [
+        "She knows about the ShUK-24 and its purpose."
+      ]
+    },
+    {
+      "name": "Посейдон",
+      "aliases": [],
+      "facts": [
+        "He is the AI captain of the 'Arbat'.",
+        "He is knowledgeable about various topics.",
+        "He is compassionate towards the boy.",
+        "He is aware of the boy's background."
+      ],
+      "appearance": [],
+      "traits": [
+        "Compassionate",
+        "Knowledgeable",
+        "Observant"
+      ],
+      "knowledge": [
+        "He knows about the ShUK-24 and its purpose.",
+        "He is aware of the boy's background."
+      ],
+      "goals": [
+        "Ensure the safety of the crew and the boy."
+      ],
+      "relationships": [
+        "He is the AI captain of the 'Arbat'.",
+        "He is compassionate towards the boy."
+      ],
+      "evidence": [
+        "He knows about the ShUK-24 and its purpose.",
+        "He is aware of the boy's background."
+      ]
+    },
+    {
+      "name": "Юдзо Комура",
+      "aliases": [
+        "Юдзо"
+      ],
+      "facts": [
+        "He is the owner of the ShUK-24.",
+        "He is a Japanese.",
+        "He is a student of the school of cosmic navigation."
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [],
+      "evidence": [
+        "He is the owner of the ShUK-24.",
+        "He is a Japanese.",
+        "He is a student of the school of cosmic navigation."
+      ]
+    },
+    {
+      "name": "Такео Комура",
+      "aliases": [
+        "教授田口"
+      ],
+      "facts": [
+        "He is a professor.",
+        "He is Japanese.",
+        "He is the father of Юдзо Комура."
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [],
+      "evidence": [
+        "He is a professor.",
+        "He is Japanese.",
+        "He is the father of Юдзо Комура."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "ShUK-24",
+      "facts": [
+        "It is a small planetary cruiser.",
+        "It is owned by Юдзо Комура.",
+        "It is registered to the School of Cosmic Navigation on Mars."
+      ],
+      "evidence": [
+        "ShUK-24 is a small planetary cruiser.",
+        "ShUK-24 is owned by Юдзо Комура.",
+        "ShUK-24 is registered to the School of Cosmic Navigation on Mars."
+      ]
+    },
+    {
+      "name": "Arbat",
+      "facts": [
+        "It is a space cruiser.",
+        "It is captained by Полина.",
+        "It has a single cabin with two bunks."
+      ],
+      "evidence": [
+        "Arbat is a space cruiser.",
+        "Arbat is captained by Полина.",
+        "Arbat has a single cabin with two bunks."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "ShUK-24",
+      "facts": [
+        "It is a small planetary cruiser.",
+        "It is owned by Юдзо Комура.",
+        "It is registered to the School of Cosmic Navigation on Mars."
+      ],
+      "evidence": [
+        "ShUK-24 is a small planetary cruiser.",
+        "ShUK-24 is owned by Юдзо Комура.",
+        "ShUK-24 is registered to the School of Cosmic Navigation on Mars."
+      ]
+    },
+    {
+      "name": "Arbat",
+      "facts": [
+        "It is a space cruiser.",
+        "It is captained by Полина.",
+        "It has a single cabin with two bunks."
+      ],
+      "evidence": [
+        "Arbat is a space cruiser.",
+        "Arbat is captained by Полина.",
+        "Arbat has a single cabin with two bunks."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "The 'Arbat' rescues a boy from the ShUK-24.",
+      "participants": [
+        "Полина",
+        "Алиса",
+        "Посейдон",
+        "Юдзо Комура"
+      ],
+      "location": "ShUK-24 and Arbat",
+      "causes": [
+        "Юдзо Комура's ship runs out of fuel and he becomes lost."
+      ],
+      "consequences": [
+        "Полина and Алиса take care of the boy.",
+        "Полина and Посейдон investigate the ShUK-24."
+      ],
+      "evidence": [
+        "The 'Arbat' rescues a boy from the ShUK-24.",
+        "Полина and Алиса take care of the boy.",
+        "Полина and Посейдон investigate the ShUK-24."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "ShUK-24 is a small planetary cruiser registered to the School of Cosmic Navigation on Mars.",
+      "evidence": [
+        "ShUK-24 is a small planetary cruiser.",
+        "ShUK-24 is registered to the School of Cosmic Navigation on Mars."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "Why did Юдзо Комура take the ShUK-24?",
+      "reason": "He claims he did not want to have fun, but had to do it for a reason."
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "characters": [
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "Puts on a salsito in the air after jumping over a fence",
+        "Informs Юлька that she landed on Крысса, temporarily disabling him",
+        "Believes Сулима might have betrayed her",
+        "Wants to go to Сулима's house"
+      ],
+      "appearance": [],
+      "traits": [
+        "Athletic",
+        "Quick-thinking",
+        "Resourceful"
+      ],
+      "knowledge": [
+        "Сулима might have information about her",
+        "Крысса is a friend of the Coronal"
+      ],
+      "goals": [
+        "Find out who betrayed her",
+        "Go to Сулима's house"
+      ],
+      "relationships": [
+        "Friends with Юлька",
+        "Believes Сулима might be a traitor",
+        "Knows Крысса"
+      ],
+      "evidence": [
+        "Puts on a salsito in the air",
+        "Lands on Крысса",
+        "Believes Сулима might have betrayed her"
+      ]
+    },
+    {
+      "name": "Юлька",
+      "aliases": [],
+      "facts": [
+        "Helps Алиса jump over a fence",
+        "Believes Сулима might have betrayed Алиса",
+        "Tries to get information from Сулима"
+      ],
+      "appearance": [],
+      "traits": [
+        "Supportive",
+        "Worried"
+      ],
+      "knowledge": [
+        "Сулима might have information about Алиса",
+        "Крысса is a friend of the Coronal"
+      ],
+      "goals": [
+        "Find out who betrayed Алиса",
+        "Help Алиса"
+      ],
+      "relationships": [
+        "Friends with Алиса",
+        "Believes Сулима might be a traitor"
+      ],
+      "evidence": [
+        "Helps Алиса jump over a fence",
+        "Believes Сулима might have betrayed Алиса"
+      ]
+    },
+    {
+      "name": "Сулима",
+      "aliases": [],
+      "facts": [
+        "Has information about Алиса",
+        "May have betrayed Алиса",
+        "Is a friend of the Coronal"
+      ],
+      "appearance": [],
+      "traits": [
+        "Talkative",
+        "May be untrustworthy"
+      ],
+      "knowledge": [
+        "Has information about Алиса",
+        "Is a friend of the Coronal"
+      ],
+      "goals": [
+        "Unknown"
+      ],
+      "relationships": [
+        "Knows Алиса",
+        "May be a traitor to Алиса",
+        "Friend of the Coronal"
+      ],
+      "evidence": [
+        "Has information about Алиса",
+        "May have betrayed Алиса"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Fence",
+      "facts": [
+        "Aлиса jumps over it",
+        "Has a salsito"
+      ],
+      "evidence": []
+    },
+    {
+      "name": "School",
+      "facts": [
+        "Koly Sadovsky goes there",
+        "Has a conflict with his mother"
+      ],
+      "evidence": []
+    }
+  ],
+  "objects": [
+    {
+      "name": "Salsito",
+      "facts": [
+        "Aлиса performs it while jumping over a fence"
+      ],
+      "evidence": []
+    }
+  ],
+  "events": [
+    {
+      "event": "Aлиса jumps over a fence and performs a salsito",
+      "participants": [
+        "Aлиса"
+      ],
+      "location": "Fence",
+      "causes": [],
+      "consequences": [
+        "Aлиса lands on Крысса"
+      ],
+      "evidence": [
+        "Aлиса сунула Юльке сумку, отбежала на мостовую, примерилась, разбежалась и прыгнула. Не привычно, а рыбкой, как прыгают пловцы. Над забором она пролетела так, что ещё сантиметров десять запаса оставалось, подобрала ноги, сделала сальто, чтобы по ту сторону забора опуститься на ноги."
+      ]
+    },
+    {
+      "event": "Aлиса and Юлька run from пираты",
+      "participants": [
+        "Aлиса",
+        "Юлька"
+      ],
+      "location": "Near the fence",
+      "causes": [
+        "Пираты are chasing Aлиса and Юлька"
+      ],
+      "consequences": [
+        "Koly Suliма runs away from Aлиса and Юлька"
+      ],
+      "evidence": [
+        "Беги, — крикнула Юлька Сулиме, — чтобы они тебя с нами не видели! Ну, что ты стоишь?"
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Pirats are a threat to the characters",
+      "evidence": [
+        "Пираты are chasing Aлиса and Юлька"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "Who betrayed Aлиса?",
+      "reason": "Aлиса and Юлька suspect Сулима, but he denies it"
+    }
+  ]
+}

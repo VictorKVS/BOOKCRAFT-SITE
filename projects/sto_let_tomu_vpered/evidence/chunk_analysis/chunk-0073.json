@@ -1,0 +1,140 @@
+{
+  "characters": [
+    {
+      "name": "Посейдон",
+      "aliases": [],
+      "facts": [
+        "Asks questions about the survivors and their situation.",
+        "Recognizes the old man as a robot.",
+        "Observes the artificial landscape."
+      ],
+      "appearance": [],
+      "traits": [
+        "Inquisitive",
+        "Observant"
+      ],
+      "knowledge": [
+        "Recognizes the artificial nature of the landscape.",
+        "Understands that the old man is a robot."
+      ],
+      "goals": [],
+      "relationships": [
+        "Questions the old man and Alice."
+      ],
+      "evidence": [
+        "Я прожил долгую и нелегкую жизнь, — ответил Посейдон."
+      ]
+    },
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "Questions the old man about the situation.",
+        "Observes the artificial landscape."
+      ],
+      "appearance": [],
+      "traits": [
+        "Curious",
+        "Observant"
+      ],
+      "knowledge": [
+        "Recognizes the artificial nature of the landscape."
+      ],
+      "goals": [],
+      "relationships": [
+        "Questions the old man and Posiedon."
+      ],
+      "evidence": [
+        "Ну рассказывайте, рассказывайте, — сказала Алиса.",
+        "Должны быть ниточки, — вдруг раздался голос Посейдона."
+      ]
+    },
+    {
+      "name": "Старик",
+      "aliases": [],
+      "facts": [
+        "Survived the crash and is hiding.",
+        "Knows about the artificial landscape.",
+        "Is a robot.",
+        "Has knowledge of the ship's history."
+      ],
+      "appearance": [],
+      "traits": [
+        "Knowledgeable",
+        "Cautious"
+      ],
+      "knowledge": [
+        "About the ship's history and the artificial landscape."
+      ],
+      "goals": [
+        "Helps the survivors."
+      ],
+      "relationships": [
+        "Hides from the ship's crew.",
+        "Tells the survivors about the ship's history."
+      ],
+      "evidence": [
+        "Этот астероид очень велик и стар, — сказал старик.",
+        "К счастью, здесь много пустых заброшенных помещений, о которых не знает даже Хозяин."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Астероид",
+      "facts": [
+        "Was once a spacecraft.",
+        "Contains artificial landscapes and hidden rooms.",
+        "Has a resident robot named 'Хозяин'."
+      ],
+      "evidence": [
+        "Когда-то, много столетий назад, из очень далекой звездной системы стартовал космический корабль."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Куклы",
+      "facts": [
+        "Artificial landscape contains robotic puppets."
+      ],
+      "evidence": [
+        "Это же куклы, — сказал робот. — Марионетки, и кто-то должен дергать их за ниточки, чтобы они двигались."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Survivors discover the artificial landscape.",
+      "participants": [
+        "Алиса",
+        "Посейдон",
+        "Старик"
+      ],
+      "location": "Астероид",
+      "causes": [
+        "Old man reveals the truth about the ship."
+      ],
+      "consequences": [
+        "Survivors learn about the ship's history and the artificial nature of the landscape."
+      ],
+      "evidence": [
+        "Перед глазами Алисы расстилалась большая зеленая поляна."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Robots control the ship and its inhabitants.",
+      "evidence": [
+        "Роботов становилось все больше, они-то совершенствовались и все меньше доверяли людям — то есть ашиклекам."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What will happen to the survivors?",
+      "reason": "The old man hints at the dangers they face."
+    }
+  ]
+}

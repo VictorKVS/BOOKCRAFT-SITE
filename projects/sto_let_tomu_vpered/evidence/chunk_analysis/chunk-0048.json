@@ -1,0 +1,190 @@
+{
+  "characters": [
+    {
+      "name": "Алиса Селезнева",
+      "aliases": [],
+      "facts": [
+        "Won a chess match against a grandmaster.",
+        "Helped her class in volleyball.",
+        "Interested in mathematics.",
+        "Proud of her high jump ability."
+      ],
+      "appearance": [],
+      "traits": [
+        "Proud",
+        "Intelligent",
+        "Decisive"
+      ],
+      "knowledge": [
+        "High jump ability of 1.70-1.75 meters."
+      ],
+      "goals": [],
+      "relationships": [
+        "Friends with Юлька Грибкова",
+        "Known by Эдуард Петрович",
+        "Known by Марта Скрыль"
+      ],
+      "evidence": [
+        "Won a chess match against a grandmaster.",
+        "Helped her class in volleyball.",
+        "Interested in mathematics.",
+        "Proud of her high jump ability."
+      ]
+    },
+    {
+      "name": "Юлька Грибкова",
+      "aliases": [],
+      "facts": [
+        "Helped Алиса Селезнева in a chess match.",
+        "Concerned about Алиса's actions.",
+        "Worried about Алиса's future."
+      ],
+      "appearance": [],
+      "traits": [
+        "Protective",
+        "Worried"
+      ],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Friends with Алиса Селезнева"
+      ],
+      "evidence": [
+        "Helped Алиса Селезнева in a chess match.",
+        "Concerned about Алиса's actions.",
+        "Worried about Алиса's future."
+      ]
+    },
+    {
+      "name": "Эдуард Петрович",
+      "aliases": [],
+      "facts": [
+        "Organized a chess session.",
+        "Recognized Алиса's talent.",
+        "Interested in Алиса's future."
+      ],
+      "appearance": [],
+      "traits": [
+        "Determined",
+        "Supportive"
+      ],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Knows Алиса Селезнева",
+        "Knows Юлька Грибкова"
+      ],
+      "evidence": [
+        "Organized a chess session.",
+        "Recognized Алиса's talent.",
+        "Interested in Алиса's future."
+      ]
+    },
+    {
+      "name": "Марта Скрыль",
+      "aliases": [],
+      "facts": [
+        "Trainer of a sports school.",
+        "Interested in Алиса's future."
+      ],
+      "appearance": [],
+      "traits": [
+        "Determined",
+        "Supportive"
+      ],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Knows Алиса Селезнева"
+      ],
+      "evidence": [
+        "Trainer of a sports school.",
+        "Interested in Алиса's future."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "School",
+      "facts": [
+        "Chess session was held here.",
+        "School grounds were used for a chase."
+      ],
+      "evidence": [
+        "Chess session was held here.",
+        "School grounds were used for a chase."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Chess",
+      "facts": [
+        "Grandmaster played against Алиса."
+      ],
+      "evidence": [
+        "Grandmaster played against Алиса."
+      ]
+    },
+    {
+      "name": "Mieloфон",
+      "facts": [
+        "Aliса was looking for it."
+      ],
+      "evidence": [
+        "Aлиса was looking for it."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Chess match between Алиса and a grandmaster",
+      "participants": [
+        "Алиса Селезнева",
+        "Grandmaster"
+      ],
+      "location": "School",
+      "causes": [],
+      "consequences": [
+        "Aлиса won the match."
+      ],
+      "evidence": [
+        "Сулима с гроссмейстером вничью сыграл!"
+      ]
+    },
+    {
+      "event": "Chase in the alley",
+      "participants": [
+        "Юлька Грибкова",
+        "Алиса Селезнева",
+        "Эдуард Петрович",
+        "Марта Скрыль"
+      ],
+      "location": "Alley",
+      "causes": [
+        "Юлька and Алиса tried to escape."
+      ],
+      "consequences": [
+        "Эдуард Петрович and Марта Скрыль caught them."
+      ],
+      "evidence": [
+        "Юлька и Алиса попытались скрыться.",
+        "Эдуард Петрович и Марта Скрыль поймали их."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "People can recognize each other by their physical appearance.",
+      "evidence": [
+        "Эдуард Петрович узнал Юльку и Алису."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What is the Mieloфон and why is Алиса looking for it?",
+      "reason": "Not explicitly stated in the provided text."
+    }
+  ]
+}

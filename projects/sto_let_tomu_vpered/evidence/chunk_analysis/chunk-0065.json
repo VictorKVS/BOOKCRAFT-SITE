@@ -1,0 +1,151 @@
+{
+  "characters": [
+    {
+      "name": "Полина",
+      "aliases": [],
+      "facts": [
+        "She is aware of multiple cases of missing spacecraft in the asteroid belt.",
+        "She feels an increase in gravity.",
+        "She orders the crew to prepare for landing on the asteroid."
+      ],
+      "appearance": [],
+      "traits": [
+        "Concerned",
+        "Logical"
+      ],
+      "knowledge": [
+        "Familiar with spacecraft operations",
+        "Aware of the asteroid belt dangers"
+      ],
+      "goals": [
+        "Ensure the safety of the crew"
+      ],
+      "relationships": [
+        "Works with Посейдон and Алиса"
+      ],
+      "evidence": [
+        "She mentions multiple cases of missing spacecraft in the asteroid belt."
+      ]
+    },
+    {
+      "name": "Посейдон",
+      "aliases": [],
+      "facts": [
+        "He is the ship's AI and pilot.",
+        "He observes an increase in gravitational force.",
+        "He suggests studying the asteroid in place.",
+        "He prioritizes the safety of the crew."
+      ],
+      "appearance": [],
+      "traits": [
+        "Logical",
+        "Protective"
+      ],
+      "knowledge": [
+        "Familiar with spacecraft operations",
+        "Aware of gravitational anomalies"
+      ],
+      "goals": [
+        "Ensure the safety of the crew",
+        "Study the asteroid phenomenon"
+      ],
+      "relationships": [
+        "Works with Полина and Алиса"
+      ],
+      "evidence": [
+        "He mentions multiple cases of missing spacecraft in the asteroid belt.",
+        "He observes an increase in gravitational force.",
+        "He suggests studying the asteroid in place."
+      ]
+    },
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "She is a young crew member.",
+        "She feels the gravitational force increase.",
+        "She suggests turning off the gravity generator.",
+        "She is concerned about the safety of the crew."
+      ],
+      "appearance": [],
+      "traits": [
+        "Curious",
+        "Protective"
+      ],
+      "knowledge": [
+        "Familiar with spacecraft operations"
+      ],
+      "goals": [
+        "Ensure the safety of the crew",
+        "Understand the asteroid phenomenon"
+      ],
+      "relationships": [
+        "Works with Полина and Посейдон"
+      ],
+      "evidence": [
+        "She feels the gravitational force increase.",
+        "She suggests turning off the gravity generator."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Asteroid",
+      "facts": [
+        "It has a gravitational anomaly.",
+        "It is in the asteroid belt.",
+        "It has a large depression in the center."
+      ],
+      "evidence": [
+        "Multiple cases of missing spacecraft in the asteroid belt."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Asteroid",
+      "facts": [
+        "It has a gravitational anomaly.",
+        "It has a large depression in the center."
+      ],
+      "evidence": [
+        "Multiple cases of missing spacecraft in the asteroid belt."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Multiple spacecraft disappear in the asteroid belt.",
+      "participants": [
+        "Полина",
+        "Посейдон",
+        "Алиса"
+      ],
+      "location": "Asteroid belt",
+      "causes": [
+        "Gravitational anomalies"
+      ],
+      "consequences": [
+        "Increased gravitational force",
+        "Need to study the asteroid phenomenon"
+      ],
+      "evidence": [
+        "Multiple cases of missing spacecraft in the asteroid belt."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Gravitational anomalies exist in the asteroid belt.",
+      "evidence": [
+        "Multiple cases of missing spacecraft in the asteroid belt."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What is the source of the gravitational anomaly?",
+      "reason": "The cause of the anomaly is not yet determined."
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "characters": [
+    {
+      "name": "Коля",
+      "aliases": [],
+      "facts": [
+        "Kolya is a teenager who believes in his own capabilities and challenges the authority of adults.",
+        "Kolya is interested in space and future technologies.",
+        "Kolya is cautious and sometimes scared, especially in unfamiliar situations."
+      ],
+      "appearance": [],
+      "traits": [
+        "Independent",
+        "Rebellious",
+        "Curious",
+        "Cautious"
+      ],
+      "knowledge": [
+        "Kolya knows about the existence of talking machines and their capabilities.",
+        "Kolya is aware of the concept of space travel and future technologies."
+      ],
+      "goals": [
+        "To prove his worth and capabilities to adults."
+      ],
+      "relationships": [
+        "Kolya has a relationship with his parents and teachers.",
+        "Kolya has a relationship with Alica and Poloskov."
+      ],
+      "evidence": [
+        "Раньше бы Коля сам обеими руками подписался под этими мудрыми словами."
+      ]
+    },
+    {
+      "name": "Электрон Степанович",
+      "aliases": [],
+      "facts": [
+        "Electron Stepanovich is a knowledgeable and experienced person.",
+        "Electron Stepanovich works with talking machines and is familiar with their capabilities."
+      ],
+      "appearance": [],
+      "traits": [
+        "Knowledgeable",
+        "Experienced",
+        "Calm"
+      ],
+      "knowledge": [
+        "Electron Stepanovich knows about the talking machine and its functions.",
+        "Electron Stepanovich is familiar with the zoo and its inhabitants."
+      ],
+      "goals": [
+        "To maintain the zoo and its operations."
+      ],
+      "relationships": [
+        "Electron Stepanovich has a relationship with Kolya and Alica."
+      ],
+      "evidence": [
+        "Электрон Степанович! — сказал высокий, чуть сутулый мужчина с редеющими светлыми волосами."
+      ]
+    },
+    {
+      "name": "Alica",
+      "aliases": [],
+      "facts": [
+        "Alica is a young woman who has knowledge of space and future technologies.",
+        "Alica has brought a talking machine to the zoo."
+      ],
+      "appearance": [],
+      "traits": [
+        "Knowledgeable",
+        "Innovative"
+      ],
+      "knowledge": [
+        "Alica knows about the talking machine and its functions."
+      ],
+      "goals": [
+        "To introduce new technologies to the zoo."
+      ],
+      "relationships": [
+        "Alica has a relationship with Kolya and Poloskov."
+      ],
+      "evidence": [
+        "Он запоминает все, что при нём говорят. У него исключительная память. Знает восемнадцать космических языков."
+      ]
+    },
+    {
+      "name": "Полосков",
+      "aliases": [],
+      "facts": [
+        "Poloskov is a person who has knowledge of space and future technologies."
+      ],
+      "appearance": [],
+      "traits": [
+        "Knowledgeable"
+      ],
+      "knowledge": [
+        "Poloskov knows about the talking machine and its functions."
+      ],
+      "goals": [
+        "To introduce new technologies to the zoo."
+      ],
+      "relationships": [
+        "Poloskov has a relationship with Alica."
+      ],
+      "evidence": []
+    }
+  ],
+  "locations": [
+    {
+      "name": "Zoo",
+      "facts": [
+        "The zoo has various animals and exhibits, including talking machines and alien plants."
+      ],
+      "evidence": [
+        "Говорун сидел под стеклянным колпаком высотой с дом.",
+        "Напротив него росла пальма, на ней раскачивался совершенно голубой медведь с шестью лапами."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Talking Machine",
+      "facts": [
+        "The talking machine has an exceptional memory and can speak multiple languages."
+      ],
+      "evidence": [
+        "У него исключительная память. Знает восемнадцать космических языков."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Kolya and Electron Stepanovich visit the zoo.",
+      "participants": [
+        "Kolya",
+        "Electron Stepanovich"
+      ],
+      "location": "Zoo",
+      "causes": [
+        "Electron Stepanovich is conducting an excursion."
+      ],
+      "consequences": [
+        "Kolya learns about the talking machine and its functions."
+      ],
+      "evidence": [
+        "Электрон Степанович! — сказал высокий, чуть сутулый мужчина с редеющими светлыми волосами."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Talking machines can be found in the zoo and have various functions.",
+      "evidence": [
+        "Он запоминает все, что при нём говорят. У него исключительная память. Знает восемнадцать космических языков."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "Why is the system sending all the hemp seeds to the dragon city?",
+      "reason": "Electron Stepanovich and the director of the zoo are unsure about the new system's operation."
+    }
+  ]
+}

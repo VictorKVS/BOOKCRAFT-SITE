@@ -1,0 +1,128 @@
+{
+  "characters": [
+    {
+      "name": "Коля",
+      "aliases": [],
+      "facts": [
+        "He is 14 years old.",
+        "His parents are relatively young, around 40.",
+        "He has a free Sunday.",
+        "He is interested in the model frigate.",
+        "He considers his parents' romantic adventures uninteresting.",
+        "He is kind to his neighbor, Nikolai Nikolaevich."
+      ],
+      "appearance": [],
+      "traits": [
+        "Sensible",
+        "Thoughtful",
+        "Curious"
+      ],
+      "knowledge": [
+        "He knows about the model frigate and its details.",
+        "He is aware of his neighbor's health condition."
+      ],
+      "goals": [
+        "Help his neighbor, Nikolai Nikolaevich."
+      ],
+      "relationships": [
+        "He is friends with Fima Korolev."
+      ],
+      "evidence": [
+        "Коля остановился. И тогда он заметил, что дверь в соседнюю квартиру приоткрыта и оттуда доносятся голоса."
+      ]
+    },
+    {
+      "name": "Nikolai Nikolaevich",
+      "aliases": [],
+      "facts": [
+        "He is 40 years old.",
+        "He is a neighbor of Kolya.",
+        "He is a kind person.",
+        "He has a model frigate.",
+        "He is going to a hospital.",
+        "He has a friend coming from Murmansk.",
+        "He has seven friends in a secret room."
+      ],
+      "appearance": [],
+      "traits": [
+        "Kind",
+        "Healthy",
+        "Curious"
+      ],
+      "knowledge": [
+        "He knows about the model frigate and its details.",
+        "He has a friend coming from Murmansk."
+      ],
+      "goals": [
+        "Get help from Kolya.",
+        "Keep the secret room hidden."
+      ],
+      "relationships": [
+        "He is friends with Kolya and his friend from Murmansk."
+      ],
+      "evidence": [
+        "Коля снял со стены пистолет, отвёл ударник и прицелился в окно."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Nikolai Nikolaevich's apartment",
+      "facts": [
+        "It has a model frigate.",
+        "It has a secret room.",
+        "It has a hospital bed."
+      ],
+      "evidence": [
+        "Коля снял со стены пистолет, отвёл ударник и прицелился в окно."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Model frigate",
+      "facts": [
+        "It is made of wood.",
+        "It has mat sails and wire rigging.",
+        "It has real cannons."
+      ],
+      "evidence": [
+        "Коля снял со стены пистолет, отвёл ударник и прицелился в окно."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Nikolai Nikolaevich is taken to the hospital.",
+      "participants": [
+        "Nikolai Nikolaevich",
+        "Sanitarians",
+        "Doctor"
+      ],
+      "location": "Nikolai Nikolaevich's apartment",
+      "causes": [
+        "Heart attack"
+      ],
+      "consequences": [
+        "Kolya takes care of Nikolai Nikolaevich's apartment."
+      ],
+      "evidence": [
+        "Коля проводил носилки с Николаем Николаевичем до улицы."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "In the Soviet era, people could keep secrets and have private spaces.",
+      "evidence": [
+        "Nikolai Nikolaevich has a secret room."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What is hidden in the secret room?",
+      "reason": "Nikolai Nikolaevich only hints at it."
+    }
+  ]
+}

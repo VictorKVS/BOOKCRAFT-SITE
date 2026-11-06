@@ -1,0 +1,196 @@
+{
+  "characters": [
+    {
+      "name": "Юлька",
+      "aliases": [],
+      "facts": [
+        "Suspects Sadyovsky of stealing a valuable item.",
+        "Believes a classmate is hiding the mieloфон."
+      ],
+      "appearance": [],
+      "traits": [
+        "Curious",
+        "Determined"
+      ],
+      "knowledge": [
+        "Knows Sadyovsky's handwriting",
+        "Recognizes Sadyovsky as a typical adventurer"
+      ],
+      "goals": [
+        "Uncover the truth about the mieloфон",
+        "Expose the classmate who has it"
+      ],
+      "relationships": [
+        "Finds Sadyovsky suspicious",
+        "Seeks to involve the class in the investigation"
+      ],
+      "evidence": [
+        "Reads a note left for Alysa",
+        "Suspects Sadyovsky of writing the note"
+      ]
+    },
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "Suspects Sadyovsky of stealing the mieloфон",
+        "Believes the note is a test of her sense of humor",
+        "Sees through Sadyovsky's act"
+      ],
+      "appearance": [],
+      "traits": [
+        "Intelligent",
+        "Perceptive"
+      ],
+      "knowledge": [
+        "Recognizes Sadyovsky's handwriting",
+        "Understands the note is a test"
+      ],
+      "goals": [
+        "Uncover the truth about the mieloфон",
+        "Protect Sadyovsky's reputation"
+      ],
+      "relationships": [
+        "Seeks to clear Sadyovsky's name",
+        "Seeks to find the mieloфон"
+      ],
+      "evidence": [
+        "Reads the note left for Sadyovsky",
+        "Sees through Sadyovsky's act"
+      ]
+    },
+    {
+      "name": "Коля Садовский",
+      "aliases": [],
+      "facts": [
+        "Suspected of stealing a valuable item",
+        "Wrote a note to Alysa",
+        "Acted suspiciously during the investigation"
+      ],
+      "appearance": [],
+      "traits": [
+        "Artful",
+        "Sly"
+      ],
+      "knowledge": [
+        "Knows Alysa's handwriting",
+        "Understands the note is a test"
+      ],
+      "goals": [
+        "Avoid suspicion",
+        "Clear his name"
+      ],
+      "relationships": [
+        "Seeks to clear his name",
+        "Acts suspiciously to avoid suspicion"
+      ],
+      "evidence": [
+        "Wrote a note to Alysa",
+        "Acted suspiciously during the investigation"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Classroom",
+      "facts": [
+        "A note is left for Alysa",
+        "Alysa and Yulka suspect Sadyovsky of stealing the mieloфон"
+      ],
+      "evidence": [
+        "Note left for Alysa",
+        "Suspicions about Sadyovsky"
+      ]
+    },
+    {
+      "name": "Atrium",
+      "facts": [
+        "Alysa and Yulka chase after Firmy",
+        "Suspicions about Firmy's involvement"
+      ],
+      "evidence": [
+        "Suspicions about Firmy's involvement"
+      ]
+    },
+    {
+      "name": "Chess Tournament",
+      "facts": [
+        "Sulima is playing chess",
+        "Alysa suspects Sulima of hiding the mieloфон"
+      ],
+      "evidence": [
+        "Sulima is playing chess",
+        "Suspicions about Sulima"
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Mielophone",
+      "facts": [
+        "Valuable item",
+        "Hidden by a classmate",
+        "Suspected to be stolen by Sadyovsky"
+      ],
+      "evidence": [
+        "Suspected to be stolen by Sadyovsky",
+        "Hidden by a classmate"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Note left for Alysa",
+      "participants": [
+        "Unknown",
+        "Alysa"
+      ],
+      "location": "Classroom",
+      "causes": [
+        "Unknown"
+      ],
+      "consequences": [
+        "Suspicions about Sadyovsky",
+        "Investigation into the mieloфон"
+      ],
+      "evidence": [
+        "Note left for Alysa",
+        "Suspicions about Sadyovsky"
+      ]
+    },
+    {
+      "event": "Investigation into the mieloфон",
+      "participants": [
+        "Alysa",
+        "Yulka"
+      ],
+      "location": "Classroom",
+      "causes": [
+        "Note left for Alysa",
+        "Suspicions about Sadyovsky"
+      ],
+      "consequences": [
+        "Suspicions about Firmy",
+        "Suspicions about Sulima"
+      ],
+      "evidence": [
+        "Suspicions about Firmy",
+        "Suspicions about Sulima"
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Students are not allowed to take valuable items from school",
+      "evidence": [
+        "Suspicions about Sadyovsky"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "Who has hidden the mieloфон?",
+      "reason": "Suspicions about Sadyovsky, Firmy, and Sulima"
+    }
+  ]
+}

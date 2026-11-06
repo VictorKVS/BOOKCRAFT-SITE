@@ -1,0 +1,153 @@
+{
+  "characters": [
+    {
+      "name": "Ишутин",
+      "aliases": [],
+      "facts": [
+        "He fled from the house, planning to take a train to any direction, even to Magadan.",
+        "He was scared and considered running away from the situation.",
+        "He had thoughts of not getting involved in anything and finding a job as a cook."
+      ],
+      "appearance": [],
+      "traits": [
+        "Afraid",
+        "Desperate to escape"
+      ],
+      "knowledge": [],
+      "goals": [
+        "Escape from the situation",
+        "Find a job as a cook"
+      ],
+      "relationships": [
+        "Had a conversation with Alice and Kolya Sadyovsky"
+      ],
+      "evidence": [
+        "Ишутину пришлось затормозить.",
+        "Алиса быстро завертела настройкой, ловя мысли старушки."
+      ]
+    },
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "She overheard the old woman's thoughts.",
+        "She helped Kolya Sadyovsky escape.",
+        "She was part of a group trying to save Kolya."
+      ],
+      "appearance": [],
+      "traits": [
+        "Intelligent",
+        "Resourceful"
+      ],
+      "knowledge": [
+        "The old woman was a pirate in disguise."
+      ],
+      "goals": [
+        "Save Kolya Sadyovsky",
+        "Stop the pirates"
+      ],
+      "relationships": [
+        "Worked with Kolya Sadyovsky and other classmates"
+      ],
+      "evidence": [
+        "Алиса быстро завертела настройкой, ловя мысли старушки.",
+        "За мной! — закричала Алиса. — Вперёд!"
+      ]
+    },
+    {
+      "name": "Коля Садовский",
+      "aliases": [],
+      "facts": [
+        "He was involved in saving Kolya.",
+        "He was scared but followed Alice's instructions.",
+        "He was part of a group trying to save Kolya."
+      ],
+      "appearance": [],
+      "traits": [
+        "Fearful",
+        "Obedient"
+      ],
+      "knowledge": [],
+      "goals": [
+        "Save Kolya Sadyovsky",
+        "Stop the pirates"
+      ],
+      "relationships": [
+        "Worked with Alice and other classmates"
+      ],
+      "evidence": [
+        "Коля и толстый пират вон в том заколоченном доме, — сказала Алиса.",
+        "А я давно уже не рассуждаю, — ответил Коля, послушно выскакивая вслед за Алисой во двор через чёрный ход."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "The house",
+      "facts": [
+        "It was a scary house where Kolya was taken.",
+        "It had a closed window with boards."
+      ],
+      "evidence": [
+        "Ведьма! — думал Ишутин. — Ещё издевается!"
+      ]
+    },
+    {
+      "name": "The courtyard",
+      "facts": [
+        "The courtyard had a closed house where Kolya was taken."
+      ],
+      "evidence": [
+        "Ведьма! — думал Ишутин. — Ещё издевается!"
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "The mieloophone",
+      "facts": [
+        "It was hidden in a safe place."
+      ],
+      "evidence": [
+        "миелофон спрятан в надёжном месте… в надёжном месте…"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Escape attempt",
+      "participants": [
+        "Alice",
+        "Kolya Sadyovsky",
+        "Other classmates"
+      ],
+      "location": "The house",
+      "causes": [
+        "Pirates took Kolya",
+        "Alice overheard the old woman's thoughts"
+      ],
+      "consequences": [
+        "Pirates were caught",
+        "Kolya was saved"
+      ],
+      "evidence": [
+        "За мной! — закричала Алиса. — Вперёд!",
+        "Алиса быстро завертела настройкой, ловя мысли старушки."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Pirates can use mind-reading devices called mieloophones.",
+      "evidence": [
+        "миелофон спрятан в надёжном месте… в надёжном месте…"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What will happen to the pirates after their capture?",
+      "reason": "The text does not provide information about the consequences for the pirates."
+    }
+  ]
+}

@@ -1,0 +1,262 @@
+{
+  "characters": [
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "From the future, knows about the future.",
+        "Will become an ordinary person in the future.",
+        "Leaves with Polina Metylkina to Pluto.",
+        "Tells Julya Gribkovskaya they will see each other soon."
+      ],
+      "appearance": [],
+      "traits": [
+        "Cautious",
+        "Knowledgeable about the future"
+      ],
+      "knowledge": [
+        "Future events and people's destinies"
+      ],
+      "goals": [
+        "To change the future"
+      ],
+      "relationships": [
+        "Friends with Polina Metylkina",
+        "Friends with Julya Gribkovskaya"
+      ],
+      "evidence": [
+        "Я из будущего. В будущем не станет обыкновенных людей. На Земле будет жить пять миллиардов исключительных, знаменитых, одарённых людей. И среди них, — тут Алиса коварно улыбнулась, — будет только один обыкновенный человек — Коля Сулима."
+      ]
+    },
+    {
+      "name": "Коля Сулима",
+      "aliases": [],
+      "facts": [
+        "Will become the world champion in chess and the inventor of a time machine.",
+        "Will be the only ordinary person in the future.",
+        "Will be visited by people from other countries as an ordinary champion."
+      ],
+      "appearance": [],
+      "traits": [
+        "Cautious",
+        "Interested in the future"
+      ],
+      "knowledge": [],
+      "goals": [
+        "To be ordinary in the future"
+      ],
+      "relationships": [
+        "Friends with Alisha",
+        "Friends with other students"
+      ],
+      "evidence": [
+        "Нет, вы не правы, — сказала Алиса, — мне лучше знать. Я из будущего. В будущем не станет обыкновенных людей. На Земле будет жить пять миллиардов исключительных, знаменитых, одарённых людей. И среди них, — тут Алиса коварно улыбнулась, — будет только один обыкновенный человек — Коля Сулима."
+      ]
+    },
+    {
+      "name": "Полина Метелкина",
+      "aliases": [],
+      "facts": [
+        "Scientist from the Institute of Time.",
+        "Takes Alisha to Pluto.",
+        "Has a robot named Poseidon."
+      ],
+      "appearance": [],
+      "traits": [
+        "Caring",
+        "Experienced"
+      ],
+      "knowledge": [
+        "Future events"
+      ],
+      "goals": [
+        "To protect the future"
+      ],
+      "relationships": [
+        "Friends with Alisha",
+        "Friends with other students"
+      ],
+      "evidence": [
+        "Полина Метелкина, научный сотрудник Института времени, координатор Инопланетной секции, раздобыла списанный разведбот, потому что ей часто приходилось летать на Марс и на Плутон, где были базы Института."
+      ]
+    },
+    {
+      "name": "Фима Королев",
+      "aliases": [],
+      "facts": [
+        "Will become an engineer."
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Friends with other students"
+      ],
+      "evidence": [
+        "Фима Королев станет инженером. Он стал бы великим инженером, если бы поменьше хвастался."
+      ]
+    },
+    {
+      "name": "Лариса",
+      "aliases": [],
+      "facts": [
+        "Will become a famous film actress."
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Friends with other students"
+      ],
+      "evidence": [
+        "Лариса будет знаменитой киноактрисой. Её портреты будут висеть во всех кинотеатрах."
+      ]
+    },
+    {
+      "name": "Коля Наумов",
+      "aliases": [],
+      "facts": [
+        "Will become a house builder."
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Friends with other students"
+      ],
+      "evidence": [
+        "Коля Наумов станет строителем домов."
+      ]
+    },
+    {
+      "name": "Юлька Грибкова",
+      "aliases": [],
+      "facts": [
+        "Will become a doctor."
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Friends with other students"
+      ],
+      "evidence": [
+        "Юлька будет детским врачом. К ней приедут лечиться со всех концов света."
+      ]
+    },
+    {
+      "name": "Катя Михайлова",
+      "aliases": [],
+      "facts": [
+        "Will win the Wimbledon tournament in England."
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Friends with other students"
+      ],
+      "evidence": [
+        "Катя Михайлова выиграет Уимблдонский турнир в Англии."
+      ]
+    },
+    {
+      "name": "Мила Руткевич",
+      "aliases": [],
+      "facts": [
+        "Will become a school principal."
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Friends with other students"
+      ],
+      "evidence": [
+        "Мила Руткевич станет учительницей, директором школы."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Шестой класс Б",
+      "facts": [
+        "Students are ordinary and will not reveal the secrets."
+      ],
+      "evidence": [
+        "Пленники астероида\n\n1\n\nВошёл Николай Николаевич.\n\n— Алиса, попрощалась? Пора в путь."
+      ]
+    },
+    {
+      "name": "Плутон",
+      "facts": [
+        "Destination of the trip."
+      ],
+      "evidence": [
+        "Когда в июле она собиралась лететь на Плутон, ей позвонил старый знакомый, директор Московского космического зоопарка Селезнев и попросил взять с собой его дочку Алису."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Арбат",
+      "facts": [
+        "A scout bot.",
+        "Used for planetary missions."
+      ],
+      "evidence": [
+        "«Арбат» был раньше разведботом."
+      ]
+    },
+    {
+      "name": "Poseidon",
+      "facts": [
+        "An old robot.",
+        "Helps on board."
+      ],
+      "evidence": [
+        "Полина с удовольствием согласилась взять Алису, тем более, что лететь одной куда скучнее, чем в компании.",
+        "По экрану наискось пролетела искра, корабль вздрогнул, меняя курс, чтобы не столкнуться с метеоритом."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Alisha leaves with Polina Metylkina to Pluto.",
+      "participants": [
+        "Alisha",
+        "Polina Metylkina"
+      ],
+      "location": "On the scout bot 'Arbath'",
+      "causes": [
+        "Alisha's mother is building a cultural center on asteroid Pallas."
+      ],
+      "consequences": [
+        "Alisha will not reveal the secrets of the future."
+      ],
+      "evidence": [
+        "Когда в июле она собиралась лететь на Плутон, ей позвонил старый знакомый, директор Московского космического зоопарка Селезнев и попросил взять с собой его дочку Алису."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "In the future, there will be no ordinary people.",
+      "evidence": [
+        "Я из будущего. В будущем не станет обыкновенных людей. На Земле будет жить пять миллиардов исключительных, знаменитых, одарённых людей. И среди них, — тут Алиса коварно улыбнулась, — будет только один обыкновенный человек — Коля Сулима."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What happened to the cargo ship 'Dalia'?",
+      "reason": "Not explicitly stated in the provided text."
+    }
+  ]
+}

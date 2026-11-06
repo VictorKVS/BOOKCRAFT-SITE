@@ -1,0 +1,256 @@
+{
+  "characters": [
+    {
+      "name": "Лариса",
+      "aliases": [],
+      "facts": [
+        "Loves Suleima for his seriousness, chess playing, and glasses.",
+        "Doesn't want to listen to others' thoughts due to potential indecency.",
+        "Has a grandmother who gave her food.",
+        "Tells the others that she told her grandmother about the girl from the future and their hunger."
+      ],
+      "appearance": [],
+      "traits": [
+        "Cares about her grandmother and the girl from the future",
+        "Reluctant to read others' thoughts"
+      ],
+      "knowledge": [
+        "Has food from her grandmother",
+        "Knows about the girl from the future"
+      ],
+      "goals": [],
+      "relationships": [
+        "Friends with the other children",
+        "Cares about her grandmother"
+      ],
+      "evidence": [
+        "I love Suleima because he is serious, plays chess, and wears glasses."
+      ]
+    },
+    {
+      "name": "Фима",
+      "aliases": [],
+      "facts": [
+        "Supports Alica's idea to check the man's thoughts",
+        "Eats a cake"
+      ],
+      "appearance": [],
+      "traits": [
+        "Supportive",
+        "Eats a lot"
+      ],
+      "knowledge": [
+        "Knows about the man's thoughts"
+      ],
+      "goals": [],
+      "relationships": [
+        "Friends with Alica and the other children"
+      ],
+      "evidence": [
+        "I will talk to him, but Alica will do better."
+      ]
+    },
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "Listens to the women's thoughts about Ivan Petrovich",
+        "Tells the women about the girl's tears",
+        "Eats a pie",
+        "Observes the man's thoughts",
+        "Tells the man to leave"
+      ],
+      "appearance": [],
+      "traits": [
+        "Observant",
+        "Caring"
+      ],
+      "knowledge": [
+        "Knows about the man's thoughts",
+        "Understands the man's fear"
+      ],
+      "goals": [],
+      "relationships": [
+        "Friends with the other children",
+        "Cares about the girl from the future"
+      ],
+      "evidence": [
+        "He knows something, but hides it.",
+        "He is afraid of the children."
+      ]
+    },
+    {
+      "name": "Сулима",
+      "aliases": [],
+      "facts": [
+        "Supports the idea to check the man's thoughts",
+        "Eats a cake"
+      ],
+      "appearance": [],
+      "traits": [
+        "Supportive",
+        "Eats a lot"
+      ],
+      "knowledge": [
+        "Knows about the man's thoughts"
+      ],
+      "goals": [],
+      "relationships": [
+        "Friends with Alica and the other children"
+      ],
+      "evidence": [
+        "We have two options: to check all the houses in the courtyard or to find the man who said he didn't see the pirates."
+      ]
+    },
+    {
+      "name": "Юлька",
+      "aliases": [],
+      "facts": [
+        "Eats a pie",
+        "Asks about the girl's pie"
+      ],
+      "appearance": [],
+      "traits": [
+        "Eats a lot"
+      ],
+      "knowledge": [
+        "Eats a pie"
+      ],
+      "goals": [],
+      "relationships": [
+        "Friends with Alica and the other children"
+      ],
+      "evidence": [
+        "Try the pie, my grandmother said you should eat it."
+      ]
+    },
+    {
+      "name": "Катя Михайлова",
+      "aliases": [],
+      "facts": [
+        "Asks about the girl's pie"
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Friends with Alica and the other children"
+      ],
+      "evidence": []
+    },
+    {
+      "name": "Пётр Ишутин",
+      "aliases": [],
+      "facts": [
+        "Has thoughts about being a Napoleonic deer",
+        "Fears the children",
+        "Tries to escape"
+      ],
+      "appearance": [
+        "Full, smooth man in a leather coat, leather pants, and leather boots"
+      ],
+      "traits": [
+        "Fears the children",
+        "Tries to escape"
+      ],
+      "knowledge": [
+        "Knows about the children's thoughts",
+        "Tries to escape"
+      ],
+      "goals": [],
+      "relationships": [
+        "Fears the children"
+      ],
+      "evidence": [
+        "He knows something, but hides it.",
+        "He is afraid of the children."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Courtyard",
+      "facts": [
+        "Children are discussing the man who said he didn't see the pirates",
+        "Women are discussing a man playing the accordion at night"
+      ],
+      "evidence": []
+    }
+  ],
+  "objects": [
+    {
+      "name": "Pie",
+      "facts": [
+        "Larisa's grandmother gave her a pie",
+        "Children are eating pies"
+      ],
+      "evidence": [
+        "Try the pie, my grandmother said you should eat it."
+      ]
+    },
+    {
+      "name": "Mielofon",
+      "facts": [
+        "Used to read thoughts"
+      ],
+      "evidence": [
+        "Take the mielofon and listen to his thoughts."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Children discuss the man who said he didn't see the pirates",
+      "participants": [
+        "Alica",
+        "Fima",
+        "Sulima",
+        "Yulka",
+        "Katya Mikhaylova"
+      ],
+      "location": "Courtyard",
+      "causes": [
+        "Children are trying to find the pirates"
+      ],
+      "consequences": [
+        "Children decide to check the man's thoughts"
+      ],
+      "evidence": [
+        "We have two options: to check all the houses in the courtyard or to find the man who said he didn't see the pirates."
+      ]
+    },
+    {
+      "event": "Alica overhears the man's thoughts",
+      "participants": [
+        "Alica",
+        "Petr Ishutin"
+      ],
+      "location": "Courtyard",
+      "causes": [
+        "Children suspect the man of hiding something"
+      ],
+      "consequences": [
+        "Petr Ishutin tries to escape"
+      ],
+      "evidence": [
+        "He knows something, but hides it.",
+        "He is afraid of the children."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Children can read thoughts using a mielofon.",
+      "evidence": [
+        "Take the mielofon and listen to his thoughts."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What does Petr Ishutin know?",
+      "reason": "His thoughts suggest he knows something, but he is hiding it."
+    }
+  ]
+}

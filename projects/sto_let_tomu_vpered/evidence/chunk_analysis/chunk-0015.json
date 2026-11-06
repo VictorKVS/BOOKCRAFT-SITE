@@ -1,0 +1,213 @@
+{
+  "characters": [
+    {
+      "name": "Коля",
+      "aliases": [],
+      "facts": [
+        "Kolya was hiding in a container on the cargo ship.",
+        "He witnessed the arrival of a group of small robots and the discovery of two people hiding.",
+        "He overheard the conversation between the people and the security personnel."
+      ],
+      "appearance": [],
+      "traits": [
+        "Cautious",
+        "Observant"
+      ],
+      "knowledge": [
+        "He knew about the weight of the 'rabbits' (people) and the weight loss on the cargo.",
+        "He recognized the captain of the ship."
+      ],
+      "goals": [
+        "To leave the ship and return home."
+      ],
+      "relationships": [
+        "He overheard a conversation between the security personnel and the people who were hiding."
+      ],
+      "evidence": [
+        "Понял — хорошо, — ответила тележка."
+      ]
+    },
+    {
+      "name": "Тележка",
+      "aliases": [],
+      "facts": [
+        "The cargo had lost 193.682 kg.",
+        "The weight of the 'rabbits' was 43.682 kg and 150 kg respectively.",
+        "The weight loss was confirmed."
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [
+        "The weight of the 'rabbits' and the weight loss."
+      ],
+      "goals": [],
+      "relationships": [
+        "Communicated with the security personnel."
+      ],
+      "evidence": [
+        "Понял — хорошо, — ответила тележка."
+      ]
+    },
+    {
+      "name": "Вахтенный",
+      "aliases": [],
+      "facts": [
+        "He was in charge of security on the ship.",
+        "He discovered two people hiding in the cargo.",
+        "He questioned the people about their presence on the ship."
+      ],
+      "appearance": [],
+      "traits": [
+        "Authoritative",
+        "Observant"
+      ],
+      "knowledge": [
+        "He knew about the weight loss on the cargo.",
+        "He recognized the captain of the ship."
+      ],
+      "goals": [
+        "To ensure the safety and order on the ship."
+      ],
+      "relationships": [
+        "He questioned the people who were hiding."
+      ],
+      "evidence": [
+        "Взвесьте тех, кто скрывался, сообщите мне."
+      ]
+    },
+    {
+      "name": "Капитан Полосков",
+      "aliases": [],
+      "facts": [
+        "He was the captain of the ship.",
+        "He was informed about the incident by the security personnel.",
+        "He was familiar with the people who were hiding."
+      ],
+      "appearance": [],
+      "traits": [
+        "Authoritative",
+        "Observant"
+      ],
+      "knowledge": [
+        "He recognized the people who were hiding.",
+        "He knew about the cargo and its destination."
+      ],
+      "goals": [
+        "To maintain order and safety on the ship."
+      ],
+      "relationships": [
+        "He was informed about the incident by the security personnel."
+      ],
+      "evidence": [
+        "Странная история, капитан, — ответил вахтенный."
+      ]
+    },
+    {
+      "name": "Толстяк и худенький",
+      "aliases": [],
+      "facts": [
+        "They were hiding in the cargo.",
+        "They claimed to be going to Pluto to visit their mother.",
+        "They were mistaken for people going to Mars."
+      ],
+      "appearance": [],
+      "traits": [
+        "Deceptive",
+        "Cautious"
+      ],
+      "knowledge": [
+        "They knew about the weight of the 'rabbits' and the weight loss."
+      ],
+      "goals": [
+        "To avoid being caught and to return home."
+      ],
+      "relationships": [
+        "They were hiding together."
+      ],
+      "evidence": [
+        "Вес моего человека сорок три килограмма шестьсот восемьдесят два грамма.",
+        "Вес моего человека сто пятьдесят килограммов ровно."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Cargo ship",
+      "facts": [
+        "A cargo ship with a weight loss of 193.682 kg.",
+        "The ship was heading to Mars, but the cargo was mistakenly loaded for Pluto.",
+        "The ship had a cargo of 'rabbits' (people) and a weight loss was detected."
+      ],
+      "evidence": [
+        "Понял — хорошо, — ответила тележка.",
+        "Найдены два человека прятались между контейнерами не хотели выходить."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Cargo",
+      "facts": [
+        "The cargo was mistakenly loaded for Pluto.",
+        "The cargo had a weight loss of 193.682 kg."
+      ],
+      "evidence": [
+        "Понял — хорошо, — ответила тележка.",
+        "Найдены два человека прятались между контейнерами не хотели выходить."
+      ]
+    },
+    {
+      "name": "Robots",
+      "facts": [
+        "Small robots were used to detect the 'rabbits'."
+      ],
+      "evidence": [
+        "Найдены два человека прятались между контейнерами не хотели выходить."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Discovery of hidden people in the cargo",
+      "participants": [
+        "Тележка",
+        "Вахтенный",
+        "Капитан Полосков",
+        "Толстяк и худенький"
+      ],
+      "location": "Cargo ship",
+      "causes": [
+        "The cargo was mistakenly loaded for Pluto.",
+        "The weight loss was detected."
+      ],
+      "consequences": [
+        "The people were questioned and identified.",
+        "They were mistaken for people going to Mars."
+      ],
+      "evidence": [
+        "Найдены два человека прятались между контейнерами не хотели выходить.",
+        "Взвесьте тех, кто скрывался, сообщите мне."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Cargo weight loss is monitored and reported.",
+      "evidence": [
+        "Понял — хорошо, — ответила тележка."
+      ]
+    },
+    {
+      "rule": "Security personnel are responsible for monitoring and reporting any unusual activity.",
+      "evidence": [
+        "Взвесьте тех, кто скрывался, сообщите мне."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "Why were the 'rabbits' hiding in the cargo?",
+      "reason": "Their true destination was not Pluto, but Mars."
+    }
+  ]
+}

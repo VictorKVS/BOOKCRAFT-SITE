@@ -1,0 +1,169 @@
+{
+  "characters": [
+    {
+      "name": "Коля",
+      "aliases": [],
+      "facts": [
+        "From Konotop",
+        "Visited Kosmozoo for the first time",
+        "Met Electron Stepanovich",
+        "Was surprised by the appearance of dinosaurs and other unusual animals"
+      ],
+      "appearance": [],
+      "traits": [
+        "Curious",
+        "Adventurous",
+        "Observant"
+      ],
+      "knowledge": [
+        "Unfamiliar with Kosmozoo",
+        "Recognizes Electron Stepanovich"
+      ],
+      "goals": [
+        "Explore Kosmozoo"
+      ],
+      "relationships": [
+        "Met Alica"
+      ],
+      "evidence": [
+        "Kolia is from Konotop",
+        "Kolia visited Kosmozoo for the first time",
+        "Kolia met Electron Stepanovich",
+        "Kolia was surprised by the appearance of dinosaurs and other unusual animals"
+      ]
+    },
+    {
+      "name": "Электрон Степанович",
+      "aliases": [],
+      "facts": [
+        "Advocate of returning to nature",
+        "Master of new technology in Kosmozoo",
+        "Knows Alica",
+        "Takes Kolia to Kosmozoo"
+      ],
+      "appearance": [
+        "Wore a green working suit with painted birch trees"
+      ],
+      "traits": [
+        "Curious",
+        "Knowledgeable"
+      ],
+      "knowledge": [
+        "Alica is a known cosmobiologist",
+        "Dinosaurs in Kosmozoo are tame"
+      ],
+      "goals": [
+        "Show Kolia Kosmozoo"
+      ],
+      "relationships": [
+        "Knows Alica"
+      ],
+      "evidence": [
+        "Electron Stepanovich is an advocate of returning to nature",
+        "Electron Stepanovich is a master of new technology in Kosmozoo",
+        "Electron Stepanovich knows Alica",
+        "Electron Stepanovich takes Kolia to Kosmozoo"
+      ]
+    },
+    {
+      "name": "Alica",
+      "aliases": [],
+      "facts": [
+        "Young girl",
+        "Friend of the dinosaur Bronty",
+        "Flies to space",
+        "Known cosmobiologist"
+      ],
+      "appearance": [
+        "Wore a red suit",
+        "Had light hair"
+      ],
+      "traits": [
+        "Friendly",
+        "Adventurous"
+      ],
+      "knowledge": [
+        "Flies to space",
+        "Known cosmobiologist"
+      ],
+      "goals": [
+        "Feed and interact with Bronty"
+      ],
+      "relationships": [
+        "Friend of Bronty"
+      ],
+      "evidence": [
+        "Alica is a young girl",
+        "Alica is a friend of the dinosaur Bronty",
+        "Alica flies to space",
+        "Alica is a known cosmobiologist"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Kosmozoo",
+      "facts": [
+        "Contains unusual animals like flying birds and dinosaurs",
+        "Has a cave entrance with a tunnel for visitors",
+        "Features a pond with tame dinosaurs and birds"
+      ],
+      "evidence": [
+        "Kosmozoo contains unusual animals like flying birds and dinosaurs",
+        "Kosmozoo has a cave entrance with a tunnel for visitors",
+        "Kosmozoo features a pond with tame dinosaurs and birds"
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Pond",
+      "facts": [
+        "Contains tame dinosaurs and birds",
+        "Has a cave entrance with a tunnel for visitors"
+      ],
+      "evidence": [
+        "Pond contains tame dinosaurs and birds",
+        "Pond has a cave entrance with a tunnel for visitors"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Kolia's visit to Kosmozoo",
+      "participants": [
+        "Kolia",
+        "Electron Stepanovich",
+        "Alica"
+      ],
+      "location": "Kosmozoo",
+      "causes": [
+        "Kolia's curiosity",
+        "Electron Stepanovich's invitation"
+      ],
+      "consequences": [
+        "Kolia learns about unusual animals in Kosmozoo",
+        "Kolia meets Alica"
+      ],
+      "evidence": [
+        "Kolia's visit to Kosmozoo",
+        "Kolia meets Electron Stepanovich",
+        "Kolia meets Alica"
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Kosmozoo contains unusual animals like flying birds and dinosaurs",
+      "evidence": [
+        "Kosmozoo contains unusual animals like flying birds and dinosaurs"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What is the significance of Alica's name?",
+      "reason": "Alica's name is mentioned but not explained in the context of the story."
+    }
+  ]
+}

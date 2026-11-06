@@ -1,0 +1,151 @@
+{
+  "characters": [
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "Concerned about the people they encounter",
+        "Tries to communicate with the old man",
+        "Finds a way down to avoid the robots"
+      ],
+      "appearance": [],
+      "traits": [
+        "Cautious",
+        "Worried about the children"
+      ],
+      "knowledge": [
+        "Understands the importance of counting children"
+      ],
+      "goals": [
+        "Escape from the asteroid"
+      ],
+      "relationships": [
+        "With Посейдон",
+        "With Юдзо"
+      ],
+      "evidence": [
+        "Tells Посейдон to release the old man",
+        "Sees a crack and finds a way down"
+      ]
+    },
+    {
+      "name": "Посейдон",
+      "aliases": [],
+      "facts": [
+        "A robot with a human-like appearance",
+        "Attempts to communicate with the old man",
+        "Fights the robots",
+        "Helps the group escape"
+      ],
+      "appearance": [
+        "Appears human-like"
+      ],
+      "traits": [
+        "Cautious",
+        "Protective"
+      ],
+      "knowledge": [
+        "Speaks multiple languages"
+      ],
+      "goals": [
+        "Protect the group"
+      ],
+      "relationships": [
+        "With Алиса",
+        "With Юдзо"
+      ],
+      "evidence": [
+        "Attempts to communicate with the old man",
+        "Fights the robots",
+        "Helps the group escape"
+      ]
+    },
+    {
+      "name": "Юдзо",
+      "aliases": [],
+      "facts": [
+        "Lost during the escape",
+        "Finds a red pencil with his father's symbol"
+      ],
+      "appearance": [],
+      "traits": [
+        "Curious",
+        "Loyal"
+      ],
+      "knowledge": [
+        "Recognizes his father's symbol"
+      ],
+      "goals": [
+        "Find his father"
+      ],
+      "relationships": [
+        "With Алиса",
+        "With Посейдон"
+      ],
+      "evidence": [
+        "Finds a red pencil with his father's symbol"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Asteroid",
+      "facts": [
+        "Contains corridors and rooms",
+        "Robots patrol the asteroid"
+      ],
+      "evidence": [
+        "Corridors are narrow and have stairs",
+        "Robots are present"
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Red pencil",
+      "facts": [
+        "Has a cherry blossom symbol",
+        "Belongs to Юдзо's father"
+      ],
+      "evidence": [
+        "Found by Юдзо"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Escape from the asteroid",
+      "participants": [
+        "Алиса",
+        "Посейдон",
+        "Юдзо"
+      ],
+      "location": "Asteroid",
+      "causes": [
+        "Robots are pursuing them"
+      ],
+      "consequences": [
+        "Group escapes to a lower level",
+        "Old man helps them"
+      ],
+      "evidence": [
+        "Robots chase the group",
+        "Old man helps them escape"
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Robots patrol the asteroid",
+      "evidence": [
+        "Robots are present in the corridors"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What is the old man's role on the asteroid?",
+      "reason": "His knowledge and ability to help suggest he may be important"
+    }
+  ]
+}

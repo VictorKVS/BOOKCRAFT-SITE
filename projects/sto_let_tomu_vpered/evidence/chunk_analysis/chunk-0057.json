@@ -1,0 +1,197 @@
+{
+  "characters": [
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "Uses a mieloфон to listen to people's thoughts.",
+        "Attempts to find people who need help.",
+        "Listens to people's thoughts in different apartments."
+      ],
+      "appearance": [],
+      "traits": [
+        "Determined",
+        "Helpful",
+        "Curious"
+      ],
+      "knowledge": [
+        "Can hear people's thoughts through a mieloфон."
+      ],
+      "goals": [
+        "Help people in need."
+      ],
+      "relationships": [
+        "Friends with Коля Сулима, Фима Королев, Катя Михайлова, Садовский."
+      ],
+      "evidence": [
+        "Listens to people's thoughts in different apartments.",
+        "Tries to find people who need help."
+      ]
+    },
+    {
+      "name": "Коля Сулима",
+      "aliases": [],
+      "facts": [
+        "Helps Алиса in her mission.",
+        "Listens to people's thoughts with Алиса."
+      ],
+      "appearance": [],
+      "traits": [
+        "Helpful",
+        "Supportive"
+      ],
+      "knowledge": [
+        "Can hear people's thoughts through a mieloфон."
+      ],
+      "goals": [
+        "Help Алиса in her mission."
+      ],
+      "relationships": [
+        "Friends with Алиса, Фима Королев, Катя Михайлова, Садовский."
+      ],
+      "evidence": [
+        "Helps Алиса in her mission.",
+        "Listens to people's thoughts with Алиса."
+      ]
+    },
+    {
+      "name": "Фима Королев",
+      "aliases": [],
+      "facts": [
+        "Participates in the mission to help people.",
+        "Listens to people's thoughts with Алиса."
+      ],
+      "appearance": [],
+      "traits": [
+        "Curious",
+        "Impulsive"
+      ],
+      "knowledge": [
+        "Can hear people's thoughts through a mieloфон."
+      ],
+      "goals": [
+        "Help people in need."
+      ],
+      "relationships": [
+        "Friends with Алиса, Коля Сулима, Катя Михайлова, Садовский."
+      ],
+      "evidence": [
+        "Participates in the mission to help people.",
+        "Listens to people's thoughts with Алиса."
+      ]
+    },
+    {
+      "name": "Катя Михайлова",
+      "aliases": [],
+      "facts": [
+        "Participates in the mission to help people.",
+        "Helps Алиса in her mission."
+      ],
+      "appearance": [],
+      "traits": [
+        "Supportive",
+        "Helpful"
+      ],
+      "knowledge": [
+        "Can hear people's thoughts through a mieloфон."
+      ],
+      "goals": [
+        "Help Алиса in her mission."
+      ],
+      "relationships": [
+        "Friends with Алиса, Коля Сулима, Фима Королев, Садовский."
+      ],
+      "evidence": [
+        "Participates in the mission to help people.",
+        "Helps Алиса in her mission."
+      ]
+    },
+    {
+      "name": "Садовский",
+      "aliases": [],
+      "facts": [
+        "Participates in the mission to help people.",
+        "Helps Алиса in her mission."
+      ],
+      "appearance": [],
+      "traits": [
+        "Helpful",
+        "Supportive"
+      ],
+      "knowledge": [
+        "Can hear people's thoughts through a mieloфон."
+      ],
+      "goals": [
+        "Help Алиса in her mission."
+      ],
+      "relationships": [
+        "Friends with Алиса, Коля Сулима, Фима Королев, Катя Михайлова."
+      ],
+      "evidence": [
+        "Participates in the mission to help people.",
+        "Helps Алиса in her mission."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Apartments",
+      "facts": [
+        "People's thoughts can be heard through a mieloфон.",
+        "Residents have various issues, such as arguments and hunger."
+      ],
+      "evidence": [
+        "People's thoughts can be heard through a mieloфон.",
+        "Residents have various issues, such as arguments and hunger."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Mielophone",
+      "facts": [
+        "Used to listen to people's thoughts."
+      ],
+      "evidence": [
+        "Used to listen to people's thoughts."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Listening to people's thoughts in apartments",
+      "participants": [
+        "Алиса",
+        "Коля Сулима",
+        "Фима Королев",
+        "Катя Михайлова",
+        "Садовский"
+      ],
+      "location": "Apartments",
+      "causes": [
+        "Residents have issues that need help."
+      ],
+      "consequences": [
+        "Residents are helped with their problems."
+      ],
+      "evidence": [
+        "Алиса listens to people's thoughts in different apartments.",
+        "Residents are helped with their problems."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "People's thoughts can be heard through a mieloфон.",
+      "evidence": [
+        "People's thoughts can be heard through a mieloфон."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What will happen next in the mission?",
+      "reason": "The group has not found the person they are looking for."
+    }
+  ]
+}

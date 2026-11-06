@@ -1,0 +1,238 @@
+{
+  "characters": [
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "Delivered strawberries to the fourth ward.",
+        "Found a fake boy who was leading her to the stairs.",
+        "Brought strawberries to the real boy with a cane.",
+        "Escaped from the hospital using a shortcut.",
+        "Jumped over a high brick wall to a quiet alley.",
+        "Needed to find someone to ask for directions."
+      ],
+      "appearance": [
+        "Wearing pajamas and slippers."
+      ],
+      "traits": [
+        "Resourceful",
+        "Quick-witted",
+        "Courageous"
+      ],
+      "knowledge": [
+        "Recognized the fake boy and the real boy.",
+        "Knew about the danger of the cane.",
+        "Understood the importance of not being seen."
+      ],
+      "goals": [
+        "Escape from the hospital.",
+        "Find a way to get home."
+      ],
+      "relationships": [
+        "Met a fake boy and a real boy.",
+        "Encountered pirates."
+      ],
+      "evidence": [
+        "She found a fake boy leading her to the stairs.",
+        "She brought strawberries to the real boy.",
+        "She escaped from the hospital using a shortcut.",
+        "She jumped over a high brick wall to a quiet alley."
+      ]
+    },
+    {
+      "name": "Крысс",
+      "aliases": [],
+      "facts": [
+        "A pirate who was with the fake boy.",
+        "Used a cane to attack Alica."
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Part of the pirate group."
+      ],
+      "evidence": [
+        "Used a cane to attack Alica."
+      ]
+    },
+    {
+      "name": "Весельчак У",
+      "aliases": [],
+      "facts": [
+        "A pirate who was with the fake boy.",
+        "Fell unconscious after being hit by the cane."
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Part of the pirate group."
+      ],
+      "evidence": [
+        "Fell unconscious after being hit by the cane."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Fourth ward",
+      "facts": [
+        "A ward in the hospital where Alica brought strawberries."
+      ],
+      "evidence": [
+        "Alica brought strawberries to the fourth ward."
+      ]
+    },
+    {
+      "name": "Hospital",
+      "facts": [
+        "Alica escaped from the hospital.",
+        "There were pirates in the hospital."
+      ],
+      "evidence": [
+        "Alica escaped from the hospital.",
+        "There were pirates in the hospital."
+      ]
+    },
+    {
+      "name": "Hospital corridor",
+      "facts": [
+        "Alica ran through the hospital corridor.",
+        "There were pirates in the hospital corridor."
+      ],
+      "evidence": [
+        "Alica ran through the hospital corridor.",
+        "There were pirates in the hospital corridor."
+      ]
+    },
+    {
+      "name": "Hospital kitchen",
+      "facts": [
+        "Alica ran through the hospital kitchen."
+      ],
+      "evidence": [
+        "Alica ran through the hospital kitchen."
+      ]
+    },
+    {
+      "name": "Hospital yard",
+      "facts": [
+        "Alica escaped to the hospital yard."
+      ],
+      "evidence": [
+        "Alica escaped to the hospital yard."
+      ]
+    },
+    {
+      "name": "Hospital wall",
+      "facts": [
+        "Alica jumped over the hospital wall."
+      ],
+      "evidence": [
+        "Alica jumped over the hospital wall."
+      ]
+    },
+    {
+      "name": "Quiet alley",
+      "facts": [
+        "Alica escaped to a quiet alley."
+      ],
+      "evidence": [
+        "Alica escaped to a quiet alley."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Cane",
+      "facts": [
+        "Used by pirates to attack Alica."
+      ],
+      "evidence": [
+        "Used by pirates to attack Alica."
+      ]
+    },
+    {
+      "name": "Tray with strawberries",
+      "facts": [
+        "Alica brought strawberries to the real boy."
+      ],
+      "evidence": [
+        "Alica brought strawberries to the real boy."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Alica escapes from the hospital.",
+      "participants": [
+        "Alica",
+        "Pirates"
+      ],
+      "location": "Hospital",
+      "causes": [
+        "Pirates were trying to catch Alica."
+      ],
+      "consequences": [
+        "Alica successfully escaped."
+      ],
+      "evidence": [
+        "Alica escaped from the hospital.",
+        "There were pirates in the hospital."
+      ]
+    },
+    {
+      "event": "Alica meets the fake boy and the real boy.",
+      "participants": [
+        "Alica",
+        "Fake boy",
+        "Real boy"
+      ],
+      "location": "Fourth ward",
+      "causes": [
+        "Alica was delivering strawberries."
+      ],
+      "consequences": [
+        "Alica recognized the fake boy and the real boy."
+      ],
+      "evidence": [
+        "Alica found a fake boy leading her to the stairs.",
+        "Alica brought strawberries to the real boy."
+      ]
+    },
+    {
+      "event": "Alica jumps over the hospital wall.",
+      "participants": [
+        "Alica"
+      ],
+      "location": "Hospital yard",
+      "causes": [
+        "Alica needed to escape."
+      ],
+      "consequences": [
+        "Alica successfully escaped to a quiet alley."
+      ],
+      "evidence": [
+        "Alica jumped over the hospital wall.",
+        "Alica escaped to a quiet alley."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "In the future, languages will be learned through special injections.",
+      "evidence": [
+        "Alica, of course, spoke English as German, German as French, and French as Russian."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What happened to the pirates after Alica escaped?",
+      "reason": "No information about the pirates' fate after Alica's escape."
+    }
+  ]
+}

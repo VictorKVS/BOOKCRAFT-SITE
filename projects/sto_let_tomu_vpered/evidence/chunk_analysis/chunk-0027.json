@@ -1,0 +1,167 @@
+{
+  "characters": [
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "Alicia has amnesia.",
+        "Her mother is not her stepmother.",
+        "Her father came to pick her up.",
+        "She does not recognize her father."
+      ],
+      "appearance": [],
+      "traits": [
+        "Suspicious of her father.",
+        "Finds her father's claims suspicious."
+      ],
+      "knowledge": [
+        "Her father is not who he claims to be."
+      ],
+      "goals": [
+        "Stay in the hospital."
+      ],
+      "relationships": [
+        "Father-daughter relationship with a man who claims to be her father."
+      ],
+      "evidence": [
+        "Alicia does not recognize her father.",
+        "Alicia finds her father's claims suspicious."
+      ]
+    },
+    {
+      "name": "Юля",
+      "aliases": [],
+      "facts": [
+        "She is a friend of Алиса.",
+        "She supports Алиса's decision."
+      ],
+      "appearance": [],
+      "traits": [
+        "Supportive of Алиса."
+      ],
+      "knowledge": [
+        "Alicia's father is not who he claims to be."
+      ],
+      "goals": [
+        "Protect Алиса."
+      ],
+      "relationships": [
+        "Friendship with Алиса."
+      ],
+      "evidence": [
+        "She believes Алиса's father is not genuine."
+      ]
+    },
+    {
+      "name": "Алик Борисович",
+      "aliases": [],
+      "facts": [
+        "He is a doctor.",
+        "He supports Алиса's decision to stay in the hospital."
+      ],
+      "appearance": [],
+      "traits": [
+        "Protective of Алиса."
+      ],
+      "knowledge": [
+        "Alicia's father is not who he claims to be."
+      ],
+      "goals": [
+        "Keep Алиса in the hospital."
+      ],
+      "relationships": [
+        "Doctor-patient relationship with Алиса."
+      ],
+      "evidence": [
+        "He believes Alicia's father is not genuine."
+      ]
+    },
+    {
+      "name": "Мария Павловна",
+      "aliases": [],
+      "facts": [
+        "She is a nurse.",
+        "She opposes Алик Борисович's decision."
+      ],
+      "appearance": [],
+      "traits": [
+        "Strict."
+      ],
+      "knowledge": [
+        "Alicia's father is not who he claims to be."
+      ],
+      "goals": [
+        "Follow hospital rules."
+      ],
+      "relationships": [
+        "Nurse-patient relationship with Алиса."
+      ],
+      "evidence": [
+        "She opposes Алик Борисович's decision."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Hospital",
+      "facts": [
+        "Alicia is in the hospital with amnesia.",
+        "Alicia's father comes to pick her up.",
+        "Alicia does not recognize her father."
+      ],
+      "evidence": [
+        "Hospital room where Алиса is staying."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Parchment roses",
+      "facts": [
+        "Brought by Natasha."
+      ],
+      "evidence": [
+        "Parchment roses on the bedside table."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Alicia's father claims to be her father but she does not recognize him.",
+      "participants": [
+        "Alicia",
+        "Alicia's father",
+        "Юля",
+        "Алик Борисович",
+        "Мария Павловна"
+      ],
+      "location": "Hospital",
+      "causes": [
+        "Alicia's amnesia",
+        "Alicia's father's false claim"
+      ],
+      "consequences": [
+        "Alicia stays in the hospital",
+        "Alicia's father's true identity is questioned"
+      ],
+      "evidence": [
+        "Alicia does not recognize her father.",
+        "Alicia's father's false claim."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Hospital rules must be followed.",
+      "evidence": [
+        "Мария Павловна's strict adherence to hospital rules."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "Who is Alicia's real father?",
+      "reason": "Alicia's father's false claim and her lack of recognition."
+    }
+  ]
+}

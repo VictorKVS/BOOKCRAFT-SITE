@@ -1,0 +1,133 @@
+{
+  "characters": [
+    {
+      "name": "Коля",
+      "aliases": [],
+      "facts": [
+        "Experienced a teleportation event.",
+        "Realized he was in a different place.",
+        "Thought he might have slept for 20 years.",
+        "Decided to explore the new environment."
+      ],
+      "appearance": [],
+      "traits": [
+        "Cautious",
+        "Intelligent",
+        "Curious"
+      ],
+      "knowledge": [
+        "Read a story about Rip Van Winkle.",
+        "Understood the concept of time dilation."
+      ],
+      "goals": [
+        "Explore the new place."
+      ],
+      "relationships": [],
+      "evidence": [
+        "Screen showed 'Переброска завершена. Промежуточная станция'."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Комната",
+      "facts": [
+        "Furniture and decorations changed.",
+        "Appeared to be in a different place."
+      ],
+      "evidence": [
+        "Furniture and decorations changed.",
+        "Appeared to be in a different place."
+      ]
+    },
+    {
+      "name": "Коридор",
+      "facts": [
+        "Appeared to be in a different place."
+      ],
+      "evidence": [
+        "Appeared to be in a different place."
+      ]
+    },
+    {
+      "name": "Вестибюль",
+      "facts": [
+        "Large glass wall.",
+        "View of a green square with trees."
+      ],
+      "evidence": [
+        "Large glass wall.",
+        "View of a green square with trees."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Кабина",
+      "facts": [
+        "Used for teleportation."
+      ],
+      "evidence": [
+        "Used for teleportation."
+      ]
+    },
+    {
+      "name": "Уборщик",
+      "facts": [
+        "Strange creature with multiple arms and a cleaning device."
+      ],
+      "evidence": [
+        "Strange creature with multiple arms and a cleaning device."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Teleportation event",
+      "participants": [
+        "Коля"
+      ],
+      "location": "Комната",
+      "causes": [
+        "Unknown"
+      ],
+      "consequences": [
+        "Kolya finds himself in a different place."
+      ],
+      "evidence": [
+        "Screen showed 'Переброска завершена. Промежуточная станция'."
+      ]
+    },
+    {
+      "event": "Exploration of the new environment",
+      "participants": [
+        "Коля"
+      ],
+      "location": "Комната, Коридор, Вестибюль",
+      "causes": [
+        "Kolya's curiosity."
+      ],
+      "consequences": [
+        "Kolya discovers changes in the environment."
+      ],
+      "evidence": [
+        "Furniture and decorations changed.",
+        "Appeared to be in a different place."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Teleportation can occur and lead to different places.",
+      "evidence": [
+        "Kolya's experience with teleportation."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What is the nature of the teleportation device?",
+      "reason": "Details about the technology are not provided."
+    }
+  ]
+}

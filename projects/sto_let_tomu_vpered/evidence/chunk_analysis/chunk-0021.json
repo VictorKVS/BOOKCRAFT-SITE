@@ -1,0 +1,145 @@
+{
+  "characters": [
+    {
+      "name": "Коля",
+      "aliases": [],
+      "facts": [
+        "Kolya is aware of the danger to Alisa.",
+        "Kolya is worried about Alisa's safety.",
+        "Kolya is frustrated with Alisa for risking the mieloфон.",
+        "Kolya is competitive towards Alisa."
+      ],
+      "appearance": [],
+      "traits": [
+        "Concerned",
+        "Competitive",
+        "Frustrated"
+      ],
+      "knowledge": [
+        "Knows about the mieloфон and its purpose.",
+        "Understands the value of the mieloфон."
+      ],
+      "goals": [
+        "Protect the mieloфон from being misused."
+      ],
+      "relationships": [
+        "Competitive with Alisa",
+        "Frustrated with Alisa"
+      ],
+      "evidence": [
+        "Коля оглянулся, не понимая, куда девались толстяк с худеньким."
+      ]
+    },
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "Alisa is aware of the danger.",
+        "Alisa is careful with the mieloфон.",
+        "Alisa is competitive with Kolya."
+      ],
+      "appearance": [],
+      "traits": [
+        "Careful",
+        "Competitive"
+      ],
+      "knowledge": [
+        "Knows about the mieloфон and its purpose."
+      ],
+      "goals": [
+        "Protect the mieloфон."
+      ],
+      "relationships": [
+        "Competitive with Kolya"
+      ],
+      "evidence": [
+        "Алиса наклонилась к сумочке и что-то там настраивала.",
+        "Коля увидел, что шляпа медленно приподнимается, как второй человек на корточках побежал вокруг холма и его голова в накидке показалась в дальнем конце пустотела."
+      ]
+    },
+    {
+      "name": "Электрон Степанович",
+      "aliases": [],
+      "facts": [
+        "Electron Stepanovich explains the purpose and value of the mieloфон.",
+        "Electron Stepanovich is concerned about Kolya's understanding."
+      ],
+      "appearance": [],
+      "traits": [
+        "Patient",
+        "Experienced"
+      ],
+      "knowledge": [
+        "Understands the history and purpose of the mieloфон."
+      ],
+      "goals": [
+        "Educate Kolya about the mieloфон."
+      ],
+      "relationships": [
+        "Educator to Kolya"
+      ],
+      "evidence": [
+        "Когда первые кристаллы привезли на Землю и стали исследовать, то один из учёных обратил внимание, что, когда близко подходят люди, в структуре кристалла что-то меняется."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Космозо",
+      "facts": [
+        "Kolya and Alisa are in Kozmozo.",
+        "There are unique animals in Kozmozo."
+      ],
+      "evidence": [
+        "Во-первых, врачи. Одно дело, когда больной рассказывает или диагностические машины ставят диагноз, но при некоторых болезнях, например при нервных, важно знать, что же думает человек на самом деле."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "миелофон",
+      "facts": [
+        "Mieloфон is a valuable device.",
+        "Mieloфон can read minds from a distance.",
+        "There are only 20 mieloфоны on Earth."
+      ],
+      "evidence": [
+        "Когда первые кристаллы привезли на Землю и стали исследовать, то один из учёных обратил внимание, что, когда близко подходят люди, в структуре кристалла что-то меняется."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Kolya warns Alisa about danger.",
+      "participants": [
+        "Коля",
+        "Алиса"
+      ],
+      "location": "Kozmozo",
+      "causes": [
+        "Kolya's concern for Alisa's safety"
+      ],
+      "consequences": [
+        "Alisa is careful with the mieloфон."
+      ],
+      "evidence": [
+        "Коля не сомневался, что Алисе грозит опасность.",
+        "Коля закричал: — Алиса! Сзади!"
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Mieloфон can read minds from a distance.",
+      "evidence": [
+        "Когда первые кристаллы привезли на Землю и стали исследовать, то один из учёных обратил внимание, что, когда близко подходят люди, в структуре кристалла что-то меняется."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "Why is Kolya competitive with Alisa?",
+      "reason": "Kolya is frustrated with Alisa for risking the mieloфон."
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "characters": [
+    {
+      "name": "Коля Садовский",
+      "aliases": [],
+      "facts": [
+        "He is a boy who used to be a blonde girl.",
+        "He is concerned about being recognized.",
+        "He is trying to avoid the fat man.",
+        "He knows about Alice's whereabouts."
+      ],
+      "appearance": [
+        "He is described as 'very red-haired'."
+      ],
+      "traits": [
+        "Nervous",
+        "Wary"
+      ],
+      "knowledge": [
+        "Alice has left for Pamir.",
+        "Alice asked him to tell the fat man not to touch her pet dog."
+      ],
+      "goals": [
+        "Avoid the fat man and the police."
+      ],
+      "relationships": [
+        "Knows Alice's location",
+        "Doesn't want to talk about Alice to the fat man"
+      ],
+      "evidence": [
+        "The fat man is named and described as a 'fat man'.",
+        "Alice is in Pamir.",
+        "Alice is friends with Yulia Grivkova."
+      ]
+    },
+    {
+      "name": "Fat Man",
+      "aliases": [],
+      "facts": [
+        "He is a police officer.",
+        "He is looking for Kolja.",
+        "He is trying to find Alice.",
+        "He is suspicious of Alice's behavior.",
+        "He is aware of Alice's past behavior."
+      ],
+      "appearance": [],
+      "traits": [
+        "Aggressive",
+        "Suspicious"
+      ],
+      "knowledge": [
+        "Alice is in the 6th grade.",
+        "Alice is from Selzeneva.",
+        "Alice is known for her good grades.",
+        "Alice is friends with Yulia Grivkova."
+      ],
+      "goals": [
+        "Find Alice",
+        "Identify Alice's friends"
+      ],
+      "relationships": [
+        "Searching for Kolja",
+        "Asking Mila for information about Alice"
+      ],
+      "evidence": [
+        "Alice is a troublemaker.",
+        "Alice has special knowledge.",
+        "Alice is friends with Yulia Grivkova."
+      ]
+    },
+    {
+      "name": "Mila Rutkевич",
+      "aliases": [],
+      "facts": [
+        "She is a student in the 6th grade.",
+        "She is friends with Yulia Grivkova.",
+        "She is aware of Alice's presence in the class.",
+        "She is concerned about Alice's behavior."
+      ],
+      "appearance": [
+        "She has black hair."
+      ],
+      "traits": [
+        "Inquisitive",
+        "Intelligent"
+      ],
+      "knowledge": [
+        "Alice is from Selzeneva.",
+        "Alice is in the class for three days.",
+        "Alice is friends with Yulia Grivkova."
+      ],
+      "goals": [
+        "Help the fat man find Alice."
+      ],
+      "relationships": [
+        "Friends with Yulia Grivkova",
+        "Knows Alice's location"
+      ],
+      "evidence": [
+        "Alice is a troublemaker.",
+        "Alice has special knowledge.",
+        "Alice is friends with Yulia Grivkova."
+      ]
+    },
+    {
+      "name": "Dr. Ivanova",
+      "aliases": [],
+      "facts": [
+        "She is a doctor who treated Alice.",
+        "Alice is a dangerous patient.",
+        "Alice escaped from the hospital.",
+        "Alice is a patient with a behavioral disorder."
+      ],
+      "appearance": [
+        "She is described as 'small and delicate'."
+      ],
+      "traits": [
+        "Compassionate",
+        "Determined"
+      ],
+      "knowledge": [
+        "Alice is a dangerous patient.",
+        "Alice has a behavioral disorder.",
+        "Alice escaped from the hospital."
+      ],
+      "goals": [
+        "Help find Alice."
+      ],
+      "relationships": [
+        "Treated Alice",
+        "Working with the fat man"
+      ],
+      "evidence": [
+        "Alice is a dangerous patient.",
+        "Alice has a behavioral disorder.",
+        "Alice escaped from the hospital."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "School",
+      "facts": [
+        "Alice is in the 6th grade.",
+        "Mila is a student in the 6th grade."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "Hospital",
+      "facts": [
+        "Alice was treated in the hospital.",
+        "Alice escaped from the hospital."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "Pamir",
+      "facts": [
+        "Alice is in Pamir."
+      ],
+      "evidence": []
+    }
+  ],
+  "objects": [],
+  "events": [
+    {
+      "event": "Fat Man is searching for Kolja and Alice.",
+      "participants": [
+        "Fat Man",
+        "Kolja",
+        "Mila",
+        "Dr. Ivanova"
+      ],
+      "location": "School",
+      "causes": [
+        "Alice's behavior is suspicious.",
+        "Alice has special knowledge."
+      ],
+      "consequences": [
+        "Fat Man is asking for information from students.",
+        "Kolja is trying to avoid Fat Man."
+      ],
+      "evidence": [
+        "Fat Man is searching for Kolja and Alice.",
+        "Kolja knows about Alice's whereabouts."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Alice is a dangerous patient with a behavioral disorder.",
+      "evidence": [
+        "Alice is a dangerous patient.",
+        "Alice has a behavioral disorder.",
+        "Alice escaped from the hospital."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What is the nature of Alice's behavior and knowledge?",
+      "reason": "Alice's behavior and knowledge are described as suspicious and unusual."
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "characters": [
+    {
+      "name": "Алиса",
+      "aliases": [
+        "Алиса Селезнева"
+      ],
+      "facts": [
+        "was in the hospital",
+        "is trying to find a mielothon",
+        "was in class 6 before the hospital",
+        "is not worried about bad grades"
+      ],
+      "knowledge": [
+        "knows about the mielothon",
+        "knows about the hospital"
+      ],
+      "goals": [
+        "find the mielothon and return",
+        "fit in at school"
+      ],
+      "relationships": [
+        "friends with Юлька",
+        "was saved by Фима",
+        "was in the same class as Сулима"
+      ],
+      "evidence": [
+        "I'm not worried, the main thing is to find the mielothon and return. And if I get bad grades, they don't count because I wasn't born yet."
+      ]
+    },
+    {
+      "name": "Юлька",
+      "aliases": [],
+      "facts": [
+        "is Алиса's friend",
+        "helped Алиса get into the class",
+        "is part of the plan to get Алиса into the class"
+      ],
+      "knowledge": [
+        "Алиса was in the hospital",
+        "Алиса is trying to find the mielothon"
+      ],
+      "goals": [
+        "help Алиса",
+        "get Алиса into the class"
+      ],
+      "relationships": [
+        "friends with Алиса",
+        "friends with Катя Михайлова",
+        "friends with Мила Руткевич"
+      ],
+      "evidence": [
+        "If you have trouble, don't worry, I'll help you."
+      ]
+    },
+    {
+      "name": "Фима Королев",
+      "aliases": [],
+      "facts": [
+        "helped Алиса escape from the hospital",
+        "knew Алиса before",
+        "was in class 6 with Алиса"
+      ],
+      "knowledge": [
+        "Алиса was in the hospital",
+        "Алиса is trying to find the mielothon"
+      ],
+      "goals": [
+        "help Алиса",
+        "fit in at school"
+      ],
+      "relationships": [
+        "friends with Алиса",
+        "friends with Катя Михайлова"
+      ],
+      "evidence": [
+        "I was a little bit homesick without you."
+      ]
+    },
+    {
+      "name": "Катя Михайлова",
+      "aliases": [],
+      "facts": [
+        "is the class president",
+        "is a good student",
+        "is competitive with Мила Руткевич"
+      ],
+      "knowledge": [
+        "Алиса was in the hospital",
+        "Алиса is trying to find the mielothon"
+      ],
+      "goals": [
+        "protect the class honor",
+        "compete with Мила Руткевич"
+      ],
+      "relationships": [
+        "friends with Мила Руткевич",
+        "friends with Юлька"
+      ],
+      "evidence": [
+        "The honor of the class is not dear to you. You don't defend it yourself."
+      ]
+    },
+    {
+      "name": "Мила Руткевич",
+      "aliases": [],
+      "facts": [
+        "is a good student",
+        "is competitive with Катя Михайлова"
+      ],
+      "knowledge": [
+        "Алиса was in the hospital",
+        "Алиса is trying to find the mielothon"
+      ],
+      "goals": [
+        "protect the class honor",
+        "compete with Катя Михайлова"
+      ],
+      "relationships": [
+        "friends with Катя Михайлова",
+        "friends with Юлька"
+      ],
+      "evidence": [
+        "I don't do sports because I'm afraid of getting tangled in my own hair."
+      ]
+    },
+    {
+      "name": "Сулима",
+      "aliases": [],
+      "facts": [
+        "was in class 6 with Алиса",
+        "knew Алиса before"
+      ],
+      "knowledge": [
+        "Алиса was in the hospital",
+        "Алиса is trying to find the mielothon"
+      ],
+      "goals": [
+        "fit in at school"
+      ],
+      "relationships": [
+        "friends with Фима Королев",
+        "friends with Алиса"
+      ],
+      "evidence": [
+        "I still figured you were going to the Grubkovs."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "school",
+      "facts": [
+        "class 6 is studying",
+        "class 6 is having a good weather day",
+        "class 6 is discussing Алиса's admission"
+      ],
+      "evidence": [
+        "Sixth class B did not want to work that morning because of the good spring weather."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "mielothon",
+      "facts": [
+        "Алиса is trying to find it",
+        "it is important for Алиса"
+      ],
+      "evidence": [
+        "The main thing is to find the mielothon and return."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Алиса's admission to the class",
+      "participants": [
+        "Алиса",
+        "Юлька",
+        "Катя Михайлова",
+        "Мила Руткевич"
+      ],
+      "location": "school",
+      "causes": [
+        "Алиса was in the hospital",
+        "Алиса is trying to find the mielothon"
+      ],
+      "consequences": [
+        "classmates are curious about Алиса",
+        "classmates are welcoming Алиса"
+      ],
+      "evidence": [
+        "This is Алиса Selzneva, my friend and even a relative. She will be studying with us for now."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "girls can be friends and support each other",
+      "evidence": [
+        "If you have trouble, don't worry, I'll help you."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What is the mielothon?",
+      "reason": "It is mentioned as important for Алиса but its nature is not specified."
+    }
+  ]
+}

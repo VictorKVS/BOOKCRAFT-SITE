@@ -1,0 +1,226 @@
+{
+  "characters": [
+    {
+      "name": "Мила",
+      "aliases": [],
+      "facts": [
+        "Helps the others sneak into the school.",
+        "Sees Alice and Yulia at the door.",
+        "Worries about Alice's safety.",
+        "Hears Kolja talking about a fat man.",
+        "Sees the fake Alina."
+      ],
+      "appearance": [],
+      "traits": [
+        "Cautious",
+        "Worried"
+      ],
+      "knowledge": [
+        "Knows about the escaped Alice.",
+        "Knows about Fima's plan."
+      ],
+      "goals": [
+        "Ensure Alice's safety."
+      ],
+      "relationships": [
+        "Friends with Alice and Yulia."
+      ],
+      "evidence": [
+        "‘Ой! — Мила уставилась на Алису дикими глазами, прижалась к стенке и ждала, пока она пройдёт в класс.’"
+      ]
+    },
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "Has knowledge beyond her years.",
+        "Is known to be dangerous.",
+        "Is hiding in the classroom."
+      ],
+      "appearance": [],
+      "traits": [
+        "Intelligent",
+        "Mysterious"
+      ],
+      "knowledge": [
+        "Can count to a hundred.",
+        "Has a secret identity."
+      ],
+      "goals": [
+        "Avoid being caught."
+      ],
+      "relationships": [
+        "Friends with Mila and Yulia."
+      ],
+      "evidence": [
+        "‘Алиса, — спросил Коля Садовский через весь класс, — у тебя есть знакомый толстяк?’",
+        "‘Ага! — закричала Алла. — Вот ты где!’"
+      ]
+    },
+    {
+      "name": "Коля Садовский",
+      "aliases": [],
+      "facts": [
+        "Knows about the fat man.",
+        "Participates in the plan."
+      ],
+      "appearance": [],
+      "traits": [
+        "Clever",
+        "Joking"
+      ],
+      "knowledge": [
+        "Knows about the fake Alina."
+      ],
+      "goals": [
+        "Help the others."
+      ],
+      "relationships": [
+        "Friends with Mila."
+      ],
+      "evidence": [
+        "‘Ты где его видел?’ — повторила Алиса.",
+        "‘Ты где его видел? — сказал Коля, — запутал, как Иван Сусанин поляков в лесу.’"
+      ]
+    },
+    {
+      "name": "Доктор Иванова",
+      "aliases": [],
+      "facts": [
+        "Participates in the plan.",
+        "Has a secret identity."
+      ],
+      "appearance": [],
+      "traits": [
+        "Determined",
+        "Clever"
+      ],
+      "knowledge": [
+        "Knows about the fake Alina."
+      ],
+      "goals": [
+        "Capture Alice."
+      ],
+      "relationships": [
+        "Friends with the others."
+      ],
+      "evidence": [
+        "‘Ага! — закричала Алла. — Вот ты где!’"
+      ]
+    },
+    {
+      "name": "Алла Сергеевна",
+      "aliases": [],
+      "facts": [
+        "Is the real teacher.",
+        "Is unaware of the plan.",
+        "Is captured by the fake Alina."
+      ],
+      "appearance": [],
+      "traits": [
+        "Strict",
+        "Caring"
+      ],
+      "knowledge": [
+        "Knows about the fake Alina."
+      ],
+      "goals": [
+        "Maintain order in the class."
+      ],
+      "relationships": [
+        "Teacher of the class."
+      ],
+      "evidence": [
+        "‘Где Алиса?’ — спросила она у Милы.",
+        "‘Это хулиганство!’ — отбивалась Алла Сергеевна."
+      ]
+    },
+    {
+      "name": "Фима Королев",
+      "aliases": [],
+      "facts": [
+        "Participates in the plan.",
+        "Has a secret identity."
+      ],
+      "appearance": [],
+      "traits": [
+        "Clever",
+        "Determined"
+      ],
+      "knowledge": [
+        "Knows about the fake Alina."
+      ],
+      "goals": [
+        "Capture Alice."
+      ],
+      "relationships": [
+        "Friends with the others."
+      ],
+      "evidence": [
+        "‘Одну минутку, уважаемая учительница. Я вам должен сказать два слова исключительной важности.’"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "School",
+      "facts": [
+        "Contains a classroom.",
+        "Has a courtyard and a botanical garden."
+      ],
+      "evidence": [
+        "И она провела их двором, через школьный ботанический участок."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Classroom",
+      "facts": [
+        "Contains desks and a blackboard."
+      ],
+      "evidence": [
+        "Внимание! — продолжал Фима. — Вы видите перед собой суперкошку по имени Алиса."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Alice's escape and the plan to capture her",
+      "participants": [
+        "Mila",
+        "Kolja",
+        "Doktor Ivanova",
+        "Alina",
+        "Fima"
+      ],
+      "location": "School",
+      "causes": [
+        "Alice's dangerous nature",
+        "The need to ensure the safety of others"
+      ],
+      "consequences": [
+        "The fake Alina's capture of the real Alina",
+        "The confusion and chaos in the classroom"
+      ],
+      "evidence": [
+        "‘А если она снова начнёт буйствовать? Если она кого-нибудь укусит?’",
+        "‘Одну минутку, уважаемая учительница. Я вам должен сказать два слова исключительной важности.’"
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "The school has strict rules and a structured environment.",
+      "evidence": [
+        "‘Это шестой класс „Б“?’ — спросила Алла Сергеевна."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What is the true identity of the fake Alina?",
+      "reason": "Her secret identity is not revealed in the text."
+    }
+  ]
+}

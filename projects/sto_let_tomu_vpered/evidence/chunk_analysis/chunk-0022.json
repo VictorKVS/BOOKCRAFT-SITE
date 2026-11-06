@@ -1,0 +1,143 @@
+{
+  "characters": [
+    {
+      "name": "Коля",
+      "aliases": [],
+      "facts": [
+        "Kolya is tired and wants to go home.",
+        "Kolya plans to leave a message on a park bench.",
+        "Kolya chases the thieves who stole the mieloфон.",
+        "Kolya boards a bus to Gogolevsky Bulvar."
+      ],
+      "appearance": [],
+      "traits": [
+        "Thoughtful",
+        "Determined",
+        "Quick thinking"
+      ],
+      "knowledge": [
+        "Knows the location of the mieloфон",
+        "Familiar with the park layout"
+      ],
+      "goals": [
+        "Leave a message on a park bench",
+        "Catch the thieves who stole the mieloфон",
+        "Watch 'Kabak 'Tirteen Stools''"
+      ],
+      "relationships": [
+        "FRIENDS with Alica",
+        "ENEMIES with the thieves"
+      ],
+      "evidence": [
+        "Коля остался сидеть на мягкой, словно диван, лавочке.",
+        "Коля повернулся боком и начал вырезать на спинке скамейки свою визитную карточку.",
+        "Коля сунул ножик в карман и отправился к выходу.",
+        "Коля выскочил на опустевшую площадь перед Космозо.",
+        "Коля схватил сумку и побежал назад, выскочил из автобуса на площадь."
+      ]
+    },
+    {
+      "name": "Alica",
+      "aliases": [],
+      "facts": [
+        "Alica leaves her mieloфон on the shore of the pond.",
+        "Alica rides on the back of the dinosaur Brontya."
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [
+        "Knows the location of the mieloфон"
+      ],
+      "goals": [
+        "Watch 'Kabak 'Tirteen Stools''"
+      ],
+      "relationships": [
+        "FRIENDS with Kolya"
+      ],
+      "evidence": [
+        "Алиса уже сидела верхом на динозавре, и тот, осторожно ступив в воду, чтобы не забрызгать свою подругу, поплыл по пруду."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Kosmozo Park",
+      "facts": [
+        "Kolya leaves a message on a park bench.",
+        "Kolya chases the thieves who stole the mieloфон.",
+        "Kolya boards a bus to Gogolevsky Bulvar."
+      ],
+      "evidence": [
+        "Коля остался сидеть на мягкой, словно диван, лавочке.",
+        "Коля схватил сумку и побежал назад, выскочил из автобуса на площадь."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "mieloфон",
+      "facts": [
+        "Stolen by the thieves",
+        "Left on the shore of the pond by Alica"
+      ],
+      "evidence": [
+        "Толстяк прижимал к груди чёрную сумку.",
+        "Алиса уже сидела верхом на динозавре, и тот, осторожно ступив в воду, чтобы не забрызгать свою подругу, поплыл по пруду."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Kolya leaves a message on a park bench.",
+      "participants": [
+        "Kolya"
+      ],
+      "location": "Kosmozo Park",
+      "causes": [],
+      "consequences": [
+        "Kolya chases the thieves who stole the mieloфон."
+      ],
+      "evidence": [
+        "Коля повернулся боком и начал вырезать на спинке скамейки свою визитную карточку.",
+        "Коля схватил сумку и побежал назад, выскочил из автобуса на площадь."
+      ]
+    },
+    {
+      "event": "Kolya chases the thieves who stole the mieloфон.",
+      "participants": [
+        "Kolya",
+        "Thieves"
+      ],
+      "location": "Kosmozo Park",
+      "causes": [
+        "Thieves stole the mieloфон and left it on the shore of the pond."
+      ],
+      "consequences": [
+        "Kolya boards a bus to Gogolevsky Bulvar."
+      ],
+      "evidence": [
+        "Коля схватил сумку и побежал назад, выскочил из автобуса на площадь."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "In the park, Kolya can leave a message on a park bench.",
+      "evidence": [
+        "Коля остался сидеть на мягкой, словно диван, лавочке."
+      ]
+    },
+    {
+      "rule": "In the park, Kolya can chase the thieves who stole the mieloфон.",
+      "evidence": [
+        "Коля схватил сумку и побежал назад, выскочил из автобуса на площадь."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "Will Kolya catch the thieves?",
+      "reason": "The thieves have already boarded a bus and are ahead of Kolya."
+    }
+  ]
+}

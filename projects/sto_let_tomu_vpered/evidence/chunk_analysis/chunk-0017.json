@@ -1,0 +1,140 @@
+{
+  "characters": [
+    {
+      "name": "Коля",
+      "aliases": [],
+      "facts": [
+        "Traveled to the future for one day.",
+        "Met with Witty Bandit and Kryss."
+      ],
+      "appearance": [],
+      "traits": [
+        "Exhausted from the journey."
+      ],
+      "knowledge": [
+        "Had a stone given by the great singer Milena Mitenina."
+      ],
+      "goals": [],
+      "relationships": [
+        "Met with Witty Bandit and Kryss."
+      ],
+      "evidence": [
+        "Коля, попав в будущее на один день, встретился именно с Весельчаком У и Крыссом."
+      ]
+    },
+    {
+      "name": "Witty Bandit (Весельчак У)",
+      "aliases": [],
+      "facts": [
+        "Pirate who traveled to the future.",
+        "Used a walapass snake to steal a cloak and a sombrero."
+      ],
+      "appearance": [],
+      "traits": [
+        "Wore a cloak to hide from the authorities."
+      ],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Met with Kryss."
+      ],
+      "evidence": [
+        "Весельчак У подал условный сигнал, и пираты скрылись за рядом автоматов.",
+        "А мне хочется простужаться? — удивился Весельчак У."
+      ]
+    },
+    {
+      "name": "Kryss",
+      "aliases": [],
+      "facts": [
+        "Pirate who traveled to the future.",
+        "Used a walapass snake to steal a sombrero."
+      ],
+      "appearance": [],
+      "traits": [
+        "Wore a sombrero to hide from the authorities."
+      ],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Met with Witty Bandit."
+      ],
+      "evidence": [
+        "Сомбреро принадлежало мексиканскому туристу, оно висело у него за спиной на тесёмочках, завязанных под горлом."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Kosmozoo",
+      "facts": [
+        "A special cosmic zoo located in the old zoo area."
+      ],
+      "evidence": [
+        "Там нас никто не догадается искать."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Walapass snake",
+      "facts": [
+        "Used by Kryss and Witty Bandit to steal items."
+      ],
+      "evidence": [
+        "Обычно этот уж лежит в подземной норе, но стоит пройти неподалёку какому-нибудь животному, как уж в мгновение ока распрямляется и, как стрела, вонзается в него."
+      ]
+    },
+    {
+      "name": "Cloak",
+      "facts": [
+        "Used by Witty Bandit to hide from the authorities."
+      ],
+      "evidence": [
+        "Накидка уже скрылась за автоматами."
+      ]
+    },
+    {
+      "name": "Sombrero",
+      "facts": [
+        "Used by Kryss to hide from the authorities."
+      ],
+      "evidence": [
+        "Сомбреро быстро поползло к автоматам"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Pirates steal items using a walapass snake.",
+      "participants": [
+        "Witty Bandit",
+        "Kryss"
+      ],
+      "location": "Inside a building",
+      "causes": [
+        "Pirates need to hide from authorities."
+      ],
+      "consequences": [
+        "Pirates are able to steal a cloak and a sombrero."
+      ],
+      "evidence": [
+        "Сначала коготки схватили широкую тонкую голубую накидку, и она, словно скат по дну залива, умчалась к автоматам."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Pirates travel to the future and plan to steal a ship with gold from Pluto.",
+      "evidence": [
+        "На Плутоне работала небольшая экспедиция, и вскоре оттуда должен был отправиться на землю корабль, гружённый золотом."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What happens to the pirates after they travel to the future?",
+      "reason": "The story ends with them traveling to Kosmozoo."
+    }
+  ]
+}

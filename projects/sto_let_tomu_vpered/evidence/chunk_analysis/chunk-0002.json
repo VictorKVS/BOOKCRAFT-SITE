@@ -1,0 +1,87 @@
+{
+  "characters": [
+    {
+      "name": "Коля",
+      "aliases": [],
+      "facts": [
+        "Kolya is a follower who suspects his neighbor of hiding something valuable or dangerous.",
+        "Kolya is curious and interested in technology."
+      ],
+      "appearance": [],
+      "traits": [
+        "curious",
+        "cautious",
+        "intelligent"
+      ],
+      "knowledge": [
+        "Kolya knows about the neighbor's habits and the possibility of valuable or dangerous items being hidden.",
+        "Kolya is familiar with technical devices and has experience with assembling a radio receiver."
+      ],
+      "goals": [
+        "To investigate the neighbor's hidden room and understand its contents."
+      ],
+      "relationships": [
+        "Kolya suspects his neighbor of hiding something valuable or dangerous."
+      ],
+      "evidence": [
+        "Kolya suspects the neighbor might have a rare and dangerous animal, like a 12-meter anaconda, in the hidden room."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Neighbor's apartment",
+      "facts": [
+        "The neighbor's apartment has a hidden room with a mysterious device.",
+        "The hidden room contains clothing and personal items of various people."
+      ],
+      "evidence": [
+        "The hidden room contains a mysterious device that Kolya discovers and activates."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Mysterious device",
+      "facts": [
+        "The device is a phone booth-like structure with a control panel.",
+        "It has buttons, switches, and dials."
+      ],
+      "evidence": [
+        "Kolya activates the device and experiences a strange journey."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Kolya investigates the neighbor's hidden room",
+      "participants": [
+        "Kolya"
+      ],
+      "location": "Neighbor's apartment",
+      "causes": [
+        "Kolya suspects the neighbor of hiding something valuable or dangerous."
+      ],
+      "consequences": [
+        "Kolya discovers a mysterious device and experiences a strange journey."
+      ],
+      "evidence": [
+        "Kolya suspects the neighbor might have a rare and dangerous animal, like a 12-meter anaconda, in the hidden room."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "People can hide valuable or dangerous items in their apartments.",
+      "evidence": [
+        "The neighbor's apartment has a hidden room with a mysterious device."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What is the purpose of the mysterious device?",
+      "reason": "The device's function is not clear after Kolya's experience."
+    }
+  ]
+}

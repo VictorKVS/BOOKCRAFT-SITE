@@ -1,0 +1,199 @@
+{
+  "characters": [
+    {
+      "name": "Алла Сергеевна",
+      "aliases": [],
+      "facts": [
+        "She fainted after the incident.",
+        "She was concerned about her nerves."
+      ],
+      "appearance": [],
+      "traits": [
+        "Concerned about her students' well-being"
+      ],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "She is the teacher of the class."
+      ],
+      "evidence": [
+        "She fainted when she heard about the chase."
+      ]
+    },
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "She witnessed the chase and helped Kolya.",
+        "She was able to jump from the window to the ground."
+      ],
+      "appearance": [],
+      "traits": [
+        "Quick-witted",
+        "Brave"
+      ],
+      "knowledge": [
+        "She knows about the chase and the pirates."
+      ],
+      "goals": [
+        "Help Kolya"
+      ],
+      "relationships": [
+        "She is friends with Kolya and other students."
+      ],
+      "evidence": [
+        "She jumped from the window to help Kolya."
+      ]
+    },
+    {
+      "name": "Коля Наумов",
+      "aliases": [],
+      "facts": [
+        "He was chased by pirates.",
+        "He ran into a building."
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "He is a student in the class."
+      ],
+      "evidence": [
+        "He was chased by pirates and ran into a building."
+      ]
+    },
+    {
+      "name": "Весельчак У",
+      "aliases": [],
+      "facts": [
+        "He was chasing Kolya.",
+        "He transformed into Napoleon."
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "He is a pirate."
+      ],
+      "evidence": [
+        "He chased Kolya and transformed into Napoleon."
+      ]
+    },
+    {
+      "name": "Мила Руткевич",
+      "aliases": [],
+      "facts": [
+        "She was calm during the chase.",
+        "She talked about Alina's mental health."
+      ],
+      "appearance": [],
+      "traits": [
+        "Calm under pressure"
+      ],
+      "knowledge": [
+        "She knows about Alina's mental health issues."
+      ],
+      "goals": [],
+      "relationships": [
+        "She is a student in the class."
+      ],
+      "evidence": [
+        "She remained calm during the chase."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "classroom",
+      "facts": [
+        "The incident occurred here.",
+        "Alina and Eduard Petrovich were affected."
+      ],
+      "evidence": [
+        "Alina and Eduard Petrovich were affected."
+      ]
+    },
+    {
+      "name": "schoolyard",
+      "facts": [
+        "Aliса jumped from the window to the ground here.",
+        "Pirates chased Kolya here."
+      ],
+      "evidence": [
+        "Aliса jumped from the window to the ground here."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "window",
+      "facts": [
+        "Aliса used it to jump out of the classroom."
+      ],
+      "evidence": [
+        "Aliса used it to jump out of the classroom."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Incident in the classroom",
+      "participants": [
+        "Aлла Сергеевна",
+        "Aлиса",
+        "Bоря Мессерер",
+        "Коля Сулима",
+        "Фима Королев",
+        "Коля Садовский",
+        "Коля Наумов"
+      ],
+      "location": "classroom",
+      "causes": [
+        "Aлла Сергеевна's nervous breakdown"
+      ],
+      "consequences": [
+        "Aлла fainted.",
+        "Aлиса helped Kolya."
+      ],
+      "evidence": [
+        "Aлла fainted when she heard about the chase."
+      ]
+    },
+    {
+      "event": "Chase in the schoolyard",
+      "participants": [
+        "Aлиса",
+        "Весельчак У",
+        "Коля Наумов",
+        "Крысс"
+      ],
+      "location": "schoolyard",
+      "causes": [
+        "Pirates were chasing Kolya."
+      ],
+      "consequences": [
+        "Kolya ran into a building.",
+        "Aлиса jumped from the window."
+      ],
+      "evidence": [
+        "Kolya ran into a building."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Pirates are after Alina and Kolya.",
+      "evidence": [
+        "Pirates were chasing Kolya."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What is the true nature of Alina's condition?",
+      "reason": "Mila Rukhovich mentioned Alina's mental health issues, but no clear diagnosis is given."
+    }
+  ]
+}

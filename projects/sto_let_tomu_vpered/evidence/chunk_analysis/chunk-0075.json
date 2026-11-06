@@ -1,0 +1,214 @@
+{
+  "characters": [
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "Argues against the idea that living creatures can survive in vacuum.",
+        "Observes the emergence of dragon-like creatures from the abyss.",
+        "Supports the idea of using the computer control panel to stop the dragons.",
+        "Acknowledges the wisdom of Poseidon."
+      ],
+      "appearance": [],
+      "traits": [
+        "Logical",
+        "Supportive",
+        "Determined"
+      ],
+      "knowledge": [
+        "Understands the conditions necessary for life in vacuum are not met.",
+        "Recognizes the dragons' behavior towards light."
+      ],
+      "goals": [
+        "Save Polina and Yuuji"
+      ],
+      "relationships": [
+        "Supports Poseidon and Kuma"
+      ],
+      "evidence": [
+        "But никакие живые существа не могут жить в вакууме, — сказала Алиса."
+      ]
+    },
+    {
+      "name": "Poseidon",
+      "aliases": [],
+      "facts": [
+        "Seeks to save Polina and Yuuji.",
+        "Attempts to find the computer control panel.",
+        "Fights against the ashikleks and dragons.",
+        "Considers using the computer to stop the dragons."
+      ],
+      "appearance": [],
+      "traits": [
+        "Determined",
+        "Resourceful",
+        "Caring"
+      ],
+      "knowledge": [
+        "Understands the dragons' behavior towards light.",
+        "Knows the location of the computer control panel."
+      ],
+      "goals": [
+        "Save Polina and Yuuji",
+        "Stop the dragons"
+      ],
+      "relationships": [
+        "Supports Kuma and Professor Alina"
+      ],
+      "evidence": [
+        "Посейдон уже придумал.",
+        "Назад, в зал со стеклянной стеной! Я буду пробиваться без вас. Вы мне не помощники. Запирайтесь и не пускайте туда роботов. Поняли?",
+        "Посейдон, оценив ситуацию, развернул голову на сто восемьдесят градусов и, продолжая идти вперед, крикнул:"
+      ]
+    },
+    {
+      "name": "Kuma",
+      "aliases": [],
+      "facts": [
+        "Supports Poseidon's plan to stop the dragons.",
+        "Fears the loss of his son Yuuji.",
+        "Considers using the computer to stop the dragons."
+      ],
+      "appearance": [],
+      "traits": [
+        "Caring",
+        "Determined"
+      ],
+      "knowledge": [
+        "Understands the importance of the computer control panel."
+      ],
+      "goals": [
+        "Stop the dragons",
+        "Save Polina and Yuuji"
+      ],
+      "relationships": [
+        "Supports Poseidon and Professor Alina"
+      ],
+      "evidence": [
+        "И если мой сын погибнет, то я не смогу жить. Ведь я виновник его гибели."
+      ]
+    },
+    {
+      "name": "Professor Alina",
+      "aliases": [],
+      "facts": [
+        "Supports Poseidon's plan to stop the dragons.",
+        "Believes the dragons are controlled by the ashikleks.",
+        "Considers using the computer to stop the dragons."
+      ],
+      "appearance": [],
+      "traits": [
+        "Logical",
+        "Supportive"
+      ],
+      "knowledge": [
+        "Understands the dragons' behavior towards light.",
+        "Believes the dragons are controlled by the ashikleks."
+      ],
+      "goals": [
+        "Stop the dragons",
+        "Save Polina and Yuuji"
+      ],
+      "relationships": [
+        "Supports Poseidon and Kuma"
+      ],
+      "evidence": [
+        "Я убежден в этом. Причем сделают это они скоро, как только ашиклеки наедятся."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Asteroid",
+      "facts": [
+        "Contains dragons that are controlled by ashikleks.",
+        "Has a gallery for observing dragons.",
+        "Has a computer control panel."
+      ],
+      "evidence": [
+        "Когда астероид приспосабливали для полета, никаких ледяных драконов там и не было. А были лишь их споры, которые ждали своего часа."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Computer control panel",
+      "facts": [
+        "Used to stop the dragons.",
+        "Located in the asteroid."
+      ],
+      "evidence": [
+        "Вы знаете, где пульт управления компьютером?"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Dragons are controlled by ashikleks and react to light.",
+      "participants": [
+        "Ashikleks",
+        "Dragons"
+      ],
+      "location": "Asteroid",
+      "causes": [
+        "Ashikleks control the dragons."
+      ],
+      "consequences": [
+        "Dragons react to light and move towards it."
+      ],
+      "evidence": [
+        "Драконы раньше и не мечтали о такой пище."
+      ]
+    },
+    {
+      "event": "Ashikleks plan to sacrifice humans to the dragons.",
+      "participants": [
+        "Ashikleks",
+        "Humans"
+      ],
+      "location": "Asteroid",
+      "causes": [
+        "Humans are seen as a source of energy."
+      ],
+      "consequences": [
+        "Humans are brought to the platform and sacrificed to the dragons."
+      ],
+      "evidence": [
+        "И вы думаете, — произнес Посейдон, — что эти тупые изверги хотят отправить сюда Полину и Юдзо?"
+      ]
+    },
+    {
+      "event": "Poseidon and friends attempt to stop the dragons.",
+      "participants": [
+        "Poseidon",
+        "Kuma",
+        "Professor Alina",
+        "Ashikleks"
+      ],
+      "location": "Asteroid",
+      "causes": [
+        "Ashikleks plan to sacrifice humans to the dragons."
+      ],
+      "consequences": [
+        "Poseidon and friends fight the ashikleks and dragons."
+      ],
+      "evidence": [
+        "Посейдон, оценив ситуацию, развернул голову на сто восемьдесят градусов и, продолжая идти вперед, крикнул:"
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Robots can be controlled by ashikleks.",
+      "evidence": [
+        "Я думаю, — продолжал профессор, — что сначала драконы были главным развлечением для ашиклеков."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "Will Poseidon and friends succeed in stopping the dragons?",
+      "reason": "Outcome of the confrontation is not yet determined."
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "characters": [
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "Speaks multiple languages including Japanese, Hindi, French, Czech, Finnish, German, and Chinese.",
+        "Has been to London.",
+        "Is honest about her experiences.",
+        "Is friends with Borya Messerer and Larisa Troepol'skaya.",
+        "Is approached by Kolya Sadovsky with a theory about her coming from the future."
+      ],
+      "appearance": [],
+      "traits": [
+        "Honest",
+        "Knowledgeable about languages",
+        "Perceptive"
+      ],
+      "knowledge": [
+        "Has been to London",
+        "Speaks multiple languages"
+      ],
+      "goals": [],
+      "relationships": [
+        "Friends with Borya Messerer",
+        "Friends with Larisa Troepol'skaya",
+        "Suspected by Kolya Sadovsky of coming from the future"
+      ],
+      "evidence": [
+        "Я очень хотела бы с вами познакомиться и дружить. Мы могли бы вместе заниматься по разным предметам. Ответьте мне на перемене. Лариса",
+        "Про Лондон это я писал.",
+        "Ты бывала в Лондоне или нет?",
+        "Я имею в виду трехколесный, — сказал Садовский. — Ты же мне давала покататься позавчера."
+      ]
+    },
+    {
+      "name": "Коля Садовский",
+      "aliases": [],
+      "facts": [
+        "Thinks Aлиса is from the future.",
+        "Claims Aлиса rode a three-wheeled bicycle with him.",
+        "Suggests Aлиса has a time machine made from a bicycle."
+      ],
+      "appearance": [],
+      "traits": [
+        "Creative",
+        "Suspicious"
+      ],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Friends with Aлиса",
+        "Suspects Aлиса of coming from the future"
+      ],
+      "evidence": [
+        "Я думаю, что ты к нам приехала из будущего, — сказал он. — У тебя есть машина времени, переделанная из велосипеда.",
+        "Ты же мне давала покататься позавчера."
+      ]
+    },
+    {
+      "name": "Фима Королев",
+      "aliases": [],
+      "facts": [
+        "Listens to Aлиса speak multiple languages.",
+        "Asks Aлиса to speak in Japanese."
+      ],
+      "appearance": [],
+      "traits": [
+        "Curious"
+      ],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Friends with Aлиса"
+      ],
+      "evidence": [
+        "Скажи нам что-нибудь по-японски."
+      ]
+    },
+    {
+      "name": "Коля Наумов",
+      "aliases": [],
+      "facts": [
+        "Is the captain of the boys' volleyball team.",
+        "Suspects Aлиса of knowing him."
+      ],
+      "appearance": [
+        "Slightly aquiline nose, medium height, thin but strong"
+      ],
+      "traits": [
+        "Observant"
+      ],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Friends with Aлиса",
+        "Suspects Aлиса of knowing him"
+      ],
+      "evidence": [
+        "Ты ошибешься. Мы с тобой впервые встретились позавчера. У меня хорошая зрительная память."
+      ]
+    },
+    {
+      "name": "Юлька",
+      "aliases": [],
+      "facts": [
+        "Suspects Aлиса of coming from the future.",
+        "Tries to get information from Aлиса about her past."
+      ],
+      "appearance": [],
+      "traits": [
+        "Suspicious",
+        "Inquisitive"
+      ],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Friends with Aлиса",
+        "Suspects Aлиса of coming from the future"
+      ],
+      "evidence": [
+        "Ты к нам приехала из будущего, — сказал он. — У тебя есть машина времени, переделанная из велосипеда.",
+        "Чего тебе? — спросил он.",
+        "Ты ошибешься. Мы с тобой впервые встретились позавчера. У меня хорошая зрительная память."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "School",
+      "facts": [
+        "Aлиса is a student there.",
+        "Multiple students discuss Aлиса's background and experiences."
+      ],
+      "evidence": []
+    }
+  ],
+  "objects": [
+    {
+      "name": "Three-wheeled bicycle",
+      "facts": [
+        "Kolya Sadovsky claims Aлиса rode this with him."
+      ],
+      "evidence": [
+        "Ты же мне давала покататься позавчера."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Students discuss Aлиса's background and experiences.",
+      "participants": [
+        "Aлиса",
+        "Kolya Sadovsky",
+        "Borya Messerer",
+        "Larisa Troepol'skaya",
+        "Kolya Naumov",
+        "Yulka"
+      ],
+      "location": "School",
+      "causes": [
+        "Aлиса speaks multiple languages and has been to London."
+      ],
+      "consequences": [
+        "Kolya Sadovsky suspects Aлиса of coming from the future.",
+        "Yulka suspects Aлиса of coming from the future."
+      ],
+      "evidence": [
+        "Про Лондон это я писал.",
+        "Ты бывала в Лондоне или нет?",
+        "Я думаю, что ты к нам приехала из будущего, — сказал он. — У тебя есть машина времени, переделанная из велосипеда."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Students at the school speak multiple languages.",
+      "evidence": [
+        "Немецкий, финский, чешский, французский, хинди, китайский… японский и… и ещё один."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "Is Aлиса from the future?",
+      "reason": "Kolya Sadovsky suspects Aлиса of coming from the future, but there is no definitive proof."
+    }
+  ]
+}

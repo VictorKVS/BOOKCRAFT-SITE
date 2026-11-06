@@ -1,0 +1,218 @@
+{
+  "characters": [
+    {
+      "name": "Алиса Селезнева",
+      "aliases": [],
+      "facts": [
+        "New student in the class",
+        "Speaks English well",
+        "Knows eight languages"
+      ],
+      "appearance": [],
+      "traits": [
+        "Quiet",
+        "Knowledgeable"
+      ],
+      "knowledge": [
+        "Speaks English fluently",
+        "Knows about London and its landmarks"
+      ],
+      "goals": [],
+      "relationships": [
+        "Known to Fima Korolev",
+        "Respected by classmates"
+      ],
+      "evidence": [
+        "Says she knows eight languages",
+        "Speaks English well about London"
+      ]
+    },
+    {
+      "name": "Катя Михайлова",
+      "aliases": [],
+      "facts": [
+        "Classmate of Алиса",
+        "Good student"
+      ],
+      "appearance": [],
+      "traits": [
+        "Focused on tennis"
+      ],
+      "knowledge": [
+        "Knows about the Tower of London"
+      ],
+      "goals": [],
+      "relationships": [
+        "Friends with Алиса"
+      ],
+      "evidence": [
+        "Focused on tennis",
+        "Knows about the Tower of London"
+      ]
+    },
+    {
+      "name": "Фима Королев",
+      "aliases": [],
+      "facts": [
+        "Classmate of Алиса",
+        "Known for making dramatic statements",
+        "Connected to Алиса's past"
+      ],
+      "appearance": [],
+      "traits": [
+        "Dramatic",
+        "Creative"
+      ],
+      "knowledge": [
+        "Said Алиса ran away from a mental institution"
+      ],
+      "goals": [],
+      "relationships": [
+        "Friends with Алиса"
+      ],
+      "evidence": [
+        "Said Алиса ran away from a mental institution"
+      ]
+    },
+    {
+      "name": "Алла Сергеевна",
+      "aliases": [
+        "Алла"
+      ],
+      "facts": [
+        "English teacher",
+        "Class advisor",
+        "Strict but fair"
+      ],
+      "appearance": [],
+      "traits": [
+        "Patient",
+        "Knowledgeable"
+      ],
+      "knowledge": [
+        "Knows students' strengths and weaknesses"
+      ],
+      "goals": [],
+      "relationships": [
+        "Respected by students"
+      ],
+      "evidence": [
+        "Calls on students to answer questions",
+        "Knows students' strengths and weaknesses"
+      ]
+    },
+    {
+      "name": "Мила Руткевич",
+      "aliases": [],
+      "facts": [
+        "Top student",
+        "Always knows the answers"
+      ],
+      "appearance": [],
+      "traits": [
+        "Arrogant",
+        "Helpful"
+      ],
+      "knowledge": [
+        "Knows all the answers"
+      ],
+      "goals": [],
+      "relationships": [
+        "Respected by teacher"
+      ],
+      "evidence": [
+        "Always knows the answers",
+        "Called upon by teacher"
+      ]
+    },
+    {
+      "name": "Садовский",
+      "aliases": [],
+      "facts": [
+        "Classmate of Алиса",
+        "Creative but often in trouble",
+        "Arrested for moving benches"
+      ],
+      "appearance": [
+        "Tall, dark-haired, with white freckles"
+      ],
+      "traits": [
+        "Creative",
+        "Dramatic"
+      ],
+      "knowledge": [
+        "Knows about benches and their weight"
+      ],
+      "goals": [],
+      "relationships": [
+        "Friends with Алиса"
+      ],
+      "evidence": [
+        "Told a story about moving benches",
+        "Arrested for moving benches"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Classroom",
+      "facts": [
+        "Students are learning about London",
+        "Teacher is strict but fair"
+      ],
+      "evidence": [
+        "Teacher calls on students to answer questions",
+        "Students are learning about London"
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Textbook",
+      "facts": [
+        "Contains information about London",
+        "Used for homework"
+      ],
+      "evidence": [
+        "Homework is assigned from the textbook"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Introduction of Алиса to the class",
+      "participants": [
+        "Алиса Селезнева",
+        "Катя Михайлова",
+        "Фима Королев",
+        "Алла Сергеевна"
+      ],
+      "location": "Classroom",
+      "causes": [
+        "New student joining the class"
+      ],
+      "consequences": [
+        "Class learns about Алиса's language skills",
+        "Class learns about London"
+      ],
+      "evidence": [
+        "Teacher introduces Алиса to the class",
+        "Class learns about London"
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Students are expected to participate in class",
+      "evidence": [
+        "Teacher calls on students to answer questions"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What is the connection between Алиса and Fima's statement about her running away from a mental institution?",
+      "reason": "Fima's statement is not confirmed or denied by Алиса"
+    }
+  ]
+}

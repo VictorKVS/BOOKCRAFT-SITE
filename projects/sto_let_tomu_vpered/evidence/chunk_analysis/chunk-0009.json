@@ -1,0 +1,151 @@
+{
+  "characters": [
+    {
+      "name": "Коля",
+      "aliases": [],
+      "facts": [
+        "Kolya is a student interested in construction and space travel.",
+        "He is familiar with the concept of coral reefs and their construction.",
+        "He is eager to work in construction and dreams of space travel."
+      ],
+      "appearance": [],
+      "traits": [
+        "Curious",
+        "Determined",
+        "Creative",
+        "Impulsive"
+      ],
+      "knowledge": [
+        "Understands the process of coral reef construction",
+        "Knows about the concept of future construction techniques",
+        "Aspires to work in construction and space travel"
+      ],
+      "goals": [
+        "Work in construction",
+        "Dreams of space travel"
+      ],
+      "relationships": [
+        "Works with Vanya and Lev",
+        "Meets Pavel, an older man who knows about space travel"
+      ],
+      "evidence": [
+        "Коля вошёл в недостроенный дом.",
+        "Коля поднялся по лестнице на второй этаж, а потом по движущимся пластиковым лесам на самый верх.",
+        "Коля сдал оставшиеся прутья Вене, попрощался, и студенты сказали, что он им очень помог.",
+        "Коля испугался, что автобус уйдёт, и припустил через площадь."
+      ]
+    },
+    {
+      "name": "Vanya",
+      "aliases": [],
+      "facts": [
+        "Vanya is a construction worker.",
+        "He helps Kolya with construction tasks."
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [
+        "Knows about construction techniques"
+      ],
+      "goals": [],
+      "relationships": [
+        "Works with Kolya"
+      ],
+      "evidence": [
+        "Веня дал ему пучок прутьев"
+      ]
+    },
+    {
+      "name": "Pavel",
+      "aliases": [],
+      "facts": [
+        "Pavel is an older man who knows about space travel.",
+        "He gives Kolya a star as a souvenir."
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [
+        "Knows about space travel and stars"
+      ],
+      "goals": [],
+      "relationships": [
+        "Meets Kolya on the square"
+      ],
+      "evidence": [
+        "Старик Павел, — сказал на краю мостовой стоит, держа одноколесный велосипед, Колин ровесник.",
+        "Я тебе завидую: сам капитан Дальнего космоса, капитан «Пегаса» Полосков, подарил тебе звезду."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Arbat Square",
+      "facts": [
+        "The square has been transformed with modern buildings and structures.",
+        "It features a new monument and various futuristic vehicles."
+      ],
+      "evidence": [
+        "Перед памятником была Арбатская площадь, только Коля её бы никогда не узнал.",
+        "Памятник в конце Гоголевского бульвара был старый, который раньше стоял на другом конце площади."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Coral reef",
+      "facts": [
+        "Coral reefs are constructed by tiny coral polyps.",
+        "Coral reefs can be built using coral bacteria."
+      ],
+      "evidence": [
+        "Коралловые рифы состоят из миллиардов коралловых домов и коралловых скелетов.",
+        "Ему можно придавать какую угодно форму."
+      ]
+    },
+    {
+      "name": "Autobus",
+      "facts": [
+        "Autobuses are present but operate differently.",
+        "They are equipped with floating and flying mechanisms."
+      ],
+      "evidence": [
+        "Около него как раз стояли три автобуса.",
+        "Некоторые поднимались из-под земли, наверно из метро, другие подлетали на крыльях и складывали их, подходя к двери, третьи вылезали из пузырей, и пустые пузыри сами отлетали прочь, уступая место новым."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Kolya's encounter with Pavel",
+      "participants": [
+        "Kolya",
+        "Pavel"
+      ],
+      "location": "Arbat Square",
+      "causes": [
+        "Kolya's urgency to catch an autobus"
+      ],
+      "consequences": [
+        "Pavel gives Kolya a star as a souvenir."
+      ],
+      "evidence": [
+        "Коля крикнул мужчине, который висел в воздухе над ним, помахивая крыльями, похожими на стрекозиные.",
+        "Коля полез в карманы, но карманы были совершенно пусты."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Autobuses operate with advanced technology, including floating and flying mechanisms.",
+      "evidence": [
+        "Некоторые поднимались из-под земли, наверно из метро, другие подлетали на крыльях и складывали их, подходя к двери, третьи вылезали из пузырей, и пустые пузыри сами отлетали прочь, уступая место новым."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What is the nature of the futuristic vehicles on the square?",
+      "reason": "The vehicles are not explicitly described, leaving their exact nature ambiguous."
+    }
+  ]
+}

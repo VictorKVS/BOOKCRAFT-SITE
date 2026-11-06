@@ -1,0 +1,130 @@
+{
+  "characters": [
+    {
+      "name": "Коля",
+      "aliases": [],
+      "facts": [
+        "Kolya is trying to escape from pirates who are after him.",
+        "Kolya has a plan to return the mieloфон to someone he knows.",
+        "Kolya is not a runner but can outpace pirates in short distances."
+      ],
+      "appearance": [],
+      "traits": [
+        "resourceful",
+        "brave",
+        "determined"
+      ],
+      "knowledge": [
+        "Kolya knows about the mieloфон and its importance.",
+        "Kolya knows about the pirates' mechanical hearts and their longevity."
+      ],
+      "goals": [
+        "Escape from the pirates and return the mieloфон."
+      ],
+      "relationships": [
+        "Kolya is trying to avoid the pirates who are after him."
+      ],
+      "evidence": [
+        "Коля понял, что воров перехитрить не удалось: они разделились — один побежал в восьмой автобус, а другой подстерегает его где-то ещё."
+      ]
+    },
+    {
+      "name": "Толстяк",
+      "aliases": [],
+      "facts": [
+        "The fat man is a pirate who is chasing Kolya.",
+        "He has a mechanical heart and can live for a thousand years."
+      ],
+      "appearance": [],
+      "traits": [
+        "aggressive",
+        "resourceful"
+      ],
+      "knowledge": [
+        "The pirates have mechanical hearts and can live for a thousand years."
+      ],
+      "goals": [
+        "Catch Kolya and retrieve the mieloфон."
+      ],
+      "relationships": [
+        "The fat man is working with other pirates."
+      ],
+      "evidence": [
+        "Толстяк вежливо поклонился и спросил её о чём-то…"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Автобусная остановка",
+      "facts": [
+        "Pirates are waiting at the bus stop."
+      ],
+      "evidence": [
+        "Коля понял, что воров перехитрить не удалось: они разделились — один побежал в восьмой автобус, а другой подстерегает его где-то ещё."
+      ]
+    },
+    {
+      "name": "Бульвар",
+      "facts": [
+        "Kolya uses the bushes for cover."
+      ],
+      "evidence": [
+        "Коля свернул с дорожки, перескочил через кусты и в два прыжка оказался на мостовой."
+      ]
+    },
+    {
+      "name": "Институт времени",
+      "facts": [
+        "Kolya tries to enter the Institute of Time but is unable to do so."
+      ],
+      "evidence": [
+        "Коля с разбега ударился в прозрачную стену — вход в институт. Но стена не открылась, как утром, когда он выходил."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Миелофон",
+      "facts": [
+        "Kolya is trying to return the mieloфон."
+      ],
+      "evidence": [
+        "Коля был человеком не злым и уже придумал, как он вернёт миелофон."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Kolya tries to escape from pirates.",
+      "participants": [
+        "Kolya",
+        "Pirates"
+      ],
+      "location": "Автобусная остановка, бульвар, Институт времени",
+      "causes": [
+        "Pirates are after Kolya because he stole the mieloфон."
+      ],
+      "consequences": [
+        "Kolya is unable to enter the Institute of Time and continues his escape."
+      ],
+      "evidence": [
+        "Коля понял, что воров перехитрить не удалось: они разделились — один побежал в восьмой автобус, а другой подстерегает его где-то ещё."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Pirates have mechanical hearts and can live for a thousand years.",
+      "evidence": [
+        "Толстяк вежливо поклонился и спросил её о чём-то…"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "Will Kolya be able to escape from the pirates and return the mieloфон?",
+      "reason": "Kolya is still being pursued by the pirates and has not yet found a way to enter the Institute of Time."
+    }
+  ]
+}

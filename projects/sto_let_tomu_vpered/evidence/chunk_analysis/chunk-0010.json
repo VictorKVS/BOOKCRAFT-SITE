@@ -1,0 +1,168 @@
+{
+  "characters": [
+    {
+      "name": "Коля",
+      "aliases": [],
+      "facts": [
+        "Kolya is a young man who is exploring a strange city with advanced technology.",
+        "He is curious and determined to understand the city's workings."
+      ],
+      "appearance": [],
+      "traits": [
+        "Inquisitive",
+        "Determined",
+        "Curious"
+      ],
+      "knowledge": [
+        "Kolya knows about the concept of zero-transportation from a science fiction novel."
+      ],
+      "goals": [
+        "To understand the functioning of the city and its technology."
+      ],
+      "relationships": [],
+      "evidence": [
+        "Коля думал, что автобус давно ушёл, но, к счастью, он ещё дожидался его."
+      ]
+    },
+    {
+      "name": "Пожилой человек",
+      "aliases": [],
+      "facts": [
+        "An old man who operates a strange vehicle."
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Knows Kolya"
+      ],
+      "evidence": [
+        "Старик Павел помахал Коле рукой, оттолкнулся ногой и закрутил педали своей неустойчивой машины."
+      ]
+    },
+    {
+      "name": "Женщина в жёлтом хитоне",
+      "aliases": [],
+      "facts": [
+        "A woman who guides Kolya through the city."
+      ],
+      "appearance": [
+        "Wears a yellow chiton, like a Greek goddess."
+      ],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Guides Kolya"
+      ],
+      "evidence": [
+        "Женщина вошла в занавеску и исчезла."
+      ]
+    },
+    {
+      "name": "Девушка в белом комбинезоне",
+      "aliases": [],
+      "facts": [
+        "A woman who provides information about the city."
+      ],
+      "appearance": [
+        "Wears a white suit with a large rose embroidered on the shoulder."
+      ],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Helps Kolya understand the city's transportation system."
+      ],
+      "evidence": [
+        "Скажите, пожалуйста, это какая остановка?"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Проспект Мира",
+      "facts": [
+        "A place where Kolya enters an unusual bus.",
+        "The bus has no windows but is described as sleek and fast."
+      ],
+      "evidence": [
+        "Над входом была надпись: «Проспект Мира»."
+      ]
+    },
+    {
+      "name": "Москва-река",
+      "facts": [
+        "Kolya reaches the riverbank after using the strange transportation system."
+      ],
+      "evidence": [
+        "Он стоял на берегу Москвы-реки"
+      ]
+    },
+    {
+      "name": "Новодевичьий монастырь",
+      "facts": [
+        "Kolya visits the monastery after using the transportation system."
+      ],
+      "evidence": [
+        "Коля вернулся на проспект Мира."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Автобус",
+      "facts": [
+        "An unusual bus that transports people through the city without moving."
+      ],
+      "evidence": [
+        "Автобус был обтекаемый, сверкающий, но без окон, и поэтому Коля понял, что он очень скоростной."
+      ]
+    },
+    {
+      "name": "Столбики",
+      "facts": [
+        "Dispensers for various items including ice cream, lemonade, and snacks."
+      ],
+      "evidence": [
+        "Столбики были разных цветов."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Kolya's journey through the city",
+      "participants": [
+        "Kolya",
+        "Old man",
+        "Women in yellow chiton",
+        "Diverse people using various transportation methods"
+      ],
+      "location": "Various locations in the city",
+      "causes": [
+        "Kolya's curiosity and desire to understand the city's technology."
+      ],
+      "consequences": [
+        "Kolya learns about the city's unique transportation system and technology."
+      ],
+      "evidence": [
+        "Коля думал, что автобус давно ушёл, но, к счастью, он ещё дожидался его."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "The city uses advanced technology for transportation and dispensing items.",
+      "evidence": [
+        "Автобус был обтекаемый, сверкающий, но без окон, и поэтому Коля понял, что он очень скоростной."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "How does the city's transportation system work?",
+      "reason": "The exact mechanism of the transportation system is not fully explained."
+    }
+  ]
+}

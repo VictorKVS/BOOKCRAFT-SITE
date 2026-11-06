@@ -1,0 +1,189 @@
+{
+  "characters": [
+    {
+      "name": "Коля",
+      "aliases": [],
+      "facts": [
+        "Kolya is from Konotop and works with delfins and mangodynes.",
+        "Kolya is interested in space travel.",
+        "Kolya is aware of the local flora and fauna."
+      ],
+      "appearance": [],
+      "traits": [
+        "Curious",
+        "Practical",
+        "Adventurous"
+      ],
+      "knowledge": [
+        "Konotop has freshwater dolphins.",
+        "Mangodynes are a hybrid of mango and delfin.",
+        "There are other animals like apes and a python in the school."
+      ],
+      "goals": [
+        "Visit the cosmodrome",
+        "Travel to space"
+      ],
+      "relationships": [
+        "Friends with Djavat"
+      ],
+      "evidence": [
+        "‘В Конотопе дельфины пресноводные’"
+      ]
+    },
+    {
+      "name": "Джавад",
+      "aliases": [],
+      "facts": [
+        "Djavad is from Konotop and works with mangodynes.",
+        "Djavad is interested in the future of food and space travel."
+      ],
+      "appearance": [],
+      "traits": [
+        "Inquisitive",
+        "Optimistic"
+      ],
+      "knowledge": [
+        "Mangodynes are a hybrid of mango and delfin.",
+        "There are other animals like apes and a python in the school."
+      ],
+      "goals": [
+        "Promote mangodynes as future food",
+        "Visit the cosmodrome"
+      ],
+      "relationships": [
+        "Friends with Kolya"
+      ],
+      "evidence": [
+        "‘Бананы — пища будущего’"
+      ]
+    },
+    {
+      "name": "Лена",
+      "aliases": [],
+      "facts": [
+        "Lena is a student at the school.",
+        "Lena works with mangodynes and apes."
+      ],
+      "appearance": [],
+      "traits": [
+        "Helpful",
+        "Knowledgeable"
+      ],
+      "knowledge": [
+        "Mangodynes are a hybrid of mango and delfin.",
+        "There are other animals like apes and a python in the school."
+      ],
+      "evidence": [
+        "‘Я не голодный’"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Konotop",
+      "facts": [
+        "Konotop has freshwater dolphins.",
+        "Konotop has mangodynes.",
+        "Konotop has a cosmodrome."
+      ],
+      "evidence": [
+        "‘В Конотопе дельфины пресноводные’",
+        "‘Я об этом не думал’",
+        "‘У нас в Конотопе нету’"
+      ]
+    },
+    {
+      "name": "School",
+      "facts": [
+        "The school has a mangodyne lab.",
+        "The school has apes and a python.",
+        "The school has a cosmodrome."
+      ],
+      "evidence": [
+        "‘Школьная’",
+        "‘А дельфины тоже школьные’",
+        "‘Там, на липе спит’",
+        "‘На космодром’"
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Mangodynes",
+      "facts": [
+        "Mangodynes are a hybrid of mango and delfin.",
+        "Mangodynes are used in experiments."
+      ],
+      "evidence": [
+        "‘Мангодыни лежат’",
+        "‘Мангодыню попробую’"
+      ]
+    },
+    {
+      "name": "Python",
+      "facts": [
+        "There is a python in the school.",
+        "The python is not domesticated."
+      ],
+      "evidence": [
+        "‘Там, на липе спит’",
+        "‘Почти девять метров’"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Delfin appears in the pool",
+      "participants": [
+        "Kolya",
+        "Delfin"
+      ],
+      "location": "School pool",
+      "causes": [],
+      "consequences": [
+        "Kolya and Djavat meet Lena and the others."
+      ],
+      "evidence": [
+        "‘В центре бассейна вода взбурлила’",
+        "‘Девочка сидит верхом на огромной рыбе’",
+        "‘А когда рыба подплыла к краю бассейна’"
+      ]
+    },
+    {
+      "event": "Mangodynes grow in the school garden",
+      "participants": [
+        "Kolya",
+        "Djavat",
+        "Arka",
+        "Other botanists and naturalists"
+      ],
+      "location": "School garden",
+      "causes": [
+        "Arka plants mangodynes"
+      ],
+      "consequences": [
+        "Mangodynes grow rapidly and produce fruit."
+      ],
+      "evidence": [
+        "‘Сбегай за удобрениями!’",
+        "‘Сбегай за удобрениями!’",
+        "‘Плоды, похожие сначала на зелёные колечки, подросли и начали желтеть’"
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Mangodynes are a hybrid of mango and delfin.",
+      "evidence": [
+        "‘Мангодыни лежат’",
+        "‘Мангодыню попробую’"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What is the nature of the mangodynes?",
+      "reason": "Their hybrid nature is confirmed, but their exact composition and origin are not detailed."
+    }
+  ]
+}

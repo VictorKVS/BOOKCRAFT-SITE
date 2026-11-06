@@ -1,0 +1,175 @@
+{
+  "characters": [
+    {
+      "name": "Юлька",
+      "aliases": [],
+      "facts": [
+        "Has a secret admirer",
+        "Told her mother about the admirer",
+        "Suspected of having a boyfriend",
+        "Worried about her safety"
+      ],
+      "appearance": [],
+      "traits": [
+        "Innocent",
+        "Trustful",
+        "Sensitive"
+      ],
+      "knowledge": [
+        "Mother and Alik Borisovich talked about her",
+        "Someone asked about her address"
+      ],
+      "goals": [
+        "Protect herself",
+        "Tell her mother about the situation"
+      ],
+      "relationships": [
+        "Mother: Natasha",
+        "Friend: Alik",
+        "Friend: Alina"
+      ],
+      "evidence": [
+        "Asked her mother about Alik Borisovich",
+        "Suspected someone was following her"
+      ]
+    },
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "Helped Юлька with her secret admirer",
+        "Kept secrets from her mother",
+        "Was involved in a math competition"
+      ],
+      "appearance": [],
+      "traits": [
+        "Smart",
+        "Cautious",
+        "Protective"
+      ],
+      "knowledge": [
+        "Someone was following Юлька",
+        "Needed to be careful"
+      ],
+      "goals": [
+        "Protect Юлька",
+        "Avoid her mother's worry"
+      ],
+      "relationships": [
+        "Friend: Юлька",
+        "Friend: Natasha"
+      ],
+      "evidence": [
+        "Helped Юлька with her secret admirer",
+        "Kept secrets from her mother"
+      ]
+    },
+    {
+      "name": "Наташа",
+      "aliases": [],
+      "facts": [
+        "Mother of Юлька and Alik",
+        "Concerned about her daughters' safety",
+        "Suspected someone was following Юлька",
+        "Tried to protect her daughters"
+      ],
+      "appearance": [],
+      "traits": [
+        "Worried",
+        "Protective",
+        "Cautious"
+      ],
+      "knowledge": [
+        "Someone was following Юлька",
+        "Needed to be careful"
+      ],
+      "goals": [
+        "Protect her daughters",
+        "Find out who was following Юлька"
+      ],
+      "relationships": [
+        "Mother: Юлька, Alik",
+        "Friend: Alina"
+      ],
+      "evidence": [
+        "Suspected someone was following Юлька",
+        "Tried to protect her daughters"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Home",
+      "facts": [
+        "Family had a secret meeting",
+        "Someone was following Юлька"
+      ],
+      "evidence": [
+        "Someone was following Юлька"
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Phone call",
+      "facts": [
+        "Mother and Alik Borisovich talked about Юлька"
+      ],
+      "evidence": [
+        "Mother and Alik Borisovich talked about Юлька"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Alik Borisovich called about a boy asking for Юлька's address",
+      "participants": [
+        "Alik Borisovich",
+        "Natasha"
+      ],
+      "location": "Home",
+      "causes": [
+        "Someone was following Юлька"
+      ],
+      "consequences": [
+        "Natasha was worried",
+        "Needed to be careful"
+      ],
+      "evidence": [
+        "Alik Borisovich called about a boy asking for Юлька's address"
+      ]
+    },
+    {
+      "event": "Someone came to the door claiming to be from school",
+      "participants": [
+        "Unknown person",
+        "Natasha"
+      ],
+      "location": "Home",
+      "causes": [
+        "Someone was following Юлька"
+      ],
+      "consequences": [
+        "Natasha was suspicious",
+        "Needed to be careful"
+      ],
+      "evidence": [
+        "Someone came to the door claiming to be from school"
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Parents are concerned about their children's safety",
+      "evidence": [
+        "Natasha was worried about Юлька"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "Who was following Юлька?",
+      "reason": "Unknown person came to the door claiming to be from school"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "characters": [
+    {
+      "name": "Коля",
+      "aliases": [],
+      "facts": [
+        "Kolya travels to the future and brings back evidence of his trip.",
+        "Kolya shares his experience with Fima.",
+        "Kolya is cautious about revealing the truth about the time machine."
+      ],
+      "appearance": [],
+      "traits": [
+        "Honest",
+        "Curious",
+        "Cautious"
+      ],
+      "knowledge": [
+        "Knows about the time machine and its operation.",
+        "Brings back various items from the future as evidence."
+      ],
+      "goals": [
+        "Prove the existence of the time machine to Fima."
+      ],
+      "relationships": [
+        "Fima"
+      ],
+      "evidence": [
+        "Tells Fima about his trip to the future and shows him evidence."
+      ]
+    },
+    {
+      "name": "Фима",
+      "aliases": [],
+      "facts": [
+        "Fima is skeptical at first but eventually believes Koly.",
+        "Fima eats all the food in the house."
+      ],
+      "appearance": [],
+      "traits": [
+        "Skeptical",
+        "Curious",
+        "Honest"
+      ],
+      "knowledge": [
+        "Initially doubts Koly's story."
+      ],
+      "goals": [
+        "Verify Koly's story."
+      ],
+      "relationships": [
+        "Koly"
+      ],
+      "evidence": [
+        "Eats all the food in the house."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Kolya's home",
+      "facts": [
+        "Kolya's mother prepares food for the family.",
+        "Kolya's time machine is hidden in a shoe box under the desk."
+      ],
+      "evidence": []
+    }
+  ],
+  "objects": [
+    {
+      "name": "Time machine",
+      "facts": [
+        "A simple device that can read thoughts.",
+        "Used to travel to the future."
+      ],
+      "evidence": []
+    },
+    {
+      "name": "Food items",
+      "facts": [
+        "Kolya brings back various items from the future, including a banana peel, a biscuit, and a rock."
+      ],
+      "evidence": []
+    }
+  ],
+  "events": [
+    {
+      "event": "Kolya shares his experience with Fima.",
+      "participants": [
+        "Kolya",
+        "Fima"
+      ],
+      "location": "Kolya's home",
+      "causes": [
+        "Kolya's return from the future."
+      ],
+      "consequences": [
+        "Fima initially doubts Koly's story but eventually believes him."
+      ],
+      "evidence": [
+        "Kolya shows Fima various items from the future."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "People can travel to the future and bring back evidence of their trip.",
+      "evidence": [
+        "Kolya's story and the items he brings back."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "Will Fima keep Koly's secret?",
+      "reason": "Kolya is concerned about revealing the truth about the time machine."
+    }
+  ]
+}

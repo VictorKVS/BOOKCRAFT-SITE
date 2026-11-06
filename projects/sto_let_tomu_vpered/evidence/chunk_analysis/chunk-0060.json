@@ -1,0 +1,184 @@
+{
+  "characters": [
+    {
+      "name": "Коля Сулима",
+      "aliases": [],
+      "facts": [
+        "He was brave but not a good athlete.",
+        "He helped in the fight against the pirates."
+      ],
+      "appearance": [],
+      "traits": [
+        "Brave",
+        "Inexperienced"
+      ],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Friend with Alica",
+        "Respected by classmates"
+      ],
+      "evidence": [
+        "He tried to fight the pirates but was not successful.",
+        "He was given medicine and told to rest by the time station operator."
+      ]
+    },
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "She was brave and helped in the fight against the pirates.",
+        "She was going to the future.",
+        "She had knowledge about the future."
+      ],
+      "appearance": [],
+      "traits": [
+        "Brave",
+        "Knowledgeable"
+      ],
+      "knowledge": [
+        "Future events of her classmates"
+      ],
+      "goals": [],
+      "relationships": [
+        "Friend with classmates",
+        "Leaving for the future"
+      ],
+      "evidence": [
+        "She knew about the future events of her classmates.",
+        "She was going to the future."
+      ]
+    },
+    {
+      "name": "Фима Королев",
+      "aliases": [],
+      "facts": [
+        "He was confident and brave.",
+        "He was part of the operation against the pirates."
+      ],
+      "appearance": [],
+      "traits": [
+        "Confident",
+        "Brave"
+      ],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Leader of the operation against the pirates",
+        "Friend with Alica"
+      ],
+      "evidence": [
+        "He was part of the operation against the pirates."
+      ]
+    },
+    {
+      "name": "Крысс",
+      "aliases": [
+        "Крысс с планеты Крокрыс",
+        "Наполеон Бонапарт"
+      ],
+      "facts": [
+        "He was a pirate.",
+        "He was defeated by the students."
+      ],
+      "appearance": [],
+      "traits": [
+        "Cunning",
+        "Aggressive"
+      ],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Enemy of the students"
+      ],
+      "evidence": [
+        "He was defeated by the students.",
+        "He was a pirate."
+      ]
+    },
+    {
+      "name": "Николай Николаевич",
+      "aliases": [],
+      "facts": [
+        "He was the operator of the time station.",
+        "He was responsible for the incident."
+      ],
+      "appearance": [],
+      "traits": [
+        "Responsible",
+        "Caring"
+      ],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Operator of the time station",
+        "Responsible for the incident"
+      ],
+      "evidence": [
+        "He was the operator of the time station.",
+        "He was responsible for the incident."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Подвал",
+      "facts": [
+        "The location of the fight against the pirates."
+      ],
+      "evidence": [
+        "The fight against the pirates took place in the basement."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Миелофон",
+      "facts": [
+        "It was a valuable object.",
+        "It was used by the pirates."
+      ],
+      "evidence": [
+        "The mieloфон was a valuable object.",
+        "The pirates were after the mieloфон."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Fight against the pirates",
+      "participants": [
+        "Коля Сулима",
+        "Алиса",
+        "Фима Королев",
+        "Крысс"
+      ],
+      "location": "Подвал",
+      "causes": [
+        "Pirates were after the mieloфон."
+      ],
+      "consequences": [
+        "Pirates were defeated.",
+        "Students learned about the future."
+      ],
+      "evidence": [
+        "The fight against the pirates took place in the basement.",
+        "Pirates were defeated."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Students cannot use the time machine without permission.",
+      "evidence": [
+        "A student used the time machine without permission."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "What will happen to the future events of the students?",
+      "reason": "Alica knows about the future events of her classmates."
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "characters": [
+    {
+      "name": "Alysa",
+      "aliases": [],
+      "facts": [
+        "Specializes in biology, wants to work with animals, has a father who is a space biologist",
+        "Has a device called 'mieloфон' that can read thoughts",
+        "Told about a brontosaurus named Bronte",
+        "Lost the mieloфон and suspects a boy named Kolya",
+        "Discussed time travel with Yulia"
+      ],
+      "appearance": [],
+      "traits": [
+        "Curious",
+        "Determined",
+        "Concerned about time travel"
+      ],
+      "knowledge": [
+        "Has knowledge of brontosaurus",
+        "Familiar with mieloфон device",
+        "Understands time travel concepts"
+      ],
+      "goals": [
+        "Find the mieloфон",
+        "Understand the incident with Kolya",
+        "Prevent misuse of time travel technology"
+      ],
+      "relationships": [
+        "Friend with Yulia",
+        "Father is a space biologist"
+      ],
+      "evidence": [
+        "I have a father who is a space biologist, and I want to work with animals.",
+        "I have a device called 'mieloфон' that can read thoughts.",
+        "I told about a brontosaurus named Bronte.",
+        "I lost the mieloфон and suspects a boy named Kolya.",
+        "I discussed time travel with Yulia."
+      ]
+    },
+    {
+      "name": "Yulia",
+      "aliases": [],
+      "facts": [
+        "Has a father who is a pilot",
+        "Attends the 6th class B of the 26th school",
+        "Discussed time travel with Alysa"
+      ],
+      "appearance": [],
+      "traits": [
+        "Curious",
+        "Supportive"
+      ],
+      "knowledge": [
+        "Familiar with time travel concepts",
+        "Attends school"
+      ],
+      "goals": [
+        "Help Alysa find the mieloфон",
+        "Understand the incident with Kolya"
+      ],
+      "relationships": [
+        "Friend with Alysa",
+        "Has a father who is a pilot"
+      ],
+      "evidence": [
+        "I have a father who is a pilot.",
+        "I attend the 6th class B of the 26th school.",
+        "I discussed time travel with Alysa."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Cosmozo",
+      "facts": [
+        "A park with a zoo",
+        "Has a brontosaurus named Bronte"
+      ],
+      "evidence": []
+    },
+    {
+      "name": "Moscow",
+      "facts": [
+        "Has an autobus system",
+        "Has a school district"
+      ],
+      "evidence": []
+    }
+  ],
+  "objects": [
+    {
+      "name": "Mieloфон",
+      "facts": [
+        "Device that can read thoughts",
+        "Rare and valuable",
+        "Left by Alysa in the zoo"
+      ],
+      "evidence": []
+    }
+  ],
+  "events": [
+    {
+      "event": "Alysa lost the mieloфон and suspects Kolya",
+      "participants": [
+        "Alysa",
+        "Kolya"
+      ],
+      "location": "Moscow",
+      "causes": [
+        "Alysa left the mieloфон in the zoo",
+        "Kolya took the mieloфон"
+      ],
+      "consequences": [
+        "Alysa suspects Kolya",
+        "Alysa searches for Kolya"
+      ],
+      "evidence": [
+        "Alysa left the mieloфон in the zoo.",
+        "Kolya took the mieloфон."
+      ]
+    },
+    {
+      "event": "Alysa discusses time travel with Yulia",
+      "participants": [
+        "Alysa",
+        "Yulia"
+      ],
+      "location": "Moscow",
+      "causes": [
+        "Alysa suspects Kolya",
+        "Alysa needs help"
+      ],
+      "consequences": [
+        "Yulia understands the situation",
+        "Yulia supports Alysa"
+      ],
+      "evidence": [
+        "Alysa suspects Kolya.",
+        "Alysa needs help."
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Time travel is strictly regulated and only allowed for scientists who are specially trained.",
+      "evidence": [
+        "Time travel is strictly regulated and only allowed for scientists who are specially trained."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "How did Kolya get the mieloфон?",
+      "reason": "Alysa suspects Kolya but does not know how he got the device."
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "characters": [
+    {
+      "name": "Юлька",
+      "aliases": [],
+      "facts": [
+        "Suspects Kolya Sadovsky as the thief.",
+        "Discovers the impostor doctor.",
+        "Discusses the situation with Alica."
+      ],
+      "appearance": [],
+      "traits": [
+        "Determined",
+        "Logical",
+        "Curious"
+      ],
+      "knowledge": [
+        "Knows about the future device",
+        "Understands the situation with the impostor doctor"
+      ],
+      "goals": [
+        "Find the stolen device",
+        "Protect Alica"
+      ],
+      "relationships": [
+        "Friends with Alica",
+        "Suspects Kolya Sadovsky"
+      ],
+      "evidence": [
+        "The impostor doctor's mismatched shoes"
+      ]
+    },
+    {
+      "name": "Alica",
+      "aliases": [],
+      "facts": [
+        "Wakes up early",
+        "Discusses the situation with Yuika"
+      ],
+      "appearance": [],
+      "traits": [
+        "Worried",
+        "Cautious"
+      ],
+      "knowledge": [
+        "Knows about the stolen device",
+        "Recognizes the impostor doctor"
+      ],
+      "goals": [
+        "Protect the stolen device",
+        "Find the real doctor"
+      ],
+      "relationships": [
+        "Friends with Yuika"
+      ],
+      "evidence": [
+        "The impostor doctor's mismatched shoes"
+      ]
+    },
+    {
+      "name": "Kolya Sadovsky",
+      "aliases": [],
+      "facts": [
+        "Suspected of stealing the device",
+        "Described as careless and untrustworthy"
+      ],
+      "appearance": [],
+      "traits": [
+        "Careless",
+        "Untrustworthy"
+      ],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Suspected by Yuika"
+      ],
+      "evidence": []
+    },
+    {
+      "name": "Doctor Alik",
+      "aliases": [],
+      "facts": [
+        "Impostor",
+        "Wears mismatched shoes"
+      ],
+      "appearance": [],
+      "traits": [
+        "Rash",
+        "Careless"
+      ],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [],
+      "evidence": [
+        "Wears mismatched shoes"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Hospital",
+      "facts": [
+        "Yuika and Alica are patients",
+        "Window was broken"
+      ],
+      "evidence": [
+        "Broken window"
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Device",
+      "facts": [
+        "Stolen by the impostor",
+        "Used to find Kolya"
+      ],
+      "evidence": [
+        "Device missing"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Discovery of the impostor doctor",
+      "participants": [
+        "Yuika",
+        "Alica",
+        "Doctor Alik"
+      ],
+      "location": "Hospital",
+      "causes": [
+        "Doctor Alik's mismatched shoes"
+      ],
+      "consequences": [
+        "Real doctor is found",
+        "Device is suspected to be stolen"
+      ],
+      "evidence": [
+        "Doctor Alik's mismatched shoes"
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Mismatched shoes can be a sign of an impostor",
+      "evidence": [
+        "Doctor Alik's mismatched shoes"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "Who stole the device?",
+      "reason": "Suspects include Kolya Sadovsky and the impostor doctor."
+    }
+  ]
+}

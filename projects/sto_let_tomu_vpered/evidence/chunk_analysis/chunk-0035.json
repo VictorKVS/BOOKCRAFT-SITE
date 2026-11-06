@@ -1,0 +1,210 @@
+{
+  "characters": [
+    {
+      "name": "Алиса",
+      "aliases": [],
+      "facts": [
+        "Escaped from a psychiatric hospital",
+        "Has a friend named Natasha",
+        "Does not know how to pay for the tram ticket"
+      ],
+      "appearance": [],
+      "traits": [
+        "Cautious",
+        "Thoughtful",
+        "Honest"
+      ],
+      "knowledge": [
+        "Knows about paying for tram tickets"
+      ],
+      "goals": [
+        "Reach her friend's place"
+      ],
+      "relationships": [
+        "Friends with Fima and Kolya"
+      ],
+      "evidence": [
+        "Escaped from a psychiatric hospital",
+        "Has a friend named Natasha",
+        "Does not know how to pay for the tram ticket"
+      ]
+    },
+    {
+      "name": "Fima Korolev",
+      "aliases": [
+        "Ефим"
+      ],
+      "facts": [
+        "Helped Alica escape",
+        "Has a friend named Kolya Sulyama",
+        "Has weak glands and gets sick easily",
+        "Is in a diet"
+      ],
+      "appearance": [],
+      "traits": [
+        "Generous",
+        "Talkative",
+        "Caring"
+      ],
+      "knowledge": [
+        "How to pay for tram tickets"
+      ],
+      "goals": [
+        "Help Alica",
+        "Find a use for the money"
+      ],
+      "relationships": [
+        "Friends with Kolya Sulyama"
+      ],
+      "evidence": [
+        "Helped Alica escape",
+        "Has a friend named Kolya Sulyama",
+        "Has weak glands and gets sick easily",
+        "Is in a diet"
+      ]
+    },
+    {
+      "name": "Kolya Sulyama",
+      "aliases": [],
+      "facts": [
+        "Helped Alica escape",
+        "Is on a diet",
+        "Is more cautious than Fima"
+      ],
+      "appearance": [],
+      "traits": [
+        "Cautious",
+        "Talkative",
+        "Complaining"
+      ],
+      "knowledge": [
+        "How to pay for tram tickets"
+      ],
+      "goals": [
+        "Help Alica",
+        "Complain about Fima"
+      ],
+      "relationships": [
+        "Friends with Fima"
+      ],
+      "evidence": [
+        "Helped Alica escape",
+        "Is on a diet",
+        "Is more cautious than Fima"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Psychiatric hospital",
+      "facts": [
+        "Alica escaped from here"
+      ],
+      "evidence": [
+        "Alica escaped from a psychiatric hospital"
+      ]
+    },
+    {
+      "name": "Tram stop",
+      "facts": [
+        "Alica, Fima, and Kolya took a tram"
+      ],
+      "evidence": [
+        "They took a tram"
+      ]
+    },
+    {
+      "name": "Downtown area",
+      "facts": [
+        "Alica, Fima, and Kolya walked through the downtown area"
+      ],
+      "evidence": [
+        "They walked through the downtown area"
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Tram ticket",
+      "facts": [
+        "Alica had three two-kopeck coins",
+        "Fima and Kolya paid for Alica's ticket"
+      ],
+      "evidence": [
+        "Alica had three two-kopeck coins",
+        "Fima and Kolya paid for Alica's ticket"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Alica escapes from a psychiatric hospital",
+      "participants": [
+        "Alica"
+      ],
+      "location": "Psychiatric hospital",
+      "causes": [
+        "Feeling trapped and bored"
+      ],
+      "consequences": [
+        "Meets Fima and Kolya on the street"
+      ],
+      "evidence": [
+        "Alica escaped from a psychiatric hospital",
+        "Alica met Fima and Kolya on the street"
+      ]
+    },
+    {
+      "event": "Alica, Fima, and Kolya take a tram",
+      "participants": [
+        "Alica",
+        "Fima",
+        "Kolya"
+      ],
+      "location": "Tram stop",
+      "causes": [
+        "Alica needs to reach her friend's place"
+      ],
+      "consequences": [
+        "Alica pays for the ticket with Fima and Kolya's help"
+      ],
+      "evidence": [
+        "They took a tram",
+        "Alica paid for the ticket with Fima and Kolya's help"
+      ]
+    },
+    {
+      "event": "Alica, Fima, and Kolya walk through the downtown area",
+      "participants": [
+        "Alica",
+        "Fima",
+        "Kolya"
+      ],
+      "location": "Downtown area",
+      "causes": [
+        "Alica needs to reach her friend's place"
+      ],
+      "consequences": [
+        "Alica learns about Fima's diet and Kolya's cautiousness"
+      ],
+      "evidence": [
+        "They walked through the downtown area",
+        "Alica learned about Fima's diet and Kolya's cautiousness"
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "People can help each other in the city",
+      "evidence": [
+        "Alica, Fima, and Kolya helped each other"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "Why did Alica escape from the psychiatric hospital?",
+      "reason": "Alica did not specify the reason for her escape"
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "characters": [
+    {
+      "name": "Юлька",
+      "aliases": [],
+      "facts": [
+        "Witnessed Alik Borisovich's shoes switching places",
+        "Fought against the intruder",
+        "Believed Alik Borisovich was a space pirate"
+      ],
+      "appearance": [],
+      "traits": [
+        "Curious",
+        "Brave",
+        "Quick to act"
+      ],
+      "knowledge": [
+        "Alik Borisovich was not present in the hospital",
+        "Alik Borisovich was out with his girlfriend"
+      ],
+      "goals": [],
+      "relationships": [
+        "Friend with Alik Borisovich",
+        "Friend with Alica"
+      ],
+      "evidence": [
+        "Alik Borisovich's shoes were on the wrong feet",
+        "Alica revealed Alik Borisovich was a space pirate named Veselechak U",
+        "Alica was from the future, specifically the 21st century"
+      ]
+    },
+    {
+      "name": "Alica",
+      "aliases": [],
+      "facts": [
+        "Revealed Alik Borisovich was a space pirate named Veselechak U",
+        "Was from the future, specifically the 21st century",
+        "Fought against the intruder",
+        "Was not Alik Borisovich's daughter"
+      ],
+      "appearance": [],
+      "traits": [
+        "Clever",
+        "Resourceful",
+        "Honest"
+      ],
+      "knowledge": [
+        "Alik Borisovich was not present in the hospital",
+        "Alik Borisovich was out with his girlfriend"
+      ],
+      "goals": [],
+      "relationships": [
+        "Friend with Yuika",
+        "Not related to Alik Borisovich"
+      ],
+      "evidence": [
+        "Alik Borisovich's shoes were on the wrong feet",
+        "Alica revealed Alik Borisovich was a space pirate named Veselechak U",
+        "Alica was from the future, specifically the 21st century"
+      ]
+    },
+    {
+      "name": "Alik Borisovich",
+      "aliases": [
+        "Alik",
+        "Alik with girlfriend"
+      ],
+      "facts": [
+        "Was not present in the hospital",
+        "Was out with his girlfriend",
+        "Was not the father of Alica"
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [
+        "Father of Alica (disputed)",
+        "Friend with Yuika"
+      ],
+      "evidence": [
+        "Alik Borisovich's shoes were on the wrong feet",
+        "Alica revealed Alik Borisovich was a space pirate named Veselechak U",
+        "Alik Borisovich was not present in the hospital",
+        "Alik Borisovich was out with his girlfriend"
+      ]
+    },
+    {
+      "name": "Maria Pavlovna",
+      "aliases": [],
+      "facts": [
+        "Was confused about the events",
+        "Attempted to investigate the events",
+        "Was not the intruder"
+      ],
+      "appearance": [],
+      "traits": [],
+      "knowledge": [],
+      "goals": [],
+      "relationships": [],
+      "evidence": [
+        "Was confused about the events",
+        "Attempted to investigate the events"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Hospital",
+      "facts": [
+        "Intruder broke into the hospital",
+        "Alica and Yuika fought against the intruder",
+        "Alik Borisovich was not present"
+      ],
+      "evidence": [
+        "Alik Borisovich's shoes were on the wrong feet",
+        "Alica revealed Alik Borisovich was a space pirate named Veselechak U",
+        "Alica was from the future, specifically the 21st century"
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "Alik Borisovich's shoes",
+      "facts": [
+        "Switched places on their own",
+        "Were on the wrong feet"
+      ],
+      "evidence": [
+        "Alik Borisovich's shoes were on the wrong feet"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Intruder breaks into the hospital",
+      "participants": [
+        "Intruder",
+        "Alica",
+        "Yuika"
+      ],
+      "location": "Hospital",
+      "causes": [
+        "Alik Borisovich's shoes switching places"
+      ],
+      "consequences": [
+        "Alica and Yuika fight the intruder",
+        "Alik Borisovich not present"
+      ],
+      "evidence": [
+        "Alik Borisovich's shoes were on the wrong feet",
+        "Alica revealed Alik Borisovich was a space pirate named Veselechak U",
+        "Alica was from the future, specifically the 21st century"
+      ]
+    }
+  ],
+  "world_rules": [
+    {
+      "rule": "Intruders can break into hospitals and cause chaos",
+      "evidence": [
+        "Alica revealed Alik Borisovich was a space pirate named Veselechak U",
+        "Alica was from the future, specifically the 21st century"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "Who was the intruder?",
+      "reason": "Alica and Yuika's fight with the intruder"
+    }
+  ]
+}
