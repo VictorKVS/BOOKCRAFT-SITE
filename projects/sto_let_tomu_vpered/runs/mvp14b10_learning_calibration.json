@@ -1,0 +1,26 @@
+{
+  "stage": "MVP-14B10_LEARNING_CALIBRATION",
+  "result": "PASS",
+  "hypotheses_input": 0,
+  "predictions_input": 0,
+  "backtests_input": 0,
+  "decisive_backtests": 0,
+  "calibration_updates_applied": 0,
+  "prediction_support_weight_before": 1.0,
+  "prediction_support_weight_after": 1.0,
+  "review_queue": 0,
+  "regression_tests": {
+    "small_sample_guard": "PASS",
+    "confirmed_increases_weight": "PASS",
+    "refuted_decreases_weight": "PASS",
+    "pending_no_effect": "PASS"
+  },
+  "invariants": {
+    "canon_never_mutated": true,
+    "hypotheses_never_auto_promoted_by_learning": true,
+    "small_samples_do_not_change_weights": true,
+    "pending_not_treated_as_failure": true,
+    "bounded_weight_updates": true,
+    "deterministic_learning_policy": true
+  }
+}

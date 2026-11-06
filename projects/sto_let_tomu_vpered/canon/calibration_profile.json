@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "work_id": "sto_let_tomu_vpered",
+  "profile_type": "PREDICTION_CALIBRATION_PROFILE",
+  "policy_version": "MVP-14B10-v1",
+  "parameters": {
+    "prediction_support_weight": 1.0
+  },
+  "policy": {
+    "default_weight": 1.0,
+    "min_weight": 0.5,
+    "max_weight": 1.5,
+    "step": 0.05,
+    "minimum_decisive_observations_for_adjustment": 3,
+    "pending_and_mixed_do_not_change_weight": true
+  },
+  "evidence_summary": {
+    "backtests_total": 0,
+    "decisive_backtests": 0,
+    "confirmed": 0,
+    "refuted": 0,
+    "mixed": 0,
+    "pending": 0
+  },
+  "update_applied": false
+}
