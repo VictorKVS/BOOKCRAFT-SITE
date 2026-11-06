@@ -1,0 +1,15 @@
+{
+  "stage": "MVP-14B2_CLAIM_LEVEL_CANON",
+  "result": "PASS",
+  "work_id": "sto_let_tomu_vpered",
+  "chunks_analyzed": 3,
+  "model": "qwen2.5:7b",
+  "claims_total": 32,
+  "source_supported": 26,
+  "source_unsupported": 4,
+  "derived": 0,
+  "hypotheses": 2,
+  "mentions": 8,
+  "events": 8,
+  "terms": 3
+}

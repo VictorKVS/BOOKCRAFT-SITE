@@ -1,0 +1,450 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0001",
+    "start_paragraph": 0,
+    "end_paragraph": 36,
+    "mentions": [
+      {
+        "mention_id": "primary-0001-m-0001",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0001-c-0001",
+            "predicate": "имеет",
+            "value": "свободное воскресенье",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "SUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0001",
+                "paragraph_start": 2,
+                "paragraph_end": 4,
+                "quote": "Когда Коля проснулся, родителей уже не было. На столе лежала записка с просьбой сходить за кефиром и рубль.",
+                "quote_verified": true
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0001-c-0002",
+            "predicate": "не умеет",
+            "value": "пользоваться своим счастьем",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0001",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "А сами себя считают совсем молодыми, купили катер, красят его и лелеют, втаскивают на берег, спускают в воду, чинят мотор, созывают гости, чтобы жарить шашлыки и петь туристские песни. Но путешественники они никудышные, совершенно не умеют пользоваться своим счастьем.",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0001-c-0003",
+            "predicate": "не хочет",
+            "value": "пойти с родителями на катер",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "SUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0001",
+                "paragraph_start": 2,
+                "paragraph_end": 4,
+                "quote": "Когда Коля проснулся, родителей уже не было. На столе лежала записка с просьбой сходить за кефиром и рубль.",
+                "quote_verified": true
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0001-c-0004",
+            "predicate": "имеет",
+            "value": "свободное время",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "SUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0001",
+                "paragraph_start": 2,
+                "paragraph_end": 4,
+                "quote": "Когда Коля проснулся, родителей уже не было. На столе лежала записка с просьбой сходить за кефиром и рубль.",
+                "quote_verified": true
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0001-c-0005",
+            "predicate": "имеет",
+            "value": "соседа по имени Николай Николаевич",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "SUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0001",
+                "paragraph_start": 2,
+                "paragraph_end": 4,
+                "quote": "Когда Коля проснулся, родителей уже не было. На столе лежала записка с просьбой сходить за кефиром и рубль.",
+                "quote_verified": true
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0001-c-0006",
+            "predicate": "имеет",
+            "value": "модель фрегата",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "SUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0001",
+                "paragraph_start": 20,
+                "paragraph_end": 22,
+                "quote": "Когда Фима Королев из Колиного класса узнал про фрегат, он стал проситься в гости к Николаю Николаевичу, но Коля не спешил вести его в гости.",
+                "quote_verified": true
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0001-c-0007",
+            "predicate": "имеет",
+            "value": "друзя по имени Фима",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "SUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0001",
+                "paragraph_start": 20,
+                "paragraph_end": 22,
+                "quote": "Когда Фима Королев из Колиного класса узнал про фрегат, он стал проситься в гости к Николаю Николаевичу, но Коля не спешил вести его в гости.",
+                "quote_verified": true
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0001-c-0008",
+            "predicate": "имеет",
+            "value": "старинный кремнёвый пистолет",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "SUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0001",
+                "paragraph_start": 27,
+                "paragraph_end": 29,
+                "quote": "Коля снял со стены пистолет, отвёл ударник и прицелился в окно.",
+                "quote_verified": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0001-m-0002",
+        "surface": "Николай Николаевич",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0001-c-0009",
+            "predicate": "болеет",
+            "value": "сердечным приступом",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "SUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0001",
+                "paragraph_start": 2,
+                "paragraph_end": 4,
+                "quote": "Когда Коля проснулся, родителей уже не было. На столе лежала записка с просьбой сходить за кефиром и рубль.",
+                "quote_verified": true
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0001-c-0010",
+            "predicate": "имеет",
+            "value": "модель фрегата",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "SUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0001",
+                "paragraph_start": 20,
+                "paragraph_end": 22,
+                "quote": "Когда Фима Королев из Колиного класса узнал про фрегат, он стал проситься в гости к Николаю Николаевичу, но Коля не спешил вести его в гости.",
+                "quote_verified": true
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0001-c-0011",
+            "predicate": "имеет",
+            "value": "ключ от квартиры",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "SUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0001",
+                "paragraph_start": 2,
+                "paragraph_end": 4,
+                "quote": "Когда Коля проснулся, родителей уже не было. На столе лежала записка с просьбой сходить за кефиром и рубль.",
+                "quote_verified": true
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0001-c-0012",
+            "predicate": "работает",
+            "value": "вне дома",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "SUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0001",
+                "paragraph_start": 5,
+                "paragraph_end": 7,
+                "quote": "Сосед жил один, часто ездил в командировки, а где он работал, Коля не знал.",
+                "quote_verified": true
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0001-c-0013",
+            "predicate": "имеет",
+            "value": "друзя из Мурманска",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "SUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0001",
+                "paragraph_start": 2,
+                "paragraph_end": 4,
+                "quote": "Когда Коля проснулся, родителей уже не было. На столе лежала записка с просьбой сходить за кефиром и рубль.",
+                "quote_verified": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0001-m-0003",
+        "surface": "Фима Королев",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0001-c-0014",
+            "predicate": "просит",
+            "value": "в гости к Николаю Николаевичу",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "SUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0001",
+                "paragraph_start": 20,
+                "paragraph_end": 22,
+                "quote": "Когда Фима Королев из Колиного класса узнал про фрегат, он стал проситься в гости к Николаю Николаевичу, но Коля не спешил вести его в гости.",
+                "quote_verified": true
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0001-e-0001",
+        "event": "Коля проснулся и увидел записку с просьбой сходить за кефиром и рубль",
+        "participants": [
+          "{'name': 'Коля'}"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0001-c-0015",
+            "predicate": "имеет",
+            "value": "свободное время",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "SUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0001",
+                "paragraph_start": 2,
+                "paragraph_end": 4,
+                "quote": "Когда Коля проснулся, родителей уже не было. На столе лежала записка с просьбой сходить за кефиром и рубль.",
+                "quote_verified": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0001-e-0002",
+        "event": "Коля увидел ключ от квартиры Николая Николаевича",
+        "participants": [
+          "{'name': 'Коля'}"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0001-c-0016",
+            "predicate": "имеет",
+            "value": "ключ от квартиры Николая Николаевича",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "SUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0001",
+                "paragraph_start": 2,
+                "paragraph_end": 4,
+                "quote": "Когда Коля проснулся, родителей уже не было. На столе лежала записка с просьбой сходить за кефиром и рубль.",
+                "quote_verified": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0001-e-0003",
+        "event": "Коля взял лист бумаги, линейку и карандаш и открыл дверь к соседу",
+        "participants": [
+          "{'name': 'Коля'}"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0001-c-0017",
+            "predicate": "имеет",
+            "value": "лист бумаги, линейку и карандаш",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "SUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0001",
+                "paragraph_start": 25,
+                "paragraph_end": 27,
+                "quote": "Коля закрыл за собой дверь, спрятал ключ в карман, зажёг свет в коридоре, чтобы полюбоваться на африканские маски, которые висели на стене и скалили зубы.",
+                "quote_verified": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0001-e-0004",
+        "event": "Коля взял модель фрегата и начал измерять её",
+        "participants": [
+          "{'name': 'Коля'}"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0001-c-0018",
+            "predicate": "имеет",
+            "value": "модель фрегата",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "SUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0001",
+                "paragraph_start": 20,
+                "paragraph_end": 22,
+                "quote": "Когда Фима Королев из Колиного класса узнал про фрегат, он стал проситься в гости к Николаю Николаевичу, но Коля не спешил вести его в гости.",
+                "quote_verified": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0001-e-0005",
+        "event": "Коля взял старинный кремнёвый пистолет",
+        "participants": [
+          "{'name': 'Коля'}"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0001-c-0019",
+            "predicate": "имеет",
+            "value": "старинный кремнёвый пистолет",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "SUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0001",
+                "paragraph_start": 27,
+                "paragraph_end": 29,
+                "quote": "Коля снял со стены пистолет, отвёл ударник и прицелился в окно.",
+                "quote_verified": true
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0001-t-0001",
+        "term": "фрегат",
+        "category": "SPECIES",
+        "definition_claim": {
+          "claim_id": "primary-0001-c-0020",
+          "predicate": "definition",
+          "value": "модель фрегата сделана из двух тысяч частей и точно скопирована с настоящего.",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "SUPPORTED",
+          "evidence": [
+            {
+              "chunk_id": "primary-0001",
+              "paragraph_start": 21,
+              "paragraph_end": 23,
+              "quote": "Когда Фима Королев из Колиного класса узнал про фрегат, он стал проситься в гости к Николаю Николаевичу, но Коля не спешил вести его в гости. Фиму опасно водить в гости, потому что он страшно нахальный, неуклюжий, обязательно что-нибудь схватит и разобьёт. Фиме надоело напоминать, и он сказал: — Сними мне мерку с фрегата. Я собираюсь строить парусник, а литературы мало. Что тебе стоит помочь человеку!",
+              "quote_verified": true
+            }
+          ]
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Что скрывается за дверью в задней комнате у Николая Николаевича?",
+        "reason": "В тексте упоминается, что дверь всегда заперта, но не указывается, что скрывается за ней."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 20,
+    "source_supported": 19,
+    "source_unsupported": 1,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 3,
+    "events": 5,
+    "terms": 1
+  }
+}

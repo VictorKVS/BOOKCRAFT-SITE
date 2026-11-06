@@ -1,0 +1,224 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0002",
+    "start_paragraph": 37,
+    "end_paragraph": 75,
+    "mentions": [
+      {
+        "mention_id": "primary-0002-m-0001",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0002-c-0001",
+            "predicate": "предполагает",
+            "value": "это вещи приезжих друзей Николая Николаевича",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "SUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0002",
+                "paragraph_start": 47,
+                "paragraph_end": 49,
+                "quote": "Следопыт Коля предположил, что это вещи приезжих друзей Николая Николаевича.",
+                "quote_verified": true
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0002-c-0002",
+            "predicate": "предполагает",
+            "value": "в комнате редкое животное",
+            "provenance": "HYPOTHESIS",
+            "confidence": "POSSIBLE",
+            "acceptance": "HYPOTHESIS_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0002",
+                "paragraph_start": 37,
+                "paragraph_end": 38,
+                "quote": "а что, если сосед держит в задней комнате какое-нибудь редкое животное?",
+                "quote_verified": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0002-m-0002",
+        "surface": "анаконда",
+        "entity_type": "SPECIES",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0002-c-0003",
+            "predicate": "представляет опасность",
+            "value": "голодное животное, которое может умереть от голода",
+            "provenance": "HYPOTHESIS",
+            "confidence": "POSSIBLE",
+            "acceptance": "HYPOTHESIS_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0002",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "А если тигр, то он будет несколько дней метаться по комнате и, если не удастся разломать стены, умрёт от голода.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0002-m-0003",
+        "surface": "шкаф",
+        "entity_type": "OBJECT",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0002-c-0004",
+            "predicate": "содержит",
+            "value": "одежду для разных людей",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0002",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Внутри висели разные костюмы и плащи, а под ними — мужские и женские ботинки и туфли разного размера. А снаружи к шкафу были прислонены три раскладушки.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0002-m-0004",
+        "surface": "приборная панель",
+        "entity_type": "TECHNOLOGY",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0002-c-0005",
+            "predicate": "представляет собой",
+            "value": "систему переключателей и кнопок",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "SUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0002",
+                "paragraph_start": 53,
+                "paragraph_end": 55,
+                "quote": "По её нижней, вытянутой вперёд пологой части шло два ряда кнопок. Чуть повыше был ряд переключателей. Затем ряд циферблатов.",
+                "quote_verified": true
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0002-e-0001",
+        "event": "Коля открывает шкаф",
+        "participants": [
+          "Коля"
+        ],
+        "location": "комната",
+        "claims": [
+          {
+            "claim_id": "primary-0002-c-0006",
+            "predicate": "находит",
+            "value": "одежду для разных людей",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0002",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Внутри висели разные костюмы и плащи, а под ними — мужские и женские ботинки и туфли разного размера. А снаружи к шкафу были прислонены три раскладушки.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0002-e-0002",
+        "event": "Коля открывает приборную панель",
+        "participants": [
+          "Коля"
+        ],
+        "location": "шкаф",
+        "claims": [
+          {
+            "claim_id": "primary-0002-c-0007",
+            "predicate": "исследует",
+            "value": "переключатели и кнопки",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "SUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0002",
+                "paragraph_start": 53,
+                "paragraph_end": 55,
+                "quote": "Коля стал рассматривать панель. По её нижней, вытянутой вперёд пологой части шло два ряда кнопок. Чуть повыше был ряд переключателей. Затем ряд циферблатов.",
+                "quote_verified": true
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0002-t-0001",
+        "term": "приборная панель",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0002-c-0008",
+          "predicate": "definition",
+          "value": "система переключателей и кнопок",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "SUPPORTED",
+          "evidence": [
+            {
+              "chunk_id": "primary-0002",
+              "paragraph_start": 53,
+              "paragraph_end": 55,
+              "quote": "По её нижней, вытянутой вперёд пологой части шло два ряда кнопок. Чуть повыше был ряд переключателей. Затем ряд циферблатов.",
+              "quote_verified": true
+            }
+          ]
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Что происходит, когда Коля нажимает на переключатель «Пуск»?",
+        "reason": "Точного описания не дано, только что ничего не происходит, и Коля понимает, что не сделал что-то важное."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 8,
+    "source_supported": 4,
+    "source_unsupported": 2,
+    "derived": 0,
+    "hypotheses": 2,
+    "mentions": 4,
+    "events": 2,
+    "terms": 1
+  }
+}
