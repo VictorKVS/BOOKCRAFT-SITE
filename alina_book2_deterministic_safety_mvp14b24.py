@@ -146,6 +146,7 @@ def main() -> int:
         return 1
 
     checked=passed=review=rejected=0
+    candidate_claims=0
     errors={}
 
     for i,path in enumerate(files,1):
@@ -157,8 +158,11 @@ def main() -> int:
         print(f"[{i}/{len(files)}] SAFETY {chunk_id}")
 
         for scope,subject,claim in iter_claims(validated):
-            if claim.get("acceptance") not in {"FINAL_CANON_CANDIDATE","FINAL_REVIEW"}:
+            precision = claim.get("precision_gate") or {}
+            precision_verdict = str(precision.get("verdict","")).upper()
+            if precision_verdict not in {"FINAL_CANON_CANDIDATE","REVIEW"}:
                 continue
+            candidate_claims += 1
             context=context_for(chunk_id,claim,meta_by_id[chunk_id],radius=5)
             verdict,error_type,reason=deterministic_verdict(subject,claim,context)
             claim["deterministic_safety"]={
@@ -180,13 +184,17 @@ def main() -> int:
 
         path.write_text(json.dumps(package,ensure_ascii=False,indent=2),encoding="utf-8")
 
-    if checked==0:
-        print("FAIL zero_final_candidates_checked")
+    if candidate_claims > 0 and checked==0:
+        print(f"FAIL zero_final_candidates_checked_with_candidates: {candidate_claims}")
+        return 1
+    if candidate_claims == 0:
+        print("FAIL no_precision_candidates_found")
         return 1
 
     result={
         "stage":"MVP-14B2_4_DETERMINISTIC_CANON_SAFETY",
         "result":"PASS",
+        "candidate_claims":candidate_claims,
         "claims_checked":checked,
         "safe_canon_candidates":passed,
         "review":review,
@@ -200,6 +208,7 @@ def main() -> int:
     )
     lines=[
         "# MVP-14B2.4 Deterministic Canon Safety Filter","",
+        f"- Candidate claims: {candidate_claims}",
         f"- Claims checked: {checked}",
         f"- SAFE_CANON_CANDIDATE: {passed}",
         f"- SAFETY_REVIEW: {review}",
@@ -212,6 +221,7 @@ def main() -> int:
         "\n".join(lines),encoding="utf-8"
     )
 
+    print(f"PASS candidate_claims: {candidate_claims}")
     print(f"PASS claims_checked: {checked}")
     print(f"PASS safe_canon_candidates: {passed}")
     print(f"CHECK safety_review: {review}")
