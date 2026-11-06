@@ -1,10 +1,12 @@
 # MVP-14B2.4 Deterministic Canon Safety Filter
 
+- Candidate claims: 9
 - Claims checked: 9
-- SAFE_CANON_CANDIDATE: 6
+- SAFE_CANON_CANDIDATE: 7
 - SAFETY_REVIEW: 0
-- REJECTED: 3
+- REJECTED: 2
 
 ## Error types
-- NARRATIVE_MODE: 3
-- NONE: 6
+- IDENTITY_OVERREACH: 1
+- NARRATIVE_MODE: 1
+- NONE: 7

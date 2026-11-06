@@ -48,7 +48,7 @@
             "deterministic_safety": {
               "verdict": "REJECT",
               "error_type": "NARRATIVE_MODE",
-              "reason": "Контекст содержит маркер воображаемого/гипотетического сценария: 'придумал'."
+              "reason": "Контекст временного/world-state claim содержит маркер воображаемого сценария: 'придумал'."
             }
           },
           {
@@ -57,7 +57,7 @@
             "value": "на лестнице",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SAFE_CANON_CANDIDATE",
+            "acceptance": "REJECTED_BY_DETERMINISTIC_SAFETY",
             "evidence": [
               {
                 "chunk_id": "primary-0003",
@@ -85,9 +85,9 @@
               "model": "qwen2.5:7b"
             },
             "deterministic_safety": {
-              "verdict": "PASS",
-              "error_type": "NONE",
-              "reason": "Детерминированных блокирующих признаков не найдено."
+              "verdict": "REJECT",
+              "error_type": "IDENTITY_OVERREACH",
+              "reason": "Claim вводит идентичность 'уборщик', не установленную доказательной цитатой."
             }
           }
         ]

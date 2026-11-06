@@ -1,12 +1,14 @@
 {
   "stage": "MVP-14B2_4_DETERMINISTIC_CANON_SAFETY",
   "result": "PASS",
+  "candidate_claims": 9,
   "claims_checked": 9,
-  "safe_canon_candidates": 6,
+  "safe_canon_candidates": 7,
   "review": 0,
-  "rejected": 3,
+  "rejected": 2,
   "error_types": {
-    "NARRATIVE_MODE": 3,
-    "NONE": 6
+    "NONE": 7,
+    "NARRATIVE_MODE": 1,
+    "IDENTITY_OVERREACH": 1
   }
 }
