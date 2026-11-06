@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "work_id": "sto_let_tomu_vpered",
+  "store_type": "HYPOTHESIS_REVIEW_QUEUE",
+  "records": [
+    {
+      "review_id": "hyprev-353af1b1f20c193d",
+      "candidate_id": "hypcand-33451743f56f60f3",
+      "reason": "CHARACTER_BELIEF_SINGLE_SOURCE_ONLY",
+      "statement": "это вещи приезжих друзей Николая Николаевича"
+    },
+    {
+      "review_id": "hyprev-7026814a3dae32c8",
+      "candidate_id": "hypcand-319ffd9b167cd097",
+      "reason": "CHARACTER_BELIEF_SINGLE_SOURCE_ONLY",
+      "statement": "в гости к Николаю Николаевичу"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "work_id": "sto_let_tomu_vpered",
+  "store_type": "HYPOTHESIS_CANDIDATES",
+  "records": [
+    {
+      "candidate_id": "hypcand-319ffd9b167cd097",
+      "statement": "в гости к Николаю Николаевичу",
+      "origin": "TRUSTED_GRAPH_PROPOSITION",
+      "source_node_id": "prop-f9844013d645dc51",
+      "source_claim_ids": [
+        "primary-0001-c-0014"
+      ],
+      "source_truth_scopes": [
+        "CHARACTER_BELIEF"
+      ],
+      "support": {
+        "independent_claims": 1,
+        "transition_support": 0,
+        "explicit_causal_support": 0,
+        "contradictions": 0
+      },
+      "scoring": {
+        "score": 0.02,
+        "band": "LOW",
+        "semantics": "HEURISTIC_SUPPORT_SCORE_NOT_PROBABILITY"
+      },
+      "promotion_status": "NOT_PROMOTED",
+      "promotion_reason": "CHARACTER_BELIEF_SINGLE_SOURCE_ONLY"
+    },
+    {
+      "candidate_id": "hypcand-33451743f56f60f3",
+      "statement": "это вещи приезжих друзей Николая Николаевича",
+      "origin": "TRUSTED_GRAPH_PROPOSITION",
+      "source_node_id": "prop-55060ae7d5dc73d9",
+      "source_claim_ids": [
+        "primary-0002-c-0001"
+      ],
+      "source_truth_scopes": [
+        "CHARACTER_BELIEF"
+      ],
+      "support": {
+        "independent_claims": 1,
+        "transition_support": 0,
+        "explicit_causal_support": 0,
+        "contradictions": 0
+      },
+      "scoring": {
+        "score": 0.02,
+        "band": "LOW",
+        "semantics": "HEURISTIC_SUPPORT_SCORE_NOT_PROBABILITY"
+      },
+      "promotion_status": "NOT_PROMOTED",
+      "promotion_reason": "CHARACTER_BELIEF_SINGLE_SOURCE_ONLY"
+    }
+  ]
+}

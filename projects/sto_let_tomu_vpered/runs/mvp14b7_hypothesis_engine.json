@@ -1,0 +1,21 @@
+{
+  "stage": "MVP-14B7_HYPOTHESIS_ENGINE",
+  "result": "PASS",
+  "trusted_claims_input": 3,
+  "graph_propositions_input": 2,
+  "hypothesis_candidates": 2,
+  "analyst_hypotheses_promoted": 0,
+  "review_queue": 2,
+  "regression_tests": {
+    "strong_support_scoring": "PASS",
+    "character_belief_penalty": "PASS",
+    "contradiction_penalty": "PASS"
+  },
+  "invariants": {
+    "character_belief_not_auto_promoted": true,
+    "minimum_two_independent_claims_for_promotion": true,
+    "support_score_not_probability": true,
+    "deterministic_hypothesis_ids": true,
+    "canon_and_hypothesis_stores_separate": true
+  }
+}

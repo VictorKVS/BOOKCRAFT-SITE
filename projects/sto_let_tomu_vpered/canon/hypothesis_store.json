@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "work_id": "sto_let_tomu_vpered",
+  "store_type": "ANALYST_HYPOTHESES",
+  "semantics": {
+    "support_score": "Heuristic support score, not probability.",
+    "status": "OPEN means unproven and subject to future confirmation/refutation."
+  },
+  "records": []
+}
