@@ -5,7 +5,7 @@ import urllib.request
 from copy import deepcopy
 from typing import Any, Dict
 
-from alina_book2.production_loop import Analyst, CriticLayer, NarrativeStateStore, Producer
+from alina_book2.production_loop import Analyst, CriticFinding, CriticLayer, NarrativeStateStore, Producer
 
 
 def ollama_generate(model: str, prompt: str, timeout: int = 180) -> str:
@@ -67,12 +67,63 @@ POV: {pov}
         }
 
 
+class LLMRepairAgent:
+    def __init__(self, model: str = "qwen2.5:7b"):
+        self.model = model
+
+    def repair(self, draft: Dict[str, Any], scene: Dict[str, Any], state: Dict[str, Any], findings: list[CriticFinding]) -> Dict[str, Any]:
+        pov = scene["pov"]
+        restricted_fact = state.get("secrets", {}).get("locked_secret")
+        issues = "\n".join(
+            f"- {x.code}: {x.message}"
+            for x in findings
+            if x.decision != "PASS"
+        )
+
+        prompt = f"""
+Ты ALINA REPAIR AGENT.
+Исправь сцену минимально, сохраняя удачные части.
+
+POV: {pov}
+Цель сцены: {scene['objective']}
+Персонаж не знает следующий факт: {restricted_fact}
+
+НАЙДЕННЫЕ ДЕФЕКТЫ:
+{issues}
+
+ИСХОДНЫЙ ТЕКСТ:
+{draft['prose']}
+
+Требования:
+- устрани все перечисленные дефекты;
+- не упоминай неизвестный персонажу факт ни прямо, ни косвенно;
+- сохрани POV и цель сцены;
+- не меняй канон;
+- 80–180 слов;
+- верни только исправленный художественный текст.
+""".strip()
+
+        prose = ollama_generate(self.model, prompt)
+        used_restricted = restricted_fact if restricted_fact and restricted_fact.lower() in prose.lower() else None
+
+        repaired = deepcopy(draft)
+        repaired["prose"] = prose
+        repaired["used_secret"] = used_restricted
+        repaired["runtime"] = {
+            "provider": "ollama",
+            "model": self.model,
+            "mode": "repair",
+        }
+        return repaired
+
+
 class RealLLMProductionLoop:
     def __init__(self, state: Dict[str, Any], model: str = "qwen2.5:7b"):
         self.store = NarrativeStateStore(state)
         self.producer = Producer()
         self.writer = LLMWriter(model)
         self.critics = CriticLayer()
+        self.repair = LLMRepairAgent(model)
         self.analyst = Analyst()
 
     def run_scene(self, objective: str) -> Dict[str, Any]:
@@ -81,12 +132,30 @@ class RealLLMProductionLoop:
         draft = self.writer.draft(scene, state)
         findings = self.critics.review(draft, scene, state)
 
+        repaired = False
+        first_findings = findings
+
+        if any(x.decision == "REJECT" for x in findings):
+            return {
+                "ok": False,
+                "status": "REJECTED",
+                "scene": scene,
+                "draft": draft,
+                "findings": [x.__dict__ for x in findings],
+            }
+
+        if any(x.decision == "REPAIR" for x in findings):
+            draft = self.repair.repair(draft, scene, state, findings)
+            repaired = True
+            findings = self.critics.review(draft, scene, state)
+
         if any(x.decision != "PASS" for x in findings):
             return {
                 "ok": False,
-                "status": "CRITIC_BLOCKED",
+                "status": "REPAIR_EXHAUSTED",
                 "scene": scene,
                 "draft": draft,
+                "repaired": repaired,
                 "findings": [x.__dict__ for x in findings],
             }
 
@@ -100,6 +169,8 @@ class RealLLMProductionLoop:
             "status": "ACCEPTED",
             "scene": scene,
             "draft": draft,
+            "repaired": repaired,
+            "initial_findings": [x.__dict__ for x in first_findings],
             "findings": [x.__dict__ for x in findings],
             "state": new_state,
         }
