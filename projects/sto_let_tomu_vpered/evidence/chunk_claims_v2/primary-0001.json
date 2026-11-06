@@ -145,7 +145,7 @@
             "value": "друзя по имени Фима",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "FINAL_CANON_CANDIDATE",
+            "acceptance": "REJECTED_BY_DETERMINISTIC_SAFETY",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -171,6 +171,11 @@
               "reason": "Цитата и контекст ясно указывают на наличие друга Коли по имени Фима.",
               "error_type": "NONE",
               "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "REJECT",
+              "error_type": "NARRATIVE_MODE",
+              "reason": "Контекст содержит маркер воображаемого/гипотетического сценария: 'если бы'."
             }
           },
           {
@@ -327,7 +332,7 @@
             "value": "в гости к Николаю Николаевичу",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "FINAL_CANON_CANDIDATE",
+            "acceptance": "REJECTED_BY_DETERMINISTIC_SAFETY",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -353,6 +358,11 @@
               "reason": "Цитата точно передаёт, что Фима Королев просил в гости к Николаю Николаевичу, и это подтверждено контекстом.",
               "error_type": "NONE",
               "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "REJECT",
+              "error_type": "NARRATIVE_MODE",
+              "reason": "Контекст содержит маркер воображаемого/гипотетического сценария: 'если бы'."
             }
           }
         ]
@@ -373,7 +383,7 @@
             "value": "свободное время",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "FINAL_REVIEW",
+            "acceptance": "SAFE_CANON_CANDIDATE",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -399,6 +409,11 @@
               "reason": "Контекст указывает на то, что Коля проснулся и был дома один, что подразумевает наличие свободного времени. Однако, есть сомнения, что записка с просьбой сходить за кефиром и рубль прямо связана с этим свободным временем. Необходимо уточнить, что именно Коля увидел и понял из этой ситуации.",
               "error_type": "CONTEXT_MISMATCH",
               "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
             }
           }
         ]
@@ -513,7 +528,7 @@
             "value": "старинный кремнёвый пистолет",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "FINAL_CANON_CANDIDATE",
+            "acceptance": "SAFE_CANON_CANDIDATE",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -539,6 +554,11 @@
               "reason": "Цитата и контекст подтверждают, что Коля взял и использовал старинный кремнёвый пистолет, что свидетельствует о его владении этим предметом.",
               "error_type": "NONE",
               "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
             }
           }
         ]

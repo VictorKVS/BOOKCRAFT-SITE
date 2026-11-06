@@ -18,7 +18,7 @@
             "value": "это вещи приезжих друзей Николая Николаевича",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "FINAL_CANON_CANDIDATE",
+            "acceptance": "SAFE_CANON_CANDIDATE",
             "evidence": [
               {
                 "chunk_id": "primary-0002",
@@ -44,6 +44,11 @@
               "reason": "Цитата и контекст подтверждают, что Коля предполагает, что вещи принадлежат приезжим друзьям Николая Николаевича.",
               "error_type": "NONE",
               "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
             }
           },
           {
@@ -127,7 +132,7 @@
             "value": "систему переключателей и кнопок",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "FINAL_CANON_CANDIDATE",
+            "acceptance": "SAFE_CANON_CANDIDATE",
             "evidence": [
               {
                 "chunk_id": "primary-0002",
@@ -153,6 +158,11 @@
               "reason": "Цитата точно описывает приборную панель как систему переключателей и кнопок, что подтверждает утверждение.",
               "error_type": "NONE",
               "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
             }
           }
         ]
@@ -200,7 +210,7 @@
             "value": "переключатели и кнопки",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "FINAL_CANON_CANDIDATE",
+            "acceptance": "SAFE_CANON_CANDIDATE",
             "evidence": [
               {
                 "chunk_id": "primary-0002",
@@ -226,6 +236,11 @@
               "reason": "Цитата точно описывает действия Коля, исследующего переключатели и кнопки на приборной панели, что соответствует утверждению.",
               "error_type": "NONE",
               "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
             }
           }
         ]

@@ -18,7 +18,7 @@
             "value": "двадцать лет назад",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "FINAL_CANON_CANDIDATE",
+            "acceptance": "REJECTED_BY_DETERMINISTIC_SAFETY",
             "evidence": [
               {
                 "chunk_id": "primary-0003",
@@ -44,6 +44,11 @@
               "reason": "Цитата прямо утверждает, что Коля пропал двадцать лет назад.",
               "error_type": "NONE",
               "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "REJECT",
+              "error_type": "NARRATIVE_MODE",
+              "reason": "Контекст содержит маркер воображаемого/гипотетического сценария: 'придумал'."
             }
           },
           {
@@ -52,7 +57,7 @@
             "value": "на лестнице",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "FINAL_CANON_CANDIDATE",
+            "acceptance": "SAFE_CANON_CANDIDATE",
             "evidence": [
               {
                 "chunk_id": "primary-0003",
@@ -78,6 +83,11 @@
               "reason": "Цитата точно описывает, что Коля увидел уборщика на лестнице, что подтверждает claim.",
               "error_type": "NONE",
               "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
             }
           }
         ]
