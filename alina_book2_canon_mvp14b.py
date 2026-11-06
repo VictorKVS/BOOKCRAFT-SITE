@@ -26,6 +26,9 @@ MAX_CHUNKS = int(os.environ.get("ALINA_MAX_CHUNKS", "0"))
 THERMAL_PAUSE_C = int(os.environ.get("ALINA_THERMAL_PAUSE_C", "90"))
 THERMAL_RESUME_C = int(os.environ.get("ALINA_THERMAL_RESUME_C", "75"))
 THERMAL_POLL_SEC = int(os.environ.get("ALINA_THERMAL_POLL_SEC", "10"))
+OLLAMA_TIMEOUT_SEC = int(os.environ.get("ALINA_OLLAMA_TIMEOUT_SEC", "600"))
+OLLAMA_RETRIES = int(os.environ.get("ALINA_OLLAMA_RETRIES", "3"))
+OLLAMA_RETRY_DELAY_SEC = int(os.environ.get("ALINA_OLLAMA_RETRY_DELAY_SEC", "15"))
 
 
 SYSTEM = """You are ALINA Analyst. Extract canon only from the provided source chunk.
@@ -53,7 +56,7 @@ def ollama_available() -> bool:
         return False
 
 
-def call_ollama(prompt: str) -> Dict[str, Any]:
+def call_ollama(prompt: str, timeout_sec: int | None = None) -> Dict[str, Any]:
     body = json.dumps({
         "model": MODEL,
         "stream": False,
@@ -70,10 +73,32 @@ def call_ollama(prompt: str) -> Dict[str, Any]:
         headers={"Content-Type": "application/json"},
         method="POST"
     )
-    with urllib.request.urlopen(req, timeout=180) as r:
+    with urllib.request.urlopen(req, timeout=timeout_sec or OLLAMA_TIMEOUT_SEC) as r:
         payload = json.loads(r.read().decode("utf-8"))
     content = payload["message"]["content"]
     return json.loads(content)
+
+
+def call_ollama_with_retry(prompt: str, chunk_id: str) -> Dict[str, Any]:
+    last_error: Exception | None = None
+    for attempt in range(1, OLLAMA_RETRIES + 1):
+        try:
+            if attempt > 1:
+                thermal_gate(chunk_id)
+            print(
+                f"OLLAMA {chunk_id}: attempt {attempt}/{OLLAMA_RETRIES}, "
+                f"timeout={OLLAMA_TIMEOUT_SEC}s"
+            )
+            return call_ollama(prompt, timeout_sec=OLLAMA_TIMEOUT_SEC)
+        except Exception as e:
+            last_error = e
+            print(f"WARN {chunk_id}: attempt {attempt} failed: {type(e).__name__}: {e}")
+            if attempt < OLLAMA_RETRIES:
+                delay = OLLAMA_RETRY_DELAY_SEC * attempt
+                print(f"RETRY {chunk_id}: sleeping {delay}s")
+                time.sleep(delay)
+    assert last_error is not None
+    raise last_error
 
 
 def gpu_temperature_c() -> int | None:
@@ -153,6 +178,7 @@ def main() -> int:
     print(f"PASS ollama_available: {OLLAMA}")
     print(f"MODEL: {MODEL}")
     print(f"THERMAL POLICY: pause >= {THERMAL_PAUSE_C}C, resume <= {THERMAL_RESUME_C}C")
+    print(f"OLLAMA POLICY: timeout={OLLAMA_TIMEOUT_SEC}s, retries={OLLAMA_RETRIES}")
 
     chunk_index_path = STRUCTURE / "chunk_index.json"
     if not chunk_index_path.exists():
@@ -194,7 +220,7 @@ PARAGRAPHS: {meta['start_paragraph']}..{meta['end_paragraph']}
 """
             print(f"[{i}/{len(index)}] ANALYZE {chunk_id}")
             try:
-                data = call_ollama(prompt)
+                data = call_ollama_with_retry(prompt, chunk_id)
             except Exception as e:
                 print(f"FAIL chunk_analysis {chunk_id}: {e}")
                 return 1
