@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "active_profile": "sdxl_quality",
+  "profiles": {
+    "sdxl_quality": {
+      "enabled": true,
+      "provider": "comfyui",
+      "model_family": "SDXL",
+      "role": "FINAL_ILLUSTRATION",
+      "checkpoint": {
+        "filename": "sd_xl_base_1.0.safetensors",
+        "path": "ComfyUI/models/checkpoints"
+      },
+      "generation": {
+        "width": 1024,
+        "height": 1024,
+        "batch_size": 1,
+        "steps": 28,
+        "cfg": 6.5,
+        "sampler": "dpmpp_2m",
+        "scheduler": "karras",
+        "denoise": 1.0,
+        "seed_mode": "random"
+      },
+      "negative_prompt": "low quality, blurry, deformed anatomy, extra fingers, missing fingers, duplicate people, malformed hands, text, watermark, logo",
+      "resource_policy": {
+        "target_vram_gb": 12,
+        "allow_cpu_offload": true,
+        "allow_lowvram_mode": true,
+        "max_batch_size": 1
+      }
+    },
+    "sdxl_fast": {
+      "enabled": false,
+      "provider": "comfyui",
+      "model_family": "SDXL_TURBO",
+      "role": "PREVIEW_STORYBOARD",
+      "checkpoint": {
+        "filename": "",
+        "path": "ComfyUI/models/checkpoints"
+      },
+      "generation": {
+        "width": 768,
+        "height": 768,
+        "batch_size": 1,
+        "steps": 6,
+        "cfg": 1.5,
+        "sampler": "euler",
+        "scheduler": "normal",
+        "denoise": 1.0,
+        "seed_mode": "random"
+      },
+      "negative_prompt": "low quality, blurry, malformed anatomy, text, watermark",
+      "resource_policy": {
+        "target_vram_gb": 12,
+        "allow_cpu_offload": true,
+        "allow_lowvram_mode": true,
+        "max_batch_size": 1
+      }
+    }
+  }
+}
