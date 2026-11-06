@@ -51,23 +51,19 @@ class StatefulBookRunner:
         scene2 = self.pipeline.producer.plan_scene(state_v2, objectives[1])
         draft2 = self.pipeline.writer.draft(scene2, state_v2)
 
-        report1 = self.pipeline.semantic.review(scene2, state_v2, draft2)
-        repaired = False
-        if report1.get("decision") == "REPAIR":
-            draft2 = self.pipeline.semantic_repair.repair(scene2, state_v2, draft2, report1)
-            repaired = True
-
-        report2 = self.pipeline.semantic.review(scene2, state_v2, draft2)
-        if report2.get("decision") != "PASS":
+        gate2 = self.pipeline._semantic_gate(scene2, state_v2, draft2, max_repairs=3)
+        if not gate2["ok"]:
             return {
                 "ok": False,
                 "stage": "scene_2_semantic",
                 "state_v2": state_v2,
                 "scene_2": scene2,
-                "draft_2": draft2,
-                "report": report2,
+                "draft_2": gate2["draft"],
+                "semantic_history": gate2["history"],
+                "report": gate2["final_report"],
             }
 
+        draft2 = gate2["draft"]
         state_v3 = self.apply_delta(state_v2, draft2)
 
         return {
@@ -75,14 +71,16 @@ class StatefulBookRunner:
             "status": "FINAL_ACCEPTANCE_PASS",
             "scene_1": first["draft"],
             "scene_2": draft2,
-            "scene_2_repaired": repaired,
+            "scene_2_repaired": gate2["repaired"],
+            "scene_2_repair_attempts": gate2["attempts"],
             "state_versions": [
                 state_v1.get("version"),
                 state_v2.get("version"),
                 state_v3.get("version"),
             ],
             "state_v3": state_v3,
-            "scene_2_semantic_report": report2,
+            "scene_2_semantic_report": gate2["final_report"],
+            "scene_2_semantic_history": gate2["history"],
         }
 
 
