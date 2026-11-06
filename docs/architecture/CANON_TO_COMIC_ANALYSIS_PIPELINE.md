@@ -19,13 +19,17 @@ SOURCE BOOK / SERIES
 ↓
 6. KNOWLEDGE / BELIEF STATE
 ↓
-7. CULTURAL / USER CANON LOCKS
+7. BOOK GLOSSARY / CONCEPT DICTIONARY
 ↓
-8. VISUAL BIBLE + IDENTITY LOCKS
+8. CULTURAL EMBODIMENTS REGISTRY
 ↓
-9. CONTRADICTION CHECK
+9. CULTURAL / USER CANON LOCKS
 ↓
-10. CANON ACCEPTANCE
+10. VISUAL BIBLE + IDENTITY LOCKS
+↓
+11. CONTRADICTION CHECK
+↓
+12. CANON ACCEPTANCE
 ↓
 11. STORY HYPOTHESIS
 ↓
@@ -96,4 +100,68 @@ These are inherited by every generated comic panel.
 PASS        — safe for production
 CONDITIONAL — usable with explicit uncertainty / unresolved locks
 REJECT      — generation blocked
+```
+
+
+## Book glossary / concept dictionary
+
+Every project builds a source-grounded dictionary of concepts used by the book.
+
+Each entry stores:
+- canonical term;
+- aliases / grammatical variants;
+- category;
+- source-supported definition;
+- short operational definition for agents;
+- evidence snippets / chunk references;
+- related characters, objects, locations and world rules;
+- confidence;
+- provenance;
+- unresolved ambiguity.
+
+Preferred categories:
+- TECHNOLOGY
+- DEVICE
+- ORGANIZATION
+- LOCATION
+- PROFESSION
+- SCIENCE
+- CREATURE
+- SPECIES
+- TRANSPORT
+- INSTITUTION
+- TIME_TRAVEL
+- SOCIAL_CONCEPT
+- WORLD_RULE
+- OTHER
+
+The glossary is not a generic encyclopedia. A definition must first reflect what the source establishes. External knowledge may be added only in a separately marked layer.
+
+## Cultural embodiments registry
+
+A character may have multiple successful screen, illustration or cultural embodiments.
+
+These are stored separately from literary canon.
+
+Each embodiment records:
+- work / adaptation;
+- medium;
+- year/version when known;
+- character;
+- visual traits;
+- behavioural traits;
+- recognizability;
+- fidelity to literary canon;
+- usefulness for adaptation;
+- source/provenance;
+- user decision: LOCKED / REFERENCE / REJECTED / UNREVIEWED.
+
+No embodiment silently rewrites source canon.
+
+The final visual identity may combine:
+```text
+LITERARY CANON
++ USER-SELECTED CULTURAL EMBODIMENT
++ PROJECT VISUAL DESIGN
+= ADAPTATION VISUAL IDENTITY
 ```
