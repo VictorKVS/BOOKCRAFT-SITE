@@ -11,7 +11,8 @@ $paths = @(
     "$project\state",
     "$project\reports",
     "$project\runs",
-    "$project\evidence\chunk_analysis"
+    "$project\evidence\chunk_analysis",
+    "$project\evidence\chunk_claims_v2"
 )
 
 foreach ($p in $paths) {
