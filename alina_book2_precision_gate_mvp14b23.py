@@ -19,6 +19,9 @@ RUNS = PROJECT / "runs"
 MODEL = os.environ.get("ALINA_CANON_MODEL", "qwen2.5:7b")
 OLLAMA = os.environ.get("OLLAMA_URL", "http://127.0.0.1:11434")
 MAX_CHUNKS = int(os.environ.get("ALINA_MAX_CHUNKS", "0"))
+THERMAL_PAUSE_C = int(os.environ.get("ALINA_THERMAL_PAUSE_C", "90"))
+THERMAL_RESUME_C = int(os.environ.get("ALINA_THERMAL_RESUME_C", "75"))
+THERMAL_POLL_SEC = int(os.environ.get("ALINA_THERMAL_POLL_SEC", "10"))
 OLLAMA_TIMEOUT_SEC = int(os.environ.get("ALINA_OLLAMA_TIMEOUT_SEC", "600"))
 OLLAMA_RETRIES = int(os.environ.get("ALINA_OLLAMA_RETRIES", "3"))
 
@@ -78,7 +81,39 @@ def call(prompt: str) -> dict[str, Any]:
         payload=json.loads(r.read().decode("utf-8"))
     return json.loads(payload["message"]["content"])
 
+def gpu_temperature_c() -> int | None:
+    import subprocess
+    try:
+        p = subprocess.run(
+            ["nvidia-smi", "--query-gpu=temperature.gpu", "--format=csv,noheader,nounits"],
+            capture_output=True, text=True, timeout=5, check=True,
+        )
+        return int(p.stdout.strip().splitlines()[0].strip())
+    except Exception:
+        return None
+
+def thermal_gate(label: str) -> None:
+    temp = gpu_temperature_c()
+    if temp is None:
+        print(f"THERMAL {label}: sensor unavailable")
+        return
+    print(f"THERMAL {label}: {temp}C")
+    if temp < THERMAL_PAUSE_C:
+        return
+    print(f"THERMAL_GATE: PAUSE at {temp}C; resume <= {THERMAL_RESUME_C}C")
+    while True:
+        time.sleep(THERMAL_POLL_SEC)
+        temp = gpu_temperature_c()
+        if temp is None:
+            print("THERMAL_GATE: sensor unavailable during cooldown")
+            return
+        print(f"THERMAL_COOLDOWN: {temp}C")
+        if temp <= THERMAL_RESUME_C:
+            print(f"THERMAL_GATE: RESUME at {temp}C")
+            return
+
 def retry(prompt: str) -> dict[str, Any]:
+    thermal_gate("precision-gate")
     last=None
     for attempt in range(1,OLLAMA_RETRIES+1):
         try:
