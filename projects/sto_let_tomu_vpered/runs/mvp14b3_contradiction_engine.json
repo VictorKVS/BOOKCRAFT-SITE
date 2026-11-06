@@ -1,0 +1,26 @@
+{
+  "stage": "MVP-14B3_CONTRADICTION_ENGINE",
+  "result": "PASS",
+  "canon_claims_input": 3,
+  "contradictions_found": 0,
+  "review_queue": 0,
+  "conflict_type_counts": {},
+  "regression_tests": {
+    "explicit_predicate_opposition": "PASS",
+    "single_valued_property_conflict": "PASS",
+    "truth_scope_separation": "PASS",
+    "multivalue_false_positive_guard": "PASS"
+  },
+  "invariants": {
+    "trusted_canon_only": true,
+    "verified_evidence_required": true,
+    "truth_scopes_not_mixed": true,
+    "conservative_rules_only": true,
+    "deterministic_conflict_ids": true
+  },
+  "limitations": [
+    "Temporal contradictions are not evaluated in v1 because trusted claims do not yet carry normalized time intervals.",
+    "Coreference/morphological entity resolution is not inferred by this stage.",
+    "Only explicit predicate opposites and declared single-valued predicates are treated as contradictions."
+  ]
+}
