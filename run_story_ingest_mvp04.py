@@ -21,7 +21,11 @@ def main():
     print("=== END STATE ===")
 
     validator = IngestValidator()
+    state = validator.repair_evidence(state, source_text)
     report = validator.validate(state, source_text)
+
+    print("=== GROUNDED EVIDENCE REPAIRS ===")
+    print(json.dumps(state.get("evidence_repairs", []), ensure_ascii=False, indent=2))
 
     ok = True
     ok &= check("real_story_has_characters", report["counts"]["characters"] >= 2, report["counts"])
