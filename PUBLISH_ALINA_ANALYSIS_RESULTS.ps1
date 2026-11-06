@@ -1,7 +1,7 @@
 $ErrorActionPreference = "Stop"
 Set-Location $PSScriptRoot
 
-Write-Host "=== ALINA BOOK 2 — PUBLISH ANALYSIS RESULTS ===" -ForegroundColor Cyan
+Write-Host "=== ALINA BOOK 2 - PUBLISH ANALYSIS RESULTS ===" -ForegroundColor Cyan
 
 $project = ".\projects\sto_let_tomu_vpered"
 
@@ -17,11 +17,16 @@ $paths = @(
 foreach ($p in $paths) {
     if (Test-Path $p) {
         git add -- $p
+        if ($LASTEXITCODE -ne 0) {
+            throw "git add failed for $p"
+        }
     }
 }
 
-# Explicitly exclude local source material even if ignore rules change later.
-git reset -- "$project\sources" 2>$null
+# Never stage local source materials.
+if (Test-Path "$project\sources") {
+    git reset -- "$project\sources" 2>$null
+}
 
 $pending = git status --short
 if (-not $pending) {
@@ -32,10 +37,16 @@ if (-not $pending) {
 Write-Host "FILES TO COMMIT:"
 $pending | ForEach-Object { Write-Host $_ }
 
-$stamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+$stamp = Get-Date -Format "yyyy-MM-dd_HH-mm-ss"
 git commit -m "analysis: publish ALINA results $stamp"
+if ($LASTEXITCODE -ne 0) {
+    throw "git commit failed"
+}
 
 git push origin alina-book-2
+if ($LASTEXITCODE -ne 0) {
+    throw "git push failed"
+}
 
 Write-Host "PASS analysis_results_committed"
 Write-Host "PASS analysis_results_pushed"
