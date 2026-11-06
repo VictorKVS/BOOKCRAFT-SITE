@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0",
+  "work_id": "sto_let_tomu_vpered",
+  "store_type": "TRUSTED_STATE_OBSERVATIONS",
+  "semantics": {
+    "WORLD_STATE_OBSERVATION": "A trusted world-state assertion observed at a verified textual position.",
+    "EPISTEMIC_OBSERVATION": "A trusted assertion about a character belief/intention/epistemic state.",
+    "persistence": "NOT_INFERRED in MVP-14B5. No state is assumed to remain true after its observation point."
+  },
+  "records": [
+    {
+      "state_id": "state-2f061b16ab0fcfb2",
+      "entity_id": "ent-169a1a7674e9bbc9",
+      "entity_name": "Фима Королев",
+      "entity_type": "CHARACTER",
+      "claim_id": "primary-0001-c-0014",
+      "temporal_id": "time-4ce7148e108174b9",
+      "sequence_index": 0,
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "state_kind": "EPISTEMIC_OBSERVATION",
+      "truth_scope": "CHARACTER_BELIEF",
+      "predicate": "просит",
+      "value": "в гости к Николаю Николаевичу",
+      "persistence": "NOT_INFERRED",
+      "valid_from": "OBSERVATION_ONLY",
+      "valid_until": "UNKNOWN",
+      "evidence": [
+        {
+          "chunk_id": "primary-0001",
+          "paragraph_start": 20,
+          "paragraph_end": 22,
+          "quote": "Когда Фима Королев из Колиного класса узнал про фрегат, он стал проситься в гости к Николаю Николаевичу, но Коля не спешил вести его в гости.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "state_id": "state-2091c1b0b2617878",
+      "entity_id": "ent-2dedc70082320885",
+      "entity_name": "Коля",
+      "entity_type": "CHARACTER",
+      "claim_id": "primary-0002-c-0001",
+      "temporal_id": "time-c5fe961cc5f64cbd",
+      "sequence_index": 1,
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "state_kind": "EPISTEMIC_OBSERVATION",
+      "truth_scope": "CHARACTER_BELIEF",
+      "predicate": "предполагает",
+      "value": "это вещи приезжих друзей Николая Николаевича",
+      "persistence": "NOT_INFERRED",
+      "valid_from": "OBSERVATION_ONLY",
+      "valid_until": "UNKNOWN",
+      "evidence": [
+        {
+          "chunk_id": "primary-0002",
+          "paragraph_start": 47,
+          "paragraph_end": 49,
+          "quote": "Следопыт Коля предположил, что это вещи приезжих друзей Николая Николаевича.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "state_id": "state-f15f09d1fe2ab5ef",
+      "entity_id": "ent-73fc53190cf422dd",
+      "entity_name": "приборная панель",
+      "entity_type": "TECHNOLOGY",
+      "claim_id": "primary-0002-c-0005",
+      "temporal_id": "time-bef1a0f0d678be69",
+      "sequence_index": 2,
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "state_kind": "WORLD_STATE_OBSERVATION",
+      "truth_scope": "WORLD_STATE",
+      "predicate": "представляет собой",
+      "value": "систему переключателей и кнопок",
+      "persistence": "NOT_INFERRED",
+      "valid_from": "OBSERVATION_ONLY",
+      "valid_until": "UNKNOWN",
+      "evidence": [
+        {
+          "chunk_id": "primary-0002",
+          "paragraph_start": 53,
+          "paragraph_end": 55,
+          "quote": "По её нижней, вытянутой вперёд пологой части шло два ряда кнопок. Чуть повыше был ряд переключателей. Затем ряд циферблатов.",
+          "quote_verified": true
+        }
+      ]
+    }
+  ],
+  "entity_state_index": {
+    "ent-169a1a7674e9bbc9": [
+      "state-2f061b16ab0fcfb2"
+    ],
+    "ent-2dedc70082320885": [
+      "state-2091c1b0b2617878"
+    ],
+    "ent-73fc53190cf422dd": [
+      "state-f15f09d1fe2ab5ef"
+    ]
+  }
+}
