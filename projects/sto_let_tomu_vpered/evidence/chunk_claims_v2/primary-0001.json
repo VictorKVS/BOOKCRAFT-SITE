@@ -145,7 +145,7 @@
             "value": "друзя по имени Фима",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "REJECTED_BY_PRECISION_GATE",
+            "acceptance": "FINAL_CANON_CANDIDATE",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -167,8 +167,8 @@
               "model": "qwen2.5:7b"
             },
             "precision_gate": {
-              "verdict": "REJECT",
-              "reason": "Цитата и контекст подтверждают наличие у Коли друга по имени Фима.",
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст ясно указывают на наличие друга Коли по имени Фима.",
               "error_type": "NONE",
               "model": "qwen2.5:7b"
             }
@@ -350,7 +350,7 @@
             },
             "precision_gate": {
               "verdict": "FINAL_CANON_CANDIDATE",
-              "reason": "Цитата и контекст подтверждают, что Фима Королев просил в гости к Николаю Николаевичу.",
+              "reason": "Цитата точно передаёт, что Фима Королев просил в гости к Николаю Николаевичу, и это подтверждено контекстом.",
               "error_type": "NONE",
               "model": "qwen2.5:7b"
             }
@@ -373,7 +373,7 @@
             "value": "свободное время",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "FINAL_CANON_CANDIDATE",
+            "acceptance": "FINAL_REVIEW",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -395,9 +395,9 @@
               "model": "qwen2.5:7b"
             },
             "precision_gate": {
-              "verdict": "FINAL_CANON_CANDIDATE",
-              "reason": "Цитата подтверждает, что Коля проснулся и увидел записку с просьбой сходить за кефиром и рубль, что указывает на наличие свободного времени.",
-              "error_type": "NONE",
+              "verdict": "REVIEW",
+              "reason": "Контекст указывает на то, что Коля проснулся и был дома один, что подразумевает наличие свободного времени. Однако, есть сомнения, что записка с просьбой сходить за кефиром и рубль прямо связана с этим свободным временем. Необходимо уточнить, что именно Коля увидел и понял из этой ситуации.",
+              "error_type": "CONTEXT_MISMATCH",
               "model": "qwen2.5:7b"
             }
           }
@@ -536,7 +536,7 @@
             },
             "precision_gate": {
               "verdict": "FINAL_CANON_CANDIDATE",
-              "reason": "Цитата подтверждает, что у Коля есть старинный кремнёвый пистолет, что соответствует предикату.",
+              "reason": "Цитата и контекст подтверждают, что Коля взял и использовал старинный кремнёвый пистолет, что свидетельствует о его владении этим предметом.",
               "error_type": "NONE",
               "model": "qwen2.5:7b"
             }

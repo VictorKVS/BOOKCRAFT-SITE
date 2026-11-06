@@ -2,9 +2,10 @@
 
 - Files checked: 3
 - Claims checked: 9
-- FINAL_CANON_CANDIDATE: 7
-- FINAL_REVIEW: 0
-- REJECTED: 2
+- FINAL_CANON_CANDIDATE: 8
+- FINAL_REVIEW: 1
+- REJECTED: 0
 
 ## Error types
-- NONE: 9
+- CONTEXT_MISMATCH: 1
+- NONE: 8

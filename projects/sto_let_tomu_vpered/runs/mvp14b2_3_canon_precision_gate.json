@@ -3,11 +3,12 @@
   "result": "PASS",
   "files_checked": 3,
   "claims_checked": 9,
-  "final_canon_candidates": 7,
-  "review": 0,
-  "rejected": 2,
+  "final_canon_candidates": 8,
+  "review": 1,
+  "rejected": 0,
   "error_types": {
-    "NONE": 9
+    "NONE": 8,
+    "CONTEXT_MISMATCH": 1
   },
   "model": "qwen2.5:7b"
 }

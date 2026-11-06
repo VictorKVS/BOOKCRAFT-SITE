@@ -18,7 +18,7 @@
             "value": "двадцать лет назад",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "REJECTED_BY_PRECISION_GATE",
+            "acceptance": "FINAL_CANON_CANDIDATE",
             "evidence": [
               {
                 "chunk_id": "primary-0003",
@@ -40,8 +40,8 @@
               "model": "qwen2.5:7b"
             },
             "precision_gate": {
-              "verdict": "REJECT",
-              "reason": "Цитата подтверждает, что Коля пропал двадцать лет назад.",
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата прямо утверждает, что Коля пропал двадцать лет назад.",
               "error_type": "NONE",
               "model": "qwen2.5:7b"
             }
@@ -75,7 +75,7 @@
             },
             "precision_gate": {
               "verdict": "FINAL_CANON_CANDIDATE",
-              "reason": "Цитата подтверждает, что Коля встретил уборщика на лестнице, что соответствует заданному предикату.",
+              "reason": "Цитата точно описывает, что Коля увидел уборщика на лестнице, что подтверждает claim.",
               "error_type": "NONE",
               "model": "qwen2.5:7b"
             }
