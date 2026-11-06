@@ -1,0 +1,23 @@
+{
+  "stage": "MVP-14B8_PREDICTION_ENGINE",
+  "result": "PASS",
+  "open_hypotheses_input": 0,
+  "predictions_frozen": 0,
+  "review_queue": 0,
+  "cutoff_sequence_index": 2,
+  "future_evidence_used": false,
+  "regression_tests": {
+    "strong_hypothesis_prediction": "PASS",
+    "minimum_support_guard": "PASS",
+    "closed_hypothesis_guard": "PASS",
+    "prediction_freeze_guard": "PASS"
+  },
+  "invariants": {
+    "predictions_from_open_hypotheses_only": true,
+    "minimum_two_supporting_claims": true,
+    "prediction_frozen_before_backtest": true,
+    "future_evidence_not_used_at_creation": true,
+    "forecast_strength_not_probability": true,
+    "deterministic_prediction_ids": true
+  }
+}

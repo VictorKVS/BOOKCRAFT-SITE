@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "work_id": "sto_let_tomu_vpered",
+  "stage": "MVP-14B8_PREDICTION_ENGINE",
+  "cutoff": {
+    "temporal_id": "time-bef1a0f0d678be69",
+    "sequence_index": 2,
+    "chunk_id": "primary-0002",
+    "paragraph_end": 55,
+    "basis": "LATEST_TRUSTED_TEXTUAL_POSITION"
+  },
+  "snapshot_fingerprint_sha256": "5ccfb924ad5a1a06056ce2276b5851b176d4b43ecf27988b4b47fdae5ddb94de",
+  "inputs": {
+    "hypotheses": 0,
+    "state_observations": 3,
+    "graph_edges": 3
+  },
+  "predictions_frozen": 0,
+  "review_queue": 0,
+  "future_evidence_used": false
+}

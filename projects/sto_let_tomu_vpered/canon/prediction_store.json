@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "work_id": "sto_let_tomu_vpered",
+  "store_type": "FROZEN_PREDICTIONS",
+  "semantics": {
+    "forecast_strength": "Ordinal heuristic strength, not calibrated probability.",
+    "status": "Predictions are frozen before any future evidence is used for evaluation."
+  },
+  "records": []
+}
