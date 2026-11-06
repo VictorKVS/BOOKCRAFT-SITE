@@ -18,7 +18,7 @@
             "value": "это вещи приезжих друзей Николая Николаевича",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED",
+            "acceptance": "SUPPORTED_ENTAILED",
             "evidence": [
               {
                 "chunk_id": "primary-0002",
@@ -27,7 +27,12 @@
                 "quote": "Следопыт Коля предположил, что это вещи приезжих друзей Николая Николаевича.",
                 "quote_verified": true
               }
-            ]
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо подтверждает, что Коля предполагает, что вещи принадлежат приезжим друзьям Николая Николаевича.",
+              "model": "qwen2.5:7b"
+            }
           },
           {
             "claim_id": "primary-0002-c-0002",
@@ -110,7 +115,7 @@
             "value": "систему переключателей и кнопок",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED",
+            "acceptance": "SUPPORTED_ENTAILED",
             "evidence": [
               {
                 "chunk_id": "primary-0002",
@@ -119,7 +124,12 @@
                 "quote": "По её нижней, вытянутой вперёд пологой части шло два ряда кнопок. Чуть повыше был ряд переключателей. Затем ряд циферблатов.",
                 "quote_verified": true
               }
-            ]
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата описывает приборную панель, содержащую ряды кнопок и переключателей, что соответствует утверждению о том, что она представляет собой систему переключателей и кнопок.",
+              "model": "qwen2.5:7b"
+            }
           }
         ]
       }
@@ -166,7 +176,7 @@
             "value": "переключатели и кнопки",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED",
+            "acceptance": "SUPPORTED_ENTAILED",
             "evidence": [
               {
                 "chunk_id": "primary-0002",
@@ -175,7 +185,12 @@
                 "quote": "Коля стал рассматривать панель. По её нижней, вытянутой вперёд пологой части шло два ряда кнопок. Чуть повыше был ряд переключателей. Затем ряд циферблатов.",
                 "quote_verified": true
               }
-            ]
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Коля рассматривает панель, что соответствует действию исследования переключателей и кнопок.",
+              "model": "qwen2.5:7b"
+            }
           }
         ]
       }
@@ -191,7 +206,7 @@
           "value": "система переключателей и кнопок",
           "provenance": "SOURCE_CANON",
           "confidence": "CONFIRMED",
-          "acceptance": "SUPPORTED",
+          "acceptance": "PARTIAL_REVIEW",
           "evidence": [
             {
               "chunk_id": "primary-0002",
@@ -200,7 +215,12 @@
               "quote": "По её нижней, вытянутой вперёд пологой части шло два ряда кнопок. Чуть повыше был ряд переключателей. Затем ряд циферблатов.",
               "quote_verified": true
             }
-          ]
+          ],
+          "entailment": {
+            "verdict": "PARTIAL",
+            "reason": "Цитата описывает расположение кнопок и переключателей, но не полностью соответствует определению приборной панели как системы переключателей и кнопок.",
+            "model": "qwen2.5:7b"
+          }
         }
       }
     ],
@@ -220,5 +240,12 @@
     "mentions": 4,
     "events": 2,
     "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 23,
+    "supported_entailed": 7,
+    "partial_review": 3,
+    "rejected": 13,
+    "schema_fixes": 0
   }
 }

@@ -18,7 +18,7 @@
             "value": "свободное воскресенье",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED",
+            "acceptance": "PARTIAL_REVIEW",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -27,7 +27,12 @@
                 "quote": "Когда Коля проснулся, родителей уже не было. На столе лежала записка с просьбой сходить за кефиром и рубль.",
                 "quote_verified": true
               }
-            ]
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата показывает, что Коля был занят каким-то делом в воскресенье, но не прямо утверждает, что у него было свободное время.",
+              "model": "qwen2.5:7b"
+            }
           },
           {
             "claim_id": "primary-0001-c-0002",
@@ -52,7 +57,7 @@
             "value": "пойти с родителями на катер",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -61,7 +66,12 @@
                 "quote": "Когда Коля проснулся, родителей уже не было. На столе лежала записка с просьбой сходить за кефиром и рубль.",
                 "quote_verified": true
               }
-            ]
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает, хочет ли Коля пойти на катер.",
+              "model": "qwen2.5:7b"
+            }
           },
           {
             "claim_id": "primary-0001-c-0004",
@@ -69,7 +79,7 @@
             "value": "свободное время",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -78,7 +88,12 @@
                 "quote": "Когда Коля проснулся, родителей уже не было. На столе лежала записка с просьбой сходить за кефиром и рубль.",
                 "quote_verified": true
               }
-            ]
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает свободное время Коля, а лишь описывает его пробуждение и задачу, которую ему поручили.",
+              "model": "qwen2.5:7b"
+            }
           },
           {
             "claim_id": "primary-0001-c-0005",
@@ -86,7 +101,7 @@
             "value": "соседа по имени Николай Николаевич",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -95,7 +110,12 @@
                 "quote": "Когда Коля проснулся, родителей уже не было. На столе лежала записка с просьбой сходить за кефиром и рубль.",
                 "quote_verified": true
               }
-            ]
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает соседа по имени Николай Николаевич.",
+              "model": "qwen2.5:7b"
+            }
           },
           {
             "claim_id": "primary-0001-c-0006",
@@ -103,7 +123,7 @@
             "value": "модель фрегата",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -112,7 +132,12 @@
                 "quote": "Когда Фима Королев из Колиного класса узнал про фрегат, он стал проситься в гости к Николаю Николаевичу, но Коля не спешил вести его в гости.",
                 "quote_verified": true
               }
-            ]
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает модель фрегата, а только говорит о том, что Коля не спешил приглашать Фиму в гости.",
+              "model": "qwen2.5:7b"
+            }
           },
           {
             "claim_id": "primary-0001-c-0007",
@@ -120,7 +145,7 @@
             "value": "друзя по имени Фима",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED",
+            "acceptance": "SUPPORTED_ENTAILED",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -129,7 +154,12 @@
                 "quote": "Когда Фима Королев из Колиного класса узнал про фрегат, он стал проситься в гости к Николаю Николаевичу, но Коля не спешил вести его в гости.",
                 "quote_verified": true
               }
-            ]
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата упоминает Фиму Королева, друга Коли, что подтверждает наличие у Коли друга по имени Фима.",
+              "model": "qwen2.5:7b"
+            }
           },
           {
             "claim_id": "primary-0001-c-0008",
@@ -137,7 +167,7 @@
             "value": "старинный кремнёвый пистолет",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED",
+            "acceptance": "PARTIAL_REVIEW",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -146,7 +176,12 @@
                 "quote": "Коля снял со стены пистолет, отвёл ударник и прицелился в окно.",
                 "quote_verified": true
               }
-            ]
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата показывает, что Коля взял пистолет, но не утверждает, что он имеет старинный кремнёвый пистолет.",
+              "model": "qwen2.5:7b"
+            }
           }
         ]
       },
@@ -162,7 +197,7 @@
             "value": "сердечным приступом",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -171,7 +206,12 @@
                 "quote": "Когда Коля проснулся, родителей уже не было. На столе лежала записка с просьбой сходить за кефиром и рубль.",
                 "quote_verified": true
               }
-            ]
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о состоянии здоровья Николая Николаевича.",
+              "model": "qwen2.5:7b"
+            }
           },
           {
             "claim_id": "primary-0001-c-0010",
@@ -179,7 +219,7 @@
             "value": "модель фрегата",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -188,7 +228,12 @@
                 "quote": "Когда Фима Королев из Колиного класса узнал про фрегат, он стал проситься в гости к Николаю Николаевичу, но Коля не спешил вести его в гости.",
                 "quote_verified": true
               }
-            ]
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает модель фрегата, а только описывает попытку Фимы Королева посетить Николая Николаевича.",
+              "model": "qwen2.5:7b"
+            }
           },
           {
             "claim_id": "primary-0001-c-0011",
@@ -196,7 +241,7 @@
             "value": "ключ от квартиры",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -205,7 +250,12 @@
                 "quote": "Когда Коля проснулся, родителей уже не было. На столе лежала записка с просьбой сходить за кефиром и рубль.",
                 "quote_verified": true
               }
-            ]
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает ключ от квартиры.",
+              "model": "qwen2.5:7b"
+            }
           },
           {
             "claim_id": "primary-0001-c-0012",
@@ -213,7 +263,7 @@
             "value": "вне дома",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -222,7 +272,12 @@
                 "quote": "Сосед жил один, часто ездил в командировки, а где он работал, Коля не знал.",
                 "quote_verified": true
               }
-            ]
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не подтверждает, что Николай Николаевич работает вне дома.",
+              "model": "qwen2.5:7b"
+            }
           },
           {
             "claim_id": "primary-0001-c-0013",
@@ -230,7 +285,7 @@
             "value": "друзя из Мурманска",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -239,7 +294,12 @@
                 "quote": "Когда Коля проснулся, родителей уже не было. На столе лежала записка с просьбой сходить за кефиром и рубль.",
                 "quote_verified": true
               }
-            ]
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает друзей из Мурманска.",
+              "model": "qwen2.5:7b"
+            }
           }
         ]
       },
@@ -255,7 +315,7 @@
             "value": "в гости к Николаю Николаевичу",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED",
+            "acceptance": "SUPPORTED_ENTAILED",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -264,7 +324,12 @@
                 "quote": "Когда Фима Королев из Колиного класса узнал про фрегат, он стал проситься в гости к Николаю Николаевичу, но Коля не спешил вести его в гости.",
                 "quote_verified": true
               }
-            ]
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает, что Фима Королев просил в гости к Николаю Николаевичу.",
+              "model": "qwen2.5:7b"
+            }
           }
         ]
       }
@@ -284,7 +349,7 @@
             "value": "свободное время",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED",
+            "acceptance": "SUPPORTED_ENTAILED",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -293,7 +358,12 @@
                 "quote": "Когда Коля проснулся, родителей уже не было. На столе лежала записка с просьбой сходить за кефиром и рубль.",
                 "quote_verified": true
               }
-            ]
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Коля проснулся и был дома один, что подразумевает наличие свободного времени.",
+              "model": "qwen2.5:7b"
+            }
           }
         ]
       },
@@ -311,7 +381,7 @@
             "value": "ключ от квартиры Николая Николаевича",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -320,7 +390,12 @@
                 "quote": "Когда Коля проснулся, родителей уже не было. На столе лежала записка с просьбой сходить за кефиром и рубль.",
                 "quote_verified": true
               }
-            ]
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает ключ от квартиры Николая Николаевича.",
+              "model": "qwen2.5:7b"
+            }
           }
         ]
       },
@@ -338,7 +413,7 @@
             "value": "лист бумаги, линейку и карандаш",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -347,7 +422,12 @@
                 "quote": "Коля закрыл за собой дверь, спрятал ключ в карман, зажёг свет в коридоре, чтобы полюбоваться на африканские маски, которые висели на стене и скалили зубы.",
                 "quote_verified": true
               }
-            ]
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает наличие листа бумаги, линейки и карандаша у Коли.",
+              "model": "qwen2.5:7b"
+            }
           }
         ]
       },
@@ -365,7 +445,7 @@
             "value": "модель фрегата",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -374,7 +454,12 @@
                 "quote": "Когда Фима Королев из Колиного класса узнал про фрегат, он стал проситься в гости к Николаю Николаевичу, но Коля не спешил вести его в гости.",
                 "quote_verified": true
               }
-            ]
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает модель фрегата, а касается попытки Фимы Королева посетить Николая Николаевича.",
+              "model": "qwen2.5:7b"
+            }
           }
         ]
       },
@@ -392,7 +477,7 @@
             "value": "старинный кремнёвый пистолет",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED",
+            "acceptance": "SUPPORTED_ENTAILED",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -401,7 +486,12 @@
                 "quote": "Коля снял со стены пистолет, отвёл ударник и прицелился в окно.",
                 "quote_verified": true
               }
-            ]
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Коля взял пистолет, что подтверждает, что у него есть старинный кремнёвый пистолет.",
+              "model": "qwen2.5:7b"
+            }
           }
         ]
       }
@@ -417,7 +507,7 @@
           "value": "модель фрегата сделана из двух тысяч частей и точно скопирована с настоящего.",
           "provenance": "SOURCE_CANON",
           "confidence": "CONFIRMED",
-          "acceptance": "SUPPORTED",
+          "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
           "evidence": [
             {
               "chunk_id": "primary-0001",
@@ -426,7 +516,12 @@
               "quote": "Когда Фима Королев из Колиного класса узнал про фрегат, он стал проситься в гости к Николаю Николаевичу, но Коля не спешил вести его в гости. Фиму опасно водить в гости, потому что он страшно нахальный, неуклюжий, обязательно что-нибудь схватит и разобьёт. Фиме надоело напоминать, и он сказал: — Сними мне мерку с фрегата. Я собираюсь строить парусник, а литературы мало. Что тебе стоит помочь человеку!",
               "quote_verified": true
             }
-          ]
+          ],
+          "entailment": {
+            "verdict": "NOT_SUPPORTED",
+            "reason": "Цитата не содержит информации о количестве частей или точной копии фрегата.",
+            "model": "qwen2.5:7b"
+          }
         }
       }
     ],
@@ -446,5 +541,12 @@
     "mentions": 3,
     "events": 5,
     "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 19,
+    "supported_entailed": 4,
+    "partial_review": 2,
+    "rejected": 13,
+    "schema_fixes": 0
   }
 }

@@ -1,0 +1,11 @@
+{
+  "stage": "MVP-14B2_1_EVIDENCE_CRITIC",
+  "result": "PASS",
+  "files_checked": 3,
+  "claims_checked": 26,
+  "supported_entailed": 10,
+  "partial_review": 3,
+  "rejected": 13,
+  "schema_fixes": 1,
+  "model": "qwen2.5:7b"
+}

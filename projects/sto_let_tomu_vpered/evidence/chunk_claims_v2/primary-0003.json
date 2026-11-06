@@ -18,7 +18,7 @@
             "value": "двадцать лет назад",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED",
+            "acceptance": "SUPPORTED_ENTAILED",
             "evidence": [
               {
                 "chunk_id": "primary-0003",
@@ -27,7 +27,12 @@
                 "quote": "Коля, двенадцати лет, пропал бесследно. И вот сейчас он выйдет на лестницу, постучит в дверь, откроют старенькая мама и старенький печальный отец и спросят: «Вы к кому, молодой человек?» А Коля скажет: «Я к вашему сыну». А они ответят: «У нас давно уже нет детей, потому что наш сын Николай двадцать лет назад пропал без вести».",
                 "quote_verified": true
               }
-            ]
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо утверждает, что Коля пропал двадцать лет назад.",
+              "model": "qwen2.5:7b"
+            }
           },
           {
             "claim_id": "primary-0003-c-0002",
@@ -35,7 +40,7 @@
             "value": "на лестнице",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SUPPORTED",
+            "acceptance": "SUPPORTED_ENTAILED",
             "evidence": [
               {
                 "chunk_id": "primary-0003",
@@ -44,7 +49,12 @@
                 "quote": "Из своего укрытия Коля увидел, как по лестнице поднимается странное существо, то ли рыцарь-лилипут, то ли пылесос на ножках.",
                 "quote_verified": true
               }
-            ]
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата описывает человека, поднимающегося по лестнице, что подтверждает, что Коля встретил уборщика на лестнице.",
+              "model": "qwen2.5:7b"
+            }
           }
         ]
       }
@@ -82,14 +92,14 @@
       {
         "term_id": "primary-0003-t-0001",
         "term": "Рип Ван Винкль",
-        "category": "CHARACTER",
+        "category": "OTHER",
         "definition_claim": {
           "claim_id": "primary-0003-c-0004",
           "predicate": "definition",
           "value": "персонаж, который спал двадцать лет и проснулся в изменившемся мире",
           "provenance": "SOURCE_CANON",
           "confidence": "CONFIRMED",
-          "acceptance": "SUPPORTED",
+          "acceptance": "SUPPORTED_ENTAILED",
           "evidence": [
             {
               "chunk_id": "primary-0003",
@@ -98,8 +108,15 @@
               "quote": "Коля, как человек умный, сразу придумал. Он недавно читал рассказ американского писателя Вашингтона Ирвинга. Про одного человека по имени Рип Ван Винкль, который пошёл в горы и заснул. Он вернулся к себе в деревню, идёт по улице, а его никто не узнает. Он хвать себя за лицо, а у него борода до пояса. Так он и догадался, что проспал двадцать лет подряд.",
               "quote_verified": true
             }
-          ]
-        }
+          ],
+          "entailment": {
+            "verdict": "SUPPORTED",
+            "reason": "Цитата точно описывает персонажа Рипа Ван Винкля, который спал двадцать лет и проснулся в изменившемся мире.",
+            "model": "qwen2.5:7b"
+          }
+        },
+        "category_original": "CHARACTER",
+        "category_validation": "INVALID_CATEGORY_NORMALIZED"
       }
     ],
     "unresolved": [
@@ -118,5 +135,12 @@
     "mentions": 1,
     "events": 1,
     "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 26,
+    "supported_entailed": 10,
+    "partial_review": 3,
+    "rejected": 13,
+    "schema_fixes": 1
   }
 }
