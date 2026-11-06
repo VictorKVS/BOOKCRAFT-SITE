@@ -1,10 +1,15 @@
 {
   "stage": "MVP-14B2_2_NARRATIVE_MODE_GUARD",
   "result": "PASS",
+  "candidate_claims": 10,
   "files_checked": 3,
-  "claims_checked": 0,
-  "canon_eligible": 0,
-  "blocked_by_narrative_mode": 0,
-  "modes": {},
+  "claims_checked": 10,
+  "canon_eligible": 9,
+  "blocked_by_narrative_mode": 1,
+  "modes": {
+    "NARRATOR_FACT": 6,
+    "CHARACTER_BELIEF": 3,
+    "CHARACTER_SPEECH": 1
+  },
   "model": "qwen2.5:7b"
 }

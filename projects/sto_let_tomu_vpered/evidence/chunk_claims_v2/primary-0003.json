@@ -18,7 +18,7 @@
             "value": "двадцать лет назад",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "BLOCKED_BY_NARRATIVE_MODE",
+            "acceptance": "CANON_ELIGIBLE",
             "evidence": [
               {
                 "chunk_id": "primary-0003",
@@ -34,9 +34,9 @@
               "model": "qwen2.5:7b"
             },
             "narrative_mode": {
-              "mode": "CHARACTER_BELIEF",
-              "canon_eligible": false,
-              "reason": "персонаж предполагает, что его сын пропал, но это не подтверждённый факт",
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "Рассказчик сообщает факт о пропаже Коли двадцать лет назад.",
               "model": "qwen2.5:7b"
             }
           },
@@ -46,7 +46,7 @@
             "value": "на лестнице",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "BLOCKED_BY_NARRATIVE_MODE",
+            "acceptance": "CANON_ELIGIBLE",
             "evidence": [
               {
                 "chunk_id": "primary-0003",
@@ -62,9 +62,9 @@
               "model": "qwen2.5:7b"
             },
             "narrative_mode": {
-              "mode": "CHARACTER_BELIEF",
-              "canon_eligible": false,
-              "reason": "Коля думает, что видит странное существо, но это его предположение.",
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "Рассказчик сообщает о факте, который происходит в мире рассказа.",
               "model": "qwen2.5:7b"
             }
           }
@@ -129,7 +129,7 @@
           "narrative_mode": {
             "mode": "CHARACTER_SPEECH",
             "canon_eligible": false,
-            "reason": "пересказ рассказа, а не прямое утверждение факта",
+            "reason": "Цитата представляет собой рассказ Коля, а не прямые слова персонажа Рипа Ван Винкля.",
             "model": "qwen2.5:7b"
           }
         },

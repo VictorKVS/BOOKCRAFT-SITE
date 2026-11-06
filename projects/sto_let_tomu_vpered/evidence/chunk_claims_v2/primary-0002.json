@@ -18,7 +18,7 @@
             "value": "это вещи приезжих друзей Николая Николаевича",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "BLOCKED_BY_NARRATIVE_MODE",
+            "acceptance": "CANON_ELIGIBLE",
             "evidence": [
               {
                 "chunk_id": "primary-0002",
@@ -35,8 +35,8 @@
             },
             "narrative_mode": {
               "mode": "CHARACTER_BELIEF",
-              "canon_eligible": false,
-              "reason": "Коля думает, что это вещи приезжих друзей Николая Николаевича, это его убеждение.",
+              "canon_eligible": true,
+              "reason": "Коля думает, что вещи принадлежат приезжим друзьям Николая Николаевича.",
               "model": "qwen2.5:7b"
             }
           },
@@ -204,9 +204,9 @@
               "model": "qwen2.5:7b"
             },
             "narrative_mode": {
-              "mode": "NARRATOR_FACT",
+              "mode": "CHARACTER_BELIEF",
               "canon_eligible": true,
-              "reason": "рассказчик описывает фактическое действие и видимые элементы приборной панели",
+              "reason": "Коля думает о том, что он рассматривает панель, переключатели и кнопки.",
               "model": "qwen2.5:7b"
             }
           }

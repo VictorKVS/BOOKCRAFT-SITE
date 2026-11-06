@@ -161,9 +161,9 @@
               "model": "qwen2.5:7b"
             },
             "narrative_mode": {
-              "mode": "CHARACTER_SPEECH",
+              "mode": "NARRATOR_FACT",
               "canon_eligible": true,
-              "reason": "Фраза является прямой речью персонажа, описывающей его мысли и действия.",
+              "reason": "Рассказчик сообщает факт о существовании друга Коли по имени Фима.",
               "model": "qwen2.5:7b"
             }
           },
@@ -321,7 +321,7 @@
             "value": "в гости к Николаю Николаевичу",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "BLOCKED_BY_NARRATIVE_MODE",
+            "acceptance": "CANON_ELIGIBLE",
             "evidence": [
               {
                 "chunk_id": "primary-0001",
@@ -338,8 +338,8 @@
             },
             "narrative_mode": {
               "mode": "CHARACTER_BELIEF",
-              "canon_eligible": false,
-              "reason": "Фима Королев верит, что просит в гости к Николаю Николаевичу, но это не подтверждается фактом мира.",
+              "canon_eligible": true,
+              "reason": "Фраза является мыслью персонажа, а не прямой речью.",
               "model": "qwen2.5:7b"
             }
           }
@@ -379,7 +379,7 @@
             "narrative_mode": {
               "mode": "NARRATOR_FACT",
               "canon_eligible": true,
-              "reason": "Рассказчик сообщает о факте, что Коля проснулся и увидел записку.",
+              "reason": "Рассказчик сообщает о факте: Коля проснулся и увидел записку, что подразумевает наличие свободного времени.",
               "model": "qwen2.5:7b"
             }
           }
@@ -513,7 +513,7 @@
             "narrative_mode": {
               "mode": "NARRATOR_FACT",
               "canon_eligible": true,
-              "reason": "рассказчик сообщает о факте, который происходит в мире повествования",
+              "reason": "Рассказчик сообщает о действии персонажа, подтверждающем наличие у него пистолета.",
               "model": "qwen2.5:7b"
             }
           }
