@@ -1,0 +1,24 @@
+{
+  "stage": "MVP-14B2_5_CANON_ADMISSION_GATE",
+  "result": "PASS",
+  "safe_canon_inputs": 4,
+  "admission_checked": 4,
+  "canon_accepted": 3,
+  "canon_review": 1,
+  "canon_rejected": 0,
+  "admitted_claim_ids": [
+    "primary-0001-c-0014",
+    "primary-0002-c-0001",
+    "primary-0002-c-0005"
+  ],
+  "reason_types": {
+    "ALL_ADMISSION_CHECKS_PASSED": 3,
+    "BELIEF_SCOPE_AMBIGUOUS": 1
+  },
+  "invariants": {
+    "only_safe_candidates_processed": true,
+    "character_belief_truth_scope_preserved": true,
+    "verified_evidence_required": true,
+    "deterministic_safety_pass_required": true
+  }
+}

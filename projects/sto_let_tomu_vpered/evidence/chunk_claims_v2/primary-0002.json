@@ -18,7 +18,7 @@
             "value": "это вещи приезжих друзей Николая Николаевича",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SAFE_CANON_CANDIDATE",
+            "acceptance": "CANON_ACCEPTED",
             "evidence": [
               {
                 "chunk_id": "primary-0002",
@@ -49,6 +49,23 @@
               "verdict": "PASS",
               "error_type": "NONE",
               "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "belief_scope_preserved",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Коля",
+              "truth_scope": "CHARACTER_BELIEF"
             }
           },
           {
@@ -132,7 +149,7 @@
             "value": "систему переключателей и кнопок",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SAFE_CANON_CANDIDATE",
+            "acceptance": "CANON_ACCEPTED",
             "evidence": [
               {
                 "chunk_id": "primary-0002",
@@ -163,6 +180,22 @@
               "verdict": "PASS",
               "error_type": "NONE",
               "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "приборная панель",
+              "truth_scope": "WORLD_STATE"
             }
           }
         ]
@@ -210,7 +243,7 @@
             "value": "переключатели и кнопки",
             "provenance": "SOURCE_CANON",
             "confidence": "CONFIRMED",
-            "acceptance": "SAFE_CANON_CANDIDATE",
+            "acceptance": "CANON_REVIEW",
             "evidence": [
               {
                 "chunk_id": "primary-0002",
@@ -241,6 +274,22 @@
               "verdict": "PASS",
               "error_type": "NONE",
               "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "REVIEW",
+              "reason": "BELIEF_SCOPE_AMBIGUOUS",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "belief_scope_requires_review"
+              ],
+              "scope": "event",
+              "subject": "Коля открывает приборную панель",
+              "truth_scope": "CHARACTER_BELIEF"
             }
           }
         ]
