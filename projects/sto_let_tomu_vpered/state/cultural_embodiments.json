@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "project_id": "sto_let_tomu_vpered",
+  "characters": [
+    {
+      "character_id": "alisa_selezneva",
+      "embodiments": [
+        {
+          "embodiment_id": "alisa_ru_soviet_screen_tradition",
+          "work": "Гостья из будущего",
+          "medium": "screen",
+          "version": "Soviet television adaptation",
+          "visual_traits": [
+            "youthful natural appearance",
+            "light/fair-brown hair",
+            "calm intelligent expression",
+            "non-glamorous styling"
+          ],
+          "behavioural_traits": [
+            "calm",
+            "intelligent",
+            "reserved",
+            "natural"
+          ],
+          "recognizability": "HIGH",
+          "literary_fidelity": "PARTIAL",
+          "adaptation_usefulness": "HIGH",
+          "status": "LOCKED",
+          "provenance": "USER_LOCKED_CULTURAL_CANON",
+          "notes": [
+            "Use as Russian-audience recognizability reference.",
+            "Do not claim screen traits are literal literary description.",
+            "Do not make a literal replica of a real performer."
+          ]
+        }
+      ]
+    }
+  ]
+}
