@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "pipeline": [
+    "INGEST",
+    "STRUCTURE",
+    "LITERARY_CANON",
+    "CHARACTER_BIBLE",
+    "WORLD_BIBLE",
+    "KNOWLEDGE_STATE",
+    "CULTURAL_CANON_LOCKS",
+    "VISUAL_BIBLE",
+    "CONTRADICTION_CHECK",
+    "CANON_ACCEPTANCE",
+    "STORY_HYPOTHESIS",
+    "CANON_VERIFY",
+    "STORY_GENERATION",
+    "COMIC_ADAPTATION",
+    "PAGE_PLAN",
+    "PANEL_PLAN",
+    "VISUAL_GENERATION",
+    "VISUAL_CRITIC"
+  ],
+  "provenance_types": [
+    "SOURCE_CANON",
+    "USER_LOCKED_CANON",
+    "USER_LOCKED_CULTURAL_CANON",
+    "DERIVED",
+    "HYPOTHESIS"
+  ],
+  "creative_generation_requires": [
+    "character_bible",
+    "world_bible",
+    "visual_bible",
+    "forbidden_contradictions",
+    "canon_acceptance"
+  ],
+  "cultural_canon_policy": {
+    "may_override_visual_adaptation": true,
+    "may_rewrite_literal_source_facts": false,
+    "must_keep_provenance": true
+  }
+}
