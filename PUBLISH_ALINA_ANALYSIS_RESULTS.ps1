@@ -28,14 +28,14 @@ if (Test-Path "$project\sources") {
     git reset -- "$project\sources" 2>$null
 }
 
-$pending = git status --short
-if (-not $pending) {
+$staged = git diff --cached --name-only
+if (-not $staged) {
     Write-Host "NO_CHANGES analysis results already published"
     exit 0
 }
 
 Write-Host "FILES TO COMMIT:"
-$pending | ForEach-Object { Write-Host $_ }
+$staged | ForEach-Object { Write-Host $_ }
 
 $stamp = Get-Date -Format "yyyy-MM-dd_HH-mm-ss"
 git commit -m "analysis: publish ALINA results $stamp"
