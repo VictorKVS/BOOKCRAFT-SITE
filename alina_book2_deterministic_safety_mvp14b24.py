@@ -87,37 +87,40 @@ def deterministic_verdict(subject: str, claim: dict[str,Any], context: str) -> t
     value=norm(str(claim.get("value","")))
     combined=f"{predicate} {value}"
     ctx=norm(context)
+    evs=claim.get("evidence",[])
+    quote=norm(str(evs[0].get("quote",""))) if evs else ""
 
-    # 1. Relationship overreach: claim asserts a relationship not explicitly present.
+    # 1. Relationship overreach: the relationship itself must be explicit in evidence.
     for relation,stems in RELATION_WORDS.items():
-        if relation in combined:
-            if not contains_any(ctx,stems):
+        if contains_any(combined, stems):
+            if not contains_any(quote, stems):
                 return (
                     "REJECT",
                     "RELATIONSHIP_OVERREACH",
-                    f"Claim вводит отношение '{relation}', которого нет в контексте."
+                    f"Claim вводит отношение '{relation}', которого нет в доказательной цитате."
                 )
 
-    # 2. Identity overreach: specific identity label introduced by model but absent in context.
+    # 2. Identity overreach: a precise identity label must occur in the evidence itself.
     for identity,stems in IDENTITY_WORDS.items():
-        if identity in combined:
-            if not contains_any(ctx,stems):
+        if contains_any(combined, stems):
+            if not contains_any(quote, stems):
                 return (
                     "REJECT",
                     "IDENTITY_OVERREACH",
-                    f"Claim вводит идентичность '{identity}', не установленную контекстом."
+                    f"Claim вводит идентичность '{identity}', не установленную доказательной цитатой."
                 )
 
-    # 3. Explicit imagined/hypothetical scenario cues around an asserted world fact.
-    cue=next((x for x in HYPOTHETICAL_CUES if x in ctx),None)
-    if cue:
-        # Stronger trigger for temporal/world-state claims inside imagined scenario.
-        temporal_markers=("лет назад","через ","сейчас он ","выйдет ","скажет ","ответят ")
-        if any(x in combined or x in ctx for x in temporal_markers):
+    # 3. Explicit imagined/hypothetical scenario leakage.
+    # Apply only to temporal/world-state assertions, not to unrelated facts in a wide context window.
+    temporal_markers=("лет назад","через ","сейчас он ","выйдет ","скажет ","ответят ","пропал")
+    is_temporal_world_claim=any(x in combined for x in temporal_markers)
+    if is_temporal_world_claim:
+        cue=next((x for x in HYPOTHETICAL_CUES if x in ctx),None)
+        if cue:
             return (
                 "REJECT",
                 "NARRATIVE_MODE",
-                f"Контекст содержит маркер воображаемого/гипотетического сценария: '{cue}'."
+                f"Контекст временного/world-state claim содержит маркер воображаемого сценария: '{cue}'."
             )
 
     # 4. Ownership overreach.
