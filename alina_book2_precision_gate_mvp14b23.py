@@ -23,7 +23,7 @@ OLLAMA_TIMEOUT_SEC = int(os.environ.get("ALINA_OLLAMA_TIMEOUT_SEC", "600"))
 OLLAMA_RETRIES = int(os.environ.get("ALINA_OLLAMA_RETRIES", "3"))
 
 SYSTEM = """
-Ты Final Canon Precision Gate.
+Ты Final Canon Precision Gate. Работай КОНСЕРВАТИВНО: лучше отправить claim в REVIEW, чем принять неподтверждённый факт.
 
 Проверь CLAIM по:
 1) точной цитате,
@@ -31,6 +31,16 @@ SYSTEM = """
 3) субъекту,
 4) предикату,
 5) режиму повествования.
+
+ЖЁСТКИЕ ПРАВИЛА:
+- конкретная идентичность должна быть прямо установлена текстом;
+- "похож на X", "то ли X", "как X" НЕ означает, что это X;
+- "одноклассник/знакомый" НЕ означает "друг";
+- "взял/использовал/увидел" НЕ означает "владеет";
+- воображаемое, условное, мысленное и процитированное внутри рассказа НЕ является фактом текущего мира;
+- если claim использует более сильный предикат, чем текст, ставь REJECT или REVIEW;
+- если существительное/отношение добавлено моделью и не установлено контекстом, ставь IDENTITY_OVERREACH или RELATIONSHIP_OVERREACH;
+- если сомневаешься, выбирай REVIEW, не FINAL_CANON_CANDIDATE.
 
 ЗАПРЕЩЕНО:
 - превращать догадку/фантазию/аналогию в факт мира;
@@ -130,7 +140,11 @@ def main() -> int:
         print(f"[{i}/{len(files)}] PRECISION {chunk_id}")
 
         for scope,subject,claim in iter_claims(validated):
-            if claim.get("acceptance")!="CANON_ELIGIBLE":
+            entailment = claim.get("entailment") or {}
+            narrative = claim.get("narrative_mode") or {}
+            if str(entailment.get("verdict","")).upper() != "SUPPORTED":
+                continue
+            if narrative.get("canon_eligible") is not True:
                 continue
             evs=claim.get("evidence",[])
             quote=evs[0].get("quote","") if evs else ""
@@ -141,8 +155,8 @@ def main() -> int:
                 f"PREDICATE: {claim.get('predicate','')}\n"
                 f"VALUE: {claim.get('value','')}\n"
                 f"QUOTE: {quote}\n"
-                f"ENTAILMENT: {json.dumps(claim.get('entailment',{}),ensure_ascii=False)}\n"
-                f"NARRATIVE: {json.dumps(claim.get('narrative_mode',{}),ensure_ascii=False)}\n"
+                f"ENTAILMENT: {json.dumps(entailment,ensure_ascii=False)}\n"
+                f"NARRATIVE: {json.dumps(narrative,ensure_ascii=False)}\n"
                 f"CONTEXT:\n{context}"
             )
             result=retry(prompt)
@@ -150,6 +164,10 @@ def main() -> int:
             if verdict not in {"FINAL_CANON_CANDIDATE","REVIEW","REJECT"}:
                 verdict="REJECT"
             err=str(result.get("error_type","OTHER")).upper()
+            if verdict == "REJECT" and err == "NONE":
+                err = "OTHER"
+            if verdict == "REVIEW" and err == "NONE":
+                err = "OTHER"
             claim["precision_gate"]={
                 "verdict":verdict,
                 "reason":str(result.get("reason","")).strip(),
