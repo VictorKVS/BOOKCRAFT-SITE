@@ -27,6 +27,7 @@ THERMAL_POLL_SEC = int(os.environ.get("ALINA_THERMAL_POLL_SEC", "10"))
 OLLAMA_TIMEOUT_SEC = int(os.environ.get("ALINA_OLLAMA_TIMEOUT_SEC", "600"))
 OLLAMA_RETRIES = int(os.environ.get("ALINA_OLLAMA_RETRIES", "3"))
 OLLAMA_RETRY_DELAY_SEC = int(os.environ.get("ALINA_OLLAMA_RETRY_DELAY_SEC", "15"))
+OLLAMA_TIMEOUT_STEP_SEC = int(os.environ.get("ALINA_OLLAMA_TIMEOUT_STEP_SEC", "300"))
 
 SYSTEM = r"""
 Ты ALINA Analyst. Анализируй ТОЛЬКО данный фрагмент литературного источника.
@@ -106,7 +107,7 @@ def ollama_available() -> bool:
     except Exception:
         return False
 
-def call_ollama(prompt: str) -> dict[str, Any]:
+def call_ollama(prompt: str, timeout_sec: int) -> dict[str, Any]:
     body = json.dumps({
         "model": MODEL,
         "stream": False,
@@ -123,7 +124,7 @@ def call_ollama(prompt: str) -> dict[str, Any]:
         headers={"Content-Type": "application/json"},
         method="POST",
     )
-    with urllib.request.urlopen(req, timeout=OLLAMA_TIMEOUT_SEC) as r:
+    with urllib.request.urlopen(req, timeout=timeout_sec) as r:
         payload = json.loads(r.read().decode("utf-8"))
     return json.loads(payload["message"]["content"])
 
@@ -164,8 +165,9 @@ def call_with_retry(prompt: str, chunk_id: str) -> dict[str, Any]:
         try:
             if attempt > 1:
                 thermal_gate(chunk_id)
-            print(f"OLLAMA {chunk_id}: attempt {attempt}/{OLLAMA_RETRIES}, timeout={OLLAMA_TIMEOUT_SEC}s")
-            return call_ollama(prompt)
+            timeout_sec = OLLAMA_TIMEOUT_SEC + (attempt - 1) * OLLAMA_TIMEOUT_STEP_SEC
+            print(f"OLLAMA {chunk_id}: attempt {attempt}/{OLLAMA_RETRIES}, timeout={timeout_sec}s")
+            return call_ollama(prompt, timeout_sec)
         except Exception as e:
             last_error = e
             print(f"WARN {chunk_id}: attempt {attempt} failed: {type(e).__name__}: {e}")
@@ -346,7 +348,10 @@ def main() -> int:
 
     print(f"MODEL: {MODEL}")
     print(f"THERMAL POLICY: pause >= {THERMAL_PAUSE_C}C, resume <= {THERMAL_RESUME_C}C")
-    print(f"OLLAMA POLICY: timeout={OLLAMA_TIMEOUT_SEC}s, retries={OLLAMA_RETRIES}")
+    print(
+        f"OLLAMA POLICY: base_timeout={OLLAMA_TIMEOUT_SEC}s, "
+        f"timeout_step={OLLAMA_TIMEOUT_STEP_SEC}s, retries={OLLAMA_RETRIES}"
+    )
 
     for d in (STATE, EVIDENCE, REPORTS, RUNS):
         d.mkdir(parents=True, exist_ok=True)
