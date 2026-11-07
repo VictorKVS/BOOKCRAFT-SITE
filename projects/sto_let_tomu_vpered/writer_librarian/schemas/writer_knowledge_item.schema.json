@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://father.local/schemas/writer_knowledge_item.schema.json",
+  "title": "Writer Knowledge Item",
+  "type": "object",
+  "required": [
+    "knowledge_id",
+    "item_type",
+    "name",
+    "source_refs",
+    "verification_status"
+  ],
+  "properties": {
+    "knowledge_id": {
+      "type": "string"
+    },
+    "item_type": {
+      "enum": [
+        "NARRATIVE_STRUCTURE",
+        "GENRE_PATTERN",
+        "PLOT_BEAT",
+        "CHARACTER_ARC",
+        "SCENE_PATTERN",
+        "CONFLICT_PATTERN",
+        "TENSION_PATTERN",
+        "MYSTERY_PATTERN",
+        "WORLDBUILDING_PATTERN",
+        "BEHAVIOR_REFERENCE",
+        "PROFESSIONAL_REALITY",
+        "CLICHE_PATTERN"
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "genres": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "beats": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "character_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "conflict_model": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "tension_curve": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "information_curve": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "surprise_points": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "common_failures": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "compatible_patterns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "cliche_risk": {
+      "enum": [
+        "UNKNOWN",
+        "LOW",
+        "MEDIUM",
+        "HIGH"
+      ]
+    },
+    "source_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "verification_status": {
+      "enum": [
+        "UNVERIFIED_HEURISTIC",
+        "SOURCE_VERIFIED",
+        "MULTISOURCE_VERIFIED",
+        "SCIENTIFICALLY_VERIFIED"
+      ]
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}
