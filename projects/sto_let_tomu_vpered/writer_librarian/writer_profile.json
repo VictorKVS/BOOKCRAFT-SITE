@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "profile_id": "WRITER-LIBRARIAN-DEFAULT",
+  "genres": {
+    "fantasy": 0.8,
+    "science_fiction": 0.9,
+    "detective": 0.9,
+    "thriller": 0.7,
+    "popadanets": 1,
+    "romance": 0.5,
+    "erotic": 0.4
+  },
+  "professional_interests": {
+    "programming": 0.9,
+    "cybersecurity": 0.8,
+    "ai": 0.8,
+    "engineering": 0.7,
+    "psychology": 0.8
+  },
+  "narrative_preferences": {
+    "mystery": 0.9,
+    "rational_worldbuilding": 0.9,
+    "character_psychology": 0.9,
+    "unexpected_but_prepared_twists": 0.9,
+    "causality": 1
+  },
+  "avoid": {
+    "deus_ex_machina": true,
+    "random_twists": true,
+    "broken_character_logic": true,
+    "unsupported_psychology": true
+  }
+}
