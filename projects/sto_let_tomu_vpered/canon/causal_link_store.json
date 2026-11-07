@@ -2,5 +2,14 @@
   "schema_version": "1.0",
   "work_id": "sto_let_tomu_vpered",
   "store_type": "TRUSTED_CAUSAL_LINKS",
-  "records": []
+  "records": [
+    {
+      "causal_link_id": "cause-d75a626877068d18",
+      "transition_id": "transition-03bb91009ce9a388",
+      "cause_event_id": "evt-100b1340b69d7b46",
+      "effect_state_id": "state-2a1f434afe15affd",
+      "status": "EXPLICIT_CAUSAL_EVIDENCE",
+      "basis": "SOURCE_TEXT_CAUSAL_MARKER"
+    }
+  ]
 }

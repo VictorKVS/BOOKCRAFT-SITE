@@ -1,6 +1,6 @@
 # MVP-14B7 Hypothesis Engine
 
-- Trusted claims input: 3
+- Trusted claims input: 95
 - Graph propositions input: 2
 - Hypothesis candidates: 2
 - Analyst hypotheses promoted: 0

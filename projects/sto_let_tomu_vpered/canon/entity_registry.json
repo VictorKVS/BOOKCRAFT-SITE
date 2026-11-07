@@ -4,18 +4,464 @@
   "registry_type": "TRUSTED_ENTITY_REGISTRY",
   "records": [
     {
-      "entity_id": "ent-2dedc70082320885",
-      "canonical_name": "Коля",
+      "entity_id": "ent-2ea3678196556d1c",
+      "canonical_name": "Алик",
+      "entity_type": "CHARACTER",
+      "aliases": [
+        "Алик Борисович"
+      ],
+      "source_claims": [
+        "primary-0024-c-0004",
+        "primary-0024-c-0009",
+        "primary-0025-c-0008"
+      ],
+      "source_mentions": [
+        "primary-0028-m-0005",
+        "primary-0032-m-0001"
+      ],
+      "roles_in_claims": {
+        "primary-0024-c-0004": [
+          "REFERENCED"
+        ],
+        "primary-0024-c-0009": [
+          "REFERENCED"
+        ],
+        "primary-0025-c-0008": [
+          "REFERENCED"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-24b9688791760c0f",
+      "canonical_name": "Алик Борисович",
       "entity_type": "CHARACTER",
       "aliases": [],
       "source_claims": [
+        "primary-0024-c-0004",
+        "primary-0024-c-0009",
+        "primary-0025-c-0008"
+      ],
+      "source_mentions": [
+        "primary-0024-m-0002",
+        "primary-0027-m-0003",
+        "primary-0028-m-0002"
+      ],
+      "roles_in_claims": {
+        "primary-0024-c-0004": [
+          "SUBJECT"
+        ],
+        "primary-0024-c-0009": [
+          "REFERENCED"
+        ],
+        "primary-0025-c-0008": [
+          "REFERENCED"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-2fd7b01dc0a9ec09",
+      "canonical_name": "Алиса",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0019-c-0004",
+        "primary-0020-c-0005",
+        "primary-0020-c-0011",
+        "primary-0020-c-0012",
+        "primary-0020-c-0014",
+        "primary-0028-c-0003",
+        "primary-0033-c-0007",
+        "primary-0033-c-0014",
+        "primary-0034-c-0011",
+        "primary-0035-c-0001",
+        "primary-0035-c-0003",
+        "primary-0036-c-0002",
+        "primary-0036-c-0007",
+        "primary-0036-c-0008",
+        "primary-0039-c-0004",
+        "primary-0041-c-0008",
+        "primary-0048-c-0004",
+        "primary-0049-c-0003",
+        "primary-0049-c-0009",
+        "primary-0051-c-0001",
+        "primary-0052-c-0001",
+        "primary-0052-c-0007",
+        "primary-0056-c-0001",
+        "primary-0056-c-0007",
+        "primary-0056-c-0011"
+      ],
+      "source_mentions": [
+        "primary-0008-m-0004",
+        "primary-0018-m-0003",
+        "primary-0019-m-0003",
+        "primary-0020-m-0002",
+        "primary-0021-m-0002",
+        "primary-0024-m-0003",
+        "primary-0025-m-0002",
+        "primary-0026-m-0001",
+        "primary-0027-m-0001",
+        "primary-0028-m-0003",
+        "primary-0029-m-0003",
+        "primary-0032-m-0003",
+        "primary-0033-m-0002",
+        "primary-0034-m-0001",
+        "primary-0035-m-0001",
+        "primary-0036-m-0001",
+        "primary-0037-m-0001",
+        "primary-0038-m-0001",
+        "primary-0039-m-0001",
+        "primary-0040-m-0003",
+        "primary-0041-m-0001",
+        "primary-0043-m-0003",
+        "primary-0045-m-0001",
+        "primary-0047-m-0001",
+        "primary-0049-m-0003",
+        "primary-0051-m-0001",
+        "primary-0052-m-0001",
+        "primary-0053-m-0001",
+        "primary-0054-m-0001",
+        "primary-0056-m-0002",
+        "primary-0057-m-0003",
+        "primary-0059-m-0002",
+        "primary-0060-m-0002"
+      ],
+      "roles_in_claims": {
+        "primary-0019-c-0004": [
+          "SUBJECT"
+        ],
+        "primary-0020-c-0005": [
+          "SUBJECT"
+        ],
+        "primary-0020-c-0011": [
+          "REFERENCED"
+        ],
+        "primary-0020-c-0012": [
+          "REFERENCED"
+        ],
+        "primary-0020-c-0014": [
+          "REFERENCED"
+        ],
+        "primary-0028-c-0003": [
+          "SUBJECT"
+        ],
+        "primary-0033-c-0007": [
+          "REFERENCED"
+        ],
+        "primary-0033-c-0014": [
+          "REFERENCED"
+        ],
+        "primary-0034-c-0011": [
+          "REFERENCED"
+        ],
+        "primary-0035-c-0001": [
+          "SUBJECT"
+        ],
+        "primary-0035-c-0003": [
+          "SUBJECT"
+        ],
+        "primary-0036-c-0002": [
+          "SUBJECT"
+        ],
+        "primary-0036-c-0007": [
+          "REFERENCED"
+        ],
+        "primary-0036-c-0008": [
+          "REFERENCED"
+        ],
+        "primary-0039-c-0004": [
+          "REFERENCED"
+        ],
+        "primary-0041-c-0008": [
+          "REFERENCED"
+        ],
+        "primary-0048-c-0004": [
+          "REFERENCED"
+        ],
+        "primary-0049-c-0003": [
+          "SUBJECT"
+        ],
+        "primary-0049-c-0009": [
+          "REFERENCED"
+        ],
+        "primary-0051-c-0001": [
+          "SUBJECT"
+        ],
+        "primary-0052-c-0001": [
+          "SUBJECT"
+        ],
+        "primary-0052-c-0007": [
+          "REFERENCED"
+        ],
+        "primary-0056-c-0001": [
+          "REFERENCED"
+        ],
+        "primary-0056-c-0007": [
+          "REFERENCED"
+        ],
+        "primary-0056-c-0011": [
+          "REFERENCED"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-93ffc4fbd6b7897e",
+      "canonical_name": "Алиса Селезнева",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0048-c-0004"
+      ],
+      "source_mentions": [
+        "primary-0048-m-0002",
+        "primary-0050-m-0003"
+      ],
+      "roles_in_claims": {
+        "primary-0048-c-0004": [
+          "SUBJECT"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-69b17244a93c4cdd",
+      "canonical_name": "Аркаша",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0008-c-0003"
+      ],
+      "source_mentions": [
+        "primary-0008-m-0003"
+      ],
+      "roles_in_claims": {
+        "primary-0008-c-0003": [
+          "SUBJECT"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-5c7be62f6d684a26",
+      "canonical_name": "вахтенный",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0015-c-0003"
+      ],
+      "source_mentions": [
+        "primary-0015-m-0003"
+      ],
+      "roles_in_claims": {
+        "primary-0015-c-0003": [
+          "SUBJECT"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-b8a49af58852465a",
+      "canonical_name": "Весельчак У",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0017-c-0002",
+        "primary-0052-c-0003"
+      ],
+      "source_mentions": [
+        "primary-0016-m-0003",
+        "primary-0017-m-0002",
+        "primary-0034-m-0004",
+        "primary-0041-m-0004",
+        "primary-0044-m-0002",
+        "primary-0049-m-0007",
+        "primary-0052-m-0003"
+      ],
+      "roles_in_claims": {
+        "primary-0017-c-0002": [
+          "SUBJECT"
+        ],
+        "primary-0052-c-0003": [
+          "SUBJECT"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-bd1ad0187c0c40c8",
+      "canonical_name": "гроссмейстер",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0048-c-0004"
+      ],
+      "source_mentions": [
+        "primary-0047-m-0004"
+      ],
+      "roles_in_claims": {
+        "primary-0048-c-0004": [
+          "REFERENCED"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-9c40657ea0dd6084",
+      "canonical_name": "Джавад",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0023-c-0004"
+      ],
+      "source_mentions": [
+        "primary-0006-m-0002",
+        "primary-0007-m-0002",
+        "primary-0008-m-0002"
+      ],
+      "roles_in_claims": {
+        "primary-0023-c-0004": [
+          "REFERENCED"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-3584afbc5f9b16cb",
+      "canonical_name": "доктор Иванова",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0051-c-0003"
+      ],
+      "source_mentions": [
+        "primary-0051-m-0003"
+      ],
+      "roles_in_claims": {
+        "primary-0051-c-0003": [
+          "SUBJECT"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-80f8b53cd38030af",
+      "canonical_name": "Ишутин",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0053-c-0006"
+      ],
+      "source_mentions": [
+        "primary-0059-m-0001"
+      ],
+      "roles_in_claims": {
+        "primary-0053-c-0006": [
+          "REFERENCED"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-fede73be65d2a99d",
+      "canonical_name": "Катя Михайлова",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0056-c-0007",
+        "primary-0061-c-0005"
+      ],
+      "source_mentions": [
+        "primary-0037-m-0003",
+        "primary-0038-m-0002",
+        "primary-0040-m-0004",
+        "primary-0055-m-0003",
+        "primary-0056-m-0003",
+        "primary-0057-m-0002",
+        "primary-0061-m-0005"
+      ],
+      "roles_in_claims": {
+        "primary-0056-c-0007": [
+          "SUBJECT"
+        ],
+        "primary-0061-c-0005": [
+          "SUBJECT"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-2dedc70082320885",
+      "canonical_name": "Коля",
+      "entity_type": "CHARACTER",
+      "aliases": [
+        "Коля Наумов",
+        "Коля Садовский",
+        "Коля Сулима"
+      ],
+      "source_claims": [
         "primary-0001-c-0014",
-        "primary-0002-c-0001"
+        "primary-0002-c-0001",
+        "primary-0003-c-0004",
+        "primary-0004-c-0003",
+        "primary-0005-c-0006",
+        "primary-0007-c-0001",
+        "primary-0007-c-0006",
+        "primary-0012-c-0004",
+        "primary-0012-c-0012",
+        "primary-0013-c-0002",
+        "primary-0017-c-0001",
+        "primary-0021-c-0005",
+        "primary-0022-c-0001",
+        "primary-0022-c-0002",
+        "primary-0022-c-0004",
+        "primary-0022-c-0006",
+        "primary-0022-c-0007",
+        "primary-0022-c-0010",
+        "primary-0023-c-0004",
+        "primary-0023-c-0013",
+        "primary-0031-c-0006",
+        "primary-0039-c-0004",
+        "primary-0040-c-0001",
+        "primary-0041-c-0007",
+        "primary-0041-c-0008",
+        "primary-0042-c-0003",
+        "primary-0043-c-0005",
+        "primary-0049-c-0008",
+        "primary-0052-c-0003",
+        "primary-0054-c-0002",
+        "primary-0058-c-0005",
+        "primary-0060-c-0007"
       ],
       "source_mentions": [
         "primary-0001-m-0001",
         "primary-0002-m-0001",
-        "primary-0003-m-0001"
+        "primary-0003-m-0001",
+        "primary-0004-m-0001",
+        "primary-0005-m-0002",
+        "primary-0006-m-0001",
+        "primary-0007-m-0001",
+        "primary-0008-m-0001",
+        "primary-0009-m-0001",
+        "primary-0010-m-0001",
+        "primary-0011-m-0001",
+        "primary-0012-m-0001",
+        "primary-0012-m-0002",
+        "primary-0012-m-0003",
+        "primary-0012-m-0004",
+        "primary-0012-m-0005",
+        "primary-0012-m-0006",
+        "primary-0012-m-0007",
+        "primary-0013-m-0001",
+        "primary-0014-m-0001",
+        "primary-0015-m-0001",
+        "primary-0016-m-0001",
+        "primary-0017-m-0001",
+        "primary-0018-m-0001",
+        "primary-0019-m-0001",
+        "primary-0020-m-0001",
+        "primary-0021-m-0001",
+        "primary-0022-m-0001",
+        "primary-0023-m-0001",
+        "primary-0024-m-0001",
+        "primary-0029-m-0001",
+        "primary-0030-m-0001",
+        "primary-0036-m-0002",
+        "primary-0041-m-0002",
+        "primary-0042-m-0001",
+        "primary-0043-m-0001",
+        "primary-0053-m-0003",
+        "primary-0058-m-0004",
+        "primary-0060-m-0001"
       ],
       "roles_in_claims": {
         "primary-0001-c-0014": [
@@ -23,6 +469,645 @@
         ],
         "primary-0002-c-0001": [
           "SUBJECT"
+        ],
+        "primary-0003-c-0004": [
+          "REFERENCED"
+        ],
+        "primary-0004-c-0003": [
+          "REFERENCED"
+        ],
+        "primary-0005-c-0006": [
+          "SUBJECT"
+        ],
+        "primary-0007-c-0001": [
+          "SUBJECT"
+        ],
+        "primary-0007-c-0006": [
+          "REFERENCED"
+        ],
+        "primary-0012-c-0004": [
+          "SUBJECT"
+        ],
+        "primary-0012-c-0012": [
+          "REFERENCED"
+        ],
+        "primary-0013-c-0002": [
+          "SUBJECT"
+        ],
+        "primary-0017-c-0001": [
+          "SUBJECT"
+        ],
+        "primary-0021-c-0005": [
+          "REFERENCED"
+        ],
+        "primary-0022-c-0001": [
+          "SUBJECT"
+        ],
+        "primary-0022-c-0002": [
+          "SUBJECT"
+        ],
+        "primary-0022-c-0004": [
+          "SUBJECT"
+        ],
+        "primary-0022-c-0006": [
+          "SUBJECT"
+        ],
+        "primary-0022-c-0007": [
+          "SUBJECT"
+        ],
+        "primary-0022-c-0010": [
+          "REFERENCED"
+        ],
+        "primary-0023-c-0004": [
+          "SUBJECT"
+        ],
+        "primary-0023-c-0013": [
+          "REFERENCED"
+        ],
+        "primary-0031-c-0006": [
+          "REFERENCED"
+        ],
+        "primary-0039-c-0004": [
+          "REFERENCED"
+        ],
+        "primary-0040-c-0001": [
+          "REFERENCED"
+        ],
+        "primary-0041-c-0007": [
+          "REFERENCED"
+        ],
+        "primary-0041-c-0008": [
+          "REFERENCED"
+        ],
+        "primary-0042-c-0003": [
+          "REFERENCED"
+        ],
+        "primary-0043-c-0005": [
+          "REFERENCED"
+        ],
+        "primary-0049-c-0008": [
+          "REFERENCED"
+        ],
+        "primary-0052-c-0003": [
+          "REFERENCED"
+        ],
+        "primary-0054-c-0002": [
+          "REFERENCED"
+        ],
+        "primary-0058-c-0005": [
+          "SUBJECT"
+        ],
+        "primary-0060-c-0007": [
+          "REFERENCED"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-6a530e91ecbeb53a",
+      "canonical_name": "Коля Наумов",
+      "entity_type": "CHARACTER",
+      "aliases": [
+        "Наумов"
+      ],
+      "source_claims": [
+        "primary-0031-c-0006",
+        "primary-0040-c-0001",
+        "primary-0052-c-0003",
+        "primary-0054-c-0002"
+      ],
+      "source_mentions": [
+        "primary-0031-m-0003",
+        "primary-0039-m-0004",
+        "primary-0040-m-0002",
+        "primary-0052-m-0002",
+        "primary-0054-m-0002"
+      ],
+      "roles_in_claims": {
+        "primary-0031-c-0006": [
+          "SUBJECT"
+        ],
+        "primary-0040-c-0001": [
+          "REFERENCED"
+        ],
+        "primary-0052-c-0003": [
+          "REFERENCED"
+        ],
+        "primary-0054-c-0002": [
+          "SUBJECT"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-5827c2a60774e3df",
+      "canonical_name": "Коля Садовский",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0039-c-0004",
+        "primary-0049-c-0008"
+      ],
+      "source_mentions": [
+        "primary-0031-m-0002",
+        "primary-0039-m-0002",
+        "primary-0045-m-0002",
+        "primary-0046-m-0001",
+        "primary-0049-m-0008",
+        "primary-0050-m-0001",
+        "primary-0051-m-0004",
+        "primary-0055-m-0002",
+        "primary-0059-m-0003"
+      ],
+      "roles_in_claims": {
+        "primary-0039-c-0004": [
+          "SUBJECT"
+        ],
+        "primary-0049-c-0008": [
+          "SUBJECT"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-db966c76835cd3b2",
+      "canonical_name": "Коля Сулима",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0060-c-0007"
+      ],
+      "source_mentions": [
+        "primary-0031-m-0004",
+        "primary-0035-m-0002",
+        "primary-0049-m-0005",
+        "primary-0055-m-0001",
+        "primary-0056-m-0004",
+        "primary-0057-m-0004",
+        "primary-0061-m-0003"
+      ],
+      "roles_in_claims": {
+        "primary-0060-c-0007": [
+          "REFERENCED"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-43232c20de2e621f",
+      "canonical_name": "Крысс",
+      "entity_type": "CHARACTER",
+      "aliases": [
+        "Крысс с планеты Крокрыс",
+        "Наполеон Бонапарт",
+        "пират Крысс"
+      ],
+      "source_claims": [
+        "primary-0017-c-0001",
+        "primary-0017-c-0002",
+        "primary-0017-c-0004",
+        "primary-0028-c-0006",
+        "primary-0034-c-0009",
+        "primary-0044-c-0001",
+        "primary-0044-c-0007",
+        "primary-0044-c-0008",
+        "primary-0052-c-0003",
+        "primary-0053-c-0006",
+        "primary-0060-c-0007"
+      ],
+      "source_mentions": [
+        "primary-0016-m-0004",
+        "primary-0017-m-0003",
+        "primary-0028-m-0006",
+        "primary-0034-m-0003",
+        "primary-0044-m-0001",
+        "primary-0049-m-0006",
+        "primary-0052-m-0004",
+        "primary-0053-m-0004",
+        "primary-0060-m-0003"
+      ],
+      "roles_in_claims": {
+        "primary-0017-c-0001": [
+          "REFERENCED"
+        ],
+        "primary-0017-c-0002": [
+          "REFERENCED"
+        ],
+        "primary-0017-c-0004": [
+          "REFERENCED"
+        ],
+        "primary-0028-c-0006": [
+          "SUBJECT"
+        ],
+        "primary-0034-c-0009": [
+          "SUBJECT"
+        ],
+        "primary-0044-c-0001": [
+          "SUBJECT"
+        ],
+        "primary-0044-c-0007": [
+          "REFERENCED"
+        ],
+        "primary-0044-c-0008": [
+          "REFERENCED"
+        ],
+        "primary-0052-c-0003": [
+          "REFERENCED"
+        ],
+        "primary-0053-c-0006": [
+          "SUBJECT"
+        ],
+        "primary-0060-c-0007": [
+          "REFERENCED"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-c9fb34ca1bc0891b",
+      "canonical_name": "Лариса",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0061-c-0002"
+      ],
+      "source_mentions": [
+        "primary-0058-m-0001",
+        "primary-0061-m-0002"
+      ],
+      "roles_in_claims": {
+        "primary-0061-c-0002": [
+          "SUBJECT"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-67c6695534aea54f",
+      "canonical_name": "Лев",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0001-c-0014",
+        "primary-0022-c-0002",
+        "primary-0039-c-0005",
+        "primary-0044-c-0001",
+        "primary-0044-c-0007",
+        "primary-0044-c-0008",
+        "primary-0056-c-0009",
+        "primary-0061-c-0001"
+      ],
+      "source_mentions": [
+        "primary-0008-m-0006"
+      ],
+      "roles_in_claims": {
+        "primary-0001-c-0014": [
+          "REFERENCED"
+        ],
+        "primary-0022-c-0002": [
+          "REFERENCED"
+        ],
+        "primary-0039-c-0005": [
+          "REFERENCED"
+        ],
+        "primary-0044-c-0001": [
+          "REFERENCED"
+        ],
+        "primary-0044-c-0007": [
+          "REFERENCED"
+        ],
+        "primary-0044-c-0008": [
+          "REFERENCED"
+        ],
+        "primary-0056-c-0009": [
+          "REFERENCED"
+        ],
+        "primary-0061-c-0001": [
+          "REFERENCED"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-1148f19398b78d33",
+      "canonical_name": "Марта Скрыль",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0048-c-0006"
+      ],
+      "source_mentions": [
+        "primary-0048-m-0004",
+        "primary-0049-m-0004"
+      ],
+      "roles_in_claims": {
+        "primary-0048-c-0006": [
+          "SUBJECT"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-da9a8c064aa0d0ec",
+      "canonical_name": "Мила",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0061-c-0006"
+      ],
+      "source_mentions": [
+        "primary-0051-m-0002"
+      ],
+      "roles_in_claims": {
+        "primary-0061-c-0006": [
+          "REFERENCED"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-7e995ea7e9ec0e74",
+      "canonical_name": "Мила Руткевич",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0061-c-0006"
+      ],
+      "source_mentions": [
+        "primary-0045-m-0003",
+        "primary-0050-m-0004",
+        "primary-0052-m-0006",
+        "primary-0055-m-0004",
+        "primary-0061-m-0006"
+      ],
+      "roles_in_claims": {
+        "primary-0061-c-0006": [
+          "SUBJECT"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-a015a9d4e71e1af6",
+      "canonical_name": "Наполеон",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0052-c-0003",
+        "primary-0058-c-0005"
+      ],
+      "source_mentions": [
+        "primary-0044-m-0003"
+      ],
+      "roles_in_claims": {
+        "primary-0052-c-0003": [
+          "REFERENCED"
+        ],
+        "primary-0058-c-0005": [
+          "REFERENCED"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-67f5755df97474a0",
+      "canonical_name": "Наташа",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0033-c-0007",
+        "primary-0033-c-0008",
+        "primary-0033-c-0014"
+      ],
+      "source_mentions": [
+        "primary-0033-m-0003"
+      ],
+      "roles_in_claims": {
+        "primary-0033-c-0007": [
+          "SUBJECT"
+        ],
+        "primary-0033-c-0008": [
+          "SUBJECT"
+        ],
+        "primary-0033-c-0014": [
+          "REFERENCED"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-9d5662f4a58cec4a",
+      "canonical_name": "Наумов",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0031-c-0006",
+        "primary-0040-c-0001",
+        "primary-0052-c-0003",
+        "primary-0054-c-0002"
+      ],
+      "source_mentions": [
+        "primary-0040-m-0001"
+      ],
+      "roles_in_claims": {
+        "primary-0031-c-0006": [
+          "REFERENCED"
+        ],
+        "primary-0040-c-0001": [
+          "SUBJECT"
+        ],
+        "primary-0052-c-0003": [
+          "REFERENCED"
+        ],
+        "primary-0054-c-0002": [
+          "REFERENCED"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-a0369935f459e1f6",
+      "canonical_name": "Николай Николаевич",
+      "entity_type": "CHARACTER",
+      "aliases": [
+        "дежурный на станции времени"
+      ],
+      "source_claims": [
+        "primary-0061-c-0007"
+      ],
+      "source_mentions": [
+        "primary-0001-m-0002",
+        "primary-0060-m-0004",
+        "primary-0061-m-0007"
+      ],
+      "roles_in_claims": {
+        "primary-0061-c-0007": [
+          "SUBJECT"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-2320d00cb8bef839",
+      "canonical_name": "Павел",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0004-c-0003"
+      ],
+      "source_mentions": [
+        "primary-0009-m-0002"
+      ],
+      "roles_in_claims": {
+        "primary-0004-c-0003": [
+          "REFERENCED"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-a4c3534d6302348e",
+      "canonical_name": "Пашка",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0005-c-0007"
+      ],
+      "source_mentions": [
+        "primary-0005-m-0003"
+      ],
+      "roles_in_claims": {
+        "primary-0005-c-0007": [
+          "SUBJECT"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-34d96c3ecb087a17",
+      "canonical_name": "профессор Рррр",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0005-c-0008"
+      ],
+      "source_mentions": [
+        "primary-0005-m-0004"
+      ],
+      "roles_in_claims": {
+        "primary-0005-c-0008": [
+          "SUBJECT"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-368e30fa8298bdfe",
+      "canonical_name": "профессор Селезнев",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0020-c-0009"
+      ],
+      "source_mentions": [
+        "primary-0020-m-0003"
+      ],
+      "roles_in_claims": {
+        "primary-0020-c-0009": [
+          "SUBJECT"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-6416a4686f36a968",
+      "canonical_name": "Садовский",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0039-c-0004",
+        "primary-0049-c-0008"
+      ],
+      "source_mentions": [
+        "primary-0038-m-0003"
+      ],
+      "roles_in_claims": {
+        "primary-0039-c-0004": [
+          "REFERENCED"
+        ],
+        "primary-0049-c-0008": [
+          "REFERENCED"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-3673494c57cd3c43",
+      "canonical_name": "старик Павел",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0004-c-0003"
+      ],
+      "source_mentions": [
+        "primary-0004-m-0002",
+        "primary-0005-m-0001"
+      ],
+      "roles_in_claims": {
+        "primary-0004-c-0003": [
+          "REFERENCED"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-f80646a1e5176baf",
+      "canonical_name": "Сулима",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0060-c-0007"
+      ],
+      "source_mentions": [
+        "primary-0058-m-0002"
+      ],
+      "roles_in_claims": {
+        "primary-0060-c-0007": [
+          "REFERENCED"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-66c40f8679402c10",
+      "canonical_name": "тренерша",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0053-c-0004"
+      ],
+      "source_mentions": [
+        "primary-0053-m-0002"
+      ],
+      "roles_in_claims": {
+        "primary-0053-c-0004": [
+          "SUBJECT"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-df1a07cb5ad221be",
+      "canonical_name": "Фима",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0001-c-0014",
+        "primary-0039-c-0005",
+        "primary-0042-c-0003",
+        "primary-0056-c-0009",
+        "primary-0061-c-0001"
+      ],
+      "source_mentions": [
+        "primary-0035-m-0003",
+        "primary-0042-m-0002",
+        "primary-0043-m-0002",
+        "primary-0057-m-0001",
+        "primary-0058-m-0003"
+      ],
+      "roles_in_claims": {
+        "primary-0001-c-0014": [
+          "REFERENCED"
+        ],
+        "primary-0039-c-0005": [
+          "REFERENCED"
+        ],
+        "primary-0042-c-0003": [
+          "SUBJECT"
+        ],
+        "primary-0056-c-0009": [
+          "REFERENCED"
+        ],
+        "primary-0061-c-0001": [
+          "REFERENCED"
         ]
       }
     },
@@ -32,13 +1117,242 @@
       "entity_type": "CHARACTER",
       "aliases": [],
       "source_claims": [
-        "primary-0001-c-0014"
+        "primary-0001-c-0014",
+        "primary-0039-c-0005",
+        "primary-0056-c-0009",
+        "primary-0061-c-0001"
       ],
       "source_mentions": [
-        "primary-0001-m-0003"
+        "primary-0001-m-0003",
+        "primary-0037-m-0002",
+        "primary-0039-m-0003",
+        "primary-0041-m-0003",
+        "primary-0046-m-0002",
+        "primary-0051-m-0005",
+        "primary-0056-m-0005",
+        "primary-0061-m-0001"
       ],
       "roles_in_claims": {
         "primary-0001-c-0014": [
+          "SUBJECT"
+        ],
+        "primary-0039-c-0005": [
+          "SUBJECT"
+        ],
+        "primary-0056-c-0009": [
+          "SUBJECT"
+        ],
+        "primary-0061-c-0001": [
+          "SUBJECT"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-ba75d4285146d955",
+      "canonical_name": "худой мужчина",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0011-c-0003"
+      ],
+      "source_mentions": [
+        "primary-0011-m-0002"
+      ],
+      "roles_in_claims": {
+        "primary-0011-c-0003": [
+          "SUBJECT"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-50afa937a3f40019",
+      "canonical_name": "Эдуард Петрович",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0048-c-0005",
+        "primary-0049-c-0001"
+      ],
+      "source_mentions": [
+        "primary-0040-m-0007",
+        "primary-0047-m-0003",
+        "primary-0048-m-0003",
+        "primary-0049-m-0001"
+      ],
+      "roles_in_claims": {
+        "primary-0048-c-0005": [
+          "SUBJECT"
+        ],
+        "primary-0049-c-0001": [
+          "SUBJECT"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-16bd408c48d29491",
+      "canonical_name": "Электрон",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0021-c-0005"
+      ],
+      "source_mentions": [
+        "primary-0019-m-0002"
+      ],
+      "roles_in_claims": {
+        "primary-0021-c-0005": [
+          "REFERENCED"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-5c75a6aec454a8d0",
+      "canonical_name": "Электрон Степанович",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0021-c-0005"
+      ],
+      "source_mentions": [
+        "primary-0011-m-0003",
+        "primary-0018-m-0002",
+        "primary-0021-m-0003"
+      ],
+      "roles_in_claims": {
+        "primary-0021-c-0005": [
+          "REFERENCED"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-69210c491d96c8e0",
+      "canonical_name": "Юлька",
+      "entity_type": "CHARACTER",
+      "aliases": [
+        "Юля"
+      ],
+      "source_claims": [
+        "primary-0028-c-0001",
+        "primary-0031-c-0008",
+        "primary-0032-c-0009",
+        "primary-0036-c-0005",
+        "primary-0048-c-0004",
+        "primary-0056-c-0001",
+        "primary-0061-c-0004"
+      ],
+      "source_mentions": [
+        "primary-0025-m-0003",
+        "primary-0027-m-0002",
+        "primary-0028-m-0001",
+        "primary-0029-m-0002",
+        "primary-0031-m-0001",
+        "primary-0032-m-0002",
+        "primary-0039-m-0005",
+        "primary-0040-m-0008",
+        "primary-0047-m-0005",
+        "primary-0048-m-0001",
+        "primary-0049-m-0002",
+        "primary-0056-m-0001"
+      ],
+      "roles_in_claims": {
+        "primary-0028-c-0001": [
+          "SUBJECT"
+        ],
+        "primary-0031-c-0008": [
+          "REFERENCED"
+        ],
+        "primary-0032-c-0009": [
+          "REFERENCED"
+        ],
+        "primary-0036-c-0005": [
+          "REFERENCED"
+        ],
+        "primary-0048-c-0004": [
+          "REFERENCED"
+        ],
+        "primary-0056-c-0001": [
+          "SUBJECT"
+        ],
+        "primary-0061-c-0004": [
+          "REFERENCED"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-5ab956fb297cec66",
+      "canonical_name": "Юлька Грибкова",
+      "entity_type": "CHARACTER",
+      "aliases": [],
+      "source_claims": [
+        "primary-0036-c-0005",
+        "primary-0061-c-0004"
+      ],
+      "source_mentions": [
+        "primary-0036-m-0003",
+        "primary-0037-m-0004",
+        "primary-0061-m-0004"
+      ],
+      "roles_in_claims": {
+        "primary-0036-c-0005": [
+          "SUBJECT"
+        ],
+        "primary-0061-c-0004": [
+          "SUBJECT"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-4e04a067ea17a05a",
+      "canonical_name": "пираты",
+      "entity_type": "CREATURE",
+      "aliases": [],
+      "source_claims": [
+        "primary-0017-c-0002",
+        "primary-0017-c-0004",
+        "primary-0023-c-0013"
+      ],
+      "source_mentions": [
+        "primary-0023-m-0003",
+        "primary-0030-m-0002",
+        "primary-0043-m-0004"
+      ],
+      "roles_in_claims": {
+        "primary-0017-c-0002": [
+          "REFERENCED"
+        ],
+        "primary-0017-c-0004": [
+          "REFERENCED"
+        ],
+        "primary-0023-c-0013": [
+          "SUBJECT"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-a7674579154cdf88",
+      "canonical_name": "миелофон",
+      "entity_type": "OBJECT",
+      "aliases": [],
+      "source_claims": [
+        "primary-0020-c-0014",
+        "primary-0021-c-0005",
+        "primary-0023-c-0004",
+        "primary-0056-c-0011"
+      ],
+      "source_mentions": [
+        "primary-0023-m-0002"
+      ],
+      "roles_in_claims": {
+        "primary-0020-c-0014": [
+          "SUBJECT"
+        ],
+        "primary-0021-c-0005": [
+          "REFERENCED"
+        ],
+        "primary-0023-c-0004": [
+          "REFERENCED"
+        ],
+        "primary-0056-c-0011": [
           "SUBJECT"
         ]
       }
@@ -56,6 +1370,23 @@
       ],
       "roles_in_claims": {
         "primary-0002-c-0005": [
+          "SUBJECT"
+        ]
+      }
+    },
+    {
+      "entity_id": "ent-8d3fe5fd3a7cc855",
+      "canonical_name": "столбики",
+      "entity_type": "TECHNOLOGY",
+      "aliases": [],
+      "source_claims": [
+        "primary-0010-c-0005"
+      ],
+      "source_mentions": [
+        "primary-0010-m-0002"
+      ],
+      "roles_in_claims": {
+        "primary-0010-c-0005": [
           "SUBJECT"
         ]
       }

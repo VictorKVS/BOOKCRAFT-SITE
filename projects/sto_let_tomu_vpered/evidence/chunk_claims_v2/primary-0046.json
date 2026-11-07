@@ -1,0 +1,250 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0046",
+    "start_paragraph": 2843,
+    "end_paragraph": 2949,
+    "mentions": [
+      {
+        "mention_id": "primary-0046-m-0001",
+        "surface": "Коля Садовский",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0046-c-0001",
+            "predicate": "имеет почерк",
+            "value": "знакомый почерк",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0046",
+                "paragraph_start": 2850,
+                "paragraph_end": 2852,
+                "quote": "— Знакомый почерк. Я подумаю и вспомню.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на наличие знакомого почерка.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата представляет слова, сказанные персонажем.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REVIEW",
+              "reason": "Цитата подтверждает наличие знакомого почерка, но не определяет конкретного автора.",
+              "error_type": "CONTEXT_MISMATCH",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "REVIEW",
+              "reason": "PRECISION_NOT_FINAL",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_not_final"
+              ],
+              "scope": "mention",
+              "subject": "Коля Садовский",
+              "truth_scope": "WORLD_STATE"
+            }
+          },
+          {
+            "claim_id": "primary-0046-c-0002",
+            "predicate": "имеет характер",
+            "value": "выдумщик, рохля",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0046",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "— Вот тебе рохля и выдумщик. Только что был сонным рыжим пугалом, а сейчас в глазах такая злость, словно вот-вот треснет Юльку по голове кулаком.",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0046-c-0003",
+            "predicate": "имеет привычку",
+            "value": "брать вещи и не возвращать",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_DETERMINISTIC_SAFETY",
+            "evidence": [
+              {
+                "chunk_id": "primary-0046",
+                "paragraph_start": 2875,
+                "paragraph_end": 2877,
+                "quote": "— Я брал, я все беру и никогда не возвращаю.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата точно соответствует утверждению о привычке Коля Садовского брать вещи и не возвращать их.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата является прямой речью персонажа, который описывает свою привычку.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно соответствует утверждению о привычке Коля Садовского брать вещи и не возвращать их.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "REJECT",
+              "error_type": "RELATIONSHIP_OVERREACH",
+              "reason": "Claim вводит отношение 'брат', которого нет в доказательной цитате."
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0046-m-0002",
+        "surface": "Фима Королев",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0046-c-0004",
+            "predicate": "имеет привычку",
+            "value": "писать записки",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0046",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "— А что, если там был не Коля? — Пожалуй, да. Хотя он со всеми дружит. А потом ссорится.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0046-e-0001",
+        "event": "Алиса подозревает Коля Садовского в краже миелофона",
+        "participants": [
+          "Алиса",
+          "Коля Садовский"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0046-c-0005",
+            "predicate": "Алиса подозревает",
+            "value": "Коля Садовского в краже миелофона",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0046",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "— Коля, ты не брал одной ценной вещи? — Я? — Да. А потом не вернул обратно.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0046-e-0002",
+        "event": "Фима Королев подозревается в краже миелофона",
+        "participants": [
+          "Юлька",
+          "Фима Королев"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0046-c-0006",
+            "predicate": "Юлька подозревает",
+            "value": "Фима Королев в краже миелофона",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0046",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "— А что, если там был не Коля? — Пожалуй, да. Хотя он со всеми дружит. А потом ссорится.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0046-t-0001",
+        "term": "миелофон",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0046-c-0007",
+          "predicate": "definition",
+          "value": "ценная вещь, которую подозревают в краже",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "UNSUPPORTED",
+          "evidence": []
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Кто именно крадет миелофон?",
+        "reason": "Информация о том, кто именно крадет миелофон, не подтверждена в данном фрагменте."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 7,
+    "source_supported": 2,
+    "source_unsupported": 5,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 2,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 256,
+    "supported_entailed": 108,
+    "partial_review": 24,
+    "rejected": 124,
+    "schema_fixes": 4
+  }
+}

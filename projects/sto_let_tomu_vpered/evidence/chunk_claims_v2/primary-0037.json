@@ -1,0 +1,225 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0037",
+    "start_paragraph": 2054,
+    "end_paragraph": 2141,
+    "mentions": [
+      {
+        "mention_id": "primary-0037-m-0001",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0037-c-0001",
+            "predicate": "училась в шестом классе",
+            "value": "шестой класс",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0037",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Остаётся только узнать, в каком классе Алиса училась раньше, до больницы.\"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0037-c-0002",
+            "predicate": "знакома с Фимой Королевым",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0037",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Привет, Алиса. Я без тебя немного соскучился.\"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0037-c-0003",
+            "predicate": "помогала Фиме Королеву бежать из сумасшедшего дома",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0037",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Я ей помог бежать в одной пижаме из сумасшедшего дома. Через забор. За нами гнались восемь санитаров со смирительной рубашкой и один профессор.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0037-m-0002",
+        "surface": "Фима Королев",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0037-c-0004",
+            "predicate": "помог Алисе бежать из сумасшедшего дома",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0037",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Я ей помог бежать в одной пижаме из сумасшедшего дома. Через забор. За нами гнались восемь санитаров со смирительной рубашкой и один профессор.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0037-m-0003",
+        "surface": "Катя Михайлова",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0037-c-0005",
+            "predicate": "считает Фиму Королева низким человеком",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0037",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Ты низкий человек, Ефим, я давно это за тобой замечала.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0037-m-0004",
+        "surface": "Юлька Грибкова",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0037-c-0006",
+            "predicate": "была в больнице с Алисой",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0037",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Эй, ребята! — раздался дикий крик Бори Мессерера, который случайно обернулся и увидел, кто пришёл. — Юлька Грибкова вернулась без существенных частей тела!\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0037-e-0001",
+        "event": "Алиса пришла в школу",
+        "participants": [
+          "Алиса",
+          "Юлька Грибкова",
+          "Мария Михайловна"
+        ],
+        "location": "школа",
+        "claims": [
+          {
+            "claim_id": "primary-0037-c-0007",
+            "predicate": "попытка вернуть Алису в школу",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0037",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Мы решили попробовать новый метод лечения. Отдать Алису в школу. Все равно учебный год продолжается, незачем Алисе терять время даром.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0037-t-0001",
+        "term": "шестой класс",
+        "category": "OTHER",
+        "definition_claim": {
+          "claim_id": "primary-0037-c-0008",
+          "predicate": "definition",
+          "value": "класс в школе",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "UNSUPPORTED",
+          "evidence": [
+            {
+              "chunk_id": "primary-0037",
+              "paragraph_start": null,
+              "paragraph_end": null,
+              "quote": "\"Остаётся только узнать, в каком классе Алиса училась раньше, до больницы.\"",
+              "quote_verified": false
+            }
+          ]
+        },
+        "category_original": "CLASS",
+        "category_validation": "INVALID_CATEGORY_NORMALIZED"
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Какие отношения между Фимой Королевым и Алисой?",
+        "reason": "Фима считает себя спасителем Алисы, но она нахмурилась, когда он начал рассказывать о своих действиях."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 8,
+    "source_supported": 0,
+    "source_unsupported": 8,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 4,
+    "events": 1,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 203,
+    "supported_entailed": 91,
+    "partial_review": 18,
+    "rejected": 94,
+    "schema_fixes": 2
+  }
+}

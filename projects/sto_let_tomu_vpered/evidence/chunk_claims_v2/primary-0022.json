@@ -1,0 +1,625 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0022",
+    "start_paragraph": 1047,
+    "end_paragraph": 1071,
+    "mentions": [
+      {
+        "mention_id": "primary-0022-m-0001",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0022-c-0001",
+            "predicate": "остался сидеть",
+            "value": "на мягкой лавочке",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0022",
+                "paragraph_start": 1047,
+                "paragraph_end": 1047,
+                "quote": "Коля остался сидеть на мягкой, словно диван, лавочке.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата точно описывает, что Коля остался сидеть на мягкой лавочке.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает о действии персонажа",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно описывает, что Коля остался сидеть на мягкой лавочке.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Коля",
+              "truth_scope": "WORLD_STATE"
+            }
+          },
+          {
+            "claim_id": "primary-0022-c-0002",
+            "predicate": "вспомнил",
+            "value": "что сегодня по телевизору показывают «Кабачок „Тринадцать стульев“»",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0022",
+                "paragraph_start": 1047,
+                "paragraph_end": 1047,
+                "quote": "Коля вспомнил, что сегодня по телевизору показывают «Кабачок „Тринадцать стульев“», и подумал, что хорошо бы успеть к началу.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо говорит, что Коля вспомнил о показе телепрограммы.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_THOUGHT",
+              "canon_eligible": true,
+              "reason": "Коля думает о том, что сегодня по телевизору показывают программу.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно соответствует тексту, и Коля вспомнил о показе телепрограммы.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Коля",
+              "truth_scope": "WORLD_STATE"
+            }
+          },
+          {
+            "claim_id": "primary-0022-c-0003",
+            "predicate": "вырезал",
+            "value": "на спинке скамейки свою визитную карточку",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_PRECISION_GATE",
+            "evidence": [
+              {
+                "chunk_id": "primary-0022",
+                "paragraph_start": 1047,
+                "paragraph_end": 1049,
+                "quote": "Коля повернулся боком и начал вырезать на спинке скамейки свою визитную карточку.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на то, что Коля вырезал на спинке скамейки свою визитную карточку.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает о действии персонажа в мире рассказа",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REJECT",
+              "reason": "Цитата и контекст прямо указывают на то, что Коля вырезал на спинке скамейки свою визитную карточку.",
+              "error_type": "OTHER",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0022-c-0004",
+            "predicate": "вырезал",
+            "value": "на спинке большими печатными буквами",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0022",
+                "paragraph_start": 1049,
+                "paragraph_end": 1051,
+                "quote": "Коля вырезал на спинке большими печатными буквами:",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает, что Коля вырезал на спинке большими печатными буквами, что подтверждает claim.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает о действии персонажа",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст полностью подтверждают, что Коля вырезал на спинке скамейки свою визитную карточку.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Коля",
+              "truth_scope": "WORLD_STATE"
+            }
+          },
+          {
+            "claim_id": "primary-0022-c-0005",
+            "predicate": "отправился к выходу",
+            "value": "",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_PRECISION_GATE",
+            "evidence": [
+              {
+                "chunk_id": "primary-0022",
+                "paragraph_start": 1052,
+                "paragraph_end": 1054,
+                "quote": "Коля сунул ножик в карман и отправился к выходу.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на то, что Коля отправился к выходу.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает о действии персонажа",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REJECT",
+              "reason": "Цитата прямо указывает на то, что Коля отправился к выходу.",
+              "error_type": "OTHER",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0022-c-0006",
+            "predicate": "был",
+            "value": "в Космозо",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0022",
+                "paragraph_start": 1058,
+                "paragraph_end": 1060,
+                "quote": "Коля выскочил на опустевшую площадь перед Космозо.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Коля был на площади перед Космозо.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает, что Коля был на определённом месте",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно показывает, что Коля был на определённой площади перед Космозо.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Коля",
+              "truth_scope": "WORLD_STATE"
+            }
+          },
+          {
+            "claim_id": "primary-0022-c-0007",
+            "predicate": "побежал",
+            "value": "за ворами",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0022",
+                "paragraph_start": 1058,
+                "paragraph_end": 1060,
+                "quote": "Коля выскочил на опустевшую площадь перед Космозо. Воры уже подбегали к автобусу.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Коля побежал за ворами на площадь.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает о действии персонажа",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст ясно показывают, что Коля побежал за ворами.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Коля",
+              "truth_scope": "WORLD_STATE"
+            }
+          },
+          {
+            "claim_id": "primary-0022-c-0008",
+            "predicate": "прыгнул",
+            "value": "в автобус",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_PRECISION_GATE",
+            "evidence": [
+              {
+                "chunk_id": "primary-0022",
+                "paragraph_start": 1068,
+                "paragraph_end": 1070,
+                "quote": "Коля, не колеблясь ни секунды, прыгнул в этот автобус, пробежал через салон, пронёсся стрелой сквозь экран и оказался на остановке «Проспект Мира».",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает, что Коля прыгнул в автобус.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "Рассказчик сообщает о действии персонажа, которое происходит в мире рассказа.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REJECT",
+              "reason": "Цитата прямо указывает, что Коля прыгнул в автобус.",
+              "error_type": "OTHER",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0022-e-0001",
+        "event": "Коля оставил о себе память на скамейке",
+        "participants": [
+          "{'name': 'Коля', 'role': '主体'}"
+        ],
+        "location": "Космозо",
+        "claims": [
+          {
+            "claim_id": "primary-0022-c-0009",
+            "predicate": "вырезал",
+            "value": "на спинке скамейки свою визитную карточку",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_PRECISION_GATE",
+            "evidence": [
+              {
+                "chunk_id": "primary-0022",
+                "paragraph_start": 1047,
+                "paragraph_end": 1049,
+                "quote": "Коля повернулся боком и начал вырезать на спинке скамейки свою визитную карточку.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает, что Коля вырезал свою визитную карточку на спинке скамейки.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает факт действия, совершенного персонажем",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REJECT",
+              "reason": "Цитата и контекст прямо указывают, что Коля вырезал свою визитную карточку на спинке скамейки.",
+              "error_type": "OTHER",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0022-e-0002",
+        "event": "Коля погнался за ворами",
+        "participants": [
+          "{'name': 'Коля', 'role': '主体'}",
+          "{'name': 'воры', 'role': '客体'}"
+        ],
+        "location": "Космозо",
+        "claims": [
+          {
+            "claim_id": "primary-0022-c-0010",
+            "predicate": "побежал",
+            "value": "за ворами",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0022",
+                "paragraph_start": 1058,
+                "paragraph_end": 1060,
+                "quote": "Коля выскочил на опустевшую площадь перед Космозо. Воры уже подбегали к автобусу.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Коля побежал на площадь, где воры уже подбегали к автобусу, что подтверждает, что он побежал за ворами.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "Рассказчик сообщает о действии Коли, которое происходит в мире рассказа.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст ясно показывают, что Коля побежал за ворами, которые уже подбегали к автобусу.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "event",
+              "subject": "Коля погнался за ворами",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0022-e-0003",
+        "event": "Коля перескочил через экран автобуса",
+        "participants": [
+          "{'name': 'Коля', 'role': '主体'}"
+        ],
+        "location": "Космозо",
+        "claims": [
+          {
+            "claim_id": "primary-0022-c-0011",
+            "predicate": "пронёсся стрелой сквозь экран",
+            "value": "",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0022",
+                "paragraph_start": 1068,
+                "paragraph_end": 1070,
+                "quote": "Коля, не колеблясь ни секунды, прыгнул в этот автобус, пробежал через салон, пронёсся стрелой сквозь экран и оказался на остановке «Проспект Мира».",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо описывает, как Коля пронёсся стрелой сквозь экран автобуса.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает о факте, который происходит в мире рассказа",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно описывает, как Коля пронёсся стрелой сквозь экран автобуса, что подтверждается текстом.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "REVIEW",
+              "reason": "INCOMPLETE_CLAIM",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_incomplete"
+              ],
+              "scope": "event",
+              "subject": "Коля перескочил через экран автобуса",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0022-t-0001",
+        "term": "Космозо",
+        "category": "LOCATION",
+        "definition_claim": {
+          "claim_id": "primary-0022-c-0012",
+          "predicate": "definition",
+          "value": "Космозо — место, где находятся автобусы и другие транспортные средства.",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+          "evidence": [
+            {
+              "chunk_id": "primary-0022",
+              "paragraph_start": 1058,
+              "paragraph_end": 1060,
+              "quote": "Коля выскочил на опустевшую площадь перед Космозо.",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "NOT_SUPPORTED",
+            "reason": "Цитата не содержит информации о том, что Космозо — место, где находятся автобусы и другие транспортные средства.",
+            "model": "qwen2.5:7b"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Кто такие воры?",
+        "reason": "Текст не предоставляет информации о личности воров."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 12,
+    "source_supported": 12,
+    "source_unsupported": 0,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 1,
+    "events": 3,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 110,
+    "supported_entailed": 48,
+    "partial_review": 10,
+    "rejected": 52,
+    "schema_fixes": 0
+  }
+}

@@ -16,13 +16,13 @@
       ],
       "support": {
         "independent_claims": 1,
-        "transition_support": 0,
-        "explicit_causal_support": 0,
+        "transition_support": 8,
+        "explicit_causal_support": 1,
         "contradictions": 0
       },
       "scoring": {
-        "score": 0.02,
-        "band": "LOW",
+        "score": 0.4,
+        "band": "MEDIUM",
         "semantics": "HEURISTIC_SUPPORT_SCORE_NOT_PROBABILITY"
       },
       "promotion_status": "NOT_PROMOTED",
@@ -41,13 +41,13 @@
       ],
       "support": {
         "independent_claims": 1,
-        "transition_support": 0,
-        "explicit_causal_support": 0,
+        "transition_support": 8,
+        "explicit_causal_support": 1,
         "contradictions": 0
       },
       "scoring": {
-        "score": 0.02,
-        "band": "LOW",
+        "score": 0.4,
+        "band": "MEDIUM",
         "semantics": "HEURISTIC_SUPPORT_SCORE_NOT_PROBABILITY"
       },
       "promotion_status": "NOT_PROMOTED",

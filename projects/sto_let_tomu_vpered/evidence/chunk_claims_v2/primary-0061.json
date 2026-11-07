@@ -1,0 +1,495 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0061",
+    "start_paragraph": 3957,
+    "end_paragraph": 3976,
+    "mentions": [
+      {
+        "mention_id": "primary-0061-m-0001",
+        "surface": "Фима Королев",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0061-c-0001",
+            "predicate": "будет",
+            "value": "инженером",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0061",
+                "paragraph_start": 3957,
+                "paragraph_end": 3957,
+                "quote": "Фима Королев станет инженером.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо утверждает, что Фима Королев будет инженером.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает о будущем Фимы Королева",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно и прямо утверждает, что Фима Королев будет инженером.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Фима Королев",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0061-m-0002",
+        "surface": "Лариса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0061-c-0002",
+            "predicate": "будет",
+            "value": "знаменитой киноактрисой",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0061",
+                "paragraph_start": 3957,
+                "paragraph_end": 3957,
+                "quote": "Лариса будет знаменитой киноактрисой.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата дословно повторяет утверждение о том, что Лариса будет знаменитой киноактрисой.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата является прямой речью персонажа.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата дословно повторяет утверждение о том, что Лариса будет знаменитой киноактрисой.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Лариса",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0061-m-0003",
+        "surface": "Коля Сулима",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0061-c-0003",
+            "predicate": "будет",
+            "value": "самым обыкновенным в истории человечества чемпионом мира по шахматам и изобретателем машины времени",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0061",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Коля Сулима будет самым обыкновенным в истории человечества чемпионом мира по шахматам и изобретателем машины времени.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0061-m-0004",
+        "surface": "Юлька Грибкова",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0061-c-0004",
+            "predicate": "будет",
+            "value": "детским врачом",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0061",
+                "paragraph_start": 3959,
+                "paragraph_end": 3961,
+                "quote": "Юлька будет детским врачом.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата точно соответствует claim.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата является прямой речью персонажа.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно соответствует claim, и контекст подтверждает, что это предсказание Юлии.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Юлька Грибкова",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0061-m-0005",
+        "surface": "Катя Михайлова",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0061-c-0005",
+            "predicate": "выиграет",
+            "value": "Уимблдонский турнир в Англии",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0061",
+                "paragraph_start": 3959,
+                "paragraph_end": 3961,
+                "quote": "Катя Михайлова выиграет Уимблдонский турнир в Англии.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо утверждает, что Катя Михайлова выиграет Уимблдонский турнир в Англии.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает факт о будущем событии в мире рассказа",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата прямо утверждает, что Катя Михайлова выиграет Уимблдонский турнир в Англии, что соответствует сказанному в контексте.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Катя Михайлова",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0061-m-0006",
+        "surface": "Мила Руткевич",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0061-c-0006",
+            "predicate": "будет",
+            "value": "учительницей, директором школы",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0061",
+                "paragraph_start": 3959,
+                "paragraph_end": 3961,
+                "quote": "Мила Руткевич станет учительницей, директором школы.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата точно соответствует claim, указывая на то, что Мила Руткевич будет учительницей и директором школы.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает о будущем факте жизни персонажа",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно соответствует claim, указывая на то, что Мила Руткевич будет учительницей и директором школы.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Мила Руткевич",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0061-m-0007",
+        "surface": "Николай Николаевич",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0061-c-0007",
+            "predicate": "будет",
+            "value": "отцом Алисы",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0061",
+                "paragraph_start": 3967,
+                "paragraph_end": 3969,
+                "quote": "Я сам сегодня зайду к вам как отец Алисы.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает, что Николай Николаевич будет отцом Алисы.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата является прямой речью персонажа, который заявляет о своем статусе отца Алисы.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата прямо указывает, что Николай Николаевич будет отцом Алисы.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Николай Николаевич",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0061-e-0001",
+        "event": "Алиса уезжает в будущее",
+        "participants": [
+          "{'surface': 'Алиса', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0061-c-0008",
+            "predicate": "уезжает",
+            "value": "в будущее",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0061",
+                "paragraph_start": 3973,
+                "paragraph_end": 3975,
+                "quote": "Алиса в последний раз поглядела на всех, сказала тихо: «Прощайте, ребята», — и вышла из комнаты.\nНавсегда.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает будущее, а только то, что Алиса ушла навсегда.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0061-t-0001",
+        "term": "машина времени",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0061-c-0009",
+          "predicate": "definition",
+          "value": "изобретение Коля Сулима",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "UNSUPPORTED",
+          "evidence": [
+            {
+              "chunk_id": "primary-0061",
+              "paragraph_start": null,
+              "paragraph_end": null,
+              "quote": "Коля Сулима будет самым обыкновенным в истории человечества чемпионом мира по шахматам и изобретателем машины времени.",
+              "quote_verified": false
+            }
+          ]
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Какие секреты доверяют Кате Михайлове и Юльке Грибковой?",
+        "reason": "Текст упоминает, что некоторым, как например Фиме Королеву или Ларисе, вообще никаких секретов доверять нельзя, но не уточняет, какие секреты доверяют Кате Михайлове и Юльке Грибковой."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 9,
+    "source_supported": 7,
+    "source_unsupported": 2,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 7,
+    "events": 1,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 354,
+    "supported_entailed": 150,
+    "partial_review": 35,
+    "rejected": 169,
+    "schema_fixes": 4
+  }
+}

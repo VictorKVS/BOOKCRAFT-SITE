@@ -3,17 +3,17 @@
   "work_id": "sto_let_tomu_vpered",
   "stage": "MVP-14B8_PREDICTION_ENGINE",
   "cutoff": {
-    "temporal_id": "time-bef1a0f0d678be69",
-    "sequence_index": 2,
-    "chunk_id": "primary-0002",
-    "paragraph_end": 55,
+    "temporal_id": "time-e34aa4d36d3e8092",
+    "sequence_index": 94,
+    "chunk_id": "primary-0061",
+    "paragraph_end": 3969,
     "basis": "LATEST_TRUSTED_TEXTUAL_POSITION"
   },
-  "snapshot_fingerprint_sha256": "5ccfb924ad5a1a06056ce2276b5851b176d4b43ecf27988b4b47fdae5ddb94de",
+  "snapshot_fingerprint_sha256": "0ada3e0697eb464b097e84ec30417ace88eb6e8ac82860007ca053f0f04129f8",
   "inputs": {
     "hypotheses": 0,
-    "state_observations": 3,
-    "graph_edges": 3
+    "state_observations": 61,
+    "graph_edges": 80
   },
   "predictions_frozen": 0,
   "review_queue": 0,

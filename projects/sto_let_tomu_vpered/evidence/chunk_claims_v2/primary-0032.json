@@ -1,0 +1,343 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0032",
+    "start_paragraph": 1680,
+    "end_paragraph": 1741,
+    "mentions": [
+      {
+        "mention_id": "primary-0032-m-0001",
+        "surface": "Алик",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0032-c-0001",
+            "predicate": "зовут",
+            "value": "Александр Борисович",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0032",
+                "paragraph_start": 1680,
+                "paragraph_end": 1681,
+                "quote": "— Мария Павловна, вы меня об этом спрашивали вчера в половине двенадцатого ночи.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о том, кто зовет Алика Александром Борисовичем.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0032-m-0002",
+        "surface": "Юлька",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0032-c-0002",
+            "predicate": "является",
+            "value": "Юлия",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0032",
+                "paragraph_start": 1714,
+                "paragraph_end": 1716,
+                "quote": "— Я слышала, девочки, — сказала Мария Михайловна, — что вы ночью перепугались. А у нас никакого урагана не было.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о Юльке или её имени.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0032-m-0003",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0032-c-0003",
+            "predicate": "является",
+            "value": "Алина",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0032",
+                "paragraph_start": 1696,
+                "paragraph_end": 1698,
+                "quote": "— Я вообще манную кашу не люблю. И с комками и без комков.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о имени Алисы.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0032-m-0004",
+        "surface": "Мария Павловна",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0032-c-0004",
+            "predicate": "является",
+            "value": "Мария Павловна",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0032",
+                "paragraph_start": 1684,
+                "paragraph_end": 1686,
+                "quote": "— Я ни в чём не уверена, — сказала серьёзно Мария Павловна.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не подтверждает, что Мария Павловна является кем-либо или чем-либо.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0032-m-0005",
+        "surface": "Мария Михайловна",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0032-c-0005",
+            "predicate": "является",
+            "value": "Мария Михайловна",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0032",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "— Я договорилась с нянечкой, чтобы она тебе показала все продукты.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0032-e-0001",
+        "event": "встреча с врачом",
+        "participants": [
+          "Алик",
+          "Мария Павловна"
+        ],
+        "location": "больница",
+        "claims": [
+          {
+            "claim_id": "primary-0032-c-0006",
+            "predicate": "встретились",
+            "value": "в больнице",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0032",
+                "paragraph_start": 1680,
+                "paragraph_end": 1681,
+                "quote": "— Мария Павловна, вы меня об этом спрашивали вчера в половине двенадцатого ночи.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает место встречи с врачом.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0032-e-0002",
+        "event": "утром в больнице",
+        "participants": [
+          "Юлька",
+          "Алиса",
+          "Мария Павловна"
+        ],
+        "location": "больница",
+        "claims": [
+          {
+            "claim_id": "primary-0032-c-0007",
+            "predicate": "встретились",
+            "value": "в больнице утром",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0032",
+                "paragraph_start": 1714,
+                "paragraph_end": 1716,
+                "quote": "— Я слышала, девочки, — сказала Мария Михайловна, — что вы ночью перепугались.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает встречу и время дня.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0032-e-0003",
+        "event": "разговор с бабушкой",
+        "participants": [
+          "Юлька",
+          "Мария Михайловна"
+        ],
+        "location": "больница",
+        "claims": [
+          {
+            "claim_id": "primary-0032-c-0008",
+            "predicate": "разговаривали",
+            "value": "в больнице",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0032",
+                "paragraph_start": 1727,
+                "paragraph_end": 1729,
+                "quote": "— Я тоже приду, — сказала Юля. — Нам ещё надо поговорить.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает, что разговор происходил в больнице.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0032-t-0001",
+        "term": "галлюцинация",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0032-c-0009",
+          "predicate": "definition",
+          "value": "Юлька так испугалась, что закричала, и мы упали с кроватей. А у Марии Павловны была галлюцинация.",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "CANON_ACCEPTED",
+          "evidence": [
+            {
+              "chunk_id": "primary-0032",
+              "paragraph_start": 1682,
+              "paragraph_end": 1684,
+              "quote": "— Юлька так испугалась, что закричала, и мы упали с кроватей. А у Марии Павловны была галлюцинация.",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "SUPPORTED",
+            "reason": "Цитата прямо указывает на то, что у Марии Павловны была галлюцинация.",
+            "model": "qwen2.5:7b"
+          },
+          "narrative_mode": {
+            "mode": "CHARACTER_SPEECH",
+            "canon_eligible": true,
+            "reason": "Цитата представляет слова, сказанные персонажем, а не мысли или описание действительности рассказчика.",
+            "model": "qwen2.5:7b"
+          },
+          "precision_gate": {
+            "verdict": "FINAL_CANON_CANDIDATE",
+            "reason": "Цитата явно указывает на то, что у Марии Павловны была галлюцинация, но нет дополнительных фактов, подтверждающих это в контексте всей истории.",
+            "error_type": "NONE",
+            "model": "qwen2.5:7b"
+          },
+          "deterministic_safety": {
+            "verdict": "PASS",
+            "error_type": "NONE",
+            "reason": "Детерминированных блокирующих признаков не найдено."
+          },
+          "canon_admission": {
+            "stage": "MVP-14B2.5",
+            "verdict": "ACCEPT",
+            "reason": "ALL_ADMISSION_CHECKS_PASSED",
+            "checks": [
+              "evidence_verified",
+              "deterministic_safety_pass",
+              "entailment_supported",
+              "precision_final",
+              "narrative_canon_eligible",
+              "claim_complete"
+            ],
+            "scope": "term",
+            "subject": "галлюцинация",
+            "truth_scope": "WORLD_STATE"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Что произошло ночью в палате?",
+        "reason": "Точная причина исчезновения девочек и разбитого стекла не уточняется в данном фрагменте."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 9,
+    "source_supported": 8,
+    "source_unsupported": 1,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 5,
+    "events": 3,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 161,
+    "supported_entailed": 72,
+    "partial_review": 15,
+    "rejected": 74,
+    "schema_fixes": 0
+  }
+}

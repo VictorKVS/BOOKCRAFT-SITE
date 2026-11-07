@@ -1,0 +1,552 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0049",
+    "start_paragraph": 3119,
+    "end_paragraph": 3191,
+    "mentions": [
+      {
+        "mention_id": "primary-0049-m-0001",
+        "surface": "Эдуард Петрович",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0049-c-0001",
+            "predicate": "присутствует",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0049",
+                "paragraph_start": 3130,
+                "paragraph_end": 3132,
+                "quote": "Эдуард Петрович послушно прижался тяжёлым животом к забору, который колыхался, как тростник в бурю.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Эдуард Петрович прижался к забору, что подтверждает его присутствие.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает факт присутствия персонажа",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст ясно показывают, что Эдуард Петрович присутствует и действует в сцене.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Эдуард Петрович",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0049-m-0002",
+        "surface": "Юлька",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0049-c-0002",
+            "predicate": "присутствует",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0049",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Юлька сунула Юльке сумку, отбежала на мостовую, примерилась, разбежалась и прыгнула.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0049-m-0003",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0049-c-0003",
+            "predicate": "присутствует",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0049",
+                "paragraph_start": 3119,
+                "paragraph_end": 3121,
+                "quote": "Алиса сунула Юльке сумку, отбежала на мостовую, примерилась, разбежалась и прыгнула.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Алиса совершила действия, связанные с прыжком, что подтверждает её присутствие на месте события.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает о действиях персонажа",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата явно показывает, что Алиса прыгнула через забор, что подтверждает её присутствие на месте события.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Алиса",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0049-m-0004",
+        "surface": "Марта Скрыль",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0049-c-0004",
+            "predicate": "присутствует",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0049",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Марта Скрыль, которая в изумлении наблюдала за этой сценой, видно было, что с другой стороны на улицу ломится не менее крупный и толстый человек, чем Эдуард Петрович.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0049-m-0005",
+        "surface": "Коля Сулима",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0049-c-0005",
+            "predicate": "присутствует",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0049",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Коля Сулима. — Я хотел сказать… в общем, я хотел только сказать, что знаю, что Алиса… в общем, она не из нашего города и вообще из другого места, но я думаю…",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0049-m-0006",
+        "surface": "Крысс",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0049-c-0006",
+            "predicate": "присутствует",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0049",
+                "paragraph_start": 3145,
+                "paragraph_end": 3147,
+                "quote": "Как-то им удалось обмануть Эдуарда, и они снова пустились в погоню за девчатами.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает Крысс и их presence.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0049-m-0007",
+        "surface": "Весельчак У",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0049-c-0007",
+            "predicate": "присутствует",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0049",
+                "paragraph_start": 3145,
+                "paragraph_end": 3147,
+                "quote": "Как-то им удалось обмануть Эдуарда, и они снова пустились в погоню за девчатами.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает Весельчака У и не подтверждает его присутствие.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0049-m-0008",
+        "surface": "Коля Садовский",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0049-c-0008",
+            "predicate": "присутствует",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0049",
+                "paragraph_start": 3169,
+                "paragraph_end": 3171,
+                "quote": "Первым в тот день в школу шёл Коля Садовский.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Коля Садовский шёл в школу, что подтверждает его присутствие.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает факт о том, что Коля Садовский шёл в школу",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата явно указывает на присутствие Коля Садовского в школе в тот день, что подтверждается текстом.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Коля Садовский",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0049-e-0001",
+        "event": "прыжок через забор",
+        "participants": [
+          "{'name': 'Алиса', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "перед школой",
+        "claims": [
+          {
+            "claim_id": "primary-0049-c-0009",
+            "predicate": "выполняется",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0049",
+                "paragraph_start": 3119,
+                "paragraph_end": 3121,
+                "quote": "Алиса сунула Юльке сумку, отбежала на мостовую, примерилась, разбежалась и прыгнула.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Алиса прыгнула, что подтверждает claim о том, что прыжок через забор выполняется.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "Рассказчик сообщает о фактическом действии, которое произошло в мире рассказа.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст подтверждают, что Алиса прыгнула через забор, что соответствует claim.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "event",
+              "subject": "прыжок через забор",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0049-e-0002",
+        "event": "погоня",
+        "participants": [
+          "{'name': 'Крысс', 'entity_type': 'CHARACTER'}",
+          "{'name': 'Весельчак У', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "перед школой",
+        "claims": [
+          {
+            "claim_id": "primary-0049-c-0010",
+            "predicate": "происходит",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0049",
+                "paragraph_start": 3145,
+                "paragraph_end": 3147,
+                "quote": "Как-то им удалось обмануть Эдуарда, и они снова пустились в погоню за девчатами.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на то, что погоня снова происходит.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает о текущем событии погони",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата явно указывает на то, что погоня снова происходит, что подтверждает предикат.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "event",
+              "subject": "погоня",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0049-e-0003",
+        "event": "исследование математических законов",
+        "participants": [
+          "{'name': 'Коля Садовский', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "в доме",
+        "claims": [
+          {
+            "claim_id": "primary-0049-c-0011",
+            "predicate": "происходит",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0049",
+                "paragraph_start": 3169,
+                "paragraph_end": 3171,
+                "quote": "Шёл он так рано потому, что не было смысла оставаться дома, где гремел большой скандал.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не связана с исследованием математических законов.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0049-t-0001",
+        "term": "пираты",
+        "category": "SPECIES",
+        "definition_claim": {
+          "claim_id": "primary-0049-c-0012",
+          "predicate": "definition",
+          "value": "Пираты — это люди, которые преследуют девочек.",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+          "evidence": [
+            {
+              "chunk_id": "primary-0049",
+              "paragraph_start": 3126,
+              "paragraph_end": 3128,
+              "quote": "Там пираты. Они идут по ту сторону забора и подслушивают. Я прямо на Крысса грохнулась. Временно вывела его из строя.",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "NOT_SUPPORTED",
+            "reason": "Цитата не утверждает, что пираты преследуют девочек.",
+            "model": "qwen2.5:7b"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Что именно Фима послал Алисе?",
+        "reason": "Текст не уточняет содержание посланной Алисе записки."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 12,
+    "source_supported": 9,
+    "source_unsupported": 3,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 8,
+    "events": 3,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 283,
+    "supported_entailed": 116,
+    "partial_review": 30,
+    "rejected": 137,
+    "schema_fixes": 4
+  }
+}

@@ -1,11 +1,11 @@
 {
   "stage": "MVP-14B2_1_EVIDENCE_CRITIC",
   "result": "PASS",
-  "files_checked": 3,
-  "claims_checked": 26,
-  "supported_entailed": 10,
-  "partial_review": 3,
-  "rejected": 13,
-  "schema_fixes": 1,
+  "files_checked": 61,
+  "claims_checked": 354,
+  "supported_entailed": 150,
+  "partial_review": 35,
+  "rejected": 169,
+  "schema_fixes": 4,
   "model": "qwen2.5:7b"
 }

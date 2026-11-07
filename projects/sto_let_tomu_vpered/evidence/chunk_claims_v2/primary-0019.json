@@ -1,0 +1,274 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0019",
+    "start_paragraph": 885,
+    "end_paragraph": 941,
+    "mentions": [
+      {
+        "mention_id": "primary-0019-m-0001",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0019-c-0001",
+            "predicate": "имеет",
+            "value": "опыт",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0019",
+                "paragraph_start": 915,
+                "paragraph_end": 917,
+                "quote": "Наверно, теперь два года не буду мороженое есть",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает у Коля опыта.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0019-c-0002",
+            "predicate": "имеет",
+            "value": "опыт",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0019",
+                "paragraph_start": 924,
+                "paragraph_end": 926,
+                "quote": "Конечно, мужчина не имеет права показывать страх даже перед кустиками, которые хотят украсть мороженое. Но всё-таки…",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о опыте Коля.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0019-m-0002",
+        "surface": "Электрон",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0019-c-0003",
+            "predicate": "работает",
+            "value": "в зоопарке",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0019",
+                "paragraph_start": 910,
+                "paragraph_end": 912,
+                "quote": "Я тут работаю и тоже часто слышу.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает работу электрона в зоопарке.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0019-m-0003",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0019-c-0004",
+            "predicate": "привезла",
+            "value": "говоруна",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0019",
+                "paragraph_start": 889,
+                "paragraph_end": 891,
+                "quote": "Алиса привезла. Он запоминает все, что при нём говорят. У него исключительная память. Знает восемнадцать космических языков.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает, что Алиса привезла говоруна.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает факт, что Алиса привезла говоруна",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата явно указывает, что Алиса привезла говоруна, и это подтверждается контекстом.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Алиса",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0019-e-0001",
+        "event": "Коля слушает разговоры",
+        "participants": [
+          "{'name': 'Коля', 'role': 'listener'}"
+        ],
+        "location": "зоопарк",
+        "claims": [
+          {
+            "claim_id": "primary-0019-c-0005",
+            "predicate": "слушает",
+            "value": "разговоры",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0019",
+                "paragraph_start": 912,
+                "paragraph_end": 914,
+                "quote": "Говорун задремал. Электрон повёл Колю дальше.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает, что Коля слушает разговоры.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0019-e-0002",
+        "event": "Коля испытывает страх",
+        "participants": [
+          "{'name': 'Коля', 'role': 'experiencer'}"
+        ],
+        "location": "зоопарк",
+        "claims": [
+          {
+            "claim_id": "primary-0019-c-0006",
+            "predicate": "испытывает",
+            "value": "страх",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0019",
+                "paragraph_start": 918,
+                "paragraph_end": 920,
+                "quote": "Коля обернулся. Никого. Вернулся Электрон и уселся рядом.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает чувства Коли, не подтверждает, что он испытывает страх.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0019-t-0001",
+        "term": "говорун",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0019-c-0007",
+          "predicate": "definition",
+          "value": "запоминает все, что при нём говорят. У него исключительная память. Знает восемнадцать космических языков.",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+          "evidence": [
+            {
+              "chunk_id": "primary-0019",
+              "paragraph_start": 912,
+              "paragraph_end": 914,
+              "quote": "Говорун задремал. Электрон повёл Колю дальше.",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "NOT_SUPPORTED",
+            "reason": "Цитата не содержит информации о способностях говоруна запоминать или знать языки.",
+            "model": "qwen2.5:7b"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Какие изменения произошли в системе питания драконов?",
+        "reason": "Система отправила конопляное семя к драконам, что противоречит предыдущим данным о рационе драконов."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 7,
+    "source_supported": 7,
+    "source_unsupported": 0,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 3,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 81,
+    "supported_entailed": 28,
+    "partial_review": 9,
+    "rejected": 44,
+    "schema_fixes": 0
+  }
+}

@@ -1,0 +1,589 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0033",
+    "start_paragraph": 1742,
+    "end_paragraph": 1817,
+    "mentions": [
+      {
+        "mention_id": "primary-0033-m-0001",
+        "surface": "Юля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0033-c-0001",
+            "predicate": "имеет",
+            "value": "мать",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_DETERMINISTIC_SAFETY",
+            "evidence": [
+              {
+                "chunk_id": "primary-0033",
+                "paragraph_start": 1783,
+                "paragraph_end": 1785,
+                "quote": "— Ты молодец, мама!",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата упоминает маму, что подтверждает, что Юля имеет мать.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата содержит прямые слова персонажа, которые сообщают о его отношении к матери.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REVIEW",
+              "reason": "Цитата содержит прямые слова персонажа, но не явно упоминает мать Юли как конкретную личность. Необходимо проверить контекст для подтверждения связи.",
+              "error_type": "CONTEXT_MISMATCH",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "REJECT",
+              "error_type": "PREDICATE_OVERREACH",
+              "reason": "Доказательная цитата показывает доступ/использование, но не подтверждает владение."
+            }
+          },
+          {
+            "claim_id": "primary-0033-c-0002",
+            "predicate": "предлагает",
+            "value": "взять Алису с собой",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0033",
+                "paragraph_start": 1758,
+                "paragraph_end": 1760,
+                "quote": "— Ты не хочешь уходить? — спросила Наташа.\n— Она решила обязательно взять с собой Алису, — сказала бабушка.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит прямого упоминания Юли и не подтверждает, что она предлагает взять Алису с собой.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0033-c-0003",
+            "predicate": "пишет записку",
+            "value": "Алисе",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0033",
+                "paragraph_start": 1791,
+                "paragraph_end": 1793,
+                "quote": "Алиса достала Юлькину записку, которую принесла Наташа, и перечитала её, чтобы запомнить телефон и адрес.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Алиса читала Юлькину записку, что подтверждает, что Юля писала её.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_BELIEF",
+              "canon_eligible": true,
+              "reason": "Юля верит, что она написала записку Алисе, так как Алиса читала её.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата явно показывает, что Юля написала записку Алисе, так как Алиса читала её.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "REVIEW",
+              "reason": "BELIEF_SCOPE_AMBIGUOUS",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "belief_scope_requires_review"
+              ],
+              "scope": "mention",
+              "subject": "Юля",
+              "truth_scope": "CHARACTER_BELIEF"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0033-m-0002",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0033-c-0004",
+            "predicate": "имеет",
+            "value": "память",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0033",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Алиса знала, что пираты так легко не откажутся от своих планов. Представьте, как им нужен прибор, читающий чужие мысли? Ничто от них не скроешь.",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0033-c-0005",
+            "predicate": "имеет",
+            "value": "телефон",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_DETERMINISTIC_SAFETY",
+            "evidence": [
+              {
+                "chunk_id": "primary-0033",
+                "paragraph_start": 1791,
+                "paragraph_end": 1793,
+                "quote": "Наташа оставила ей пять двухкопеечных монет, чтобы звонить с телефона-автомата на лестнице.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата упоминает телефон, что подтверждает утверждение о том, что Алиса имеет телефон.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает факт о том, что у Алисы есть телефон",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст явно указывают на то, что у Алисы есть телефон, что подтверждает утверждение.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "REJECT",
+              "error_type": "PREDICATE_OVERREACH",
+              "reason": "Доказательная цитата показывает доступ/использование, но не подтверждает владение."
+            }
+          },
+          {
+            "claim_id": "primary-0033-c-0006",
+            "predicate": "разорвала",
+            "value": "записку",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_PRECISION_GATE",
+            "evidence": [
+              {
+                "chunk_id": "primary-0033",
+                "paragraph_start": 1792,
+                "paragraph_end": 1794,
+                "quote": "Потом Алиса разорвала записку на мелкие клочки.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на то, что Алиса разорвала записку.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "Рассказчик сообщает о действии персонажа Алисы.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REJECT",
+              "reason": "Цитата прямо указывает на то, что Алиса разорвала записку.",
+              "error_type": "OTHER",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0033-m-0003",
+        "surface": "Наташа",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0033-c-0007",
+            "predicate": "принесла",
+            "value": "записку Алисе",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0033",
+                "paragraph_start": 1791,
+                "paragraph_end": 1793,
+                "quote": "Алиса достала Юлькину записку, которую принесла Наташа, и перечитала её, чтобы запомнить телефон и адрес.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает, что Наташа принесла записку Алисе.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "Рассказчик сообщает факт, что Наташа принесла записку Алисе.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата явно указывает, что Наташа принесла записку Алисе, что подтверждается текстом.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Наташа",
+              "truth_scope": "WORLD_STATE"
+            }
+          },
+          {
+            "claim_id": "primary-0033-c-0008",
+            "predicate": "оставила",
+            "value": "монеты Алисе",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0033",
+                "paragraph_start": 1791,
+                "paragraph_end": 1793,
+                "quote": "Наташа оставила ей пять двухкопеечных монет, чтобы звонить с телефона-автомата на лестнице.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает, что Наташа оставила монеты Алисе.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "Рассказчик сообщает факт, произошедший в мире сюжета.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно передаёт, что Наташа оставила монеты Алисе, и это подтверждено текстом.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Наташа",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0033-m-0004",
+        "surface": "бабушка",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0033-c-0009",
+            "predicate": "предлагает",
+            "value": "взять Алису с собой",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0033",
+                "paragraph_start": 1758,
+                "paragraph_end": 1760,
+                "quote": "— Ты не хочешь уходить? — спросила Наташа.\n— Она решила обязательно взять с собой Алису, — сказала бабушка.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата показывает, что бабушка говорит о решении Алисы, а не о своем предложении взять Алису с собой.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0033-c-0010",
+            "predicate": "говорит Юле",
+            "value": "не стоит уходить",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0033",
+                "paragraph_start": 1758,
+                "paragraph_end": 1760,
+                "quote": "— Ты не хочешь уходить? — спросила Наташа.\n— Она решила обязательно взять с собой Алису, — сказала бабушка.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит слова бабушки о том, чтобы Юле не уходить.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0033-c-0011",
+            "predicate": "говорит Юле",
+            "value": "не стоит оставлять Алису",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0033",
+                "paragraph_start": 1758,
+                "paragraph_end": 1760,
+                "quote": "— Ты не хочешь уходить? — спросила Наташа.\n— Она решила обязательно взять с собой Алису, — сказала бабушка.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит прямых слов бабушки о том, что не стоит оставлять Алису.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0033-e-0001",
+        "event": "встреча Юли с Наташей",
+        "participants": [
+          "Юля",
+          "Наташа"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0033-c-0012",
+            "predicate": "говорит",
+            "value": "о планах взять Алису с собой",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0033",
+                "paragraph_start": 1758,
+                "paragraph_end": 1760,
+                "quote": "— Ты не хочешь уходить? — спросила Наташа.\n— Она решила обязательно взять с собой Алису, — сказала бабушка.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о том, кто говорит о планах взять Алису с собой.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0033-e-0002",
+        "event": "Алиса разорвала записку",
+        "participants": [
+          "Алиса"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0033-c-0013",
+            "predicate": "разорвала",
+            "value": "записку",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_PRECISION_GATE",
+            "evidence": [
+              {
+                "chunk_id": "primary-0033",
+                "paragraph_start": 1792,
+                "paragraph_end": 1794,
+                "quote": "Потом Алиса разорвала записку на мелкие клочки.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата точно соответствует claim, описывая действия Алисы по разорванью записки.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "Рассказчик сообщает о действии Алисы, которое произошло в мире сказки.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REJECT",
+              "reason": "Цитата точно соответствует claim, описывая действия Алисы по разорванью записки.",
+              "error_type": "OTHER",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0033-t-0001",
+        "term": "записка",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0033-c-0014",
+          "predicate": "definition",
+          "value": "написанное на листке из маминой записной книжки сообщение",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "CANON_ACCEPTED",
+          "evidence": [
+            {
+              "chunk_id": "primary-0033",
+              "paragraph_start": 1791,
+              "paragraph_end": 1793,
+              "quote": "Алиса достала Юлькину записку, которую принесла Наташа, и перечитала её, чтобы запомнить телефон и адрес.",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "SUPPORTED",
+            "reason": "Цитата описывает записку как сообщение, написанное на листке из маминой записной книжки.",
+            "model": "qwen2.5:7b"
+          },
+          "narrative_mode": {
+            "mode": "NARRATOR_FACT",
+            "canon_eligible": true,
+            "reason": "Рассказчик сообщает факт о том, что Алиса прочитала записку.",
+            "model": "qwen2.5:7b"
+          },
+          "precision_gate": {
+            "verdict": "FINAL_CANON_CANDIDATE",
+            "reason": "Цитата точно описывает записку как сообщение, написанное на листке из маминой записной книжки.",
+            "error_type": "NONE",
+            "model": "qwen2.5:7b"
+          },
+          "deterministic_safety": {
+            "verdict": "PASS",
+            "error_type": "NONE",
+            "reason": "Детерминированных блокирующих признаков не найдено."
+          },
+          "canon_admission": {
+            "stage": "MVP-14B2.5",
+            "verdict": "ACCEPT",
+            "reason": "ALL_ADMISSION_CHECKS_PASSED",
+            "checks": [
+              "evidence_verified",
+              "deterministic_safety_pass",
+              "entailment_supported",
+              "precision_final",
+              "narrative_canon_eligible",
+              "claim_complete"
+            ],
+            "scope": "term",
+            "subject": "записка",
+            "truth_scope": "WORLD_STATE"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Кто такой Коля?",
+        "reason": "Коля упоминается только как объект поиска Алисы, но его характеристики не указаны."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 14,
+    "source_supported": 13,
+    "source_unsupported": 1,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 4,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 174,
+    "supported_entailed": 80,
+    "partial_review": 15,
+    "rejected": 79,
+    "schema_fixes": 0
+  }
+}

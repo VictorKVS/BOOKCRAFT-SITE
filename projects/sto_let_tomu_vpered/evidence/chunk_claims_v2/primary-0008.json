@@ -1,0 +1,388 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0008",
+    "start_paragraph": 357,
+    "end_paragraph": 429,
+    "mentions": [
+      {
+        "mention_id": "primary-0008-m-0001",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0008-c-0001",
+            "predicate": "имеет",
+            "value": "мечту",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_DETERMINISTIC_SAFETY",
+            "evidence": [
+              {
+                "chunk_id": "primary-0008",
+                "paragraph_start": 367,
+                "paragraph_end": 369,
+                "quote": "— Выращивать завтраки для космического флота. Чтобы были запакованные, с вареной курицей, рисом и чёрной икрой. Ничего себе задача?",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на наличие у Коля мечты.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата представляет собой прямую речь персонажа, излагающего свою мечту.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст ясно указывают на наличие у Коля мечты о выращивании завтраков для космического флота.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "REJECT",
+              "error_type": "PREDICATE_OVERREACH",
+              "reason": "Доказательная цитата показывает доступ/использование, но не подтверждает владение."
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0008-m-0002",
+        "surface": "Джавад",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0008-c-0002",
+            "predicate": "говорит",
+            "value": "Коле",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0008",
+                "paragraph_start": 365,
+                "paragraph_end": 367,
+                "quote": "— Будущий гений генетики. У него мечта есть. Хорошо, когда у человека есть мечта.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о том, что Джавад говорит Коле.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0008-m-0003",
+        "surface": "Аркаша",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0008-c-0003",
+            "predicate": "использовал",
+            "value": "скорость роста альдебаранских растений",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0008",
+                "paragraph_start": 363,
+                "paragraph_end": 365,
+                "quote": "— Я от альдебаранских растений только скорость роста использовал. К остальному шёл через пшеницу и хлебное дерево.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на то, что Аркаша использовал скорость роста альдебаранских растений.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата представляет слова, сказанные персонажем Аркашей.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата ясно указывает на то, что Аркаша использовал скорость роста альдебаранских растений, что подтверждается текстом.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Аркаша",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0008-m-0004",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0008-c-0004",
+            "predicate": "имеет",
+            "value": "большие знакомства в Дальнем флоте",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0008",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "— Жалко, что Алису ты не дождался, она бы тебе помогла в космос слетать. У неё большие знакомства в Дальнем флоте.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0008-m-0005",
+        "surface": "Вениамин",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0008-c-0005",
+            "predicate": "строит",
+            "value": "дом",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0008",
+                "paragraph_start": 381,
+                "paragraph_end": 383,
+                "quote": "— Правее ставь!.. Ещё правее! Да скорее, пока не затвердело!",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает Вениamina и не говорит о том, что он строит дом.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0008-m-0006",
+        "surface": "Лев",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0008-c-0006",
+            "predicate": "строит",
+            "value": "дом",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0008",
+                "paragraph_start": 389,
+                "paragraph_end": 391,
+                "quote": "— Ну, и как тебе это нравится?",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о строительстве дома львом.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0008-m-0007",
+        "surface": "бородач",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0008-c-0007",
+            "predicate": "строит",
+            "value": "дом",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0008",
+                "paragraph_start": 389,
+                "paragraph_end": 391,
+                "quote": "— Ну, и как тебе это нравится?",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о строительстве дома бородачом.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0008-e-0001",
+        "event": "Коля обсуждает с Джавадом мечту о выращивании завтраков для космического флота",
+        "participants": [
+          "Коля",
+          "Джавад"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0008-c-0008",
+            "predicate": "говорит",
+            "value": "Коле",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0008",
+                "paragraph_start": 365,
+                "paragraph_end": 367,
+                "quote": "— Будущий гений генетики. У него мечта есть. Хорошо, когда у человека есть мечта.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не говорит о том, что Коля обсуждает мечту о выращивании завтраков для космического флота.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0008-e-0002",
+        "event": "Коля наблюдает процесс строительства дома",
+        "participants": [
+          "Коля",
+          "Вениамин",
+          "Лев",
+          "бородач"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0008-c-0009",
+            "predicate": "строит",
+            "value": "дом",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0008",
+                "paragraph_start": 381,
+                "paragraph_end": 383,
+                "quote": "— Правее ставь!.. Ещё правее! Да скорее, пока не затвердело!",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не указывает, кто именно строит дом, а только дает инструкции по размещению чего-то.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0008-t-0001",
+        "term": "дом",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0008-c-0010",
+          "predicate": "definition",
+          "value": "дом строится из нового материала, который растет и формируется под воздействием строителей",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+          "evidence": [
+            {
+              "chunk_id": "primary-0008",
+              "paragraph_start": 381,
+              "paragraph_end": 383,
+              "quote": "— Правее ставь!.. Ещё правее! Да скорее, пока не затвердело!",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "NOT_SUPPORTED",
+            "reason": "Цитата не содержит информации о материале строительства дома.",
+            "model": "qwen2.5:7b"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Какой возраст бородача?",
+        "reason": "Точного возраста бородача в тексте не указано."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 10,
+    "source_supported": 9,
+    "source_unsupported": 1,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 7,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 25,
+    "supported_entailed": 11,
+    "partial_review": 5,
+    "rejected": 9,
+    "schema_fixes": 0
+  }
+}

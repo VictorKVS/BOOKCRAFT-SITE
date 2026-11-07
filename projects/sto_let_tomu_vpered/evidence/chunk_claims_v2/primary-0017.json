@@ -1,0 +1,332 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0017",
+    "start_paragraph": 793,
+    "end_paragraph": 825,
+    "mentions": [
+      {
+        "mention_id": "primary-0017-m-0001",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0017-c-0001",
+            "predicate": "встретился с",
+            "value": "Весельчаком У и Крыссом",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0017",
+                "paragraph_start": 793,
+                "paragraph_end": 793,
+                "quote": "Коля, попав в будущее на один день, встретился именно с Весельчаком У и Крыссом, хотя, конечно, и не подозревал, что у них такая бурная биография.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает, что Коля встретился с Весельчаком У и Крыссом.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "Рассказчик сообщает факт, произошедшего с персонажем Кольей.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст ясно указывают, что Коля встретился с Весельчаком У и Крыссом.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Коля",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0017-m-0002",
+        "surface": "Весельчак У",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0017-c-0002",
+            "predicate": "использовал",
+            "value": "валапасского ужа",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0017",
+                "paragraph_start": 796,
+                "paragraph_end": 798,
+                "quote": "Все вокруг были заняты своими делами. Пираты немного отдышались — ведь всего две минуты назад они думали, что их песенка спета, — потом Крысс достал из кармана небольшую палочку. Стоило нажать на её конец, как из палочки вытянулась длинная, метров в тридцать, почти невидимая проволочка с коготками на хвосте. На самом деле это была не проволока, а валапасский уж — странное создание, обитающее в кустах одной безымянной планеты.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо упоминает, что Валапасский уж был извлечен из кармана Крысса и описывает его как странное создание, обитающее в кустах.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает о факте существования валапасского ужа в мире рассказа",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата подтверждает, что Весельчак У использовал валапасского ужа для кражи вещей.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Весельчак У",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0017-m-0003",
+        "surface": "Крысс",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0017-c-0003",
+            "predicate": "использовал",
+            "value": "валапасского ужа",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_PRECISION_GATE",
+            "evidence": [
+              {
+                "chunk_id": "primary-0017",
+                "paragraph_start": 802,
+                "paragraph_end": 804,
+                "quote": "Крысс снова запустил валапасского ужа, и тот вцепился в сомбреро мёртвой хваткой.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Крысс использовал валапасского ужа, так как уж вцепился в сомбреро.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает о действии персонажа",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REJECT",
+              "reason": "Цитата и контекст подтверждают, что Крысс использовал валапасского ужа для того, чтобы снять сомбреро с туриста.",
+              "error_type": "OTHER",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0017-e-0001",
+        "event": "пираты украли сомбреро",
+        "participants": [
+          "Весельчак У",
+          "Крысс"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0017-c-0004",
+            "predicate": "украли",
+            "value": "сомбреро",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0017",
+                "paragraph_start": 802,
+                "paragraph_end": 804,
+                "quote": "Крысс снова запустил валапасского ужа, и тот вцепился в сомбреро мёртвой хваткой. Крысс дёрнул ужа за хвост, а уж дёрнул туриста за шляпу. Тесёмочка развязалась, турист не удержался на ногах и шлёпнулся на пол. Сомбреро быстро поползло к автоматам",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что сомбреро было снято с головы туриста ужом, который вцепился в него.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "Рассказчик сообщает о факте, что пираты (в данном случае уж) украли сомбреро у туриста.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст подтверждают, что сомбреро было снято с головы туриста ужом, который действовал по приказу Крысса.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "event",
+              "subject": "пираты украли сомбреро",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0017-t-0001",
+        "term": "валапасский уж",
+        "category": "CREATURE",
+        "definition_claim": {
+          "claim_id": "primary-0017-c-0005",
+          "predicate": "definition",
+          "value": "странное создание, обитающее в кустах одной безымянной планеты. Обычно этот уж лежит в подземной норе, но стоит пройти неподалёку какому-нибудь животному, как уж в мгновение ока распрямляется и, как стрела, вонзается в него.",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "CANON_ACCEPTED",
+          "evidence": [
+            {
+              "chunk_id": "primary-0017",
+              "paragraph_start": 796,
+              "paragraph_end": 798,
+              "quote": "На самом деле это была не проволока, а валапасский уж — странное создание, обитающее в кустах одной безымянной планеты. Обычно этот уж лежит в подземной норе, но стоит пройти неподалёку какому-нибудь животному, как уж в мгновение ока распрямляется и, как стрела, вонзается в него.",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "SUPPORTED",
+            "reason": "Цитата точно описывает валапасского ужа как странное создание, обитающее в кустах и нападающее на проходящих животных.",
+            "model": "qwen2.5:7b"
+          },
+          "narrative_mode": {
+            "mode": "NARRATOR_FACT",
+            "canon_eligible": true,
+            "reason": "рассказчик сообщает о факте существования и поведении валапасского ужа в мире рассказа",
+            "model": "qwen2.5:7b"
+          },
+          "precision_gate": {
+            "verdict": "FINAL_CANON_CANDIDATE",
+            "reason": "Цитата точно описывает валапасского ужа как странное создание, обитающее в кустах и нападающее на проходящих животных, что подтверждается текстом.",
+            "error_type": "NONE",
+            "model": "qwen2.5:7b"
+          },
+          "deterministic_safety": {
+            "verdict": "PASS",
+            "error_type": "NONE",
+            "reason": "Детерминированных блокирующих признаков не найдено."
+          },
+          "canon_admission": {
+            "stage": "MVP-14B2.5",
+            "verdict": "ACCEPT",
+            "reason": "ALL_ADMISSION_CHECKS_PASSED",
+            "checks": [
+              "evidence_verified",
+              "deterministic_safety_pass",
+              "entailment_supported",
+              "precision_final",
+              "narrative_canon_eligible",
+              "claim_complete"
+            ],
+            "scope": "term",
+            "subject": "валапасский уж",
+            "truth_scope": "WORLD_STATE"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Куда отправились пираты после космодрома?",
+        "reason": "Не указано в данном фрагменте."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 5,
+    "source_supported": 5,
+    "source_unsupported": 0,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 3,
+    "events": 1,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 74,
+    "supported_entailed": 27,
+    "partial_review": 9,
+    "rejected": 38,
+    "schema_fixes": 0
+  }
+}

@@ -1,0 +1,383 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0048",
+    "start_paragraph": 3040,
+    "end_paragraph": 3118,
+    "mentions": [
+      {
+        "mention_id": "primary-0048-m-0001",
+        "surface": "Юлька",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0048-c-0001",
+            "predicate": "имеет имя",
+            "value": "Юлька",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0048",
+                "paragraph_start": 3054,
+                "paragraph_end": 3056,
+                "quote": "— Знаю, — сказала Алиса.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о имени Юльки.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0048-m-0002",
+        "surface": "Алиса Селезнева",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0048-c-0002",
+            "predicate": "имеет имя",
+            "value": "Алиса Селезнева",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0048",
+                "paragraph_start": 3054,
+                "paragraph_end": 3056,
+                "quote": "— Знаю, — сказала Алиса.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о имени Алисы Селезневой.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0048-c-0003",
+            "predicate": "играла шахматы",
+            "value": "играла",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0048",
+                "paragraph_start": 3058,
+                "paragraph_end": 3060,
+                "quote": "— Я увлеклась. Уж очень интересная проблема возникла.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает шахматы.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0048-c-0004",
+            "predicate": "выиграла у гроссмейстера",
+            "value": "выиграла",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0048",
+                "paragraph_start": 3048,
+                "paragraph_end": 3050,
+                "quote": "— Так это же Алиса Селезнева! — не выдержала Юлька. — Она выиграла у гроссмейстера!",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо утверждает, что Алиса Селезнева выиграла у гроссмейстера.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает факт о выигрыше Алисы Селезневой у гроссмейстера",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст ясно указывают, что Алиса Селезнева выиграла у гроссмейстера.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Алиса Селезнева",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0048-m-0003",
+        "surface": "Эдуард Петрович",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0048-c-0005",
+            "predicate": "имеет имя",
+            "value": "Эдуард Петрович",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0048",
+                "paragraph_start": 3091,
+                "paragraph_end": 3093,
+                "quote": "— Мы не хотели вас пугать, — сказал Эдуард.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата упоминает имя Эдуард Петрович.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата содержит прямую речь персонажа.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст подтверждают, что говорящий называется Эдуард Петрович.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Эдуард Петрович",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0048-m-0004",
+        "surface": "Марта Скрыль",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0048-c-0006",
+            "predicate": "имеет имя",
+            "value": "Марта Скрыль",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0048",
+                "paragraph_start": 3101,
+                "paragraph_end": 3103,
+                "quote": "— Мы это обеспечим, — сказала Марта Скрыль.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата подтверждает, что говорила Марта Скрыль.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата содержит прямую речь персонажа Марты Скрыль.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата явно указывает на то, что говорила Марта Скрыль.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Марта Скрыль",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0048-e-0001",
+        "event": "Алиса и Юлька бегут от преследователей",
+        "participants": [
+          "{'name': 'Алиса', 'entity_type': 'CHARACTER'}",
+          "{'name': 'Юлька', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "переулок",
+        "claims": [
+          {
+            "claim_id": "primary-0048-c-0007",
+            "predicate": "бегут от преследователей",
+            "value": "бегут",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0048",
+                "paragraph_start": 3071,
+                "paragraph_end": 3073,
+                "quote": "Алиса услышала её крик и остановилась.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает бег или преследование.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0048-e-0002",
+        "event": "Эдуард Петрович и Марта Скрыль находят Алису и Юльку",
+        "participants": [
+          "{'name': 'Эдуард Петрович', 'entity_type': 'CHARACTER'}",
+          "{'name': 'Марта Скрыль', 'entity_type': 'CHARACTER'}",
+          "{'name': 'Алиса', 'entity_type': 'CHARACTER'}",
+          "{'name': 'Юлька', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "переулок",
+        "claims": [
+          {
+            "claim_id": "primary-0048-c-0008",
+            "predicate": "находят Алису и Юльку",
+            "value": "нашли",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0048",
+                "paragraph_start": 3088,
+                "paragraph_end": 3090,
+                "quote": "Эдуард Петрович опустился на колено, стал ощупывать лодыжку Юльки Грибковой.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата показывает, что Эдуард Петрович ищет Юльку, но не упоминает Алису, а также не полностью подтверждает, что они уже нашли детей.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0048-t-0001",
+        "term": "миелофон",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0048-c-0009",
+          "predicate": "definition",
+          "value": "устройство, которое искать приехала Алиса",
+          "provenance": "SOURCE_CANON",
+          "confidence": "POSSIBLE",
+          "acceptance": "UNSUPPORTED",
+          "evidence": []
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Что за устройство ищет Алиса?",
+        "reason": "Термин 'миелофон' не имеет прямого определения в тексте."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 9,
+    "source_supported": 8,
+    "source_unsupported": 1,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 4,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 274,
+    "supported_entailed": 111,
+    "partial_review": 30,
+    "rejected": 133,
+    "schema_fixes": 4
+  }
+}

@@ -1,15 +1,16 @@
 {
   "stage": "MVP-14B2_2_NARRATIVE_MODE_GUARD",
   "result": "PASS",
-  "candidate_claims": 10,
-  "files_checked": 3,
-  "claims_checked": 10,
-  "canon_eligible": 9,
-  "blocked_by_narrative_mode": 1,
+  "candidate_claims": 160,
+  "files_checked": 61,
+  "claims_checked": 160,
+  "canon_eligible": 155,
+  "blocked_by_narrative_mode": 5,
   "modes": {
-    "NARRATOR_FACT": 6,
-    "CHARACTER_BELIEF": 3,
-    "CHARACTER_SPEECH": 1
+    "NARRATOR_FACT": 82,
+    "CHARACTER_BELIEF": 28,
+    "CHARACTER_SPEECH": 48,
+    "CHARACTER_THOUGHT": 2
   },
   "model": "qwen2.5:7b"
 }

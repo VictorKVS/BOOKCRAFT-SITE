@@ -1,0 +1,206 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0038",
+    "start_paragraph": 2142,
+    "end_paragraph": 2203,
+    "mentions": [
+      {
+        "mention_id": "primary-0038-m-0001",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0038-c-0001",
+            "predicate": "изучала",
+            "value": "английский язык вне школы",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0038",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Ты, Алиса, изучала английский язык вне школы?\"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0038-c-0002",
+            "predicate": "изучала",
+            "value": "восемь языков",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0038",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Я знаю только восемь языков.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0038-m-0002",
+        "surface": "Катя Михайлова",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0038-c-0003",
+            "predicate": "учится",
+            "value": "хорошо",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0038",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Катя хорошо учится, но на этот раз её мысли были заняты кубком Дэвиса по теннису\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0038-m-0003",
+        "surface": "Садовский",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0038-c-0004",
+            "predicate": "был арестован",
+            "value": "за перенос скамеек",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0038",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Я провёл ночь в милиции, — сказал Садовский. — Я был арестован, и за дело.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0038-e-0001",
+        "event": "Алиса пришла в класс",
+        "participants": [
+          "{'name': 'Алиса', 'role': '主人公'}"
+        ],
+        "location": "в классе",
+        "claims": [
+          {
+            "claim_id": "primary-0038-c-0005",
+            "predicate": "была встретена с интересом",
+            "value": "детьми",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0038",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Ребята со всех сторон смотрели на Алису. Всегда интересно, если в классе новый человек\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0038-e-0002",
+        "event": "Садовский был арестован",
+        "participants": [
+          "{'name': 'Садовский', 'role': '主人公'}"
+        ],
+        "location": "на Смоленской площади",
+        "claims": [
+          {
+            "claim_id": "primary-0038-c-0006",
+            "predicate": "был арестован",
+            "value": "за перенос скамеек",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0038",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Я провёл ночь в милиции, — сказал Садовский. — Я был арестован, и за дело.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0038-t-0001",
+        "term": "Английский язык",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0038-c-0007",
+          "predicate": "definition",
+          "value": "язык, который изучают в школе",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "UNSUPPORTED",
+          "evidence": [
+            {
+              "chunk_id": "primary-0038",
+              "paragraph_start": null,
+              "paragraph_end": null,
+              "quote": "\"Ты, Алиса, изучала английский язык вне школы?\"",
+              "quote_verified": false
+            }
+          ]
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Был ли Садовский в будущем?",
+        "reason": "Текст не содержит прямых доказательств того, что Садовский был или не был в будущем."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 7,
+    "source_supported": 0,
+    "source_unsupported": 7,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 3,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 203,
+    "supported_entailed": 91,
+    "partial_review": 18,
+    "rejected": 94,
+    "schema_fixes": 2
+  }
+}

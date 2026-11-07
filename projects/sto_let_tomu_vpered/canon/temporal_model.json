@@ -84,6 +84,2398 @@
       },
       "sequence_index": 2,
       "previous_temporal_id": "time-c5fe961cc5f64cbd",
+      "next_temporal_id": "time-8ef57a2f6f45a102"
+    },
+    {
+      "temporal_id": "time-8ef57a2f6f45a102",
+      "claim_id": "primary-0003-c-0004",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Рип Ван Винкль",
+      "predicate": "definition",
+      "value": "персонаж, который спал двадцать лет и проснулся в изменившемся мире",
+      "anchor": {
+        "chunk_id": "primary-0003",
+        "chunk_index": 3,
+        "paragraph_start": 85,
+        "paragraph_end": 87,
+        "quote": "Коля, как человек умный, сразу придумал. Он недавно читал рассказ американского писателя Вашингтона Ирвинга. Про одного человека по имени Рип Ван Винкль, который пошёл в горы и заснул. Он вернулся к себе в деревню, идёт по улице, а его никто не узнает. Он хвать себя за лицо, а у него борода до пояса. Так он и догадался, что проспал двадцать лет подряд.",
+        "quote_verified": true,
+        "order_key": [
+          3,
+          85,
+          87
+        ]
+      },
+      "sequence_index": 3,
+      "previous_temporal_id": "time-bef1a0f0d678be69",
+      "next_temporal_id": "time-26783a52a7f33b7d"
+    },
+    {
+      "temporal_id": "time-26783a52a7f33b7d",
+      "claim_id": "primary-0004-c-0003",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Коля встречает старика Павла",
+      "predicate": "старик Павел",
+      "value": "просит провести его",
+      "anchor": {
+        "chunk_id": "primary-0004",
+        "chunk_index": 4,
+        "paragraph_start": 128,
+        "paragraph_end": 130,
+        "quote": "Проводи меня немного, мне скучно ехать одному.",
+        "quote_verified": true,
+        "order_key": [
+          4,
+          128,
+          130
+        ]
+      },
+      "sequence_index": 4,
+      "previous_temporal_id": "time-8ef57a2f6f45a102",
+      "next_temporal_id": "time-c8a81e9dd94adfd4"
+    },
+    {
+      "temporal_id": "time-c8a81e9dd94adfd4",
+      "claim_id": "primary-0005-c-0007",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Пашка",
+      "predicate": "является ровесником Коли",
+      "value": "верно",
+      "anchor": {
+        "chunk_id": "primary-0005",
+        "chunk_index": 5,
+        "paragraph_start": 197,
+        "paragraph_end": 199,
+        "quote": "Ровесник Коли, которого можно было бы назвать Пашкой, если бы он не был таким старым, углубился в чтение газеты и обо всём забыл.",
+        "quote_verified": true,
+        "order_key": [
+          5,
+          197,
+          199
+        ]
+      },
+      "sequence_index": 5,
+      "previous_temporal_id": "time-26783a52a7f33b7d",
+      "next_temporal_id": "time-a2e151527978a189"
+    },
+    {
+      "temporal_id": "time-a2e151527978a189",
+      "claim_id": "primary-0005-c-0008",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "профессор Рррр",
+      "predicate": "является космическим археологом",
+      "value": "верно",
+      "anchor": {
+        "chunk_id": "primary-0005",
+        "chunk_index": 5,
+        "paragraph_start": 206,
+        "paragraph_end": 208,
+        "quote": "— Тогда разрешите представиться: я известный космический археолог, специалист по вымершим языкам профессор Рррр.",
+        "quote_verified": true,
+        "order_key": [
+          5,
+          206,
+          208
+        ]
+      },
+      "sequence_index": 6,
+      "previous_temporal_id": "time-c8a81e9dd94adfd4",
+      "next_temporal_id": "time-1bf53456ae4c19dd"
+    },
+    {
+      "temporal_id": "time-1bf53456ae4c19dd",
+      "claim_id": "primary-0005-c-0006",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Коля",
+      "predicate": "интересуется футболом",
+      "value": "верно",
+      "anchor": {
+        "chunk_id": "primary-0005",
+        "chunk_index": 5,
+        "paragraph_start": 213,
+        "paragraph_end": 215,
+        "quote": "— А кто играет? — спросил Коля.",
+        "quote_verified": true,
+        "order_key": [
+          5,
+          213,
+          215
+        ]
+      },
+      "sequence_index": 7,
+      "previous_temporal_id": "time-a2e151527978a189",
+      "next_temporal_id": "time-2356e83ecadbf1d0"
+    },
+    {
+      "temporal_id": "time-2356e83ecadbf1d0",
+      "claim_id": "primary-0007-c-0001",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Коля",
+      "predicate": "отец строитель",
+      "value": "да",
+      "anchor": {
+        "chunk_id": "primary-0007",
+        "chunk_index": 7,
+        "paragraph_start": 307,
+        "paragraph_end": 309,
+        "quote": "Отец у Коли строитель, поэтому он всегда интересуется строительными материалами и немного в них разбирается.",
+        "quote_verified": true,
+        "order_key": [
+          7,
+          307,
+          309
+        ]
+      },
+      "sequence_index": 8,
+      "previous_temporal_id": "time-1bf53456ae4c19dd",
+      "next_temporal_id": "time-af4fd36b32e304aa"
+    },
+    {
+      "temporal_id": "time-af4fd36b32e304aa",
+      "claim_id": "primary-0007-c-0006",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Коля увидел ростки",
+      "predicate": "увидел ростки",
+      "value": "да",
+      "anchor": {
+        "chunk_id": "primary-0007",
+        "chunk_index": 7,
+        "paragraph_start": 348,
+        "paragraph_end": 350,
+        "quote": "Коля собственными глазами увидел, как из земли медленно вылезают два зелёных побега.",
+        "quote_verified": true,
+        "order_key": [
+          7,
+          348,
+          350
+        ]
+      },
+      "sequence_index": 9,
+      "previous_temporal_id": "time-2356e83ecadbf1d0",
+      "next_temporal_id": "time-ae0328a15a51f772"
+    },
+    {
+      "temporal_id": "time-ae0328a15a51f772",
+      "claim_id": "primary-0008-c-0003",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Аркаша",
+      "predicate": "использовал",
+      "value": "скорость роста альдебаранских растений",
+      "anchor": {
+        "chunk_id": "primary-0008",
+        "chunk_index": 8,
+        "paragraph_start": 363,
+        "paragraph_end": 365,
+        "quote": "— Я от альдебаранских растений только скорость роста использовал. К остальному шёл через пшеницу и хлебное дерево.",
+        "quote_verified": true,
+        "order_key": [
+          8,
+          363,
+          365
+        ]
+      },
+      "sequence_index": 10,
+      "previous_temporal_id": "time-af4fd36b32e304aa",
+      "next_temporal_id": "time-0205aa84eb10d26a"
+    },
+    {
+      "temporal_id": "time-0205aa84eb10d26a",
+      "claim_id": "primary-0010-c-0005",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "столбики",
+      "predicate": "выдают",
+      "value": "разные продукты",
+      "anchor": {
+        "chunk_id": "primary-0010",
+        "chunk_index": 10,
+        "paragraph_start": 494,
+        "paragraph_end": 496,
+        "quote": "На белом было написано «Мороженое», на жёлтом — «Лимонад», на зелёном — «Яблоки», на синем — «Бутерброды», на коричневом — «Квас».",
+        "quote_verified": true,
+        "order_key": [
+          10,
+          494,
+          496
+        ]
+      },
+      "sequence_index": 11,
+      "previous_temporal_id": "time-ae0328a15a51f772",
+      "next_temporal_id": "time-e217fdfdb1fb4e11"
+    },
+    {
+      "temporal_id": "time-e217fdfdb1fb4e11",
+      "claim_id": "primary-0011-c-0003",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "худой мужчина",
+      "predicate": "председатель",
+      "value": "районной лиги возвращения к естественной жизни",
+      "anchor": {
+        "chunk_id": "primary-0011",
+        "chunk_index": 11,
+        "paragraph_start": 514,
+        "paragraph_end": 514,
+        "quote": "Я, как председатель районной лиги возвращения к естественной жизни, полностью на твоей стороне.",
+        "quote_verified": true,
+        "order_key": [
+          11,
+          514,
+          514
+        ]
+      },
+      "sequence_index": 12,
+      "previous_temporal_id": "time-0205aa84eb10d26a",
+      "next_temporal_id": "time-f9f4b0f85b3e59b6"
+    },
+    {
+      "temporal_id": "time-f9f4b0f85b3e59b6",
+      "claim_id": "primary-0012-c-0004",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Коля",
+      "predicate": "видел",
+      "value": "Москву с высоты",
+      "anchor": {
+        "chunk_id": "primary-0012",
+        "chunk_index": 12,
+        "paragraph_start": 556,
+        "paragraph_end": 558,
+        "quote": "Коля обернулся и посмотрел на Москву. С высоты Москва казалась бесконечной и очень зелёной.",
+        "quote_verified": true,
+        "order_key": [
+          12,
+          556,
+          558
+        ]
+      },
+      "sequence_index": 13,
+      "previous_temporal_id": "time-e217fdfdb1fb4e11",
+      "next_temporal_id": "time-f166a8f813004fd6"
+    },
+    {
+      "temporal_id": "time-f166a8f813004fd6",
+      "claim_id": "primary-0012-c-0012",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Коля управлял пузырем",
+      "predicate": "управлял",
+      "value": "пузырем",
+      "anchor": {
+        "chunk_id": "primary-0012",
+        "chunk_index": 12,
+        "paragraph_start": 568,
+        "paragraph_end": 570,
+        "quote": "Коля увидел, что из того места, откуда вывалился его пузырь, облачный туман выползал, как пар из чайника.",
+        "quote_verified": true,
+        "order_key": [
+          12,
+          568,
+          570
+        ]
+      },
+      "sequence_index": 14,
+      "previous_temporal_id": "time-f9f4b0f85b3e59b6",
+      "next_temporal_id": "time-645f386b3a4faddc"
+    },
+    {
+      "temporal_id": "time-645f386b3a4faddc",
+      "claim_id": "primary-0013-c-0002",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Коля",
+      "predicate": "принадлежит к",
+      "value": "ученик",
+      "anchor": {
+        "chunk_id": "primary-0013",
+        "chunk_index": 13,
+        "paragraph_start": 623,
+        "paragraph_end": 625,
+        "quote": "Я в Конотопе учусь, — сказал Коля.",
+        "quote_verified": true,
+        "order_key": [
+          13,
+          623,
+          625
+        ]
+      },
+      "sequence_index": 15,
+      "previous_temporal_id": "time-f166a8f813004fd6",
+      "next_temporal_id": "time-69670c42245f3176"
+    },
+    {
+      "temporal_id": "time-69670c42245f3176",
+      "claim_id": "primary-0013-c-0006",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "просмотр спутника",
+      "predicate": "предпринял",
+      "value": "просмотр спутника",
+      "anchor": {
+        "chunk_id": "primary-0013",
+        "chunk_index": 13,
+        "paragraph_start": 650,
+        "paragraph_end": 652,
+        "quote": "— Просто так. На спутник посмотреть. Надо будет ребятам в Конотопе рассказать.",
+        "quote_verified": true,
+        "order_key": [
+          13,
+          650,
+          652
+        ]
+      },
+      "sequence_index": 16,
+      "previous_temporal_id": "time-645f386b3a4faddc",
+      "next_temporal_id": "time-8f363b39325fe3c9"
+    },
+    {
+      "temporal_id": "time-8f363b39325fe3c9",
+      "claim_id": "primary-0015-c-0003",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "вахтенный",
+      "predicate": "отпустил",
+      "value": "людей",
+      "anchor": {
+        "chunk_id": "primary-0015",
+        "chunk_index": 15,
+        "paragraph_start": 711,
+        "paragraph_end": 713,
+        "quote": "— Отпустите людей, — сказал он.",
+        "quote_verified": true,
+        "order_key": [
+          15,
+          711,
+          713
+        ]
+      },
+      "sequence_index": 17,
+      "previous_temporal_id": "time-69670c42245f3176",
+      "next_temporal_id": "time-fb68103567ed3dc4"
+    },
+    {
+      "temporal_id": "time-fb68103567ed3dc4",
+      "claim_id": "primary-0017-c-0001",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Коля",
+      "predicate": "встретился с",
+      "value": "Весельчаком У и Крыссом",
+      "anchor": {
+        "chunk_id": "primary-0017",
+        "chunk_index": 17,
+        "paragraph_start": 793,
+        "paragraph_end": 793,
+        "quote": "Коля, попав в будущее на один день, встретился именно с Весельчаком У и Крыссом, хотя, конечно, и не подозревал, что у них такая бурная биография.",
+        "quote_verified": true,
+        "order_key": [
+          17,
+          793,
+          793
+        ]
+      },
+      "sequence_index": 18,
+      "previous_temporal_id": "time-8f363b39325fe3c9",
+      "next_temporal_id": "time-e4e5bd52c1f35627"
+    },
+    {
+      "temporal_id": "time-e4e5bd52c1f35627",
+      "claim_id": "primary-0017-c-0002",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Весельчак У",
+      "predicate": "использовал",
+      "value": "валапасского ужа",
+      "anchor": {
+        "chunk_id": "primary-0017",
+        "chunk_index": 17,
+        "paragraph_start": 796,
+        "paragraph_end": 798,
+        "quote": "Все вокруг были заняты своими делами. Пираты немного отдышались — ведь всего две минуты назад они думали, что их песенка спета, — потом Крысс достал из кармана небольшую палочку. Стоило нажать на её конец, как из палочки вытянулась длинная, метров в тридцать, почти невидимая проволочка с коготками на хвосте. На самом деле это была не проволока, а валапасский уж — странное создание, обитающее в кустах одной безымянной планеты.",
+        "quote_verified": true,
+        "order_key": [
+          17,
+          796,
+          798
+        ]
+      },
+      "sequence_index": 19,
+      "previous_temporal_id": "time-fb68103567ed3dc4",
+      "next_temporal_id": "time-e6440cf01c392adb"
+    },
+    {
+      "temporal_id": "time-e6440cf01c392adb",
+      "claim_id": "primary-0017-c-0005",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "валапасский уж",
+      "predicate": "definition",
+      "value": "странное создание, обитающее в кустах одной безымянной планеты. Обычно этот уж лежит в подземной норе, но стоит пройти неподалёку какому-нибудь животному, как уж в мгновение ока распрямляется и, как стрела, вонзается в него.",
+      "anchor": {
+        "chunk_id": "primary-0017",
+        "chunk_index": 17,
+        "paragraph_start": 796,
+        "paragraph_end": 798,
+        "quote": "На самом деле это была не проволока, а валапасский уж — странное создание, обитающее в кустах одной безымянной планеты. Обычно этот уж лежит в подземной норе, но стоит пройти неподалёку какому-нибудь животному, как уж в мгновение ока распрямляется и, как стрела, вонзается в него.",
+        "quote_verified": true,
+        "order_key": [
+          17,
+          796,
+          798
+        ]
+      },
+      "sequence_index": 20,
+      "previous_temporal_id": "time-e4e5bd52c1f35627",
+      "next_temporal_id": "time-f122f63afce6fb1e"
+    },
+    {
+      "temporal_id": "time-f122f63afce6fb1e",
+      "claim_id": "primary-0017-c-0004",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "пираты украли сомбреро",
+      "predicate": "украли",
+      "value": "сомбреро",
+      "anchor": {
+        "chunk_id": "primary-0017",
+        "chunk_index": 17,
+        "paragraph_start": 802,
+        "paragraph_end": 804,
+        "quote": "Крысс снова запустил валапасского ужа, и тот вцепился в сомбреро мёртвой хваткой. Крысс дёрнул ужа за хвост, а уж дёрнул туриста за шляпу. Тесёмочка развязалась, турист не удержался на ногах и шлёпнулся на пол. Сомбреро быстро поползло к автоматам",
+        "quote_verified": true,
+        "order_key": [
+          17,
+          802,
+          804
+        ]
+      },
+      "sequence_index": 21,
+      "previous_temporal_id": "time-e6440cf01c392adb",
+      "next_temporal_id": "time-43dfd9e275f47655"
+    },
+    {
+      "temporal_id": "time-43dfd9e275f47655",
+      "claim_id": "primary-0019-c-0004",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Алиса",
+      "predicate": "привезла",
+      "value": "говоруна",
+      "anchor": {
+        "chunk_id": "primary-0019",
+        "chunk_index": 19,
+        "paragraph_start": 889,
+        "paragraph_end": 891,
+        "quote": "Алиса привезла. Он запоминает все, что при нём говорят. У него исключительная память. Знает восемнадцать космических языков.",
+        "quote_verified": true,
+        "order_key": [
+          19,
+          889,
+          891
+        ]
+      },
+      "sequence_index": 22,
+      "previous_temporal_id": "time-f122f63afce6fb1e",
+      "next_temporal_id": "time-3b90a42412949757"
+    },
+    {
+      "temporal_id": "time-3b90a42412949757",
+      "claim_id": "primary-0020-c-0011",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Алиса встречается с отцом",
+      "predicate": "говорит",
+      "value": "Алисе, что он уезжает",
+      "anchor": {
+        "chunk_id": "primary-0020",
+        "chunk_index": 20,
+        "paragraph_start": 950,
+        "paragraph_end": 952,
+        "quote": "— Да. Через две недели вернусь.",
+        "quote_verified": true,
+        "order_key": [
+          20,
+          950,
+          952
+        ]
+      },
+      "sequence_index": 23,
+      "previous_temporal_id": "time-43dfd9e275f47655",
+      "next_temporal_id": "time-37f4a6bb891f7c6a"
+    },
+    {
+      "temporal_id": "time-37f4a6bb891f7c6a",
+      "claim_id": "primary-0020-c-0005",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Алиса",
+      "predicate": "читает",
+      "value": "все книжки, которые отец ей оставил",
+      "anchor": {
+        "chunk_id": "primary-0020",
+        "chunk_index": 20,
+        "paragraph_start": 951,
+        "paragraph_end": 953,
+        "quote": "— Если там маму увидишь, скажи, что я прочитала все книжки, которые она мне оставила.",
+        "quote_verified": true,
+        "order_key": [
+          20,
+          951,
+          953
+        ]
+      },
+      "sequence_index": 24,
+      "previous_temporal_id": "time-3b90a42412949757",
+      "next_temporal_id": "time-cd333713d059dcea"
+    },
+    {
+      "temporal_id": "time-cd333713d059dcea",
+      "claim_id": "primary-0020-c-0012",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Алиса читает книги",
+      "predicate": "читает",
+      "value": "книжки, которые отец ей оставил",
+      "anchor": {
+        "chunk_id": "primary-0020",
+        "chunk_index": 20,
+        "paragraph_start": 951,
+        "paragraph_end": 953,
+        "quote": "— Если там маму увидишь, скажи, что я прочитала все книжки, которые она мне оставила.",
+        "quote_verified": true,
+        "order_key": [
+          20,
+          951,
+          953
+        ]
+      },
+      "sequence_index": 25,
+      "previous_temporal_id": "time-37f4a6bb891f7c6a",
+      "next_temporal_id": "time-78a6e9c2be3add7a"
+    },
+    {
+      "temporal_id": "time-78a6e9c2be3add7a",
+      "claim_id": "primary-0020-c-0009",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "профессор Селезнев",
+      "predicate": "говорит",
+      "value": "Алисе, что она может вырасти сухой и скучной",
+      "anchor": {
+        "chunk_id": "primary-0020",
+        "chunk_index": 20,
+        "paragraph_start": 954,
+        "paragraph_end": 956,
+        "quote": "— Я боюсь, как бы ты не выросла сухим и скучным человеком.",
+        "quote_verified": true,
+        "order_key": [
+          20,
+          954,
+          956
+        ]
+      },
+      "sequence_index": 26,
+      "previous_temporal_id": "time-cd333713d059dcea",
+      "next_temporal_id": "time-ac12644a484a05e1"
+    },
+    {
+      "temporal_id": "time-ac12644a484a05e1",
+      "claim_id": "primary-0020-c-0014",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "миелофон",
+      "predicate": "definition",
+      "value": "На всей Земле есть только двадцать миелофонов. Они распределены между крупнейшими институтами и медицинскими центрами. Кристалл в центре миелофона настолько редок, что за последние годы восемь экспедиций обшарили астероид Власту и нашли только двадцать шесть…",
+      "anchor": {
+        "chunk_id": "primary-0020",
+        "chunk_index": 20,
+        "paragraph_start": 960,
+        "paragraph_end": 962,
+        "quote": "— А разве я играю? — Алиса, пойми меня правильно. На всей Земле есть только двадцать миелофонов. Они распределены между крупнейшими институтами и медицинскими центрами. Кристалл в центре миелофона настолько редок, что за последние годы восемь экспедиций обшарили астероид Власту и нашли только двадцать шесть…",
+        "quote_verified": true,
+        "order_key": [
+          20,
+          960,
+          962
+        ]
+      },
+      "sequence_index": 27,
+      "previous_temporal_id": "time-78a6e9c2be3add7a",
+      "next_temporal_id": "time-8686e82d2116696a"
+    },
+    {
+      "temporal_id": "time-8686e82d2116696a",
+      "claim_id": "primary-0021-c-0005",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Коля и Электрон Степанович обсуждают миелофон",
+      "predicate": "обсуждают",
+      "value": "ymiелофон",
+      "anchor": {
+        "chunk_id": "primary-0021",
+        "chunk_index": 21,
+        "paragraph_start": 1008,
+        "paragraph_end": 1010,
+        "quote": "— Миелофон? Нет, её уже несколько лет, как изобрели. Но, наверно, миелофоны скоро кончатся.",
+        "quote_verified": true,
+        "order_key": [
+          21,
+          1008,
+          1010
+        ]
+      },
+      "sequence_index": 28,
+      "previous_temporal_id": "time-ac12644a484a05e1",
+      "next_temporal_id": "time-31cdef23a46e3a73"
+    },
+    {
+      "temporal_id": "time-31cdef23a46e3a73",
+      "claim_id": "primary-0022-c-0001",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Коля",
+      "predicate": "остался сидеть",
+      "value": "на мягкой лавочке",
+      "anchor": {
+        "chunk_id": "primary-0022",
+        "chunk_index": 22,
+        "paragraph_start": 1047,
+        "paragraph_end": 1047,
+        "quote": "Коля остался сидеть на мягкой, словно диван, лавочке.",
+        "quote_verified": true,
+        "order_key": [
+          22,
+          1047,
+          1047
+        ]
+      },
+      "sequence_index": 29,
+      "previous_temporal_id": "time-8686e82d2116696a",
+      "next_temporal_id": "time-7990ae57ea0e749f"
+    },
+    {
+      "temporal_id": "time-7990ae57ea0e749f",
+      "claim_id": "primary-0022-c-0002",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Коля",
+      "predicate": "вспомнил",
+      "value": "что сегодня по телевизору показывают «Кабачок „Тринадцать стульев“»",
+      "anchor": {
+        "chunk_id": "primary-0022",
+        "chunk_index": 22,
+        "paragraph_start": 1047,
+        "paragraph_end": 1047,
+        "quote": "Коля вспомнил, что сегодня по телевизору показывают «Кабачок „Тринадцать стульев“», и подумал, что хорошо бы успеть к началу.",
+        "quote_verified": true,
+        "order_key": [
+          22,
+          1047,
+          1047
+        ]
+      },
+      "sequence_index": 30,
+      "previous_temporal_id": "time-31cdef23a46e3a73",
+      "next_temporal_id": "time-3d5e0484fea503c1"
+    },
+    {
+      "temporal_id": "time-3d5e0484fea503c1",
+      "claim_id": "primary-0022-c-0004",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Коля",
+      "predicate": "вырезал",
+      "value": "на спинке большими печатными буквами",
+      "anchor": {
+        "chunk_id": "primary-0022",
+        "chunk_index": 22,
+        "paragraph_start": 1049,
+        "paragraph_end": 1051,
+        "quote": "Коля вырезал на спинке большими печатными буквами:",
+        "quote_verified": true,
+        "order_key": [
+          22,
+          1049,
+          1051
+        ]
+      },
+      "sequence_index": 31,
+      "previous_temporal_id": "time-7990ae57ea0e749f",
+      "next_temporal_id": "time-39afbbf231a16f64"
+    },
+    {
+      "temporal_id": "time-39afbbf231a16f64",
+      "claim_id": "primary-0022-c-0006",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Коля",
+      "predicate": "был",
+      "value": "в Космозо",
+      "anchor": {
+        "chunk_id": "primary-0022",
+        "chunk_index": 22,
+        "paragraph_start": 1058,
+        "paragraph_end": 1060,
+        "quote": "Коля выскочил на опустевшую площадь перед Космозо.",
+        "quote_verified": true,
+        "order_key": [
+          22,
+          1058,
+          1060
+        ]
+      },
+      "sequence_index": 32,
+      "previous_temporal_id": "time-3d5e0484fea503c1",
+      "next_temporal_id": "time-5144f78afe18a9cf"
+    },
+    {
+      "temporal_id": "time-5144f78afe18a9cf",
+      "claim_id": "primary-0022-c-0007",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Коля",
+      "predicate": "побежал",
+      "value": "за ворами",
+      "anchor": {
+        "chunk_id": "primary-0022",
+        "chunk_index": 22,
+        "paragraph_start": 1058,
+        "paragraph_end": 1060,
+        "quote": "Коля выскочил на опустевшую площадь перед Космозо. Воры уже подбегали к автобусу.",
+        "quote_verified": true,
+        "order_key": [
+          22,
+          1058,
+          1060
+        ]
+      },
+      "sequence_index": 33,
+      "previous_temporal_id": "time-39afbbf231a16f64",
+      "next_temporal_id": "time-83c1be28d39cccee"
+    },
+    {
+      "temporal_id": "time-83c1be28d39cccee",
+      "claim_id": "primary-0022-c-0010",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Коля погнался за ворами",
+      "predicate": "побежал",
+      "value": "за ворами",
+      "anchor": {
+        "chunk_id": "primary-0022",
+        "chunk_index": 22,
+        "paragraph_start": 1058,
+        "paragraph_end": 1060,
+        "quote": "Коля выскочил на опустевшую площадь перед Космозо. Воры уже подбегали к автобусу.",
+        "quote_verified": true,
+        "order_key": [
+          22,
+          1058,
+          1060
+        ]
+      },
+      "sequence_index": 34,
+      "previous_temporal_id": "time-5144f78afe18a9cf",
+      "next_temporal_id": "time-486019c4a751410c"
+    },
+    {
+      "temporal_id": "time-486019c4a751410c",
+      "claim_id": "primary-0023-c-0013",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "пираты",
+      "predicate": "definition",
+      "value": "Коля понял, что воров перехитрить не удалось: они разделились — один побежал в восьмой автобус, а другой подстерегает его где-то ещё.",
+      "anchor": {
+        "chunk_id": "primary-0023",
+        "chunk_index": 23,
+        "paragraph_start": 1072,
+        "paragraph_end": 1072,
+        "quote": "Коля понял, что воров перехитрить не удалось: они разделились — один побежал в восьмой автобус, а другой подстерегает его где-то ещё.",
+        "quote_verified": true,
+        "order_key": [
+          23,
+          1072,
+          1072
+        ]
+      },
+      "sequence_index": 35,
+      "previous_temporal_id": "time-83c1be28d39cccee",
+      "next_temporal_id": "time-dd8ac057db3d6914"
+    },
+    {
+      "temporal_id": "time-dd8ac057db3d6914",
+      "claim_id": "primary-0023-c-0004",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "CHARACTER_BELIEF",
+      "subject": "Коля",
+      "predicate": "решил",
+      "value": "вернуть миелофон",
+      "anchor": {
+        "chunk_id": "primary-0023",
+        "chunk_index": 23,
+        "paragraph_start": 1074,
+        "paragraph_end": 1076,
+        "quote": "Коля был человеком не злым и уже придумал, как он вернёт миелофон. Он отдаст его Джаваду или кому-нибудь из натуралистов на школьной станции.",
+        "quote_verified": true,
+        "order_key": [
+          23,
+          1074,
+          1076
+        ]
+      },
+      "sequence_index": 36,
+      "previous_temporal_id": "time-486019c4a751410c",
+      "next_temporal_id": "time-b69204eb36ddbef7"
+    },
+    {
+      "temporal_id": "time-b69204eb36ddbef7",
+      "claim_id": "primary-0024-c-0004",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Алик Борисович",
+      "predicate": "пришёл в палату",
+      "value": "после обеда",
+      "anchor": {
+        "chunk_id": "primary-0024",
+        "chunk_index": 24,
+        "paragraph_start": 1137,
+        "paragraph_end": 1139,
+        "quote": "Молодой, но толстый и усатый Алик Борисович, дежурный врач, был самым весёлым человеком в больнице. Можно подумать, что люди попадают сюда для собственного удовольствия. Ну, и, конечно, для того, чтобы послушать, как Алик выловил щуку на Дону или как он подражает соловью. В тот день он пришёл в палату после обеда и сказал притворно-грустным голосом:",
+        "quote_verified": true,
+        "order_key": [
+          24,
+          1137,
+          1139
+        ]
+      },
+      "sequence_index": 37,
+      "previous_temporal_id": "time-dd8ac057db3d6914",
+      "next_temporal_id": "time-ad0a6a5c76beff9e"
+    },
+    {
+      "temporal_id": "time-ad0a6a5c76beff9e",
+      "claim_id": "primary-0024-c-0009",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "амнезия",
+      "predicate": "definition",
+      "value": "болезнь, при которой человек забывает свою фамилию, место жительства, место учебы, забывает, кто его родители",
+      "anchor": {
+        "chunk_id": "primary-0024",
+        "chunk_index": 24,
+        "paragraph_start": 1150,
+        "paragraph_end": 1152,
+        "quote": "Алик Борисович сказал, что эта болезнь называется «амнезия», чаще всего она проходит. Но представляете себе, забыть, как твоя фамилия, где ты живёшь, где учишься, даже забыть, кто твои родители!",
+        "quote_verified": true,
+        "order_key": [
+          24,
+          1150,
+          1152
+        ]
+      },
+      "sequence_index": 38,
+      "previous_temporal_id": "time-b69204eb36ddbef7",
+      "next_temporal_id": "time-92e9349dabd19d69"
+    },
+    {
+      "temporal_id": "time-92e9349dabd19d69",
+      "claim_id": "primary-0025-c-0008",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Алик Борисович рассказывает историю",
+      "predicate": "рассказывает",
+      "value": "историю о поездке на Дон",
+      "anchor": {
+        "chunk_id": "primary-0025",
+        "chunk_index": 25,
+        "paragraph_start": 1171,
+        "paragraph_end": 1173,
+        "quote": "— Прошлым летом, — сказал Алик Борисович, — мы с приятелями поехали на Дон, рыбачить.",
+        "quote_verified": true,
+        "order_key": [
+          25,
+          1171,
+          1173
+        ]
+      },
+      "sequence_index": 39,
+      "previous_temporal_id": "time-ad0a6a5c76beff9e",
+      "next_temporal_id": "time-916129391bd98f5e"
+    },
+    {
+      "temporal_id": "time-916129391bd98f5e",
+      "claim_id": "primary-0028-c-0001",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Юлька",
+      "predicate": "была на кровати",
+      "value": "да",
+      "anchor": {
+        "chunk_id": "primary-0028",
+        "chunk_index": 28,
+        "paragraph_start": 1415,
+        "paragraph_end": 1415,
+        "quote": "Юлька которая тоже стояла на кровати, посмотрела вниз и сразу поняла, в чём дело:",
+        "quote_verified": true,
+        "order_key": [
+          28,
+          1415,
+          1415
+        ]
+      },
+      "sequence_index": 40,
+      "previous_temporal_id": "time-92e9349dabd19d69",
+      "next_temporal_id": "time-66bf309fc3193d76"
+    },
+    {
+      "temporal_id": "time-66bf309fc3193d76",
+      "claim_id": "primary-0028-c-0006",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Крысс",
+      "predicate": "был космическим пиратом",
+      "value": "да",
+      "anchor": {
+        "chunk_id": "primary-0028",
+        "chunk_index": 28,
+        "paragraph_start": 1452,
+        "paragraph_end": 1454,
+        "quote": "Это был сообщник Весельчака У, тоже космический пират, Крысс с планеты Крокрыс.",
+        "quote_verified": true,
+        "order_key": [
+          28,
+          1452,
+          1454
+        ]
+      },
+      "sequence_index": 41,
+      "previous_temporal_id": "time-916129391bd98f5e",
+      "next_temporal_id": "time-09ec10454b415b29"
+    },
+    {
+      "temporal_id": "time-09ec10454b415b29",
+      "claim_id": "primary-0028-c-0003",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Алиса",
+      "predicate": "была в будущем",
+      "value": "да",
+      "anchor": {
+        "chunk_id": "primary-0028",
+        "chunk_index": 28,
+        "paragraph_start": 1467,
+        "paragraph_end": 1469,
+        "quote": "Я из будущего. Из двадцать первого века.",
+        "quote_verified": true,
+        "order_key": [
+          28,
+          1467,
+          1469
+        ]
+      },
+      "sequence_index": 42,
+      "previous_temporal_id": "time-66bf309fc3193d76",
+      "next_temporal_id": "time-715a87c038680d5a"
+    },
+    {
+      "temporal_id": "time-715a87c038680d5a",
+      "claim_id": "primary-0031-c-0008",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Юлька проснулась",
+      "predicate": "видит",
+      "value": "дерево с вороньими гнездами",
+      "anchor": {
+        "chunk_id": "primary-0031",
+        "chunk_index": 31,
+        "paragraph_start": 1613,
+        "paragraph_end": 1615,
+        "quote": "За окном видна вершина дерева и на ней три вороньих гнезда.",
+        "quote_verified": true,
+        "order_key": [
+          31,
+          1613,
+          1615
+        ]
+      },
+      "sequence_index": 43,
+      "previous_temporal_id": "time-09ec10454b415b29",
+      "next_temporal_id": "time-9acc2f4ea33041d0"
+    },
+    {
+      "temporal_id": "time-9acc2f4ea33041d0",
+      "claim_id": "primary-0031-c-0006",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Коля Наумов",
+      "predicate": "является",
+      "value": "спортсменом",
+      "anchor": {
+        "chunk_id": "primary-0031",
+        "chunk_index": 31,
+        "paragraph_start": 1638,
+        "paragraph_end": 1640,
+        "quote": "Он спортсмен, закаляется, зимой на балконе в спальном мешке спит.",
+        "quote_verified": true,
+        "order_key": [
+          31,
+          1638,
+          1640
+        ]
+      },
+      "sequence_index": 44,
+      "previous_temporal_id": "time-715a87c038680d5a",
+      "next_temporal_id": "time-e845e391613e1bc1"
+    },
+    {
+      "temporal_id": "time-e845e391613e1bc1",
+      "claim_id": "primary-0032-c-0009",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "галлюцинация",
+      "predicate": "definition",
+      "value": "Юлька так испугалась, что закричала, и мы упали с кроватей. А у Марии Павловны была галлюцинация.",
+      "anchor": {
+        "chunk_id": "primary-0032",
+        "chunk_index": 32,
+        "paragraph_start": 1682,
+        "paragraph_end": 1684,
+        "quote": "— Юлька так испугалась, что закричала, и мы упали с кроватей. А у Марии Павловны была галлюцинация.",
+        "quote_verified": true,
+        "order_key": [
+          32,
+          1682,
+          1684
+        ]
+      },
+      "sequence_index": 45,
+      "previous_temporal_id": "time-9acc2f4ea33041d0",
+      "next_temporal_id": "time-b1d910279d5e548e"
+    },
+    {
+      "temporal_id": "time-b1d910279d5e548e",
+      "claim_id": "primary-0033-c-0007",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Наташа",
+      "predicate": "принесла",
+      "value": "записку Алисе",
+      "anchor": {
+        "chunk_id": "primary-0033",
+        "chunk_index": 33,
+        "paragraph_start": 1791,
+        "paragraph_end": 1793,
+        "quote": "Алиса достала Юлькину записку, которую принесла Наташа, и перечитала её, чтобы запомнить телефон и адрес.",
+        "quote_verified": true,
+        "order_key": [
+          33,
+          1791,
+          1793
+        ]
+      },
+      "sequence_index": 46,
+      "previous_temporal_id": "time-e845e391613e1bc1",
+      "next_temporal_id": "time-0e52f957709e31b3"
+    },
+    {
+      "temporal_id": "time-0e52f957709e31b3",
+      "claim_id": "primary-0033-c-0008",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Наташа",
+      "predicate": "оставила",
+      "value": "монеты Алисе",
+      "anchor": {
+        "chunk_id": "primary-0033",
+        "chunk_index": 33,
+        "paragraph_start": 1791,
+        "paragraph_end": 1793,
+        "quote": "Наташа оставила ей пять двухкопеечных монет, чтобы звонить с телефона-автомата на лестнице.",
+        "quote_verified": true,
+        "order_key": [
+          33,
+          1791,
+          1793
+        ]
+      },
+      "sequence_index": 47,
+      "previous_temporal_id": "time-b1d910279d5e548e",
+      "next_temporal_id": "time-23cd0b525892694c"
+    },
+    {
+      "temporal_id": "time-23cd0b525892694c",
+      "claim_id": "primary-0033-c-0014",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "записка",
+      "predicate": "definition",
+      "value": "написанное на листке из маминой записной книжки сообщение",
+      "anchor": {
+        "chunk_id": "primary-0033",
+        "chunk_index": 33,
+        "paragraph_start": 1791,
+        "paragraph_end": 1793,
+        "quote": "Алиса достала Юлькину записку, которую принесла Наташа, и перечитала её, чтобы запомнить телефон и адрес.",
+        "quote_verified": true,
+        "order_key": [
+          33,
+          1791,
+          1793
+        ]
+      },
+      "sequence_index": 48,
+      "previous_temporal_id": "time-0e52f957709e31b3",
+      "next_temporal_id": "time-8ba8138fb7540425"
+    },
+    {
+      "temporal_id": "time-8ba8138fb7540425",
+      "claim_id": "primary-0034-c-0009",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Крысс",
+      "predicate": "был врагом Алисы",
+      "value": "да",
+      "anchor": {
+        "chunk_id": "primary-0034",
+        "chunk_index": 34,
+        "paragraph_start": 1834,
+        "paragraph_end": 1836,
+        "quote": "Он улыбался улыбкой Крысса и, подняв костыль, прицелился в Алису.",
+        "quote_verified": true,
+        "order_key": [
+          34,
+          1834,
+          1836
+        ]
+      },
+      "sequence_index": 49,
+      "previous_temporal_id": "time-23cd0b525892694c",
+      "next_temporal_id": "time-ff950017b885363c"
+    },
+    {
+      "temporal_id": "time-ff950017b885363c",
+      "claim_id": "primary-0034-c-0011",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Алиса убегает из больницы",
+      "predicate": "成功逃脱",
+      "value": "是",
+      "anchor": {
+        "chunk_id": "primary-0034",
+        "chunk_index": 34,
+        "paragraph_start": 1847,
+        "paragraph_end": 1849,
+        "quote": "Алиса была на верху забора, прыгнула вниз с двухметровой высоты и оказалась в тихом переулке.",
+        "quote_verified": true,
+        "order_key": [
+          34,
+          1847,
+          1849
+        ]
+      },
+      "sequence_index": 50,
+      "previous_temporal_id": "time-8ba8138fb7540425",
+      "next_temporal_id": "time-00191e483a89340f"
+    },
+    {
+      "temporal_id": "time-00191e483a89340f",
+      "claim_id": "primary-0035-c-0001",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Алиса",
+      "predicate": "имя",
+      "value": "Алиса",
+      "anchor": {
+        "chunk_id": "primary-0035",
+        "chunk_index": 35,
+        "paragraph_start": 1915,
+        "paragraph_end": 1917,
+        "quote": "— Очень приятно. Алиса.",
+        "quote_verified": true,
+        "order_key": [
+          35,
+          1915,
+          1917
+        ]
+      },
+      "sequence_index": 51,
+      "previous_temporal_id": "time-ff950017b885363c",
+      "next_temporal_id": "time-192cf517a0300c14"
+    },
+    {
+      "temporal_id": "time-192cf517a0300c14",
+      "claim_id": "primary-0035-c-0003",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Алиса",
+      "predicate": "имеет подругу",
+      "value": "подруга",
+      "anchor": {
+        "chunk_id": "primary-0035",
+        "chunk_index": 35,
+        "paragraph_start": 1947,
+        "paragraph_end": 1949,
+        "quote": "Я попала в аварию, и меня привезли в больницу. Я лежала в палате вместе с подругой, а теперь подруга выписалась, и я осталась одна.",
+        "quote_verified": true,
+        "order_key": [
+          35,
+          1947,
+          1949
+        ]
+      },
+      "sequence_index": 52,
+      "previous_temporal_id": "time-00191e483a89340f",
+      "next_temporal_id": "time-71497c74234cc852"
+    },
+    {
+      "temporal_id": "time-71497c74234cc852",
+      "claim_id": "primary-0036-c-0002",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Алиса",
+      "predicate": "побежала к подъезду",
+      "value": "да",
+      "anchor": {
+        "chunk_id": "primary-0036",
+        "chunk_index": 36,
+        "paragraph_start": 1976,
+        "paragraph_end": 1978,
+        "quote": "Алиса попрощалась с ребятами и побежала к подъезду.",
+        "quote_verified": true,
+        "order_key": [
+          36,
+          1976,
+          1978
+        ]
+      },
+      "sequence_index": 53,
+      "previous_temporal_id": "time-192cf517a0300c14",
+      "next_temporal_id": "time-e86d284ea06869fc"
+    },
+    {
+      "temporal_id": "time-e86d284ea06869fc",
+      "claim_id": "primary-0036-c-0007",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Алиса побежала к подъезду",
+      "predicate": "побежала к подъезду",
+      "value": "да",
+      "anchor": {
+        "chunk_id": "primary-0036",
+        "chunk_index": 36,
+        "paragraph_start": 1976,
+        "paragraph_end": 1978,
+        "quote": "Алиса попрощалась с ребятами и побежала к подъезду.",
+        "quote_verified": true,
+        "order_key": [
+          36,
+          1976,
+          1978
+        ]
+      },
+      "sequence_index": 54,
+      "previous_temporal_id": "time-71497c74234cc852",
+      "next_temporal_id": "time-2511b36da3ec2b39"
+    },
+    {
+      "temporal_id": "time-2511b36da3ec2b39",
+      "claim_id": "primary-0036-c-0005",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Юлька Грибкова",
+      "predicate": "живёт в доме",
+      "value": "да",
+      "anchor": {
+        "chunk_id": "primary-0036",
+        "chunk_index": 36,
+        "paragraph_start": 1978,
+        "paragraph_end": 1980,
+        "quote": "— А из нашего класса в этом доме Юлька Грибкова живёт.",
+        "quote_verified": true,
+        "order_key": [
+          36,
+          1978,
+          1980
+        ]
+      },
+      "sequence_index": 55,
+      "previous_temporal_id": "time-e86d284ea06869fc",
+      "next_temporal_id": "time-4915862bdcdc63cf"
+    },
+    {
+      "temporal_id": "time-4915862bdcdc63cf",
+      "claim_id": "primary-0036-c-0008",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Алиса рассказала Юльке о побеге",
+      "predicate": "рассказала о побеге",
+      "value": "да",
+      "anchor": {
+        "chunk_id": "primary-0036",
+        "chunk_index": 36,
+        "paragraph_start": 2034,
+        "paragraph_end": 2036,
+        "quote": "Девочки уселись на диван в Юлькиной комнате, под картиной, изображающей гору Эверест. И Алиса рассказала о побеге.",
+        "quote_verified": true,
+        "order_key": [
+          36,
+          2034,
+          2036
+        ]
+      },
+      "sequence_index": 56,
+      "previous_temporal_id": "time-2511b36da3ec2b39",
+      "next_temporal_id": "time-4f36bab389b19e6f"
+    },
+    {
+      "temporal_id": "time-4f36bab389b19e6f",
+      "claim_id": "primary-0039-c-0004",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "CHARACTER_BELIEF",
+      "subject": "Коля Садовский",
+      "predicate": "предполагает",
+      "value": "Алиса приехала из будущего",
+      "anchor": {
+        "chunk_id": "primary-0039",
+        "chunk_index": 39,
+        "paragraph_start": 2263,
+        "paragraph_end": 2265,
+        "quote": "— Я думаю, что ты к нам приехала из будущего, — сказал он. — У тебя есть машина времени, переделанная из велосипеда.",
+        "quote_verified": true,
+        "order_key": [
+          39,
+          2263,
+          2265
+        ]
+      },
+      "sequence_index": 57,
+      "previous_temporal_id": "time-4915862bdcdc63cf",
+      "next_temporal_id": "time-922952ce3921b39a"
+    },
+    {
+      "temporal_id": "time-922952ce3921b39a",
+      "claim_id": "primary-0039-c-0005",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Фима Королев",
+      "predicate": "раздевается",
+      "value": "для игры в волейбол",
+      "anchor": {
+        "chunk_id": "primary-0039",
+        "chunk_index": 39,
+        "paragraph_start": 2294,
+        "paragraph_end": 2296,
+        "quote": "Фима Королев, который уже разделся, чтобы играть,",
+        "quote_verified": true,
+        "order_key": [
+          39,
+          2294,
+          2296
+        ]
+      },
+      "sequence_index": 58,
+      "previous_temporal_id": "time-4f36bab389b19e6f",
+      "next_temporal_id": "time-f5488a266baa11e2"
+    },
+    {
+      "temporal_id": "time-f5488a266baa11e2",
+      "claim_id": "primary-0040-c-0001",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Наумов",
+      "predicate": "имеет имя",
+      "value": "Коля",
+      "anchor": {
+        "chunk_id": "primary-0040",
+        "chunk_index": 40,
+        "paragraph_start": 2323,
+        "paragraph_end": 2325,
+        "quote": "Коля Наумов",
+        "quote_verified": true,
+        "order_key": [
+          40,
+          2323,
+          2325
+        ]
+      },
+      "sequence_index": 59,
+      "previous_temporal_id": "time-922952ce3921b39a",
+      "next_temporal_id": "time-0326008e545f4dc1"
+    },
+    {
+      "temporal_id": "time-0326008e545f4dc1",
+      "claim_id": "primary-0041-c-0008",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Алиса ищет Коля",
+      "predicate": "ищет",
+      "value": "Колю",
+      "anchor": {
+        "chunk_id": "primary-0041",
+        "chunk_index": 41,
+        "paragraph_start": 2415,
+        "paragraph_end": 2417,
+        "quote": "— Она меня ищет, — сказал Коля.",
+        "quote_verified": true,
+        "order_key": [
+          41,
+          2415,
+          2417
+        ]
+      },
+      "sequence_index": 60,
+      "previous_temporal_id": "time-f5488a266baa11e2",
+      "next_temporal_id": "time-a8ca18003c5dcde3"
+    },
+    {
+      "temporal_id": "time-a8ca18003c5dcde3",
+      "claim_id": "primary-0041-c-0007",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Коля попал в будущее",
+      "predicate": "попал",
+      "value": "в будущее",
+      "anchor": {
+        "chunk_id": "primary-0041",
+        "chunk_index": 41,
+        "paragraph_start": 2453,
+        "paragraph_end": 2455,
+        "quote": "— Значит, я попал в будущее… Стой!",
+        "quote_verified": true,
+        "order_key": [
+          41,
+          2453,
+          2455
+        ]
+      },
+      "sequence_index": 61,
+      "previous_temporal_id": "time-0326008e545f4dc1",
+      "next_temporal_id": "time-225f6e390466201a"
+    },
+    {
+      "temporal_id": "time-225f6e390466201a",
+      "claim_id": "primary-0042-c-0003",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Фима",
+      "predicate": "съел все котлеты",
+      "value": "Фима съел все котлеты, оставленные Колей.",
+      "anchor": {
+        "chunk_id": "primary-0042",
+        "chunk_index": 42,
+        "paragraph_start": 2500,
+        "paragraph_end": 2502,
+        "quote": "Пока Коля рассказывал о своём путешествии в будущее, Фима незаметно съел все котлеты — и те, что были оставлены Коле, и те, что мать поджарила себе с отцом.",
+        "quote_verified": true,
+        "order_key": [
+          42,
+          2500,
+          2502
+        ]
+      },
+      "sequence_index": 62,
+      "previous_temporal_id": "time-a8ca18003c5dcde3",
+      "next_temporal_id": "time-3c0b4c9327455100"
+    },
+    {
+      "temporal_id": "time-3c0b4c9327455100",
+      "claim_id": "primary-0043-c-0005",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Коля передаёт Фиме наушник",
+      "predicate": "передаёт",
+      "value": "наушник",
+      "anchor": {
+        "chunk_id": "primary-0043",
+        "chunk_index": 43,
+        "paragraph_start": 2586,
+        "paragraph_end": 2587,
+        "quote": "Коля осторожно перевесил сумку со своего плеча на Фимино. Передал ему наушник и отошёл к окну, словно его это не касалось.",
+        "quote_verified": true,
+        "order_key": [
+          43,
+          2586,
+          2587
+        ]
+      },
+      "sequence_index": 63,
+      "previous_temporal_id": "time-225f6e390466201a",
+      "next_temporal_id": "time-ca51377157c9910f"
+    },
+    {
+      "temporal_id": "time-ca51377157c9910f",
+      "claim_id": "primary-0044-c-0001",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Крысс",
+      "predicate": "работает как",
+      "value": "дублёром",
+      "anchor": {
+        "chunk_id": "primary-0044",
+        "chunk_index": 44,
+        "paragraph_start": 2724,
+        "paragraph_end": 2726,
+        "quote": "Крысс заменял по очереди всех заболевших актёров, а иногда ему просто показывали фотографию, и он изображал кого надо.",
+        "quote_verified": true,
+        "order_key": [
+          44,
+          2724,
+          2726
+        ]
+      },
+      "sequence_index": 64,
+      "previous_temporal_id": "time-3c0b4c9327455100",
+      "next_temporal_id": "time-a250d38c3e5c77a6"
+    },
+    {
+      "temporal_id": "time-a250d38c3e5c77a6",
+      "claim_id": "primary-0044-c-0007",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Крысс заменяет заболевших актёров",
+      "predicate": "занимается",
+      "value": "дублёром",
+      "anchor": {
+        "chunk_id": "primary-0044",
+        "chunk_index": 44,
+        "paragraph_start": 2724,
+        "paragraph_end": 2726,
+        "quote": "Крысс заменял по очереди всех заболевших актёров, а иногда ему просто показывали фотографию, и он изображал кого надо.",
+        "quote_verified": true,
+        "order_key": [
+          44,
+          2724,
+          2726
+        ]
+      },
+      "sequence_index": 65,
+      "previous_temporal_id": "time-ca51377157c9910f",
+      "next_temporal_id": "time-3566e1189fdff9f5"
+    },
+    {
+      "temporal_id": "time-3566e1189fdff9f5",
+      "claim_id": "primary-0044-c-0008",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "дублёром",
+      "predicate": "definition",
+      "value": "актёр, который заменяет заболевших актёров",
+      "anchor": {
+        "chunk_id": "primary-0044",
+        "chunk_index": 44,
+        "paragraph_start": 2724,
+        "paragraph_end": 2726,
+        "quote": "Крысс заменял по очереди всех заболевших актёров, а иногда ему просто показывали фотографию, и он изображал кого надо.",
+        "quote_verified": true,
+        "order_key": [
+          44,
+          2724,
+          2726
+        ]
+      },
+      "sequence_index": 66,
+      "previous_temporal_id": "time-a250d38c3e5c77a6",
+      "next_temporal_id": "time-dbf5587ae91fabeb"
+    },
+    {
+      "temporal_id": "time-dbf5587ae91fabeb",
+      "claim_id": "primary-0048-c-0004",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Алиса Селезнева",
+      "predicate": "выиграла у гроссмейстера",
+      "value": "выиграла",
+      "anchor": {
+        "chunk_id": "primary-0048",
+        "chunk_index": 48,
+        "paragraph_start": 3048,
+        "paragraph_end": 3050,
+        "quote": "— Так это же Алиса Селезнева! — не выдержала Юлька. — Она выиграла у гроссмейстера!",
+        "quote_verified": true,
+        "order_key": [
+          48,
+          3048,
+          3050
+        ]
+      },
+      "sequence_index": 67,
+      "previous_temporal_id": "time-3566e1189fdff9f5",
+      "next_temporal_id": "time-707b6ec054da07a8"
+    },
+    {
+      "temporal_id": "time-707b6ec054da07a8",
+      "claim_id": "primary-0048-c-0005",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Эдуард Петрович",
+      "predicate": "имеет имя",
+      "value": "Эдуард Петрович",
+      "anchor": {
+        "chunk_id": "primary-0048",
+        "chunk_index": 48,
+        "paragraph_start": 3091,
+        "paragraph_end": 3093,
+        "quote": "— Мы не хотели вас пугать, — сказал Эдуард.",
+        "quote_verified": true,
+        "order_key": [
+          48,
+          3091,
+          3093
+        ]
+      },
+      "sequence_index": 68,
+      "previous_temporal_id": "time-dbf5587ae91fabeb",
+      "next_temporal_id": "time-044f92bbb56ab541"
+    },
+    {
+      "temporal_id": "time-044f92bbb56ab541",
+      "claim_id": "primary-0048-c-0006",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Марта Скрыль",
+      "predicate": "имеет имя",
+      "value": "Марта Скрыль",
+      "anchor": {
+        "chunk_id": "primary-0048",
+        "chunk_index": 48,
+        "paragraph_start": 3101,
+        "paragraph_end": 3103,
+        "quote": "— Мы это обеспечим, — сказала Марта Скрыль.",
+        "quote_verified": true,
+        "order_key": [
+          48,
+          3101,
+          3103
+        ]
+      },
+      "sequence_index": 69,
+      "previous_temporal_id": "time-707b6ec054da07a8",
+      "next_temporal_id": "time-f52bc6eb6944932f"
+    },
+    {
+      "temporal_id": "time-f52bc6eb6944932f",
+      "claim_id": "primary-0049-c-0003",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Алиса",
+      "predicate": "присутствует",
+      "value": "да",
+      "anchor": {
+        "chunk_id": "primary-0049",
+        "chunk_index": 49,
+        "paragraph_start": 3119,
+        "paragraph_end": 3121,
+        "quote": "Алиса сунула Юльке сумку, отбежала на мостовую, примерилась, разбежалась и прыгнула.",
+        "quote_verified": true,
+        "order_key": [
+          49,
+          3119,
+          3121
+        ]
+      },
+      "sequence_index": 70,
+      "previous_temporal_id": "time-044f92bbb56ab541",
+      "next_temporal_id": "time-88bd52fd94ab3cf8"
+    },
+    {
+      "temporal_id": "time-88bd52fd94ab3cf8",
+      "claim_id": "primary-0049-c-0009",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "прыжок через забор",
+      "predicate": "выполняется",
+      "value": "да",
+      "anchor": {
+        "chunk_id": "primary-0049",
+        "chunk_index": 49,
+        "paragraph_start": 3119,
+        "paragraph_end": 3121,
+        "quote": "Алиса сунула Юльке сумку, отбежала на мостовую, примерилась, разбежалась и прыгнула.",
+        "quote_verified": true,
+        "order_key": [
+          49,
+          3119,
+          3121
+        ]
+      },
+      "sequence_index": 71,
+      "previous_temporal_id": "time-f52bc6eb6944932f",
+      "next_temporal_id": "time-7a4aa5d487a8ace8"
+    },
+    {
+      "temporal_id": "time-7a4aa5d487a8ace8",
+      "claim_id": "primary-0049-c-0001",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Эдуард Петрович",
+      "predicate": "присутствует",
+      "value": "да",
+      "anchor": {
+        "chunk_id": "primary-0049",
+        "chunk_index": 49,
+        "paragraph_start": 3130,
+        "paragraph_end": 3132,
+        "quote": "Эдуард Петрович послушно прижался тяжёлым животом к забору, который колыхался, как тростник в бурю.",
+        "quote_verified": true,
+        "order_key": [
+          49,
+          3130,
+          3132
+        ]
+      },
+      "sequence_index": 72,
+      "previous_temporal_id": "time-88bd52fd94ab3cf8",
+      "next_temporal_id": "time-925b26cb21e9b032"
+    },
+    {
+      "temporal_id": "time-925b26cb21e9b032",
+      "claim_id": "primary-0049-c-0010",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "погоня",
+      "predicate": "происходит",
+      "value": "да",
+      "anchor": {
+        "chunk_id": "primary-0049",
+        "chunk_index": 49,
+        "paragraph_start": 3145,
+        "paragraph_end": 3147,
+        "quote": "Как-то им удалось обмануть Эдуарда, и они снова пустились в погоню за девчатами.",
+        "quote_verified": true,
+        "order_key": [
+          49,
+          3145,
+          3147
+        ]
+      },
+      "sequence_index": 73,
+      "previous_temporal_id": "time-7a4aa5d487a8ace8",
+      "next_temporal_id": "time-02436cf7d99c7c25"
+    },
+    {
+      "temporal_id": "time-02436cf7d99c7c25",
+      "claim_id": "primary-0049-c-0008",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Коля Садовский",
+      "predicate": "присутствует",
+      "value": "да",
+      "anchor": {
+        "chunk_id": "primary-0049",
+        "chunk_index": 49,
+        "paragraph_start": 3169,
+        "paragraph_end": 3171,
+        "quote": "Первым в тот день в школу шёл Коля Садовский.",
+        "quote_verified": true,
+        "order_key": [
+          49,
+          3169,
+          3171
+        ]
+      },
+      "sequence_index": 74,
+      "previous_temporal_id": "time-925b26cb21e9b032",
+      "next_temporal_id": "time-c84ad4445a3105ca"
+    },
+    {
+      "temporal_id": "time-c84ad4445a3105ca",
+      "claim_id": "primary-0051-c-0001",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Алиса",
+      "predicate": "имеет знания",
+      "value": "ненормальные",
+      "anchor": {
+        "chunk_id": "primary-0051",
+        "chunk_index": 51,
+        "paragraph_start": 3261,
+        "paragraph_end": 3263,
+        "quote": "Она совершенно ненормально все знает.",
+        "quote_verified": true,
+        "order_key": [
+          51,
+          3261,
+          3263
+        ]
+      },
+      "sequence_index": 75,
+      "previous_temporal_id": "time-02436cf7d99c7c25",
+      "next_temporal_id": "time-5c42e72bd072e155"
+    },
+    {
+      "temporal_id": "time-5c42e72bd072e155",
+      "claim_id": "primary-0051-c-0003",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "доктор Иванова",
+      "predicate": "является",
+      "value": "деликатной",
+      "anchor": {
+        "chunk_id": "primary-0051",
+        "chunk_index": 51,
+        "paragraph_start": 3262,
+        "paragraph_end": 3264,
+        "quote": "Но мы очень деликатные люди, — сказала хрупкая доктор Иванова.",
+        "quote_verified": true,
+        "order_key": [
+          51,
+          3262,
+          3264
+        ]
+      },
+      "sequence_index": 76,
+      "previous_temporal_id": "time-c84ad4445a3105ca",
+      "next_temporal_id": "time-2a5500af59023deb"
+    },
+    {
+      "temporal_id": "time-2a5500af59023deb",
+      "claim_id": "primary-0052-c-0001",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Алиса",
+      "predicate": "принимала участие в",
+      "value": "прыжках через окно",
+      "anchor": {
+        "chunk_id": "primary-0052",
+        "chunk_index": 52,
+        "paragraph_start": 3347,
+        "paragraph_end": 3349,
+        "quote": "Алиса распахнула окно — никто даже ахнуть не успел, — вскочила на подоконник и прыгнула к большому дубу, который рос на школьным дворе.",
+        "quote_verified": true,
+        "order_key": [
+          52,
+          3347,
+          3349
+        ]
+      },
+      "sequence_index": 77,
+      "previous_temporal_id": "time-5c42e72bd072e155",
+      "next_temporal_id": "time-9444fdc5b9101965"
+    },
+    {
+      "temporal_id": "time-9444fdc5b9101965",
+      "claim_id": "primary-0052-c-0007",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Алиса прыгнула через окно",
+      "predicate": "发生",
+      "value": "Aлиса从窗户跳到外面",
+      "anchor": {
+        "chunk_id": "primary-0052",
+        "chunk_index": 52,
+        "paragraph_start": 3347,
+        "paragraph_end": 3349,
+        "quote": "Алиса распахнула окно — никто даже ахнуть не успел, — вскочила на подоконник и прыгнула к большому дубу, который рос на школьным дворе.",
+        "quote_verified": true,
+        "order_key": [
+          52,
+          3347,
+          3349
+        ]
+      },
+      "sequence_index": 78,
+      "previous_temporal_id": "time-2a5500af59023deb",
+      "next_temporal_id": "time-dbe9c9b6f389d735"
+    },
+    {
+      "temporal_id": "time-dbe9c9b6f389d735",
+      "claim_id": "primary-0052-c-0003",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Весельчак У",
+      "predicate": "принимал участие в",
+      "value": "погоне за Коля Наумов",
+      "anchor": {
+        "chunk_id": "primary-0052",
+        "chunk_index": 52,
+        "paragraph_start": 3364,
+        "paragraph_end": 3366,
+        "quote": "За Колей гнался только Весельчак У, а Крысс в облике Наполеона перебежал на другую сторону переулка и понёсся вдоль стены так, чтобы обогнать Колю и взять его в тиски.",
+        "quote_verified": true,
+        "order_key": [
+          52,
+          3364,
+          3366
+        ]
+      },
+      "sequence_index": 79,
+      "previous_temporal_id": "time-9444fdc5b9101965",
+      "next_temporal_id": "time-8872080fc9b2f582"
+    },
+    {
+      "temporal_id": "time-8872080fc9b2f582",
+      "claim_id": "primary-0053-c-0004",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "тренерша",
+      "predicate": "намеревалась",
+      "value": "вернуться в школу",
+      "anchor": {
+        "chunk_id": "primary-0053",
+        "chunk_index": 53,
+        "paragraph_start": 3397,
+        "paragraph_end": 3399,
+        "quote": "Я вернусь в школу и все узнаю у Эдуарда Петровича.",
+        "quote_verified": true,
+        "order_key": [
+          53,
+          3397,
+          3399
+        ]
+      },
+      "sequence_index": 80,
+      "previous_temporal_id": "time-dbe9c9b6f389d735",
+      "next_temporal_id": "time-111398a75032da60"
+    },
+    {
+      "temporal_id": "time-111398a75032da60",
+      "claim_id": "primary-0053-c-0006",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Крысс",
+      "predicate": "был упомянут",
+      "value": "как пират",
+      "anchor": {
+        "chunk_id": "primary-0053",
+        "chunk_index": 53,
+        "paragraph_start": 3430,
+        "paragraph_end": 3432,
+        "quote": "Пират Крысс, который шёл первым, увидел движение Петра Ишутина и обернулся к нему:",
+        "quote_verified": true,
+        "order_key": [
+          53,
+          3430,
+          3432
+        ]
+      },
+      "sequence_index": 81,
+      "previous_temporal_id": "time-8872080fc9b2f582",
+      "next_temporal_id": "time-bd3d98a284b9a63e"
+    },
+    {
+      "temporal_id": "time-bd3d98a284b9a63e",
+      "claim_id": "primary-0054-c-0002",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Коля Наумов",
+      "predicate": "был в",
+      "value": "будущем",
+      "anchor": {
+        "chunk_id": "primary-0054",
+        "chunk_index": 54,
+        "paragraph_start": 3523,
+        "paragraph_end": 3525,
+        "quote": "Коля Наумов побывал в будущем и там набезобразил, хотя и не по злому умыслу.",
+        "quote_verified": true,
+        "order_key": [
+          54,
+          3523,
+          3525
+        ]
+      },
+      "sequence_index": 82,
+      "previous_temporal_id": "time-111398a75032da60",
+      "next_temporal_id": "time-161bb6d773bd6684"
+    },
+    {
+      "temporal_id": "time-161bb6d773bd6684",
+      "claim_id": "primary-0056-c-0001",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "CHARACTER_BELIEF",
+      "subject": "Юлька",
+      "predicate": "боялась",
+      "value": "Алиса уйдёт насовсем",
+      "anchor": {
+        "chunk_id": "primary-0056",
+        "chunk_index": 56,
+        "paragraph_start": 3599,
+        "paragraph_end": 3599,
+        "quote": "Она так боялась, что Алиса послушает разумную Руткевич и уйдёт насовсем… хотя она, Юлька, конечно, и слова бы не сказала.",
+        "quote_verified": true,
+        "order_key": [
+          56,
+          3599,
+          3599
+        ]
+      },
+      "sequence_index": 83,
+      "previous_temporal_id": "time-bd3d98a284b9a63e",
+      "next_temporal_id": "time-63470ee4b5673f9e"
+    },
+    {
+      "temporal_id": "time-63470ee4b5673f9e",
+      "claim_id": "primary-0056-c-0007",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Катя Михайлова",
+      "predicate": "говорит",
+      "value": "Алиса права",
+      "anchor": {
+        "chunk_id": "primary-0056",
+        "chunk_index": 56,
+        "paragraph_start": 3600,
+        "paragraph_end": 3602,
+        "quote": "Алиса права. Если она столько времени эту машину искала, можно и подождать. А Алиса нам нужна. Она как спортсменка может забраться, куда никто из нас не сможет. И она этих пиратов хорошо знает. Их ведь тоже, наверно, не стоит здесь оставлять.",
+        "quote_verified": true,
+        "order_key": [
+          56,
+          3600,
+          3602
+        ]
+      },
+      "sequence_index": 84,
+      "previous_temporal_id": "time-161bb6d773bd6684",
+      "next_temporal_id": "time-d280f003a79b8a29"
+    },
+    {
+      "temporal_id": "time-d280f003a79b8a29",
+      "claim_id": "primary-0056-c-0011",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "миелофон",
+      "predicate": "definition",
+      "value": "устройство, которое принимает человеческие мысли метров за десять, а иногда и больше",
+      "anchor": {
+        "chunk_id": "primary-0056",
+        "chunk_index": 56,
+        "paragraph_start": 3647,
+        "paragraph_end": 3649,
+        "quote": "Миелофон принимает человеческие мысли метров за десять, а иногда и больше, — сказала Алиса.",
+        "quote_verified": true,
+        "order_key": [
+          56,
+          3647,
+          3649
+        ]
+      },
+      "sequence_index": 85,
+      "previous_temporal_id": "time-63470ee4b5673f9e",
+      "next_temporal_id": "time-fdb2b65c2aa9230c"
+    },
+    {
+      "temporal_id": "time-fdb2b65c2aa9230c",
+      "claim_id": "primary-0056-c-0009",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Фима Королев",
+      "predicate": "говорит",
+      "value": "пиратам свойственна дьявольская хитрость",
+      "anchor": {
+        "chunk_id": "primary-0056",
+        "chunk_index": 56,
+        "paragraph_start": 3669,
+        "paragraph_end": 3671,
+        "quote": "— А что, — не сдавался Фима, — вполне может быть. Пиратам свойственна дьявольская хитрость.",
+        "quote_verified": true,
+        "order_key": [
+          56,
+          3669,
+          3671
+        ]
+      },
+      "sequence_index": 86,
+      "previous_temporal_id": "time-d280f003a79b8a29",
+      "next_temporal_id": "time-723f6a7cc6ea4c45"
+    },
+    {
+      "temporal_id": "time-723f6a7cc6ea4c45",
+      "claim_id": "primary-0058-c-0005",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Коля",
+      "predicate": "говорил",
+      "value": "скрытность ещё никогда не доводила до добра",
+      "anchor": {
+        "chunk_id": "primary-0058",
+        "chunk_index": 58,
+        "paragraph_start": 3830,
+        "paragraph_end": 3832,
+        "quote": "— Скрытность ещё никогда не доводила до добра. Мой дедушка, когда собирался охотиться на Наполеонов, всегда брал с собой ведро с керосином. Он брызгал керосином Наполеону на хвост, и тот тут же сдавался в плен. Но однажды он решил полить керосином тигра..",
+        "quote_verified": true,
+        "order_key": [
+          58,
+          3830,
+          3832
+        ]
+      },
+      "sequence_index": 87,
+      "previous_temporal_id": "time-fdb2b65c2aa9230c",
+      "next_temporal_id": "time-2ca94145d316b802"
+    },
+    {
+      "temporal_id": "time-2ca94145d316b802",
+      "claim_id": "primary-0060-c-0007",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Коля Сулима бросился на Крысса",
+      "predicate": "выстрелил",
+      "value": "в потолок",
+      "anchor": {
+        "chunk_id": "primary-0060",
+        "chunk_index": 60,
+        "paragraph_start": 3907,
+        "paragraph_end": 3909,
+        "quote": "Коля ударился о него, пистолет дёрнулся, и выстрел пришёлся в потолок.",
+        "quote_verified": true,
+        "order_key": [
+          60,
+          3907,
+          3909
+        ]
+      },
+      "sequence_index": 88,
+      "previous_temporal_id": "time-723f6a7cc6ea4c45",
+      "next_temporal_id": "time-4fed000dc94c4de7"
+    },
+    {
+      "temporal_id": "time-4fed000dc94c4de7",
+      "claim_id": "primary-0061-c-0001",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Фима Королев",
+      "predicate": "будет",
+      "value": "инженером",
+      "anchor": {
+        "chunk_id": "primary-0061",
+        "chunk_index": 61,
+        "paragraph_start": 3957,
+        "paragraph_end": 3957,
+        "quote": "Фима Королев станет инженером.",
+        "quote_verified": true,
+        "order_key": [
+          61,
+          3957,
+          3957
+        ]
+      },
+      "sequence_index": 89,
+      "previous_temporal_id": "time-2ca94145d316b802",
+      "next_temporal_id": "time-34965f4befac37ef"
+    },
+    {
+      "temporal_id": "time-34965f4befac37ef",
+      "claim_id": "primary-0061-c-0002",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Лариса",
+      "predicate": "будет",
+      "value": "знаменитой киноактрисой",
+      "anchor": {
+        "chunk_id": "primary-0061",
+        "chunk_index": 61,
+        "paragraph_start": 3957,
+        "paragraph_end": 3957,
+        "quote": "Лариса будет знаменитой киноактрисой.",
+        "quote_verified": true,
+        "order_key": [
+          61,
+          3957,
+          3957
+        ]
+      },
+      "sequence_index": 90,
+      "previous_temporal_id": "time-4fed000dc94c4de7",
+      "next_temporal_id": "time-96ff5bf0bc8ee7d9"
+    },
+    {
+      "temporal_id": "time-96ff5bf0bc8ee7d9",
+      "claim_id": "primary-0061-c-0004",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Юлька Грибкова",
+      "predicate": "будет",
+      "value": "детским врачом",
+      "anchor": {
+        "chunk_id": "primary-0061",
+        "chunk_index": 61,
+        "paragraph_start": 3959,
+        "paragraph_end": 3961,
+        "quote": "Юлька будет детским врачом.",
+        "quote_verified": true,
+        "order_key": [
+          61,
+          3959,
+          3961
+        ]
+      },
+      "sequence_index": 91,
+      "previous_temporal_id": "time-34965f4befac37ef",
+      "next_temporal_id": "time-ef156229c39e910c"
+    },
+    {
+      "temporal_id": "time-ef156229c39e910c",
+      "claim_id": "primary-0061-c-0005",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Катя Михайлова",
+      "predicate": "выиграет",
+      "value": "Уимблдонский турнир в Англии",
+      "anchor": {
+        "chunk_id": "primary-0061",
+        "chunk_index": 61,
+        "paragraph_start": 3959,
+        "paragraph_end": 3961,
+        "quote": "Катя Михайлова выиграет Уимблдонский турнир в Англии.",
+        "quote_verified": true,
+        "order_key": [
+          61,
+          3959,
+          3961
+        ]
+      },
+      "sequence_index": 92,
+      "previous_temporal_id": "time-96ff5bf0bc8ee7d9",
+      "next_temporal_id": "time-46285efa73fc468d"
+    },
+    {
+      "temporal_id": "time-46285efa73fc468d",
+      "claim_id": "primary-0061-c-0006",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Мила Руткевич",
+      "predicate": "будет",
+      "value": "учительницей, директором школы",
+      "anchor": {
+        "chunk_id": "primary-0061",
+        "chunk_index": 61,
+        "paragraph_start": 3959,
+        "paragraph_end": 3961,
+        "quote": "Мила Руткевич станет учительницей, директором школы.",
+        "quote_verified": true,
+        "order_key": [
+          61,
+          3959,
+          3961
+        ]
+      },
+      "sequence_index": 93,
+      "previous_temporal_id": "time-ef156229c39e910c",
+      "next_temporal_id": "time-e34aa4d36d3e8092"
+    },
+    {
+      "temporal_id": "time-e34aa4d36d3e8092",
+      "claim_id": "primary-0061-c-0007",
+      "temporal_basis": "TEXTUAL_ORDER",
+      "world_time_status": "UNKNOWN",
+      "truth_scope": "WORLD_STATE",
+      "subject": "Николай Николаевич",
+      "predicate": "будет",
+      "value": "отцом Алисы",
+      "anchor": {
+        "chunk_id": "primary-0061",
+        "chunk_index": 61,
+        "paragraph_start": 3967,
+        "paragraph_end": 3969,
+        "quote": "Я сам сегодня зайду к вам как отец Алисы.",
+        "quote_verified": true,
+        "order_key": [
+          61,
+          3967,
+          3969
+        ]
+      },
+      "sequence_index": 94,
+      "previous_temporal_id": "time-46285efa73fc468d",
       "next_temporal_id": null
     }
   ],
@@ -100,6 +2492,650 @@
       "relation": "TEXTUALLY_BEFORE",
       "source_temporal_id": "time-c5fe961cc5f64cbd",
       "target_temporal_id": "time-bef1a0f0d678be69",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-f9dd76cb01f3f1cd",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-bef1a0f0d678be69",
+      "target_temporal_id": "time-8ef57a2f6f45a102",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-9e5a15f31ca149d9",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-8ef57a2f6f45a102",
+      "target_temporal_id": "time-26783a52a7f33b7d",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-f9cab2c65c9da05e",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-26783a52a7f33b7d",
+      "target_temporal_id": "time-c8a81e9dd94adfd4",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-6bbdcddaa304ed9d",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-c8a81e9dd94adfd4",
+      "target_temporal_id": "time-a2e151527978a189",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-0c20ecdde5a891e0",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-a2e151527978a189",
+      "target_temporal_id": "time-1bf53456ae4c19dd",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-9197a91965b69d89",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-1bf53456ae4c19dd",
+      "target_temporal_id": "time-2356e83ecadbf1d0",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-a7cf0479a5e7cb14",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-2356e83ecadbf1d0",
+      "target_temporal_id": "time-af4fd36b32e304aa",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-662547fac575eb35",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-af4fd36b32e304aa",
+      "target_temporal_id": "time-ae0328a15a51f772",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-d9805e6c0c097d5d",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-ae0328a15a51f772",
+      "target_temporal_id": "time-0205aa84eb10d26a",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-e5b57896727bcbd3",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-0205aa84eb10d26a",
+      "target_temporal_id": "time-e217fdfdb1fb4e11",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-4fe14a94f732d7ab",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-e217fdfdb1fb4e11",
+      "target_temporal_id": "time-f9f4b0f85b3e59b6",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-0a8b36bd951ac09d",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-f9f4b0f85b3e59b6",
+      "target_temporal_id": "time-f166a8f813004fd6",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-0b5ac2ab505be220",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-f166a8f813004fd6",
+      "target_temporal_id": "time-645f386b3a4faddc",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-ad87a4339e8845d9",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-645f386b3a4faddc",
+      "target_temporal_id": "time-69670c42245f3176",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-7cdf75176e2655b3",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-69670c42245f3176",
+      "target_temporal_id": "time-8f363b39325fe3c9",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-247c975e01741fa6",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-8f363b39325fe3c9",
+      "target_temporal_id": "time-fb68103567ed3dc4",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-bffc2790c656f255",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-fb68103567ed3dc4",
+      "target_temporal_id": "time-e4e5bd52c1f35627",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-a4847b9ac1e5150e",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-e4e5bd52c1f35627",
+      "target_temporal_id": "time-e6440cf01c392adb",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-2eb1534408b8ae83",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-e6440cf01c392adb",
+      "target_temporal_id": "time-f122f63afce6fb1e",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-6c2ebce9f33e12dc",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-f122f63afce6fb1e",
+      "target_temporal_id": "time-43dfd9e275f47655",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-9bb0d4f6881f81b5",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-43dfd9e275f47655",
+      "target_temporal_id": "time-3b90a42412949757",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-f930364d0841b417",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-3b90a42412949757",
+      "target_temporal_id": "time-37f4a6bb891f7c6a",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-552e12bc1d9280c7",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-37f4a6bb891f7c6a",
+      "target_temporal_id": "time-cd333713d059dcea",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-15b7e407de0e7dcd",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-cd333713d059dcea",
+      "target_temporal_id": "time-78a6e9c2be3add7a",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-69dc900b83565f5e",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-78a6e9c2be3add7a",
+      "target_temporal_id": "time-ac12644a484a05e1",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-c73f5b560a344289",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-ac12644a484a05e1",
+      "target_temporal_id": "time-8686e82d2116696a",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-057c6b611d3894fe",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-8686e82d2116696a",
+      "target_temporal_id": "time-31cdef23a46e3a73",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-89f1bf433d944e84",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-31cdef23a46e3a73",
+      "target_temporal_id": "time-7990ae57ea0e749f",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-a51cd5fd79324daf",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-7990ae57ea0e749f",
+      "target_temporal_id": "time-3d5e0484fea503c1",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-7880b67ad090722d",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-3d5e0484fea503c1",
+      "target_temporal_id": "time-39afbbf231a16f64",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-2dd3af178361d014",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-39afbbf231a16f64",
+      "target_temporal_id": "time-5144f78afe18a9cf",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-8c2d6d893e9a6c20",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-5144f78afe18a9cf",
+      "target_temporal_id": "time-83c1be28d39cccee",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-03ff9c3303387446",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-83c1be28d39cccee",
+      "target_temporal_id": "time-486019c4a751410c",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-17c616d4ef456323",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-486019c4a751410c",
+      "target_temporal_id": "time-dd8ac057db3d6914",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-f96e65a7084e9f4a",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-dd8ac057db3d6914",
+      "target_temporal_id": "time-b69204eb36ddbef7",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-a04e735a0ae47ab1",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-b69204eb36ddbef7",
+      "target_temporal_id": "time-ad0a6a5c76beff9e",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-3d27de648e815099",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-ad0a6a5c76beff9e",
+      "target_temporal_id": "time-92e9349dabd19d69",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-9b4db97753ff82fe",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-92e9349dabd19d69",
+      "target_temporal_id": "time-916129391bd98f5e",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-16694d5372724763",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-916129391bd98f5e",
+      "target_temporal_id": "time-66bf309fc3193d76",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-7a4f9d504489069f",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-66bf309fc3193d76",
+      "target_temporal_id": "time-09ec10454b415b29",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-6cbe7e14d6e4bbbb",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-09ec10454b415b29",
+      "target_temporal_id": "time-715a87c038680d5a",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-747051d86e688132",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-715a87c038680d5a",
+      "target_temporal_id": "time-9acc2f4ea33041d0",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-94b7f489eabefe8a",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-9acc2f4ea33041d0",
+      "target_temporal_id": "time-e845e391613e1bc1",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-7ba2685369ab6312",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-e845e391613e1bc1",
+      "target_temporal_id": "time-b1d910279d5e548e",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-fd326860014136d2",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-b1d910279d5e548e",
+      "target_temporal_id": "time-0e52f957709e31b3",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-3fa2756b0fe51040",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-0e52f957709e31b3",
+      "target_temporal_id": "time-23cd0b525892694c",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-4a311d36905d1386",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-23cd0b525892694c",
+      "target_temporal_id": "time-8ba8138fb7540425",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-cda8a721d595d2fd",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-8ba8138fb7540425",
+      "target_temporal_id": "time-ff950017b885363c",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-e3dbb63198781791",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-ff950017b885363c",
+      "target_temporal_id": "time-00191e483a89340f",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-a8e4de9ea3b5b6ab",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-00191e483a89340f",
+      "target_temporal_id": "time-192cf517a0300c14",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-714232cb87f9b795",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-192cf517a0300c14",
+      "target_temporal_id": "time-71497c74234cc852",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-4a44b06c8852e174",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-71497c74234cc852",
+      "target_temporal_id": "time-e86d284ea06869fc",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-1f1fa4b43589d536",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-e86d284ea06869fc",
+      "target_temporal_id": "time-2511b36da3ec2b39",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-565a6a5686b2723e",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-2511b36da3ec2b39",
+      "target_temporal_id": "time-4915862bdcdc63cf",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-9a7187940d48de89",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-4915862bdcdc63cf",
+      "target_temporal_id": "time-4f36bab389b19e6f",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-c88a8d57973b3d19",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-4f36bab389b19e6f",
+      "target_temporal_id": "time-922952ce3921b39a",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-53df2759e7eebaf0",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-922952ce3921b39a",
+      "target_temporal_id": "time-f5488a266baa11e2",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-344c7d1ffebea225",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-f5488a266baa11e2",
+      "target_temporal_id": "time-0326008e545f4dc1",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-570f358df83d7e0e",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-0326008e545f4dc1",
+      "target_temporal_id": "time-a8ca18003c5dcde3",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-0db29df0defb1527",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-a8ca18003c5dcde3",
+      "target_temporal_id": "time-225f6e390466201a",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-fd4008dcec433cc2",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-225f6e390466201a",
+      "target_temporal_id": "time-3c0b4c9327455100",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-3c318aa4916146e0",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-3c0b4c9327455100",
+      "target_temporal_id": "time-ca51377157c9910f",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-aada05d42056c124",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-ca51377157c9910f",
+      "target_temporal_id": "time-a250d38c3e5c77a6",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-d0dbfa459c9f0f49",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-a250d38c3e5c77a6",
+      "target_temporal_id": "time-3566e1189fdff9f5",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-49cd14411047df0b",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-3566e1189fdff9f5",
+      "target_temporal_id": "time-dbf5587ae91fabeb",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-670f78e67af4b908",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-dbf5587ae91fabeb",
+      "target_temporal_id": "time-707b6ec054da07a8",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-7d018e37a51aea94",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-707b6ec054da07a8",
+      "target_temporal_id": "time-044f92bbb56ab541",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-105f4a5de9eceb11",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-044f92bbb56ab541",
+      "target_temporal_id": "time-f52bc6eb6944932f",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-31bd476999c33e2a",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-f52bc6eb6944932f",
+      "target_temporal_id": "time-88bd52fd94ab3cf8",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-9547bc3ed08a3927",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-88bd52fd94ab3cf8",
+      "target_temporal_id": "time-7a4aa5d487a8ace8",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-f345561b6cd7ae23",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-7a4aa5d487a8ace8",
+      "target_temporal_id": "time-925b26cb21e9b032",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-2acd0b7748be4d5d",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-925b26cb21e9b032",
+      "target_temporal_id": "time-02436cf7d99c7c25",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-831e38df422680f0",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-02436cf7d99c7c25",
+      "target_temporal_id": "time-c84ad4445a3105ca",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-f7962a90d1fe3463",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-c84ad4445a3105ca",
+      "target_temporal_id": "time-5c42e72bd072e155",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-ca5493709a0245f4",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-5c42e72bd072e155",
+      "target_temporal_id": "time-2a5500af59023deb",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-53fd2900bc93816a",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-2a5500af59023deb",
+      "target_temporal_id": "time-9444fdc5b9101965",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-7d482dcde9ea6c95",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-9444fdc5b9101965",
+      "target_temporal_id": "time-dbe9c9b6f389d735",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-f4c1f45e6b2d1b9d",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-dbe9c9b6f389d735",
+      "target_temporal_id": "time-8872080fc9b2f582",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-85e4baf788004c01",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-8872080fc9b2f582",
+      "target_temporal_id": "time-111398a75032da60",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-32883729c9c6907f",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-111398a75032da60",
+      "target_temporal_id": "time-bd3d98a284b9a63e",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-944be537f713958b",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-bd3d98a284b9a63e",
+      "target_temporal_id": "time-161bb6d773bd6684",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-0b848ca74806b829",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-161bb6d773bd6684",
+      "target_temporal_id": "time-63470ee4b5673f9e",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-f45afcff088956dc",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-63470ee4b5673f9e",
+      "target_temporal_id": "time-d280f003a79b8a29",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-b47a2b85f6a39b85",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-d280f003a79b8a29",
+      "target_temporal_id": "time-fdb2b65c2aa9230c",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-57602775112757a3",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-fdb2b65c2aa9230c",
+      "target_temporal_id": "time-723f6a7cc6ea4c45",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-ed98dd03bd4320e2",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-723f6a7cc6ea4c45",
+      "target_temporal_id": "time-2ca94145d316b802",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-26c412403b23591d",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-2ca94145d316b802",
+      "target_temporal_id": "time-4fed000dc94c4de7",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-eefd0f04f0b66298",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-4fed000dc94c4de7",
+      "target_temporal_id": "time-34965f4befac37ef",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-091929055ed738b8",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-34965f4befac37ef",
+      "target_temporal_id": "time-96ff5bf0bc8ee7d9",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-08c6acdab87aad0a",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-96ff5bf0bc8ee7d9",
+      "target_temporal_id": "time-ef156229c39e910c",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-de27a0ce5dad04b8",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-ef156229c39e910c",
+      "target_temporal_id": "time-46285efa73fc468d",
+      "basis": "PRIMARY_SOURCE_POSITION"
+    },
+    {
+      "order_id": "ord-7713f4104f47b257",
+      "relation": "TEXTUALLY_BEFORE",
+      "source_temporal_id": "time-46285efa73fc468d",
+      "target_temporal_id": "time-e34aa4d36d3e8092",
       "basis": "PRIMARY_SOURCE_POSITION"
     }
   ]

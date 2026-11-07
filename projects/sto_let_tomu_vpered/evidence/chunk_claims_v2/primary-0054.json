@@ -1,0 +1,253 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0054",
+    "start_paragraph": 3447,
+    "end_paragraph": 3525,
+    "mentions": [
+      {
+        "mention_id": "primary-0054-m-0001",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0054-c-0001",
+            "predicate": "является",
+            "value": "новой ученицей",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0054",
+                "paragraph_start": 3522,
+                "paragraph_end": 3524,
+                "quote": "Во-первых, новая ученица, супергерла Алиса, оказалась никакой не супергерлой, а самой обыкновенной девочкой из будущего.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата утверждает противоположное тому, что заявляет claim.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0054-m-0002",
+        "surface": "Коля Наумов",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0054-c-0002",
+            "predicate": "был в",
+            "value": "будущем",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0054",
+                "paragraph_start": 3523,
+                "paragraph_end": 3525,
+                "quote": "Коля Наумов побывал в будущем и там набезобразил, хотя и не по злому умыслу.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо утверждает, что Коля Наумов был в будущем.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает о том, что персонаж побывал в будущем",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст явно утверждают, что Коля Наумов побывал в будущем.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Коля Наумов",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0054-e-0001",
+        "event": "Алиса ищет Коля в дворах",
+        "participants": [
+          "{'name': 'Алиса', 'role': 'исполнитель'}"
+        ],
+        "location": "дворы",
+        "claims": [
+          {
+            "claim_id": "primary-0054-c-0003",
+            "predicate": "искала",
+            "value": "Коля",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0054",
+                "paragraph_start": 3473,
+                "paragraph_end": 3475,
+                "quote": "Значит, остаётся лишь подъезд, в котором Алиса пряталась от настойчивой тренерши. Там и надо искать Колю.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Алиса искала Колю в определенном подъезде.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "Рассказчик сообщает о действиях персонажа.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REVIEW",
+              "reason": "Цитата подтверждает, что Алиса искала Колю в определенном подъезде, но модель добавляет информацию о том, что Алиса увидела ребят из шестого «Б», что не подтверждено текстом.",
+              "error_type": "NARRATIVE_MODE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "REVIEW",
+              "reason": "PRECISION_NOT_FINAL",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_not_final"
+              ],
+              "scope": "event",
+              "subject": "Алиса ищет Коля в дворах",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0054-e-0002",
+        "event": "Шестой класс «Б» собирается спасти Алису и Колю",
+        "participants": [
+          "{'name': 'шестой класс «Б»', 'role': 'исполнитель'}"
+        ],
+        "location": "переулок",
+        "claims": [
+          {
+            "claim_id": "primary-0054-c-0004",
+            "predicate": "собрался",
+            "value": "спасти Алису и Колю",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0054",
+                "paragraph_start": 3498,
+                "paragraph_end": 3500,
+                "quote": "Шестой класс «Б» окружил её густой толпой.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата описывает окружение Алисы толпой, но не подтверждает, что класс собирается спасти её и Колю.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0054-t-0001",
+        "term": "супергерлой",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0054-c-0005",
+          "predicate": "definition",
+          "value": "такой же обычной девочкой из будущего, как и Алиса",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+          "evidence": [
+            {
+              "chunk_id": "primary-0054",
+              "paragraph_start": 3522,
+              "paragraph_end": 3524,
+              "quote": "Во-первых, новая ученица, супергерла Алиса, оказалась никакой не супергерлой, а самой обыкновенной девочкой из будущего.",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "NOT_SUPPORTED",
+            "reason": "Цитата противоречит утверждению, так как говорит о том, что Алиса — обыкновенная девочка из будущего, а не супергерлой.",
+            "model": "qwen2.5:7b"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Что именно Коля Наумов сделал в будущем?",
+        "reason": "Точная информация о его действиях в будущем не представлена."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 5,
+    "source_supported": 5,
+    "source_unsupported": 0,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 2,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 316,
+    "supported_entailed": 128,
+    "partial_review": 31,
+    "rejected": 157,
+    "schema_fixes": 4
+  }
+}

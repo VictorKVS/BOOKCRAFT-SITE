@@ -1,0 +1,400 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0052",
+    "start_paragraph": 3332,
+    "end_paragraph": 3395,
+    "mentions": [
+      {
+        "mention_id": "primary-0052-m-0001",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0052-c-0001",
+            "predicate": "принимала участие в",
+            "value": "прыжках через окно",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0052",
+                "paragraph_start": 3347,
+                "paragraph_end": 3349,
+                "quote": "Алиса распахнула окно — никто даже ахнуть не успел, — вскочила на подоконник и прыгнула к большому дубу, который рос на школьным дворе.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на то, что Алиса прыгнула через окно.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "Рассказчик сообщает о действии персонажа Алисы.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата явно указывает на то, что Алиса прыгнула через окно, что подтверждает утверждение.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Алиса",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0052-m-0002",
+        "surface": "Коля Наумов",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0052-c-0002",
+            "predicate": "был",
+            "value": "погоняем",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0052",
+                "paragraph_start": 3365,
+                "paragraph_end": 3367,
+                "quote": "Коля оглянулся и увидел, что его окружают.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о том, что Коля Наумов был погоняем.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0052-m-0003",
+        "surface": "Весельчак У",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0052-c-0003",
+            "predicate": "принимал участие в",
+            "value": "погоне за Коля Наумов",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0052",
+                "paragraph_start": 3364,
+                "paragraph_end": 3366,
+                "quote": "За Колей гнался только Весельчак У, а Крысс в облике Наполеона перебежал на другую сторону переулка и понёсся вдоль стены так, чтобы обогнать Колю и взять его в тиски.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Весельчак У действительно принимал участие в погоне за Колей Наумовым, так как упоминается, что за Колей гнался только Весельчак У.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает факт участия Весельчака У в погоне",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата ясно указывает на участие Весельчака У в погоне за Колей Наумовым.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Весельчак У",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0052-m-0004",
+        "surface": "Крысс",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0052-c-0004",
+            "predicate": "принимал участие в",
+            "value": "погоне за Коля Наумов",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0052",
+                "paragraph_start": 3364,
+                "paragraph_end": 3366,
+                "quote": "За Колей гнался только Весельчак У, а Крысс в облике Наполеона перебежал на другую сторону переулка и понёсся вдоль стены так, чтобы обогнать Колю и взять его в тиски.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата говорит о том, что Крысс перебежал на другую сторону переулка и побежал вдоль стены, но не упоминает о его участии в погоне за Колей Наумовым.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0052-m-0005",
+        "surface": "Алла Сергеевна",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0052-c-0005",
+            "predicate": "встретила",
+            "value": "обморок",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0052",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Алла пришла в себя и сказала: \"Вы уж извините, я пойду в медпункт. У меня нервы расшатались.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0052-m-0006",
+        "surface": "Мила Руткевич",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0052-c-0006",
+            "predicate": "сказала",
+            "value": "о состоянии Аллы Сергеевны",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0052",
+                "paragraph_start": 3354,
+                "paragraph_end": 3356,
+                "quote": "Мила Руткевич первой успела к ней на помощь, помогла выйти в коридор.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о состоянии Аллы Сергеевны.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0052-e-0001",
+        "event": "Алиса прыгнула через окно",
+        "participants": [
+          "{'name': 'Алиса', 'role': '主体'}"
+        ],
+        "location": "学校",
+        "claims": [
+          {
+            "claim_id": "primary-0052-c-0007",
+            "predicate": "发生",
+            "value": "Aлиса从窗户跳到外面",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0052",
+                "paragraph_start": 3347,
+                "paragraph_end": 3349,
+                "quote": "Алиса распахнула окно — никто даже ахнуть не успел, — вскочила на подоконник и прыгнула к большому дубу, который рос на школьным дворе.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата описывает, как Алиса прыгнула через окно и приземлилась возле большого дуба, что подтверждает claim.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает о факте действия персонажа",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно описывает, как Алиса прыгнула через окно и приземлилась возле большого дуба, что подтверждает claim.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "event",
+              "subject": "Алиса прыгнула через окно",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0052-e-0002",
+        "event": "Kоля Наумов被追赶",
+        "participants": [
+          "{'name': 'Kоля Наумов', 'role': '主体'}",
+          "{'name': 'Vесельчак У', 'role': '客体'}",
+          "{'name': 'Крысс', 'role': '客体'}"
+        ],
+        "location": "小巷",
+        "claims": [
+          {
+            "claim_id": "primary-0052-c-0008",
+            "predicate": "发生",
+            "value": "Kоля被Vесельчак和Kрысс追赶",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0052",
+                "paragraph_start": 3364,
+                "paragraph_end": 3366,
+                "quote": "За Колей гнался только Весельчак У, а Крысс в облике Наполеона перебежал на другую сторону переулка и понёсся вдоль стены так, чтобы обогнать Колю и взять его в тиски.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата упоминает только Весельчака, который гнался за Колей, но не упоминает Крысса в контексте преследования.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0052-t-0001",
+        "term": "Алла Сергеевна",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0052-c-0009",
+          "predicate": "definition",
+          "value": "学校老师",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "UNSUPPORTED",
+          "evidence": [
+            {
+              "chunk_id": "primary-0052",
+              "paragraph_start": null,
+              "paragraph_end": null,
+              "quote": "Алла пришла в себя и сказала: \"Вы уж извините, я пойду в медпункт. У меня нервы расшатались.\"",
+              "quote_verified": false
+            }
+          ]
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "谁在追赶Kоля Наумов？",
+        "reason": "文本中提到Vесельчак У和Kрысс在追赶Kоля，但没有明确说明是单独一人还是两人一起追赶。"
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 9,
+    "source_supported": 7,
+    "source_unsupported": 2,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 6,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 299,
+    "supported_entailed": 121,
+    "partial_review": 31,
+    "rejected": 147,
+    "schema_fixes": 4
+  }
+}

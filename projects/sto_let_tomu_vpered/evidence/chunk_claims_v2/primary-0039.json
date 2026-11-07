@@ -1,0 +1,455 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0039",
+    "start_paragraph": 2204,
+    "end_paragraph": 2309,
+    "mentions": [
+      {
+        "mention_id": "primary-0039-m-0001",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0039-c-0001",
+            "predicate": "учится в классе",
+            "value": "шестой «А»",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0039",
+                "paragraph_start": 2281,
+                "paragraph_end": 2283,
+                "quote": "Когда класс ввалился в зал, там ещё не кончилась встреча между шестым «А» и седьмым «Б».",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата упоминает шестой «А» класс, но не прямо утверждает, что Алиса учится в этом классе.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0039-c-0002",
+            "predicate": "знает языки",
+            "value": "немецкий, финский, чешский, французский, хинди, китайский, японский",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0039",
+                "paragraph_start": 2204,
+                "paragraph_end": 2204,
+                "quote": "— Немецкий, финский, чешский, французский, хинди, китайский… японский и… и ещё один.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата упоминает все языки, перечисленные в claim, и добавляет ещё один, что подтверждает claim.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает о языках, которые знает Алиса",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REVIEW",
+              "reason": "Цитата подтверждает наличие большинства языков, но не упоминает все языки, перечисленные в claim. Неизвестно, знает ли Алиса ещё один язык, который упоминается в claim.",
+              "error_type": "CONTEXT_MISMATCH",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "REVIEW",
+              "reason": "PRECISION_NOT_FINAL",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_not_final"
+              ],
+              "scope": "mention",
+              "subject": "Алиса",
+              "truth_scope": "WORLD_STATE"
+            }
+          },
+          {
+            "claim_id": "primary-0039-c-0003",
+            "predicate": "имеет хобби",
+            "value": "парашютный спорт",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0039",
+                "paragraph_start": 2289,
+                "paragraph_end": 2291,
+                "quote": "— Я пузыристка, — сказала Алиса и осеклась: проговорилась.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает парашютный спорт как хобби Алисы.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0039-m-0002",
+        "surface": "Коля Садовский",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0039-c-0004",
+            "predicate": "предполагает",
+            "value": "Алиса приехала из будущего",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0039",
+                "paragraph_start": 2263,
+                "paragraph_end": 2265,
+                "quote": "— Я думаю, что ты к нам приехала из будущего, — сказал он. — У тебя есть машина времени, переделанная из велосипеда.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на то, что Коля Садовский предполагает, что Алиса приехала из будущего.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_BELIEF",
+              "canon_eligible": true,
+              "reason": "Коля Садовский выражает свое убеждение, что Алиса приехала из будущего.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Коля Садовский явно предполагает, что Алиса приехала из будущего, что подтверждается цитатой.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "belief_scope_preserved",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Коля Садовский",
+              "truth_scope": "CHARACTER_BELIEF"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0039-m-0003",
+        "surface": "Фима Королев",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0039-c-0005",
+            "predicate": "раздевается",
+            "value": "для игры в волейбол",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0039",
+                "paragraph_start": 2294,
+                "paragraph_end": 2296,
+                "quote": "Фима Королев, который уже разделся, чтобы играть,",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Фима Королев раздевается для игры в волейбол.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает о действии персонажа",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата явно показывает, что Фима Королев раздевается для игры в волейбол.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Фима Королев",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0039-m-0004",
+        "surface": "Коля Наумов",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0039-c-0006",
+            "predicate": "является капитаном",
+            "value": "мальчиков",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0039",
+                "paragraph_start": 2302,
+                "paragraph_end": 2304,
+                "quote": "— Трудно нам придётся, — сказал он Юльке.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о том, кто является капитаном мальчиков.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0039-m-0005",
+        "surface": "Юлька",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0039-c-0007",
+            "predicate": "занимается волейболом",
+            "value": "с шестым «А»",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0039",
+                "paragraph_start": 2281,
+                "paragraph_end": 2283,
+                "quote": "Когда класс ввалился в зал, там ещё не кончилась встреча между шестым «А» и седьмым «Б».",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает Юльку и не подтверждает, что она занимается волейболом.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0039-e-0001",
+        "event": "Алиса учится в шестом классе",
+        "participants": [
+          "Алиса"
+        ],
+        "location": "шестой «А»",
+        "claims": [
+          {
+            "claim_id": "primary-0039-c-0008",
+            "predicate": "учится в классе",
+            "value": "шестой «А»",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0039",
+                "paragraph_start": 2281,
+                "paragraph_end": 2283,
+                "quote": "Когда класс ввалился в зал, там ещё не кончилась встреча между шестым «А» и седьмым «Б».",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата упоминает шестой «А» класс, но не прямо утверждает, что Алиса учится именно в этом классе.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0039-e-0002",
+        "event": "Коля Садовский предполагает, что Алиса приехала из будущего",
+        "participants": [
+          "Коля Садовский",
+          "Алиса"
+        ],
+        "location": "не указано",
+        "claims": [
+          {
+            "claim_id": "primary-0039-c-0009",
+            "predicate": "предполагает",
+            "value": "Алиса приехала из будущего",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0039",
+                "paragraph_start": 2263,
+                "paragraph_end": 2265,
+                "quote": "— Я думаю, что ты к нам приехала из будущего, — сказал он. — У тебя есть машина времени, переделанная из велосипеда.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо подтверждает, что Коля Садовский предполагает, что Алиса приехала из будущего.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_BELIEF",
+              "canon_eligible": true,
+              "reason": "Коля Садовский выражает свое убеждение, что Алиса приехала из будущего.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REVIEW",
+              "reason": "Цитата подтверждает, что Коля Садовский предполагает, что Алиса приехала из будущего. Однако контекст, где Юлька отрицает это предположение, требует проверки.",
+              "error_type": "CONTEXT_MISMATCH",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "REVIEW",
+              "reason": "PRECISION_NOT_FINAL",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_not_final"
+              ],
+              "scope": "event",
+              "subject": "Коля Садовский предполагает, что Алиса приехала из будущего",
+              "truth_scope": "CHARACTER_BELIEF"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0039-t-0001",
+        "term": "парашютный спорт",
+        "category": "OTHER",
+        "definition_claim": {
+          "claim_id": "primary-0039-c-0010",
+          "predicate": "definition",
+          "value": "Алиса упоминает, что она парашютистка.",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "PARTIAL_REVIEW",
+          "evidence": [
+            {
+              "chunk_id": "primary-0039",
+              "paragraph_start": 2289,
+              "paragraph_end": 2291,
+              "quote": "— Я пузыристка, — сказала Алиса и осеклась: проговорилась.",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "PARTIAL",
+            "reason": "Цитата указывает, что Алиса упоминает о своей профессии, но не точно определяет, что такое парашютный спорт.",
+            "model": "qwen2.5:7b"
+          }
+        },
+        "category_original": "SPORT",
+        "category_validation": "INVALID_CATEGORY_NORMALIZED"
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Как Алиса узнала языки?",
+        "reason": "Текст не предоставляет информации о том, как Алиса узнала эти языки."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 10,
+    "source_supported": 10,
+    "source_unsupported": 0,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 5,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 213,
+    "supported_entailed": 95,
+    "partial_review": 21,
+    "rejected": 97,
+    "schema_fixes": 3
+  }
+}

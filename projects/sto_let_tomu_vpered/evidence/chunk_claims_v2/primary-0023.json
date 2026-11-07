@@ -1,0 +1,543 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0023",
+    "start_paragraph": 1072,
+    "end_paragraph": 1103,
+    "mentions": [
+      {
+        "mention_id": "primary-0023-m-0001",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0023-c-0001",
+            "predicate": "был",
+            "value": "человеком не злым",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0023",
+                "paragraph_start": 1074,
+                "paragraph_end": 1076,
+                "quote": "Коля был человеком не злым и уже придумал, как он вернёт миелофон.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата подтверждает, что Коля был человеком не злым.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_BELIEF",
+              "canon_eligible": true,
+              "reason": "Коля думает о себе как о человеке не злым.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата явно подтверждает, что Коля был человеком не злым.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "REVIEW",
+              "reason": "BELIEF_SCOPE_AMBIGUOUS",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "belief_scope_requires_review"
+              ],
+              "scope": "mention",
+              "subject": "Коля",
+              "truth_scope": "CHARACTER_BELIEF"
+            }
+          },
+          {
+            "claim_id": "primary-0023-c-0002",
+            "predicate": "решил",
+            "value": "не возвращаться в Космозо",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0023",
+                "paragraph_start": 1074,
+                "paragraph_end": 1076,
+                "quote": "Коля был человеком не злым и уже придумал, как он вернёт миелофон. Он отдаст его Джаваду или кому-нибудь из натуралистов на школьной станции.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о решении Коля не возвращаться в Космозо.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0023-c-0003",
+            "predicate": "решил",
+            "value": "не возвращаться в Космозо",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0023",
+                "paragraph_start": 1074,
+                "paragraph_end": 1076,
+                "quote": "Коля был человеком не злым и уже придумал, как он вернёт миелофон. Он отдаст его Джаваду или кому-нибудь из натуралистов на школьной станции.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о решении Коля не возвращаться в Космозо.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0023-c-0004",
+            "predicate": "решил",
+            "value": "вернуть миелофон",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0023",
+                "paragraph_start": 1074,
+                "paragraph_end": 1076,
+                "quote": "Коля был человеком не злым и уже придумал, как он вернёт миелофон. Он отдаст его Джаваду или кому-нибудь из натуралистов на школьной станции.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Коля решил вернуть миелофон, что соответствует утверждению.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_BELIEF",
+              "canon_eligible": true,
+              "reason": "Коля думает, как он вернёт миелофон, что является его убеждением.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно передаёт решение Коли вернуть миелофон, что подтверждает утверждение.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "belief_scope_preserved",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Коля",
+              "truth_scope": "CHARACTER_BELIEF"
+            }
+          },
+          {
+            "claim_id": "primary-0023-c-0005",
+            "predicate": "решил",
+            "value": "не становиться отличником",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0023",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Коля никогда не ходил в отличниках и не собирался им становиться.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0023-m-0002",
+        "surface": "миелофон",
+        "entity_type": "OBJECT",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0023-c-0006",
+            "predicate": "был украден",
+            "value": "Алисой",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0023",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Коля был человеком не злым и уже придумал, как он вернёт миелофон. Они с Алисой вроде бы знакомы и смогут ей вернуть миелофон.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0023-m-0003",
+        "surface": "пираты",
+        "entity_type": "CREATURE",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0023-c-0007",
+            "predicate": "преследовали",
+            "value": "Колю",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0023",
+                "paragraph_start": 1072,
+                "paragraph_end": 1072,
+                "quote": "Коля понял, что воров перехитрить не удалось: они разделились — один побежал в восьмой автобус, а другой подстерегает его где-то ещё.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает пиратов и не говорит о преследовании Коли.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0023-c-0008",
+            "predicate": "были",
+            "value": "злее волков",
+            "provenance": "DERIVED",
+            "confidence": "PROBABLE",
+            "acceptance": "DERIVED_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0023",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "А он уедет домой. А если за тобой гонятся преступники, тут не до размышлений. Особенно если они злы на тебя, как спущенные с цепи волки: ведь ты отнял у них ценнейшую добычу.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0023-m-0004",
+        "surface": "толстяк",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0023-c-0009",
+            "predicate": "был",
+            "value": "худым бандитом",
+            "provenance": "HYPOTHESIS",
+            "confidence": "POSSIBLE",
+            "acceptance": "HYPOTHESIS_REVIEW",
+            "evidence": []
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0023-e-0001",
+        "event": "Коля бежал от пиратов",
+        "participants": [
+          "{'name': 'Коля', 'role': '主人公'}",
+          "{'name': 'пираты', 'role': '追捕者'}"
+        ],
+        "location": "莫斯科",
+        "claims": [
+          {
+            "claim_id": "primary-0023-c-0010",
+            "predicate": "Коля",
+            "value": "был в отчаянии",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0023",
+                "paragraph_start": 1072,
+                "paragraph_end": 1073,
+                "quote": "Коля в отчаянии проскользнул под ногами у пассажиров и пулей пролетел сквозь экран.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Коля был в отчаянии, так как он проскользнул под ногами у пассажиров и бежал очень быстро.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_BELIEF",
+              "canon_eligible": true,
+              "reason": "Коля думает, что он был в отчаянии, так как он бежал быстро.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно передаёт состояние Коля, описывая его как человека, находящегося в отчаянии.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "REVIEW",
+              "reason": "BELIEF_SCOPE_AMBIGUOUS",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "belief_scope_requires_review"
+              ],
+              "scope": "event",
+              "subject": "Коля бежал от пиратов",
+              "truth_scope": "CHARACTER_BELIEF"
+            }
+          },
+          {
+            "claim_id": "primary-0023-c-0011",
+            "predicate": "Коля",
+            "value": "был в отчаянии",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0023",
+                "paragraph_start": 1072,
+                "paragraph_end": 1073,
+                "quote": "Коля в отчаянии проскользнул под ногами у пассажиров и пулей пролетел сквозь экран.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Коля был в отчаянии, так как он проскользнул под ногами у пассажиров и бежал очень быстро.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_BELIEF",
+              "canon_eligible": true,
+              "reason": "Коля думает, что он был в отчаянии, так как он бежал быстро.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно передаёт состояние Коля, описывая его как человека, находящегося в отчаянии.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "REVIEW",
+              "reason": "BELIEF_SCOPE_AMBIGUOUS",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "belief_scope_requires_review"
+              ],
+              "scope": "event",
+              "subject": "Коля бежал от пиратов",
+              "truth_scope": "CHARACTER_BELIEF"
+            }
+          },
+          {
+            "claim_id": "primary-0023-c-0012",
+            "predicate": "Коля",
+            "value": "был в отчаянии",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0023",
+                "paragraph_start": 1072,
+                "paragraph_end": 1073,
+                "quote": "Коля в отчаянии проскользнул под ногами у пассажиров и пулей пролетел сквозь экран.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Коля был в отчаянии, так как он проскользнул под ногами у пассажиров и бежал очень быстро.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_BELIEF",
+              "canon_eligible": true,
+              "reason": "Коля думает, что он был в отчаянии, так как он бежал быстро.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно передаёт состояние Коля, описывая его как человека, находящегося в отчаянии.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "REVIEW",
+              "reason": "BELIEF_SCOPE_AMBIGUOUS",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "belief_scope_requires_review"
+              ],
+              "scope": "event",
+              "subject": "Коля бежал от пиратов",
+              "truth_scope": "CHARACTER_BELIEF"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0023-t-0001",
+        "term": "пираты",
+        "category": "CREATURE",
+        "definition_claim": {
+          "claim_id": "primary-0023-c-0013",
+          "predicate": "definition",
+          "value": "Коля понял, что воров перехитрить не удалось: они разделились — один побежал в восьмой автобус, а другой подстерегает его где-то ещё.",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "CANON_ACCEPTED",
+          "evidence": [
+            {
+              "chunk_id": "primary-0023",
+              "paragraph_start": 1072,
+              "paragraph_end": 1072,
+              "quote": "Коля понял, что воров перехитрить не удалось: они разделились — один побежал в восьмой автобус, а другой подстерегает его где-то ещё.",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "SUPPORTED",
+            "reason": "Цитата точно соответствует claim, описывая ситуацию, в которой воры (пираты) разделились.",
+            "model": "qwen2.5:7b"
+          },
+          "narrative_mode": {
+            "mode": "CHARACTER_THOUGHT",
+            "canon_eligible": true,
+            "reason": "Цитата представляет мысли персонажа о действиях воров.",
+            "model": "qwen2.5:7b"
+          },
+          "precision_gate": {
+            "verdict": "FINAL_CANON_CANDIDATE",
+            "reason": "Цитата точно соответствует claim, описывая ситуацию, в которой воры (пираты) разделились.",
+            "error_type": "NONE",
+            "model": "qwen2.5:7b"
+          },
+          "deterministic_safety": {
+            "verdict": "PASS",
+            "error_type": "NONE",
+            "reason": "Детерминированных блокирующих признаков не найдено."
+          },
+          "canon_admission": {
+            "stage": "MVP-14B2.5",
+            "verdict": "ACCEPT",
+            "reason": "ALL_ADMISSION_CHECKS_PASSED",
+            "checks": [
+              "evidence_verified",
+              "deterministic_safety_pass",
+              "entailment_supported",
+              "precision_final",
+              "narrative_canon_eligible",
+              "claim_complete"
+            ],
+            "scope": "term",
+            "subject": "пираты",
+            "truth_scope": "WORLD_STATE"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Кто такие пираты?",
+        "reason": "Текст не предоставляет полной информации о природе и происхождении пиратов."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 13,
+    "source_supported": 9,
+    "source_unsupported": 2,
+    "derived": 1,
+    "hypotheses": 1,
+    "mentions": 4,
+    "events": 1,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 119,
+    "supported_entailed": 54,
+    "partial_review": 10,
+    "rejected": 55,
+    "schema_fixes": 0
+  }
+}

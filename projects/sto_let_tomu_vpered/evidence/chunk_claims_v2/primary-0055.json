@@ -1,0 +1,197 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0055",
+    "start_paragraph": 3526,
+    "end_paragraph": 3598,
+    "mentions": [
+      {
+        "mention_id": "primary-0055-m-0001",
+        "surface": "Коля Сулима",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0055-c-0001",
+            "predicate": "знает",
+            "value": "о планах пиратов",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0055",
+                "paragraph_start": 3526,
+                "paragraph_end": 3526,
+                "quote": "Фима Королев об этом знал и никому не успел проговориться, кроме Коли Сулимы.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата говорит о том, что Фима Королев рассказал о планах пиратов только Колье Сулиме, но не подтверждает, что Коля сам знает о планах пиратов.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0055-m-0002",
+        "surface": "Коля Садовский",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0055-c-0002",
+            "predicate": "спрашивает",
+            "value": "о Весельчаке У",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0055",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Коля Садовский: Кто? — не понял Коля Садовский.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0055-m-0003",
+        "surface": "Катя Михайлова",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0055-c-0003",
+            "predicate": "вызывает",
+            "value": "Фиму Королева",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0055",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Катя Михайлова: Фима, не валяй дурака! — сказала строго Катя. — А то я тебя сниму с председателей.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0055-m-0004",
+        "surface": "Мила Руткевич",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0055-c-0004",
+            "predicate": "заботится",
+            "value": "о Алисе",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0055",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Мила Руткевич: А если мы найдём аппарат, — спросил Фима, — что тогда делать?",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0055-e-0001",
+        "event": "совещание",
+        "participants": [
+          "Фима Королев",
+          "Катя Михайлова",
+          "Юлька Грибкова",
+          "Алиса Селезнёва",
+          "Мила Руткевич",
+          "Коля Садовский"
+        ],
+        "location": "переулок",
+        "claims": [
+          {
+            "claim_id": "primary-0055-c-0005",
+            "predicate": "обсуждают",
+            "value": "поиск Коли Наумова и возвращение миелофона",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0055",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "На повестке дня два вопроса. Первый — как найти и спасти Колю Наумова. Второй — как помочь Алисе вернуть миелофон и отправить её домой.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0055-t-0001",
+        "term": "миелофон",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0055-c-0006",
+          "predicate": "definition",
+          "value": "аппарат",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "UNSUPPORTED",
+          "evidence": [
+            {
+              "chunk_id": "primary-0055",
+              "paragraph_start": null,
+              "paragraph_end": null,
+              "quote": "Фима Королев: Первый — как найти и спасти Колю Наумова. Второй — как помочь Алисе вернуть миелофон и отправить её домой.",
+              "quote_verified": false
+            }
+          ]
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Каким образом пираты могут проникнуть в дом Коли Наумова?",
+        "reason": "Текст не предоставляет конкретной информации о методах проникновения пиратов в дом Коли Наумова."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 6,
+    "source_supported": 1,
+    "source_unsupported": 5,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 4,
+    "events": 1,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 317,
+    "supported_entailed": 128,
+    "partial_review": 32,
+    "rejected": 157,
+    "schema_fixes": 4
+  }
+}

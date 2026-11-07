@@ -1,0 +1,196 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0009",
+    "start_paragraph": 430,
+    "end_paragraph": 474,
+    "mentions": [
+      {
+        "mention_id": "primary-0009-m-0001",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0009-c-0001",
+            "predicate": "имеет мечту",
+            "value": "космические путешествия",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0009",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Коля. — Космические путешествия — моя мечта.\"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0009-c-0002",
+            "predicate": "имеет карманы",
+            "value": "пустые",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0009",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Только в одном кармане — две копейки, а в другом — ластик.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0009-m-0002",
+        "surface": "Павел",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0009-c-0003",
+            "predicate": "является ровесником",
+            "value": "Коли",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0009",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Я знаю этого мальчика. Он просто немного рассеянный, потому что готовится к маскараду.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0009-m-0003",
+        "surface": "космонавт",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0009-c-0004",
+            "predicate": "имеет звёздочку на рукаве",
+            "value": "четыре звезды",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0009",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"на рукаве — четыре звезды\"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0009-c-0005",
+            "predicate": "имеет звезду",
+            "value": "от капитана Дальнего космоса Полоскова",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0009",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Каждая звезда означает звёздную экспедицию. Когда я был мальчиком, я об этом и мечтать не мог.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0009-e-0001",
+        "event": "Коля спешит на автобус",
+        "participants": [
+          "{'surface': 'Коля', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "Арбатская площадь",
+        "claims": [
+          {
+            "claim_id": "primary-0009-c-0006",
+            "predicate": "Коля спешит",
+            "value": "на автобус",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0009",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Я спешу на автобус. Он же сейчас уйдёт!\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0009-t-0001",
+        "term": "космические путешествия",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0009-c-0007",
+          "predicate": "definition",
+          "value": "Коля мечтает о космических путешествиях.",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "UNSUPPORTED",
+          "evidence": [
+            {
+              "chunk_id": "primary-0009",
+              "paragraph_start": null,
+              "paragraph_end": null,
+              "quote": "\"Коля. — Космические путешествия — моя мечта.\"",
+              "quote_verified": false
+            }
+          ]
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Кто такой капитан Дальнего космоса Полосков?",
+        "reason": "Информация о капитане Дальнего космоса Полоскове не предоставлена в данном фрагменте."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 7,
+    "source_supported": 0,
+    "source_unsupported": 7,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 3,
+    "events": 1,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 25,
+    "supported_entailed": 11,
+    "partial_review": 5,
+    "rejected": 9,
+    "schema_fixes": 0
+  }
+}

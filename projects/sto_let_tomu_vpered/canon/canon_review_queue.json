@@ -37,6 +37,884 @@
         }
       ],
       "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0002.json"
+    },
+    {
+      "record_id": "canon-cde813eaeadce729",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0013-c-0001",
+      "scope": "mention",
+      "subject": "Коля",
+      "predicate": "принадлежит к",
+      "value": "транзитник",
+      "truth_scope": "WORLD_STATE",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "REVIEW",
+        "reason": "PRECISION_NOT_FINAL",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_not_final"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0013",
+          "paragraph_start": 594,
+          "paragraph_end": 594,
+          "quote": "Коля медленно шёл вдоль бесконечного ряда стоек, где пассажиры отмечали билеты или сдавали багаж, и читал названия рейсов, вёл себя, как транзитник, который застрял в аэропорту и убивает свободное время.",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0013.json"
+    },
+    {
+      "record_id": "canon-49fc2bf34e5fb6ee",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0014-c-0002",
+      "scope": "mention",
+      "subject": "Коля",
+      "predicate": "испытывал страх",
+      "value": "Да",
+      "truth_scope": "CHARACTER_BELIEF",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "REVIEW",
+        "reason": "BELIEF_SCOPE_AMBIGUOUS",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_final",
+          "narrative_canon_eligible",
+          "belief_scope_requires_review"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0014",
+          "paragraph_start": 681,
+          "paragraph_end": 683,
+          "quote": "Коля быстро отполз назад и нашел узкую щель между ящиками и стеной. Он втиснулся туда и замер, стараясь дышать беззвучно.",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0014.json"
+    },
+    {
+      "record_id": "canon-18c96c074091674a",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0014-c-0007",
+      "scope": "event",
+      "subject": "Коля испытал страх",
+      "predicate": "испытывал страх",
+      "value": "Да",
+      "truth_scope": "CHARACTER_BELIEF",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "REVIEW",
+        "reason": "BELIEF_SCOPE_AMBIGUOUS",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_final",
+          "narrative_canon_eligible",
+          "belief_scope_requires_review"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0014",
+          "paragraph_start": 681,
+          "paragraph_end": 683,
+          "quote": "Коля быстро отполз назад и нашел узкую щель между ящиками и стеной. Он втиснулся туда и замер, стараясь дышать беззвучно.",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0014.json"
+    },
+    {
+      "record_id": "canon-d3906148312e435c",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0021-c-0006",
+      "scope": "term",
+      "subject": "миелофон",
+      "predicate": "definition",
+      "value": "Электрон Степанович: Когда первые кристаллы привезли на Землю и стали исследовать, то один из учёных обратил внимание, что, когда близко подходят люди, в структуре кристалла что-то меняется. Стали учёные биться над этим делом и наконец поняли, что кристаллы могут улавливать волны, которые испускает мозг. Тогда догадались соединить кристаллы с усилителями, и в один прекрасный день учёные услышали мысли. Представляешь, какая началась суматоха в учёном мире!",
+      "truth_scope": "WORLD_STATE",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "REVIEW",
+        "reason": "PRECISION_NOT_FINAL",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_not_final"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0021",
+          "paragraph_start": 1016,
+          "paragraph_end": 1018,
+          "quote": "Когда первые кристаллы привезли на Землю и стали исследовать, то один из учёных обратил внимание, что, когда близко подходят люди, в структуре кристалла что-то меняется. Стали учёные биться над этим делом и наконец поняли, что кристаллы могут улавливать волны, которые испускает мозг. Тогда догадались соединить кристаллы с усилителями, и в один прекрасный день учёные услышали мысли.",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0021.json"
+    },
+    {
+      "record_id": "canon-27fb308721d7d1fe",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0022-c-0011",
+      "scope": "event",
+      "subject": "Коля перескочил через экран автобуса",
+      "predicate": "пронёсся стрелой сквозь экран",
+      "value": "",
+      "truth_scope": "WORLD_STATE",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "REVIEW",
+        "reason": "INCOMPLETE_CLAIM",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_final",
+          "narrative_canon_eligible",
+          "claim_incomplete"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0022",
+          "paragraph_start": 1068,
+          "paragraph_end": 1070,
+          "quote": "Коля, не колеблясь ни секунды, прыгнул в этот автобус, пробежал через салон, пронёсся стрелой сквозь экран и оказался на остановке «Проспект Мира».",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0022.json"
+    },
+    {
+      "record_id": "canon-79d6034973ac258e",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0023-c-0001",
+      "scope": "mention",
+      "subject": "Коля",
+      "predicate": "был",
+      "value": "человеком не злым",
+      "truth_scope": "CHARACTER_BELIEF",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "REVIEW",
+        "reason": "BELIEF_SCOPE_AMBIGUOUS",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_final",
+          "narrative_canon_eligible",
+          "belief_scope_requires_review"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0023",
+          "paragraph_start": 1074,
+          "paragraph_end": 1076,
+          "quote": "Коля был человеком не злым и уже придумал, как он вернёт миелофон.",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0023.json"
+    },
+    {
+      "record_id": "canon-44ee423e5c9ea452",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0023-c-0010",
+      "scope": "event",
+      "subject": "Коля бежал от пиратов",
+      "predicate": "Коля",
+      "value": "был в отчаянии",
+      "truth_scope": "CHARACTER_BELIEF",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "REVIEW",
+        "reason": "BELIEF_SCOPE_AMBIGUOUS",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_final",
+          "narrative_canon_eligible",
+          "belief_scope_requires_review"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0023",
+          "paragraph_start": 1072,
+          "paragraph_end": 1073,
+          "quote": "Коля в отчаянии проскользнул под ногами у пассажиров и пулей пролетел сквозь экран.",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0023.json"
+    },
+    {
+      "record_id": "canon-0a364e7761933f35",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0023-c-0011",
+      "scope": "event",
+      "subject": "Коля бежал от пиратов",
+      "predicate": "Коля",
+      "value": "был в отчаянии",
+      "truth_scope": "CHARACTER_BELIEF",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "REVIEW",
+        "reason": "BELIEF_SCOPE_AMBIGUOUS",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_final",
+          "narrative_canon_eligible",
+          "belief_scope_requires_review"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0023",
+          "paragraph_start": 1072,
+          "paragraph_end": 1073,
+          "quote": "Коля в отчаянии проскользнул под ногами у пассажиров и пулей пролетел сквозь экран.",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0023.json"
+    },
+    {
+      "record_id": "canon-10ccde729f088916",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0023-c-0012",
+      "scope": "event",
+      "subject": "Коля бежал от пиратов",
+      "predicate": "Коля",
+      "value": "был в отчаянии",
+      "truth_scope": "CHARACTER_BELIEF",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "REVIEW",
+        "reason": "BELIEF_SCOPE_AMBIGUOUS",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_final",
+          "narrative_canon_eligible",
+          "belief_scope_requires_review"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0023",
+          "paragraph_start": 1072,
+          "paragraph_end": 1073,
+          "quote": "Коля в отчаянии проскользнул под ногами у пассажиров и пулей пролетел сквозь экран.",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0023.json"
+    },
+    {
+      "record_id": "canon-5d0e1f48d0c51090",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0030-c-0003",
+      "scope": "mention",
+      "subject": "Коля",
+      "predicate": "попытался вернуться в свой год",
+      "value": "да",
+      "truth_scope": "CHARACTER_BELIEF",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "REVIEW",
+        "reason": "PRECISION_NOT_FINAL",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_not_final"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0030",
+          "paragraph_start": 1588,
+          "paragraph_end": 1590,
+          "quote": "Видно, они по пятам за ним бежали. Вот он и решил вернуться в свой год.",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0030.json"
+    },
+    {
+      "record_id": "canon-e9cffcf6eb70a3a3",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0030-c-0006",
+      "scope": "event",
+      "subject": "Коля пытался вернуться в свой год",
+      "predicate": "Коля пытался вернуться в свой год",
+      "value": "да",
+      "truth_scope": "CHARACTER_BELIEF",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "REVIEW",
+        "reason": "PRECISION_NOT_FINAL",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_not_final"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0030",
+          "paragraph_start": 1588,
+          "paragraph_end": 1590,
+          "quote": "Видно, они по пятам за ним бежали. Вот он и решил вернуться в свой год.",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0030.json"
+    },
+    {
+      "record_id": "canon-8b6d916f7f4f2742",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0031-c-0005",
+      "scope": "mention",
+      "subject": "Коля Садовский",
+      "predicate": "является",
+      "value": "легкомысленным",
+      "truth_scope": "CHARACTER_BELIEF",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "REVIEW",
+        "reason": "BELIEF_SCOPE_AMBIGUOUS",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_final",
+          "narrative_canon_eligible",
+          "belief_scope_requires_review"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0031",
+          "paragraph_start": 1632,
+          "paragraph_end": 1634,
+          "quote": "Он легкомысленный, плохо учится, выдумщик и вообще халда.",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0031.json"
+    },
+    {
+      "record_id": "canon-d2350166d9a57a76",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0033-c-0003",
+      "scope": "mention",
+      "subject": "Юля",
+      "predicate": "пишет записку",
+      "value": "Алисе",
+      "truth_scope": "CHARACTER_BELIEF",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "REVIEW",
+        "reason": "BELIEF_SCOPE_AMBIGUOUS",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_final",
+          "narrative_canon_eligible",
+          "belief_scope_requires_review"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0033",
+          "paragraph_start": 1791,
+          "paragraph_end": 1793,
+          "quote": "Алиса достала Юлькину записку, которую принесла Наташа, и перечитала её, чтобы запомнить телефон и адрес.",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0033.json"
+    },
+    {
+      "record_id": "canon-c6dc240048a1df1e",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0035-c-0006",
+      "scope": "mention",
+      "subject": "Фима",
+      "predicate": "имя",
+      "value": "Фима",
+      "truth_scope": "WORLD_STATE",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "REVIEW",
+        "reason": "PRECISION_NOT_FINAL",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_not_final"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0035",
+          "paragraph_start": 1950,
+          "paragraph_end": 1952,
+          "quote": "— Я тоже один раз в больнице лежал, — сказал Фима. — Мне аденоиды удаляли. Так соскучился, ты не представляешь!",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0035.json"
+    },
+    {
+      "record_id": "canon-288a5294037706f1",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0036-c-0009",
+      "scope": "term",
+      "subject": "побег",
+      "predicate": "definition",
+      "value": "Алиса сбежала из больницы и добралась до дома Юльки Грибковой.",
+      "truth_scope": "WORLD_STATE",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "REVIEW",
+        "reason": "PRECISION_NOT_FINAL",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_not_final"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0036",
+          "paragraph_start": 1989,
+          "paragraph_end": 1991,
+          "quote": "— Сбежала, — сказала Алиса.",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0036.json"
+    },
+    {
+      "record_id": "canon-ae71c60c92969aa2",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0039-c-0002",
+      "scope": "mention",
+      "subject": "Алиса",
+      "predicate": "знает языки",
+      "value": "немецкий, финский, чешский, французский, хинди, китайский, японский",
+      "truth_scope": "WORLD_STATE",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "REVIEW",
+        "reason": "PRECISION_NOT_FINAL",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_not_final"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0039",
+          "paragraph_start": 2204,
+          "paragraph_end": 2204,
+          "quote": "— Немецкий, финский, чешский, французский, хинди, китайский… японский и… и ещё один.",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0039.json"
+    },
+    {
+      "record_id": "canon-692239f48d6fe28c",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0039-c-0009",
+      "scope": "event",
+      "subject": "Коля Садовский предполагает, что Алиса приехала из будущего",
+      "predicate": "предполагает",
+      "value": "Алиса приехала из будущего",
+      "truth_scope": "CHARACTER_BELIEF",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "REVIEW",
+        "reason": "PRECISION_NOT_FINAL",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_not_final"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0039",
+          "paragraph_start": 2263,
+          "paragraph_end": 2265,
+          "quote": "— Я думаю, что ты к нам приехала из будущего, — сказал он. — У тебя есть машина времени, переделанная из велосипеда.",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0039.json"
+    },
+    {
+      "record_id": "canon-a1e273b068c142d4",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0045-c-0003",
+      "scope": "mention",
+      "subject": "Алиса",
+      "predicate": "предлагает помощь",
+      "value": "Коле Садовскому",
+      "truth_scope": "WORLD_STATE",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "REVIEW",
+        "reason": "PRECISION_NOT_FINAL",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_not_final"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0045",
+          "paragraph_start": 2806,
+          "paragraph_end": 2808,
+          "quote": "Коля Садовский бился у доски, исписав половину свободного пространства, и никак не мог выпутаться из уравнения. Правда, оно было не простое, а погода за окном стояла солнечная, и у всех, кроме Милы Руткевич, было нерабочее настроение. Наконец математичке надоело бороться с Садовским, и она спросила, кто ему поможет.",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0045.json"
+    },
+    {
+      "record_id": "canon-c7801935e2c88378",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0046-c-0001",
+      "scope": "mention",
+      "subject": "Коля Садовский",
+      "predicate": "имеет почерк",
+      "value": "знакомый почерк",
+      "truth_scope": "WORLD_STATE",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "REVIEW",
+        "reason": "PRECISION_NOT_FINAL",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_not_final"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0046",
+          "paragraph_start": 2850,
+          "paragraph_end": 2852,
+          "quote": "— Знакомый почерк. Я подумаю и вспомню.",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0046.json"
+    },
+    {
+      "record_id": "canon-219a094971446904",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0053-c-0007",
+      "scope": "mention",
+      "subject": "Наполеон Бонапарт",
+      "predicate": "был упомянут",
+      "value": "как персонаж",
+      "truth_scope": "CHARACTER_BELIEF",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "REVIEW",
+        "reason": "BELIEF_SCOPE_AMBIGUOUS",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_final",
+          "narrative_canon_eligible",
+          "belief_scope_requires_review"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0053",
+          "paragraph_start": 3427,
+          "paragraph_end": 3429,
+          "quote": "Впереди шёл, озираясь, Наполеон Бонапарт.",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0053.json"
+    },
+    {
+      "record_id": "canon-c4a9049978550b0c",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0053-c-0008",
+      "scope": "mention",
+      "subject": "Пётр Ишутин",
+      "predicate": "был упомянут",
+      "value": "как молодой человек",
+      "truth_scope": "CHARACTER_BELIEF",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "REVIEW",
+        "reason": "PRECISION_NOT_FINAL",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_not_final"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0053",
+          "paragraph_start": 3406,
+          "paragraph_end": 3408,
+          "quote": "Молодой человек в замшевом пиджаке, замшевых туфлях и замшевых брюках.",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0053.json"
+    },
+    {
+      "record_id": "canon-8d97f46a2b41cf29",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0053-c-0011",
+      "scope": "event",
+      "subject": "Пираты похитили мальчика",
+      "predicate": "похитили",
+      "value": "мальчика",
+      "truth_scope": "WORLD_STATE",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "REVIEW",
+        "reason": "PRECISION_NOT_FINAL",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_not_final"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0053",
+          "paragraph_start": 3427,
+          "paragraph_end": 3429,
+          "quote": "За ним — невероятной толщины мужчина в рваном плаще. Мужчина нёс под мышкой неподвижного мальчика.",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0053.json"
+    },
+    {
+      "record_id": "canon-7b051ef2fff57124",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0054-c-0003",
+      "scope": "event",
+      "subject": "Алиса ищет Коля в дворах",
+      "predicate": "искала",
+      "value": "Коля",
+      "truth_scope": "WORLD_STATE",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "REVIEW",
+        "reason": "PRECISION_NOT_FINAL",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_not_final"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0054",
+          "paragraph_start": 3473,
+          "paragraph_end": 3475,
+          "quote": "Значит, остаётся лишь подъезд, в котором Алиса пряталась от настойчивой тренерши. Там и надо искать Колю.",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0054.json"
+    },
+    {
+      "record_id": "canon-9927eae68a55d7f3",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0058-c-0001",
+      "scope": "mention",
+      "subject": "Лариса",
+      "predicate": "нравился",
+      "value": "Сулима",
+      "truth_scope": "CHARACTER_BELIEF",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "REVIEW",
+        "reason": "PRECISION_NOT_FINAL",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_not_final"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0058",
+          "paragraph_start": 3769,
+          "paragraph_end": 3770,
+          "quote": "Сулима ей нравился, потому что был серьёзный, играл в шахматы и носил очки.",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0058.json"
+    },
+    {
+      "record_id": "canon-81922639b253df20",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0058-c-0003",
+      "scope": "mention",
+      "subject": "Сулима",
+      "predicate": "нравился",
+      "value": "Лариса",
+      "truth_scope": "CHARACTER_BELIEF",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "REVIEW",
+        "reason": "PRECISION_NOT_FINAL",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_not_final"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0058",
+          "paragraph_start": 3769,
+          "paragraph_end": 3770,
+          "quote": "Сулима ей нравился, потому что был серьёзный, играл в шахматы и носил очки.",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0058.json"
+    },
+    {
+      "record_id": "canon-a6fb04005ce2050a",
+      "work_id": "sto_let_tomu_vpered",
+      "claim_id": "primary-0060-c-0003",
+      "scope": "mention",
+      "subject": "Алиса",
+      "predicate": "была",
+      "value": "героем",
+      "truth_scope": "CHARACTER_BELIEF",
+      "provenance": "SOURCE_CANON",
+      "confidence": "CONFIRMED",
+      "admission": {
+        "stage": "MVP-14B2.5",
+        "verdict": "REVIEW",
+        "reason": "PRECISION_NOT_FINAL",
+        "checks": [
+          "evidence_verified",
+          "deterministic_safety_pass",
+          "entailment_supported",
+          "precision_not_final"
+        ]
+      },
+      "evidence": [
+        {
+          "chunk_id": "primary-0060",
+          "paragraph_start": 3894,
+          "paragraph_end": 3896,
+          "quote": "ты у нас герой… ты…",
+          "quote_verified": true
+        }
+      ],
+      "source_artifact": "projects/sto_let_tomu_vpered/evidence/chunk_claims_v2/primary-0060.json"
     }
   ]
 }

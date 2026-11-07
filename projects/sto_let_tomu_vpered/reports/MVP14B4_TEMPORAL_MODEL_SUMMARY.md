@@ -1,8 +1,8 @@
 # MVP-14B4 Temporal Model
 
-- Canon claims input: 3
-- Temporal anchors: 3
-- Textual order edges: 2
+- Canon claims input: 95
+- Temporal anchors: 95
+- Textual order edges: 94
 - Review queue: 0
 - Normalized world-time anchors: 0
 

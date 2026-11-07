@@ -1,0 +1,261 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0043",
+    "start_paragraph": 2586,
+    "end_paragraph": 2664,
+    "mentions": [
+      {
+        "mention_id": "primary-0043-m-0001",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0043-c-0001",
+            "predicate": "имеет",
+            "value": "аппарат",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0043",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Фимка покрутил колёсико, замер и долго слушал, закрыв глаза. Потом вынул наушник, положил сумку на стол и сказал:\n— А я всё-таки думал, что ты врал. А ты ни слова…\n— Трудно поверить.\n— Да ты о деле говори! — возмутился Коля. — Как можно думать о котлетах!",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0043-m-0002",
+        "surface": "Фима",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0043-c-0002",
+            "predicate": "говорит",
+            "value": "Коле о времени",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0043",
+                "paragraph_start": 2586,
+                "paragraph_end": 2588,
+                "quote": "— Крути колёсико. Если услышишь про еду — это кот Маркиз. Крути дальше, настройка тонкая, диапазон действия метров двадцать, не больше. Наверно, у каждого мозга своя волна…",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о том, что Фима говорит Коле о времени.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0043-m-0003",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0043-c-0003",
+            "predicate": "найдена",
+            "value": "Колей и Фимой",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0043",
+                "paragraph_start": 2641,
+                "paragraph_end": 2643,
+                "quote": "— А почему Алиса наш класс нашла? Она же тебя вблизи не видела.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не подтверждает, что Алиса нашла класс Колей и Фимой. Она просто спрашивает, почему Алиса нашла класс.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0043-m-0004",
+        "surface": "пираты",
+        "entity_type": "CREATURE",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0043-c-0004",
+            "predicate": "имеют",
+            "value": "миелофон",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0043",
+                "paragraph_start": 2660,
+                "paragraph_end": 2662,
+                "quote": "Можно бы рассказать подробно о том, как пираты, увидев Алису, вслед за ней проникли в наше время, как они её потеряли на улице, снова нашли уже в больнице, как они старались проникнуть в больницу, чтобы заставить Алису выдать Колю.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает миелофон и не содержит информации о том, что пираты его имеют.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0043-e-0001",
+        "event": "Коля передаёт Фиме наушник",
+        "participants": [
+          "{'name': 'Коля', 'entity_type': 'CHARACTER'}",
+          "{'name': 'Фима', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0043-c-0005",
+            "predicate": "передаёт",
+            "value": "наушник",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0043",
+                "paragraph_start": 2586,
+                "paragraph_end": 2587,
+                "quote": "Коля осторожно перевесил сумку со своего плеча на Фимино. Передал ему наушник и отошёл к окну, словно его это не касалось.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на то, что Коля передал Фиме наушник.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "Рассказчик сообщает о действии, которое происходит в мире рассказа.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата явно указывает на передачу наушника Фиме Кольей.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "event",
+              "subject": "Коля передаёт Фиме наушник",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0043-e-0002",
+        "event": "Коля и Фима обсуждают ситуацию",
+        "participants": [
+          "{'name': 'Коля', 'entity_type': 'CHARACTER'}",
+          "{'name': 'Фима', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0043-c-0006",
+            "predicate": "обсуждают",
+            "value": "пиратов и время",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0043",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "— А почему Алиса наш класс нашла? Она же тебя вблизи не видела.\n— Я на скамейке подписался, помнишь?\n— Идиот!\n— Идиот, но я тогда же не думал, что так получится…",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0043-t-0001",
+        "term": "пираты",
+        "category": "CREATURE",
+        "definition_claim": {
+          "claim_id": "primary-0043-c-0007",
+          "predicate": "definition",
+          "value": "Пираты не обязательно бегают по океанам и космосу с кинжалами, пистолетами, лазерлетами. Они встречаются где угодно. Бывает, младенец только доковылял до яслей, а уже пират: спешит отобрать у другого малыша игрушку. Бывает, пират в жизни никаких законов не нарушил, никого не ограбил и не убил, а в самом деле — там мысль украл, там слово зарезал, там чувство задушил, и вреда от него больше, чем от целого брига с пиратским флагом.",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "UNSUPPORTED",
+          "evidence": []
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Каким образом пираты нашли Алису?",
+        "reason": "Точная информация о том, как пираты нашли Алису, не представлена в данном фрагменте."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 7,
+    "source_supported": 4,
+    "source_unsupported": 3,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 4,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 239,
+    "supported_entailed": 100,
+    "partial_review": 23,
+    "rejected": 116,
+    "schema_fixes": 4
+  }
+}

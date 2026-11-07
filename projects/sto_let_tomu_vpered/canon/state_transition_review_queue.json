@@ -2,5 +2,166 @@
   "schema_version": "1.0",
   "work_id": "sto_let_tomu_vpered",
   "store_type": "STATE_TRANSITION_REVIEW_QUEUE",
-  "records": []
+  "records": [
+    {
+      "review_id": "transrev-2299ae99676d0eb3",
+      "entity_id": "ent-2dedc70082320885",
+      "before_state_id": "state-4f053cd539dadea2",
+      "after_state_id": "state-b4e46d2b8e831824",
+      "reason": "TEXTUAL_SUCCESSION_WITHOUT_TRANSITION_EVIDENCE",
+      "status": "NOT_CONFIRMED"
+    },
+    {
+      "review_id": "transrev-24344c1e8adf2f98",
+      "entity_id": "ent-2fd7b01dc0a9ec09",
+      "before_state_id": "state-414e6c1e7093f5bc",
+      "after_state_id": "state-34cece50d1dbdee3",
+      "reason": "TEXTUAL_SUCCESSION_WITHOUT_TRANSITION_EVIDENCE",
+      "status": "NOT_CONFIRMED"
+    },
+    {
+      "review_id": "transrev-29b804c09483375d",
+      "entity_id": "ent-2fd7b01dc0a9ec09",
+      "before_state_id": "state-7e971ba4d7387f40",
+      "after_state_id": "state-6dfb3f4ad63eddb2",
+      "reason": "TEXTUAL_SUCCESSION_WITHOUT_TRANSITION_EVIDENCE",
+      "status": "NOT_CONFIRMED"
+    },
+    {
+      "review_id": "transrev-2a8e2adae23f11cd",
+      "entity_id": "ent-2dedc70082320885",
+      "before_state_id": "state-16e3fda9adb047fa",
+      "after_state_id": "state-5ee61e293f96f8c6",
+      "reason": "TEXTUAL_SUCCESSION_WITHOUT_TRANSITION_EVIDENCE",
+      "status": "NOT_CONFIRMED"
+    },
+    {
+      "review_id": "transrev-59a60b18040c0344",
+      "entity_id": "ent-2dedc70082320885",
+      "before_state_id": "state-5ee61e293f96f8c6",
+      "after_state_id": "state-00a3a7e64a3ab70f",
+      "reason": "TEXTUAL_SUCCESSION_WITHOUT_TRANSITION_EVIDENCE",
+      "status": "NOT_CONFIRMED"
+    },
+    {
+      "review_id": "transrev-8dd9cd7359fa7520",
+      "entity_id": "ent-43232c20de2e621f",
+      "before_state_id": "state-c4a6ec19ad5dc354",
+      "after_state_id": "state-93e036226783706f",
+      "reason": "TEXTUAL_SUCCESSION_WITHOUT_TRANSITION_EVIDENCE",
+      "status": "NOT_CONFIRMED"
+    },
+    {
+      "review_id": "transrev-a910456926068bd7",
+      "entity_id": "ent-a7674579154cdf88",
+      "before_state_id": "state-2ff27434da552e5c",
+      "after_state_id": "state-14dc2bf61f82b14c",
+      "reason": "TEXTUAL_SUCCESSION_WITHOUT_TRANSITION_EVIDENCE",
+      "status": "NOT_CONFIRMED"
+    },
+    {
+      "review_id": "transrev-a9453982a595c0d1",
+      "entity_id": "ent-67f5755df97474a0",
+      "before_state_id": "state-d54e4251627e6490",
+      "after_state_id": "state-ce80bc676626095e",
+      "reason": "TEXTUAL_SUCCESSION_WITHOUT_TRANSITION_EVIDENCE",
+      "status": "NOT_CONFIRMED"
+    },
+    {
+      "review_id": "transrev-a997d31f2428b59e",
+      "entity_id": "ent-2dedc70082320885",
+      "before_state_id": "state-dac94d09dde471e7",
+      "after_state_id": "state-410294f349b4ccae",
+      "reason": "TEXTUAL_SUCCESSION_WITHOUT_TRANSITION_EVIDENCE",
+      "status": "NOT_CONFIRMED"
+    },
+    {
+      "review_id": "transrev-b17a64ebc8233b82",
+      "entity_id": "ent-50afa937a3f40019",
+      "before_state_id": "state-3f5a02f1c939c01b",
+      "after_state_id": "state-cffc57cdcfdd3f45",
+      "reason": "TEXTUAL_SUCCESSION_WITHOUT_TRANSITION_EVIDENCE",
+      "status": "NOT_CONFIRMED"
+    },
+    {
+      "review_id": "transrev-b2ce7755b1e6ee9b",
+      "entity_id": "ent-fede73be65d2a99d",
+      "before_state_id": "state-788c481682bb0d8a",
+      "after_state_id": "state-d5bc0a091fe91e0b",
+      "reason": "TEXTUAL_SUCCESSION_WITHOUT_TRANSITION_EVIDENCE",
+      "status": "NOT_CONFIRMED"
+    },
+    {
+      "review_id": "transrev-b9a9098877b09feb",
+      "entity_id": "ent-2dedc70082320885",
+      "before_state_id": "state-5dd40310728cbc45",
+      "after_state_id": "state-aa0989c08fbf8630",
+      "reason": "TEXTUAL_SUCCESSION_WITHOUT_TRANSITION_EVIDENCE",
+      "status": "NOT_CONFIRMED"
+    },
+    {
+      "review_id": "transrev-c935dfc21e5dbe42",
+      "entity_id": "ent-2fd7b01dc0a9ec09",
+      "before_state_id": "state-6dfb3f4ad63eddb2",
+      "after_state_id": "state-710b7583a5ea82d7",
+      "reason": "TEXTUAL_SUCCESSION_WITHOUT_TRANSITION_EVIDENCE",
+      "status": "NOT_CONFIRMED"
+    },
+    {
+      "review_id": "transrev-d176d52af20590c5",
+      "entity_id": "ent-b8a49af58852465a",
+      "before_state_id": "state-d70113cd6411e92c",
+      "after_state_id": "state-4eb8045fe283f2bf",
+      "reason": "TEXTUAL_SUCCESSION_WITHOUT_TRANSITION_EVIDENCE",
+      "status": "NOT_CONFIRMED"
+    },
+    {
+      "review_id": "transrev-d6d2f7e8e2b18ba3",
+      "entity_id": "ent-2fd7b01dc0a9ec09",
+      "before_state_id": "state-67a730c625b5007c",
+      "after_state_id": "state-414e6c1e7093f5bc",
+      "reason": "TEXTUAL_SUCCESSION_WITHOUT_TRANSITION_EVIDENCE",
+      "status": "NOT_CONFIRMED"
+    },
+    {
+      "review_id": "transrev-d96fc33b44988fa7",
+      "entity_id": "ent-43232c20de2e621f",
+      "before_state_id": "state-cf513624b0de8009",
+      "after_state_id": "state-c4a6ec19ad5dc354",
+      "reason": "TEXTUAL_SUCCESSION_WITHOUT_TRANSITION_EVIDENCE",
+      "status": "NOT_CONFIRMED"
+    },
+    {
+      "review_id": "transrev-d9def4d6772c0f2a",
+      "entity_id": "ent-2dedc70082320885",
+      "before_state_id": "state-b4e46d2b8e831824",
+      "after_state_id": "state-16e3fda9adb047fa",
+      "reason": "TEXTUAL_SUCCESSION_WITHOUT_TRANSITION_EVIDENCE",
+      "status": "NOT_CONFIRMED"
+    },
+    {
+      "review_id": "transrev-dbfced7954b43f3c",
+      "entity_id": "ent-169a1a7674e9bbc9",
+      "before_state_id": "state-5ab61e4c3ca266d9",
+      "after_state_id": "state-8428125936a8041f",
+      "reason": "TEXTUAL_SUCCESSION_WITHOUT_TRANSITION_EVIDENCE",
+      "status": "NOT_CONFIRMED"
+    },
+    {
+      "review_id": "transrev-e23ccf060a8aadfb",
+      "entity_id": "ent-5ab956fb297cec66",
+      "before_state_id": "state-fae37590b64802c9",
+      "after_state_id": "state-fa094bb43d2b6706",
+      "reason": "TEXTUAL_SUCCESSION_WITHOUT_TRANSITION_EVIDENCE",
+      "status": "NOT_CONFIRMED"
+    },
+    {
+      "review_id": "transrev-ff6d33ecc7faa0e1",
+      "entity_id": "ent-169a1a7674e9bbc9",
+      "before_state_id": "state-8428125936a8041f",
+      "after_state_id": "state-a950b0cfbe55259a",
+      "reason": "TEXTUAL_SUCCESSION_WITHOUT_TRANSITION_EVIDENCE",
+      "status": "NOT_CONFIRMED"
+    }
+  ]
 }

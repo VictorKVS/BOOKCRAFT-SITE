@@ -2,5 +2,312 @@
   "schema_version": "1.0",
   "work_id": "sto_let_tomu_vpered",
   "store_type": "STATE_REVIEW_QUEUE",
-  "records": []
+  "records": [
+    {
+      "review_id": "staterev-0523c92300a04037",
+      "claim_id": "primary-0024-c-0004",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "Алик Борисович",
+      "predicate": "пришёл в палату",
+      "value": "после обеда",
+      "temporal_id": "time-b69204eb36ddbef7"
+    },
+    {
+      "review_id": "staterev-0ae4510f3197fc73",
+      "claim_id": "primary-0031-c-0008",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "Юлька проснулась",
+      "predicate": "видит",
+      "value": "дерево с вороньими гнездами",
+      "temporal_id": "time-715a87c038680d5a"
+    },
+    {
+      "review_id": "staterev-0b6dea5a417c1769",
+      "claim_id": "primary-0017-c-0004",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "пираты украли сомбреро",
+      "predicate": "украли",
+      "value": "сомбреро",
+      "temporal_id": "time-f122f63afce6fb1e"
+    },
+    {
+      "review_id": "staterev-0e0ec7a0c571c7b3",
+      "claim_id": "primary-0044-c-0007",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "Крысс заменяет заболевших актёров",
+      "predicate": "занимается",
+      "value": "дублёром",
+      "temporal_id": "time-a250d38c3e5c77a6"
+    },
+    {
+      "review_id": "staterev-1a0babdff6951332",
+      "claim_id": "primary-0012-c-0012",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "Коля управлял пузырем",
+      "predicate": "управлял",
+      "value": "пузырем",
+      "temporal_id": "time-f166a8f813004fd6"
+    },
+    {
+      "review_id": "staterev-1a535ea5740a4986",
+      "claim_id": "primary-0004-c-0003",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "Коля встречает старика Павла",
+      "predicate": "старик Павел",
+      "value": "просит провести его",
+      "temporal_id": "time-26783a52a7f33b7d"
+    },
+    {
+      "review_id": "staterev-1a783c9d56885f47",
+      "claim_id": "primary-0034-c-0011",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "Алиса убегает из больницы",
+      "predicate": "成功逃脱",
+      "value": "是",
+      "temporal_id": "time-ff950017b885363c"
+    },
+    {
+      "review_id": "staterev-1c794a626ed9332e",
+      "claim_id": "primary-0017-c-0005",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "валапасский уж",
+      "predicate": "definition",
+      "value": "странное создание, обитающее в кустах одной безымянной планеты. Обычно этот уж лежит в подземной норе, но стоит пройти неподалёку какому-нибудь животному, как уж в мгновение ока распрямляется и, как стрела, вонзается в него.",
+      "temporal_id": "time-e6440cf01c392adb"
+    },
+    {
+      "review_id": "staterev-28c4de5346689216",
+      "claim_id": "primary-0040-c-0001",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "Наумов",
+      "predicate": "имеет имя",
+      "value": "Коля",
+      "temporal_id": "time-f5488a266baa11e2"
+    },
+    {
+      "review_id": "staterev-46231ad2c9ed725f",
+      "claim_id": "primary-0049-c-0009",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "прыжок через забор",
+      "predicate": "выполняется",
+      "value": "да",
+      "temporal_id": "time-88bd52fd94ab3cf8"
+    },
+    {
+      "review_id": "staterev-4cac21f915ed024e",
+      "claim_id": "primary-0025-c-0008",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "Алик Борисович рассказывает историю",
+      "predicate": "рассказывает",
+      "value": "историю о поездке на Дон",
+      "temporal_id": "time-92e9349dabd19d69"
+    },
+    {
+      "review_id": "staterev-4e5b868152ca792a",
+      "claim_id": "primary-0020-c-0012",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "Алиса читает книги",
+      "predicate": "читает",
+      "value": "книжки, которые отец ей оставил",
+      "temporal_id": "time-cd333713d059dcea"
+    },
+    {
+      "review_id": "staterev-4e769e681f37f1d8",
+      "claim_id": "primary-0022-c-0010",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "Коля погнался за ворами",
+      "predicate": "побежал",
+      "value": "за ворами",
+      "temporal_id": "time-83c1be28d39cccee"
+    },
+    {
+      "review_id": "staterev-5097fea83d4631d1",
+      "claim_id": "primary-0052-c-0007",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "Алиса прыгнула через окно",
+      "predicate": "发生",
+      "value": "Aлиса从窗户跳到外面",
+      "temporal_id": "time-9444fdc5b9101965"
+    },
+    {
+      "review_id": "staterev-5393adc8dafe4e50",
+      "claim_id": "primary-0039-c-0004",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "Коля Садовский",
+      "predicate": "предполагает",
+      "value": "Алиса приехала из будущего",
+      "temporal_id": "time-4f36bab389b19e6f"
+    },
+    {
+      "review_id": "staterev-58754279ffe1351a",
+      "claim_id": "primary-0049-c-0008",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "Коля Садовский",
+      "predicate": "присутствует",
+      "value": "да",
+      "temporal_id": "time-02436cf7d99c7c25"
+    },
+    {
+      "review_id": "staterev-622a71b81085211a",
+      "claim_id": "primary-0049-c-0010",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "погоня",
+      "predicate": "происходит",
+      "value": "да",
+      "temporal_id": "time-925b26cb21e9b032"
+    },
+    {
+      "review_id": "staterev-70be76f97efd694d",
+      "claim_id": "primary-0003-c-0004",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "Рип Ван Винкль",
+      "predicate": "definition",
+      "value": "персонаж, который спал двадцать лет и проснулся в изменившемся мире",
+      "temporal_id": "time-8ef57a2f6f45a102"
+    },
+    {
+      "review_id": "staterev-7416a7e304a0a8c2",
+      "claim_id": "primary-0043-c-0005",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "Коля передаёт Фиме наушник",
+      "predicate": "передаёт",
+      "value": "наушник",
+      "temporal_id": "time-3c0b4c9327455100"
+    },
+    {
+      "review_id": "staterev-8278d7098d5475c4",
+      "claim_id": "primary-0054-c-0002",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "Коля Наумов",
+      "predicate": "был в",
+      "value": "будущем",
+      "temporal_id": "time-bd3d98a284b9a63e"
+    },
+    {
+      "review_id": "staterev-82e3185f9ff67b31",
+      "claim_id": "primary-0041-c-0008",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "Алиса ищет Коля",
+      "predicate": "ищет",
+      "value": "Колю",
+      "temporal_id": "time-0326008e545f4dc1"
+    },
+    {
+      "review_id": "staterev-87ca463bbe81b28a",
+      "claim_id": "primary-0033-c-0014",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "записка",
+      "predicate": "definition",
+      "value": "написанное на листке из маминой записной книжки сообщение",
+      "temporal_id": "time-23cd0b525892694c"
+    },
+    {
+      "review_id": "staterev-8c326f03f0565c1a",
+      "claim_id": "primary-0044-c-0008",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "дублёром",
+      "predicate": "definition",
+      "value": "актёр, который заменяет заболевших актёров",
+      "temporal_id": "time-3566e1189fdff9f5"
+    },
+    {
+      "review_id": "staterev-8e4eecf5c81830b8",
+      "claim_id": "primary-0036-c-0007",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "Алиса побежала к подъезду",
+      "predicate": "побежала к подъезду",
+      "value": "да",
+      "temporal_id": "time-e86d284ea06869fc"
+    },
+    {
+      "review_id": "staterev-a27045606b7f0cde",
+      "claim_id": "primary-0024-c-0009",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "амнезия",
+      "predicate": "definition",
+      "value": "болезнь, при которой человек забывает свою фамилию, место жительства, место учебы, забывает, кто его родители",
+      "temporal_id": "time-ad0a6a5c76beff9e"
+    },
+    {
+      "review_id": "staterev-b1a80b6bd9013a81",
+      "claim_id": "primary-0036-c-0008",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "Алиса рассказала Юльке о побеге",
+      "predicate": "рассказала о побеге",
+      "value": "да",
+      "temporal_id": "time-4915862bdcdc63cf"
+    },
+    {
+      "review_id": "staterev-b3337b79295b4c30",
+      "claim_id": "primary-0031-c-0006",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "Коля Наумов",
+      "predicate": "является",
+      "value": "спортсменом",
+      "temporal_id": "time-9acc2f4ea33041d0"
+    },
+    {
+      "review_id": "staterev-b3deb55821f8c7f6",
+      "claim_id": "primary-0013-c-0006",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "просмотр спутника",
+      "predicate": "предпринял",
+      "value": "просмотр спутника",
+      "temporal_id": "time-69670c42245f3176"
+    },
+    {
+      "review_id": "staterev-b551cf64cb9ad746",
+      "claim_id": "primary-0060-c-0007",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "Коля Сулима бросился на Крысса",
+      "predicate": "выстрелил",
+      "value": "в потолок",
+      "temporal_id": "time-2ca94145d316b802"
+    },
+    {
+      "review_id": "staterev-b708b94e1d48ddb2",
+      "claim_id": "primary-0032-c-0009",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "галлюцинация",
+      "predicate": "definition",
+      "value": "Юлька так испугалась, что закричала, и мы упали с кроватей. А у Марии Павловны была галлюцинация.",
+      "temporal_id": "time-e845e391613e1bc1"
+    },
+    {
+      "review_id": "staterev-cff0839862195637",
+      "claim_id": "primary-0021-c-0005",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "Коля и Электрон Степанович обсуждают миелофон",
+      "predicate": "обсуждают",
+      "value": "ymiелофон",
+      "temporal_id": "time-8686e82d2116696a"
+    },
+    {
+      "review_id": "staterev-dfdd334dfb4a4385",
+      "claim_id": "primary-0020-c-0011",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "Алиса встречается с отцом",
+      "predicate": "говорит",
+      "value": "Алисе, что он уезжает",
+      "temporal_id": "time-3b90a42412949757"
+    },
+    {
+      "review_id": "staterev-e512ad7ee7cab718",
+      "claim_id": "primary-0041-c-0007",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "Коля попал в будущее",
+      "predicate": "попал",
+      "value": "в будущее",
+      "temporal_id": "time-a8ca18003c5dcde3"
+    },
+    {
+      "review_id": "staterev-ea9b7fbe58f3815d",
+      "claim_id": "primary-0007-c-0006",
+      "reason": "SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "Коля увидел ростки",
+      "predicate": "увидел ростки",
+      "value": "да",
+      "temporal_id": "time-af4fd36b32e304aa"
+    }
+  ]
 }

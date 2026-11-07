@@ -2,5 +2,367 @@
   "schema_version": "1.0",
   "work_id": "sto_let_tomu_vpered",
   "store_type": "TRUSTED_EVENTS",
-  "records": []
+  "records": [
+    {
+      "event_id": "evt-078d8f13141adc2b",
+      "claim_id": "primary-0031-c-0008",
+      "event_type": "видит",
+      "actor_entity_id": "ent-69210c491d96c8e0",
+      "actor_name": "Юлька",
+      "description": "Юлька проснулась",
+      "value": "дерево с вороньими гнездами",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0031",
+          "paragraph_start": 1613,
+          "paragraph_end": 1615,
+          "quote": "За окном видна вершина дерева и на ней три вороньих гнезда.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "event_id": "evt-0a57f60e75f0f645",
+      "claim_id": "primary-0036-c-0008",
+      "event_type": "рассказала о побеге",
+      "actor_entity_id": "ent-2fd7b01dc0a9ec09",
+      "actor_name": "Алиса",
+      "description": "Алиса рассказала Юльке о побеге",
+      "value": "да",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0036",
+          "paragraph_start": 2034,
+          "paragraph_end": 2036,
+          "quote": "Девочки уселись на диван в Юлькиной комнате, под картиной, изображающей гору Эверест. И Алиса рассказала о побеге.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "event_id": "evt-100b1340b69d7b46",
+      "claim_id": "primary-0007-c-0006",
+      "event_type": "увидел ростки",
+      "actor_entity_id": "ent-2dedc70082320885",
+      "actor_name": "Коля",
+      "description": "Коля увидел ростки",
+      "value": "да",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0007",
+          "paragraph_start": 348,
+          "paragraph_end": 350,
+          "quote": "Коля собственными глазами увидел, как из земли медленно вылезают два зелёных побега.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "event_id": "evt-2a87bbf2c8570587",
+      "claim_id": "primary-0020-c-0012",
+      "event_type": "читает",
+      "actor_entity_id": "ent-2fd7b01dc0a9ec09",
+      "actor_name": "Алиса",
+      "description": "Алиса читает книги",
+      "value": "книжки, которые отец ей оставил",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0020",
+          "paragraph_start": 951,
+          "paragraph_end": 953,
+          "quote": "— Если там маму увидишь, скажи, что я прочитала все книжки, которые она мне оставила.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "event_id": "evt-2aa652d48ea52bb2",
+      "claim_id": "primary-0041-c-0008",
+      "event_type": "ищет",
+      "actor_entity_id": "ent-2fd7b01dc0a9ec09",
+      "actor_name": "Алиса",
+      "description": "Алиса ищет Коля",
+      "value": "Колю",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0041",
+          "paragraph_start": 2415,
+          "paragraph_end": 2417,
+          "quote": "— Она меня ищет, — сказал Коля.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "event_id": "evt-2cd6d381b0716af7",
+      "claim_id": "primary-0041-c-0007",
+      "event_type": "попал",
+      "actor_entity_id": "ent-2dedc70082320885",
+      "actor_name": "Коля",
+      "description": "Коля попал в будущее",
+      "value": "в будущее",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0041",
+          "paragraph_start": 2453,
+          "paragraph_end": 2455,
+          "quote": "— Значит, я попал в будущее… Стой!",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "event_id": "evt-4d3b2ff046f58fcf",
+      "claim_id": "primary-0025-c-0008",
+      "event_type": "рассказывает",
+      "actor_entity_id": "ent-24b9688791760c0f",
+      "actor_name": "Алик Борисович",
+      "description": "Алик Борисович рассказывает историю",
+      "value": "историю о поездке на Дон",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0025",
+          "paragraph_start": 1171,
+          "paragraph_end": 1173,
+          "quote": "— Прошлым летом, — сказал Алик Борисович, — мы с приятелями поехали на Дон, рыбачить.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "event_id": "evt-5aefd6c92a65ce05",
+      "claim_id": "primary-0044-c-0007",
+      "event_type": "занимается",
+      "actor_entity_id": "ent-43232c20de2e621f",
+      "actor_name": "Крысс",
+      "description": "Крысс заменяет заболевших актёров",
+      "value": "дублёром",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0044",
+          "paragraph_start": 2724,
+          "paragraph_end": 2726,
+          "quote": "Крысс заменял по очереди всех заболевших актёров, а иногда ему просто показывали фотографию, и он изображал кого надо.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "event_id": "evt-63c937566193c318",
+      "claim_id": "primary-0034-c-0011",
+      "event_type": "成功逃脱",
+      "actor_entity_id": "ent-2fd7b01dc0a9ec09",
+      "actor_name": "Алиса",
+      "description": "Алиса убегает из больницы",
+      "value": "是",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0034",
+          "paragraph_start": 1847,
+          "paragraph_end": 1849,
+          "quote": "Алиса была на верху забора, прыгнула вниз с двухметровой высоты и оказалась в тихом переулке.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "event_id": "evt-6ba5e00c3ed1cb04",
+      "claim_id": "primary-0052-c-0007",
+      "event_type": "发生",
+      "actor_entity_id": "ent-2fd7b01dc0a9ec09",
+      "actor_name": "Алиса",
+      "description": "Алиса прыгнула через окно",
+      "value": "Aлиса从窗户跳到外面",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0052",
+          "paragraph_start": 3347,
+          "paragraph_end": 3349,
+          "quote": "Алиса распахнула окно — никто даже ахнуть не успел, — вскочила на подоконник и прыгнула к большому дубу, который рос на школьным дворе.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "event_id": "evt-84ea0f9a283a2b5a",
+      "claim_id": "primary-0017-c-0004",
+      "event_type": "украли",
+      "actor_entity_id": "ent-4e04a067ea17a05a",
+      "actor_name": "пираты",
+      "description": "пираты украли сомбреро",
+      "value": "сомбреро",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0017",
+          "paragraph_start": 802,
+          "paragraph_end": 804,
+          "quote": "Крысс снова запустил валапасского ужа, и тот вцепился в сомбреро мёртвой хваткой. Крысс дёрнул ужа за хвост, а уж дёрнул туриста за шляпу. Тесёмочка развязалась, турист не удержался на ногах и шлёпнулся на пол. Сомбреро быстро поползло к автоматам",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "event_id": "evt-9235e6f1885eeefd",
+      "claim_id": "primary-0043-c-0005",
+      "event_type": "передаёт",
+      "actor_entity_id": "ent-2dedc70082320885",
+      "actor_name": "Коля",
+      "description": "Коля передаёт Фиме наушник",
+      "value": "наушник",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0043",
+          "paragraph_start": 2586,
+          "paragraph_end": 2587,
+          "quote": "Коля осторожно перевесил сумку со своего плеча на Фимино. Передал ему наушник и отошёл к окну, словно его это не касалось.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "event_id": "evt-984426a4f8320b8c",
+      "claim_id": "primary-0004-c-0003",
+      "event_type": "старик Павел",
+      "actor_entity_id": "ent-2dedc70082320885",
+      "actor_name": "Коля",
+      "description": "Коля встречает старика Павла",
+      "value": "просит провести его",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0004",
+          "paragraph_start": 128,
+          "paragraph_end": 130,
+          "quote": "Проводи меня немного, мне скучно ехать одному.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "event_id": "evt-9caeb32c24af6a9a",
+      "claim_id": "primary-0020-c-0011",
+      "event_type": "говорит",
+      "actor_entity_id": "ent-2fd7b01dc0a9ec09",
+      "actor_name": "Алиса",
+      "description": "Алиса встречается с отцом",
+      "value": "Алисе, что он уезжает",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0020",
+          "paragraph_start": 950,
+          "paragraph_end": 952,
+          "quote": "— Да. Через две недели вернусь.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "event_id": "evt-ab21fdcd35523370",
+      "claim_id": "primary-0022-c-0010",
+      "event_type": "побежал",
+      "actor_entity_id": "ent-2dedc70082320885",
+      "actor_name": "Коля",
+      "description": "Коля погнался за ворами",
+      "value": "за ворами",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0022",
+          "paragraph_start": 1058,
+          "paragraph_end": 1060,
+          "quote": "Коля выскочил на опустевшую площадь перед Космозо. Воры уже подбегали к автобусу.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "event_id": "evt-cc76738a787769b0",
+      "claim_id": "primary-0012-c-0012",
+      "event_type": "управлял",
+      "actor_entity_id": "ent-2dedc70082320885",
+      "actor_name": "Коля",
+      "description": "Коля управлял пузырем",
+      "value": "пузырем",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0012",
+          "paragraph_start": 568,
+          "paragraph_end": 570,
+          "quote": "Коля увидел, что из того места, откуда вывалился его пузырь, облачный туман выползал, как пар из чайника.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "event_id": "evt-d50a895d176ff225",
+      "claim_id": "primary-0036-c-0007",
+      "event_type": "побежала к подъезду",
+      "actor_entity_id": "ent-2fd7b01dc0a9ec09",
+      "actor_name": "Алиса",
+      "description": "Алиса побежала к подъезду",
+      "value": "да",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0036",
+          "paragraph_start": 1976,
+          "paragraph_end": 1978,
+          "quote": "Алиса попрощалась с ребятами и побежала к подъезду.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "event_id": "evt-d5808ba25bdc6529",
+      "claim_id": "primary-0021-c-0005",
+      "event_type": "обсуждают",
+      "actor_entity_id": "ent-5c75a6aec454a8d0",
+      "actor_name": "Электрон Степанович",
+      "description": "Коля и Электрон Степанович обсуждают миелофон",
+      "value": "ymiелофон",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0021",
+          "paragraph_start": 1008,
+          "paragraph_end": 1010,
+          "quote": "— Миелофон? Нет, её уже несколько лет, как изобрели. Но, наверно, миелофоны скоро кончатся.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "event_id": "evt-e392f82f80efc210",
+      "claim_id": "primary-0060-c-0007",
+      "event_type": "выстрелил",
+      "actor_entity_id": "ent-db966c76835cd3b2",
+      "actor_name": "Коля Сулима",
+      "description": "Коля Сулима бросился на Крысса",
+      "value": "в потолок",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0060",
+          "paragraph_start": 3907,
+          "paragraph_end": 3909,
+          "quote": "Коля ударился о него, пистолет дёрнулся, и выстрел пришёлся в потолок.",
+          "quote_verified": true
+        }
+      ]
+    }
+  ]
 }

@@ -1,11 +1,11 @@
 # MVP-14B5 State Engine
 
-- Canon claims input: 3
-- State observations: 3
-- World-state observations: 1
-- Epistemic observations: 2
-- Entities with states: 3
-- Review queue: 0
+- Canon claims input: 95
+- State observations: 61
+- World-state observations: 57
+- Epistemic observations: 4
+- Entities with states: 28
+- Review queue: 34
 
 ## Semantics
 - State Engine v1 stores observations, not inferred continuous states.

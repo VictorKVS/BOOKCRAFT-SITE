@@ -1,0 +1,285 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0021",
+    "start_paragraph": 980,
+    "end_paragraph": 1046,
+    "mentions": [
+      {
+        "mention_id": "primary-0021-m-0001",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0021-c-0001",
+            "predicate": "был зол на",
+            "value": "Алису",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0021",
+                "paragraph_start": 1029,
+                "paragraph_end": 1031,
+                "quote": "Всего двадцать на всю Землю и в больницах наперечёт, а она бегает по Космозо и слушает мысли какой-то трубы!",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о чувствах или отношении Коля к Алисе.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0021-m-0002",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0021-c-0002",
+            "predicate": "таскала",
+            "value": "миелофон",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0021",
+                "paragraph_start": 1028,
+                "paragraph_end": 1030,
+                "quote": "Чуть не потеряла.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает миелофон и не подтверждает, что Алиса его таскала.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0021-m-0003",
+        "surface": "Электрон Степанович",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0021-c-0003",
+            "predicate": "был рад познакомиться с",
+            "value": "Колей",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0021",
+                "paragraph_start": 1039,
+                "paragraph_end": 1041,
+                "quote": "Рад был познакомиться. Может, ещё встретимся.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата указывает на радость от знакомства, но не упоминает имени Коли.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0021-e-0001",
+        "event": "Коля кричит на Алису",
+        "participants": [
+          "{'name': 'Коля', 'role': '主人公'}",
+          "{'name': 'Алиса', 'role': '被警告者'}"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0021-c-0004",
+            "predicate": "кричал",
+            "value": "Алисе",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0021",
+                "paragraph_start": 982,
+                "paragraph_end": 984,
+                "quote": "— Алиса! Сзади!",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о том, кто кричал и кого именно он кричал.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0021-e-0002",
+        "event": "Коля и Электрон Степанович обсуждают миелофон",
+        "participants": [
+          "{'name': 'Коля', 'role': '参与者'}",
+          "{'name': 'Электрон Степанович', 'role': '参与者'}"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0021-c-0005",
+            "predicate": "обсуждают",
+            "value": "ymiелофон",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0021",
+                "paragraph_start": 1008,
+                "paragraph_end": 1010,
+                "quote": "— Миелофон? Нет, её уже несколько лет, как изобрели. Но, наверно, миелофоны скоро кончатся.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата подтверждает, что Коля и Электрон Степанович обсуждают миелофон, так как Коля упоминает о существовании миелофона и предполагает, что они могут обсудить его.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата содержит прямые слова персонажа Коли, который обсуждает миелофон.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст подтверждают, что Коля и Электрон Степанович обсуждают миелофон, так как Коля задаёт вопрос о его существовании и Электрон Степанович отвечает на этот вопрос.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "event",
+              "subject": "Коля и Электрон Степанович обсуждают миелофон",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0021-t-0001",
+        "term": "миелофон",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0021-c-0006",
+          "predicate": "definition",
+          "value": "Электрон Степанович: Когда первые кристаллы привезли на Землю и стали исследовать, то один из учёных обратил внимание, что, когда близко подходят люди, в структуре кристалла что-то меняется. Стали учёные биться над этим делом и наконец поняли, что кристаллы могут улавливать волны, которые испускает мозг. Тогда догадались соединить кристаллы с усилителями, и в один прекрасный день учёные услышали мысли. Представляешь, какая началась суматоха в учёном мире!",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "CANON_REVIEW",
+          "evidence": [
+            {
+              "chunk_id": "primary-0021",
+              "paragraph_start": 1016,
+              "paragraph_end": 1018,
+              "quote": "Когда первые кристаллы привезли на Землю и стали исследовать, то один из учёных обратил внимание, что, когда близко подходят люди, в структуре кристалла что-то меняется. Стали учёные биться над этим делом и наконец поняли, что кристаллы могут улавливать волны, которые испускает мозг. Тогда догадались соединить кристаллы с усилителями, и в один прекрасный день учёные услышали мысли.",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "SUPPORTED",
+            "reason": "Цитата описывает процесс обнаружения способности кристаллов улавливать волны, испускаемые мозгом, что соответствует определению миелофона как устройства, способного перехватывать и воспроизводить мысли.",
+            "model": "qwen2.5:7b"
+          },
+          "narrative_mode": {
+            "mode": "NARRATOR_FACT",
+            "canon_eligible": true,
+            "reason": "Рассказчик описывает процесс обнаружения и разработки миелофона, что является фактом в мире сюжета.",
+            "model": "qwen2.5:7b"
+          },
+          "precision_gate": {
+            "verdict": "REVIEW",
+            "reason": "Цитата подтверждает процесс обнаружения и разработки миелофона, но не прямо утверждает, что миелофон это устройство для перехвата и воспроизведения мыслей. Необходимо проверить дополнительный контекст и цитаты для полной поддержки определения.",
+            "error_type": "PREDICATE_OVERREACH",
+            "model": "qwen2.5:7b"
+          },
+          "deterministic_safety": {
+            "verdict": "PASS",
+            "error_type": "NONE",
+            "reason": "Детерминированных блокирующих признаков не найдено."
+          },
+          "canon_admission": {
+            "stage": "MVP-14B2.5",
+            "verdict": "REVIEW",
+            "reason": "PRECISION_NOT_FINAL",
+            "checks": [
+              "evidence_verified",
+              "deterministic_safety_pass",
+              "entailment_supported",
+              "precision_not_final"
+            ],
+            "scope": "term",
+            "subject": "миелофон",
+            "truth_scope": "WORLD_STATE"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Почему Коля злится на Алису?",
+        "reason": "Текст не предоставляет полной информации о причинах злости Коли."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 6,
+    "source_supported": 6,
+    "source_unsupported": 0,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 3,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 98,
+    "supported_entailed": 37,
+    "partial_review": 10,
+    "rejected": 51,
+    "schema_fixes": 0
+  }
+}

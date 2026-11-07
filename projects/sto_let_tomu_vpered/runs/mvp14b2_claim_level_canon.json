@@ -2,14 +2,14 @@
   "stage": "MVP-14B2_CLAIM_LEVEL_CANON",
   "result": "PASS",
   "work_id": "sto_let_tomu_vpered",
-  "chunks_analyzed": 3,
+  "chunks_analyzed": 61,
   "model": "qwen2.5:7b",
-  "claims_total": 32,
-  "source_supported": 26,
-  "source_unsupported": 4,
-  "derived": 0,
-  "hypotheses": 2,
-  "mentions": 8,
-  "events": 8,
-  "terms": 3
+  "claims_total": 565,
+  "source_supported": 380,
+  "source_unsupported": 160,
+  "derived": 7,
+  "hypotheses": 18,
+  "mentions": 237,
+  "events": 125,
+  "terms": 62
 }

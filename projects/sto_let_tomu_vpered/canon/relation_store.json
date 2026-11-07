@@ -4,6 +4,198 @@
   "store_type": "TRUSTED_RELATIONS",
   "records": [
     {
+      "relation_id": "rel-0394149664cdb92a",
+      "claim_id": "primary-0008-c-0003",
+      "source_entity_id": "ent-69b17244a93c4cdd",
+      "source_name": "Аркаша",
+      "predicate": "использовал",
+      "target_kind": "LITERAL",
+      "target_value": "скорость роста альдебаранских растений",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0008",
+          "paragraph_start": 363,
+          "paragraph_end": 365,
+          "quote": "— Я от альдебаранских растений только скорость роста использовал. К остальному шёл через пшеницу и хлебное дерево.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-05ea383708724461",
+      "claim_id": "primary-0023-c-0004",
+      "source_entity_id": "ent-2dedc70082320885",
+      "source_name": "Коля",
+      "predicate": "решил",
+      "target_kind": "ENTITY",
+      "target_entity_id": "ent-a7674579154cdf88",
+      "target_name": "миелофон",
+      "truth_scope": "CHARACTER_BELIEF",
+      "evidence": [
+        {
+          "chunk_id": "primary-0023",
+          "paragraph_start": 1074,
+          "paragraph_end": 1076,
+          "quote": "Коля был человеком не злым и уже придумал, как он вернёт миелофон. Он отдаст его Джаваду или кому-нибудь из натуралистов на школьной станции.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-16539e382a947a20",
+      "claim_id": "primary-0048-c-0006",
+      "source_entity_id": "ent-1148f19398b78d33",
+      "source_name": "Марта Скрыль",
+      "predicate": "имеет имя",
+      "target_kind": "LITERAL",
+      "target_value": "Марта Скрыль",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0048",
+          "paragraph_start": 3101,
+          "paragraph_end": 3103,
+          "quote": "— Мы это обеспечим, — сказала Марта Скрыль.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-16d9e089ca29a269",
+      "claim_id": "primary-0020-c-0009",
+      "source_entity_id": "ent-368e30fa8298bdfe",
+      "source_name": "профессор Селезнев",
+      "predicate": "говорит",
+      "target_kind": "LITERAL",
+      "target_value": "Алисе, что она может вырасти сухой и скучной",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0020",
+          "paragraph_start": 954,
+          "paragraph_end": 956,
+          "quote": "— Я боюсь, как бы ты не выросла сухим и скучным человеком.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-28904d18370e81d4",
+      "claim_id": "primary-0022-c-0001",
+      "source_entity_id": "ent-2dedc70082320885",
+      "source_name": "Коля",
+      "predicate": "остался сидеть",
+      "target_kind": "LITERAL",
+      "target_value": "на мягкой лавочке",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0022",
+          "paragraph_start": 1047,
+          "paragraph_end": 1047,
+          "quote": "Коля остался сидеть на мягкой, словно диван, лавочке.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-2ce0f41dee30e947",
+      "claim_id": "primary-0056-c-0001",
+      "source_entity_id": "ent-69210c491d96c8e0",
+      "source_name": "Юлька",
+      "predicate": "боялась",
+      "target_kind": "ENTITY",
+      "target_entity_id": "ent-2fd7b01dc0a9ec09",
+      "target_name": "Алиса",
+      "truth_scope": "CHARACTER_BELIEF",
+      "evidence": [
+        {
+          "chunk_id": "primary-0056",
+          "paragraph_start": 3599,
+          "paragraph_end": 3599,
+          "quote": "Она так боялась, что Алиса послушает разумную Руткевич и уйдёт насовсем… хотя она, Юлька, конечно, и слова бы не сказала.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-2fca9b65f2cce70c",
+      "claim_id": "primary-0061-c-0002",
+      "source_entity_id": "ent-c9fb34ca1bc0891b",
+      "source_name": "Лариса",
+      "predicate": "будет",
+      "target_kind": "LITERAL",
+      "target_value": "знаменитой киноактрисой",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0061",
+          "paragraph_start": 3957,
+          "paragraph_end": 3957,
+          "quote": "Лариса будет знаменитой киноактрисой.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-3716b758cd3cb994",
+      "claim_id": "primary-0036-c-0002",
+      "source_entity_id": "ent-2fd7b01dc0a9ec09",
+      "source_name": "Алиса",
+      "predicate": "побежала к подъезду",
+      "target_kind": "LITERAL",
+      "target_value": "да",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0036",
+          "paragraph_start": 1976,
+          "paragraph_end": 1978,
+          "quote": "Алиса попрощалась с ребятами и побежала к подъезду.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-3ebc6778398ca3f7",
+      "claim_id": "primary-0035-c-0003",
+      "source_entity_id": "ent-2fd7b01dc0a9ec09",
+      "source_name": "Алиса",
+      "predicate": "имеет подругу",
+      "target_kind": "LITERAL",
+      "target_value": "подруга",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0035",
+          "paragraph_start": 1947,
+          "paragraph_end": 1949,
+          "quote": "Я попала в аварию, и меня привезли в больницу. Я лежала в палате вместе с подругой, а теперь подруга выписалась, и я осталась одна.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-3fee2549847ff967",
+      "claim_id": "primary-0044-c-0001",
+      "source_entity_id": "ent-43232c20de2e621f",
+      "source_name": "Крысс",
+      "predicate": "работает как",
+      "target_kind": "LITERAL",
+      "target_value": "дублёром",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0044",
+          "paragraph_start": 2724,
+          "paragraph_end": 2726,
+          "quote": "Крысс заменял по очереди всех заболевших актёров, а иногда ему просто показывали фотографию, и он изображал кого надо.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
       "relation_id": "rel-401863e48f223192",
       "claim_id": "primary-0001-c-0014",
       "source_entity_id": "ent-169a1a7674e9bbc9",
@@ -18,6 +210,63 @@
           "paragraph_start": 20,
           "paragraph_end": 22,
           "quote": "Когда Фима Королев из Колиного класса узнал про фрегат, он стал проситься в гости к Николаю Николаевичу, но Коля не спешил вести его в гости.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-434cb7828ec70e48",
+      "claim_id": "primary-0056-c-0011",
+      "source_entity_id": "ent-a7674579154cdf88",
+      "source_name": "миелофон",
+      "predicate": "definition",
+      "target_kind": "LITERAL",
+      "target_value": "устройство, которое принимает человеческие мысли метров за десять, а иногда и больше",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0056",
+          "paragraph_start": 3647,
+          "paragraph_end": 3649,
+          "quote": "Миелофон принимает человеческие мысли метров за десять, а иногда и больше, — сказала Алиса.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-474625117301d80b",
+      "claim_id": "primary-0028-c-0003",
+      "source_entity_id": "ent-2fd7b01dc0a9ec09",
+      "source_name": "Алиса",
+      "predicate": "была в будущем",
+      "target_kind": "LITERAL",
+      "target_value": "да",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0028",
+          "paragraph_start": 1467,
+          "paragraph_end": 1469,
+          "quote": "Я из будущего. Из двадцать первого века.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-4ed968812657eb03",
+      "claim_id": "primary-0052-c-0001",
+      "source_entity_id": "ent-2fd7b01dc0a9ec09",
+      "source_name": "Алиса",
+      "predicate": "принимала участие в",
+      "target_kind": "LITERAL",
+      "target_value": "прыжках через окно",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0052",
+          "paragraph_start": 3347,
+          "paragraph_end": 3349,
+          "quote": "Алиса распахнула окно — никто даже ахнуть не успел, — вскочила на подоконник и прыгнула к большому дубу, который рос на школьным дворе.",
           "quote_verified": true
         }
       ]
@@ -42,6 +291,140 @@
       ]
     },
     {
+      "relation_id": "rel-5705070258dc7683",
+      "claim_id": "primary-0048-c-0004",
+      "source_entity_id": "ent-93ffc4fbd6b7897e",
+      "source_name": "Алиса Селезнева",
+      "predicate": "выиграла у гроссмейстера",
+      "target_kind": "LITERAL",
+      "target_value": "выиграла",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0048",
+          "paragraph_start": 3048,
+          "paragraph_end": 3050,
+          "quote": "— Так это же Алиса Селезнева! — не выдержала Юлька. — Она выиграла у гроссмейстера!",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-5742acaeeaaf0dae",
+      "claim_id": "primary-0033-c-0008",
+      "source_entity_id": "ent-67f5755df97474a0",
+      "source_name": "Наташа",
+      "predicate": "оставила",
+      "target_kind": "LITERAL",
+      "target_value": "монеты Алисе",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0033",
+          "paragraph_start": 1791,
+          "paragraph_end": 1793,
+          "quote": "Наташа оставила ей пять двухкопеечных монет, чтобы звонить с телефона-автомата на лестнице.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-59d2b9591710bfbb",
+      "claim_id": "primary-0036-c-0005",
+      "source_entity_id": "ent-5ab956fb297cec66",
+      "source_name": "Юлька Грибкова",
+      "predicate": "живёт в доме",
+      "target_kind": "LITERAL",
+      "target_value": "да",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0036",
+          "paragraph_start": 1978,
+          "paragraph_end": 1980,
+          "quote": "— А из нашего класса в этом доме Юлька Грибкова живёт.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-5df87b7f7ebbac9b",
+      "claim_id": "primary-0061-c-0007",
+      "source_entity_id": "ent-a0369935f459e1f6",
+      "source_name": "Николай Николаевич",
+      "predicate": "будет",
+      "target_kind": "LITERAL",
+      "target_value": "отцом Алисы",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0061",
+          "paragraph_start": 3967,
+          "paragraph_end": 3969,
+          "quote": "Я сам сегодня зайду к вам как отец Алисы.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-68da268afa068fb6",
+      "claim_id": "primary-0051-c-0003",
+      "source_entity_id": "ent-3584afbc5f9b16cb",
+      "source_name": "доктор Иванова",
+      "predicate": "является",
+      "target_kind": "LITERAL",
+      "target_value": "деликатной",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0051",
+          "paragraph_start": 3262,
+          "paragraph_end": 3264,
+          "quote": "Но мы очень деликатные люди, — сказала хрупкая доктор Иванова.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-70e76f22af2f8465",
+      "claim_id": "primary-0052-c-0003",
+      "source_entity_id": "ent-b8a49af58852465a",
+      "source_name": "Весельчак У",
+      "predicate": "принимал участие в",
+      "target_kind": "ENTITY",
+      "target_entity_id": "ent-6a530e91ecbeb53a",
+      "target_name": "Коля Наумов",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0052",
+          "paragraph_start": 3364,
+          "paragraph_end": 3366,
+          "quote": "За Колей гнался только Весельчак У, а Крысс в облике Наполеона перебежал на другую сторону переулка и понёсся вдоль стены так, чтобы обогнать Колю и взять его в тиски.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-71e5ad67ec8b2a46",
+      "claim_id": "primary-0013-c-0002",
+      "source_entity_id": "ent-2dedc70082320885",
+      "source_name": "Коля",
+      "predicate": "принадлежит к",
+      "target_kind": "LITERAL",
+      "target_value": "ученик",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0013",
+          "paragraph_start": 623,
+          "paragraph_end": 625,
+          "quote": "Я в Конотопе учусь, — сказал Коля.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
       "relation_id": "rel-71ef04df3f7f6d80",
       "claim_id": "primary-0002-c-0001",
       "source_entity_id": "ent-2dedc70082320885",
@@ -56,6 +439,732 @@
           "paragraph_start": 47,
           "paragraph_end": 49,
           "quote": "Следопыт Коля предположил, что это вещи приезжих друзей Николая Николаевича.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-73c355c3d9296972",
+      "claim_id": "primary-0049-c-0001",
+      "source_entity_id": "ent-50afa937a3f40019",
+      "source_name": "Эдуард Петрович",
+      "predicate": "присутствует",
+      "target_kind": "LITERAL",
+      "target_value": "да",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0049",
+          "paragraph_start": 3130,
+          "paragraph_end": 3132,
+          "quote": "Эдуард Петрович послушно прижался тяжёлым животом к забору, который колыхался, как тростник в бурю.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-7519ed5919aa1b83",
+      "claim_id": "primary-0005-c-0006",
+      "source_entity_id": "ent-2dedc70082320885",
+      "source_name": "Коля",
+      "predicate": "интересуется футболом",
+      "target_kind": "LITERAL",
+      "target_value": "верно",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0005",
+          "paragraph_start": 213,
+          "paragraph_end": 215,
+          "quote": "— А кто играет? — спросил Коля.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-7677c5108703ff86",
+      "claim_id": "primary-0011-c-0003",
+      "source_entity_id": "ent-ba75d4285146d955",
+      "source_name": "худой мужчина",
+      "predicate": "председатель",
+      "target_kind": "LITERAL",
+      "target_value": "районной лиги возвращения к естественной жизни",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0011",
+          "paragraph_start": 514,
+          "paragraph_end": 514,
+          "quote": "Я, как председатель районной лиги возвращения к естественной жизни, полностью на твоей стороне.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-7901673be9a67a26",
+      "claim_id": "primary-0053-c-0006",
+      "source_entity_id": "ent-43232c20de2e621f",
+      "source_name": "Крысс",
+      "predicate": "был упомянут",
+      "target_kind": "LITERAL",
+      "target_value": "как пират",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0053",
+          "paragraph_start": 3430,
+          "paragraph_end": 3432,
+          "quote": "Пират Крысс, который шёл первым, увидел движение Петра Ишутина и обернулся к нему:",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-84cfc91680a1f93e",
+      "claim_id": "primary-0007-c-0001",
+      "source_entity_id": "ent-2dedc70082320885",
+      "source_name": "Коля",
+      "predicate": "отец строитель",
+      "target_kind": "LITERAL",
+      "target_value": "да",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0007",
+          "paragraph_start": 307,
+          "paragraph_end": 309,
+          "quote": "Отец у Коли строитель, поэтому он всегда интересуется строительными материалами и немного в них разбирается.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-8853b58957b337ba",
+      "claim_id": "primary-0005-c-0007",
+      "source_entity_id": "ent-a4c3534d6302348e",
+      "source_name": "Пашка",
+      "predicate": "является ровесником Коли",
+      "target_kind": "LITERAL",
+      "target_value": "верно",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0005",
+          "paragraph_start": 197,
+          "paragraph_end": 199,
+          "quote": "Ровесник Коли, которого можно было бы назвать Пашкой, если бы он не был таким старым, углубился в чтение газеты и обо всём забыл.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-88ab55f2d4966769",
+      "claim_id": "primary-0019-c-0004",
+      "source_entity_id": "ent-2fd7b01dc0a9ec09",
+      "source_name": "Алиса",
+      "predicate": "привезла",
+      "target_kind": "LITERAL",
+      "target_value": "говоруна",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0019",
+          "paragraph_start": 889,
+          "paragraph_end": 891,
+          "quote": "Алиса привезла. Он запоминает все, что при нём говорят. У него исключительная память. Знает восемнадцать космических языков.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-896f913c471c4809",
+      "claim_id": "primary-0049-c-0003",
+      "source_entity_id": "ent-2fd7b01dc0a9ec09",
+      "source_name": "Алиса",
+      "predicate": "присутствует",
+      "target_kind": "LITERAL",
+      "target_value": "да",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0049",
+          "paragraph_start": 3119,
+          "paragraph_end": 3121,
+          "quote": "Алиса сунула Юльке сумку, отбежала на мостовую, примерилась, разбежалась и прыгнула.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-89fc42e597cb22fe",
+      "claim_id": "primary-0061-c-0006",
+      "source_entity_id": "ent-7e995ea7e9ec0e74",
+      "source_name": "Мила Руткевич",
+      "predicate": "будет",
+      "target_kind": "LITERAL",
+      "target_value": "учительницей, директором школы",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0061",
+          "paragraph_start": 3959,
+          "paragraph_end": 3961,
+          "quote": "Мила Руткевич станет учительницей, директором школы.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-8ea51a7097a7c38a",
+      "claim_id": "primary-0061-c-0005",
+      "source_entity_id": "ent-fede73be65d2a99d",
+      "source_name": "Катя Михайлова",
+      "predicate": "выиграет",
+      "target_kind": "LITERAL",
+      "target_value": "Уимблдонский турнир в Англии",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0061",
+          "paragraph_start": 3959,
+          "paragraph_end": 3961,
+          "quote": "Катя Михайлова выиграет Уимблдонский турнир в Англии.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-900054c8c155a482",
+      "claim_id": "primary-0056-c-0007",
+      "source_entity_id": "ent-fede73be65d2a99d",
+      "source_name": "Катя Михайлова",
+      "predicate": "говорит",
+      "target_kind": "ENTITY",
+      "target_entity_id": "ent-2fd7b01dc0a9ec09",
+      "target_name": "Алиса",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0056",
+          "paragraph_start": 3600,
+          "paragraph_end": 3602,
+          "quote": "Алиса права. Если она столько времени эту машину искала, можно и подождать. А Алиса нам нужна. Она как спортсменка может забраться, куда никто из нас не сможет. И она этих пиратов хорошо знает. Их ведь тоже, наверно, не стоит здесь оставлять.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-933ff4f3d9e76063",
+      "claim_id": "primary-0022-c-0007",
+      "source_entity_id": "ent-2dedc70082320885",
+      "source_name": "Коля",
+      "predicate": "побежал",
+      "target_kind": "LITERAL",
+      "target_value": "за ворами",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0022",
+          "paragraph_start": 1058,
+          "paragraph_end": 1060,
+          "quote": "Коля выскочил на опустевшую площадь перед Космозо. Воры уже подбегали к автобусу.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-9e9cb4db6516c422",
+      "claim_id": "primary-0012-c-0004",
+      "source_entity_id": "ent-2dedc70082320885",
+      "source_name": "Коля",
+      "predicate": "видел",
+      "target_kind": "LITERAL",
+      "target_value": "Москву с высоты",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0012",
+          "paragraph_start": 556,
+          "paragraph_end": 558,
+          "quote": "Коля обернулся и посмотрел на Москву. С высоты Москва казалась бесконечной и очень зелёной.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-a1bfa6d6c1a14058",
+      "claim_id": "primary-0056-c-0009",
+      "source_entity_id": "ent-169a1a7674e9bbc9",
+      "source_name": "Фима Королев",
+      "predicate": "говорит",
+      "target_kind": "LITERAL",
+      "target_value": "пиратам свойственна дьявольская хитрость",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0056",
+          "paragraph_start": 3669,
+          "paragraph_end": 3671,
+          "quote": "— А что, — не сдавался Фима, — вполне может быть. Пиратам свойственна дьявольская хитрость.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-a68a28e551f4aa58",
+      "claim_id": "primary-0010-c-0005",
+      "source_entity_id": "ent-8d3fe5fd3a7cc855",
+      "source_name": "столбики",
+      "predicate": "выдают",
+      "target_kind": "LITERAL",
+      "target_value": "разные продукты",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0010",
+          "paragraph_start": 494,
+          "paragraph_end": 496,
+          "quote": "На белом было написано «Мороженое», на жёлтом — «Лимонад», на зелёном — «Яблоки», на синем — «Бутерброды», на коричневом — «Квас».",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-a7d5dd32c3635f5c",
+      "claim_id": "primary-0028-c-0006",
+      "source_entity_id": "ent-43232c20de2e621f",
+      "source_name": "Крысс",
+      "predicate": "был космическим пиратом",
+      "target_kind": "LITERAL",
+      "target_value": "да",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0028",
+          "paragraph_start": 1452,
+          "paragraph_end": 1454,
+          "quote": "Это был сообщник Весельчака У, тоже космический пират, Крысс с планеты Крокрыс.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-adc9147f9ae12d22",
+      "claim_id": "primary-0035-c-0001",
+      "source_entity_id": "ent-2fd7b01dc0a9ec09",
+      "source_name": "Алиса",
+      "predicate": "имя",
+      "target_kind": "LITERAL",
+      "target_value": "Алиса",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0035",
+          "paragraph_start": 1915,
+          "paragraph_end": 1917,
+          "quote": "— Очень приятно. Алиса.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-b261b9563b1771bf",
+      "claim_id": "primary-0023-c-0013",
+      "source_entity_id": "ent-4e04a067ea17a05a",
+      "source_name": "пираты",
+      "predicate": "definition",
+      "target_kind": "ENTITY",
+      "target_entity_id": "ent-2dedc70082320885",
+      "target_name": "Коля",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0023",
+          "paragraph_start": 1072,
+          "paragraph_end": 1072,
+          "quote": "Коля понял, что воров перехитрить не удалось: они разделились — один побежал в восьмой автобус, а другой подстерегает его где-то ещё.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-bd823d441f555be2",
+      "claim_id": "primary-0022-c-0006",
+      "source_entity_id": "ent-2dedc70082320885",
+      "source_name": "Коля",
+      "predicate": "был",
+      "target_kind": "LITERAL",
+      "target_value": "в Космозо",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0022",
+          "paragraph_start": 1058,
+          "paragraph_end": 1060,
+          "quote": "Коля выскочил на опустевшую площадь перед Космозо.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-bdb39d454bf8050a",
+      "claim_id": "primary-0022-c-0004",
+      "source_entity_id": "ent-2dedc70082320885",
+      "source_name": "Коля",
+      "predicate": "вырезал",
+      "target_kind": "LITERAL",
+      "target_value": "на спинке большими печатными буквами",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0022",
+          "paragraph_start": 1049,
+          "paragraph_end": 1051,
+          "quote": "Коля вырезал на спинке большими печатными буквами:",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-bf82bbf7c671377f",
+      "claim_id": "primary-0017-c-0001",
+      "source_entity_id": "ent-2dedc70082320885",
+      "source_name": "Коля",
+      "predicate": "встретился с",
+      "target_kind": "ENTITY",
+      "target_entity_id": "ent-43232c20de2e621f",
+      "target_name": "Крысс",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0017",
+          "paragraph_start": 793,
+          "paragraph_end": 793,
+          "quote": "Коля, попав в будущее на один день, встретился именно с Весельчаком У и Крыссом, хотя, конечно, и не подозревал, что у них такая бурная биография.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-c73e3fb32e7ffef3",
+      "claim_id": "primary-0033-c-0007",
+      "source_entity_id": "ent-67f5755df97474a0",
+      "source_name": "Наташа",
+      "predicate": "принесла",
+      "target_kind": "LITERAL",
+      "target_value": "записку Алисе",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0033",
+          "paragraph_start": 1791,
+          "paragraph_end": 1793,
+          "quote": "Алиса достала Юлькину записку, которую принесла Наташа, и перечитала её, чтобы запомнить телефон и адрес.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-cba2889ae4c60368",
+      "claim_id": "primary-0051-c-0001",
+      "source_entity_id": "ent-2fd7b01dc0a9ec09",
+      "source_name": "Алиса",
+      "predicate": "имеет знания",
+      "target_kind": "LITERAL",
+      "target_value": "ненормальные",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0051",
+          "paragraph_start": 3261,
+          "paragraph_end": 3263,
+          "quote": "Она совершенно ненормально все знает.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-ce74ccca556c23d9",
+      "claim_id": "primary-0028-c-0001",
+      "source_entity_id": "ent-69210c491d96c8e0",
+      "source_name": "Юлька",
+      "predicate": "была на кровати",
+      "target_kind": "LITERAL",
+      "target_value": "да",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0028",
+          "paragraph_start": 1415,
+          "paragraph_end": 1415,
+          "quote": "Юлька которая тоже стояла на кровати, посмотрела вниз и сразу поняла, в чём дело:",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-d72b5ee7ee98bdd8",
+      "claim_id": "primary-0020-c-0005",
+      "source_entity_id": "ent-2fd7b01dc0a9ec09",
+      "source_name": "Алиса",
+      "predicate": "читает",
+      "target_kind": "LITERAL",
+      "target_value": "все книжки, которые отец ей оставил",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0020",
+          "paragraph_start": 951,
+          "paragraph_end": 953,
+          "quote": "— Если там маму увидишь, скажи, что я прочитала все книжки, которые она мне оставила.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-dc04effb688d414a",
+      "claim_id": "primary-0042-c-0003",
+      "source_entity_id": "ent-df1a07cb5ad221be",
+      "source_name": "Фима",
+      "predicate": "съел все котлеты",
+      "target_kind": "LITERAL",
+      "target_value": "Фима съел все котлеты, оставленные Колей.",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0042",
+          "paragraph_start": 2500,
+          "paragraph_end": 2502,
+          "quote": "Пока Коля рассказывал о своём путешествии в будущее, Фима незаметно съел все котлеты — и те, что были оставлены Коле, и те, что мать поджарила себе с отцом.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-dda7551e0fe93f8f",
+      "claim_id": "primary-0034-c-0009",
+      "source_entity_id": "ent-43232c20de2e621f",
+      "source_name": "Крысс",
+      "predicate": "был врагом Алисы",
+      "target_kind": "LITERAL",
+      "target_value": "да",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0034",
+          "paragraph_start": 1834,
+          "paragraph_end": 1836,
+          "quote": "Он улыбался улыбкой Крысса и, подняв костыль, прицелился в Алису.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-e1bb854570b874d1",
+      "claim_id": "primary-0053-c-0004",
+      "source_entity_id": "ent-66c40f8679402c10",
+      "source_name": "тренерша",
+      "predicate": "намеревалась",
+      "target_kind": "LITERAL",
+      "target_value": "вернуться в школу",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0053",
+          "paragraph_start": 3397,
+          "paragraph_end": 3399,
+          "quote": "Я вернусь в школу и все узнаю у Эдуарда Петровича.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-e4fd275c973d829a",
+      "claim_id": "primary-0020-c-0014",
+      "source_entity_id": "ent-a7674579154cdf88",
+      "source_name": "миелофон",
+      "predicate": "definition",
+      "target_kind": "LITERAL",
+      "target_value": "На всей Земле есть только двадцать миелофонов. Они распределены между крупнейшими институтами и медицинскими центрами. Кристалл в центре миелофона настолько редок, что за последние годы восемь экспедиций обшарили астероид Власту и нашли только двадцать шесть…",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0020",
+          "paragraph_start": 960,
+          "paragraph_end": 962,
+          "quote": "— А разве я играю? — Алиса, пойми меня правильно. На всей Земле есть только двадцать миелофонов. Они распределены между крупнейшими институтами и медицинскими центрами. Кристалл в центре миелофона настолько редок, что за последние годы восемь экспедиций обшарили астероид Власту и нашли только двадцать шесть…",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-ec45f14213435905",
+      "claim_id": "primary-0015-c-0003",
+      "source_entity_id": "ent-5c7be62f6d684a26",
+      "source_name": "вахтенный",
+      "predicate": "отпустил",
+      "target_kind": "LITERAL",
+      "target_value": "людей",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0015",
+          "paragraph_start": 711,
+          "paragraph_end": 713,
+          "quote": "— Отпустите людей, — сказал он.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-ed00ca249fcaf738",
+      "claim_id": "primary-0048-c-0005",
+      "source_entity_id": "ent-50afa937a3f40019",
+      "source_name": "Эдуард Петрович",
+      "predicate": "имеет имя",
+      "target_kind": "LITERAL",
+      "target_value": "Эдуард Петрович",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0048",
+          "paragraph_start": 3091,
+          "paragraph_end": 3093,
+          "quote": "— Мы не хотели вас пугать, — сказал Эдуард.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-f2c2f832f86f614c",
+      "claim_id": "primary-0039-c-0005",
+      "source_entity_id": "ent-169a1a7674e9bbc9",
+      "source_name": "Фима Королев",
+      "predicate": "раздевается",
+      "target_kind": "LITERAL",
+      "target_value": "для игры в волейбол",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0039",
+          "paragraph_start": 2294,
+          "paragraph_end": 2296,
+          "quote": "Фима Королев, который уже разделся, чтобы играть,",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-f323f066af27de7b",
+      "claim_id": "primary-0061-c-0001",
+      "source_entity_id": "ent-169a1a7674e9bbc9",
+      "source_name": "Фима Королев",
+      "predicate": "будет",
+      "target_kind": "LITERAL",
+      "target_value": "инженером",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0061",
+          "paragraph_start": 3957,
+          "paragraph_end": 3957,
+          "quote": "Фима Королев станет инженером.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-f6bde3218d59a21e",
+      "claim_id": "primary-0058-c-0005",
+      "source_entity_id": "ent-2dedc70082320885",
+      "source_name": "Коля",
+      "predicate": "говорил",
+      "target_kind": "LITERAL",
+      "target_value": "скрытность ещё никогда не доводила до добра",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0058",
+          "paragraph_start": 3830,
+          "paragraph_end": 3832,
+          "quote": "— Скрытность ещё никогда не доводила до добра. Мой дедушка, когда собирался охотиться на Наполеонов, всегда брал с собой ведро с керосином. Он брызгал керосином Наполеону на хвост, и тот тут же сдавался в плен. Но однажды он решил полить керосином тигра..",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-f7cdfe7d6008f2cb",
+      "claim_id": "primary-0017-c-0002",
+      "source_entity_id": "ent-b8a49af58852465a",
+      "source_name": "Весельчак У",
+      "predicate": "использовал",
+      "target_kind": "LITERAL",
+      "target_value": "валапасского ужа",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0017",
+          "paragraph_start": 796,
+          "paragraph_end": 798,
+          "quote": "Все вокруг были заняты своими делами. Пираты немного отдышались — ведь всего две минуты назад они думали, что их песенка спета, — потом Крысс достал из кармана небольшую палочку. Стоило нажать на её конец, как из палочки вытянулась длинная, метров в тридцать, почти невидимая проволочка с коготками на хвосте. На самом деле это была не проволока, а валапасский уж — странное создание, обитающее в кустах одной безымянной планеты.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-fac1bf3a663cac39",
+      "claim_id": "primary-0061-c-0004",
+      "source_entity_id": "ent-5ab956fb297cec66",
+      "source_name": "Юлька Грибкова",
+      "predicate": "будет",
+      "target_kind": "LITERAL",
+      "target_value": "детским врачом",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0061",
+          "paragraph_start": 3959,
+          "paragraph_end": 3961,
+          "quote": "Юлька будет детским врачом.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-fecf68297d86e879",
+      "claim_id": "primary-0005-c-0008",
+      "source_entity_id": "ent-34d96c3ecb087a17",
+      "source_name": "профессор Рррр",
+      "predicate": "является космическим археологом",
+      "target_kind": "LITERAL",
+      "target_value": "верно",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0005",
+          "paragraph_start": 206,
+          "paragraph_end": 208,
+          "quote": "— Тогда разрешите представиться: я известный космический археолог, специалист по вымершим языкам профессор Рррр.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "relation_id": "rel-ffeb12f15ca2eb2e",
+      "claim_id": "primary-0022-c-0002",
+      "source_entity_id": "ent-2dedc70082320885",
+      "source_name": "Коля",
+      "predicate": "вспомнил",
+      "target_kind": "ENTITY",
+      "target_entity_id": "ent-67c6695534aea54f",
+      "target_name": "Лев",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0022",
+          "paragraph_start": 1047,
+          "paragraph_end": 1047,
+          "quote": "Коля вспомнил, что сегодня по телевизору показывают «Кабачок „Тринадцать стульев“», и подумал, что хорошо бы успеть к началу.",
           "quote_verified": true
         }
       ]

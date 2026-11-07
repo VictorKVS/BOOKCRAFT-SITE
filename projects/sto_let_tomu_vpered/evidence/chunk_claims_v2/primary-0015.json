@@ -1,0 +1,288 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0015",
+    "start_paragraph": 688,
+    "end_paragraph": 756,
+    "mentions": [
+      {
+        "mention_id": "primary-0015-m-0001",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0015-c-0001",
+            "predicate": "прятался",
+            "value": "между контейнерами",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0015",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Коля увидел, что его соседи отчаянно бьются, пытаясь стряхнуть роботов, но те крепко вцепились в них и тянут на открытое место.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0015-m-0002",
+        "surface": "зайцы",
+        "entity_type": "SPECIES",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0015-c-0002",
+            "predicate": "вес",
+            "value": "сто девяносто три килограмма шестьсот восемьдесят два грамма",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0015",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "— Вес моего человека сто пятьдесят килограммов ровно. — Сумма веса сто девяносто три килограмма шестьсот восемьдесят два грамма ровно.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0015-m-0003",
+        "surface": "вахтенный",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0015-c-0003",
+            "predicate": "отпустил",
+            "value": "людей",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0015",
+                "paragraph_start": 711,
+                "paragraph_end": 713,
+                "quote": "— Отпустите людей, — сказал он.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на то, что вахтенный отпустил людей.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата представляет словесное выражение персонажа.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно соответствует тексту и контексту, указывая на то, что вахтенный отпустил людей.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "вахтенный",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0015-m-0004",
+        "surface": "толстяк",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0015-c-0004",
+            "predicate": "прятался",
+            "value": "между контейнерами",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0015",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Коля увидел, что его соседи отчаянно бьются, пытаясь стряхнуть роботов, но те крепко вцепились в них и тянут на открытое место.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0015-m-0005",
+        "surface": "худенький",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0015-c-0005",
+            "predicate": "прятался",
+            "value": "между контейнерами",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0015",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Коля увидел, что его соседи отчаянно бьются, пытаясь стряхнуть роботов, но те крепко вцепились в них и тянут на открытое место.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0015-e-0001",
+        "event": "проникновение на корабль",
+        "participants": [
+          "{'character': 'толстяк', 'role': 'проникновение'}",
+          "{'character': 'худенький', 'role': 'проникновение'}"
+        ],
+        "location": "грузовой склад",
+        "claims": [
+          {
+            "claim_id": "primary-0015-c-0006",
+            "predicate": "проникновение",
+            "value": "грузовой склад",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0015",
+                "paragraph_start": 689,
+                "paragraph_end": 691,
+                "quote": "Совсем рядом с Колей в темноте зашевелились его соседи. Они шептались на каком-то непонятном языке, который состоял из одних согласных.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает проникновение на грузовой склад.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0015-e-0002",
+        "event": "проверка веса",
+        "participants": [
+          "{'character': 'вахтенный', 'role': 'проведение'}"
+        ],
+        "location": "грузовой склад",
+        "claims": [
+          {
+            "claim_id": "primary-0015-c-0007",
+            "predicate": "проведена проверка веса",
+            "value": "людей",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0015",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Один голос сказал: — Вес моего человека сорок три килограмма шестьсот восемьдесят два грамма. Второй голос сказал: — Вес моего человека сто пятьдесят килограммов ровно. Третий голос сказал: — Сумма веса сто девяносто три килограмма шестьсот восемьдесят два грамма ровно.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0015-t-0001",
+        "term": "заяц",
+        "category": "SPECIES",
+        "definition_claim": {
+          "claim_id": "primary-0015-c-0008",
+          "predicate": "definition",
+          "value": "люди, спрятавшиеся в вазе",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+          "evidence": [
+            {
+              "chunk_id": "primary-0015",
+              "paragraph_start": 741,
+              "paragraph_end": 743,
+              "quote": "— Странная история, капитан, — ответил вахтенный. — Видите, как спешат через поле два человека?",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "NOT_SUPPORTED",
+            "reason": "Цитата не содержит информации о заяцах или их определении.",
+            "model": "qwen2.5:7b"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Кто такие 'зайцы'?",
+        "reason": "Термин 'зайцы' не имеет четкого определения в тексте, но используется для обозначения людей, спрятавшихся в вазе."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 8,
+    "source_supported": 3,
+    "source_unsupported": 5,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 5,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 69,
+    "supported_entailed": 22,
+    "partial_review": 9,
+    "rejected": 38,
+    "schema_fixes": 0
+  }
+}

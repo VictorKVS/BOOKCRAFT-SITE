@@ -1,0 +1,276 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0018",
+    "start_paragraph": 826,
+    "end_paragraph": 884,
+    "mentions": [
+      {
+        "mention_id": "primary-0018-m-0001",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0018-c-0001",
+            "predicate": "является",
+            "value": "человеком",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0018",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Я из Конотопа, — сказал Коля. — Я здесь не был.\"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0018-c-0002",
+            "predicate": "встречается с",
+            "value": "Электроном Степановичем",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0018",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Я думал, что ты приехал мороженое со мной есть, — сказал Электрон Степанович.\"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0018-c-0003",
+            "predicate": "встречается с",
+            "value": "Алисой",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0018",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Алиса. Она старый Бронтин друг. Они познакомились, когда Бронтя был ещё маленьким.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0018-m-0002",
+        "surface": "Электрон Степанович",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0018-c-0004",
+            "predicate": "является",
+            "value": "врагом современной техники",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0018",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Первый раз вижу, чтобы пузырь использовали как спальню!\"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0018-c-0005",
+            "predicate": "является",
+            "value": "мастером по новой технике в Космическом зоопарке",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0018",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Я думал, что ты приехал мороженое со мной есть, — сказал Электрон Степанович.\"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0018-c-0006",
+            "predicate": "предлагает",
+            "value": "погулять с Коля",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0018",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Нет, не простишь, — согласился Электрон. — Вообще-то говоря, я собирался домой пойти, но раз такое дело, погуляем вместе.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0018-m-0003",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0018-c-0007",
+            "predicate": "является",
+            "value": "девочкой",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0018",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Это Алиса. Она старый Бронтин друг. Они познакомились, когда Бронтя был ещё маленьким.\"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0018-c-0008",
+            "predicate": "является",
+            "value": "космобиологом",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0018",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"А она в космос летала? — спросил Коля. — Да. И не раз. Она уже более-менее известный космобиолог.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0018-e-0001",
+        "event": "встреча Коля и Электрон Степанович",
+        "participants": [
+          "Коля",
+          "Электрон Степанович"
+        ],
+        "location": "Космический зоопарк",
+        "claims": [
+          {
+            "claim_id": "primary-0018-c-0009",
+            "predicate": "встреча происходит",
+            "value": "в Космическом зоопарке",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0018",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Я думал, что ты приехал мороженое со мной есть, — сказал Электрон Степанович.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0018-e-0002",
+        "event": "встреча Коля и Алиса",
+        "participants": [
+          "Коля",
+          "Алиса"
+        ],
+        "location": "Космический зоопарк",
+        "claims": [
+          {
+            "claim_id": "primary-0018-c-0010",
+            "predicate": "встреча происходит",
+            "value": "в Космическом зоопарке",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0018",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Алиса. Она старый Бронтин друг. Они познакомились, когда Бронтя был ещё маленьким.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0018-t-0001",
+        "term": "Космический зоопарк",
+        "category": "LOCATION",
+        "definition_claim": {
+          "claim_id": "primary-0018-c-0011",
+          "predicate": "definition",
+          "value": "Зоопарк, где содержат разные виды животных, включая динозавров и птиц, которые могут жить в вакууме.",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "UNSUPPORTED",
+          "evidence": [
+            {
+              "chunk_id": "primary-0018",
+              "paragraph_start": null,
+              "paragraph_end": null,
+              "quote": "\"Вход был сделан так не случайно. Точно такую же пещеру нашли как-то в открытом космосе пилоты корабля «Стожары». Пещера неслась между звёзд, и в ней, словно разноцветные светлячки, резвились самые маленькие из известных по Вселенной птиц — по полсантиметра длиной, включая хвост, но удивительных расцветок, причём нельзя отыскать ни одной птицы, похожей на другую. Пещеру как есть отбуксировали на Землю и поместили в Космозо. А раз птицы могли жить только в вакууме, то внутри пещеры проложили прозрачный туннель для посетителей.\"",
+              "quote_verified": false
+            }
+          ]
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Кто такие ребята на Гоголевском бульваре?",
+        "reason": "Текст не предоставляет информации о ребятах на Гоголевском бульваре."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 11,
+    "source_supported": 0,
+    "source_unsupported": 11,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 3,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 74,
+    "supported_entailed": 27,
+    "partial_review": 9,
+    "rejected": 38,
+    "schema_fixes": 0
+  }
+}

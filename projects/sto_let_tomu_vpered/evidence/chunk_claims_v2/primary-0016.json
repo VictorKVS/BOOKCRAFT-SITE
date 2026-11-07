@@ -1,0 +1,335 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0016",
+    "start_paragraph": 757,
+    "end_paragraph": 792,
+    "mentions": [
+      {
+        "mention_id": "primary-0016-m-0001",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0016-c-0001",
+            "predicate": "является",
+            "value": "историком",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0016",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Я историк и очень рассеянный. Я приехал из Костромы.\"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0016-c-0002",
+            "predicate": "приехал из",
+            "value": "Конотопа",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0016",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Я приехал из вашего родного города Конотопа, чтобы встретить вас.\"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0016-c-0003",
+            "predicate": "приехал из",
+            "value": "Костромы",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0016",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Я приехал из Костромы.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0016-m-0002",
+        "surface": "Милену Митину",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0016-c-0004",
+            "predicate": "родилась в",
+            "value": "Костроме",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0016",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Я родилась в Костроме.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0016-m-0003",
+        "surface": "Весельчак У",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0016-c-0005",
+            "predicate": "был",
+            "value": "толстым",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0016",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Он был толст, словно сложен из жировых шаров.\"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0016-c-0006",
+            "predicate": "был",
+            "value": "хитрым",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0016",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Весельчак У считал себя великим хитрецом.\"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0016-c-0007",
+            "predicate": "продал",
+            "value": "маму в рабство",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0016",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Но оказалось, что мама к тому времени сама выкупила себя из рабства, стала королевой княжества Муравьиного Холма и встретила любимого сына так, что он и его корабль еле ноги унесли.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0016-m-0004",
+        "surface": "Крысс",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0016-c-0008",
+            "predicate": "был",
+            "value": "холодным и жестоким",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0016",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Крыссу надоело бегать по подземельям, и он ушёл в пираты. Из него получился самый холодный и жестокий негодяй в Галактике.\"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0016-c-0009",
+            "predicate": "изображал",
+            "value": "маленького, худенького, печального человека",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0016",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Чаще всего он любит изображать из себя маленького, худенького, печального человека.\"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0016-c-0010",
+            "predicate": "был",
+            "value": "некрупным насекомым",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0016",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Крыссу надоело бегать по подземельям, и он ушёл в пираты. Из него получился самый холодный и жестокий негодяй в Галактике.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0016-e-0001",
+        "event": "Коля приехал в город",
+        "participants": [
+          "Коля"
+        ],
+        "location": "не указано",
+        "claims": [
+          {
+            "claim_id": "primary-0016-c-0011",
+            "predicate": "видел",
+            "value": "разные вещи",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0016",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Коля шёл и ехал по улицам, видел разные вещи, встречался с людьми и тут же расставался с ними.\"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0016-c-0012",
+            "predicate": "не понял",
+            "value": "людей",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0016",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Путешественникам пришлось пережить много приключений и столкнуться с одной неприятной компанией — космическими пиратами. Да и что в этом удивительного? Раньше, когда корабли были парусными, по морям и океанам плавали морские пираты. Со временем на Земле появились телефоны, радио, быстроходные корабли и самолёты, пиратам стало негде скрываться, спасаться от погони, и на Земле они перевелись. Другое дело в космосе. Галактику можно сравнить с океаном, только она в миллионы раз больше. Как острова, по ней разбросаны планеты, как архипелаги — созвездия. А всё остальное — пустыня, по которой плывут космические корабли.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0016-e-0002",
+        "event": "Коля встретил Весельчака У и Крысса",
+        "participants": [
+          "Коля",
+          "Весельчак У",
+          "Крысс"
+        ],
+        "location": "на корабле",
+        "claims": [
+          {
+            "claim_id": "primary-0016-c-0013",
+            "predicate": "не узнал",
+            "value": "Весельчака У и Крысса",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0016",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Когда почти всех пиратов переловили, эти два бандита объединили усилия, хотя прежде враждовали. С тех пор вот уже пять лет они вместе шастают по Галактике. Им приходится таиться. Ещё недавно у них был свой корабль и несколько подручных, но, когда экспедиция на «Пегасе» с помощью трех капитанов победила их, пираты совсем оскудели. От правосудия им удалось сбежать, но пришлось два года прятаться по дальним планетам. С отчаяния они бросились за поддержкой к маме Весельчака У, но той не нужен был сын-неудачник, и она их выгнала.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0016-t-0001",
+        "term": "космические пираты",
+        "category": "SPECIES",
+        "definition_claim": {
+          "claim_id": "primary-0016-c-0014",
+          "predicate": "definition",
+          "value": "Космические пираты — это хитрые и жестокие разбойники, которые пользуются Галактикой, как океаном, для своих целей. Они ищут деньги, драгоценности, роскошь и развлечения, а также власть над миром.",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "UNSUPPORTED",
+          "evidence": [
+            {
+              "chunk_id": "primary-0016",
+              "paragraph_start": null,
+              "paragraph_end": null,
+              "quote": "\"Когда почти всех пиратов переловили, эти два бандита объединили усилия, хотя прежде враждовали. С тех пор вот уже пять лет они вместе шастают по Галактике. Им приходится таиться. Ещё недавно у них был свой корабль и несколько подручных, но, когда экспедиция на «Пегасе» с помощью трех капитанов победила их, пираты совсем оскудели. От правосудия им удалось сбежать, но пришлось два года прятаться по дальним планетам. С отчаяния они бросились за поддержкой к маме Весельчака У, но той не нужен был сын-неудачник, и она их выгнала.\"",
+              "quote_verified": false
+            }
+          ]
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Какие трудности и сложности ждали Коля в будущем?",
+        "reason": "Текст упоминает, что Коля не увидел трудностей и сложностей в жизни будущих людей, но не описывает их."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 14,
+    "source_supported": 0,
+    "source_unsupported": 14,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 4,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 69,
+    "supported_entailed": 22,
+    "partial_review": 9,
+    "rejected": 38,
+    "schema_fixes": 0
+  }
+}

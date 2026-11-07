@@ -1,0 +1,344 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0024",
+    "start_paragraph": 1104,
+    "end_paragraph": 1156,
+    "mentions": [
+      {
+        "mention_id": "primary-0024-m-0001",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0024-c-0001",
+            "predicate": "пробрался внутрь",
+            "value": "пираты",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0024",
+                "paragraph_start": 1104,
+                "paragraph_end": 1106,
+                "quote": "Коля не понимал пиратского языка и, затаившись, следил, что они будут делать. А пираты решили, что Коля как-то пробрался внутрь.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата показывает, что пираты решили, что Коля пробрался внутрь, но не подтверждает, что он действительно это сделал.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0024-c-0002",
+            "predicate": "карабкается",
+            "value": "бандиты",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0024",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "И тогда случилось совершенное чудо: ноги нашли какую-то выпуклость на стене, руки, словно стальные, подтянули тело наверх, и Коля тут же перевалился через подоконник внутрь. Бандит, правда, успел вцепиться в ногу и тянул к себе, Коля брыкнулся, и так сильно, что ботинок остался в руке бандита, а сам Коля свалился на пол в комнате.",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0024-c-0003",
+            "predicate": "нажал на кнопку",
+            "value": "начальная станция",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0024",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Коля нажал на кнопку «Начальная станция» и перевёл рычажок на «Пуск».",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0024-m-0002",
+        "surface": "Алик Борисович",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0024-c-0004",
+            "predicate": "пришёл в палату",
+            "value": "после обеда",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0024",
+                "paragraph_start": 1137,
+                "paragraph_end": 1139,
+                "quote": "Молодой, но толстый и усатый Алик Борисович, дежурный врач, был самым весёлым человеком в больнице. Можно подумать, что люди попадают сюда для собственного удовольствия. Ну, и, конечно, для того, чтобы послушать, как Алик выловил щуку на Дону или как он подражает соловью. В тот день он пришёл в палату после обеда и сказал притворно-грустным голосом:",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает, что Алик Борисович пришёл в палату после обеда.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает, что Алик Борисович пришёл в палату после обеда",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата явно указывает, что Алик Борисович пришёл в палату после обеда.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Алик Борисович",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0024-m-0003",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0024-c-0005",
+            "predicate": "перебегала улицу",
+            "value": "троллейбус",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0024",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Алиса, фамилии которой никто не знал, промолчала, словно её эти слова не касались. — Как твой бывший аппендицит? — спросил Алик Борисович. — Утром немножко болело, — сказала Юля. — Я же обещал, что через неделю забудешь. Юля хотела ему ответить, что, наверно, ему-то самому никогда не вырезали аппендицит и он не знает, что это такое, но спорить не стала. — А как наши дела, Алиса батьковна? — спросил Алик. — Хорошо. — Что-нибудь новенькое нам расскажешь? — Нет. — Юля смотрела на Алису и жалела её. Бывает же, не повезёт человеку. Несколько дней назад Алиса перебегала улицу и натолкнулась на троллейбус. Ушибла себе голову, получилось сотрясение мозга.",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0024-c-0006",
+            "predicate": "забыла",
+            "value": "свою фамилию, где она живёт, где учится, даже забыла, кто её родители",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "BLOCKED_BY_NARRATIVE_MODE",
+            "evidence": [
+              {
+                "chunk_id": "primary-0024",
+                "paragraph_start": 1150,
+                "paragraph_end": 1152,
+                "quote": "Алик Борисович сказал, что эта болезнь называется «амнезия», чаще всего она проходит. Но представляете себе, забыть, как твоя фамилия, где ты живёшь, где учишься, даже забыть, кто твои родители!",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата точно описывает, что Алиса забыла свою фамилию, где она живет, где учится и даже забыла, кто её родители, что соответствует claim.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": false,
+              "reason": "Цитата содержит слова рассказчика о том, что персонаж Алиса забыла важные детали своей жизни, но сама цитата является репликой другого персонажа.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0024-e-0001",
+        "event": "пираты проникли в Институт времени",
+        "participants": [
+          "{'name': 'пираты', 'role': 'invaders'}",
+          "{'name': 'Коля', 'role': 'observer'}"
+        ],
+        "location": "Институт времени",
+        "claims": [
+          {
+            "claim_id": "primary-0024-c-0007",
+            "predicate": "проникли",
+            "value": "пираты",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0024",
+                "paragraph_start": 1104,
+                "paragraph_end": 1106,
+                "quote": "Коля не понимал пиратского языка и, затаившись, следил, что они будут делать. А пираты решили, что Коля как-то пробрался внутрь.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата говорит о том, что пираты решили, что Коля пробрался внутрь, но не подтверждает, что пираты действительно проникли в Институт времени.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0024-e-0002",
+        "event": "Коля попытался убежать из больницы",
+        "participants": [
+          "{'name': 'Коля', 'role': 'escapee'}",
+          "{'name': 'Юля', 'role': 'witness'}"
+        ],
+        "location": "больница",
+        "claims": [
+          {
+            "claim_id": "primary-0024-c-0008",
+            "predicate": "попытался убежать",
+            "value": "Коля",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0024",
+                "paragraph_start": 1154,
+                "paragraph_end": 1156,
+                "quote": "В больничной пижаме, когда все утихло, она тихонько поднялась с кровати и пошла к двери. В палате они с Юлей были вдвоём — третью девочку позавчера выписали. Юля ещё не спала. Она спросила: — Ты куда, Алиса? — Сейчас вернусь.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата описывает действия Алисы, а не Коли.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0024-t-0001",
+        "term": "амнезия",
+        "category": "SCIENCE",
+        "definition_claim": {
+          "claim_id": "primary-0024-c-0009",
+          "predicate": "definition",
+          "value": "болезнь, при которой человек забывает свою фамилию, место жительства, место учебы, забывает, кто его родители",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "CANON_ACCEPTED",
+          "evidence": [
+            {
+              "chunk_id": "primary-0024",
+              "paragraph_start": 1150,
+              "paragraph_end": 1152,
+              "quote": "Алик Борисович сказал, что эта болезнь называется «амнезия», чаще всего она проходит. Но представляете себе, забыть, как твоя фамилия, где ты живёшь, где учишься, даже забыть, кто твои родители!",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "SUPPORTED",
+            "reason": "Цитата точно описывает симптомы амнезии, упоминая забывание фамилии, места жительства, места учебы и родителей, что соответствует определению.",
+            "model": "qwen2.5:7b"
+          },
+          "narrative_mode": {
+            "mode": "CHARACTER_SPEECH",
+            "canon_eligible": true,
+            "reason": "Цитата является прямой речью персонажа, который объясняет определение амнезии.",
+            "model": "qwen2.5:7b"
+          },
+          "precision_gate": {
+            "verdict": "FINAL_CANON_CANDIDATE",
+            "reason": "Цитата точно описывает симптомы амнезии, упоминая забывание фамилии, места жительства, места учебы и родителей, что соответствует определению.",
+            "error_type": "NONE",
+            "model": "qwen2.5:7b"
+          },
+          "deterministic_safety": {
+            "verdict": "PASS",
+            "error_type": "NONE",
+            "reason": "Детерминированных блокирующих признаков не найдено."
+          },
+          "canon_admission": {
+            "stage": "MVP-14B2.5",
+            "verdict": "ACCEPT",
+            "reason": "ALL_ADMISSION_CHECKS_PASSED",
+            "checks": [
+              "evidence_verified",
+              "deterministic_safety_pass",
+              "entailment_supported",
+              "precision_final",
+              "narrative_canon_eligible",
+              "claim_complete"
+            ],
+            "scope": "term",
+            "subject": "амнезия",
+            "truth_scope": "WORLD_STATE"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Что произошло с Алисой после исчезновения?",
+        "reason": "Текст не предоставляет информации о дальнейшей судьбе Алисы после исчезновения."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 9,
+    "source_supported": 6,
+    "source_unsupported": 3,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 3,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 125,
+    "supported_entailed": 57,
+    "partial_review": 11,
+    "rejected": 57,
+    "schema_fixes": 0
+  }
+}

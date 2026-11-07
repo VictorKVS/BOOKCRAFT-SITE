@@ -1,0 +1,382 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0028",
+    "start_paragraph": 1415,
+    "end_paragraph": 1477,
+    "mentions": [
+      {
+        "mention_id": "primary-0028-m-0001",
+        "surface": "Юлька",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0028-c-0001",
+            "predicate": "была на кровати",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0028",
+                "paragraph_start": 1415,
+                "paragraph_end": 1415,
+                "quote": "Юлька которая тоже стояла на кровати, посмотрела вниз и сразу поняла, в чём дело:",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Юлька стояла на кровати.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает о том, что Юлька стояла на кровати",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст подтверждают, что Юлька стояла на кровати.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Юлька",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0028-m-0002",
+        "surface": "Алик Борисович",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0028-c-0002",
+            "predicate": "был в больнице",
+            "value": "нет",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0028",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Мария Павловна его узнала. Александр Борисович сидит дома и пьёт чай. Он надо мной... смеялся!",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0028-m-0003",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0028-c-0003",
+            "predicate": "была в будущем",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0028",
+                "paragraph_start": 1467,
+                "paragraph_end": 1469,
+                "quote": "Я из будущего. Из двадцать первого века.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо говорит, что Алиса пришла из будущего.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата содержит прямые слова персонажа Алисы.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата прямо говорит, что Алиса пришла из будущего.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Алиса",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0028-m-0004",
+        "surface": "Мария Павловна",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0028-c-0004",
+            "predicate": "была сестрой",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0028",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Мария Павловна её узнала. Александр Борисович сидит дома и пьёт чай. Он надо мной... смеялся!",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0028-m-0005",
+        "surface": "Алик",
+        "entity_type": "CHARACTER",
+        "aliases": [
+          "Алик Борисович"
+        ],
+        "claims": [
+          {
+            "claim_id": "primary-0028-c-0005",
+            "predicate": "был с Шурочкой",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0028",
+                "paragraph_start": 1452,
+                "paragraph_end": 1454,
+                "quote": "Это был никакой не Алик Борисович. Я сначала не догадалась. Это был сообщник Весельчака У, тоже космический пират, Крысс с планеты Крокрыс.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает Алика или его взаимодействие с Шурочкой.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0028-m-0006",
+        "surface": "Крысс",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0028-c-0006",
+            "predicate": "был космическим пиратом",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0028",
+                "paragraph_start": 1452,
+                "paragraph_end": 1454,
+                "quote": "Это был сообщник Весельчака У, тоже космический пират, Крысс с планеты Крокрыс.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает, что Крысс был космическим пиратом.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает факт о персонаже Крысс",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата прямо указывает, что Крысс был космическим пиратом.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Крысс",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0028-e-0001",
+        "event": "Алик Борисович был в кино",
+        "participants": [
+          "Алик Борисович"
+        ],
+        "location": "не указано",
+        "claims": [
+          {
+            "claim_id": "primary-0028-c-0007",
+            "predicate": "был в кино",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0028",
+                "paragraph_start": 1425,
+                "paragraph_end": 1427,
+                "quote": "Алик Борисович завопил: «Тррпррф!» — и убежал вслед за толстяком.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает, что Алик Борисович был в кино.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0028-e-0002",
+        "event": "Алик Борисович был дома",
+        "participants": [
+          "Алик Борисович"
+        ],
+        "location": "не указано",
+        "claims": [
+          {
+            "claim_id": "primary-0028-c-0008",
+            "predicate": "был дома",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0028",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Мария Павловна его узнала. Александр Борисович сидит дома и пьёт чай. Он надо мной... смеялся!",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0028-t-0001",
+        "term": "космический пират",
+        "category": "SPECIES",
+        "definition_claim": {
+          "claim_id": "primary-0028-c-0009",
+          "predicate": "definition",
+          "value": "Космический пират — это персонаж, который путешествует по космосу и совершает незаконные действия.",
+          "provenance": "DERIVED",
+          "confidence": "PROBABLE",
+          "acceptance": "DERIVED_REVIEW",
+          "evidence": []
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Кто был на самом деле толстяк?",
+        "reason": "Текст не уточняет, кто был на самом деле толстяк, который ухватил Алису."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 9,
+    "source_supported": 5,
+    "source_unsupported": 3,
+    "derived": 1,
+    "hypotheses": 0,
+    "mentions": 6,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 141,
+    "supported_entailed": 64,
+    "partial_review": 12,
+    "rejected": 65,
+    "schema_fixes": 0
+  }
+}

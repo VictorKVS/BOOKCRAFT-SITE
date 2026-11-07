@@ -1,0 +1,359 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0060",
+    "start_paragraph": 3893,
+    "end_paragraph": 3956,
+    "mentions": [
+      {
+        "mention_id": "primary-0060-m-0001",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [
+          "Коля Сулима",
+          "Коля Наумов",
+          "Коля Садовский"
+        ],
+        "claims": [
+          {
+            "claim_id": "primary-0060-c-0001",
+            "predicate": "был",
+            "value": "плохим спортсменом",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0060",
+                "paragraph_start": 3907,
+                "paragraph_end": 3909,
+                "quote": "Коля ударился о него, пистолет дёрнулся, и выстрел пришёлся в потолок.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о спортивных способностях Коля.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0060-c-0002",
+            "predicate": "стал",
+            "value": "знаменитым писателем, сказочником",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0060",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "А вот Коля Садовский станет знаменитым писателем, сказочником, он будет писать удивительные фантастические сказки.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0060-m-0002",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0060-c-0003",
+            "predicate": "была",
+            "value": "героем",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0060",
+                "paragraph_start": 3894,
+                "paragraph_end": 3896,
+                "quote": "ты у нас герой… ты…",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата подтверждает, что Алиса была героем.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_BELIEF",
+              "canon_eligible": true,
+              "reason": "Алиса считает себя героем, что является её убеждением.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REVIEW",
+              "reason": "Цитата подтверждает, что Фима считает Колю героем, но не прямо утверждает, что Алиса была героем.",
+              "error_type": "SUBJECT_MISMATCH",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "REVIEW",
+              "reason": "PRECISION_NOT_FINAL",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_not_final"
+              ],
+              "scope": "mention",
+              "subject": "Алиса",
+              "truth_scope": "CHARACTER_BELIEF"
+            }
+          },
+          {
+            "claim_id": "primary-0060-c-0004",
+            "predicate": "была",
+            "value": "знаменитым художником",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0060",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Боря Мессерер станет знаменитым художником, он будет работать в Большом театре и делать декорации.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0060-m-0003",
+        "surface": "Крысс",
+        "entity_type": "CHARACTER",
+        "aliases": [
+          "Наполеон Бонапарт",
+          "пират Крысс",
+          "Крысс с планеты Крокрыс"
+        ],
+        "claims": [
+          {
+            "claim_id": "primary-0060-c-0005",
+            "predicate": "принял облик",
+            "value": "перекатчиков с планеты Всик",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0060",
+                "paragraph_start": 3913,
+                "paragraph_end": 3915,
+                "quote": "Ребята замерли. Но у Алисы в руке был пистолет. — Не двигайся, Крысс с планеты Крокрыс! — сказала она. — А то я стреляю.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает облик Крысс, а только его имя и происхождение.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0060-m-0004",
+        "surface": "Николай Николаевич",
+        "entity_type": "CHARACTER",
+        "aliases": [
+          "дежурный на станции времени"
+        ],
+        "claims": [
+          {
+            "claim_id": "primary-0060-c-0006",
+            "predicate": "был",
+            "value": "виноват",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0060",
+                "paragraph_start": 3931,
+                "paragraph_end": 3933,
+                "quote": "Виноват в первую очередь я, потому что не следил за своим здоровьем и неожиданно заболел, оставив свою аппаратуру без присмотра.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата показывает, что Николай Николаевич считает себя виноватым, но не прямо утверждает, что он был виноват в каком-то конкретном событии.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0060-e-0001",
+        "event": "Коля Сулима бросился на Крысса",
+        "participants": [
+          "Коля Сулима",
+          "Крысс"
+        ],
+        "location": "подвал",
+        "claims": [
+          {
+            "claim_id": "primary-0060-c-0007",
+            "predicate": "выстрелил",
+            "value": "в потолок",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0060",
+                "paragraph_start": 3907,
+                "paragraph_end": 3909,
+                "quote": "Коля ударился о него, пистолет дёрнулся, и выстрел пришёлся в потолок.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что выстрел действительно пришелся в потолок.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "Рассказчик сообщает о факте, произошедшем в мире рассказа.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст подтверждают, что выстрел действительно пришелся в потолок.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "event",
+              "subject": "Коля Сулима бросился на Крысса",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0060-e-0002",
+        "event": "Алиса победила Крысса",
+        "participants": [
+          "Алиса",
+          "Крысс"
+        ],
+        "location": "подвал",
+        "claims": [
+          {
+            "claim_id": "primary-0060-c-0008",
+            "predicate": "выстрелил",
+            "value": "в потолок",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0060",
+                "paragraph_start": 3907,
+                "paragraph_end": 3909,
+                "quote": "Коля ударился о него, пистолет дёрнулся, и выстрел пришёлся в потолок.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает Алису или Крысса, а описывает другое событие.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0060-t-0001",
+        "term": "миелофон",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0060-c-0009",
+          "predicate": "definition",
+          "value": "устройство, которое использовалось для общения с будущим",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+          "evidence": [
+            {
+              "chunk_id": "primary-0060",
+              "paragraph_start": 3893,
+              "paragraph_end": 3893,
+              "quote": "мы нашли миелофон…",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "NOT_SUPPORTED",
+            "reason": "Цитата не содержит информации о том, что миелофон используется для общения с будущим.",
+            "model": "qwen2.5:7b"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Кто именно был дежурным на станции времени?",
+        "reason": "Текст упоминает Николая Николаевича, но не предоставляет его имени."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 9,
+    "source_supported": 7,
+    "source_unsupported": 2,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 4,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 347,
+    "supported_entailed": 144,
+    "partial_review": 35,
+    "rejected": 168,
+    "schema_fixes": 4
+  }
+}

@@ -1,0 +1,374 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0013",
+    "start_paragraph": 594,
+    "end_paragraph": 652,
+    "mentions": [
+      {
+        "mention_id": "primary-0013-m-0001",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0013-c-0001",
+            "predicate": "принадлежит к",
+            "value": "транзитник",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0013",
+                "paragraph_start": 594,
+                "paragraph_end": 594,
+                "quote": "Коля медленно шёл вдоль бесконечного ряда стоек, где пассажиры отмечали билеты или сдавали багаж, и читал названия рейсов, вёл себя, как транзитник, который застрял в аэропорту и убивает свободное время.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата описывает поведение Коля, которое соответствует определению транзитника.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик описывает поведение Коля как факт",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REVIEW",
+              "reason": "Цитата описывает поведение Коля, которое соответствует определению транзитника, но это не прямо утверждает его принадлежность к этой категории.",
+              "error_type": "PREDICATE_OVERREACH",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "REVIEW",
+              "reason": "PRECISION_NOT_FINAL",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_not_final"
+              ],
+              "scope": "mention",
+              "subject": "Коля",
+              "truth_scope": "WORLD_STATE"
+            }
+          },
+          {
+            "claim_id": "primary-0013-c-0002",
+            "predicate": "принадлежит к",
+            "value": "ученик",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0013",
+                "paragraph_start": 623,
+                "paragraph_end": 625,
+                "quote": "Я в Конотопе учусь, — сказал Коля.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата подтверждает, что Коля является учеником.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Коля говорит о своем месте учебы.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата подтверждает, что Коля является учеником Конотопской школы и историком.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Коля",
+              "truth_scope": "WORLD_STATE"
+            }
+          },
+          {
+            "claim_id": "primary-0013-c-0003",
+            "predicate": "учит",
+            "value": "курчавый",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0013",
+                "paragraph_start": 644,
+                "paragraph_end": 646,
+                "quote": "— Мне? Я тогда полечу на Марс, когда смогу принести там пользу, — сказал курчавый.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о том, что Коля учит курчавый.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0013-c-0004",
+            "predicate": "принадлежит к",
+            "value": "ученик",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0013",
+                "paragraph_start": 644,
+                "paragraph_end": 646,
+                "quote": "— Мне? Я тогда полечу на Марс, когда смогу принести там пользу, — сказал курчавый.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает Коля и его принадлежность к ученикам.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0013-m-0002",
+        "surface": "курчавый",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0013-c-0005",
+            "predicate": "принадлежит к",
+            "value": "ученик",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0013",
+                "paragraph_start": 644,
+                "paragraph_end": 646,
+                "quote": "— Мне? Я тогда полечу на Марс, когда смогу принести там пользу, — сказал курчавый.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает, что курчавый принадлежит к ученику.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0013-e-0001",
+        "event": "просмотр спутника",
+        "participants": [
+          "Коля"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0013-c-0006",
+            "predicate": "предпринял",
+            "value": "просмотр спутника",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0013",
+                "paragraph_start": 650,
+                "paragraph_end": 652,
+                "quote": "— Просто так. На спутник посмотреть. Надо будет ребятам в Конотопе рассказать.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на просмотр спутника.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата представляет слова персонажа, который говорит о просмотре спутника.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно соответствует тексту и контексту.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "event",
+              "subject": "просмотр спутника",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0013-e-0002",
+        "event": "просмотр кораблей",
+        "participants": [
+          "Коля"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0013-c-0007",
+            "predicate": "предпринял",
+            "value": "просмотр кораблей",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0013",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Коля медленно и осторожно пошёл вдоль стены к полю, но не прошёл и двадцати шагов, как наткнулся на невидимую стенку.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0013-t-0001",
+        "term": "космодром",
+        "category": "LOCATION",
+        "definition_claim": {
+          "claim_id": "primary-0013-c-0008",
+          "predicate": "definition",
+          "value": "место, где происходит подготовка и запуск космических кораблей",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+          "evidence": [
+            {
+              "chunk_id": "primary-0013",
+              "paragraph_start": 603,
+              "paragraph_end": 605,
+              "quote": "Коля вышел из космодрома и решил обойти здание.",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "NOT_SUPPORTED",
+            "reason": "Цитата не подтверждает определение космодрома.",
+            "model": "qwen2.5:7b"
+          }
+        }
+      },
+      {
+        "term_id": "primary-0013-t-0002",
+        "term": "спутник",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0013-c-0009",
+          "predicate": "definition",
+          "value": "космический аппарат, предназначенный для выполнения различных научных и практических задач",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+          "evidence": [
+            {
+              "chunk_id": "primary-0013",
+              "paragraph_start": 619,
+              "paragraph_end": 621,
+              "quote": "— Разве не видишь? — удивился мальчик. — Работаем. — Понятно, что работаете. А над чем?",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "NOT_SUPPORTED",
+            "reason": "Цитата не содержит информации о функциях или назначении спутника.",
+            "model": "qwen2.5:7b"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Почему Коля решил обойти здание космодрома?",
+        "reason": "Текст не предоставляет явной причины для этого действия."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 9,
+    "source_supported": 8,
+    "source_unsupported": 1,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 2,
+    "events": 2,
+    "terms": 2
+  },
+  "critic_stats": {
+    "claims_checked": 59,
+    "supported_entailed": 19,
+    "partial_review": 9,
+    "rejected": 31,
+    "schema_fixes": 0
+  }
+}

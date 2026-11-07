@@ -1,7 +1,7 @@
 {
   "stage": "MVP-14B3_CONTRADICTION_ENGINE",
   "result": "PASS",
-  "canon_claims_input": 3,
+  "canon_claims_input": 95,
   "contradictions_found": 0,
   "review_queue": 0,
   "conflict_type_counts": {},

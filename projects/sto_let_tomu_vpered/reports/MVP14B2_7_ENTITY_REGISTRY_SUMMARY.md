@@ -1,11 +1,13 @@
 # MVP-14B2.7 Entity Registry
 
-- Canon claims input: 3
-- Entities registered: 3
+- Canon claims input: 95
+- Entities registered: 46
 
 ## Entity types
-- CHARACTER: 2
-- TECHNOLOGY: 1
+- CHARACTER: 42
+- CREATURE: 1
+- OBJECT: 1
+- TECHNOLOGY: 2
 
 ## Invariants
 - Entity IDs are deterministic and unique.

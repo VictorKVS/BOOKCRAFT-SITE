@@ -1,0 +1,456 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0056",
+    "start_paragraph": 3599,
+    "end_paragraph": 3677,
+    "mentions": [
+      {
+        "mention_id": "primary-0056-m-0001",
+        "surface": "Юлька",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0056-c-0001",
+            "predicate": "боялась",
+            "value": "Алиса уйдёт насовсем",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0056",
+                "paragraph_start": 3599,
+                "paragraph_end": 3599,
+                "quote": "Она так боялась, что Алиса послушает разумную Руткевич и уйдёт насовсем… хотя она, Юлька, конечно, и слова бы не сказала.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на то, что Юлька боялась, что Алиса уйдёт насовсем.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_BELIEF",
+              "canon_eligible": true,
+              "reason": "Юлька думает, что Алиса уйдёт насовсем.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст подтверждают, что Юлька боялась, что Алиса уйдёт насовсем.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "belief_scope_preserved",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Юлька",
+              "truth_scope": "CHARACTER_BELIEF"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0056-m-0002",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0056-c-0002",
+            "predicate": "знает",
+            "value": "миелофон",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0056",
+                "paragraph_start": 3614,
+                "paragraph_end": 3616,
+                "quote": "Алиса раскрутила провод, вставила в ухо наушничек, нажала на красную кнопку на крышке. Подождала, нажала вторую кнопку и стала поворачивать колёсико.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает, что Алиса знает миелофон.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0056-c-0003",
+            "predicate": "искала",
+            "value": "миелофон",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0056",
+                "paragraph_start": 3600,
+                "paragraph_end": 3602,
+                "quote": "Если она столько времени эту машину искала, можно и подождать.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает Алису или её действия поиска миелофона.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0056-c-0004",
+            "predicate": "знает",
+            "value": "пиратов",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0056",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Алиса как спортсменка может забраться, куда никто из нас не сможет. И она этих пиратов хорошо знает.",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0056-c-0005",
+            "predicate": "не доверяет",
+            "value": "миелофону",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0056",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Алиса поднялась со скамейки. — Понесёшь мою сумку? — спросила она Садовского. — Давай, — сказал Садовский. — Какие указания? — спросил Фима, который надеялся потом, когда все утрясётся, всё-таки выпросить у Алисы миелофон. На одну минутку.",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0056-c-0006",
+            "predicate": "использует",
+            "value": "миелофон",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0056",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Алиса, чтобы не тратить время на пустые споры с упрямым Фимой, пошла вниз. — Стой! — окликнул её Фима. — Потом пожалеешь. Всё-таки послушай. — Ну ладно… Алиса подошла к двери, включила миелофон и начала крутить колёсико, настраивая на различные волны.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0056-m-0003",
+        "surface": "Катя Михайлова",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0056-c-0007",
+            "predicate": "говорит",
+            "value": "Алиса права",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0056",
+                "paragraph_start": 3600,
+                "paragraph_end": 3602,
+                "quote": "Алиса права. Если она столько времени эту машину искала, можно и подождать. А Алиса нам нужна. Она как спортсменка может забраться, куда никто из нас не сможет. И она этих пиратов хорошо знает. Их ведь тоже, наверно, не стоит здесь оставлять.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямым образом подтверждает, что Катя Михайлова говорит, что Алиса права.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата является прямой речью персонажа Кати Михайловой.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно передаёт слова Кати Михайловой, подтверждающие, что она говорит, что Алиса права.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Катя Михайлова",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0056-m-0004",
+        "surface": "Коля Сулима",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0056-c-0008",
+            "predicate": "говорит",
+            "value": "пиратам свойственна дьявольская хитрость",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0056",
+                "paragraph_start": 3668,
+                "paragraph_end": 3670,
+                "quote": "Коля Сулима улыбнулся: — Сейчас Королев скажет тебе, что пыль они потом из хитрости насыпали. В кармане принесли.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата показывает хитрость, но не дьявольскую хитрость пиратов, а действия Королева.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0056-m-0005",
+        "surface": "Фима Королев",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0056-c-0009",
+            "predicate": "говорит",
+            "value": "пиратам свойственна дьявольская хитрость",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0056",
+                "paragraph_start": 3669,
+                "paragraph_end": 3671,
+                "quote": "— А что, — не сдавался Фима, — вполне может быть. Пиратам свойственна дьявольская хитрость.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямым образом подтверждает, что Фима Королев считает пиратов хитрыми.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата является прямой речью персонажа Фимы Королева.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Фима Королев выражает своё мнение о пиратах, что подтверждается цитатой.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Фима Королев",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0056-e-0001",
+        "event": "Алиса ищет пиратов",
+        "participants": [
+          "Алиса",
+          "Коля Сулима",
+          "Катя Михайлова",
+          "Фима Королев"
+        ],
+        "location": "чердак",
+        "claims": [
+          {
+            "claim_id": "primary-0056-c-0010",
+            "predicate": "исследует",
+            "value": "чердак",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0056",
+                "paragraph_start": 3662,
+                "paragraph_end": 3664,
+                "quote": "Ребята поднялись на один пролёт и очутились перед дверью на чердак. Дверь была заперта на тяжёлый замок.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата показывает, что ребята поднялись на чердак, но не утверждает, что Алиса исследует чердак.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0056-t-0001",
+        "term": "миелофон",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0056-c-0011",
+          "predicate": "definition",
+          "value": "устройство, которое принимает человеческие мысли метров за десять, а иногда и больше",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "CANON_ACCEPTED",
+          "evidence": [
+            {
+              "chunk_id": "primary-0056",
+              "paragraph_start": 3647,
+              "paragraph_end": 3649,
+              "quote": "Миелофон принимает человеческие мысли метров за десять, а иногда и больше, — сказала Алиса.",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "SUPPORTED",
+            "reason": "Цитата точно соответствует определению миелофона, приведенному в claim.",
+            "model": "qwen2.5:7b"
+          },
+          "narrative_mode": {
+            "mode": "CHARACTER_SPEECH",
+            "canon_eligible": true,
+            "reason": "Цитата является прямой речью персонажа Алисы.",
+            "model": "qwen2.5:7b"
+          },
+          "precision_gate": {
+            "verdict": "FINAL_CANON_CANDIDATE",
+            "reason": "Цитата точно соответствует определению миелофона, приведенному в claim, и подтверждается контекстом.",
+            "error_type": "NONE",
+            "model": "qwen2.5:7b"
+          },
+          "deterministic_safety": {
+            "verdict": "PASS",
+            "error_type": "NONE",
+            "reason": "Детерминированных блокирующих признаков не найдено."
+          },
+          "canon_admission": {
+            "stage": "MVP-14B2.5",
+            "verdict": "ACCEPT",
+            "reason": "ALL_ADMISSION_CHECKS_PASSED",
+            "checks": [
+              "evidence_verified",
+              "deterministic_safety_pass",
+              "entailment_supported",
+              "precision_final",
+              "narrative_canon_eligible",
+              "claim_complete"
+            ],
+            "scope": "term",
+            "subject": "миелофон",
+            "truth_scope": "WORLD_STATE"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Почему Коля Наумов подложил миелофон в сумку Алисы?",
+        "reason": "Текст не предоставляет прямых доказательств мотивов Коля Наумова."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 11,
+    "source_supported": 8,
+    "source_unsupported": 3,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 5,
+    "events": 1,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 325,
+    "supported_entailed": 132,
+    "partial_review": 34,
+    "rejected": 159,
+    "schema_fixes": 4
+  }
+}

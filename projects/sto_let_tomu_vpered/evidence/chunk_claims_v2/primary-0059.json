@@ -1,0 +1,189 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0059",
+    "start_paragraph": 3839,
+    "end_paragraph": 3892,
+    "mentions": [
+      {
+        "mention_id": "primary-0059-m-0001",
+        "surface": "Ишутин",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0059-c-0001",
+            "predicate": "попытался убежать",
+            "value": "Ишутину пришлось затормозить.",
+            "provenance": "HYPOTHESIS",
+            "confidence": "POSSIBLE",
+            "acceptance": "HYPOTHESIS_REVIEW",
+            "evidence": []
+          },
+          {
+            "claim_id": "primary-0059-c-0002",
+            "predicate": "реагировал на опасность",
+            "value": "Ишутин вдруг припустил по улице.",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0059",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Нет, никогда! В первый же поезд и в Магадан, в Сочи, во Львов… там устроюсь поваром… и ни во что не вмешиваться…\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0059-m-0002",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0059-c-0003",
+            "predicate": "осуществила спасательную операцию",
+            "value": "Алиса быстро завертела настройкой, ловя мысли старушки.",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0059",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Скорей, — думала бабушка, — они поймали этого рохлю и труса. Он обязательно во всём сознаётся, как только скроется из моих глаз. Если трус продал кого-то один раз, он и других продаст. Надо догнать его и обезвредить…\"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0059-c-0004",
+            "predicate": "вызвала Коля Садовского",
+            "value": "Алиса схватила Садовского за рукав, и они выбежали в переулок.",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0059",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Скорей! — крикнула Алиса. — В подъезд!\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0059-m-0003",
+        "surface": "Коля Садовский",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0059-c-0005",
+            "predicate": "реагировал на опасность",
+            "value": "Коля Садовский послушно выскакивая вслед за Алисой во двор через чёрный ход.",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0059",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"А я давно уже не рассуждаю, — ответил Коля, послушно выскакивая вслед за Алисой во двор через чёрный ход. \"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0059-e-0001",
+        "event": "спасательная операция",
+        "participants": [
+          "{'name': 'Алиса', 'role': '领导者'}",
+          "{'name': 'Коля Садовский', 'role': '参与者'}"
+        ],
+        "location": "封闭的房屋",
+        "claims": [
+          {
+            "claim_id": "primary-0059-c-0006",
+            "predicate": "成功解救了",
+            "value": "他们成功解救了被囚禁的男孩。",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0059",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Окно с той стороны забито плохо, и доски отодвигаются. Как окажемся внутри дома, шумите, пугайте его! Ясно?\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0059-t-0001",
+        "term": "миелофон",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0059-c-0007",
+          "predicate": "definition",
+          "value": "一种未知的高科技设备，用于隐藏重要信息。",
+          "provenance": "HYPOTHESIS",
+          "confidence": "POSSIBLE",
+          "acceptance": "HYPOTHESIS_REVIEW",
+          "evidence": [
+            {
+              "chunk_id": "primary-0059",
+              "paragraph_start": null,
+              "paragraph_end": null,
+              "quote": "\"миелофон спрятан в надёжном месте… в надёжном месте…\"",
+              "quote_verified": false
+            }
+          ]
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "具体是谁绑架了男孩？",
+        "reason": "文本中没有明确说明是谁绑架了男孩。"
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 7,
+    "source_supported": 0,
+    "source_unsupported": 5,
+    "derived": 0,
+    "hypotheses": 2,
+    "mentions": 3,
+    "events": 1,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 340,
+    "supported_entailed": 142,
+    "partial_review": 34,
+    "rejected": 164,
+    "schema_fixes": 4
+  }
+}

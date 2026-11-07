@@ -1,10 +1,10 @@
 # MVP-14B2.9 Knowledge Graph Assembly
 
-- Entity nodes: 3
+- Entity nodes: 46
 - Proposition nodes: 2
-- Literal nodes: 1
-- Event nodes: 0
-- Edges: 3
+- Literal nodes: 52
+- Event nodes: 19
+- Edges: 80
 
 ## Invariants
 - Every graph edge points to existing nodes.

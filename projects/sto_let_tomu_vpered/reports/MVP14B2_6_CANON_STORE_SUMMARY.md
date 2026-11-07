@@ -1,11 +1,11 @@
 # MVP-14B2.6 Canon Store
 
-- CANON records: 3
-- REVIEW records: 1
+- CANON records: 95
+- REVIEW records: 27
 
 ## Truth scopes
-- CHARACTER_BELIEF: 2
-- WORLD_STATE: 1
+- CHARACTER_BELIEF: 5
+- WORLD_STATE: 90
 
 ## Invariants
 - Canon contains only records admitted with verdict ACCEPT.

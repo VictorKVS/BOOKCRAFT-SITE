@@ -133,7 +133,7 @@
           "value": "персонаж, который спал двадцать лет и проснулся в изменившемся мире",
           "provenance": "SOURCE_CANON",
           "confidence": "CONFIRMED",
-          "acceptance": "BLOCKED_BY_NARRATIVE_MODE",
+          "acceptance": "CANON_ACCEPTED",
           "evidence": [
             {
               "chunk_id": "primary-0003",
@@ -150,9 +150,36 @@
           },
           "narrative_mode": {
             "mode": "CHARACTER_SPEECH",
-            "canon_eligible": false,
-            "reason": "Цитата представляет собой рассказ Коля, а не прямые слова персонажа Рипа Ван Винкля.",
+            "canon_eligible": true,
+            "reason": "Цитата представляет слова персонажа, который описывает персонажа Рипа Ван Винкля.",
             "model": "qwen2.5:7b"
+          },
+          "precision_gate": {
+            "verdict": "FINAL_CANON_CANDIDATE",
+            "reason": "Цитата точно описывает персонажа Рипа Ван Винкля, который спал двадцать лет и проснулся в изменившемся мире.",
+            "error_type": "NONE",
+            "model": "qwen2.5:7b"
+          },
+          "deterministic_safety": {
+            "verdict": "PASS",
+            "error_type": "NONE",
+            "reason": "Детерминированных блокирующих признаков не найдено."
+          },
+          "canon_admission": {
+            "stage": "MVP-14B2.5",
+            "verdict": "ACCEPT",
+            "reason": "ALL_ADMISSION_CHECKS_PASSED",
+            "checks": [
+              "evidence_verified",
+              "deterministic_safety_pass",
+              "entailment_supported",
+              "precision_final",
+              "narrative_canon_eligible",
+              "claim_complete"
+            ],
+            "scope": "term",
+            "subject": "Рип Ван Винкль",
+            "truth_scope": "WORLD_STATE"
           }
         },
         "category_original": "CHARACTER",
@@ -177,10 +204,10 @@
     "terms": 1
   },
   "critic_stats": {
-    "claims_checked": 26,
-    "supported_entailed": 10,
-    "partial_review": 3,
-    "rejected": 13,
-    "schema_fixes": 1
+    "claims_checked": 0,
+    "supported_entailed": 0,
+    "partial_review": 0,
+    "rejected": 0,
+    "schema_fixes": 0
   }
 }

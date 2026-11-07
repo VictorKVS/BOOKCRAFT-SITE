@@ -1,11 +1,11 @@
 {
   "stage": "MVP-14B6_STATE_TRANSITION_CAUSAL_LAYER",
   "result": "PASS",
-  "state_observations_input": 3,
-  "trusted_events_input": 0,
-  "confirmed_transitions": 0,
-  "explicit_causal_links": 0,
-  "review_queue": 0,
+  "state_observations_input": 61,
+  "trusted_events_input": 19,
+  "confirmed_transitions": 8,
+  "explicit_causal_links": 1,
+  "review_queue": 20,
   "regression_tests": {
     "false_transition_guard": "PASS",
     "explicit_transition_detection": "PASS",

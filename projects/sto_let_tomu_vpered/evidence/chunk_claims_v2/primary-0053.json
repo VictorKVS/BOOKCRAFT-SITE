@@ -1,0 +1,550 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0053",
+    "start_paragraph": 3396,
+    "end_paragraph": 3446,
+    "mentions": [
+      {
+        "mention_id": "primary-0053-m-0001",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0053-c-0001",
+            "predicate": "скрывалась",
+            "value": "в подвале",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0053",
+                "paragraph_start": 3396,
+                "paragraph_end": 3396,
+                "quote": "Там в темноте, за углом, она остановилась и замерла.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает подвал или то, что Алиса скрывается.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0053-c-0002",
+            "predicate": "была расстроена",
+            "value": "потеряв десять минут",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0053",
+                "paragraph_start": 3404,
+                "paragraph_end": 3406,
+                "quote": "Если это проходной подъезд, то Коля и пираты могли убежать далеко. Ищи их теперь.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает Алису или её эмоциональное состояние.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0053-m-0002",
+        "surface": "тренерша",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0053-c-0003",
+            "predicate": "говорила",
+            "value": "Алисе",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0053",
+                "paragraph_start": 3396,
+                "paragraph_end": 3397,
+                "quote": "Девочка, ты где скрываешься? Зачем избегать своей перспективной судьбы?",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не указывает, кто именно говорила Алисе.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0053-c-0004",
+            "predicate": "намеревалась",
+            "value": "вернуться в школу",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0053",
+                "paragraph_start": 3397,
+                "paragraph_end": 3399,
+                "quote": "Я вернусь в школу и все узнаю у Эдуарда Петровича.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на намерение тренерши вернуться в школу.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата является прямой речью персонажа, который выражает свое намерение вернуться в школу.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно передает намерение тренерши вернуться в школу, что подтверждается контекстом.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "тренерша",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0053-m-0003",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0053-c-0005",
+            "predicate": "был упомянут",
+            "value": "как возможный участник",
+            "provenance": "SOURCE_CANON",
+            "confidence": "PROBABLE",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0053",
+                "paragraph_start": 3405,
+                "paragraph_end": 3407,
+                "quote": "Алиса огляделась. Так и есть. Вот задний ход. За лифтом.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает Коля и не содержит информации о его участии.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0053-m-0004",
+        "surface": "Крысс",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0053-c-0006",
+            "predicate": "был упомянут",
+            "value": "как пират",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0053",
+                "paragraph_start": 3430,
+                "paragraph_end": 3432,
+                "quote": "Пират Крысс, который шёл первым, увидел движение Петра Ишутина и обернулся к нему:",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата упоминает Крыssa как пирата.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "Рассказчик сообщает, что Крысс был упомянут как пират.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата явно упоминает Крысс как пирата.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Крысс",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0053-m-0005",
+        "surface": "Наполеон Бонапарт",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0053-c-0007",
+            "predicate": "был упомянут",
+            "value": "как персонаж",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0053",
+                "paragraph_start": 3427,
+                "paragraph_end": 3429,
+                "quote": "Впереди шёл, озираясь, Наполеон Бонапарт.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата упоминает Наполеона Бонапарта как персонажа, описывая его действия.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_BELIEF",
+              "canon_eligible": true,
+              "reason": "рассказчик описывает мысли Наполеона, что он озирается",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата упоминает Наполеона Бонапарта как персонажа, описывая его действия.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "REVIEW",
+              "reason": "BELIEF_SCOPE_AMBIGUOUS",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "belief_scope_requires_review"
+              ],
+              "scope": "mention",
+              "subject": "Наполеон Бонапарт",
+              "truth_scope": "CHARACTER_BELIEF"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0053-m-0006",
+        "surface": "Пётр Ишутин",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0053-c-0008",
+            "predicate": "был упомянут",
+            "value": "как молодой человек",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0053",
+                "paragraph_start": 3406,
+                "paragraph_end": 3408,
+                "quote": "Молодой человек в замшевом пиджаке, замшевых туфлях и замшевых брюках.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата описывает молодого человека, что подтверждает утверждение о Пётр Ишутине.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_BELIEF",
+              "canon_eligible": true,
+              "reason": "Цитата описывает молодого человека, что является убеждением рассказчика о Пётр Ишутине.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REVIEW",
+              "reason": "Цитата описывает молодого человека, но не прямо упоминает Пётр Ишутин. Необходимо проверить, является ли этот молодой человек Пётр Ишутином.",
+              "error_type": "SUBJECT_MISMATCH",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "REVIEW",
+              "reason": "PRECISION_NOT_FINAL",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_not_final"
+              ],
+              "scope": "mention",
+              "subject": "Пётр Ишутин",
+              "truth_scope": "CHARACTER_BELIEF"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0053-e-0001",
+        "event": "Алиса скрывалась в подвале",
+        "participants": [
+          "{'name': 'Алиса', 'role': '主人公'}"
+        ],
+        "location": "подвал",
+        "claims": [
+          {
+            "claim_id": "primary-0053-c-0009",
+            "predicate": "скрывалась",
+            "value": "в подвале",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0053",
+                "paragraph_start": 3396,
+                "paragraph_end": 3396,
+                "quote": "Там в темноте, за углом, она остановилась и замерла.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не указывает место скрытия Алисы.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0053-e-0002",
+        "event": "Тренерша искала Алису",
+        "participants": [
+          "{'name': 'тренерша', 'role': '寻找者'}",
+          "{'name': 'Алиса', 'role': '被寻找者'}"
+        ],
+        "location": "подъезд",
+        "claims": [
+          {
+            "claim_id": "primary-0053-c-0010",
+            "predicate": "говорила",
+            "value": "Алисе",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0053",
+                "paragraph_start": 3396,
+                "paragraph_end": 3397,
+                "quote": "Девочка, ты где скрываешься? Зачем избегать своей перспективной судьбы?",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не указывает, что тренерша говорила именно Алисе.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0053-e-0003",
+        "event": "Пираты похитили мальчика",
+        "participants": [
+          "{'name': 'Крысс', 'role': '盗贼'}",
+          "{'name': 'Наполеон Бонапарт', 'role': '盗贼'}",
+          "{'name': 'толстяк', 'role': '盗贼'}",
+          "{'name': 'мальчик', 'role': '受害者'}"
+        ],
+        "location": "двор",
+        "claims": [
+          {
+            "claim_id": "primary-0053-c-0011",
+            "predicate": "похитили",
+            "value": "мальчика",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0053",
+                "paragraph_start": 3427,
+                "paragraph_end": 3429,
+                "quote": "За ним — невероятной толщины мужчина в рваном плаще. Мужчина нёс под мышкой неподвижного мальчика.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на то, что мужчина нёс неподвижного мальчика, что подтверждает похищение.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "Рассказчик сообщает о факте похищения мальчика.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REVIEW",
+              "reason": "Цитата подтверждает, что мужчина нёс неподвижного мальчика, но контекст предполагает, что это может быть часть сцены из фильма или воображаемой истории.",
+              "error_type": "NARRATIVE_MODE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "REVIEW",
+              "reason": "PRECISION_NOT_FINAL",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_not_final"
+              ],
+              "scope": "event",
+              "subject": "Пираты похитили мальчика",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0053-t-0001",
+        "term": "пират",
+        "category": "SPECIES",
+        "definition_claim": {
+          "claim_id": "primary-0053-c-0012",
+          "predicate": "definition",
+          "value": "Пираты были описаны как участники кражи.",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+          "evidence": [
+            {
+              "chunk_id": "primary-0053",
+              "paragraph_start": 3430,
+              "paragraph_end": 3432,
+              "quote": "Пират Крысс, который шёл первым, увидел движение Петра Ишутина и обернулся к нему:",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "NOT_SUPPORTED",
+            "reason": "Цитата не содержит информации о краже или участии пиратов в кражах.",
+            "model": "qwen2.5:7b"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Кто такие Коля и пираты?",
+        "reason": "Их упоминания не содержат достаточных деталей для полного понимания их роли в сюжете."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 12,
+    "source_supported": 12,
+    "source_unsupported": 0,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 6,
+    "events": 3,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 311,
+    "supported_entailed": 126,
+    "partial_review": 31,
+    "rejected": 154,
+    "schema_fixes": 4
+  }
+}

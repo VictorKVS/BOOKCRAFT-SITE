@@ -1,10 +1,10 @@
 # MVP-14B6 State Transition / Causal Layer
 
-- State observations input: 3
-- Trusted events input: 0
-- Confirmed transitions: 0
-- Explicit causal links: 0
-- Review queue: 0
+- State observations input: 61
+- Trusted events input: 19
+- Confirmed transitions: 8
+- Explicit causal links: 1
+- Review queue: 20
 
 ## Policy
 - Textual succession alone never creates a state transition.

@@ -1,0 +1,316 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0014",
+    "start_paragraph": 653,
+    "end_paragraph": 687,
+    "mentions": [
+      {
+        "mention_id": "primary-0014-m-0001",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0014-c-0001",
+            "predicate": "проник на корабль",
+            "value": "Да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0014",
+                "paragraph_start": 664,
+                "paragraph_end": 666,
+                "quote": "Коля подумал, что, когда тележка снимет с себя вазу, он сможет вернуться на ней обратно.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о проникновении Коля на корабль.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0014-c-0002",
+            "predicate": "испытывал страх",
+            "value": "Да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0014",
+                "paragraph_start": 681,
+                "paragraph_end": 683,
+                "quote": "Коля быстро отполз назад и нашел узкую щель между ящиками и стеной. Он втиснулся туда и замер, стараясь дышать беззвучно.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Коля нашел укрытие и замер, стараясь дышать беззвучно, что свидетельствует о его страхе.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_BELIEF",
+              "canon_eligible": true,
+              "reason": "Коля думает и действует, исходя из чувства страха, что свидетельствует о его убеждении в опасности.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст подтверждают, что Коля испытывал страх, прячась от взрослых, которые ему не нравились.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "REVIEW",
+              "reason": "BELIEF_SCOPE_AMBIGUOUS",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "belief_scope_requires_review"
+              ],
+              "scope": "mention",
+              "subject": "Коля",
+              "truth_scope": "CHARACTER_BELIEF"
+            }
+          },
+          {
+            "claim_id": "primary-0014-c-0003",
+            "predicate": "был из Конотопа",
+            "value": "Да",
+            "provenance": "HYPOTHESIS",
+            "confidence": "POSSIBLE",
+            "acceptance": "HYPOTHESIS_REVIEW",
+            "evidence": []
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0014-m-0002",
+        "surface": "тележка",
+        "entity_type": "TECHNOLOGY",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0014-c-0004",
+            "predicate": "переносила груз",
+            "value": "Да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0014",
+                "paragraph_start": 653,
+                "paragraph_end": 653,
+                "quote": "Тележка отправилась на поле, и все ребята поспешили за ней. И о Коле забыли.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает о переноске груза тележкой.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0014-m-0003",
+        "surface": "ваза",
+        "entity_type": "OBJECT",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0014-c-0005",
+            "predicate": "была грузом",
+            "value": "Да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0014",
+                "paragraph_start": 665,
+                "paragraph_end": 667,
+                "quote": "Тележка остановилась в невысоком обширном, слабо освещённом зале.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает вазу или её использование как груза.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0014-e-0001",
+        "event": "Коля проник на корабль",
+        "participants": [
+          "Коля"
+        ],
+        "location": "на корабле",
+        "claims": [
+          {
+            "claim_id": "primary-0014-c-0006",
+            "predicate": "проник на корабль",
+            "value": "Да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0014",
+                "paragraph_start": 664,
+                "paragraph_end": 666,
+                "quote": "Коля подумал, что, когда тележка снимет с себя вазу, он сможет вернуться на ней обратно.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает о проникновении на корабль.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0014-e-0002",
+        "event": "Коля испытал страх",
+        "participants": [
+          "Коля"
+        ],
+        "location": "между ящиками",
+        "claims": [
+          {
+            "claim_id": "primary-0014-c-0007",
+            "predicate": "испытывал страх",
+            "value": "Да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0014",
+                "paragraph_start": 681,
+                "paragraph_end": 683,
+                "quote": "Коля быстро отполз назад и нашел узкую щель между ящиками и стеной. Он втиснулся туда и замер, стараясь дышать беззвучно.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Коля отполз назад и втиснулся в щель, стараясь дышать беззвучно, что свидетельствует о его страхе.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_BELIEF",
+              "canon_eligible": true,
+              "reason": "Коля действует из страха, что видимо и чувствует, поэтому это его убеждение.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно показывает, что Коля испытывал страх, отползая и втискиваясь в щель, стараясь дышать беззвучно.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "REVIEW",
+              "reason": "BELIEF_SCOPE_AMBIGUOUS",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "belief_scope_requires_review"
+              ],
+              "scope": "event",
+              "subject": "Коля испытал страх",
+              "truth_scope": "CHARACTER_BELIEF"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0014-t-0001",
+        "term": "зайцы",
+        "category": "SPECIES",
+        "definition_claim": {
+          "claim_id": "primary-0014-c-0008",
+          "predicate": "definition",
+          "value": "Люди, которые пытаются улететь на корабль незаметно.",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+          "evidence": [
+            {
+              "chunk_id": "primary-0014",
+              "paragraph_start": 683,
+              "paragraph_end": 685,
+              "quote": "Коля боялся этих людей — они ему не нравились.",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "NOT_SUPPORTED",
+            "reason": "Цитата не подтверждает определение зайцев.",
+            "model": "qwen2.5:7b"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Коля из Конотопа?",
+        "reason": "Текст не подтверждает, но это предположение основано на его имени."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 8,
+    "source_supported": 7,
+    "source_unsupported": 0,
+    "derived": 0,
+    "hypotheses": 1,
+    "mentions": 3,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 66,
+    "supported_entailed": 21,
+    "partial_review": 9,
+    "rejected": 36,
+    "schema_fixes": 0
+  }
+}

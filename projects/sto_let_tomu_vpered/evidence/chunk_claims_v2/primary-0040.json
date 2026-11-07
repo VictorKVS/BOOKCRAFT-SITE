@@ -1,0 +1,402 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0040",
+    "start_paragraph": 2310,
+    "end_paragraph": 2386,
+    "mentions": [
+      {
+        "mention_id": "primary-0040-m-0001",
+        "surface": "Наумов",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0040-c-0001",
+            "predicate": "имеет имя",
+            "value": "Коля",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0040",
+                "paragraph_start": 2323,
+                "paragraph_end": 2325,
+                "quote": "Коля Наумов",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на то, что у человека имя Коля.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает факт имени персонажа",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст прямо указывают на то, что имя персонажа — Коля Наумов.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Наумов",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0040-m-0002",
+        "surface": "Коля Наумов",
+        "entity_type": "CHARACTER",
+        "aliases": [
+          "Наумов"
+        ],
+        "claims": [
+          {
+            "claim_id": "primary-0040-c-0002",
+            "predicate": "является тренером",
+            "value": "волейбольной команды",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0040",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Коля Наумов. — Может один и тот же игрок в двух командах играть?",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0040-m-0003",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0040-c-0003",
+            "predicate": "является игроком",
+            "value": "волейбольной команды",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0040",
+                "paragraph_start": 2340,
+                "paragraph_end": 2342,
+                "quote": "Когда Алиса вышла на площадку, все заметили, что она очень загорелая и стройная.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает, что Алиса является игроком волейбольной команды.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0040-m-0004",
+        "surface": "Катя Михайлова",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0040-c-0004",
+            "predicate": "является игроком",
+            "value": "волейбольной команды",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0040",
+                "paragraph_start": 2340,
+                "paragraph_end": 2342,
+                "quote": "Когда Алиса вышла на площадку, все заметили, что она очень загорелая и стройная.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает Катю Михайлова и не подтверждает, что она является игроком волейбольной команды.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0040-m-0005",
+        "surface": "Лена Домбазова",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0040-c-0005",
+            "predicate": "является игроком",
+            "value": "волейбольной команды",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0040",
+                "paragraph_start": 2347,
+                "paragraph_end": 2349,
+                "quote": "Лена Домбазова хотела перекинуть его на ту сторону, но Алиса вдруг крикнула ей:",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о том, является ли Лена Домбазова игроком волейбольной команды.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0040-m-0006",
+        "surface": "Лариса Троепольская",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0040-c-0006",
+            "predicate": "является игроком",
+            "value": "волейбольной команды",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0040",
+                "paragraph_start": 2315,
+                "paragraph_end": 2317,
+                "quote": "Лариса Троепольская благополучно пропустила его между пальцами и удивлённо посмотрела на свои руки",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о том, что Лариса Троепольская является игроком волейбольной команды.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0040-m-0007",
+        "surface": "Эдуард Петрович",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0040-c-0007",
+            "predicate": "является тренером",
+            "value": "волейбольной команды",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0040",
+                "paragraph_start": 2369,
+                "paragraph_end": 2371,
+                "quote": "Эдуард Петрович ответил:",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о том, что Эдуард Петрович является тренером волейбольной команды.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0040-m-0008",
+        "surface": "Юлька",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0040-c-0008",
+            "predicate": "является игроком",
+            "value": "волейбольной команды",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0040",
+                "paragraph_start": 2383,
+                "paragraph_end": 2385,
+                "quote": "Юлька вспоминала волейбольные эпизоды.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не подтверждает, что Юлька является игроком волейбольной команды, она только вспоминает волейбольные эпизоды.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0040-e-0001",
+        "event": "встреча волейбольных команд",
+        "participants": [
+          "шестиклассники",
+          "семиклассники"
+        ],
+        "location": "волейбольная площадка",
+        "claims": [
+          {
+            "claim_id": "primary-0040-c-0009",
+            "predicate": "проиграла",
+            "value": "шестиклассники",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0040",
+                "paragraph_start": 2340,
+                "paragraph_end": 2342,
+                "quote": "Когда Алиса вышла на площадку, все заметили, что она очень загорелая и стройная.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о результатах встречи волейбольных команд или участии шестиклассников в ней.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0040-e-0002",
+        "event": "выигрыш волейбольной команды",
+        "participants": [
+          "семиклассники"
+        ],
+        "location": "волейбольная площадка",
+        "claims": [
+          {
+            "claim_id": "primary-0040-c-0010",
+            "predicate": "выиграли",
+            "value": "семиклассники",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0040",
+                "paragraph_start": 2340,
+                "paragraph_end": 2342,
+                "quote": "Когда Алиса вышла на площадку, все заметили, что она очень загорелая и стройная.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о выигрыше волейбольной команды или участии семиклассников.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0040-t-0001",
+        "term": "волейбол",
+        "category": "OTHER",
+        "definition_claim": {
+          "claim_id": "primary-0040-c-0011",
+          "predicate": "definition",
+          "value": "игра, в которой команды борются за мяч, отбивая его о стенку",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+          "evidence": [
+            {
+              "chunk_id": "primary-0040",
+              "paragraph_start": 2340,
+              "paragraph_end": 2342,
+              "quote": "Когда Алиса вышла на площадку, все заметили, что она очень загорелая и стройная.",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "NOT_SUPPORTED",
+            "reason": "Цитата не содержит информации о определении волейбола.",
+            "model": "qwen2.5:7b"
+          }
+        },
+        "category_original": "SPORT",
+        "category_validation": "INVALID_CATEGORY_NORMALIZED"
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "является ли Алиса парнем или девушкой?",
+        "reason": "Текст не предоставляет прямых доказательств пола Алисы, но упоминает, что она выглядит как мужчина и играет в волейбол."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 11,
+    "source_supported": 10,
+    "source_unsupported": 1,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 8,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 223,
+    "supported_entailed": 96,
+    "partial_review": 21,
+    "rejected": 106,
+    "schema_fixes": 4
+  }
+}

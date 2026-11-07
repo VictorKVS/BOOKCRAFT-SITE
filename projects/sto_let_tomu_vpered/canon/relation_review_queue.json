@@ -2,5 +2,276 @@
   "schema_version": "1.0",
   "work_id": "sto_let_tomu_vpered",
   "store_type": "RELATION_EVENT_REVIEW_QUEUE",
-  "records": []
+  "records": [
+    {
+      "review_id": "relrev-0174d6681490f2e7",
+      "claim_id": "primary-0017-c-0005",
+      "reason": "SOURCE_ENTITY_UNRESOLVED",
+      "subject": "валапасский уж",
+      "predicate": "definition",
+      "value": "странное создание, обитающее в кустах одной безымянной планеты. Обычно этот уж лежит в подземной норе, но стоит пройти неподалёку какому-нибудь животному, как уж в мгновение ока распрямляется и, как стрела, вонзается в него.",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0017",
+          "paragraph_start": 796,
+          "paragraph_end": 798,
+          "quote": "На самом деле это была не проволока, а валапасский уж — странное создание, обитающее в кустах одной безымянной планеты. Обычно этот уж лежит в подземной норе, но стоит пройти неподалёку какому-нибудь животному, как уж в мгновение ока распрямляется и, как стрела, вонзается в него.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "review_id": "relrev-09754a18e5a02890",
+      "claim_id": "primary-0044-c-0008",
+      "reason": "SOURCE_ENTITY_UNRESOLVED",
+      "subject": "дублёром",
+      "predicate": "definition",
+      "value": "актёр, который заменяет заболевших актёров",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0044",
+          "paragraph_start": 2724,
+          "paragraph_end": 2726,
+          "quote": "Крысс заменял по очереди всех заболевших актёров, а иногда ему просто показывали фотографию, и он изображал кого надо.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "review_id": "relrev-2d1b6149cff34646",
+      "claim_id": "primary-0054-c-0002",
+      "reason": "SOURCE_ENTITY_UNRESOLVED",
+      "subject": "Коля Наумов",
+      "predicate": "был в",
+      "value": "будущем",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0054",
+          "paragraph_start": 3523,
+          "paragraph_end": 3525,
+          "quote": "Коля Наумов побывал в будущем и там набезобразил, хотя и не по злому умыслу.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "review_id": "relrev-37b9f4e40da8f238",
+      "claim_id": "primary-0049-c-0010",
+      "reason": "EVENT_SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "погоня",
+      "predicate": "происходит",
+      "value": "да",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0049",
+          "paragraph_start": 3145,
+          "paragraph_end": 3147,
+          "quote": "Как-то им удалось обмануть Эдуарда, и они снова пустились в погоню за девчатами.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "review_id": "relrev-40daaea6889ed54f",
+      "claim_id": "primary-0013-c-0006",
+      "reason": "EVENT_SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "просмотр спутника",
+      "predicate": "предпринял",
+      "value": "просмотр спутника",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0013",
+          "paragraph_start": 650,
+          "paragraph_end": 652,
+          "quote": "— Просто так. На спутник посмотреть. Надо будет ребятам в Конотопе рассказать.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "review_id": "relrev-5661198501be33c5",
+      "claim_id": "primary-0049-c-0008",
+      "reason": "SOURCE_ENTITY_UNRESOLVED",
+      "subject": "Коля Садовский",
+      "predicate": "присутствует",
+      "value": "да",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0049",
+          "paragraph_start": 3169,
+          "paragraph_end": 3171,
+          "quote": "Первым в тот день в школу шёл Коля Садовский.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "review_id": "relrev-5dd90ab90441defa",
+      "claim_id": "primary-0040-c-0001",
+      "reason": "SOURCE_ENTITY_UNRESOLVED",
+      "subject": "Наумов",
+      "predicate": "имеет имя",
+      "value": "Коля",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0040",
+          "paragraph_start": 2323,
+          "paragraph_end": 2325,
+          "quote": "Коля Наумов",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "review_id": "relrev-910762cd7c05b2e3",
+      "claim_id": "primary-0024-c-0009",
+      "reason": "SOURCE_ENTITY_UNRESOLVED",
+      "subject": "амнезия",
+      "predicate": "definition",
+      "value": "болезнь, при которой человек забывает свою фамилию, место жительства, место учебы, забывает, кто его родители",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0024",
+          "paragraph_start": 1150,
+          "paragraph_end": 1152,
+          "quote": "Алик Борисович сказал, что эта болезнь называется «амнезия», чаще всего она проходит. Но представляете себе, забыть, как твоя фамилия, где ты живёшь, где учишься, даже забыть, кто твои родители!",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "review_id": "relrev-a21d5f5f68195dfa",
+      "claim_id": "primary-0039-c-0004",
+      "reason": "SOURCE_ENTITY_UNRESOLVED",
+      "subject": "Коля Садовский",
+      "predicate": "предполагает",
+      "value": "Алиса приехала из будущего",
+      "truth_scope": "CHARACTER_BELIEF",
+      "evidence": [
+        {
+          "chunk_id": "primary-0039",
+          "paragraph_start": 2263,
+          "paragraph_end": 2265,
+          "quote": "— Я думаю, что ты к нам приехала из будущего, — сказал он. — У тебя есть машина времени, переделанная из велосипеда.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "review_id": "relrev-ad5f0bb0b7b1ead7",
+      "claim_id": "primary-0031-c-0006",
+      "reason": "SOURCE_ENTITY_UNRESOLVED",
+      "subject": "Коля Наумов",
+      "predicate": "является",
+      "value": "спортсменом",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0031",
+          "paragraph_start": 1638,
+          "paragraph_end": 1640,
+          "quote": "Он спортсмен, закаляется, зимой на балконе в спальном мешке спит.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "review_id": "relrev-b07192e733747757",
+      "claim_id": "primary-0032-c-0009",
+      "reason": "SOURCE_ENTITY_UNRESOLVED",
+      "subject": "галлюцинация",
+      "predicate": "definition",
+      "value": "Юлька так испугалась, что закричала, и мы упали с кроватей. А у Марии Павловны была галлюцинация.",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0032",
+          "paragraph_start": 1682,
+          "paragraph_end": 1684,
+          "quote": "— Юлька так испугалась, что закричала, и мы упали с кроватей. А у Марии Павловны была галлюцинация.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "review_id": "relrev-c2a078b660c3c384",
+      "claim_id": "primary-0003-c-0004",
+      "reason": "SOURCE_ENTITY_UNRESOLVED",
+      "subject": "Рип Ван Винкль",
+      "predicate": "definition",
+      "value": "персонаж, который спал двадцать лет и проснулся в изменившемся мире",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0003",
+          "paragraph_start": 85,
+          "paragraph_end": 87,
+          "quote": "Коля, как человек умный, сразу придумал. Он недавно читал рассказ американского писателя Вашингтона Ирвинга. Про одного человека по имени Рип Ван Винкль, который пошёл в горы и заснул. Он вернулся к себе в деревню, идёт по улице, а его никто не узнает. Он хвать себя за лицо, а у него борода до пояса. Так он и догадался, что проспал двадцать лет подряд.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "review_id": "relrev-da56e02e600d7efd",
+      "claim_id": "primary-0049-c-0009",
+      "reason": "EVENT_SUBJECT_ENTITY_UNRESOLVED",
+      "subject": "прыжок через забор",
+      "predicate": "выполняется",
+      "value": "да",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0049",
+          "paragraph_start": 3119,
+          "paragraph_end": 3121,
+          "quote": "Алиса сунула Юльке сумку, отбежала на мостовую, примерилась, разбежалась и прыгнула.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "review_id": "relrev-e5b877115c8ceb01",
+      "claim_id": "primary-0033-c-0014",
+      "reason": "SOURCE_ENTITY_UNRESOLVED",
+      "subject": "записка",
+      "predicate": "definition",
+      "value": "написанное на листке из маминой записной книжки сообщение",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0033",
+          "paragraph_start": 1791,
+          "paragraph_end": 1793,
+          "quote": "Алиса достала Юлькину записку, которую принесла Наташа, и перечитала её, чтобы запомнить телефон и адрес.",
+          "quote_verified": true
+        }
+      ]
+    },
+    {
+      "review_id": "relrev-e679c181a5fc8a3c",
+      "claim_id": "primary-0024-c-0004",
+      "reason": "SOURCE_ENTITY_UNRESOLVED",
+      "subject": "Алик Борисович",
+      "predicate": "пришёл в палату",
+      "value": "после обеда",
+      "truth_scope": "WORLD_STATE",
+      "evidence": [
+        {
+          "chunk_id": "primary-0024",
+          "paragraph_start": 1137,
+          "paragraph_end": 1139,
+          "quote": "Молодой, но толстый и усатый Алик Борисович, дежурный врач, был самым весёлым человеком в больнице. Можно подумать, что люди попадают сюда для собственного удовольствия. Ну, и, конечно, для того, чтобы послушать, как Алик выловил щуку на Дону или как он подражает соловью. В тот день он пришёл в палату после обеда и сказал притворно-грустным голосом:",
+          "quote_verified": true
+        }
+      ]
+    }
+  ]
 }

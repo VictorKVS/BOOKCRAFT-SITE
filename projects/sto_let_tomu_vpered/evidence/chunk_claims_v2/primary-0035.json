@@ -1,0 +1,414 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0035",
+    "start_paragraph": 1883,
+    "end_paragraph": 1963,
+    "mentions": [
+      {
+        "mention_id": "primary-0035-m-0001",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0035-c-0001",
+            "predicate": "имя",
+            "value": "Алиса",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0035",
+                "paragraph_start": 1915,
+                "paragraph_end": 1917,
+                "quote": "— Очень приятно. Алиса.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата утверждает, что имя персонажа — Алиса.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата содержит прямую речь персонажа Алисы.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата явно утверждает, что имя персонажа — Алиса.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Алиса",
+              "truth_scope": "WORLD_STATE"
+            }
+          },
+          {
+            "claim_id": "primary-0035-c-0002",
+            "predicate": "имеет подругу",
+            "value": "Наташа",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0035",
+                "paragraph_start": 1923,
+                "paragraph_end": 1925,
+                "quote": "Она знала, что в троллейбусах и автобусах надо платить деньги, но забыла спросить Юльку, сколько и как это делается.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает Алису или её подругу Наташу.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0035-c-0003",
+            "predicate": "имеет подругу",
+            "value": "подруга",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0035",
+                "paragraph_start": 1947,
+                "paragraph_end": 1949,
+                "quote": "Я попала в аварию, и меня привезли в больницу. Я лежала в палате вместе с подругой, а теперь подруга выписалась, и я осталась одна.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на наличие подруги у Алисы.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата является прямой речью персонажа, который сообщает о своем существовании и обстоятельствах.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата прямо указывает на наличие подруги у Алисы.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Алиса",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0035-m-0002",
+        "surface": "Коля Сулима",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0035-c-0004",
+            "predicate": "имя",
+            "value": "Коля Сулима",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0035",
+                "paragraph_start": 1950,
+                "paragraph_end": 1952,
+                "quote": "— Я тоже один раз в больнице лежал, — сказал Фима. — Мне аденоиды удаляли. Так соскучился, ты не представляешь!",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о имени Фимы.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0035-c-0005",
+            "predicate": "имеет друга",
+            "value": "Фима",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0035",
+                "paragraph_start": 1950,
+                "paragraph_end": 1952,
+                "quote": "— Я тоже один раз в больнице лежал, — сказал Фима. — Мне аденоиды удаляли. Так соскучился, ты не представляешь!",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает Коля Сулиму и его друга Фиму.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0035-m-0003",
+        "surface": "Фима",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0035-c-0006",
+            "predicate": "имя",
+            "value": "Фима",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0035",
+                "paragraph_start": 1950,
+                "paragraph_end": 1952,
+                "quote": "— Я тоже один раз в больнице лежал, — сказал Фима. — Мне аденоиды удаляли. Так соскучился, ты не представляешь!",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Фима был в больнице и переживал из-за соскулки, что подтверждает, что у него были аденоиды.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "Рассказчик сообщает факт о переживаниях персонажа Фимы.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REVIEW",
+              "reason": "Цитата подтверждает, что Фима был в больнице и переживал из-за аденоидов, но это не прямо указывает на то, что у него были аденоиды в текущий момент. Требуется дополнительная информация для подтверждения идентичности состояния.",
+              "error_type": "CONTEXT_MISMATCH",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "REVIEW",
+              "reason": "PRECISION_NOT_FINAL",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_not_final"
+              ],
+              "scope": "mention",
+              "subject": "Фима",
+              "truth_scope": "WORLD_STATE"
+            }
+          },
+          {
+            "claim_id": "primary-0035-c-0007",
+            "predicate": "имеет друга",
+            "value": "Коля Сулима",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0035",
+                "paragraph_start": 1950,
+                "paragraph_end": 1952,
+                "quote": "— Я тоже один раз в больнице лежал, — сказал Фима. — Мне аденоиды удаляли. Так соскучился, ты не представляешь!",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает Коля Сулима как друга Фимы.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0035-e-0001",
+        "event": "Алиса убегает из больницы",
+        "participants": [
+          "{'name': 'Алиса', 'role': '主人公'}"
+        ],
+        "location": "病院",
+        "claims": [
+          {
+            "claim_id": "primary-0035-c-0008",
+            "predicate": "原因",
+            "value": "她感到厌倦",
+            "provenance": "DERIVED",
+            "confidence": "PROBABLE",
+            "acceptance": "DERIVED_REVIEW",
+            "evidence": []
+          },
+          {
+            "claim_id": "primary-0035-c-0009",
+            "predicate": "结果",
+            "value": "她坐上了公交车",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0035",
+                "paragraph_start": 1950,
+                "paragraph_end": 1952,
+                "quote": "— Я тоже один раз в больнице лежал, — сказал Фима. — Мне аденоиды удаляли. Так соскучился, ты не представляешь!",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о том, что Алиса убегает из больницы или садится в автобус.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0035-e-0002",
+        "event": "Alica帮助Kolya拿钱",
+        "participants": [
+          "{'name': 'Alica', 'role': '帮助者'}",
+          "{'name': 'Kolya', 'role': '受益者'}"
+        ],
+        "location": "公交车",
+        "claims": [
+          {
+            "claim_id": "primary-0035-c-0010",
+            "predicate": "行为",
+            "value": "支付车费",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0035",
+                "paragraph_start": 1928,
+                "paragraph_end": 1930,
+                "quote": "— Если контроль, то мы везём сбежавшую из сумасшедшего дома девушку. За это билетов не берут.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "цитата не упоминает о行为或支付车费的情节。",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0035-t-0001",
+        "term": "公交车",
+        "category": "TRANSPORT",
+        "definition_claim": {
+          "claim_id": "primary-0035-c-0011",
+          "predicate": "定义",
+          "value": "一种公共交通工具，用于城市内部的乘客运输。",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+          "evidence": [
+            {
+              "chunk_id": "primary-0035",
+              "paragraph_start": 1950,
+              "paragraph_end": 1952,
+              "quote": "— Я тоже один раз в больнице лежал, — сказал Фима. — Мне аденоиды удаляли. Так соскучился, ты не представляешь!",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "NOT_SUPPORTED",
+            "reason": "Цитата не содержит информации о определении公交车。",
+            "model": "qwen2.5:7b"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Alica是否真的来自精神病院？",
+        "reason": "文本中提到Alica来自精神病院，但没有明确说明她是否真的来自那里。"
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 11,
+    "source_supported": 10,
+    "source_unsupported": 0,
+    "derived": 1,
+    "hypotheses": 0,
+    "mentions": 3,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 195,
+    "supported_entailed": 86,
+    "partial_review": 15,
+    "rejected": 94,
+    "schema_fixes": 0
+  }
+}

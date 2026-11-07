@@ -1,0 +1,242 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0026",
+    "start_paragraph": 1253,
+    "end_paragraph": 1354,
+    "mentions": [
+      {
+        "mention_id": "primary-0026-m-0001",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0026-c-0001",
+            "predicate": "готовит блюдо",
+            "value": "брамбулет",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0026",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Ты берёз обыкновенный мангустин и жаришь его в петеяровом масле минут пять.",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0026-c-0002",
+            "predicate": "считает охотников извергами",
+            "value": "все охотники",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0026",
+                "paragraph_start": 1277,
+                "paragraph_end": 1279,
+                "quote": "А если ты не охотник, ты хорошая, значит, и что другие делают, тебе все равно?",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не прямо подтверждает, что Алиса считает охотников извергами.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0026-c-0003",
+            "predicate": "знает о школе Юли",
+            "value": "шестой класс Б",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0026",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "А ты как догадалась? Мне очень нужно, чтобы ты училась в двадцать шестой школе. Двадцать шестая школа?",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0026-c-0004",
+            "predicate": "предполагает, что Юля не из Москвы",
+            "value": "не из Советского Союза",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0026",
+                "paragraph_start": 1337,
+                "paragraph_end": 1339,
+                "quote": "А разве я плохо по-русски говорю?",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о месте проживания Юли.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0026-m-0002",
+        "surface": "Юля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0026-c-0005",
+            "predicate": "читает журнал",
+            "value": "Юный натуралист",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0026",
+                "paragraph_start": 1270,
+                "paragraph_end": 1272,
+                "quote": "Приставать Юлька к ней не стала. Не хочет, не надо. Сама взяла книжку. Так они и читали, наверно, целый час.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата показывает, что Юля взяла книжку и читала её, но не упоминает, что это был журнал \"Юный натуралист\".",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0026-e-0001",
+        "event": "Алиса готовит блюдо",
+        "participants": [
+          "{'name': 'Алиса', 'role': '主体'}"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0026-c-0006",
+            "predicate": "使用材料",
+            "value": "普通的芒果和彼得亚罗夫植物油",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0026",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Ты берёз обыкновенный мангустин и жаришь его в петеяровом масле минут пять.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0026-e-0002",
+        "event": "讨论学校和教育",
+        "participants": [
+          "{'name': 'Aлиса', 'role': '主体'}",
+          "{'name': 'Юля', 'role': '主体'}"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0026-c-0007",
+            "predicate": "讨论内容",
+            "value": "学校班级、教育方式",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "BLOCKED_BY_NARRATIVE_MODE",
+            "evidence": [
+              {
+                "chunk_id": "primary-0026",
+                "paragraph_start": 1323,
+                "paragraph_end": 1325,
+                "quote": "Расскажи мне про свой класс, — сказала Алиса.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата упоминает класс в школе, что соответствует теме школы и классов.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": false,
+              "reason": "Цитата содержит прямые слова персонажа, а не факт из мира рассказа.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0026-t-0001",
+        "term": "彼得亚罗夫植物油",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0026-c-0008",
+          "predicate": "定义",
+          "value": "用于制作特定食物的植物油",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "UNSUPPORTED",
+          "evidence": [
+            {
+              "chunk_id": "primary-0026",
+              "paragraph_start": null,
+              "paragraph_end": null,
+              "quote": "Ты берёз обыкновенный мангустин и жаришь его в петеяровом масле минут пять.",
+              "quote_verified": false
+            }
+          ]
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Aлиса为何对彼得亚罗夫植物油如此了解？",
+        "reason": "文本中没有提供足够的信息来解释Aлиса对彼得亚罗夫植物油的了解程度。"
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 8,
+    "source_supported": 4,
+    "source_unsupported": 4,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 2,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 136,
+    "supported_entailed": 61,
+    "partial_review": 12,
+    "rejected": 63,
+    "schema_fixes": 0
+  }
+}

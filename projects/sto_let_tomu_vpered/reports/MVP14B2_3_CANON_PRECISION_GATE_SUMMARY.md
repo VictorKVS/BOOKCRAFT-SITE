@@ -1,11 +1,15 @@
 # MVP-14B2.3 Canon Precision Gate
 
-- Files checked: 3
-- Claims checked: 9
-- FINAL_CANON_CANDIDATE: 8
-- FINAL_REVIEW: 1
-- REJECTED: 0
+- Files checked: 61
+- Claims checked: 155
+- FINAL_CANON_CANDIDATE: 120
+- FINAL_REVIEW: 19
+- REJECTED: 16
 
 ## Error types
-- CONTEXT_MISMATCH: 1
-- NONE: 8
+- CONTEXT_MISMATCH: 9
+- NARRATIVE_MODE: 4
+- NONE: 120
+- OTHER: 16
+- PREDICATE_OVERREACH: 3
+- SUBJECT_MISMATCH: 3

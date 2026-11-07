@@ -1,0 +1,572 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0020",
+    "start_paragraph": 942,
+    "end_paragraph": 979,
+    "mentions": [
+      {
+        "mention_id": "primary-0020-m-0001",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0020-c-0001",
+            "predicate": "думает",
+            "value": "Алисе немного завидует",
+            "provenance": "DERIVED",
+            "confidence": "PROBABLE",
+            "acceptance": "DERIVED_REVIEW",
+            "evidence": []
+          },
+          {
+            "claim_id": "primary-0020-c-0002",
+            "predicate": "видит",
+            "value": "двух человек, сидевших в тени на мягкой лавочке",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0020",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Один из них как будто дремал, опустив на глаза широкополую шляпу сомбреро. Второй, вдвое меньше его ростом и втрое тоньше, закутанный в голубую накидку, почувствовал взгляд Коли и отвернулся.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0020-m-0002",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0020-c-0003",
+            "predicate": "видит",
+            "value": "отца",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_PRECISION_GATE",
+            "evidence": [
+              {
+                "chunk_id": "primary-0020",
+                "paragraph_start": 949,
+                "paragraph_end": 951,
+                "quote": "— Еле нашла тебя, отец, — сказала Алиса.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Алиса видит своего отца.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата содержит прямую речь персонажа Алисы.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REJECT",
+              "reason": "Цитата и контекст подтверждают, что Алиса видит своего отца.",
+              "error_type": "OTHER",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0020-c-0004",
+            "predicate": "говорит",
+            "value": "отцу",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_PRECISION_GATE",
+            "evidence": [
+              {
+                "chunk_id": "primary-0020",
+                "paragraph_start": 949,
+                "paragraph_end": 951,
+                "quote": "— Еле нашла тебя, отец, — сказала Алиса.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Алиса говорит отцу.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Алиса говорит слова, которые передаются в цитате.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REJECT",
+              "reason": "Цитата и контекст подтверждают, что Алиса говорит отцу.",
+              "error_type": "OTHER",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0020-c-0005",
+            "predicate": "читает",
+            "value": "все книжки, которые отец ей оставил",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0020",
+                "paragraph_start": 951,
+                "paragraph_end": 953,
+                "quote": "— Если там маму увидишь, скажи, что я прочитала все книжки, которые она мне оставила.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает, что Алиса прочитала все книги, которые ей оставила её мать.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата является словами персонажа, которые он произносит.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно передаёт, что Алиса прочитала все книги, которые ей оставила её мать, что подтверждается текстом.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Алиса",
+              "truth_scope": "WORLD_STATE"
+            }
+          },
+          {
+            "claim_id": "primary-0020-c-0006",
+            "predicate": "обещает",
+            "value": "отцу",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0020",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "— Обещаю тебе: сегодня же, как только кончу опыт с пустотелом, верну его в клинику.",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0020-c-0007",
+            "predicate": "говорит",
+            "value": "отцу, что не играет с миелофоном",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0020",
+                "paragraph_start": 959,
+                "paragraph_end": 961,
+                "quote": "— А разве я играю?",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не подтверждает, что Алиса говорит отцу, что не играет с миелофоном. Наоборот, она спрашивает, играет ли она.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0020-c-0008",
+            "predicate": "идёт",
+            "value": "в террариум",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0020",
+                "paragraph_start": 969,
+                "paragraph_end": 971,
+                "quote": "Коля не стал раздумывать. Он поспешил к строению и вбежал внутрь.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о том, кто идёт в террариум.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0020-m-0003",
+        "surface": "профессор Селезнев",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0020-c-0009",
+            "predicate": "говорит",
+            "value": "Алисе, что она может вырасти сухой и скучной",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0020",
+                "paragraph_start": 954,
+                "paragraph_end": 956,
+                "quote": "— Я боюсь, как бы ты не выросла сухим и скучным человеком.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата точно передает, что профессор Селезнев говорит Алисе о том, что она может вырасти сухой и скучной.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата является прямой речью персонажа, профессора Селезнева.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно передает, что профессор Селезнев говорит Алисе о том, что она может вырасти сухой и скучной.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "профессор Селезнев",
+              "truth_scope": "WORLD_STATE"
+            }
+          },
+          {
+            "claim_id": "primary-0020-c-0010",
+            "predicate": "говорит",
+            "value": "Алисе, что она не должна забывать о бабушке с дедушкой",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0020",
+                "paragraph_start": 958,
+                "paragraph_end": 960,
+                "quote": "— Да, кстати, ты опять брала миелофон? Ты же знаешь, что это не игрушка.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о том, что профессор Селезнев говорит Алисе о бабушке с дедушкой.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0020-e-0001",
+        "event": "Алиса встречается с отцом",
+        "participants": [
+          "{'name': 'Алиса', 'entity_type': 'CHARACTER'}",
+          "{'name': 'профессор Селезнев', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "перед зданием",
+        "claims": [
+          {
+            "claim_id": "primary-0020-c-0011",
+            "predicate": "говорит",
+            "value": "Алисе, что он уезжает",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0020",
+                "paragraph_start": 950,
+                "paragraph_end": 952,
+                "quote": "— Да. Через две недели вернусь.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что отец говорит Алисе о своем уезде.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата содержит прямые слова персонажа о своем уезде.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно соответствует тексту и контексту.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "event",
+              "subject": "Алиса встречается с отцом",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0020-e-0002",
+        "event": "Алиса читает книги",
+        "participants": [
+          "{'name': 'Алиса', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "не указано",
+        "claims": [
+          {
+            "claim_id": "primary-0020-c-0012",
+            "predicate": "читает",
+            "value": "книжки, которые отец ей оставил",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0020",
+                "paragraph_start": 951,
+                "paragraph_end": 953,
+                "quote": "— Если там маму увидишь, скажи, что я прочитала все книжки, которые она мне оставила.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на то, что Алиса читает книги, которые ей оставила её мать.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата представляет слова, сказанные Алисой, а не рассказчика.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно соответствует тексту и подтверждает, что Алиса читает книги, оставленные её матерью.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "event",
+              "subject": "Алиса читает книги",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0020-e-0003",
+        "event": "Алиса играет с миелофоном",
+        "participants": [
+          "{'name': 'Алиса', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "не указано",
+        "claims": [
+          {
+            "claim_id": "primary-0020-c-0013",
+            "predicate": "играла",
+            "value": "с миелофоном",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0020",
+                "paragraph_start": 959,
+                "paragraph_end": 961,
+                "quote": "— А разве я играю?",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не подтверждает, что Алиса играет с миелофоном.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0020-t-0001",
+        "term": "миелофон",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0020-c-0014",
+          "predicate": "definition",
+          "value": "На всей Земле есть только двадцать миелофонов. Они распределены между крупнейшими институтами и медицинскими центрами. Кристалл в центре миелофона настолько редок, что за последние годы восемь экспедиций обшарили астероид Власту и нашли только двадцать шесть…",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "CANON_ACCEPTED",
+          "evidence": [
+            {
+              "chunk_id": "primary-0020",
+              "paragraph_start": 960,
+              "paragraph_end": 962,
+              "quote": "— А разве я играю? — Алиса, пойми меня правильно. На всей Земле есть только двадцать миелофонов. Они распределены между крупнейшими институтами и медицинскими центрами. Кристалл в центре миелофона настолько редок, что за последние годы восемь экспедиций обшарили астероид Власту и нашли только двадцать шесть…",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "SUPPORTED",
+            "reason": "Цитата прямо утверждает, что на всей Земле есть только двадцать миелофонов.",
+            "model": "qwen2.5:7b"
+          },
+          "narrative_mode": {
+            "mode": "NARRATOR_FACT",
+            "canon_eligible": true,
+            "reason": "рассказчик сообщает факт о количестве миелофонов на Земле",
+            "model": "qwen2.5:7b"
+          },
+          "precision_gate": {
+            "verdict": "FINAL_CANON_CANDIDATE",
+            "reason": "Цитата и контекст подтверждают, что на всей Земле есть только двадцать миелофонов, что является фактом текущего мира.",
+            "error_type": "NONE",
+            "model": "qwen2.5:7b"
+          },
+          "deterministic_safety": {
+            "verdict": "PASS",
+            "error_type": "NONE",
+            "reason": "Детерминированных блокирующих признаков не найдено."
+          },
+          "canon_admission": {
+            "stage": "MVP-14B2.5",
+            "verdict": "ACCEPT",
+            "reason": "ALL_ADMISSION_CHECKS_PASSED",
+            "checks": [
+              "evidence_verified",
+              "deterministic_safety_pass",
+              "entailment_supported",
+              "precision_final",
+              "narrative_canon_eligible",
+              "claim_complete"
+            ],
+            "scope": "term",
+            "subject": "миелофон",
+            "truth_scope": "WORLD_STATE"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Кто такие люди в сомбреро и накидке?",
+        "reason": "Не указано, кто они и зачем они пришли."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 14,
+    "source_supported": 11,
+    "source_unsupported": 2,
+    "derived": 1,
+    "hypotheses": 0,
+    "mentions": 3,
+    "events": 3,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 92,
+    "supported_entailed": 35,
+    "partial_review": 9,
+    "rejected": 48,
+    "schema_fixes": 0
+  }
+}

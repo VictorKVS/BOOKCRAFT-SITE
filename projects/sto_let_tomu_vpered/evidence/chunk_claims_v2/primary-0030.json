@@ -1,0 +1,325 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0030",
+    "start_paragraph": 1534,
+    "end_paragraph": 1593,
+    "mentions": [
+      {
+        "mention_id": "primary-0030-m-0001",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0030-c-0001",
+            "predicate": "был недисциплинированным и первобытным",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0030",
+                "paragraph_start": 1584,
+                "paragraph_end": 1586,
+                "quote": "Понимаешь, он хоть и недисциплинированный и первобытный, но ведь он не вор и не бандит…",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата упоминает недисциплинированность и первобытность Коля, но не полностью подтверждает, что он был таков.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0030-c-0002",
+            "predicate": "видел, как пираты украли сумку",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_PRECISION_GATE",
+            "evidence": [
+              {
+                "chunk_id": "primary-0030",
+                "paragraph_start": 1584,
+                "paragraph_end": 1586,
+                "quote": "Коля увидел, как они мою сумку украли.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата точно соответствует claim, описывая, что Коля видел, как пираты украли его сумку.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает о факте, который Коля видел",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REJECT",
+              "reason": "Цитата точно соответствует claim, описывая, что Коля видел, как пираты украли его сумку.",
+              "error_type": "OTHER",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0030-c-0003",
+            "predicate": "попытался вернуться в свой год",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0030",
+                "paragraph_start": 1588,
+                "paragraph_end": 1590,
+                "quote": "Видно, они по пятам за ним бежали. Вот он и решил вернуться в свой год.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Коля решил вернуться в свой год.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_BELIEF",
+              "canon_eligible": true,
+              "reason": "Коля решил вернуться в свой год, что является его убеждением/предположением.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REVIEW",
+              "reason": "Цитата показывает, что Коля решил вернуться в свой год, но это его мысль или решение, а не факт действия.",
+              "error_type": "NARRATIVE_MODE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "REVIEW",
+              "reason": "PRECISION_NOT_FINAL",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_not_final"
+              ],
+              "scope": "mention",
+              "subject": "Коля",
+              "truth_scope": "CHARACTER_BELIEF"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0030-m-0002",
+        "surface": "пираты",
+        "entity_type": "CREATURE",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0030-c-0004",
+            "predicate": "были пришельцами",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0030",
+                "paragraph_start": 1579,
+                "paragraph_end": 1581,
+                "quote": "А как же они через сто лет появятся? Как динозавры? Может, вы их специально вырастили, чтобы не скучно было?",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не подтверждает, что пираты были пришельцами.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0030-e-0001",
+        "event": "Коля увидел, как пираты украли сумку",
+        "participants": [
+          "Коля",
+          "пираты"
+        ],
+        "location": "на остановке",
+        "claims": [
+          {
+            "claim_id": "primary-0030-c-0005",
+            "predicate": "Коля увидел, как пираты украли сумку",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_DETERMINISTIC_SAFETY",
+            "evidence": [
+              {
+                "chunk_id": "primary-0030",
+                "paragraph_start": 1584,
+                "paragraph_end": 1586,
+                "quote": "Коля увидел, как они мою сумку украли.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата точно передает, что Коля увидел, как пираты украли его сумку.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает о факте, который произошел в мире рассказа",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно передает, что Коля увидел, как пираты украли его сумку, и это подтверждается контекстом.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "REJECT",
+              "error_type": "IDENTITY_OVERREACH",
+              "reason": "Claim вводит идентичность 'пират', не установленную доказательной цитатой."
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0030-e-0002",
+        "event": "Коля пытался вернуться в свой год",
+        "participants": [
+          "Коля"
+        ],
+        "location": "в институте времени",
+        "claims": [
+          {
+            "claim_id": "primary-0030-c-0006",
+            "predicate": "Коля пытался вернуться в свой год",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0030",
+                "paragraph_start": 1588,
+                "paragraph_end": 1590,
+                "quote": "Видно, они по пятам за ним бежали. Вот он и решил вернуться в свой год.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Коля решил вернуться в свой год.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_BELIEF",
+              "canon_eligible": true,
+              "reason": "Коля решил вернуться в свой год, что является его убеждением/предположением.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REVIEW",
+              "reason": "Цитата подтверждает, что Коля решил вернуться в свой год, но это его убеждение, а не факт текущего мира.",
+              "error_type": "NARRATIVE_MODE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "REVIEW",
+              "reason": "PRECISION_NOT_FINAL",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_not_final"
+              ],
+              "scope": "event",
+              "subject": "Коля пытался вернуться в свой год",
+              "truth_scope": "CHARACTER_BELIEF"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0030-t-0001",
+        "term": "миелофон",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0030-c-0007",
+          "predicate": "definition",
+          "value": "аппарат для перемещения в прошлое",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "PARTIAL_REVIEW",
+          "evidence": [
+            {
+              "chunk_id": "primary-0030",
+              "paragraph_start": 1542,
+              "paragraph_end": 1544,
+              "quote": "отниму миелофон, а потом уж решу, что делать дальше",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "PARTIAL",
+            "reason": "Цитата упоминает миелофон, но не определяет его как аппарат для перемещения в прошлое.",
+            "model": "qwen2.5:7b"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Почему пираты за ним гнались?",
+        "reason": "Текст не предоставляет прямых доказательств, почему пираты гнались за Колей."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 7,
+    "source_supported": 7,
+    "source_unsupported": 0,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 2,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 148,
+    "supported_entailed": 68,
+    "partial_review": 14,
+    "rejected": 66,
+    "schema_fixes": 0
+  }
+}

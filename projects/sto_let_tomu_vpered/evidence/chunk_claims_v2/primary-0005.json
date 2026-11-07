@@ -1,0 +1,353 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0005",
+    "start_paragraph": 166,
+    "end_paragraph": 228,
+    "mentions": [
+      {
+        "mention_id": "primary-0005-m-0001",
+        "surface": "старик Павел",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0005-c-0001",
+            "predicate": "имеет возраст",
+            "value": "100 лет",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0005",
+                "paragraph_start": 166,
+                "paragraph_end": 167,
+                "quote": "Ну что ты будешь делать! Старик был так уверен, что спорить с ним невозможно.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о возрасте старика Павла.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0005-c-0002",
+            "predicate": "живёт в Москве",
+            "value": "вероятно",
+            "provenance": "HYPOTHESIS",
+            "confidence": "PROBABLE",
+            "acceptance": "HYPOTHESIS_REVIEW",
+            "evidence": []
+          },
+          {
+            "claim_id": "primary-0005-c-0003",
+            "predicate": "читает газету",
+            "value": "вероятно",
+            "provenance": "HYPOTHESIS",
+            "confidence": "PROBABLE",
+            "acceptance": "HYPOTHESIS_REVIEW",
+            "evidence": []
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0005-m-0002",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0005-c-0004",
+            "predicate": "учится в английской школе",
+            "value": "вероятно",
+            "provenance": "HYPOTHESIS",
+            "confidence": "PROBABLE",
+            "acceptance": "HYPOTHESIS_REVIEW",
+            "evidence": []
+          },
+          {
+            "claim_id": "primary-0005-c-0005",
+            "predicate": "готовится к маскараду",
+            "value": "вероятно",
+            "provenance": "HYPOTHESIS",
+            "confidence": "PROBABLE",
+            "acceptance": "HYPOTHESIS_REVIEW",
+            "evidence": []
+          },
+          {
+            "claim_id": "primary-0005-c-0006",
+            "predicate": "интересуется футболом",
+            "value": "верно",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0005",
+                "paragraph_start": 213,
+                "paragraph_end": 215,
+                "quote": "— А кто играет? — спросил Коля.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Коля задает вопрос, который обычно задают при интересе к футбольному матчу.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Коля задает вопрос, что свидетельствует о его интересе к футбольному матчу.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст подтверждают, что Коля действительно интересуется футболом.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Коля",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0005-m-0003",
+        "surface": "Пашка",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0005-c-0007",
+            "predicate": "является ровесником Коли",
+            "value": "верно",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0005",
+                "paragraph_start": 197,
+                "paragraph_end": 199,
+                "quote": "Ровесник Коли, которого можно было бы назвать Пашкой, если бы он не был таким старым, углубился в чтение газеты и обо всём забыл.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата упоминает Пашку и говорит о его ровеснике Коле, что подтверждает, что Пашка является ровесником Коли.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "Рассказчик сообщает факт о том, что Пашка является ровесником Коли.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст подтверждают, что Пашка является ровесником Коли.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Пашка",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0005-m-0004",
+        "surface": "профессор Рррр",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0005-c-0008",
+            "predicate": "является космическим археологом",
+            "value": "верно",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0005",
+                "paragraph_start": 206,
+                "paragraph_end": 208,
+                "quote": "— Тогда разрешите представиться: я известный космический археолог, специалист по вымершим языкам профессор Рррр.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает, что профессор Рррр является космическим археологом.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата содержит прямые слова персонажа, который自我翻译：模式：CHARACTER_SPEECH。 canon_eligible：true。原因：引用部分包含角色直接说出的话。",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата прямо указывает, что профессор Рррр является космическим археологом.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "профессор Рррр",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0005-e-0001",
+        "event": "встреча с профессором Рррр",
+        "participants": [
+          "Коля",
+          "профессор Рррр"
+        ],
+        "location": "улица",
+        "claims": [
+          {
+            "claim_id": "primary-0005-c-0009",
+            "predicate": "профессор Рррр предлагает Коле билет на матч",
+            "value": "верно",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0005",
+                "paragraph_start": 218,
+                "paragraph_end": 220,
+                "quote": "— Погодите немного, мой молодой друг, — сказал археолог Рррр. — Сейчас подойдёт доцент Спуси-ва-пус-ва-пас-ва-пос. Может быть, у него есть лишний билет.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата говорит о возможности получения билета от доцента, но не прямо утверждает, что профессор Рррр предлагает Коле билет.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0005-t-0001",
+        "term": "сплинтер",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0005-c-0010",
+          "predicate": "definition",
+          "value": "возможно, это вид транспортного средства или летательного аппарата",
+          "provenance": "SOURCE_CANON",
+          "confidence": "PROBABLE",
+          "acceptance": "PARTIAL_REVIEW",
+          "evidence": [
+            {
+              "chunk_id": "primary-0005",
+              "paragraph_start": 183,
+              "paragraph_end": 185,
+              "quote": "— Сплинтер, — сказал старик равнодушно. — А может, рейсовый на Луну. Там ведь фестиваль. Разве не знаешь?",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "PARTIAL",
+            "reason": "Цитата предполагает, что сплинтер может быть рейсовым на Луну, но не прямо определяет его как транспортное средство или летательное устройство.",
+            "model": "qwen2.5:7b"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "какой матч играют сборные Марса и внешних баз?",
+        "reason": "в тексте упоминается матч, но участники не указаны"
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 10,
+    "source_supported": 6,
+    "source_unsupported": 0,
+    "derived": 0,
+    "hypotheses": 4,
+    "mentions": 4,
+    "events": 1,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 10,
+    "supported_entailed": 6,
+    "partial_review": 2,
+    "rejected": 2,
+    "schema_fixes": 0
+  }
+}

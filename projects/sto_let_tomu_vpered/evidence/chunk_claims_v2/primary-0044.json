@@ -1,0 +1,405 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0044",
+    "start_paragraph": 2665,
+    "end_paragraph": 2744,
+    "mentions": [
+      {
+        "mention_id": "primary-0044-m-0001",
+        "surface": "Крысс",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0044-c-0001",
+            "predicate": "работает как",
+            "value": "дублёром",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0044",
+                "paragraph_start": 2724,
+                "paragraph_end": 2726,
+                "quote": "Крысс заменял по очереди всех заболевших актёров, а иногда ему просто показывали фотографию, и он изображал кого надо.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает, что Крысс работал как дублёр, заменяя заболевших актёров и изображая других персонажей по фотографиям.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает факт о действиях персонажа Крысса",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата явно указывает на то, что Крысс работал как дублёр, заменяя заболевших актёров и изображая других персонажей по фотографиям.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Крысс",
+              "truth_scope": "WORLD_STATE"
+            }
+          },
+          {
+            "claim_id": "primary-0044-c-0002",
+            "predicate": "имеет",
+            "value": "коллекцию пыток",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_DETERMINISTIC_SAFETY",
+            "evidence": [
+              {
+                "chunk_id": "primary-0044",
+                "paragraph_start": 2682,
+                "paragraph_end": 2684,
+                "quote": "Крысс насторожился. Он был коллекционером. Коллекционировал пытки.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает, что Крысс коллекционировал пытки.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает факт о персонаже",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата прямо указывает, что Крысс коллекционировал пытки.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "REJECT",
+              "error_type": "PREDICATE_OVERREACH",
+              "reason": "Доказательная цитата показывает доступ/использование, но не подтверждает владение."
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0044-m-0002",
+        "surface": "Весельчак У",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0044-c-0003",
+            "predicate": "имеет",
+            "value": "способность к перевоплощению",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_DETERMINISTIC_SAFETY",
+            "evidence": [
+              {
+                "chunk_id": "primary-0044",
+                "paragraph_start": 2695,
+                "paragraph_end": 2697,
+                "quote": "Могу засвидетельствовать, — сказал он. — Мой помощник может скопировать кого угодно. У него талант.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата упоминает талант помощника к копированию, что подтверждает его способность к перевоплощению.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_BELIEF",
+              "canon_eligible": true,
+              "reason": "Цитата представляет убеждение персонажа о способности своего помощника.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REVIEW",
+              "reason": "Цитата упоминает способность помощника к копированию, но не прямо утверждает, что Весельчак У имеет эту способность. Необходимо проверить контекст и другие упоминания.",
+              "error_type": "CONTEXT_MISMATCH",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "REJECT",
+              "error_type": "PREDICATE_OVERREACH",
+              "reason": "Доказательная цитата показывает доступ/использование, но не подтверждает владение."
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0044-m-0003",
+        "surface": "Наполеон",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0044-c-0004",
+            "predicate": "является",
+            "value": "ролью",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0044",
+                "paragraph_start": 2680,
+                "paragraph_end": 2682,
+                "quote": "Правда, пираты, по необразованности и потому, что родились на другой планете, полагали, что Наполеон — это должность.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не подтверждает, что Наполеон является ролью, а описывает мнение пиратов о Наполеоне.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0044-m-0004",
+        "surface": "Ниткин",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0044-c-0005",
+            "predicate": "является",
+            "value": "режиссёром",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0044",
+                "paragraph_start": 2687,
+                "paragraph_end": 2689,
+                "quote": "— Все, — сказал человек в очках, глядя вслед машине. — День погиб! — он воздел к небу руки и произнёс: — Полцарства за Наполеона!",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о Ниткине и его профессии.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0044-e-0001",
+        "event": "пираты работают в киногруппе",
+        "participants": [
+          "пираты",
+          "Ниткин"
+        ],
+        "location": "киногруппа",
+        "claims": [
+          {
+            "claim_id": "primary-0044-c-0006",
+            "predicate": "получают зарплату",
+            "value": "всю зарплату",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0044",
+                "paragraph_start": 2724,
+                "paragraph_end": 2726,
+                "quote": "Режиссёр Ниткин отдавал ему всю зарплату, а сам брал деньги взаймы у ассистентов.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает пиратов и не подтверждает, что они получают всю зарплату.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0044-e-0002",
+        "event": "Крысс заменяет заболевших актёров",
+        "participants": [
+          "Крысс"
+        ],
+        "location": "киногруппа",
+        "claims": [
+          {
+            "claim_id": "primary-0044-c-0007",
+            "predicate": "занимается",
+            "value": "дублёром",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0044",
+                "paragraph_start": 2724,
+                "paragraph_end": 2726,
+                "quote": "Крысс заменял по очереди всех заболевших актёров, а иногда ему просто показывали фотографию, и он изображал кого надо.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает, что Крысс занимается заменой заболевших актёров, что подтверждает claim.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает факт о действиях Крысса",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст подтверждают, что Крысс занимается заменой заболевших актёров, что соответствует claim.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "event",
+              "subject": "Крысс заменяет заболевших актёров",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0044-t-0001",
+        "term": "дублёром",
+        "category": "PROFESSION",
+        "definition_claim": {
+          "claim_id": "primary-0044-c-0008",
+          "predicate": "definition",
+          "value": "актёр, который заменяет заболевших актёров",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "CANON_ACCEPTED",
+          "evidence": [
+            {
+              "chunk_id": "primary-0044",
+              "paragraph_start": 2724,
+              "paragraph_end": 2726,
+              "quote": "Крысс заменял по очереди всех заболевших актёров, а иногда ему просто показывали фотографию, и он изображал кого надо.",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "SUPPORTED",
+            "reason": "Цитата точно определяет дублёра как актёра, который заменяет заболевших актёров.",
+            "model": "qwen2.5:7b"
+          },
+          "narrative_mode": {
+            "mode": "NARRATOR_FACT",
+            "canon_eligible": true,
+            "reason": "рассказчик сообщает факт о действиях персонажа Крысс",
+            "model": "qwen2.5:7b"
+          },
+          "precision_gate": {
+            "verdict": "FINAL_CANON_CANDIDATE",
+            "reason": "Цитата точно определяет дублёра как актёра, который заменяет заболевших актёров, что подтверждается контекстом.",
+            "error_type": "NONE",
+            "model": "qwen2.5:7b"
+          },
+          "deterministic_safety": {
+            "verdict": "PASS",
+            "error_type": "NONE",
+            "reason": "Детерминированных блокирующих признаков не найдено."
+          },
+          "canon_admission": {
+            "stage": "MVP-14B2.5",
+            "verdict": "ACCEPT",
+            "reason": "ALL_ADMISSION_CHECKS_PASSED",
+            "checks": [
+              "evidence_verified",
+              "deterministic_safety_pass",
+              "entailment_supported",
+              "precision_final",
+              "narrative_canon_eligible",
+              "claim_complete"
+            ],
+            "scope": "term",
+            "subject": "дублёром",
+            "truth_scope": "WORLD_STATE"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Кто такие склиссы?",
+        "reason": "Термин не объяснен в тексте."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 8,
+    "source_supported": 8,
+    "source_unsupported": 0,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 4,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 247,
+    "supported_entailed": 105,
+    "partial_review": 23,
+    "rejected": 119,
+    "schema_fixes": 4
+  }
+}

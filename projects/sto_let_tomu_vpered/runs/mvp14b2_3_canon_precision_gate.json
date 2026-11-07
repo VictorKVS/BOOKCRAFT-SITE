@@ -1,14 +1,18 @@
 {
   "stage": "MVP-14B2_3_CANON_PRECISION_GATE",
   "result": "PASS",
-  "files_checked": 3,
-  "claims_checked": 9,
-  "final_canon_candidates": 8,
-  "review": 1,
-  "rejected": 0,
+  "files_checked": 61,
+  "claims_checked": 155,
+  "final_canon_candidates": 120,
+  "review": 19,
+  "rejected": 16,
   "error_types": {
-    "NONE": 8,
-    "CONTEXT_MISMATCH": 1
+    "NONE": 120,
+    "PREDICATE_OVERREACH": 3,
+    "OTHER": 16,
+    "NARRATIVE_MODE": 4,
+    "CONTEXT_MISMATCH": 9,
+    "SUBJECT_MISMATCH": 3
   },
   "model": "qwen2.5:7b"
 }

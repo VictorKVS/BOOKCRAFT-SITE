@@ -1,0 +1,281 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0011",
+    "start_paragraph": 514,
+    "end_paragraph": 550,
+    "mentions": [
+      {
+        "mention_id": "primary-0011-m-0001",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0011-c-0001",
+            "predicate": "имеет мечту",
+            "value": "оставить пузырь с мороженым",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0011",
+                "paragraph_start": 530,
+                "paragraph_end": 532,
+                "quote": "У Коли была одна мечта — чтобы борец против машин отвернулся и можно было недоеденный стаканчик поставить на место.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата упоминает мечту Коли, но она связана с борцом против машин, а не с оставлением пузырька с мороженым.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0011-c-0002",
+            "predicate": "исследователь",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0011",
+                "paragraph_start": 540,
+                "paragraph_end": 542,
+                "quote": "Коля не был бы исследователем, если бы его не попробовал.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата указывает на то, что Коля попробовал что-то, что позволило ему стать исследователем, но не прямо доказывает, что он исследователь.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0011-m-0002",
+        "surface": "худой мужчина",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0011-c-0003",
+            "predicate": "председатель",
+            "value": "районной лиги возвращения к естественной жизни",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0011",
+                "paragraph_start": 514,
+                "paragraph_end": 514,
+                "quote": "Я, как председатель районной лиги возвращения к естественной жизни, полностью на твоей стороне.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на то, что говорящий является председателем районной лиги возвращения к естественной жизни.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата содержит прямые слова персонажа, который заявляет свою должность.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно указывает на то, что говорящий является председателем районной лиги возвращения к естественной жизни.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "худой мужчина",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0011-m-0003",
+        "surface": "Электрон Степанович",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0011-c-0004",
+            "predicate": "мастер по новой технике",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0011",
+                "paragraph_start": 537,
+                "paragraph_end": 539,
+                "quote": "мы с тобой всласть полакомимся.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о профессии или специализации персонажа.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0011-e-0001",
+        "event": "попытка полета на пузыре",
+        "participants": [
+          "Коля"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0011-c-0005",
+            "predicate": "испытывает страх",
+            "value": "из-за потенциальной аварии",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0011",
+                "paragraph_start": 544,
+                "paragraph_end": 546,
+                "quote": "Скорость-то километров сто.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает страх или потенциальную аварию.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0011-e-0002",
+        "event": "использование ручного управления",
+        "participants": [
+          "Коля"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0011-c-0006",
+            "predicate": "не следует правилам",
+            "value": "исследователь не всегда слушается своих рассуждений",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_PRECISION_GATE",
+            "evidence": [
+              {
+                "chunk_id": "primary-0011",
+                "paragraph_start": 548,
+                "paragraph_end": 550,
+                "quote": "Коля рассудил разумно, что не следует трогать ручное управление. Но рассуждения полезны тогда, когда им следуют. А Коля не всегда слушался собственных рассуждений.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на то, что исследователь (Коля) не всегда слушался своих рассуждений, что подтверждает claim о том, что использование ручного управления не следует правилам.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_BELIEF",
+              "canon_eligible": true,
+              "reason": "Утверждение является мыслью персонажа о собственном поведении.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REJECT",
+              "reason": "Цитата прямо указывает на то, что исследователь (Коля) не всегда слушался своих рассуждений, что подтверждает claim о том, что использование ручного управления не следует правилам.",
+              "error_type": "OTHER",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0011-t-0001",
+        "term": "пузырь",
+        "category": "DEVICE",
+        "definition_claim": {
+          "claim_id": "primary-0011-c-0007",
+          "predicate": "definition",
+          "value": "транспортное средство, используемое для путешествий в воздухе",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "UNSUPPORTED",
+          "evidence": [
+            {
+              "chunk_id": "primary-0011",
+              "paragraph_start": null,
+              "paragraph_end": null,
+              "quote": "Коля нажал на кнопку, и его пузырь не хуже других приподнялся над землёй, быстро набрал скорость и понёсся над улицей в потоке таких же пузырей.",
+              "quote_verified": false
+            }
+          ]
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Почему Электрон Степанович не доверяет автоматике?",
+        "reason": "Текст не предоставляет прямых доказательств этому утверждению."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 7,
+    "source_supported": 6,
+    "source_unsupported": 1,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 3,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 38,
+    "supported_entailed": 14,
+    "partial_review": 8,
+    "rejected": 16,
+    "schema_fixes": 0
+  }
+}

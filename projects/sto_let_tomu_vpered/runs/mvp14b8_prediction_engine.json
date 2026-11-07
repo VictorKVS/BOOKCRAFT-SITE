@@ -4,7 +4,7 @@
   "open_hypotheses_input": 0,
   "predictions_frozen": 0,
   "review_queue": 0,
-  "cutoff_sequence_index": 2,
+  "cutoff_sequence_index": 94,
   "future_evidence_used": false,
   "regression_tests": {
     "strong_hypothesis_prediction": "PASS",

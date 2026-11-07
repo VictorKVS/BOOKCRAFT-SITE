@@ -1,12 +1,12 @@
 # MVP-14B2.8 Relation / Event Store
 
-- Canon claims input: 3
-- Relations written: 3
-- Events written: 0
-- Review queue: 0
-- Entity targets: 0
+- Canon claims input: 95
+- Relations written: 61
+- Events written: 19
+- Review queue: 15
+- Entity targets: 7
 - Proposition targets: 2
-- Literal targets: 1
+- Literal targets: 52
 
 ## Invariants
 - Relations and events originate only from trusted canon claims.

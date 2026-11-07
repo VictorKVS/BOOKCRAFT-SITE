@@ -1,0 +1,441 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0041",
+    "start_paragraph": 2387,
+    "end_paragraph": 2494,
+    "mentions": [
+      {
+        "mention_id": "primary-0041-m-0001",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0041-c-0001",
+            "predicate": "ищет",
+            "value": "Колю",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0041",
+                "paragraph_start": 2415,
+                "paragraph_end": 2417,
+                "quote": "— Она меня ищет, — сказал Коля.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата говорит о том, что Коля ищет Алису, а не наоборот.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0041-m-0002",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0041-c-0002",
+            "predicate": "попал в будущее",
+            "value": "из-за миелофона",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0041",
+                "paragraph_start": 2453,
+                "paragraph_end": 2455,
+                "quote": "— Значит, я попал в будущее… Стой!",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает миелофон и не подтверждает, как именно Коля попал в будущее.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0041-c-0003",
+            "predicate": "видел",
+            "value": "Алису",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0041",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "— Я её там собственными глазами видел.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0041-m-0003",
+        "surface": "Фима Королев",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0041-c-0004",
+            "predicate": "верит",
+            "value": "Коле",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0041",
+                "paragraph_start": 2427,
+                "paragraph_end": 2429,
+                "quote": "— Я ей верю.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата показывает, что говорящий верит ей, но не уточняется, кому именно Фима Королев верит.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0041-m-0004",
+        "surface": "Весельчак У",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0041-c-0005",
+            "predicate": "ищет",
+            "value": "Колю и Юльку",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0041",
+                "paragraph_start": 2393,
+                "paragraph_end": 2395,
+                "quote": "— Он нас видел, — прошептала Алиса. — Но теперь потерял.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает Весельчака У и его поиски.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0041-m-0005",
+        "surface": "Боря Мессерер",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0041-c-0006",
+            "predicate": "следит",
+            "value": "Колю и Фиму",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0041",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Боря Мессерер увязался было за Колей и Фиму Королёвым, но Коля сказал, что они идут к Фиме делать уроки.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0041-e-0001",
+        "event": "Коля попал в будущее",
+        "participants": [
+          "{'name': 'Коля', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0041-c-0007",
+            "predicate": "попал",
+            "value": "в будущее",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0041",
+                "paragraph_start": 2453,
+                "paragraph_end": 2455,
+                "quote": "— Значит, я попал в будущее… Стой!",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо говорит, что Коля попал в будущее.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Коля сам говорит о том, что попал в будущее.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст ясно указывают, что Коля попал в будущее.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "event",
+              "subject": "Коля попал в будущее",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0041-e-0002",
+        "event": "Алиса ищет Коля",
+        "participants": [
+          "{'name': 'Алиса', 'entity_type': 'CHARACTER'}",
+          "{'name': 'Коля', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0041-c-0008",
+            "predicate": "ищет",
+            "value": "Колю",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0041",
+                "paragraph_start": 2415,
+                "paragraph_end": 2417,
+                "quote": "— Она меня ищет, — сказал Коля.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо говорит, что Коля считает, что Алиса ищет его.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата содержит прямые слова персонажа, который говорит о том, что Алиса ищет его.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата прямо говорит, что Коля считает, что Алиса ищет его.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "event",
+              "subject": "Алиса ищет Коля",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0041-e-0003",
+        "event": "Фима верит Колье",
+        "participants": [
+          "{'name': 'Фима Королев', 'entity_type': 'CHARACTER'}",
+          "{'name': 'Коля', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0041-c-0009",
+            "predicate": "верит",
+            "value": "Коле",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0041",
+                "paragraph_start": 2427,
+                "paragraph_end": 2429,
+                "quote": "— Я ей верю.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает Фиму и Колю, а говорит о вере в нее кого-то другого.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0041-e-0004",
+        "event": "Весельчак У ищет Коля и Юльку",
+        "participants": [
+          "{'name': 'Весельчак У', 'entity_type': 'CHARACTER'}",
+          "{'name': 'Коля', 'entity_type': 'CHARACTER'}",
+          "{'name': 'Юлька', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0041-c-0010",
+            "predicate": "ищет",
+            "value": "Колю и Юльку",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0041",
+                "paragraph_start": 2393,
+                "paragraph_end": 2395,
+                "quote": "— Он нас видел, — прошептала Алиса. — Но теперь потерял.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает Весельчака У и не подтверждает, что он ищет Колю и Юльку.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0041-e-0005",
+        "event": "Боря Мессерер следит за Колей и Фимой",
+        "participants": [
+          "{'name': 'Боря Мессерер', 'entity_type': 'CHARACTER'}",
+          "{'name': 'Коля', 'entity_type': 'CHARACTER'}",
+          "{'name': 'Фима Королев', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0041-c-0011",
+            "predicate": "следит",
+            "value": "Колю и Фиму",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0041",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Боря Мессерер увязался было за Колей и Фиму Королёвым, но Коля сказал, что они идут к Фиме делать уроки.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0041-t-0001",
+        "term": "миелофон",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0041-c-0012",
+          "predicate": "definition",
+          "value": "Вероятно, устройство, которое позволило Колье попасть в будущее.",
+          "provenance": "HYPOTHESIS",
+          "confidence": "POSSIBLE",
+          "acceptance": "HYPOTHESIS_REVIEW",
+          "evidence": []
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Что именно Коля украл из будущего?",
+        "reason": "Текст не уточняет, что именно Коля украл, чтобы попасть в будущее."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 12,
+    "source_supported": 8,
+    "source_unsupported": 3,
+    "derived": 0,
+    "hypotheses": 1,
+    "mentions": 5,
+    "events": 5,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 231,
+    "supported_entailed": 98,
+    "partial_review": 22,
+    "rejected": 111,
+    "schema_fixes": 4
+  }
+}

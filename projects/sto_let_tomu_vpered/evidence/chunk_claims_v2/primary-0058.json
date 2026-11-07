@@ -1,0 +1,496 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0058",
+    "start_paragraph": 3769,
+    "end_paragraph": 3838,
+    "mentions": [
+      {
+        "mention_id": "primary-0058-m-0001",
+        "surface": "Лариса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0058-c-0001",
+            "predicate": "нравился",
+            "value": "Сулима",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0058",
+                "paragraph_start": 3769,
+                "paragraph_end": 3770,
+                "quote": "Сулима ей нравился, потому что был серьёзный, играл в шахматы и носил очки.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает, что Лариса нравился Сулима, так как он был серьёзный, играл в шахматы и носил очки.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_BELIEF",
+              "canon_eligible": true,
+              "reason": "Лариса высказывает своё убеждение о том, что Сулима ей нравился.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REVIEW",
+              "reason": "Цитата указывает на то, что Лариса считает Сулима привлекательным, но это её субъективное мнение. Не установлено, что Сулима сам считает Ларису привлекательной.",
+              "error_type": "SUBJECT_MISMATCH",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "REVIEW",
+              "reason": "PRECISION_NOT_FINAL",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_not_final"
+              ],
+              "scope": "mention",
+              "subject": "Лариса",
+              "truth_scope": "CHARACTER_BELIEF"
+            }
+          },
+          {
+            "claim_id": "primary-0058-c-0002",
+            "predicate": "не слушала чужих мыслей",
+            "value": "Лариса",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_PRECISION_GATE",
+            "evidence": [
+              {
+                "chunk_id": "primary-0058",
+                "paragraph_start": 3770,
+                "paragraph_end": 3772,
+                "quote": "— В жизни не слушала чужих мыслей. И не буду.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо говорит, что Лариса не слушала чужих мыслей и не будет это делать.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата представляет слова, сказанные Ларисой, а не мысли рассказчика или описание действия.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REJECT",
+              "reason": "Цитата явно указывает, что Лариса не слушала и не будет слушать чужие мысли.",
+              "error_type": "OTHER",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0058-m-0002",
+        "surface": "Сулима",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0058-c-0003",
+            "predicate": "нравился",
+            "value": "Лариса",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0058",
+                "paragraph_start": 3769,
+                "paragraph_end": 3770,
+                "quote": "Сулима ей нравился, потому что был серьёзный, играл в шахматы и носил очки.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает, что Лариса нравился Сулиме.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_BELIEF",
+              "canon_eligible": true,
+              "reason": "Сулима верит, что Лариса ему нравится.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REVIEW",
+              "reason": "Цитата указывает на то, что Сулима считал Ларису привлекательной, но не прямо утверждает, что Лариса нравился Сулиме. Необходимо проверить контекст и повествование.",
+              "error_type": "CONTEXT_MISMATCH",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "REVIEW",
+              "reason": "PRECISION_NOT_FINAL",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_not_final"
+              ],
+              "scope": "mention",
+              "subject": "Сулима",
+              "truth_scope": "CHARACTER_BELIEF"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0058-m-0003",
+        "surface": "Фима",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0058-c-0004",
+            "predicate": "сказал",
+            "value": "Лариса не думает так",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0058",
+                "paragraph_start": 3769,
+                "paragraph_end": 3771,
+                "quote": "— Он так не думает, — сказал Фима.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата говорит о том, что Фима не согласен с кем-то, но не упоминает Ларису.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0058-m-0004",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0058-c-0005",
+            "predicate": "говорил",
+            "value": "скрытность ещё никогда не доводила до добра",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0058",
+                "paragraph_start": 3830,
+                "paragraph_end": 3832,
+                "quote": "— Скрытность ещё никогда не доводила до добра. Мой дедушка, когда собирался охотиться на Наполеонов, всегда брал с собой ведро с керосином. Он брызгал керосином Наполеону на хвост, и тот тут же сдавался в плен. Но однажды он решил полить керосином тигра..",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата подтверждает, что скрытность не приводит к хорошим результатам, что соответствует утверждению о Коле.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата является прямой речью персонажа, который высказывает свое мнение о скрытности.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата подтверждает утверждение о скрытности Коли и его мнении о ней.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Коля",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0058-e-0001",
+        "event": "Лариса не слушает чужие мысли",
+        "participants": [
+          "{'name': 'Лариса', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0058-c-0006",
+            "predicate": "отказывается",
+            "value": "слушать чужие мысли",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_PRECISION_GATE",
+            "evidence": [
+              {
+                "chunk_id": "primary-0058",
+                "paragraph_start": 3770,
+                "paragraph_end": 3772,
+                "quote": "— В жизни не слушала чужих мыслей. И не буду.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо подтверждает, что Лариса отказывается слушать чужие мысли.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата является прямой речью персонажа, излагающего свое убеждение.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REJECT",
+              "reason": "Цитата прямо подтверждает, что Лариса отказывается слушать чужие мысли.",
+              "error_type": "OTHER",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0058-e-0002",
+        "event": "Алиса слушает мысли женщин",
+        "participants": [
+          "{'name': 'Алиса', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "посреди двора",
+        "claims": [
+          {
+            "claim_id": "primary-0058-c-0007",
+            "predicate": "слушает",
+            "value": "мысли женщин",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_PRECISION_GATE",
+            "evidence": [
+              {
+                "chunk_id": "primary-0058",
+                "paragraph_start": 3779,
+                "paragraph_end": 3781,
+                "quote": "Алиса прислушивалась к мыслям двух женщин, которые остановились посреди двора и обсуждали плохое поведение какого-то Ивана Петровича, который играет по ночам на аккордеоне и не даёт никому спать.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Алиса слушает мысли двух женщин, обсуждающих поведение Ивана Петровича.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_BELIEF",
+              "canon_eligible": true,
+              "reason": "Алиса слушает мысли женщин, что является их убеждением или наблюдением.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REJECT",
+              "reason": "Цитата подтверждает, что Алиса слушает мысли двух женщин, обсуждающих поведение Ивана Петровича.",
+              "error_type": "OTHER",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0058-e-0003",
+        "event": "Алиса говорит женщинам о девочке",
+        "participants": [
+          "{'name': 'Алиса', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "посреди двора",
+        "claims": [
+          {
+            "claim_id": "primary-0058-c-0008",
+            "predicate": "говорит",
+            "value": "женщинам о девочке",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_DETERMINISTIC_SAFETY",
+            "evidence": [
+              {
+                "chunk_id": "primary-0058",
+                "paragraph_start": 3781,
+                "paragraph_end": 3783,
+                "quote": "— Вы правильно беспокоитесь о вашей девочке. Она уже полчаса плачет горючими слезами, потому что думает, что вы никогда уже не вернётесь.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Алиса говорит женщинам о девочке, беспокоящейся о своих родителях.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Алиса говорит женщинам о девочке, что она плачет и беспокоится о своих родителях.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно соответствует тексту и показывает, что Алиса говорит женщинам о девочке, беспокоющейся о своих родителях.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "REJECT",
+              "error_type": "RELATIONSHIP_OVERREACH",
+              "reason": "Claim вводит отношение 'жена', которого нет в доказательной цитате."
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0058-e-0004",
+        "event": "Алиса слушает мысли Петра Ишутина",
+        "participants": [
+          "{'name': 'Алиса', 'entity_type': 'CHARACTER'}",
+          "{'name': 'Петр Ишутин', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "под аркой ворот",
+        "claims": [
+          {
+            "claim_id": "primary-0058-c-0009",
+            "predicate": "слушает",
+            "value": "мысли Петра Ишутина",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "BLOCKED_BY_NARRATIVE_MODE",
+            "evidence": [
+              {
+                "chunk_id": "primary-0058",
+                "paragraph_start": 3811,
+                "paragraph_end": 3813,
+                "quote": "Алиса принимала его мысли:",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Алиса принимала (слушала) мысли Петра Ишутина.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_BELIEF",
+              "canon_eligible": false,
+              "reason": "Алиса слушает мысли Петра Ишутина, что является его убеждением или внутренней перспективой.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0058-t-0001",
+        "term": "миелофон",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0058-c-0010",
+          "predicate": "definition",
+          "value": "устройство для прослушивания мыслей",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "BLOCKED_BY_NARRATIVE_MODE",
+          "evidence": [
+            {
+              "chunk_id": "primary-0058",
+              "paragraph_start": 3769,
+              "paragraph_end": 3771,
+              "quote": "— И если мне не веришь, возьми миелофон и послушай его мысли.",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "SUPPORTED",
+            "reason": "Цитата определяет миелофон как устройство, с помощью которого можно прослушать мысли.",
+            "model": "qwen2.5:7b"
+          },
+          "narrative_mode": {
+            "mode": "CHARACTER_SPEECH",
+            "canon_eligible": false,
+            "reason": "Цитата представляет слова персонажа, а не факт из мира рассказа.",
+            "model": "qwen2.5:7b"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Кто такой Петр Ишутин и что он делает?",
+        "reason": "Текст не предоставляет полной информации о личности и действиях Петра Ишутина."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 10,
+    "source_supported": 10,
+    "source_unsupported": 0,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 4,
+    "events": 4,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 340,
+    "supported_entailed": 142,
+    "partial_review": 34,
+    "rejected": 164,
+    "schema_fixes": 4
+  }
+}

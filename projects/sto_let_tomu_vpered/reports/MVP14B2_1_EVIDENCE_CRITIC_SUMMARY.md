@@ -1,10 +1,10 @@
 # MVP-14B2.1 Evidence Critic
 
-- Files checked: 3
-- Claims checked: 26
-- SUPPORTED_ENTAILED: 10
-- PARTIAL_REVIEW: 3
-- REJECTED_BY_EVIDENCE_CRITIC: 13
-- Schema fixes: 1
+- Files checked: 61
+- Claims checked: 354
+- SUPPORTED_ENTAILED: 150
+- PARTIAL_REVIEW: 35
+- REJECTED_BY_EVIDENCE_CRITIC: 169
+- Schema fixes: 4
 
 Only SUPPORTED_ENTAILED claims are eligible for later canon acceptance.

@@ -1,0 +1,438 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0036",
+    "start_paragraph": 1964,
+    "end_paragraph": 2053,
+    "mentions": [
+      {
+        "mention_id": "primary-0036-m-0001",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0036-c-0001",
+            "predicate": "учится в английской школе",
+            "value": "нет",
+            "provenance": "HYPOTHESIS",
+            "confidence": "POSSIBLE",
+            "acceptance": "HYPOTHESIS_REVIEW",
+            "evidence": []
+          },
+          {
+            "claim_id": "primary-0036-c-0002",
+            "predicate": "побежала к подъезду",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0036",
+                "paragraph_start": 1976,
+                "paragraph_end": 1978,
+                "quote": "Алиса попрощалась с ребятами и побежала к подъезду.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на то, что Алиса побежала к подъезду.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает о действии персонажа",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно соответствует утверждению и не содержит противоречий.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Алиса",
+              "truth_scope": "WORLD_STATE"
+            }
+          },
+          {
+            "claim_id": "primary-0036-c-0003",
+            "predicate": "встречается с приличными ребятами",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0036",
+                "paragraph_start": 2051,
+                "paragraph_end": 2053,
+                "quote": "Алиса не глядела на страницы. — Ну и что? — спросила Юлька. — Вы это проходили в двадцать первом веке? — Я о другом подумала, — сказала Алиса, откладывая книгу. — Мне мало встречать тебя после школы. Лучше прийти в класс.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата показывает, что Алиса стремится встречаться с Юлькой после школы, но не прямо утверждает, что она встречается с приличными ребятами.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0036-m-0002",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0036-c-0004",
+            "predicate": "проводил Алису до дома",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0036",
+                "paragraph_start": 1966,
+                "paragraph_end": 1968,
+                "quote": "Алиса переглянулась с Колей, тот только улыбнулся. Они шли тихим, зелёным переулком. Хорошо, что ребята проводили. Неизвестно, как добралась бы Алиса без них.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата показывает, что ребята проводили Алису, но не упоминает Коля, поэтому нельзя точно сказать, что именно Коля проводил Алису.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0036-m-0003",
+        "surface": "Юлька Грибкова",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0036-c-0005",
+            "predicate": "живёт в доме",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0036",
+                "paragraph_start": 1978,
+                "paragraph_end": 1980,
+                "quote": "— А из нашего класса в этом доме Юлька Грибкова живёт.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает, что Юлька Грибкова живёт в этом доме.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает факт о местожительстве персонажа",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата прямо указывает, что Юлька Грибкова живёт в этом доме.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Юлька Грибкова",
+              "truth_scope": "WORLD_STATE"
+            }
+          },
+          {
+            "claim_id": "primary-0036-c-0006",
+            "predicate": "помогает Алисе с уроками",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0036",
+                "paragraph_start": 2049,
+                "paragraph_end": 2051,
+                "quote": "Юлька дала ей учебник. Алиса начала его листать. Юлька достала тетрадь и ручку.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата показывает, что Юлька предоставила Алисе учебник и тетрадь, но не прямо упоминает помощь с уроками.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0036-e-0001",
+        "event": "Алиса побежала к подъезду",
+        "participants": [
+          "{'surface': 'Алиса', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "подъезд",
+        "claims": [
+          {
+            "claim_id": "primary-0036-c-0007",
+            "predicate": "побежала к подъезду",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0036",
+                "paragraph_start": 1976,
+                "paragraph_end": 1978,
+                "quote": "Алиса попрощалась с ребятами и побежала к подъезду.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на то, что Алиса побежала к подъезду.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "Рассказчик сообщает о действии персонажа.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно описывает действие Алисы, и контекст не противоречит этой информации.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "event",
+              "subject": "Алиса побежала к подъезду",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0036-e-0002",
+        "event": "Алиса рассказала Юльке о побеге",
+        "participants": [
+          "{'surface': 'Алиса', 'entity_type': 'CHARACTER'}",
+          "{'surface': 'Юлька', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "Юлькина комната",
+        "claims": [
+          {
+            "claim_id": "primary-0036-c-0008",
+            "predicate": "рассказала о побеге",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0036",
+                "paragraph_start": 2034,
+                "paragraph_end": 2036,
+                "quote": "Девочки уселись на диван в Юлькиной комнате, под картиной, изображающей гору Эверест. И Алиса рассказала о побеге.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на то, что Алиса рассказала Юльке о побеге.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "Рассказчик сообщает факт, что Алиса рассказала Юльке о побеге.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст ясно указывают на то, что Алиса рассказала Юльке о побеге.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "event",
+              "subject": "Алиса рассказала Юльке о побеге",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0036-t-0001",
+        "term": "побег",
+        "category": "OTHER",
+        "definition_claim": {
+          "claim_id": "primary-0036-c-0009",
+          "predicate": "definition",
+          "value": "Алиса сбежала из больницы и добралась до дома Юльки Грибковой.",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "CANON_REVIEW",
+          "evidence": [
+            {
+              "chunk_id": "primary-0036",
+              "paragraph_start": 1989,
+              "paragraph_end": 1991,
+              "quote": "— Сбежала, — сказала Алиса.",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "SUPPORTED",
+            "reason": "Цитата подтверждает, что Алиса сбежала из больницы.",
+            "model": "qwen2.5:7b"
+          },
+          "narrative_mode": {
+            "mode": "CHARACTER_SPEECH",
+            "canon_eligible": true,
+            "reason": "Цитата представляет словесное выражение персонажа.",
+            "model": "qwen2.5:7b"
+          },
+          "precision_gate": {
+            "verdict": "REVIEW",
+            "reason": "Цитата подтверждает, что Алиса сбежала из больницы, но не уточняет, что она добралась до дома Юльки Грибковой.",
+            "error_type": "CONTEXT_MISMATCH",
+            "model": "qwen2.5:7b"
+          },
+          "deterministic_safety": {
+            "verdict": "PASS",
+            "error_type": "NONE",
+            "reason": "Детерминированных блокирующих признаков не найдено."
+          },
+          "canon_admission": {
+            "stage": "MVP-14B2.5",
+            "verdict": "REVIEW",
+            "reason": "PRECISION_NOT_FINAL",
+            "checks": [
+              "evidence_verified",
+              "deterministic_safety_pass",
+              "entailment_supported",
+              "precision_not_final"
+            ],
+            "scope": "term",
+            "subject": "побег",
+            "truth_scope": "WORLD_STATE"
+          }
+        },
+        "category_original": "EVENT",
+        "category_validation": "INVALID_CATEGORY_NORMALIZED"
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Как Алиса добралась до дома Юльки Грибковой?",
+        "reason": "Точная информация о маршруте и способах передвижения не предоставлена."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 9,
+    "source_supported": 8,
+    "source_unsupported": 0,
+    "derived": 0,
+    "hypotheses": 1,
+    "mentions": 3,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 203,
+    "supported_entailed": 91,
+    "partial_review": 18,
+    "rejected": 94,
+    "schema_fixes": 1
+  }
+}

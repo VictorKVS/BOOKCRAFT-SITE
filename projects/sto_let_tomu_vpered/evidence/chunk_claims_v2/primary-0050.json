@@ -1,0 +1,324 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0050",
+    "start_paragraph": 3192,
+    "end_paragraph": 3259,
+    "mentions": [
+      {
+        "mention_id": "primary-0050-m-0001",
+        "surface": "Коля Садовский",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0050-c-0001",
+            "predicate": "имеет рыжие волосы",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0050",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Я и сам в последнее время задумываюсь, тот ли я Коля, что был сначала. Уж очень я рыжий. Вам не кажется?\"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0050-c-0002",
+            "predicate": "был блондином",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0050",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Раньше я был блондин, — сказал Коля. \"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0050-c-0003",
+            "predicate": "был девочкой",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0050",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Раньше я был блондин, — сказал Коля. \"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0050-c-0004",
+            "predicate": "знает Алису",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0050",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Она уже кончила школу, — сказал Коля. Нет, толстяк ему положительно не нравился. Коле хотелось поскорее от него избавиться. И уж тем более он не хотел рассказывать ему об Алисе. \"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0050-m-0002",
+        "surface": "толстяк",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0050-c-0005",
+            "predicate": "имеет злобный характер",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "PROBABLE",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0050",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Я твою рыжую физиономию запомню!\"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0050-c-0006",
+            "predicate": "может ходить под землёй",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0050",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Куда приведут? — спросил толстяк. — Ко мне в кабинет. Я же главный инспектор милиции по распутыванию особо серьёзных преступлений против шестиклассников. Разве не слышали? Моя фамилия Холмс. Николай Шерлокович. Будем знакомы. А вас как зовут?\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0050-m-0003",
+        "surface": "Алиса Селезнева",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0050-c-0007",
+            "predicate": "пришла в класс три дня назад",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0050",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Алиса? — сказала Мила. — А что случилось?\"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0050-c-0008",
+            "predicate": "живёт у Юли Грибковой",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0050",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Она живёт у Юли Грибковой. Они вместе в больнице лежали. \"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0050-c-0009",
+            "predicate": "имеет ненормальное поведение",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0050",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"У неё склонность к жестокому хулиганству. Это болезнь. Она била детей и взрослых, кусалась, а потом украла в школьном музее чучело тигра, оделась в тигровую шкуру и ночью грабила прохожих. Когда Алису поймали, она искусала трех милиционеров, задушила служебную собаку, и нам пришлось Алису связать. \"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0050-c-0010",
+            "predicate": "имеет ненормальное знание",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0050",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Скажите нам, может ли нормальная девочка так много знать, как ваша Алиса?\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0050-m-0004",
+        "surface": "Мила Руткевич",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0050-c-0011",
+            "predicate": "является первой отличницей в классе",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0050",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Всегда она была первой отличницей в классе. Все годы. Её ставили в пример учителя и хвалили на родительских собраниях. \"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0050-c-0012",
+            "predicate": "ненавидит Алису",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0050",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Нет! — вырвалось у Милы помимо воли. \"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0050-e-0001",
+        "event": "толстяк встречается с Милой Руткевич",
+        "participants": [
+          "{'name': 'толстяк', 'role': 'interrogator'}",
+          "{'name': 'Мила Руткевич', 'role': 'witness'}"
+        ],
+        "location": "неподалёку от скверика",
+        "claims": [
+          {
+            "claim_id": "primary-0050-c-0013",
+            "predicate": "толстяк пытается выяснить информацию о Алисе",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0050",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"А не показывала ли, девочка, Алиса каких-нибудь знаний больше, чем нужно?\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0050-t-0001",
+        "term": "ненормальное поведение",
+        "category": "SCIENCE",
+        "definition_claim": {
+          "claim_id": "primary-0050-c-0014",
+          "predicate": "definition",
+          "value": "поведение, отличное от нормального, характеризующееся жестоким хулиганством, ложными знаниями и ненормальным умом.",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "UNSUPPORTED",
+          "evidence": [
+            {
+              "chunk_id": "primary-0050",
+              "paragraph_start": null,
+              "paragraph_end": null,
+              "quote": "\"У неё склонность к жестокому хулиганству. Это болезнь. Она била детей и взрослых, кусалась, а потом украла в школьном музее чучело тигра, оделась в тигровую шкуру и ночью грабила прохожих. Когда Алису поймали, она искусала трех милиционеров, задушила служебную собаку, и нам пришлось Алису связать. \"",
+              "quote_verified": false
+            }
+          ]
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "каким образом толстяк может ходить под землёй",
+        "reason": "текст не предоставляет прямых доказательств способа передвижения толстяка под землёй"
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 14,
+    "source_supported": 0,
+    "source_unsupported": 14,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 4,
+    "events": 1,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 283,
+    "supported_entailed": 116,
+    "partial_review": 30,
+    "rejected": 137,
+    "schema_fixes": 4
+  }
+}

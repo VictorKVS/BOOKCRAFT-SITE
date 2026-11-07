@@ -1,0 +1,358 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0031",
+    "start_paragraph": 1594,
+    "end_paragraph": 1679,
+    "mentions": [
+      {
+        "mention_id": "primary-0031-m-0001",
+        "surface": "Юлька",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0031-c-0001",
+            "predicate": "имеет",
+            "value": "кошмары",
+            "provenance": "HYPOTHESIS",
+            "confidence": "POSSIBLE",
+            "acceptance": "HYPOTHESIS_REVIEW",
+            "evidence": []
+          },
+          {
+            "claim_id": "primary-0031-c-0002",
+            "predicate": "знает",
+            "value": "Колю Садовского",
+            "provenance": "HYPOTHESIS",
+            "confidence": "POSSIBLE",
+            "acceptance": "HYPOTHESIS_REVIEW",
+            "evidence": []
+          },
+          {
+            "claim_id": "primary-0031-c-0003",
+            "predicate": "знает",
+            "value": "Колю Наумова",
+            "provenance": "HYPOTHESIS",
+            "confidence": "POSSIBLE",
+            "acceptance": "HYPOTHESIS_REVIEW",
+            "evidence": []
+          },
+          {
+            "claim_id": "primary-0031-c-0004",
+            "predicate": "знает",
+            "value": "Колю Сулиму",
+            "provenance": "HYPOTHESIS",
+            "confidence": "POSSIBLE",
+            "acceptance": "HYPOTHESIS_REVIEW",
+            "evidence": []
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0031-m-0002",
+        "surface": "Коля Садовский",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0031-c-0005",
+            "predicate": "является",
+            "value": "легкомысленным",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0031",
+                "paragraph_start": 1632,
+                "paragraph_end": 1634,
+                "quote": "Он легкомысленный, плохо учится, выдумщик и вообще халда.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на то, что Коля Садовский является легкомысленным.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_BELIEF",
+              "canon_eligible": true,
+              "reason": "Цитата представляет мнение другого персонажа о Коля Садовском, а не прямое утверждение рассказчика.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата прямо указывает на то, что Коля Садовский является легкомысленным, и это мнение другого персонажа.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "REVIEW",
+              "reason": "BELIEF_SCOPE_AMBIGUOUS",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "belief_scope_requires_review"
+              ],
+              "scope": "mention",
+              "subject": "Коля Садовский",
+              "truth_scope": "CHARACTER_BELIEF"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0031-m-0003",
+        "surface": "Коля Наумов",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0031-c-0006",
+            "predicate": "является",
+            "value": "спортсменом",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0031",
+                "paragraph_start": 1638,
+                "paragraph_end": 1640,
+                "quote": "Он спортсмен, закаляется, зимой на балконе в спальном мешке спит.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает, что Коля Наумов является спортсменом.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает факт о персонаже",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата прямо указывает, что Коля Наумов является спортсменом.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Коля Наумов",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0031-m-0004",
+        "surface": "Коля Сулима",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0031-c-0007",
+            "predicate": "интересуется",
+            "value": "космическими кораблями будущего",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0031",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Нет, ни за кого не поручусь. А хочешь, я сама с ними поговорю? А этот Коля Сулима, он, наверно, очень хотел бы посмотреть космические корабли будущего, как думаешь?",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0031-e-0001",
+        "event": "Юлька проснулась",
+        "participants": [
+          "Юлька"
+        ],
+        "location": "бокс",
+        "claims": [
+          {
+            "claim_id": "primary-0031-c-0008",
+            "predicate": "видит",
+            "value": "дерево с вороньими гнездами",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0031",
+                "paragraph_start": 1613,
+                "paragraph_end": 1615,
+                "quote": "За окном видна вершина дерева и на ней три вороньих гнезда.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на наличие вороньих гнезд на дереве, что подтверждает claim.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает о том, что Юлька видит вороньи гнезда на дереве",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст точно описывают видимое Юльке дерево с вороньими гнездами, что подтверждает claim.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "event",
+              "subject": "Юлька проснулась",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0031-e-0002",
+        "event": "Юлька и Алиса обсуждают ситуацию",
+        "participants": [
+          "Юлька",
+          "Алиса"
+        ],
+        "location": "бокс",
+        "claims": [
+          {
+            "claim_id": "primary-0031-c-0009",
+            "predicate": "говорит",
+            "value": "о ночном происшествии",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0031",
+                "paragraph_start": 1651,
+                "paragraph_end": 1653,
+                "quote": "Мария Павловна замолчала, словно ждала, не заговорят ли девочки о ночном происшествии.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата показывает ожидание Марии Павловны, но не подтверждает, что девочки начали говорить о ночном происшествии.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0031-t-0001",
+        "term": "миелофон",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0031-c-0010",
+          "predicate": "definition",
+          "value": "устройство, которое Юлька потеряла и пираты хотели украсть",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "PARTIAL_REVIEW",
+          "evidence": [
+            {
+              "chunk_id": "primary-0031",
+              "paragraph_start": 1594,
+              "paragraph_end": 1594,
+              "quote": "Приходится скрываться, а им нужны сокровища и удовольствия. И как только они сообразили, что у меня есть миелофон, то сразу решили его украсть.",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "PARTIAL",
+            "reason": "Цитата упоминает миелофон как устройство, которое пираты хотели украсть, но не полностью определяет его как устройство, которое Юлька потеряла.",
+            "model": "qwen2.5:7b"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Кто именно взял миелофон?",
+        "reason": "Фрагмент не предоставляет прямых доказательств, кто именно украл миелофон."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 10,
+    "source_supported": 5,
+    "source_unsupported": 1,
+    "derived": 0,
+    "hypotheses": 4,
+    "mentions": 4,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 153,
+    "supported_entailed": 71,
+    "partial_review": 15,
+    "rejected": 67,
+    "schema_fixes": 0
+  }
+}

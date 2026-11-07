@@ -1,0 +1,276 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0006",
+    "start_paragraph": 229,
+    "end_paragraph": 292,
+    "mentions": [
+      {
+        "mention_id": "primary-0006-m-0001",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0006-c-0001",
+            "predicate": "имеет имя",
+            "value": "Коля",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0006",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"— Коля.\"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0006-c-0002",
+            "predicate": "живёт в Конотопе",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0006",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"— В Конотопе, — сказал Коля.\"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0006-c-0003",
+            "predicate": "имеет бабушку, живущую в Конотопе",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0006",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"— В Конотопе, — сказал Коля.\"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0006-c-0004",
+            "predicate": "имеет брата, который учится в школе",
+            "value": "да",
+            "provenance": "DERIVED",
+            "confidence": "PROBABLE",
+            "acceptance": "DERIVED_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0006",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Коля не успел придумать ответ. Он уже понял, что всякие там старики куда менее опасны, чем свой брат школьник.\"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0006-c-0005",
+            "predicate": "любит бананы",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0006",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Коля встал на цыпочки и начал отрывать банан от грозди.\"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0006-c-0006",
+            "predicate": "имеет бабушку, живущую в Конотопе, которая роет шахту к центру Земли",
+            "value": "нет",
+            "provenance": "HYPOTHESIS",
+            "confidence": "POSSIBLE",
+            "acceptance": "HYPOTHESIS_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0006",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"— Нет, — поправил сам себя селекционер. — Милена из Костромы. В Конотопе шахту к центру Земли роют.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0006-m-0002",
+        "surface": "Джавад",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0006-c-0007",
+            "predicate": "имеет имя",
+            "value": "Джавад",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0006",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"— А меня Джавад.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0006-m-0003",
+        "surface": "Мартышка",
+        "entity_type": "CREATURE",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0006-c-0008",
+            "predicate": "живёт на Гоголевском бульваре",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0006",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Мартышка заметила, что на неё смотрят, и на всякий случай сиганула с бананом в лапе на ветку липы.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0006-e-0001",
+        "event": "Коля сорвал банан",
+        "participants": [
+          "{'name': 'Коля', 'role': '主体'}",
+          "{'name': 'мартышка', 'role': '客体'}"
+        ],
+        "location": "Гоголевский бульвар",
+        "claims": [
+          {
+            "claim_id": "primary-0006-c-0009",
+            "predicate": "Коля сорвал банан",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0006",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Коля встал на цыпочки и начал отрывать банан от грозди.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0006-e-0002",
+        "event": "Джавад пытается уговорить Коля",
+        "participants": [
+          "{'name': 'Джавад', 'role': '主体'}",
+          "{'name': 'Коля', 'role': '客体'}"
+        ],
+        "location": "Гоголевский бульвар",
+        "claims": [
+          {
+            "claim_id": "primary-0006-c-0010",
+            "predicate": "Джавад пытается уговорить Коля",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0006",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"— Эй! — крикнул Джавад. — Лена, выходи, дело есть!\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0006-t-0001",
+        "term": "Гоголевский бульвар",
+        "category": "LOCATION",
+        "definition_claim": {
+          "claim_id": "primary-0006-c-0011",
+          "predicate": "definition",
+          "value": "Гоголевский бульвар — улица, где происходят события в будущем.",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "UNSUPPORTED",
+          "evidence": [
+            {
+              "chunk_id": "primary-0006",
+              "paragraph_start": null,
+              "paragraph_end": null,
+              "quote": "\"Коля встал на цыпочки и начал отрывать банан от грозди.\"",
+              "quote_verified": false
+            }
+          ]
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Коля действительно живёт в Конотопе?",
+        "reason": "Информация о бабушке Коля могла быть ложной или вымышленной."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 11,
+    "source_supported": 0,
+    "source_unsupported": 9,
+    "derived": 1,
+    "hypotheses": 1,
+    "mentions": 3,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 10,
+    "supported_entailed": 6,
+    "partial_review": 2,
+    "rejected": 2,
+    "schema_fixes": 0
+  }
+}

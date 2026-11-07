@@ -5,7 +5,7 @@
   "upstream_stages_total": 14,
   "current_maturity": "TRUSTED_ANALYTICAL_FOUNDATION_READY",
   "prediction_learning_maturity": "NOT_YET_DATA_MATURE",
-  "blockers_count": 5,
+  "blockers_count": 4,
   "invariants": {
     "zero_not_automatically_failure": true,
     "zero_denominator_reported_as_na": true,

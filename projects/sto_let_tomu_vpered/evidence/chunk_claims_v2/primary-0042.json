@@ -1,0 +1,208 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0042",
+    "start_paragraph": 2495,
+    "end_paragraph": 2585,
+    "mentions": [
+      {
+        "mention_id": "primary-0042-m-0001",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0042-c-0001",
+            "predicate": "рассказывает о своём путешествии в будущее",
+            "value": "Коля рассказал о своём путешествии в будущее, где он увидел машину времени и другие вещи.",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0042",
+                "paragraph_start": 2500,
+                "paragraph_end": 2502,
+                "quote": "Пока Коля рассказывал о своём путешествии в будущее, Фима незаметно съел все котлеты — и те, что были оставлены Коле, и те, что мать поджарила себе с отцом.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не касается путешествия Коля в будущее, а описывает другое событие.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0042-c-0002",
+            "predicate": "имеет землячку из Конотопа",
+            "value": "Коля имеет землячку из Конотопа, которая привезла ему марсианский алмаз.",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0042",
+                "paragraph_start": 2545,
+                "paragraph_end": 2547,
+                "quote": "Потому что там, в будущем, я был из Конотопа.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не подтверждает, что у Коли есть землячка из Конотопа, а только говорит о том, что говорящий был из Конотопа в будущем.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0042-m-0002",
+        "surface": "Фима",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0042-c-0003",
+            "predicate": "съел все котлеты",
+            "value": "Фима съел все котлеты, оставленные Колей.",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0042",
+                "paragraph_start": 2500,
+                "paragraph_end": 2502,
+                "quote": "Пока Коля рассказывал о своём путешествии в будущее, Фима незаметно съел все котлеты — и те, что были оставлены Коле, и те, что мать поджарила себе с отцом.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Фима съел все котлеты, включая те, что были оставлены Коле.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "Рассказчик сообщает факт о том, что Фима съел все котлеты.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст ясно указывают, что Фима съел все котлеты, включая те, что были оставлены Коле.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Фима",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0042-e-0001",
+        "event": "Коля показывает Фиме вещи из будущего",
+        "participants": [
+          "{'name': 'Коля', 'role': 'owner'}",
+          "{'name': 'Фима', 'role': 'receiver'}"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0042-c-0004",
+            "predicate": "показывает вещи",
+            "value": "Коля показывает Фиме золотую звёздочку, кожуру банана, бублик, сухой лист и камень.",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0042",
+                "paragraph_start": 2516,
+                "paragraph_end": 2518,
+                "quote": "Коля вытащил из ящика стола папиросную коробку. В ней лежали трофеи, привезённые из будущего.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата упоминает трофеи из будущего, но не конкретно указывает на вещи, показанные Кольей Фиме.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0042-t-0001",
+        "term": "машина времени",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0042-c-0005",
+          "predicate": "definition",
+          "value": "Машина времени — устройство, позволяющее перемещаться во времени.",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "UNSUPPORTED",
+          "evidence": [
+            {
+              "chunk_id": "primary-0042",
+              "paragraph_start": null,
+              "paragraph_end": null,
+              "quote": "Коля повесил сумку через плечо, приоткрыл крышку, достал оттуда тонкий провод с наушником на конце, вставил его в ухо и сказал: «Можно приступать к работе.»",
+              "quote_verified": false
+            }
+          ]
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Как работает машина времени?",
+        "reason": "Точная работа машины времени не описана в данном фрагменте."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 5,
+    "source_supported": 4,
+    "source_unsupported": 1,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 2,
+    "events": 1,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 235,
+    "supported_entailed": 99,
+    "partial_review": 23,
+    "rejected": 113,
+    "schema_fixes": 4
+  }
+}

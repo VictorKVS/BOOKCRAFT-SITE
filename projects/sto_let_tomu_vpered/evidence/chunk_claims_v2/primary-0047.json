@@ -1,0 +1,342 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0047",
+    "start_paragraph": 2950,
+    "end_paragraph": 3039,
+    "mentions": [
+      {
+        "mention_id": "primary-0047-m-0001",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0047-c-0001",
+            "predicate": "играла в шахматы",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0047",
+                "paragraph_start": 2961,
+                "paragraph_end": 2963,
+                "quote": "— Алиса, — спросил Боря Мессерер, — может, ты и в шахматы играешь?",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата предполагает, что Алиса может играть в шахматы, но не прямо подтверждает, что она действительно играет.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0047-c-0002",
+            "predicate": "выиграла у гроссмейстера",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0047",
+                "paragraph_start": 3022,
+                "paragraph_end": 3024,
+                "quote": "Гроссмейстер вернулся к Алисе. — Так, — сказал он, увидев её ход. — Что ж, спасибо. Мне урок за самоуверенность. Сдаюсь.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата показывает, что гроссмейстер сдался, но не прямо утверждает, что Алиса выиграла у него.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0047-c-0003",
+            "predicate": "помогала Колье Сулиме",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0047",
+                "paragraph_start": 2969,
+                "paragraph_end": 2971,
+                "quote": "— Спасибо, — сказала Алиса. — Только лучше уж я самостоятельно поиграю.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата показывает, что Алиса предложила самой поиграть, но не подтверждает, что она действительно помогала Колье Сулиме.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0047-m-0002",
+        "surface": "Коля Сулимой",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0047-c-0004",
+            "predicate": "играл в шахматы",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0047",
+                "paragraph_start": 2961,
+                "paragraph_end": 2963,
+                "quote": "— Алиса, — спросил Боря Мессерер, — может, ты и в шахматы играешь?",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает Коля Сулимого и не подтверждает, что он играл в шахматы.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0047-c-0005",
+            "predicate": "был слабым игроком",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0047",
+                "paragraph_start": 3036,
+                "paragraph_end": 3038,
+                "quote": "Коля в полной тишине поставил своего ферзя на место гроссмейстерского, и тот тут же объявил ему вечный шах ладьёй и конём.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о силе или слабости игрока Коля Сулимого, а описывает ход в шахматной партии.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0047-m-0003",
+        "surface": "Эдуард Петрович",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0047-c-0006",
+            "predicate": "был организатором шахматной игры",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0047",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "— Ну, все готовы? — спросил Эдуард.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0047-m-0004",
+        "surface": "гроссмейстер",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0047-c-0007",
+            "predicate": "был сильным шахматистом",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0047",
+                "paragraph_start": 3022,
+                "paragraph_end": 3024,
+                "quote": "Гроссмейстер вернулся к Алисе. — Так, — сказал он, увидев её ход. — Что ж, спасибо. Мне урок за самоуверенность. Сдаюсь.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата показывает, что гроссмейстер признал ход Алисы и признал свою ошибку, но не прямо утверждает, что он был сильным шахматистом.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0047-m-0005",
+        "surface": "Юлька",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0047-c-0008",
+            "predicate": "была подругой Алисы",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0047",
+                "paragraph_start": 3006,
+                "paragraph_end": 3008,
+                "quote": "Юлька потянула за рукав Колю Наумова.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает Алису и не подтверждает, что Юлька была её подругой.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0047-e-0001",
+        "event": "Алиса рассказала Юльке о тайне",
+        "participants": [
+          "{'surface': 'Алиса', 'entity_type': 'CHARACTER'}",
+          "{'surface': 'Юлька', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0047-c-0009",
+            "predicate": "рассказала",
+            "value": "книга «Творчество Бориса Мессерера»",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0047",
+                "paragraph_start": 2952,
+                "paragraph_end": 2954,
+                "quote": "— Это самая страшная тайна, которую я тебе могу рассказать. Но у нас дома есть книга, которая называется «Творчество Бориса Мессерера».",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата упоминает книгу, но не подтверждает, что Алиса рассказала Юльке о тайне через эту книгу.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0047-e-0002",
+        "event": "Алиса играла в шахматы с гроссмейстером",
+        "participants": [
+          "{'surface': 'Алиса', 'entity_type': 'CHARACTER'}",
+          "{'surface': 'гроссмейстер', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0047-c-0010",
+            "predicate": "играла",
+            "value": "выиграла у гроссмейстера",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0047",
+                "paragraph_start": 3022,
+                "paragraph_end": 3024,
+                "quote": "Гроссмейстер вернулся к Алисе. — Так, — сказал он, увидев её ход. — Что ж, спасибо. Мне урок за самоуверенность. Сдаюсь.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата показывает, что гроссмейстер сдался, но не упоминает о победе Алисы.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0047-t-0001",
+        "term": "гроссмейстер",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0047-c-0011",
+          "predicate": "definition",
+          "value": "высококвалифицированный шахматист, занимающий высокую позицию в шахматной иерархии",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+          "evidence": [
+            {
+              "chunk_id": "primary-0047",
+              "paragraph_start": 3022,
+              "paragraph_end": 3024,
+              "quote": "Гроссмейстер вернулся к Алисе. — Так, — сказал он, увидев её ход. — Что ж, спасибо. Мне урок за самоуверенность. Сдаюсь.",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "NOT_SUPPORTED",
+            "reason": "Цитата не содержит информации о определении гроссмейстера.",
+            "model": "qwen2.5:7b"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Что за тайна Алисы?",
+        "reason": "Тайна не раскрыта в данном фрагменте."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 11,
+    "source_supported": 10,
+    "source_unsupported": 1,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 5,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 266,
+    "supported_entailed": 108,
+    "partial_review": 29,
+    "rejected": 129,
+    "schema_fixes": 4
+  }
+}

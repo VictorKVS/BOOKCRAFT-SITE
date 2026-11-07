@@ -1,9 +1,9 @@
 {
   "stage": "MVP-14B4_TEMPORAL_MODEL",
   "result": "PASS",
-  "canon_claims_input": 3,
-  "temporal_anchors": 3,
-  "textual_order_edges": 2,
+  "canon_claims_input": 95,
+  "temporal_anchors": 95,
+  "textual_order_edges": 94,
   "review_queue": 0,
   "world_time_normalized": 0,
   "regression_tests": {

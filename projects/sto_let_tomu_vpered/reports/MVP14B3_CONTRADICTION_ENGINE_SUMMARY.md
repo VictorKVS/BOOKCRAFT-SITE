@@ -1,6 +1,6 @@
 # MVP-14B3 Contradiction Engine
 
-- Canon claims input: 3
+- Canon claims input: 95
 - Contradictions found: 0
 - Review queue: 0
 

@@ -1,0 +1,263 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0057",
+    "start_paragraph": 3678,
+    "end_paragraph": 3768,
+    "mentions": [
+      {
+        "mention_id": "primary-0057-m-0001",
+        "surface": "Фима",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0057-c-0001",
+            "predicate": "имеет",
+            "value": "наушник",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_DETERMINISTIC_SAFETY",
+            "evidence": [
+              {
+                "chunk_id": "primary-0057",
+                "paragraph_start": 3696,
+                "paragraph_end": 3698,
+                "quote": "Алиса протянула Фиме наушник. Все равно не отделаешься. Тот наклонил голову, прислушался.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Фима получил наушник от Алисы и прислушался к чему-то, что подтверждает, что у него есть наушник.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает факт о том, что у Фимы есть наушник",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата ясно показывает, что Фима получил наушник от Алисы и использовал его для слушания. Это подтверждает, что у Фимы есть наушник.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "REJECT",
+              "error_type": "PREDICATE_OVERREACH",
+              "reason": "Доказательная цитата показывает доступ/использование, но не подтверждает владение."
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0057-m-0002",
+        "surface": "Катя Михайлова",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0057-c-0002",
+            "predicate": "попросила",
+            "value": "Фиму",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0057",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Катя подняла руку. В наушнике звучал далёкий, бесплотный голосок: \"Ну почему же он не звонит? Ну пускай позвонит...\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0057-m-0003",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0057-c-0003",
+            "predicate": "проверила",
+            "value": "мысли",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0057",
+                "paragraph_start": 3708,
+                "paragraph_end": 3710,
+                "quote": "Алиса крутила колёсико настройки.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает мысли Алисы, а описывает её действие.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0057-m-0004",
+        "surface": "Коля Сулима",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0057-c-0004",
+            "predicate": "говорил",
+            "value": "о гениальной идее",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0057",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Коля Сулима. — Гениальная идея! — сказала Катя. — Пошли вниз.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0057-e-0001",
+        "event": "проверка мыслей",
+        "participants": [
+          "Алиса",
+          "Коля Сулима",
+          "Фима",
+          "Катя Михайлова"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0057-c-0005",
+            "predicate": "использовали",
+            "value": "миелофон",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0057",
+                "paragraph_start": 3696,
+                "paragraph_end": 3698,
+                "quote": "Алиса протянула Фиме наушник. Все равно не отделаешься. Тот наклонил голову, прислушался.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает о миелофоне, а о наушниках.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0057-e-0002",
+        "event": "поиск Коли",
+        "participants": [
+          "Алиса",
+          "Катя Михайлова",
+          "Фима",
+          "Коля Сулима",
+          "Садовский"
+        ],
+        "location": "подъезд",
+        "claims": [
+          {
+            "claim_id": "primary-0057-c-0006",
+            "predicate": "исследовали",
+            "value": "квартиры",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0057",
+                "paragraph_start": 3752,
+                "paragraph_end": 3754,
+                "quote": "Алиса всем дала послушать миелофон, но ничего подозрительного не обнаружилось.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает исследование квартиры.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0057-t-0001",
+        "term": "миелофон",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0057-c-0007",
+          "predicate": "definition",
+          "value": "устройство для прослушивания мыслей",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+          "evidence": [
+            {
+              "chunk_id": "primary-0057",
+              "paragraph_start": 3679,
+              "paragraph_end": 3681,
+              "quote": "Алиса выключила миелофон.",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "NOT_SUPPORTED",
+            "reason": "Цитата не содержит информации о том, что миелофон является устройством для прослушивания мыслей.",
+            "model": "qwen2.5:7b"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Что стало с Колей?",
+        "reason": "Не указано в данном фрагменте."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 7,
+    "source_supported": 5,
+    "source_unsupported": 2,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 4,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 330,
+    "supported_entailed": 133,
+    "partial_review": 34,
+    "rejected": 163,
+    "schema_fixes": 4
+  }
+}

@@ -1,0 +1,316 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0045",
+    "start_paragraph": 2745,
+    "end_paragraph": 2842,
+    "mentions": [
+      {
+        "mention_id": "primary-0045-m-0001",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0045-c-0001",
+            "predicate": "учит математику",
+            "value": "Коля Садовский",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0045",
+                "paragraph_start": 2806,
+                "paragraph_end": 2808,
+                "quote": "Коля Садовский бился у доски, исписав половину свободного пространства, и никак не мог выпутаться из уравнения.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает Алису и не говорит о том, что она учит математику.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0045-c-0002",
+            "predicate": "помогает ученикам",
+            "value": "Математичке Неле",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0045",
+                "paragraph_start": 2809,
+                "paragraph_end": 2811,
+                "quote": "Мила вспыхнула, коса шевельнулась за спиной от негодования. Она посмотрела на математичку Нелю, а та кивнула ей и сказала:",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о том, что Алиса помогает ученикам.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0045-c-0003",
+            "predicate": "предлагает помощь",
+            "value": "Коле Садовскому",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0045",
+                "paragraph_start": 2806,
+                "paragraph_end": 2808,
+                "quote": "Коля Садовский бился у доски, исписав половину свободного пространства, и никак не мог выпутаться из уравнения. Правда, оно было не простое, а погода за окном стояла солнечная, и у всех, кроме Милы Руткевич, было нерабочее настроение. Наконец математичке надоело бороться с Садовским, и она спросила, кто ему поможет.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Мила Руткевич предложила помощь Коле Садовскому, что подтверждает claim о том, что Алиса (Мила Руткевич) предлагает помощь.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Мила Руткевич говорит о том, кто поможет Коле Садовскому.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REVIEW",
+              "reason": "Цитата указывает, что Мила Руткевич предложила помощь Коле Садовскому, но не упоминает Алису. Неясно, кто именно сказал, что икс равен единице.",
+              "error_type": "CONTEXT_MISMATCH",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "REVIEW",
+              "reason": "PRECISION_NOT_FINAL",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_not_final"
+              ],
+              "scope": "mention",
+              "subject": "Алиса",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0045-m-0002",
+        "surface": "Коля Садовский",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0045-c-0004",
+            "predicate": "страдает математикой",
+            "value": "Коля Садовский",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0045",
+                "paragraph_start": 2806,
+                "paragraph_end": 2808,
+                "quote": "Коля Садовский бился у доски, исписав половину свободного пространства, и никак не мог выпутаться из уравнения.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата показывает, что Коля Садовский трудится над уравнением, но не прямо говорит о том, что он страдает математикой.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0045-m-0003",
+        "surface": "Мила Руткевич",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0045-c-0005",
+            "predicate": "помогает ученикам",
+            "value": "Коле Садовскому",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0045",
+                "paragraph_start": 2809,
+                "paragraph_end": 2811,
+                "quote": "Мила вспыхнула, коса шевельнулась за спиной от негодования. Она посмотрела на математичку Нелю, а та кивнула ей и сказала:",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о том, что Мила Руткевич помогает ученикам.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0045-m-0004",
+        "surface": "Неля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0045-c-0006",
+            "predicate": "преподает математику",
+            "value": "в шестом классе",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0045",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Неля смотрела на доску, склонив хорошенькую завитую головку, и все ждали, что будет.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0045-e-0001",
+        "event": "Алиса помогает Колье Садовскому",
+        "participants": [
+          "Алиса",
+          "Коля Садовский"
+        ],
+        "location": "в классе",
+        "claims": [
+          {
+            "claim_id": "primary-0045-c-0007",
+            "predicate": "помогает решить уравнение",
+            "value": "Коля Садовский",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0045",
+                "paragraph_start": 2806,
+                "paragraph_end": 2808,
+                "quote": "Коля Садовский бился у доски, исписав половину свободного пространства, и никак не мог выпутаться из уравнения.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата показывает, что Коля Садовский боролся с уравнением, но не упоминает о помощи Алисы.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0045-e-0002",
+        "event": "Мила Руткевич решает уравнение",
+        "participants": [
+          "Мила Руткевич",
+          "Коля Садовский"
+        ],
+        "location": "в классе",
+        "claims": [
+          {
+            "claim_id": "primary-0045-c-0008",
+            "predicate": "решает уравнение",
+            "value": "Мила Руткевич",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0045",
+                "paragraph_start": 2809,
+                "paragraph_end": 2811,
+                "quote": "Мила вспыхнула, коса шевельнулась за спиной от негодования. Она посмотрела на математичку Нелю, а та кивнула ей и сказала:",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о том, что Мила Руткевич решает уравнение.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0045-t-0001",
+        "term": "математическая олимпиада",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0045-c-0009",
+          "predicate": "definition",
+          "value": "Математическая олимпиада — это соревнование по математике, где участвуют школьники.",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "UNSUPPORTED",
+          "evidence": [
+            {
+              "chunk_id": "primary-0045",
+              "paragraph_start": null,
+              "paragraph_end": null,
+              "quote": "Неля сказала: \"Тебе надо участвовать в математической олимпиаде, — сказала Неля.\"",
+              "quote_verified": false
+            }
+          ]
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Что Алиса и Неля доказывают?",
+        "reason": "Точное содержание доказательства не указано в тексте."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 9,
+    "source_supported": 7,
+    "source_unsupported": 2,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 4,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 254,
+    "supported_entailed": 106,
+    "partial_review": 24,
+    "rejected": 124,
+    "schema_fixes": 4
+  }
+}

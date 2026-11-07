@@ -1,0 +1,231 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0027",
+    "start_paragraph": 1355,
+    "end_paragraph": 1414,
+    "mentions": [
+      {
+        "mention_id": "primary-0027-m-0001",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0027-c-0001",
+            "predicate": "имеет",
+            "value": "чудесную, просто замечательную маму",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0027",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"- Не говори чепуху, — ответила Алиса. — У меня чудесная, просто замечательная мама, не хуже твоей.\"",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0027-c-0002",
+            "predicate": "имеет",
+            "value": "амнезию",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0027",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"- Может быть, заснула, а может быть, потихоньку плакала. Юля не могла сказать наверняка, хотя прислушивалась.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0027-m-0002",
+        "surface": "Юлька",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0027-c-0003",
+            "predicate": "видит",
+            "value": "свежий и приятный запах парниковых роз",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0027",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Парниковые розы, которые принесла Наташа, стояли на тумбочке у кровати Юльки, и она чувствовала их свежий и приятный запах.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0027-m-0003",
+        "surface": "Алик Борисович",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0027-c-0004",
+            "predicate": "является",
+            "value": "врачом",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0027",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"Надеюсь, все в порядке, — сказал Алик Борисович. — А у меня для Алисочки сюрприз. Замечательный сюрприз! Я бы заставил тебя сплясать, но тебе ещё вредно. Можешь собираться домой.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0027-m-0004",
+        "surface": "Мария Павловна",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0027-c-0005",
+            "predicate": "является",
+            "value": "дежурной сестрой",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0027",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"- Вы не спите, девочки? — спросила она.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0027-m-0005",
+        "surface": "толстяк",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0027-c-0006",
+            "predicate": "имеет",
+            "value": "документы",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0027",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"— Есть у меня документы, — сказал толстяк. — Все документы. — он вытащил из кармана широченных брюк пачку каких-то бумажек и помахал ими перед носом Юли.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0027-e-0001",
+        "event": "Алик Борисович решает выписать Алису домой",
+        "participants": [
+          "{'name': 'Алик Борисович', 'role': 'врач'}",
+          "{'name': 'Мария Павловна', 'role': 'дежурная сестра'}",
+          "{'name': 'толстяк', 'role': 'предполагаемый отец'}"
+        ],
+        "location": "в больнице",
+        "claims": [
+          {
+            "claim_id": "primary-0027-c-0007",
+            "predicate": "выполняет",
+            "value": "своё решение",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0027",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "\"— Я её сегодня осматривал. Ничего с ней не случится. — Алик замолчал, и все услышали, как за дверью кто-то громко сопит, а может быть, плачет.\"",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0027-t-0001",
+        "term": "амнезия",
+        "category": "SCIENCE",
+        "definition_claim": {
+          "claim_id": "primary-0027-c-0008",
+          "predicate": "definition",
+          "value": "потеря памяти",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "UNSUPPORTED",
+          "evidence": [
+            {
+              "chunk_id": "primary-0027",
+              "paragraph_start": null,
+              "paragraph_end": null,
+              "quote": "\"- Может быть, заснула, а может быть, потихоньку плакала. Юля не могла сказать наверняка, хотя прислушивалась.\"",
+              "quote_verified": false
+            }
+          ]
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Как Алик Борисович узнал о том, что толстяк не является настоящим отцом Алисы?",
+        "reason": "Текст не предоставляет информации о том, как Алик Борисович узнал об этом."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 8,
+    "source_supported": 0,
+    "source_unsupported": 8,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 5,
+    "events": 1,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 136,
+    "supported_entailed": 61,
+    "partial_review": 12,
+    "rejected": 63,
+    "schema_fixes": 0
+  }
+}

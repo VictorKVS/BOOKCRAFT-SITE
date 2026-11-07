@@ -3,7 +3,7 @@
 - Open hypotheses input: 0
 - Predictions frozen: 0
 - Review queue: 0
-- Cutoff sequence index: 2
+- Cutoff sequence index: 94
 - Future evidence used at prediction creation: NO
 
 ## Leakage control

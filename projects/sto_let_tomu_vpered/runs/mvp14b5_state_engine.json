@@ -1,12 +1,12 @@
 {
   "stage": "MVP-14B5_STATE_ENGINE",
   "result": "PASS",
-  "canon_claims_input": 3,
-  "state_observations": 3,
-  "world_state_observations": 1,
-  "epistemic_observations": 2,
-  "review_queue": 0,
-  "entities_with_states": 3,
+  "canon_claims_input": 95,
+  "state_observations": 61,
+  "world_state_observations": 57,
+  "epistemic_observations": 4,
+  "review_queue": 34,
+  "entities_with_states": 28,
   "invariants": {
     "trusted_canon_only": true,
     "known_entities_only": true,

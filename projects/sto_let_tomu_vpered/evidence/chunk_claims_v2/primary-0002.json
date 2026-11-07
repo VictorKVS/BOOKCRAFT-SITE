@@ -41,7 +41,7 @@
             },
             "precision_gate": {
               "verdict": "FINAL_CANON_CANDIDATE",
-              "reason": "Цитата и контекст подтверждают, что Коля предполагает, что вещи принадлежат приезжим друзьям Николая Николаевича.",
+              "reason": "Цитата точно соответствует утверждению, что Коля предполагает, что вещи принадлежат приезжим друзьям Николая Николаевича.",
               "error_type": "NONE",
               "model": "qwen2.5:7b"
             },
@@ -261,7 +261,7 @@
             "narrative_mode": {
               "mode": "CHARACTER_BELIEF",
               "canon_eligible": true,
-              "reason": "Коля думает о том, что он рассматривает панель, переключатели и кнопки.",
+              "reason": "Коля думает о том, что он рассматривает панель, что соответствует его мыслимому действию.",
               "model": "qwen2.5:7b"
             },
             "precision_gate": {
@@ -342,10 +342,10 @@
     "terms": 1
   },
   "critic_stats": {
-    "claims_checked": 23,
-    "supported_entailed": 7,
-    "partial_review": 3,
-    "rejected": 13,
+    "claims_checked": 0,
+    "supported_entailed": 0,
+    "partial_review": 0,
+    "rejected": 0,
     "schema_fixes": 0
   }
 }

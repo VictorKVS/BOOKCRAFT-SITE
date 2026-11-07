@@ -1,0 +1,352 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0025",
+    "start_paragraph": 1157,
+    "end_paragraph": 1252,
+    "mentions": [
+      {
+        "mention_id": "primary-0025-m-0001",
+        "surface": "Юля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0025-c-0001",
+            "predicate": "имеет",
+            "value": "проницательность",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0025",
+                "paragraph_start": 1160,
+                "paragraph_end": 1162,
+                "quote": "Юля слышала, как они там разговаривают.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не доказывает, что Юля сама имеет проницательность, а только что она слышала разговор.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0025-c-0002",
+            "predicate": "имеет",
+            "value": "упрямство",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_DETERMINISTIC_SAFETY",
+            "evidence": [
+              {
+                "chunk_id": "primary-0025",
+                "paragraph_start": 1244,
+                "paragraph_end": 1246,
+                "quote": "Юлька Грибкова, как известно, человек упрямый и всегда хочет, чтобы последнее слово оставалось за ней.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на упрямство Юли Грибковой.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает о характере персонажа",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно передает утверждение о том, что Юлька Грибкова упрямый человек.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "REJECT",
+              "error_type": "PREDICATE_OVERREACH",
+              "reason": "Доказательная цитата показывает доступ/использование, но не подтверждает владение."
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0025-m-0002",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0025-c-0003",
+            "predicate": "имеет",
+            "value": "память",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0025",
+                "paragraph_start": 1178,
+                "paragraph_end": 1180,
+                "quote": "Алиса отвернулась к окну, смотрела, как по стеклу стекают капли.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает память Алисы.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0025-c-0004",
+            "predicate": "имеет",
+            "value": "намерение",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0025",
+                "paragraph_start": 1240,
+                "paragraph_end": 1242,
+                "quote": "Алиса страдает, а ты шутишь! Ты представляешь, что сейчас переживают её родители?",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает намерение Алисы, а касается её родителей.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0025-m-0003",
+        "surface": "Юлька",
+        "entity_type": "CHARACTER",
+        "aliases": [
+          "Юля"
+        ],
+        "claims": [
+          {
+            "claim_id": "primary-0025-c-0005",
+            "predicate": "имеет",
+            "value": "упрямство",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_DETERMINISTIC_SAFETY",
+            "evidence": [
+              {
+                "chunk_id": "primary-0025",
+                "paragraph_start": 1244,
+                "paragraph_end": 1246,
+                "quote": "Юлька Грибкова, как известно, человек упрямый и всегда хочет, чтобы последнее слово оставалось за ней.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на упрямство Юльки Грибковой.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает о характере персонажа",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата точно передает упрямство Юльки Грибковой, что подтверждается контекстом её поведения.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "REJECT",
+              "error_type": "PREDICATE_OVERREACH",
+              "reason": "Доказательная цитата показывает доступ/использование, но не подтверждает владение."
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0025-m-0004",
+        "surface": "Шурочка",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0025-c-0006",
+            "predicate": "имеет",
+            "value": "заботу",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0025",
+                "paragraph_start": 1227,
+                "paragraph_end": 1229,
+                "quote": "Шурочка недавно кончила училище, готовилась поступать в медицинский институт и к медицине относилась очень серьёзно, куда серьёзнее, чем доктор Алик.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает заботу Шурочки.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0025-e-0001",
+        "event": "Алиса пытается сбежать из больницы",
+        "participants": [
+          "Алиса"
+        ],
+        "location": "больница",
+        "claims": [
+          {
+            "claim_id": "primary-0025-c-0007",
+            "predicate": "предполагается",
+            "value": "попытка сбежать",
+            "provenance": "DERIVED",
+            "confidence": "PROBABLE",
+            "acceptance": "DERIVED_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0025",
+                "paragraph_start": 1157,
+                "paragraph_end": 1159,
+                "quote": "— Тебе же вставать не велели. — Я вернусь, — сказала Алиса.",
+                "quote_verified": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0025-e-0002",
+        "event": "Алик Борисович рассказывает историю",
+        "participants": [
+          "Алик Борисович"
+        ],
+        "location": "больница",
+        "claims": [
+          {
+            "claim_id": "primary-0025-c-0008",
+            "predicate": "рассказывает",
+            "value": "историю о поездке на Дон",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0025",
+                "paragraph_start": 1171,
+                "paragraph_end": 1173,
+                "quote": "— Прошлым летом, — сказал Алик Борисович, — мы с приятелями поехали на Дон, рыбачить.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает на то, что Алик Борисович рассказывал историю о поездке на Дон.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "Рассказчик сообщает о факте, произошедшем в мире рассказа.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Алик Борисович явно рассказывает историю о поездке на Дон, что подтверждается цитатой.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "event",
+              "subject": "Алик Борисович рассказывает историю",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0025-t-0001",
+        "term": "космобиолог",
+        "category": "PROFESSION",
+        "definition_claim": {
+          "claim_id": "primary-0025-c-0009",
+          "predicate": "definition",
+          "value": "учёный, занимающийся космической деятельностью",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "UNSUPPORTED",
+          "evidence": [
+            {
+              "chunk_id": "primary-0025",
+              "paragraph_start": null,
+              "paragraph_end": null,
+              "quote": "— А мой отец космобиолог, — сказала Алиса.",
+              "quote_verified": false
+            }
+          ]
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Что именно Алиса забыла?",
+        "reason": "Текст не предоставляет полной информации о том, что именно Алиса забыла."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 9,
+    "source_supported": 7,
+    "source_unsupported": 1,
+    "derived": 1,
+    "hypotheses": 0,
+    "mentions": 4,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 132,
+    "supported_entailed": 60,
+    "partial_review": 11,
+    "rejected": 61,
+    "schema_fixes": 0
+  }
+}

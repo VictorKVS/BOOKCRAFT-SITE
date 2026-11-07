@@ -1,0 +1,300 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0010",
+    "start_paragraph": 475,
+    "end_paragraph": 513,
+    "mentions": [
+      {
+        "mention_id": "primary-0010-m-0001",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0010-c-0001",
+            "predicate": "является",
+            "value": "человеком",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0010",
+                "paragraph_start": 492,
+                "paragraph_end": 494,
+                "quote": "Коля никогда сам не флипал и не видел, чтобы флипали другие.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о том, является ли Коля человеком.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0010-c-0002",
+            "predicate": "исследует",
+            "value": "новые технологии",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0010",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Коля подошёл к столбикам и что-то с одного из них взял.",
+                "quote_verified": false
+              }
+            ]
+          },
+          {
+            "claim_id": "primary-0010-c-0003",
+            "predicate": "испытывает",
+            "value": "мороженое",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0010",
+                "paragraph_start": 494,
+                "paragraph_end": 496,
+                "quote": "Коля съел банан, а шкурку положил на место, и она провалилась в столбик.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает мороженое и не подтверждает, что Коля испытывает мороженое.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0010-c-0004",
+            "predicate": "пытается",
+            "value": "съесть мороженое",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0010",
+                "paragraph_start": 504,
+                "paragraph_end": 506,
+                "quote": "Коля нажал на четвёртую клавишу, но мороженого не получил.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата показывает, что Коля пытался съесть мороженое, но не получил его, возможно, из-за нажатия на неверную клавишу.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0010-m-0002",
+        "surface": "столбики",
+        "entity_type": "TECHNOLOGY",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0010-c-0005",
+            "predicate": "выдают",
+            "value": "разные продукты",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0010",
+                "paragraph_start": 494,
+                "paragraph_end": 496,
+                "quote": "На белом было написано «Мороженое», на жёлтом — «Лимонад», на зелёном — «Яблоки», на синем — «Бутерброды», на коричневом — «Квас».",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что столбики имеют разные названия, соответствующие разным продуктам.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает о факте мира, что столбики имеют разные названия и содержимое.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст подтверждают, что столбики действительно выдают разные продукты.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "столбики",
+              "truth_scope": "WORLD_STATE"
+            }
+          },
+          {
+            "claim_id": "primary-0010-c-0006",
+            "predicate": "отслеживают",
+            "value": "потребление продуктов",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0010",
+                "paragraph_start": 510,
+                "paragraph_end": 512,
+                "quote": "И каждый автомат знает, сколько ты сегодня съел мороженого.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает столбики и не отслеживает потребление продуктов в целом, а конкретизирует мороженое.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0010-e-0001",
+        "event": "Коля использует столбики",
+        "participants": [
+          "{'name': 'Коля', 'role': 'user'}"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0010-c-0007",
+            "predicate": "использует",
+            "value": "столбики",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0010",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "Коля подошёл к столбикам и что-то с одного из них взял.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0010-e-0002",
+        "event": "Коля получает мороженое",
+        "participants": [
+          "{'name': 'Коля', 'role': 'user'}"
+        ],
+        "location": "",
+        "claims": [
+          {
+            "claim_id": "primary-0010-c-0008",
+            "predicate": "получает",
+            "value": "мороженое",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0010",
+                "paragraph_start": 494,
+                "paragraph_end": 496,
+                "quote": "Коля съел банан, а шкурку положил на место, и она провалилась в столбик.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает мороженое.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0010-t-0001",
+        "term": "столбики",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0010-c-0009",
+          "predicate": "definition",
+          "value": "устройства, выдающие разные продукты при нажатии на определённые клавиши",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+          "evidence": [
+            {
+              "chunk_id": "primary-0010",
+              "paragraph_start": 494,
+              "paragraph_end": 496,
+              "quote": "На белом было написано «Мороженое», на жёлтом — «Лимонад», на зелёном — «Яблоки», на синем — «Бутерброды», на коричневом — «Квас».",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "NOT_SUPPORTED",
+            "reason": "Цитата описывает разные названия на столбиках, но не подтверждает, что они выдают разные продукты при нажатии.",
+            "model": "qwen2.5:7b"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Как именно происходит флип?",
+        "reason": "Текст не предоставляет подробностей о процессе флипа."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 9,
+    "source_supported": 7,
+    "source_unsupported": 2,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 2,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 32,
+    "supported_entailed": 12,
+    "partial_review": 6,
+    "rejected": 14,
+    "schema_fixes": 0
+  }
+}

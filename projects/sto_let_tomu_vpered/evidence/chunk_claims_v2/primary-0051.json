@@ -1,0 +1,434 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0051",
+    "start_paragraph": 3260,
+    "end_paragraph": 3331,
+    "mentions": [
+      {
+        "mention_id": "primary-0051-m-0001",
+        "surface": "Алиса",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0051-c-0001",
+            "predicate": "имеет знания",
+            "value": "ненормальные",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0051",
+                "paragraph_start": 3261,
+                "paragraph_end": 3263,
+                "quote": "Она совершенно ненормально все знает.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата подтверждает, что Алиса имеет ненормальные знания.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата представляет слова, сказанные персонажем, а не действия рассказчика.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата подтверждает, что Алиса имеет ненормальные знания.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Алиса",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0051-m-0002",
+        "surface": "Мила",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0051-c-0002",
+            "predicate": "помогает",
+            "value": "доктору Ивановой и директору школы",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0051",
+                "paragraph_start": 3264,
+                "paragraph_end": 3266,
+                "quote": "Проведи нас в школу задним ходом так, чтобы нас Алиса не видела. И покажи, где ваш класс.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает, кто именно помогает доктору Ивановой и директору школы.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0051-m-0003",
+        "surface": "доктор Иванова",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0051-c-0003",
+            "predicate": "является",
+            "value": "деликатной",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0051",
+                "paragraph_start": 3262,
+                "paragraph_end": 3264,
+                "quote": "Но мы очень деликатные люди, — сказала хрупкая доктор Иванова.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает, что доктор Иванова является деликатной.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата представляет слова, сказанные персонажем.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата прямо указывает, что доктор Иванова является деликатной.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "доктор Иванова",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0051-m-0004",
+        "surface": "Коля Садовский",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0051-c-0004",
+            "predicate": "видел",
+            "value": "толстяка",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0051",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "А ты где его видел?",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0051-m-0005",
+        "surface": "Фима Королев",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0051-c-0005",
+            "predicate": "появляется",
+            "value": "в классе",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0051",
+                "paragraph_start": 3290,
+                "paragraph_end": 3292,
+                "quote": "Фима Королев.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о том, что Фима Королев появляется в классе.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0051-m-0006",
+        "surface": "Алла Сергеевна",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0051-c-0006",
+            "predicate": "является учителем",
+            "value": "шестого класса «Б»",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0051",
+                "paragraph_start": 3298,
+                "paragraph_end": 3300,
+                "quote": "Это шестой класс «Б»?",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не подтверждает, что Алла Сергеевна является учителем шестого класса «Б».",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0051-e-0001",
+        "event": "проверка Алисы",
+        "participants": [
+          "Мила",
+          "доктор Иванова",
+          "директор школы"
+        ],
+        "location": "школа",
+        "claims": [
+          {
+            "claim_id": "primary-0051-c-0007",
+            "predicate": "проверяют",
+            "value": "Алису",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0051",
+                "paragraph_start": 3264,
+                "paragraph_end": 3266,
+                "quote": "Проведи нас в школу задним ходом так, чтобы нас Алиса не видела. И покажи, где ваш класс.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает, кто именно проверяет Алису.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0051-e-0002",
+        "event": "появление Фимы Королева",
+        "participants": [
+          "Фима Королев"
+        ],
+        "location": "класс",
+        "claims": [
+          {
+            "claim_id": "primary-0051-c-0008",
+            "predicate": "появляется",
+            "value": "в классе",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0051",
+                "paragraph_start": 3290,
+                "paragraph_end": 3292,
+                "quote": "Фима Королев.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не содержит информации о том, что Фима Королев появляется в классе.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0051-e-0003",
+        "event": "появление поддельной Аллы Сергеевны",
+        "participants": [
+          "поддельная Алла Сергеевна",
+          "директор школы"
+        ],
+        "location": "класс",
+        "claims": [
+          {
+            "claim_id": "primary-0051-c-0009",
+            "predicate": "появляется",
+            "value": "в классе",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0051",
+                "paragraph_start": 3298,
+                "paragraph_end": 3300,
+                "quote": "Это шестой класс «Б»?",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает появление поддельной Аллы Сергеевны.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0051-e-0004",
+        "event": "битва Алл Сергеевны",
+        "participants": [
+          "директор школы",
+          "Фима Королев",
+          "Эдуард Петрович"
+        ],
+        "location": "класс",
+        "claims": [
+          {
+            "claim_id": "primary-0051-c-0010",
+            "predicate": "вступает в бой",
+            "value": "директор школы и Фима Королев",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0051",
+                "paragraph_start": 3321,
+                "paragraph_end": 3323,
+                "quote": "Эдуард Петрович, покраснев от натуги, приподнял толстяка с пола — ведь недаром он раньше занимался вольной борьбой.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата описывает действия Эдуарда Петровича по отношению к толстяку, но не упоминает директора школы и Фиму Королева.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0051-t-0001",
+        "term": "пираты",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0051-c-0011",
+          "predicate": "definition",
+          "value": "группа людей, пришедших в школу для проверки Алисы",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "UNSUPPORTED",
+          "evidence": [
+            {
+              "chunk_id": "primary-0051",
+              "paragraph_start": null,
+              "paragraph_end": null,
+              "quote": "Мила Руткевич провела пиратов в школу.",
+              "quote_verified": false
+            }
+          ]
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Кто такие пираты?",
+        "reason": "Не указано, откуда они пришли и зачем."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 11,
+    "source_supported": 9,
+    "source_unsupported": 2,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 6,
+    "events": 4,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 292,
+    "supported_entailed": 118,
+    "partial_review": 30,
+    "rejected": 144,
+    "schema_fixes": 4
+  }
+}

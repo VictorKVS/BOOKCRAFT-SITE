@@ -1,0 +1,315 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0007",
+    "start_paragraph": 293,
+    "end_paragraph": 356,
+    "mentions": [
+      {
+        "mention_id": "primary-0007-m-0001",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0007-c-0001",
+            "predicate": "отец строитель",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0007",
+                "paragraph_start": 307,
+                "paragraph_end": 309,
+                "quote": "Отец у Коли строитель, поэтому он всегда интересуется строительными материалами и немного в них разбирается.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо указывает, что отец Коли строитель, что подтверждает claim.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает факт о профессии отца Коли",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата явно указывает на то, что отец Коли является строителем, что подтверждает claim.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Коля",
+              "truth_scope": "WORLD_STATE"
+            }
+          },
+          {
+            "claim_id": "primary-0007-c-0002",
+            "predicate": "интересуется космосом",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0007",
+                "paragraph_start": 307,
+                "paragraph_end": 309,
+                "quote": "В прошлом году он сам собирался стать строителем, но в этом году передумал — его заинтересовал космос.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата показывает, что Коля заинтересовался космосом, но не подтверждает, что он до этого интересовался космосом.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0007-m-0002",
+        "surface": "Джавад",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0007-c-0003",
+            "predicate": "не верит в победу белковой синтетики",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_PRECISION_GATE",
+            "evidence": [
+              {
+                "chunk_id": "primary-0007",
+                "paragraph_start": 326,
+                "paragraph_end": 328,
+                "quote": "Я не верю в победу белковой синтетики. А ты?",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо выражает мнение Джавада о не вере в победу белковой синтетики.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "CHARACTER_SPEECH",
+              "canon_eligible": true,
+              "reason": "Цитата является прямой речью персонажа Джавада.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "REJECT",
+              "reason": "Цитата прямо выражает мнение Джавада о не вере в победу белковой синтетики.",
+              "error_type": "OTHER",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0007-m-0003",
+        "surface": "Лена",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0007-c-0004",
+            "predicate": "младше Коли",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0007",
+                "paragraph_start": 294,
+                "paragraph_end": 296,
+                "quote": "Девочка, которая спрыгнула с дельфина, была помладше Коли, ей было лет десять, не больше.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата упоминает девочку младше Коли, но не утверждает, что Лена именно эта девочка.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0007-e-0001",
+        "event": "девочка спрыгнула с дельфина",
+        "participants": [
+          "{'name': 'девочка', 'entity_type': 'CHARACTER'}",
+          "{'name': 'дельфин', 'entity_type': 'CREATURE'}"
+        ],
+        "location": "бассейн",
+        "claims": [
+          {
+            "claim_id": "primary-0007-c-0005",
+            "predicate": "спрыгнула",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "UNSUPPORTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0007",
+                "paragraph_start": null,
+                "paragraph_end": null,
+                "quote": "В центре бассейна вода взбурлила, и в брызгах появилась девочка. Не вынырнула, а словно поднялась по пояс. А когда рыба подплыла к краю бассейна, где стояли Коля с Джавадом, оказалось, что это не рыба, а дельфин.",
+                "quote_verified": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0007-e-0002",
+        "event": "Коля увидел ростки",
+        "participants": [
+          "{'name': 'Коля', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "рядом с клёном",
+        "claims": [
+          {
+            "claim_id": "primary-0007-c-0006",
+            "predicate": "увидел ростки",
+            "value": "да",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0007",
+                "paragraph_start": 348,
+                "paragraph_end": 350,
+                "quote": "Коля собственными глазами увидел, как из земли медленно вылезают два зелёных побега.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата прямо говорит, что Коля увидел ростки.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает о факте, который Коля увидел",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст ясно указывают, что Коля увидел ростки.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "event",
+              "subject": "Коля увидел ростки",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0007-t-0001",
+        "term": "мангодыня",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0007-c-0007",
+          "predicate": "definition",
+          "value": "мангодыня — это фрукт, который используется в пище будущего и обладает уникальными свойствами.",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "PARTIAL_REVIEW",
+          "evidence": [
+            {
+              "chunk_id": "primary-0007",
+              "paragraph_start": 313,
+              "paragraph_end": 315,
+              "quote": "Джавад достал нож, разрезал мангодыню. Внутри оказалась большая косточка, свободно выпавшая на блюдо.",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "PARTIAL",
+            "reason": "Цитата описывает структуру мангодыни, но не подтверждает, что она используется в пище будущего или обладает уникальными свойствами.",
+            "model": "qwen2.5:7b"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Что напоминает плоды Коле?",
+        "reason": "Точное описание того, что напоминает плоды Коле, не указано в данном фрагменте."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 7,
+    "source_supported": 6,
+    "source_unsupported": 1,
+    "derived": 0,
+    "hypotheses": 0,
+    "mentions": 3,
+    "events": 2,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 16,
+    "supported_entailed": 9,
+    "partial_review": 5,
+    "rejected": 2,
+    "schema_fixes": 0
+  }
+}

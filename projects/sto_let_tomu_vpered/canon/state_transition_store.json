@@ -6,5 +6,126 @@
     "confirmed_transition": "Requires explicit transition evidence; textual succession alone is insufficient.",
     "causality": "Requires explicit causal evidence; temporal adjacency never proves causality."
   },
-  "records": []
+  "records": [
+    {
+      "transition_id": "transition-007d3a4b43bc5e98",
+      "entity_id": "ent-2fd7b01dc0a9ec09",
+      "entity_name": "Алиса",
+      "truth_scope": "WORLD_STATE",
+      "before_state_id": "state-be209f6df540f8db",
+      "after_state_id": "state-0119d131bab753ba",
+      "before_sequence_index": 22,
+      "after_sequence_index": 24,
+      "transition_basis": [
+        "TRUSTED_EVENT_BETWEEN_STATES"
+      ],
+      "event_id": "evt-9caeb32c24af6a9a",
+      "causality_status": "NOT_ESTABLISHED"
+    },
+    {
+      "transition_id": "transition-03bb91009ce9a388",
+      "entity_id": "ent-2dedc70082320885",
+      "entity_name": "Коля",
+      "truth_scope": "WORLD_STATE",
+      "before_state_id": "state-aa0989c08fbf8630",
+      "after_state_id": "state-2a1f434afe15affd",
+      "before_sequence_index": 8,
+      "after_sequence_index": 13,
+      "transition_basis": [
+        "TRUSTED_EVENT_BETWEEN_STATES"
+      ],
+      "event_id": "evt-100b1340b69d7b46",
+      "causality_status": "EXPLICIT_CAUSAL_EVIDENCE"
+    },
+    {
+      "transition_id": "transition-06813b970f81518c",
+      "entity_id": "ent-2dedc70082320885",
+      "entity_name": "Коля",
+      "truth_scope": "WORLD_STATE",
+      "before_state_id": "state-410294f349b4ccae",
+      "after_state_id": "state-4f053cd539dadea2",
+      "before_sequence_index": 18,
+      "after_sequence_index": 29,
+      "transition_basis": [
+        "EXPLICIT_TRANSITION_PREDICATE"
+      ],
+      "event_id": null,
+      "causality_status": "NOT_ESTABLISHED"
+    },
+    {
+      "transition_id": "transition-0ca176308bdc793d",
+      "entity_id": "ent-43232c20de2e621f",
+      "entity_name": "Крысс",
+      "truth_scope": "WORLD_STATE",
+      "before_state_id": "state-93e036226783706f",
+      "after_state_id": "state-91f253554b03fb62",
+      "before_sequence_index": 64,
+      "after_sequence_index": 81,
+      "transition_basis": [
+        "TRUSTED_EVENT_BETWEEN_STATES"
+      ],
+      "event_id": "evt-5aefd6c92a65ce05",
+      "causality_status": "NOT_ESTABLISHED"
+    },
+    {
+      "transition_id": "transition-2fb58dd9928618d1",
+      "entity_id": "ent-2fd7b01dc0a9ec09",
+      "entity_name": "Алиса",
+      "truth_scope": "WORLD_STATE",
+      "before_state_id": "state-0119d131bab753ba",
+      "after_state_id": "state-e9bd8de9ca4fb67c",
+      "before_sequence_index": 24,
+      "after_sequence_index": 42,
+      "transition_basis": [
+        "TRUSTED_EVENT_BETWEEN_STATES"
+      ],
+      "event_id": "evt-2a87bbf2c8570587",
+      "causality_status": "NOT_ESTABLISHED"
+    },
+    {
+      "transition_id": "transition-d8eb860d3bfe69dc",
+      "entity_id": "ent-2fd7b01dc0a9ec09",
+      "entity_name": "Алиса",
+      "truth_scope": "WORLD_STATE",
+      "before_state_id": "state-e9bd8de9ca4fb67c",
+      "after_state_id": "state-7e971ba4d7387f40",
+      "before_sequence_index": 42,
+      "after_sequence_index": 51,
+      "transition_basis": [
+        "TRUSTED_EVENT_BETWEEN_STATES"
+      ],
+      "event_id": "evt-63c937566193c318",
+      "causality_status": "NOT_ESTABLISHED"
+    },
+    {
+      "transition_id": "transition-eb4c3244b7a0f2e7",
+      "entity_id": "ent-2dedc70082320885",
+      "entity_name": "Коля",
+      "truth_scope": "WORLD_STATE",
+      "before_state_id": "state-2a1f434afe15affd",
+      "after_state_id": "state-dac94d09dde471e7",
+      "before_sequence_index": 13,
+      "after_sequence_index": 15,
+      "transition_basis": [
+        "TRUSTED_EVENT_BETWEEN_STATES"
+      ],
+      "event_id": "evt-cc76738a787769b0",
+      "causality_status": "NOT_ESTABLISHED"
+    },
+    {
+      "transition_id": "transition-ee2326f22084c405",
+      "entity_id": "ent-2fd7b01dc0a9ec09",
+      "entity_name": "Алиса",
+      "truth_scope": "WORLD_STATE",
+      "before_state_id": "state-710b7583a5ea82d7",
+      "after_state_id": "state-67a730c625b5007c",
+      "before_sequence_index": 53,
+      "after_sequence_index": 70,
+      "transition_basis": [
+        "TRUSTED_EVENT_BETWEEN_STATES"
+      ],
+      "event_id": "evt-0a57f60e75f0f645",
+      "causality_status": "NOT_ESTABLISHED"
+    }
+  ]
 }

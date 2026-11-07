@@ -1,0 +1,518 @@
+{
+  "validated": {
+    "schema_version": "2.0",
+    "work_id": "sto_let_tomu_vpered",
+    "chunk_id": "primary-0012",
+    "start_paragraph": 551,
+    "end_paragraph": 593,
+    "mentions": [
+      {
+        "mention_id": "primary-0012-m-0001",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0012-c-0001",
+            "predicate": "является",
+            "value": "пассажиром пузыря",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0012",
+                "paragraph_start": 553,
+                "paragraph_end": 555,
+                "quote": "Пассажир, вы нарушаете правила управления. Если не прекратите издеваться над летательным флипом, мы принудительно переведём его на автоматику.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает Коля и не подтверждает, что он является пассажиром пузыря.",
+              "model": "qwen2.5:7b"
+            }
+          },
+          {
+            "claim_id": "primary-0012-c-0002",
+            "predicate": "имеет",
+            "value": "научную жилку",
+            "provenance": "DERIVED",
+            "confidence": "PROBABLE",
+            "acceptance": "DERIVED_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0012",
+                "paragraph_start": 551,
+                "paragraph_end": 551,
+                "quote": "А в Коле она была.",
+                "quote_verified": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0012-m-0002",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0012-c-0003",
+            "predicate": "управлял",
+            "value": "пузырем",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0012",
+                "paragraph_start": 551,
+                "paragraph_end": 553,
+                "quote": "Он переключил рычажок на ручное управление и осторожно повёл вверх другой, с надписью «Подъем».",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает Коля и не говорит о управлении пузырем.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0012-m-0003",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0012-c-0004",
+            "predicate": "видел",
+            "value": "Москву с высоты",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0012",
+                "paragraph_start": 556,
+                "paragraph_end": 558,
+                "quote": "Коля обернулся и посмотрел на Москву. С высоты Москва казалась бесконечной и очень зелёной.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Коля смотрел на Москву с высоты, что подтверждает claim.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "рассказчик сообщает о том, что Коля видел Москву с высоты",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата явно показывает, что Коля смотрел на Москву с высоты, что подтверждает claim.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "mention",
+              "subject": "Коля",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0012-m-0004",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0012-c-0005",
+            "predicate": "управлял",
+            "value": "пузырем",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0012",
+                "paragraph_start": 558,
+                "paragraph_end": 560,
+                "quote": "Коля потянул рычажок кверху.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает пузырь.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0012-m-0005",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0012-c-0006",
+            "predicate": "управлял",
+            "value": "пузырем",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0012",
+                "paragraph_start": 568,
+                "paragraph_end": 570,
+                "quote": "Коля увидел, что из того места, откуда вывалился его пузырь, облачный туман выползал, как пар из чайника.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата описывает видимое явление, но не утверждает, что Коля управлял пузырем.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0012-m-0006",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0012-c-0007",
+            "predicate": "управлял",
+            "value": "пузырем",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0012",
+                "paragraph_start": 568,
+                "paragraph_end": 570,
+                "quote": "Коля увидел, что из того места, откуда вывалился его пузырь, облачный туман выползал, как пар из чайника.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата описывает видимое явление, но не утверждает, что Коля управлял пузырем.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "mention_id": "primary-0012-m-0007",
+        "surface": "Коля",
+        "entity_type": "CHARACTER",
+        "aliases": [],
+        "claims": [
+          {
+            "claim_id": "primary-0012-c-0008",
+            "predicate": "управлял",
+            "value": "пузырем",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0012",
+                "paragraph_start": 581,
+                "paragraph_end": 583,
+                "quote": "Коля хотел послушаться совета, но не успел. Вдруг рычажок без его помощи переключился на автоматику, и во весь пульт загорелась надпись:",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает, что Коля управлял пузырем.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "primary-0012-e-0001",
+        "event": "Коля летал на пузыре",
+        "participants": [
+          "{'name': 'Коля', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "над Москвой",
+        "claims": [
+          {
+            "claim_id": "primary-0012-c-0009",
+            "predicate": "испытывал",
+            "value": "новые возможности пузыря",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0012",
+                "paragraph_start": 551,
+                "paragraph_end": 551,
+                "quote": "Неужели вы откажетесь их испытать? Если откажетесь, то в вас нет научной жилки.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает Коля или его действия с пузырем.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0012-e-0002",
+        "event": "Коля управлял пузырем",
+        "participants": [
+          "{'name': 'Коля', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "над Москвой",
+        "claims": [
+          {
+            "claim_id": "primary-0012-c-0010",
+            "predicate": "управлял",
+            "value": "пузырем",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0012",
+                "paragraph_start": 551,
+                "paragraph_end": 553,
+                "quote": "Он переключил рычажок на ручное управление и осторожно повёл вверх другой, с надписью «Подъем».",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает пузырь.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0012-e-0003",
+        "event": "Коля управлял пузырем",
+        "participants": [
+          "{'name': 'Коля', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "над Москвой",
+        "claims": [
+          {
+            "claim_id": "primary-0012-c-0011",
+            "predicate": "управлял",
+            "value": "пузырем",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "PARTIAL_REVIEW",
+            "evidence": [
+              {
+                "chunk_id": "primary-0012",
+                "paragraph_start": 558,
+                "paragraph_end": 560,
+                "quote": "Коля потянул рычажок кверху.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "PARTIAL",
+              "reason": "Цитата показывает действие Коля, но не прямо утверждает, что он управлял пузырем.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0012-e-0004",
+        "event": "Коля управлял пузырем",
+        "participants": [
+          "{'name': 'Коля', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "над Москвой",
+        "claims": [
+          {
+            "claim_id": "primary-0012-c-0012",
+            "predicate": "управлял",
+            "value": "пузырем",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "CANON_ACCEPTED",
+            "evidence": [
+              {
+                "chunk_id": "primary-0012",
+                "paragraph_start": 568,
+                "paragraph_end": 570,
+                "quote": "Коля увидел, что из того места, откуда вывалился его пузырь, облачный туман выползал, как пар из чайника.",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "SUPPORTED",
+              "reason": "Цитата показывает, что Коля наблюдал процесс, связанный с пузырём, что подтверждает, что он управлял пузырём.",
+              "model": "qwen2.5:7b"
+            },
+            "narrative_mode": {
+              "mode": "NARRATOR_FACT",
+              "canon_eligible": true,
+              "reason": "Рассказчик сообщает о действии Коля, которое происходит в мире рассказа.",
+              "model": "qwen2.5:7b"
+            },
+            "precision_gate": {
+              "verdict": "FINAL_CANON_CANDIDATE",
+              "reason": "Цитата и контекст подтверждают, что Коля управлял пузырём, так как он наблюдал процесс, связанный с пузырём, и его действия привели к появлению облачного тумана.",
+              "error_type": "NONE",
+              "model": "qwen2.5:7b"
+            },
+            "deterministic_safety": {
+              "verdict": "PASS",
+              "error_type": "NONE",
+              "reason": "Детерминированных блокирующих признаков не найдено."
+            },
+            "canon_admission": {
+              "stage": "MVP-14B2.5",
+              "verdict": "ACCEPT",
+              "reason": "ALL_ADMISSION_CHECKS_PASSED",
+              "checks": [
+                "evidence_verified",
+                "deterministic_safety_pass",
+                "entailment_supported",
+                "precision_final",
+                "narrative_canon_eligible",
+                "claim_complete"
+              ],
+              "scope": "event",
+              "subject": "Коля управлял пузырем",
+              "truth_scope": "WORLD_STATE"
+            }
+          }
+        ]
+      },
+      {
+        "event_id": "primary-0012-e-0005",
+        "event": "Коля управлял пузырем",
+        "participants": [
+          "{'name': 'Коля', 'entity_type': 'CHARACTER'}"
+        ],
+        "location": "над Москвой",
+        "claims": [
+          {
+            "claim_id": "primary-0012-c-0013",
+            "predicate": "управлял",
+            "value": "пузырем",
+            "provenance": "SOURCE_CANON",
+            "confidence": "CONFIRMED",
+            "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+            "evidence": [
+              {
+                "chunk_id": "primary-0012",
+                "paragraph_start": 581,
+                "paragraph_end": 583,
+                "quote": "Коля хотел послушаться совета, но не успел. Вдруг рычажок без его помощи переключился на автоматику, и во весь пульт загорелась надпись:",
+                "quote_verified": true
+              }
+            ],
+            "entailment": {
+              "verdict": "NOT_SUPPORTED",
+              "reason": "Цитата не упоминает, кто управлял пузырем.",
+              "model": "qwen2.5:7b"
+            }
+          }
+        ]
+      }
+    ],
+    "terms": [
+      {
+        "term_id": "primary-0012-t-0001",
+        "term": "пузырь",
+        "category": "TECHNOLOGY",
+        "definition_claim": {
+          "claim_id": "primary-0012-c-0014",
+          "predicate": "definition",
+          "value": "новый вид транспорта, управляемый человеком",
+          "provenance": "SOURCE_CANON",
+          "confidence": "CONFIRMED",
+          "acceptance": "REJECTED_BY_EVIDENCE_CRITIC",
+          "evidence": [
+            {
+              "chunk_id": "primary-0012",
+              "paragraph_start": 551,
+              "paragraph_end": 553,
+              "quote": "Он переключил рычажок на ручное управление и осторожно повёл вверх другой, с надписью «Подъем».",
+              "quote_verified": true
+            }
+          ],
+          "entailment": {
+            "verdict": "NOT_SUPPORTED",
+            "reason": "Цитата не определяет пузырь как новый вид транспорта.",
+            "model": "qwen2.5:7b"
+          }
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "question": "Какие возможности пузыря были доступны Коле?",
+        "reason": "Текст не предоставляет полной информации о всех возможностях пузыря."
+      }
+    ]
+  },
+  "stats": {
+    "claims_total": 14,
+    "source_supported": 13,
+    "source_unsupported": 0,
+    "derived": 1,
+    "hypotheses": 0,
+    "mentions": 7,
+    "events": 5,
+    "terms": 1
+  },
+  "critic_stats": {
+    "claims_checked": 51,
+    "supported_entailed": 16,
+    "partial_review": 9,
+    "rejected": 26,
+    "schema_fixes": 0
+  }
+}
