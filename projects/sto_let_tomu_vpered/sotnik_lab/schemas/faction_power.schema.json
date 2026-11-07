@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FactionPowerState",
+  "type": "object",
+  "required": ["faction_id","name","evidence"],
+  "properties": {
+    "faction_id": {"type":"string"},
+    "name": {"type":"string"},
+    "goals": {"type":"array","items":{"type":"string"}},
+    "resources": {"type":"array","items":{"type":"string"}},
+    "allies": {"type":"array","items":{"type":"string"}},
+    "enemies": {"type":"array","items":{"type":"string"}},
+    "claims": {"type":"array","items":{"type":"string"}},
+    "secrets": {"type":"array","items":{"type":"string"}},
+    "current_plan": {"type":"array","items":{"type":"string"}},
+    "influence": {"type":["number","null"],"minimum":0,"maximum":1},
+    "military_power": {"type":["number","null"],"minimum":0,"maximum":1},
+    "wealth": {"type":["number","null"],"minimum":0,"maximum":1},
+    "legitimacy": {"type":["number","null"],"minimum":0,"maximum":1},
+    "external_pressure": {"type":["number","null"],"minimum":0,"maximum":1},
+    "evidence": {"type":"array","items":{"type":"object"}}
+  }
+}
