@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "profiles": [
+    {
+      "style_id": "STYLE-TOLSTOY-PD",
+      "name": "Лев Толстой — craft profile",
+      "author_status": "PUBLIC_DOMAIN",
+      "direct_named_profile_allowed": true,
+      "traits": {
+        "narrator_distance": "variable_close_observational",
+        "sentence_complexity": "high",
+        "psychological_interiority": "high",
+        "social_observation": "high",
+        "concrete_physical_detail": "high",
+        "dialogue_density": "medium",
+        "metaphor_density": "medium",
+        "pacing": "deliberate",
+        "moral_reflection": "high"
+      }
+    },
+    {
+      "style_id": "STYLE-CHEKHOV-PD",
+      "name": "Антон Чехов — craft profile",
+      "author_status": "PUBLIC_DOMAIN",
+      "direct_named_profile_allowed": true,
+      "traits": {
+        "narrator_distance": "observational",
+        "sentence_complexity": "medium",
+        "psychological_interiority": "implicit",
+        "subtext": "high",
+        "emotional_naming": "low",
+        "concrete_detail": "high",
+        "dialogue_density": "medium_high",
+        "pacing": "compressed"
+      }
+    },
+    {
+      "style_id": "STYLE-DOSTOEVSKY-PD",
+      "name": "Фёдор Достоевский — craft profile",
+      "author_status": "PUBLIC_DOMAIN",
+      "direct_named_profile_allowed": true,
+      "traits": {
+        "psychological_pressure": "very_high",
+        "argumentative_dialogue": "high",
+        "sentence_complexity": "high",
+        "interior_conflict": "very_high",
+        "moral_stakes": "high",
+        "pacing": "volatile",
+        "emotional_intensity": "high"
+      }
+    },
+    {
+      "style_id": "STYLE-CUSTOM",
+      "name": "Настраиваемый авторский профиль",
+      "author_status": "CUSTOM",
+      "direct_named_profile_allowed": true,
+      "traits": {
+        "sentence_length": "user_defined",
+        "dialogue_density": "user_defined",
+        "imagery": "user_defined",
+        "humor": "user_defined",
+        "explicitness": "user_defined",
+        "pacing": "user_defined",
+        "vocabulary_register": "user_defined"
+      }
+    }
+  ]
+}
