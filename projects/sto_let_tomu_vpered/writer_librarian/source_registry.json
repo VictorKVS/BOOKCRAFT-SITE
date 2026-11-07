@@ -1,0 +1,255 @@
+{
+  "schema_version": "1.0",
+  "profile": "WRITER",
+  "purpose": "Seed source registry for FATHER Writer Librarian",
+  "source_policy": {
+    "authoritative_preferred": true,
+    "provenance_required": true,
+    "psychology_requires_scientific_verification": true,
+    "copyrighted_material_storage": "STORE_METADATA_AND_DERIVED_STRUCTURE_ONLY_UNLESS_LICENSE_ALLOWS_MORE"
+  },
+  "sources": [
+    {
+      "source_id": "WR-SRC-001",
+      "name": "Story Grid",
+      "url": "https://storygrid.com/resources",
+      "priority": "A",
+      "content": [
+        "genres",
+        "scene_structure",
+        "characters",
+        "archetypes",
+        "conflict",
+        "editing"
+      ],
+      "extraction_targets": [
+        "genre_obligatory_elements",
+        "scene_commands",
+        "story_structure",
+        "character_archetypes"
+      ],
+      "status": "VERIFIED",
+      "access": "PUBLIC_MIXED"
+    },
+    {
+      "source_id": "WR-SRC-002",
+      "name": "Helping Writers Become Authors",
+      "url": "https://www.helpingwritersbecomeauthors.com/",
+      "priority": "A",
+      "content": [
+        "story_structure",
+        "plot_points",
+        "character_arcs",
+        "archetypes",
+        "scene_structure"
+      ],
+      "extraction_targets": [
+        "structural_beats",
+        "character_arc_patterns",
+        "scene_goal_conflict_outcome",
+        "reaction_dilemma_decision"
+      ],
+      "status": "VERIFIED",
+      "access": "PUBLIC"
+    },
+    {
+      "source_id": "WR-SRC-003",
+      "name": "Novel Factory",
+      "url": "https://www.novel-software.com/book-writing-worksheets/",
+      "priority": "A",
+      "content": [
+        "premise",
+        "outline",
+        "characters",
+        "synopsis",
+        "goal_decision_cycle",
+        "scene_workflow"
+      ],
+      "extraction_targets": [
+        "premise_schema",
+        "outline_beats",
+        "character_profile",
+        "goal_to_decision_cycle",
+        "scene_patterns"
+      ],
+      "status": "VERIFIED",
+      "access": "PUBLIC_FREE_WORKSHEETS"
+    },
+    {
+      "source_id": "WR-SRC-004",
+      "name": "Save the Cat!",
+      "url": "https://savethecat.com/how-to-write-a-novel",
+      "priority": "A",
+      "content": [
+        "beat_sheet",
+        "story_types",
+        "character_transformation",
+        "pacing"
+      ],
+      "extraction_targets": [
+        "15_beat_structure",
+        "story_types",
+        "transformation_machine",
+        "board_structure"
+      ],
+      "status": "VERIFIED",
+      "access": "PUBLIC_GUIDE_PLUS_COMMERCIAL"
+    },
+    {
+      "source_id": "WR-SRC-005",
+      "name": "Reedsy",
+      "url": "https://reedsy.com/blog/guide/plot/structure/",
+      "priority": "B",
+      "content": [
+        "plot_structure",
+        "craft_guides",
+        "character",
+        "conflict",
+        "worldbuilding"
+      ],
+      "extraction_targets": [
+        "plot_frameworks",
+        "examples",
+        "guided_questions"
+      ],
+      "status": "VERIFIED",
+      "access": "PUBLIC"
+    },
+    {
+      "source_id": "WR-SRC-006",
+      "name": "Plottr",
+      "url": "https://plottr.com/",
+      "priority": "B",
+      "content": [
+        "plot_templates",
+        "genre_roadmaps",
+        "character_templates",
+        "worldbuilding"
+      ],
+      "extraction_targets": [
+        "template_catalog_metadata",
+        "genre_pattern_names",
+        "roadmap_components"
+      ],
+      "status": "VERIFIED",
+      "access": "COMMERCIAL_WITH_PUBLIC_DOCS"
+    },
+    {
+      "source_id": "WR-SRC-007",
+      "name": "The Write Practice",
+      "url": "https://thewritepractice.com/the-write-structure/",
+      "priority": "B",
+      "content": [
+        "story_structure",
+        "worksheets",
+        "inciting_incident",
+        "rising_action",
+        "dilemma",
+        "climax",
+        "denouement"
+      ],
+      "extraction_targets": [
+        "structure_model",
+        "worksheet_prompts"
+      ],
+      "status": "VERIFIED",
+      "access": "PUBLIC_PLUS_COMMERCIAL"
+    },
+    {
+      "source_id": "WR-SRC-008",
+      "name": "Now Novel",
+      "url": "https://www.nownovel.com/blog/",
+      "priority": "B",
+      "content": [
+        "plot",
+        "characters",
+        "scenes",
+        "worldbuilding",
+        "genre"
+      ],
+      "extraction_targets": [
+        "craft_articles",
+        "genre_guidance",
+        "scene_patterns"
+      ],
+      "status": "DISCOVERED_NEEDS_DEEP_AUDIT",
+      "access": "PUBLIC_PLUS_COMMERCIAL"
+    },
+    {
+      "source_id": "WR-SRC-009",
+      "name": "Jericho Writers",
+      "url": "https://jerichowriters.com/",
+      "priority": "B",
+      "content": [
+        "novel_writing",
+        "plot",
+        "character",
+        "editing"
+      ],
+      "extraction_targets": [
+        "craft_guides",
+        "plot_guidance",
+        "character_guidance"
+      ],
+      "status": "DISCOVERED_NEEDS_DEEP_AUDIT",
+      "access": "PUBLIC_PLUS_COMMERCIAL"
+    },
+    {
+      "source_id": "WR-SRC-010",
+      "name": "Writers Helping Writers",
+      "url": "https://writershelpingwriters.net/",
+      "priority": "B",
+      "content": [
+        "emotion",
+        "conflict",
+        "character",
+        "setting",
+        "thesauri"
+      ],
+      "extraction_targets": [
+        "emotion_reference_metadata",
+        "conflict_patterns",
+        "character_traits"
+      ],
+      "status": "DISCOVERED_NEEDS_DEEP_AUDIT",
+      "access": "PUBLIC_PLUS_COMMERCIAL",
+      "caution": "Behavioral content is writer-facing heuristic until scientifically verified."
+    },
+    {
+      "source_id": "WR-SRC-011",
+      "name": "Writer Unboxed",
+      "url": "https://writerunboxed.com/",
+      "priority": "B",
+      "content": [
+        "craft",
+        "character",
+        "plot",
+        "publishing"
+      ],
+      "extraction_targets": [
+        "craft_essays",
+        "case_examples"
+      ],
+      "status": "DISCOVERED_NEEDS_DEEP_AUDIT",
+      "access": "PUBLIC"
+    },
+    {
+      "source_id": "WR-SRC-012",
+      "name": "Story Embers",
+      "url": "https://storyembers.org/",
+      "priority": "B",
+      "content": [
+        "story_craft",
+        "character",
+        "theme",
+        "plot"
+      ],
+      "extraction_targets": [
+        "craft_guides",
+        "character_and_theme_patterns"
+      ],
+      "status": "DISCOVERED_NEEDS_DEEP_AUDIT",
+      "access": "PUBLIC"
+    }
+  ]
+}
