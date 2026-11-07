@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OpenThread",
+  "type": "object",
+  "required": ["thread_id","title","state","evidence"],
+  "properties": {
+    "thread_id": {"type":"string"},
+    "title": {"type":"string"},
+    "state": {"enum":["OPEN","DEVELOPING","DORMANT","RESOLVED","AMBIGUOUS"]},
+    "type": {"enum":["POLITICAL","MILITARY","ECONOMIC","TECHNOLOGY","RELATIONSHIP","PERSONAL","HISTORICAL","RESOURCE","OTHER"]},
+    "participants": {"type":"array","items":{"type":"string"}},
+    "dependencies": {"type":"array","items":{"type":"string"}},
+    "setup_strength": {"type":["number","null"],"minimum":0,"maximum":1},
+    "expected_horizon": {"type":["string","null"]},
+    "possible_consequences": {"type":"array","items":{"type":"string"}},
+    "evidence": {"type":"array","items":{"type":"object"}}
+  }
+}
