@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Writer Style Profile",
+  "type": "object",
+  "required": [
+    "style_id",
+    "name",
+    "traits"
+  ],
+  "properties": {
+    "style_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "author_status": {
+      "enum": [
+        "PUBLIC_DOMAIN",
+        "LIVING_OR_RECENT",
+        "CUSTOM",
+        "GENERIC"
+      ]
+    },
+    "direct_named_profile_allowed": {
+      "type": "boolean"
+    },
+    "traits": {
+      "type": "object"
+    },
+    "forbidden_changes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}
