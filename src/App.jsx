@@ -18,6 +18,7 @@ import BooksPage from "./pages/BooksPage.jsx";
 import ScriptsPage from "./pages/ScriptsPage.jsx";
 import LongreadPage from "./pages/LongreadPage.jsx";
 import DemoShowcasePage from "./pages/DemoShowcasePage.jsx";
+import WriterLibrarianPage from "./pages/WriterLibrarianPage.jsx";
 
 export default function App() {
   return (
@@ -30,6 +31,7 @@ export default function App() {
         <Route path="/video-avatar" element={<VideoAvatarPage />} />
         <Route path="/images" element={<ImagesPage />} />
         <Route path="/analytics" element={<AnalyticsPage />} />
+        <Route path="/librarian" element={<WriterLibrarianPage />} />
         <Route path="/books" element={<BooksPage />} />
         <Route path="/scripts" element={<ScriptsPage />} />
         <Route path="/longread" element={<LongreadPage />} />
