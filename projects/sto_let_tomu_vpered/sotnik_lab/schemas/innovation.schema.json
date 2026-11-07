@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "InnovationRecord",
+  "type": "object",
+  "required": ["innovation_id","name","status","evidence"],
+  "properties": {
+    "innovation_id": {"type":"string"},
+    "name": {"type":"string"},
+    "category": {"type":"string"},
+    "status": {"enum":["IDEA","PROTOTYPE","WORKING","FAILED","SCALED","ABANDONED","UNKNOWN"]},
+    "knowledge_required": {"type":"array","items":{"type":"string"}},
+    "people_required": {"type":"array","items":{"type":"string"}},
+    "materials_required": {"type":"array","items":{"type":"string"}},
+    "infrastructure_required": {"type":"array","items":{"type":"string"}},
+    "transferability": {"type":["number","null"],"minimum":0,"maximum":1},
+    "scalability": {"type":["number","null"],"minimum":0,"maximum":1},
+    "economic_effect": {"type":"array","items":{"type":"string"}},
+    "military_effect": {"type":"array","items":{"type":"string"}},
+    "political_effect": {"type":"array","items":{"type":"string"}},
+    "social_effect": {"type":"array","items":{"type":"string"}},
+    "failure_modes": {"type":"array","items":{"type":"string"}},
+    "diffusion_barriers": {"type":"array","items":{"type":"string"}},
+    "evidence": {"type":"array","items":{"type":"object"}}
+  }
+}
