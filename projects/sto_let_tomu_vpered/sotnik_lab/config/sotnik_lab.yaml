@@ -1,0 +1,31 @@
+project_id: SOTNIK_LAB
+mode: LEGACY_CONTINUATION_BENCHMARK
+chassis: C6_CREATIVE
+
+truth_classes:
+  - CANON_FACT
+  - HISTORICAL_FACT
+  - AUTHORIAL_ASSUMPTION
+  - GENERATED_HYPOTHESIS
+
+modules:
+  - corpus_ingest
+  - evidence_store
+  - canon_model
+  - historical_reality
+  - world_state
+  - character_cognition
+  - relationship_model
+  - faction_power
+  - innovation_diffusion
+  - open_thread_graph
+  - historical_pressure
+  - story_composition
+  - branch_simulator
+  - backtesting
+
+gates:
+  require_provenance: true
+  require_frozen_forecast: true
+  allow_future_leakage: false
+  generation_before_backtest: false
