@@ -1,0 +1,199 @@
+{
+  "schema_version": "1.0",
+  "work_id": "sto_let_tomu_vpered",
+  "benchmark": "MVP-15_ALINA_EVALUATION_AND_PREDICTION_BENCHMARK",
+  "mode": "RETROSPECTIVE_TRUSTED_CANON_CUTOFF_AUDIT",
+  "baseline_learning_disabled": true,
+  "windows": [
+    {
+      "cutoff_chunk": 10,
+      "future_horizon_chunk": 20,
+      "known_snapshot": {
+        "trusted_claims": 12,
+        "entities": 7,
+        "relations": 9,
+        "events": 2,
+        "states": 9
+      },
+      "hidden_future_truth": {
+        "trusted_claims": 16,
+        "events": 4
+      },
+      "forecasting": {
+        "analyst_hypotheses_available_from_current_engine": 0,
+        "frozen_predictions_at_exact_cutoff": 0,
+        "future_prediction_artifact_leakage": 0,
+        "status": "NO_REAL_FROZEN_PREDICTIONS_AT_CUTOFF"
+      },
+      "evaluation": {
+        "event_hit": null,
+        "character_hit": null,
+        "relationship_hit": null,
+        "state_hit": null,
+        "location_hit": null,
+        "motive_hit": null,
+        "causal_hit": null,
+        "plot_direction_hit": null,
+        "surprise_miss": null,
+        "false_positive": null,
+        "reason": "No real predictions were frozen at this historical cutoff."
+      },
+      "leakage_check": "PASS"
+    },
+    {
+      "cutoff_chunk": 20,
+      "future_horizon_chunk": 30,
+      "known_snapshot": {
+        "trusted_claims": 28,
+        "entities": 10,
+        "relations": 19,
+        "events": 6,
+        "states": 19
+      },
+      "hidden_future_truth": {
+        "trusted_claims": 15,
+        "events": 3
+      },
+      "forecasting": {
+        "analyst_hypotheses_available_from_current_engine": 0,
+        "frozen_predictions_at_exact_cutoff": 0,
+        "future_prediction_artifact_leakage": 0,
+        "status": "NO_REAL_FROZEN_PREDICTIONS_AT_CUTOFF"
+      },
+      "evaluation": {
+        "event_hit": null,
+        "character_hit": null,
+        "relationship_hit": null,
+        "state_hit": null,
+        "location_hit": null,
+        "motive_hit": null,
+        "causal_hit": null,
+        "plot_direction_hit": null,
+        "surprise_miss": null,
+        "false_positive": null,
+        "reason": "No real predictions were frozen at this historical cutoff."
+      },
+      "leakage_check": "PASS"
+    },
+    {
+      "cutoff_chunk": 30,
+      "future_horizon_chunk": 40,
+      "known_snapshot": {
+        "trusted_claims": 43,
+        "entities": 16,
+        "relations": 29,
+        "events": 9,
+        "states": 29
+      },
+      "hidden_future_truth": {
+        "trusted_claims": 17,
+        "events": 4
+      },
+      "forecasting": {
+        "analyst_hypotheses_available_from_current_engine": 0,
+        "frozen_predictions_at_exact_cutoff": 0,
+        "future_prediction_artifact_leakage": 0,
+        "status": "NO_REAL_FROZEN_PREDICTIONS_AT_CUTOFF"
+      },
+      "evaluation": {
+        "event_hit": null,
+        "character_hit": null,
+        "relationship_hit": null,
+        "state_hit": null,
+        "location_hit": null,
+        "motive_hit": null,
+        "causal_hit": null,
+        "plot_direction_hit": null,
+        "surprise_miss": null,
+        "false_positive": null,
+        "reason": "No real predictions were frozen at this historical cutoff."
+      },
+      "leakage_check": "PASS"
+    },
+    {
+      "cutoff_chunk": 40,
+      "future_horizon_chunk": 50,
+      "known_snapshot": {
+        "trusted_claims": 60,
+        "entities": 17,
+        "relations": 37,
+        "events": 13,
+        "states": 37
+      },
+      "hidden_future_truth": {
+        "trusted_claims": 15,
+        "events": 4
+      },
+      "forecasting": {
+        "analyst_hypotheses_available_from_current_engine": 0,
+        "frozen_predictions_at_exact_cutoff": 0,
+        "future_prediction_artifact_leakage": 0,
+        "status": "NO_REAL_FROZEN_PREDICTIONS_AT_CUTOFF"
+      },
+      "evaluation": {
+        "event_hit": null,
+        "character_hit": null,
+        "relationship_hit": null,
+        "state_hit": null,
+        "location_hit": null,
+        "motive_hit": null,
+        "causal_hit": null,
+        "plot_direction_hit": null,
+        "surprise_miss": null,
+        "false_positive": null,
+        "reason": "No real predictions were frozen at this historical cutoff."
+      },
+      "leakage_check": "PASS"
+    },
+    {
+      "cutoff_chunk": 50,
+      "future_horizon_chunk": 61,
+      "known_snapshot": {
+        "trusted_claims": 75,
+        "entities": 23,
+        "relations": 44,
+        "events": 17,
+        "states": 44
+      },
+      "hidden_future_truth": {
+        "trusted_claims": 20,
+        "events": 2
+      },
+      "forecasting": {
+        "analyst_hypotheses_available_from_current_engine": 0,
+        "frozen_predictions_at_exact_cutoff": 0,
+        "future_prediction_artifact_leakage": 0,
+        "status": "NO_REAL_FROZEN_PREDICTIONS_AT_CUTOFF"
+      },
+      "evaluation": {
+        "event_hit": null,
+        "character_hit": null,
+        "relationship_hit": null,
+        "state_hit": null,
+        "location_hit": null,
+        "motive_hit": null,
+        "causal_hit": null,
+        "plot_direction_hit": null,
+        "surprise_miss": null,
+        "false_positive": null,
+        "reason": "No real predictions were frozen at this historical cutoff."
+      },
+      "leakage_check": "PASS"
+    }
+  ],
+  "summary": {
+    "windows_total": 5,
+    "leakage_violations": 0,
+    "level_1_fact_extraction": "EVALUABLE",
+    "level_2_world_model": "EVALUABLE",
+    "level_3_reasoning": "NOT_YET_FORECAST_READY",
+    "level_4_forecasting": "NOT_SCORABLE_NO_HISTORICAL_FROZEN_PREDICTIONS",
+    "forecasting_score": null,
+    "critical_finding": "The production pipeline is integrated, but the current hypothesis engine promotes zero analyst hypotheses; therefore genuine forecasting quality has not yet been demonstrated."
+  },
+  "anti_leakage": {
+    "known_snapshot_uses_claims_at_or_before_cutoff_only": true,
+    "hidden_future_is_strictly_after_cutoff": true,
+    "no_future_claim_used_as_known_evidence": true
+  }
+}

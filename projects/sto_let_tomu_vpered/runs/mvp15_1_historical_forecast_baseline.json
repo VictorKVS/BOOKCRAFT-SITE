@@ -1,0 +1,18 @@
+{
+  "stage": "MVP-15_1_HISTORICAL_FORECAST_BASELINE",
+  "result": "PASS",
+  "windows_total": 5,
+  "leakage_violations": 0,
+  "event_recurrence_precision": 0.6667,
+  "event_predictions": 9,
+  "event_hits": 6,
+  "transition_recurrence_precision": 0.4286,
+  "transition_predictions": 7,
+  "transition_hits": 3,
+  "invariants": {
+    "future_not_used_at_prediction_time": true,
+    "minimum_two_historical_observations": true,
+    "predictions_frozen_by_cutoff": true,
+    "deterministic_baseline": true
+  }
+}

@@ -1,0 +1,446 @@
+{
+  "schema_version": "1.0",
+  "work_id": "sto_let_tomu_vpered",
+  "benchmark": "MVP-15.1_HISTORICAL_FORECAST_BASELINE",
+  "method": {
+    "event_prediction": "Predict recurrence only for actors with >=2 known trusted events; top 3 by history count.",
+    "transition_prediction": "Predict recurrence only for entities with >=2 known trusted transitions; top 3 by history count.",
+    "future_access_at_prediction_time": false,
+    "learning_disabled": true
+  },
+  "windows": [
+    {
+      "known_range": [
+        1,
+        10
+      ],
+      "hidden_future_range": [
+        11,
+        20
+      ],
+      "known_events": 2,
+      "future_events": 4,
+      "known_transitions": 0,
+      "future_transitions": 3,
+      "event_recurrence": {
+        "records": [
+          {
+            "prediction_type": "CHARACTER_EVENT_RECURRENCE",
+            "cutoff_chunk": 10,
+            "actor_entity_id": "ent-2dedc70082320885",
+            "actor_name": "Коля",
+            "statement": "Коля will participate in at least one trusted future event",
+            "support_count": 2,
+            "support_event_ids": [
+              "evt-100b1340b69d7b46",
+              "evt-984426a4f8320b8c"
+            ],
+            "status": "FROZEN_BASELINE_PREDICTION",
+            "result": "HIT"
+          }
+        ],
+        "predictions": 1,
+        "hits": 1,
+        "false_positives": 0,
+        "precision": 1.0,
+        "predictable_actual_recurring_actors": 1,
+        "recall": 1.0
+      },
+      "transition_recurrence": {
+        "records": [],
+        "predictions": 0,
+        "hits": 0,
+        "false_positives": 0,
+        "precision": null,
+        "predictable_actual_recurring_entities": 0,
+        "recall": null
+      },
+      "leakage_check": "PASS"
+    },
+    {
+      "known_range": [
+        1,
+        20
+      ],
+      "hidden_future_range": [
+        21,
+        30
+      ],
+      "known_events": 6,
+      "future_events": 3,
+      "known_transitions": 3,
+      "future_transitions": 2,
+      "event_recurrence": {
+        "records": [
+          {
+            "prediction_type": "CHARACTER_EVENT_RECURRENCE",
+            "cutoff_chunk": 20,
+            "actor_entity_id": "ent-2dedc70082320885",
+            "actor_name": "Коля",
+            "statement": "Коля will participate in at least one trusted future event",
+            "support_count": 3,
+            "support_event_ids": [
+              "evt-100b1340b69d7b46",
+              "evt-984426a4f8320b8c",
+              "evt-cc76738a787769b0"
+            ],
+            "status": "FROZEN_BASELINE_PREDICTION",
+            "result": "HIT"
+          },
+          {
+            "prediction_type": "CHARACTER_EVENT_RECURRENCE",
+            "cutoff_chunk": 20,
+            "actor_entity_id": "ent-2fd7b01dc0a9ec09",
+            "actor_name": "Алиса",
+            "statement": "Алиса will participate in at least one trusted future event",
+            "support_count": 2,
+            "support_event_ids": [
+              "evt-2a87bbf2c8570587",
+              "evt-9caeb32c24af6a9a"
+            ],
+            "status": "FROZEN_BASELINE_PREDICTION",
+            "result": "FALSE_POSITIVE"
+          }
+        ],
+        "predictions": 2,
+        "hits": 1,
+        "false_positives": 1,
+        "precision": 0.5,
+        "predictable_actual_recurring_actors": 1,
+        "recall": 1.0
+      },
+      "transition_recurrence": {
+        "records": [
+          {
+            "prediction_type": "STATE_TRANSITION_RECURRENCE",
+            "cutoff_chunk": 20,
+            "entity_id": "ent-2dedc70082320885",
+            "entity_name": "Коля",
+            "statement": "Коля will undergo at least one further trusted state transition",
+            "support_count": 2,
+            "support_transition_ids": [
+              "transition-03bb91009ce9a388",
+              "transition-eb4c3244b7a0f2e7"
+            ],
+            "status": "FROZEN_BASELINE_PREDICTION",
+            "result": "HIT"
+          }
+        ],
+        "predictions": 1,
+        "hits": 1,
+        "false_positives": 0,
+        "precision": 1.0,
+        "predictable_actual_recurring_entities": 2,
+        "recall": 0.5
+      },
+      "leakage_check": "PASS"
+    },
+    {
+      "known_range": [
+        1,
+        30
+      ],
+      "hidden_future_range": [
+        31,
+        40
+      ],
+      "known_events": 9,
+      "future_events": 4,
+      "known_transitions": 5,
+      "future_transitions": 1,
+      "event_recurrence": {
+        "records": [
+          {
+            "prediction_type": "CHARACTER_EVENT_RECURRENCE",
+            "cutoff_chunk": 30,
+            "actor_entity_id": "ent-2dedc70082320885",
+            "actor_name": "Коля",
+            "statement": "Коля will participate in at least one trusted future event",
+            "support_count": 4,
+            "support_event_ids": [
+              "evt-100b1340b69d7b46",
+              "evt-984426a4f8320b8c",
+              "evt-ab21fdcd35523370",
+              "evt-cc76738a787769b0"
+            ],
+            "status": "FROZEN_BASELINE_PREDICTION",
+            "result": "FALSE_POSITIVE"
+          },
+          {
+            "prediction_type": "CHARACTER_EVENT_RECURRENCE",
+            "cutoff_chunk": 30,
+            "actor_entity_id": "ent-2fd7b01dc0a9ec09",
+            "actor_name": "Алиса",
+            "statement": "Алиса will participate in at least one trusted future event",
+            "support_count": 2,
+            "support_event_ids": [
+              "evt-2a87bbf2c8570587",
+              "evt-9caeb32c24af6a9a"
+            ],
+            "status": "FROZEN_BASELINE_PREDICTION",
+            "result": "HIT"
+          }
+        ],
+        "predictions": 2,
+        "hits": 1,
+        "false_positives": 1,
+        "precision": 0.5,
+        "predictable_actual_recurring_actors": 1,
+        "recall": 1.0
+      },
+      "transition_recurrence": {
+        "records": [
+          {
+            "prediction_type": "STATE_TRANSITION_RECURRENCE",
+            "cutoff_chunk": 30,
+            "entity_id": "ent-2dedc70082320885",
+            "entity_name": "Коля",
+            "statement": "Коля will undergo at least one further trusted state transition",
+            "support_count": 3,
+            "support_transition_ids": [
+              "transition-03bb91009ce9a388",
+              "transition-06813b970f81518c",
+              "transition-eb4c3244b7a0f2e7"
+            ],
+            "status": "FROZEN_BASELINE_PREDICTION",
+            "result": "FALSE_POSITIVE"
+          },
+          {
+            "prediction_type": "STATE_TRANSITION_RECURRENCE",
+            "cutoff_chunk": 30,
+            "entity_id": "ent-2fd7b01dc0a9ec09",
+            "entity_name": "Алиса",
+            "statement": "Алиса will undergo at least one further trusted state transition",
+            "support_count": 2,
+            "support_transition_ids": [
+              "transition-007d3a4b43bc5e98",
+              "transition-2fb58dd9928618d1"
+            ],
+            "status": "FROZEN_BASELINE_PREDICTION",
+            "result": "HIT"
+          }
+        ],
+        "predictions": 2,
+        "hits": 1,
+        "false_positives": 1,
+        "precision": 0.5,
+        "predictable_actual_recurring_entities": 1,
+        "recall": 1.0
+      },
+      "leakage_check": "PASS"
+    },
+    {
+      "known_range": [
+        1,
+        40
+      ],
+      "hidden_future_range": [
+        41,
+        50
+      ],
+      "known_events": 13,
+      "future_events": 4,
+      "known_transitions": 6,
+      "future_transitions": 1,
+      "event_recurrence": {
+        "records": [
+          {
+            "prediction_type": "CHARACTER_EVENT_RECURRENCE",
+            "cutoff_chunk": 40,
+            "actor_entity_id": "ent-2fd7b01dc0a9ec09",
+            "actor_name": "Алиса",
+            "statement": "Алиса will participate in at least one trusted future event",
+            "support_count": 5,
+            "support_event_ids": [
+              "evt-0a57f60e75f0f645",
+              "evt-2a87bbf2c8570587",
+              "evt-63c937566193c318",
+              "evt-9caeb32c24af6a9a",
+              "evt-d50a895d176ff225"
+            ],
+            "status": "FROZEN_BASELINE_PREDICTION",
+            "result": "HIT"
+          },
+          {
+            "prediction_type": "CHARACTER_EVENT_RECURRENCE",
+            "cutoff_chunk": 40,
+            "actor_entity_id": "ent-2dedc70082320885",
+            "actor_name": "Коля",
+            "statement": "Коля will participate in at least one trusted future event",
+            "support_count": 4,
+            "support_event_ids": [
+              "evt-100b1340b69d7b46",
+              "evt-984426a4f8320b8c",
+              "evt-ab21fdcd35523370",
+              "evt-cc76738a787769b0"
+            ],
+            "status": "FROZEN_BASELINE_PREDICTION",
+            "result": "HIT"
+          }
+        ],
+        "predictions": 2,
+        "hits": 2,
+        "false_positives": 0,
+        "precision": 1.0,
+        "predictable_actual_recurring_actors": 2,
+        "recall": 1.0
+      },
+      "transition_recurrence": {
+        "records": [
+          {
+            "prediction_type": "STATE_TRANSITION_RECURRENCE",
+            "cutoff_chunk": 40,
+            "entity_id": "ent-2dedc70082320885",
+            "entity_name": "Коля",
+            "statement": "Коля will undergo at least one further trusted state transition",
+            "support_count": 3,
+            "support_transition_ids": [
+              "transition-03bb91009ce9a388",
+              "transition-06813b970f81518c",
+              "transition-eb4c3244b7a0f2e7"
+            ],
+            "status": "FROZEN_BASELINE_PREDICTION",
+            "result": "FALSE_POSITIVE"
+          },
+          {
+            "prediction_type": "STATE_TRANSITION_RECURRENCE",
+            "cutoff_chunk": 40,
+            "entity_id": "ent-2fd7b01dc0a9ec09",
+            "entity_name": "Алиса",
+            "statement": "Алиса will undergo at least one further trusted state transition",
+            "support_count": 3,
+            "support_transition_ids": [
+              "transition-007d3a4b43bc5e98",
+              "transition-2fb58dd9928618d1",
+              "transition-d8eb860d3bfe69dc"
+            ],
+            "status": "FROZEN_BASELINE_PREDICTION",
+            "result": "HIT"
+          }
+        ],
+        "predictions": 2,
+        "hits": 1,
+        "false_positives": 1,
+        "precision": 0.5,
+        "predictable_actual_recurring_entities": 1,
+        "recall": 1.0
+      },
+      "leakage_check": "PASS"
+    },
+    {
+      "known_range": [
+        1,
+        50
+      ],
+      "hidden_future_range": [
+        51,
+        61
+      ],
+      "known_events": 17,
+      "future_events": 2,
+      "known_transitions": 7,
+      "future_transitions": 1,
+      "event_recurrence": {
+        "records": [
+          {
+            "prediction_type": "CHARACTER_EVENT_RECURRENCE",
+            "cutoff_chunk": 50,
+            "actor_entity_id": "ent-2dedc70082320885",
+            "actor_name": "Коля",
+            "statement": "Коля will participate in at least one trusted future event",
+            "support_count": 6,
+            "support_event_ids": [
+              "evt-100b1340b69d7b46",
+              "evt-2cd6d381b0716af7",
+              "evt-9235e6f1885eeefd",
+              "evt-984426a4f8320b8c",
+              "evt-ab21fdcd35523370",
+              "evt-cc76738a787769b0"
+            ],
+            "status": "FROZEN_BASELINE_PREDICTION",
+            "result": "FALSE_POSITIVE"
+          },
+          {
+            "prediction_type": "CHARACTER_EVENT_RECURRENCE",
+            "cutoff_chunk": 50,
+            "actor_entity_id": "ent-2fd7b01dc0a9ec09",
+            "actor_name": "Алиса",
+            "statement": "Алиса will participate in at least one trusted future event",
+            "support_count": 6,
+            "support_event_ids": [
+              "evt-0a57f60e75f0f645",
+              "evt-2a87bbf2c8570587",
+              "evt-2aa652d48ea52bb2",
+              "evt-63c937566193c318",
+              "evt-9caeb32c24af6a9a",
+              "evt-d50a895d176ff225"
+            ],
+            "status": "FROZEN_BASELINE_PREDICTION",
+            "result": "HIT"
+          }
+        ],
+        "predictions": 2,
+        "hits": 1,
+        "false_positives": 1,
+        "precision": 0.5,
+        "predictable_actual_recurring_actors": 1,
+        "recall": 1.0
+      },
+      "transition_recurrence": {
+        "records": [
+          {
+            "prediction_type": "STATE_TRANSITION_RECURRENCE",
+            "cutoff_chunk": 50,
+            "entity_id": "ent-2fd7b01dc0a9ec09",
+            "entity_name": "Алиса",
+            "statement": "Алиса will undergo at least one further trusted state transition",
+            "support_count": 4,
+            "support_transition_ids": [
+              "transition-007d3a4b43bc5e98",
+              "transition-2fb58dd9928618d1",
+              "transition-d8eb860d3bfe69dc",
+              "transition-ee2326f22084c405"
+            ],
+            "status": "FROZEN_BASELINE_PREDICTION",
+            "result": "FALSE_POSITIVE"
+          },
+          {
+            "prediction_type": "STATE_TRANSITION_RECURRENCE",
+            "cutoff_chunk": 50,
+            "entity_id": "ent-2dedc70082320885",
+            "entity_name": "Коля",
+            "statement": "Коля will undergo at least one further trusted state transition",
+            "support_count": 3,
+            "support_transition_ids": [
+              "transition-03bb91009ce9a388",
+              "transition-06813b970f81518c",
+              "transition-eb4c3244b7a0f2e7"
+            ],
+            "status": "FROZEN_BASELINE_PREDICTION",
+            "result": "FALSE_POSITIVE"
+          }
+        ],
+        "predictions": 2,
+        "hits": 0,
+        "false_positives": 2,
+        "precision": 0.0,
+        "predictable_actual_recurring_entities": 0,
+        "recall": null
+      },
+      "leakage_check": "PASS"
+    }
+  ],
+  "overall": {
+    "event_recurrence_precision": 0.6667,
+    "event_predictions": 9,
+    "event_hits": 6,
+    "transition_recurrence_precision": 0.4286,
+    "transition_predictions": 7,
+    "transition_hits": 3
+  },
+  "limitations": [
+    "This is a deterministic recurrence baseline, not the final ALINA reasoning model.",
+    "It scores only event participation recurrence and state-transition recurrence.",
+    "Relationship, motive, location, causal and plot-direction forecasting remain unscored in MVP-15.1."
+  ]
+}
