@@ -4,6 +4,7 @@ import SpectralAction from "./SpectralAction.jsx";
 
 const nav = [
   ["/features", "Возможности"],
+  ["/librarian", "Библиотекарь"],
   ["/examples", "Примеры"],
   ["/pricing", "Тарифы"],
   ["/blog", "Блог"],
