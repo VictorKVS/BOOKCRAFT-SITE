@@ -331,7 +331,7 @@ export default function AlinaStudioPage() {
 
           <div className="asRunReport">
             <article><small>ИСТОЧНИКИ</small><b>{files.length}</b><span>локальных файлов</span></article>
-            <article><small>ПРОИЗВЕДЕНИЯ</small><b>{runState?.metrics?.works ?? "—"}{runState?.metrics?.works_expected ? ` / ${runState.metrics.works_expected}` : ""}</b><span>{runState?.metrics?.works_missing != null ? `не найдено: ${runState.metrics.works_missing}` : "по каталогу"}</span></article>
+            <article><small>ПРОИЗВЕДЕНИЯ</small><b>{runState?.metrics?.works ?? "—"}{runState?.metrics?.works_expected ? ` / ${runState.metrics.works_expected}` : ""}</b><span>{runState?.metrics?.works_review != null ? `review: ${runState.metrics.works_review} · missing: ${runState.metrics.works_missing ?? 0}` : "по каталогу"}</span></article>
             <article><small>СТРУКТУРНЫЕ ОБЪЕКТЫ</small><b>{runState?.metrics?.entities ?? "—"}</b><span>первичный реестр заголовков</span></article>
             <article><small>СОБЫТИЯ</small><b>{runState?.metrics?.events ?? "—"}</b><span>извлечено</span></article>
             <article><small>ПРОТИВОРЕЧИЯ</small><b>{runState?.metrics?.conflicts ?? "—"}</b><span>структурный cross-check</span></article>
@@ -384,14 +384,34 @@ export default function AlinaStudioPage() {
                         </aside>
             
                         <section className="asKbContent">
-                          {kbTab==="works" && kbData.works ? <div className="asWorksResult">
+                          {kbTab==="summary" && kbData.works ? <div className="asKbOverview">
+                            <div className="asOverviewHero">
+                              <div><small>ИТОГ РАЗБОРА</small><h3>{kbData.works.cycle || title}</h3><p>ALINA завершила первый слой ingest и сохранила структуру корпуса, evidence, первичный graph/world foundation и очередь проверки.</p></div>
+                              <strong>{runState?.status || "PASS"}</strong>
+                            </div>
+                            <div className="asOverviewGrid">
+                              <article><small>ИСТОЧНИКИ</small><b>{runState?.metrics?.sources ?? files.length}</b></article>
+                              <article><small>ПРОИЗВЕДЕНИЯ</small><b>{kbData.works.matched_count ?? 0}/{kbData.works.expected ?? "—"}</b></article>
+                              <article><small>REVIEW WORKS</small><b>{kbData.works.review_count ?? 0}</b></article>
+                              <article><small>MISSING</small><b>{kbData.works.missing_count ?? 0}</b></article>
+                              <article><small>CLAIMS</small><b>{runState?.metrics?.claims ?? 0}</b></article>
+                              <article><small>STRUCTURAL OBJECTS</small><b>{runState?.metrics?.entities ?? 0}</b></article>
+                            </div>
+                            <div className="asOverviewNext">
+                              <b>Следующий слой ALINA</b>
+                              <span>Персонажи → события → отношения → хронология → технологии → противоречия канона → прогноз.</span>
+                            </div>
+                          </div> : kbTab==="works" && kbData.works ? <div className="asWorksResult">
                             <div className="asWorksSummary">
                               <b>{kbData.works.cycle || "Каталог произведений"}</b>
-                              <span>Найдено {kbData.works.matched_count ?? 0} из {kbData.works.expected ?? "—"} · не найдено {kbData.works.missing_count ?? 0}</span>
+                              <span>Найдено {kbData.works.matched_count ?? 0} из {kbData.works.expected ?? "—"} · review {kbData.works.review_count ?? 0} · не найдено {kbData.works.missing_count ?? 0}</span>
                             </div>
                             <div className="asWorksList">
                               {(kbData.works.matched || []).map(w=><article key={w.work_id}>
                                 <span>{w.work_id}</span><b>{w.title}</b><small>{w.publication_year || "—"} · {w.form || "—"}</small><em>MATCHED</em>
+                              </article>)}
+                              {(kbData.works.review || []).map(w=><article key={w.work_id} className="review">
+                                <span>{w.work_id}</span><b>{w.title}</b><small>Похоже на: {w.candidate_heading} · {Math.round((w.confidence || 0)*100)}%</small><em>REVIEW</em>
                               </article>)}
                               {(kbData.works.missing || []).map(w=><article key={w.work_id} className="missing">
                                 <span>{w.work_id}</span><b>{w.title}</b><small>Источник не сопоставлен</small><em>REVIEW</em>
