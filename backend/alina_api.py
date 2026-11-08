@@ -20,7 +20,7 @@ from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from backend.deep_analysis import detect_local_model, extract_units, chunk_units, analyze_chunk, merge_extractions
+from backend.deep_analysis import detect_local_model, extract_units, chunk_units, analyze_chunk, merge_extractions, save_model_config, load_model_config
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_ROOT = ROOT / ".alina-private"
@@ -820,6 +820,38 @@ def run_deep_analysis(run_id: str, project_dir: Path) -> None:
 @app.get("/api/deep/model-status")
 def deep_model_status() -> JSONResponse:
     return JSONResponse(detect_local_model())
+
+
+@app.post("/api/deep/select-gguf")
+def select_gguf_model() -> JSONResponse:
+    if os.name != "nt":
+        raise HTTPException(400, "Автовыбор GGUF сейчас поддержан для Windows")
+    try:
+        import tkinter as tk
+        from tkinter import filedialog
+        root = tk.Tk()
+        root.withdraw()
+        root.attributes("-topmost", True)
+        path = filedialog.askopenfilename(
+            title="Выберите локальную GGUF-модель для ALINA",
+            filetypes=[("GGUF model", "*.gguf"), ("All files", "*.*")],
+        )
+        root.destroy()
+    except Exception as exc:
+        raise HTTPException(500, f"Не удалось открыть выбор модели: {exc}")
+    if not path:
+        return JSONResponse({"status":"CANCELLED", **detect_local_model()})
+    save_model_config({"gguf_path": path, "selected_at": now(), "provider": "LLAMA_CPP"})
+    return JSONResponse({"status":"SELECTED", **detect_local_model()})
+
+
+@app.post("/api/deep/clear-model")
+def clear_gguf_model() -> JSONResponse:
+    config = load_model_config()
+    config.pop("gguf_path", None)
+    config["cleared_at"] = now()
+    save_model_config(config)
+    return JSONResponse({"status":"CLEARED", **detect_local_model()})
 
 
 @app.post("/api/projects/{project_id}/deep-analysis")
