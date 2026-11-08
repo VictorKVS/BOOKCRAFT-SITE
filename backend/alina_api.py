@@ -1242,7 +1242,13 @@ def debug_github_status() -> JSONResponse:
 
 @app.get("/api/health")
 def health() -> dict[str, Any]:
-    return {"status": "ok", "mode": "PRIVATE_LOCAL", "data_root": str(DATA_ROOT)}
+    return {
+        "status": "ok",
+        "mode": "PRIVATE_LOCAL",
+        "api_version": "0.3.0-project-contract",
+        "project_create_route": "POST /api/projects",
+        "data_root": str(DATA_ROOT),
+    }
 
 
 @app.post("/api/projects")
