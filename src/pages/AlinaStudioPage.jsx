@@ -82,6 +82,8 @@ export default function AlinaStudioPage() {
   const [deepModel,setDeepModel] = useState(null);
   const [benchmarkSeed,setBenchmarkSeed] = useState(null);
   const [benchmarkBusy,setBenchmarkBusy] = useState(false);
+  const [referenceAnalysis,setReferenceAnalysis] = useState(null);
+  const [referenceBusy,setReferenceBusy] = useState(false);
   const [sourceCount,setSourceCount] = useState(0);
   const [sourceBusy,setSourceBusy] = useState(false);
   const [projectBusy,setProjectBusy] = useState(false);
@@ -223,6 +225,26 @@ export default function AlinaStudioPage() {
       .trim();
     if(list.length===1) return clean(list[0].name).slice(0,100);
     return `Цикл из ${list.length} книг`;
+  }
+
+  async function importAliceReferenceAnalysis(){
+    if(!projectId) return;
+    setReferenceBusy(true);
+    setApiError("");
+    try{
+      const r=await tracedFetch(`http://127.0.0.1:8191/api/projects/${projectId}/import-alice-reference-analysis`,{method:"POST"});
+      if(!r.ok) throw new Error(await r.text());
+      const data=await r.json();
+      setReferenceAnalysis(data);
+      setProjectMeta(prev=>prev ? {...prev,reference_analysis:{
+        id:data.reference_id,scope:data.scope,status:data.status,chunk_count:data.chunk_count,maturity:data.maturity
+      }} : prev);
+      traceEvent("SEQUENCE",{sequence:"ANALYSIS_FLOW",step:"REFERENCE_ANALYSIS_IMPORTED",status:"PASS",result:data.reference_id},true);
+    }catch(err){
+      setApiError("Не удалось подключить старый анализ Алисы: "+err.message);
+    }finally{
+      setReferenceBusy(false);
+    }
   }
 
   async function importAliceBenchmark(){
@@ -430,6 +452,7 @@ export default function AlinaStudioPage() {
   async function openLocalProject(project){
     setProjectId(project.project_id);
     setProjectMeta(project);
+    setReferenceAnalysis(project.reference_analysis || null);
     setSourceCount(project.source_count || 0);
     setTitle(project.title || "");
     setTitleTouched(true);
@@ -917,6 +940,19 @@ export default function AlinaStudioPage() {
                 {benchmarkBusy ? "Импорт…" : benchmarkSeed ? "Обновить эталон" : "Вставить эталон Алисы"}
               </button>
             </div>
+            <div className="asReferenceAnalysis">
+              <div>
+                <small>REFERENCE ANALYSIS · COMMIT 359c692</small>
+                <b>{referenceAnalysis ? "Сто лет тому вперёд · подключено" : "Готовый глубокий разбор «Сто лет тому вперёд»"}</b>
+                <span>{referenceAnalysis
+                  ? `${referenceAnalysis.chunk_count || 61} chunks · ${referenceAnalysis.maturity || "TRUSTED_ANALYTICAL_FOUNDATION_READY"}`
+                  : "Canon, entities, events, relations, temporal/state/causal stores, graph и evidence chunks."}</span>
+              </div>
+              <button disabled={!projectId || referenceBusy} onClick={importAliceReferenceAnalysis}>
+                {referenceBusy ? "Подключаю…" : referenceAnalysis ? "Обновить reference" : "Подключить готовый анализ"}
+              </button>
+            </div>
+
             <div className="asBenchmarkMetrics">
               <article><small>КАТАЛОГ</small><b>{benchmarkSeed?.cycle_expected ?? 52}</b><span>произведения</span></article>
               <article><small>БОЛЬШОЙ FB2</small><b>{benchmarkSeed?.source_audit?.matched_works ?? 51}/52</b><span>ручной аудит</span></article>
