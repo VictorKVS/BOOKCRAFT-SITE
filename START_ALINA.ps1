@@ -60,6 +60,24 @@ $pip = Join-Path $PSScriptRoot ".venv-alina\Scripts\pip.exe"
 Write-Host "Installing/checking backend dependencies..."
 & $pip install -r requirements-alina.txt
 
+# Reuse system llama-cpp-python when it already exists outside the ALINA venv.
+$venvLlama = & $python -c "import llama_cpp; print('OK')" 2>$null
+if (-not $venvLlama) {
+    $systemLlama = & python -c "import llama_cpp; print('OK')" 2>$null
+    if ($systemLlama) {
+        $cfg = Join-Path $PSScriptRoot ".venv-alina\pyvenv.cfg"
+        if (Test-Path $cfg) {
+            (Get-Content $cfg) -replace "include-system-site-packages = false","include-system-site-packages = true" | Set-Content $cfg -Encoding UTF8
+            Write-Host "Local LLM engine: linked system llama-cpp-python into .venv-alina." -ForegroundColor Green
+        }
+    } else {
+        Write-Host "Local LLM engine: llama-cpp-python not found in system Python or .venv-alina." -ForegroundColor Yellow
+        Write-Host "You can still use Ollama, or select a GGUF after installing llama-cpp-python." -ForegroundColor DarkYellow
+    }
+} else {
+    Write-Host "Local LLM engine: llama-cpp-python is available in .venv-alina." -ForegroundColor Green
+}
+
 Write-Host "Starting ALINA backend on http://127.0.0.1:$portBackend ..."
 $backend = Start-Process -FilePath $python -ArgumentList "-m","uvicorn","backend.alina_api:app","--host","127.0.0.1","--port","$portBackend","--reload" -WorkingDirectory $PSScriptRoot -PassThru
 
