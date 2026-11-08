@@ -39,6 +39,7 @@ app.add_middleware(
 RUNS: dict[str, dict[str, Any]] = {}
 LOCK = threading.Lock()
 DEBUG_TRACE_LOCK = threading.Lock()
+DEBUG_GIT_LOCK = threading.Lock()
 DEBUG_TRACE_FILE = ROOT / "projects" / "sto_let_tomu_vpered" / "debug" / "alina_ui_trace.jsonl"
 
 def sanitize_debug_value(value: Any) -> Any:
@@ -79,23 +80,24 @@ def append_debug_trace(event: dict[str, Any]) -> dict[str, Any]:
 
 
 def publish_debug_trace_to_git() -> dict[str, Any]:
-    try:
-        rel = str(DEBUG_TRACE_FILE.relative_to(ROOT)).replace("\\", "/")
-        subprocess.run(["git","add","--",rel], cwd=ROOT, check=True, capture_output=True, text=True)
-        diff = subprocess.run(["git","diff","--cached","--quiet"], cwd=ROOT)
-        if diff.returncode == 0:
-            return {"status":"NO_CHANGES"}
-        subprocess.run(
-            ["git","commit","-m","debug(alina): append UI/API trace"],
-            cwd=ROOT, check=True, capture_output=True, text=True,
-        )
-        push = subprocess.run(
-            ["git","push","origin","alina-book-2"],
-            cwd=ROOT, check=True, capture_output=True, text=True,
-        )
-        return {"status":"PUSHED","detail":(push.stderr.strip() or push.stdout.strip())[:500]}
-    except Exception as exc:
-        return {"status":"WARN","error":str(exc)[:500]}
+    with DEBUG_GIT_LOCK:
+        try:
+            rel = str(DEBUG_TRACE_FILE.relative_to(ROOT)).replace("\\", "/")
+            subprocess.run(["git","add","--",rel], cwd=ROOT, check=True, capture_output=True, text=True)
+            diff = subprocess.run(["git","diff","--cached","--quiet"], cwd=ROOT)
+            if diff.returncode == 0:
+                return {"status":"NO_CHANGES"}
+            subprocess.run(
+                ["git","commit","-m","debug(alina): append UI/API trace"],
+                cwd=ROOT, check=True, capture_output=True, text=True,
+            )
+            push = subprocess.run(
+                ["git","push","origin","alina-book-2"],
+                cwd=ROOT, check=True, capture_output=True, text=True,
+            )
+            return {"status":"PUSHED","detail":(push.stderr.strip() or push.stdout.strip())[:500]}
+        except Exception as exc:
+            return {"status":"WARN","error":str(exc)[:500]}
 
 
 STAGES = [
