@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+from difflib import SequenceMatcher
 import json
 import re
 import shutil
@@ -85,33 +86,79 @@ def load_known_catalog(title: str, parsed: list[dict[str, Any]]) -> dict[str, An
 
 
 def match_catalog(catalog: dict[str, Any], parsed: list[dict[str, Any]]) -> dict[str, Any]:
-    heading_index: dict[str, list[dict[str, str]]] = {}
+    source_titles: list[dict[str, str]] = []
     for item in parsed:
         for heading in item.get("headings", []):
             key = normalize_title(heading)
             if key:
-                heading_index.setdefault(key, []).append({"heading": heading, "source_id": item["source_id"]})
+                source_titles.append({"key": key, "heading": heading, "source_id": item["source_id"]})
+        for candidate in item.get("title_candidates", []):
+            key = normalize_title(candidate)
+            if key:
+                source_titles.append({"key": key, "heading": candidate, "source_id": item["source_id"]})
 
     matched = []
+    review = []
     missing = []
+    used_source_keys: set[tuple[str, str]] = set()
+
     for work in catalog.get("works", []):
         candidates = [work.get("title", ""), *work.get("aliases", [])]
-        hits = []
-        for candidate in candidates:
-            key = normalize_title(candidate)
-            if key in heading_index:
-                hits.extend(heading_index[key])
-        if hits:
+        normalized_candidates = [(c, normalize_title(c)) for c in candidates if normalize_title(c)]
+        best = None
+
+        for original, key in normalized_candidates:
+            for src in source_titles:
+                pair = (src["source_id"], src["key"])
+                if pair in used_source_keys:
+                    continue
+
+                if key == src["key"]:
+                    score = 1.0
+                    match_type = "TITLE_OR_ALIAS_EXACT"
+                elif len(key) >= 8 and (key in src["key"] or src["key"] in key):
+                    shorter = min(len(key), len(src["key"]))
+                    longer = max(len(key), len(src["key"]))
+                    score = 0.94 * (shorter / longer) + 0.05
+                    match_type = "TITLE_CONTAINMENT"
+                else:
+                    ratio = SequenceMatcher(None, key, src["key"]).ratio()
+                    tokens_a = set(key.split())
+                    tokens_b = set(src["key"].split())
+                    token_overlap = len(tokens_a & tokens_b) / max(1, len(tokens_a | tokens_b))
+                    score = 0.72 * ratio + 0.28 * token_overlap
+                    match_type = "TITLE_FUZZY"
+
+                if best is None or score > best["score"]:
+                    best = {
+                        "score": score,
+                        "match_type": match_type,
+                        "candidate": original,
+                        "source": src,
+                    }
+
+        if best and best["score"] >= 0.86:
+            src = best["source"]
+            used_source_keys.add((src["source_id"], src["key"]))
             matched.append({
                 "work_id": work["work_id"],
                 "title": work["title"],
                 "publication_year": work.get("publication_year"),
                 "form": work.get("form"),
-                "matched_heading": hits[0]["heading"],
-                "source_id": hits[0]["source_id"],
-                "match_type": "TITLE_OR_ALIAS_EXACT",
-                "confidence": 1.0,
-                "status": "MATCHED",
+                "matched_heading": src["heading"],
+                "source_id": src["source_id"],
+                "match_type": best["match_type"],
+                "confidence": round(best["score"], 4),
+                "status": "MATCHED" if best["score"] >= 0.92 else "MATCHED_WITH_VARIANT",
+            })
+        elif best and best["score"] >= 0.72:
+            review.append({
+                "work_id": work["work_id"],
+                "title": work["title"],
+                "candidate_heading": best["source"]["heading"],
+                "source_id": best["source"]["source_id"],
+                "confidence": round(best["score"], 4),
+                "status": "REVIEW_MATCH",
             })
         else:
             missing.append({
@@ -125,8 +172,10 @@ def match_catalog(catalog: dict[str, Any], parsed: list[dict[str, Any]]) -> dict
         "cycle": catalog.get("cycle"),
         "expected": catalog.get("catalog_count", len(catalog.get("works", []))),
         "matched_count": len(matched),
+        "review_count": len(review),
         "missing_count": len(missing),
         "matched": matched,
+        "review": review,
         "missing": missing,
     }
 
@@ -224,8 +273,10 @@ def parse_pdf(path: Path) -> dict[str, Any]:
     for page in reader.pages:
         texts.append(page.extract_text() or "")
     text = "\n".join(texts)
-    headings = [x.strip() for x in text.splitlines() if re.match(r"^(глава|часть|книга)\b", x.strip(), re.I)]
-    return {"format": "pdf", "page_count": len(reader.pages), "char_count": len(text), "section_count": len(headings), "headings": headings[:2000], "text_preview": text[:3000]}
+    lines = [re.sub(r"\s+", " ", x).strip() for x in text.splitlines() if x.strip()]
+    headings = [x for x in lines if re.match(r"^(глава|часть|книга)\b", x, re.I)]
+    title_candidates = [x for x in lines[:160] if 3 <= len(x) <= 100]
+    return {"format": "pdf", "page_count": len(reader.pages), "char_count": len(text), "section_count": len(headings), "headings": headings[:2000], "title_candidates": title_candidates[:160], "text_preview": text[:3000]}
 
 
 def parse_docx(path: Path) -> dict[str, Any]:
@@ -388,6 +439,7 @@ def run_ingest(run_id: str, project_dir: Path, source_files: list[Path], project
                 "sections": sum(p.get("section_count", 0) for p in parsed),
                 "works": work_match["matched_count"] if work_match else 0,
                 "works_expected": work_match["expected"] if work_match else None,
+                "works_review": work_match["review_count"] if work_match else None,
                 "works_missing": work_match["missing_count"] if work_match else None,
                 "claims": len(claims),
                 "entities": len(entities),
