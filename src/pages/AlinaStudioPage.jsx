@@ -66,11 +66,23 @@ export default function AlinaStudioPage() {
   const [workspaceView,setWorkspaceView] = useState("knowledge");
   const [traceLevel,setTraceLevel] = useState("INFO");
   const [sourceQuery,setSourceQuery] = useState("");
+  const [runDemo,setRunDemo] = useState(false);
+  const [runStage,setRunStage] = useState(0);
 
   const activeMode = projectModes.find(x=>x[0]===mode);
   const isStudy = activeMode?.[3] === "STUDY";
   const pipeline = isStudy ? studyPipeline : authorPipeline;
   const size = useMemo(() => files.reduce((s,f)=>s+f.size,0),[files]);
+  const liveStages = [
+    ["Подготовка источников","Проверяю файлы, форматы и контрольные суммы",8],
+    ["Разделение корпуса","Ищу произведения, сборники, главы и секции",23],
+    ["Извлечение evidence","Читаю фрагменты и создаю доказуемые утверждения",47],
+    ["Сущности и события","Собираю персонажей, места, события и отношения",66],
+    ["Хронология и мир","Строю временные якоря, технологии и состояние мира",82],
+    ["Поиск противоречий","Сверяю книги между собой и формирую review queue",94],
+    ["Финализация БЗ","Сохраняю граф, индексы и отчёт анализа",100]
+  ];
+  const currentLive = liveStages[Math.min(runStage, liveStages.length-1)];
 
   function chooseMode(id){
     setMode(id);
@@ -241,12 +253,42 @@ export default function AlinaStudioPage() {
           <h2>{title || "Новый проект"}</h2>
           <p>{files.length ? `Локальных файлов: ${files.length}. Выбрано слоёв БЗ: ${areas.size}. Внешний поиск: ${externalResearch ? "разрешён" : "выключен"}.` : "Добавьте книгу или цикл для запуска локального разбора."}</p>
         </div>
-        <button disabled={!files.length} onClick={()=>setPhase("ready")}>
+        <button disabled={!files.length} onClick={()=>{
+          setPhase("ready");
+          setRunDemo(true);
+          setRunStage(0);
+        }}>
           {files.length ? (isStudy ? "Разобрать и построить базу знаний →" : "Подготовить мир проекта →") : "Сначала загрузите корпус"}
         </button>
       </section>
 
       {phase==="ready" && <>
+        {runDemo && <section className="asLiveRun">
+          <div className="asLiveRunHead">
+            <div>
+              <small>ALINA LIVE RUN</small>
+              <h3>{currentLive[0]}</h3>
+              <p>{currentLive[1]}</p>
+            </div>
+            <strong>{currentLive[2]}%</strong>
+          </div>
+          <div className="asLiveProgress"><i style={{width:`${currentLive[2]}%`}}/></div>
+          <div className="asLiveMeta">
+            <span>STAGE {runStage+1}/{liveStages.length}</span>
+            <span>ACTIVE: {["SOURCE","SPLIT","EVIDENCE","ENTITIES","WORLD","CONFLICTS","FINALIZE"][runStage]}</span>
+            <span>PRIVATE LOCAL</span>
+          </div>
+          <div className="asLiveSteps">
+            {liveStages.map((x,i)=><button key={x[0]} className={i<runStage?"done":i===runStage?"active":""} onClick={()=>setRunStage(i)}>
+              <b>{i<runStage?"✓":String(i+1).padStart(2,"0")}</b><span>{x[0]}</span>
+            </button>)}
+          </div>
+          <div className="asLiveControls">
+            <button disabled={runStage===0} onClick={()=>setRunStage(v=>Math.max(0,v-1))}>← Предыдущий этап</button>
+            <button disabled={runStage===liveStages.length-1} onClick={()=>setRunStage(v=>Math.min(liveStages.length-1,v+1))}>Следующий этап →</button>
+          </div>
+        </section>}
+
         <section className="asReady">
           <span>✓</span>
           <div>
