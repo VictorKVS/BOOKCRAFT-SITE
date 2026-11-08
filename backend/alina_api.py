@@ -112,10 +112,11 @@ def normalize_title(value: str) -> str:
 
 
 def load_known_catalog(title: str, parsed: list[dict[str, Any]]) -> dict[str, Any] | None:
-    headings = " ".join(h for item in parsed for h in item.get("headings", [])[:200])
-    probe = normalize_title(title + " " + headings)
+    headings = " ".join(h for item in parsed for h in item.get("headings", [])[:400])
+    filenames = " ".join(str(item.get("filename") or "") for item in parsed)
+    probe = normalize_title(title + " " + filenames + " " + headings)
     alice_path = ROOT / "projects" / "sto_let_tomu_vpered" / "alice_cycle" / "alice_works_manifest.json"
-    if "алиса" in probe and alice_path.exists():
+    if ("алиса" in probe or "bulychev" in probe or "булычев" in probe) and alice_path.exists():
         return json.loads(alice_path.read_text(encoding="utf-8"))
     return None
 
