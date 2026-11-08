@@ -63,6 +63,9 @@ export default function AlinaStudioPage() {
   const [externalResearch,setExternalResearch] = useState(false);
   const [kbTab,setKbTab] = useState("summary");
   const [kbQuery,setKbQuery] = useState("");
+  const [workspaceView,setWorkspaceView] = useState("knowledge");
+  const [traceLevel,setTraceLevel] = useState("INFO");
+  const [sourceQuery,setSourceQuery] = useState("");
 
   const activeMode = projectModes.find(x=>x[0]===mode);
   const isStudy = activeMode?.[3] === "STUDY";
@@ -265,6 +268,13 @@ export default function AlinaStudioPage() {
             </div>
           </div>
 
+          <div className="asWorkspaceNav">
+            <button className={workspaceView==="knowledge"?"active":""} onClick={()=>setWorkspaceView("knowledge")}>База знаний</button>
+            <button className={workspaceView==="process"?"active":""} onClick={()=>setWorkspaceView("process")}>Процесс / Trace</button>
+            <button className={workspaceView==="graph"?"active":""} onClick={()=>setWorkspaceView("graph")}>Graph Lab</button>
+            <button className={workspaceView==="sources"?"active":""} onClick={()=>setWorkspaceView("sources")}>Source Center</button>
+          </div>
+
           <div className="asRunReport">
             <article><small>ИСТОЧНИКИ</small><b>{files.length}</b><span>локальных файлов</span></article>
             <article><small>ПРОИЗВЕДЕНИЯ</small><b>—</b><span>после ingest</span></article>
@@ -274,71 +284,162 @@ export default function AlinaStudioPage() {
             <article><small>REVIEW</small><b>—</b><span>неуверенные выводы</span></article>
           </div>
 
-          <div className="asDonePanel">
-            <div>
-              <small>ЧТО СДЕЛАЛА ALINA</small>
-              <h3>Отчёт выполнения</h3>
-            </div>
-            <div className="asDoneGrid">
-              <span className="done">✓ Источники приняты</span>
-              <span>○ Определить произведения</span>
-              <span>○ Разделить на главы</span>
-              <span>○ Извлечь evidence</span>
-              <span>○ Построить сущности и связи</span>
-              <span>○ Собрать хронологию</span>
-              <span>○ Найти противоречия</span>
-              <span>○ Сформировать review queue</span>
-            </div>
-          </div>
 
-          <div className="asKbToolbar">
-            <div className="asKbTabs">
-              {kbTabs.map(([id,label])=><button key={id} className={kbTab===id?"active":""} onClick={()=>setKbTab(id)}>{label}</button>)}
-            </div>
-            <div className="asKbSearch"><span>⌕</span><input value={kbQuery} onChange={e=>setKbQuery(e.target.value)} placeholder="Поиск по базе знаний..."/></div>
-          </div>
+          {workspaceView==="knowledge" && <>
+                      <div className="asDonePanel">
+                        <div>
+                          <small>ЧТО СДЕЛАЛА ALINA</small>
+                          <h3>Отчёт выполнения</h3>
+                        </div>
+                        <div className="asDoneGrid">
+                          <span className="done">✓ Источники приняты</span>
+                          <span>○ Определить произведения</span>
+                          <span>○ Разделить на главы</span>
+                          <span>○ Извлечь evidence</span>
+                          <span>○ Построить сущности и связи</span>
+                          <span>○ Собрать хронологию</span>
+                          <span>○ Найти противоречия</span>
+                          <span>○ Сформировать review queue</span>
+                        </div>
+                      </div>
+            
+                      <div className="asKbToolbar">
+                        <div className="asKbTabs">
+                          {kbTabs.map(([id,label])=><button key={id} className={kbTab===id?"active":""} onClick={()=>setKbTab(id)}>{label}</button>)}
+                        </div>
+                        <div className="asKbSearch"><span>⌕</span><input value={kbQuery} onChange={e=>setKbQuery(e.target.value)} placeholder="Поиск по базе знаний..."/></div>
+                      </div>
+            
+                      <div className="asKbBody">
+                        <aside className="asKbSide">
+                          <b>Фильтры</b>
+                          <label><input type="checkbox" defaultChecked/> Только подтверждённые</label>
+                          <label><input type="checkbox"/> Только с конфликтами</label>
+                          <label><input type="checkbox"/> Требует проверки</label>
+                          <hr/>
+                          <small>УВЕРЕННОСТЬ</small>
+                          <button>Высокая</button>
+                          <button>Средняя</button>
+                          <button>Низкая</button>
+                        </aside>
+            
+                        <section className="asKbContent">
+                          <div className="asEmptyState">
+                            <span>◇</span>
+                            <h3>{kbTabs.find(x=>x[0]===kbTab)?.[1]}</h3>
+                            <p>Здесь появятся реальные записи после локального анализа. Любую запись можно будет открыть, увидеть источник, связи, уровень уверенности и историю изменений.</p>
+                            <div className="asObjectExample">
+                              <div><small>OBJECT</small><b>Персонаж / событие / технология</b></div>
+                              <div><small>CONFIDENCE</small><b>0.00–1.00</b></div>
+                              <div><small>PROVENANCE</small><b>Книга → глава → фрагмент</b></div>
+                              <div><small>STATUS</small><b>CANON / REVIEW / CONFLICT</b></div>
+                            </div>
+                          </div>
+                        </section>
+            
+                        <aside className="asInspector">
+                          <small>INSPECTOR</small>
+                          <h3>Карточка объекта</h3>
+                          <p>Выберите запись в БЗ.</p>
+                          <div><span>Источник</span><b>—</b></div>
+                          <div><span>Уверенность</span><b>—</b></div>
+                          <div><span>Связей</span><b>—</b></div>
+                          <div><span>Конфликтов</span><b>—</b></div>
+                          <hr/>
+                          <button>Подтвердить</button>
+                          <button>Исправить</button>
+                          <button>Пометить спорным</button>
+                        </aside>
+                      
+          </>}
 
-          <div className="asKbBody">
-            <aside className="asKbSide">
-              <b>Фильтры</b>
-              <label><input type="checkbox" defaultChecked/> Только подтверждённые</label>
-              <label><input type="checkbox"/> Только с конфликтами</label>
-              <label><input type="checkbox"/> Требует проверки</label>
-              <hr/>
-              <small>УВЕРЕННОСТЬ</small>
-              <button>Высокая</button>
-              <button>Средняя</button>
-              <button>Низкая</button>
-            </aside>
-
-            <section className="asKbContent">
-              <div className="asEmptyState">
-                <span>◇</span>
-                <h3>{kbTabs.find(x=>x[0]===kbTab)?.[1]}</h3>
-                <p>Здесь появятся реальные записи после локального анализа. Любую запись можно будет открыть, увидеть источник, связи, уровень уверенности и историю изменений.</p>
-                <div className="asObjectExample">
-                  <div><small>OBJECT</small><b>Персонаж / событие / технология</b></div>
-                  <div><small>CONFIDENCE</small><b>0.00–1.00</b></div>
-                  <div><small>PROVENANCE</small><b>Книга → глава → фрагмент</b></div>
-                  <div><small>STATUS</small><b>CANON / REVIEW / CONFLICT</b></div>
-                </div>
+          {workspaceView==="process" && <section className="asProcessBoard">
+            <div className="asProcessTop">
+              <div><small>LIVE PROCESS TRACE</small><h3>Состояние анализа</h3><p>Каждый шаг ALINA должен оставлять трассу: вход, модуль, действие, результат, длительность и ошибку.</p></div>
+              <div className="asTraceControls">
+                <button className="active">LIVE</button>
+                {["INFO","DEBUG","WARN","ERROR"].map(x=><button key={x} className={traceLevel===x?"active":""} onClick={()=>setTraceLevel(x)}>{x}</button>)}
               </div>
-            </section>
+            </div>
+            <div className="asProcessKpis">
+              <article><small>RUN</small><b>WAITING_BACKEND</b></article>
+              <article><small>ACTIVE MODULE</small><b>—</b></article>
+              <article><small>QUEUE</small><b>0</b></article>
+              <article><small>ERRORS</small><b>0</b></article>
+              <article><small>ELAPSED</small><b>00:00:00</b></article>
+            </div>
+            <div className="asProcessLayout">
+              <div className="asStageBoard">
+                {studyPipeline.map(([n,name,desc],i)=><article key={name} className={i===0?"ready":""}>
+                  <i>{i===0?"●":"○"}</i><div><small>{n}</small><b>{name}</b><span>{desc}</span></div><em>{i===0?"READY":"WAIT"}</em>
+                </article>)}
+              </div>
+              <div className="asTraceLog">
+                <div className="asTraceHead"><b>TRACE LOG</b><span>{traceLevel}</span></div>
+                <pre>{`[SYSTEM] Project opened in PRIVATE LOCAL MODE
+[INGEST] Waiting for local backend
+[POLICY] External research: ${externalResearch ? "ENABLED" : "DISABLED"}
+[POLICY] Git/public export: DISABLED
+[TRACE] Detailed events will appear here in real time`}</pre>
+              </div>
+            </div>
+            <div className="asTraceSchema">
+              <b>Каждая запись трассы:</b>
+              <code>timestamp · run_id · stage · agent · action · input_ref · output_ref · status · duration_ms · error</code>
+            </div>
+          </section>}
 
-            <aside className="asInspector">
-              <small>INSPECTOR</small>
-              <h3>Карточка объекта</h3>
-              <p>Выберите запись в БЗ.</p>
-              <div><span>Источник</span><b>—</b></div>
-              <div><span>Уверенность</span><b>—</b></div>
-              <div><span>Связей</span><b>—</b></div>
-              <div><span>Конфликтов</span><b>—</b></div>
-              <hr/>
-              <button>Подтвердить</button>
-              <button>Исправить</button>
-              <button>Пометить спорным</button>
-            </aside>
-          </div>
+          {workspaceView==="graph" && <section className="asGraphLab">
+            <div className="asProcessTop">
+              <div><small>GRAPH LAB</small><h3>Исследование графа знаний</h3><p>Переход от книги к персонажу, событию, технологии, месту и доказательству без потери происхождения факта.</p></div>
+              <div className="asGraphActions"><button>Найти путь</button><button>Показать конфликты</button><button>Сбросить вид</button></div>
+            </div>
+            <div className="asGraphFilters">
+              {["WORK","CHARACTER","EVENT","LOCATION","TECHNOLOGY","RELATION","CLAIM","SOURCE"].map(x=><button key={x}>{x}</button>)}
+            </div>
+            <div className="asGraphCanvas">
+              <svg viewBox="0 0 900 430" role="img" aria-label="Макет графа знаний">
+                <line x1="450" y1="210" x2="180" y2="100"/><line x1="450" y1="210" x2="720" y2="100"/>
+                <line x1="450" y1="210" x2="210" y2="330"/><line x1="450" y1="210" x2="690" y2="330"/>
+                <line x1="180" y1="100" x2="720" y2="100"/><line x1="210" y1="330" x2="690" y2="330"/>
+                <g className="center"><circle cx="450" cy="210" r="58"/><text x="450" y="205">WORLD</text><text x="450" y="225">GRAPH</text></g>
+                <g><circle cx="180" cy="100" r="42"/><text x="180" y="104">WORK</text></g>
+                <g><circle cx="720" cy="100" r="42"/><text x="720" y="104">CHARACTER</text></g>
+                <g><circle cx="210" cy="330" r="42"/><text x="210" y="334">EVENT</text></g>
+                <g><circle cx="690" cy="330" r="42"/><text x="690" y="334">SOURCE</text></g>
+              </svg>
+              <div className="asGraphEmpty">Реальные узлы появятся после ingest. Клик по узлу → карточка → связи → evidence → исходный фрагмент.</div>
+            </div>
+            <div className="asGraphBottom">
+              <article><small>SELECTED NODE</small><b>—</b><span>Выберите узел</span></article>
+              <article><small>NEIGHBORS</small><b>—</b><span>Связанные объекты</span></article>
+              <article><small>CONFLICTS</small><b>—</b><span>Противоречивые рёбра</span></article>
+              <article><small>PROVENANCE</small><b>—</b><span>Источник доказательства</span></article>
+            </div>
+          </section>}
+
+          {workspaceView==="sources" && <section className="asSourceCenter">
+            <div className="asProcessTop">
+              <div><small>SOURCE CENTER</small><h3>Источники и автоматическое исследование</h3><p>Канон, библиография и внешнее исследование хранятся раздельно. Внешний сайт никогда сам не становится каноном.</p></div>
+              <div className="asSourceMode"><span>EXTERNAL RESEARCH</span><b className={externalResearch?"on":""}>{externalResearch?"ON":"OFF"}</b></div>
+            </div>
+            <div className="asSourceSearch"><span>⌕</span><input value={sourceQuery} onChange={e=>setSourceQuery(e.target.value)} placeholder="Название книги, автор, тема, URL или вопрос для исследования..."/><button disabled={!externalResearch}>Искать автоматически</button></div>
+            <div className="asSourcePolicy">
+              <article><b>CANON SOURCE</b><span>Загруженная книга / подтверждённое издание. Может давать канонические факты.</span></article>
+              <article><b>REFERENCE</b><span>Энциклопедия, каталог, интервью, научная публикация. Используется для проверки и контекста.</span></article>
+              <article><b>WEB RESEARCH</b><span>Сайт/страница, найденные автоматически. Всегда отделены от канона до проверки.</span></article>
+              <article><b>DOWNLOAD POLICY</b><span>Скачиваем полный файл только если он пользовательский, public domain или источник явно разрешает загрузку.</span></article>
+            </div>
+            <div className="asSourceTable">
+              <div className="head"><span>Источник</span><span>Класс</span><span>Доверие</span><span>Статус</span><span>Действия</span></div>
+              <div><span>Локальные файлы проекта ({files.length})</span><span>CANON SOURCE</span><span>A</span><span>AVAILABLE</span><span><button>Просмотреть</button><button>Читать</button></span></div>
+              <div><span>Внешние источники</span><span>WEB RESEARCH</span><span>—</span><span>{externalResearch?"READY":"DISABLED"}</span><span><button disabled={!externalResearch}>Исследовать</button></span></div>
+            </div>
+            <div className="asSourceFlow">
+              <span>SEARCH</span><i>→</i><span>READ</span><i>→</i><span>EXTRACT</span><i>→</i><span>VERIFY</span><i>→</i><span>CLASSIFY</span><i>→</i><span>ADD TO KB</span>
+            </div>
+          </section>}
+</div>
         </section>
       </>}
     </div>
