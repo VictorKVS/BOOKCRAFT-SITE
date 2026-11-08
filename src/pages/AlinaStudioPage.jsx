@@ -156,16 +156,6 @@ export default function AlinaStudioPage() {
         const data=await r.json();
         if(publish && data.github?.status){
           setGithubDebugStatus(data.github.status);
-          setUiTrace(prev=>[...prev.slice(-299),{
-            timestamp:new Date().toISOString(),
-            event_type:"SEQUENCE",
-            sequence:"GITHUB_FLOW",
-            step:data.github.status==="PUSHED"?"SAFE_TRACE_PUSHED":data.github.status,
-            status:data.github.status,
-            project_id:projectId,
-            project_code:projectMeta?.short_code || null,
-            run_id:runId
-          }]);
         }
       }else if(publish){
         setGithubDebugStatus("WARN");
@@ -465,6 +455,24 @@ export default function AlinaStudioPage() {
   }
 
   useEffect(()=>{ loadProjects(); checkDeepModel(); },[]);
+
+  useEffect(()=>{
+    let cancelled=false;
+    const pollGit=async()=>{
+      try{
+        const r=await window.fetch("http://127.0.0.1:8191/api/debug/github-status");
+        if(r.ok){
+          const data=await r.json();
+          if(!cancelled && data.status){
+            setGithubDebugStatus(data.status);
+          }
+        }
+      }catch{}
+      if(!cancelled) setTimeout(pollGit,1500);
+    };
+    pollGit();
+    return()=>{cancelled=true};
+  },[]);
 
   useEffect(()=>{
     if(!runId) return;
@@ -1101,7 +1109,7 @@ export default function AlinaStudioPage() {
               ].map(([id,label])=>{
                 const e=sequenceState[id];
                 const status=id==="GITHUB_FLOW" ? githubDebugStatus : (e?.status || "WAITING");
-                const step=id==="GITHUB_FLOW" ? (githubDebugStatus==="PUSHED"?"SAFE TRACE PUSHED":"WAITING FOR TRACE") : (e?.step || "WAITING");
+                const step=id==="GITHUB_FLOW" ? (githubDebugStatus==="PUSHED"?"SAFE TRACE PUSHED":githubDebugStatus==="PUBLISHING"?"PUBLISHING IN BACKGROUND":githubDebugStatus==="WARN"?"GITHUB WARNING":"WAITING FOR TRACE") : (e?.step || "WAITING");
                 return <article key={id} className={String(status).toLowerCase()}>
                   <small>{id}</small>
                   <b>{label}</b>
