@@ -597,10 +597,12 @@ export default function AlinaStudioPage() {
               <small>DEEP ANALYSIS ENGINE</small>
               <b>{deepModel?.available ? `LOCAL MODEL READY · ${deepModel.model}` : deepModel?.configured ? `GGUF CONFIGURED · ${deepModel.model}` : "LOCAL MODEL NOT FOUND"}</b>
               <span>{deepModel?.available
-                ? `${deepModel.provider} · полный текст будет анализироваться локально chunk за chunk.`
+                ? `${deepModel.provider} · ${deepModel.detection || "AUTO"} · полный текст будет анализироваться локально chunk за chunk.`
                 : deepModel?.needs_package
                   ? "GGUF выбран, но в .venv-alina не найден llama-cpp-python."
-                  : "Выберите локальную GGUF-модель или запустите Ollama."}</span>
+                  : "Ollama/GGUF пока не определены backend-ом."}</span>
+              {!deepModel?.available && deepModel?.error && <em>DIAGNOSTIC: {deepModel.error}</em>}
+              {deepModel?.available && deepModel?.models?.length > 0 && <em>MODELS: {deepModel.models.join(" · ")}</em>}
               {deepModel?.model_path && <em>{deepModel.model_path}</em>}
             </div>
             <div className="asDeepActions">
