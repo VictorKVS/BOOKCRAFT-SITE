@@ -315,6 +315,7 @@ export default function AlinaStudioPage() {
             <button className={workspaceView==="process"?"active":""} onClick={()=>setWorkspaceView("process")}>Процесс / Trace</button>
             <button className={workspaceView==="graph"?"active":""} onClick={()=>setWorkspaceView("graph")}>Graph Lab</button>
             <button className={workspaceView==="sources"?"active":""} onClick={()=>setWorkspaceView("sources")}>Source Center</button>
+            <button className={workspaceView==="forecast"?"active":""} onClick={()=>setWorkspaceView("forecast")}>Прогноз</button>
           </div>
 
           <div className="asRunReport">
@@ -457,6 +458,75 @@ export default function AlinaStudioPage() {
               <article><small>NEIGHBORS</small><b>—</b><span>Связанные объекты</span></article>
               <article><small>CONFLICTS</small><b>—</b><span>Противоречивые рёбра</span></article>
               <article><small>PROVENANCE</small><b>—</b><span>Источник доказательства</span></article>
+            </div>
+          </section>}
+
+          {workspaceView==="forecast" && <section className="asForecastLab">
+            <div className="asProcessTop">
+              <div>
+                <small>FORECAST LAB</small>
+                <h3>Прогноз развития мира и сюжета</h3>
+                <p>ALINA строит прогноз только из текущего состояния мира, открытых линий, поведения персонажей и причинных связей. Будущий текст не используется до backtest.</p>
+              </div>
+              <div className="asForecastBadge">FROZEN FORECAST</div>
+            </div>
+
+            <div className="asForecastKpis">
+              <article><small>КАНДИДАТОВ</small><b>—</b><span>после Prediction Engine</span></article>
+              <article><small>ВЫСОКАЯ ВЕРОЯТНОСТЬ</small><b>—</b><span>confidence ≥ 0.75</span></article>
+              <article><small>ОТКРЫТЫЕ ЛИНИИ</small><b>—</b><span>поддерживают прогноз</span></article>
+              <article><small>РИСК ПРОТИВОРЕЧИЯ</small><b>—</b><span>с каноном / миром</span></article>
+            </div>
+
+            <div className="asForecastControls">
+              <button>Следующая сцена</button>
+              <button>Следующая глава</button>
+              <button>Следующая книга</button>
+              <button>1 / 5 / 10 сцен</button>
+              <button>Только высокая уверенность</button>
+            </div>
+
+            <div className="asForecastList">
+              {[1,2,3].map((n,i)=><article key={n}>
+                <div className="asForecastRank">0{n}</div>
+                <div className="asForecastMain">
+                  <div className="asForecastTitle">
+                    <b>{i===0?"Наиболее вероятное развитие":i===1?"Альтернативная ветвь":"Слабый, но допустимый сценарий"}</b>
+                    <span>{i===0?"HIGH":i===1?"MEDIUM":"LOW"}</span>
+                  </div>
+                  <p>Реальный прогноз появится после построения состояния мира, причинных связей и открытых сюжетных линий.</p>
+                  <div className="asForecastWhy">
+                    <span>WHY: open_threads</span>
+                    <span>character_state</span>
+                    <span>causal_links</span>
+                    <span>world_pressure</span>
+                  </div>
+                </div>
+                <div className="asForecastScore">
+                  <small>PROBABILITY</small>
+                  <b>—</b>
+                </div>
+              </article>)}
+            </div>
+
+            <div className="asForecastExplain">
+              <div>
+                <small>ПОЧЕМУ ALINA ТАК ДУМАЕТ</small>
+                <h4>Прогноз должен быть объяснимым</h4>
+                <p>Для каждого кандидата показываем цепочку: факты → состояние → открытая линия → причинная связь → прогноз.</p>
+              </div>
+              <div className="asForecastChain">
+                <span>FACTS</span><i>→</i><span>STATE</span><i>→</i><span>THREAD</span><i>→</i><span>CAUSE</span><i>→</i><span>FORECAST</span>
+              </div>
+            </div>
+
+            <div className="asBacktestBlock">
+              <div>
+                <small>BACKTEST</small>
+                <h4>Проверить прогноз на уже известном будущем</h4>
+                <p>Прогноз замораживается до открытия следующей книги/главы. После этого ALINA считает HIT / PARTIAL / MISS и обновляет калибровку.</p>
+              </div>
+              <button>Заморозить прогноз</button>
             </div>
           </section>}
 
