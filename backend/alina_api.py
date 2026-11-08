@@ -646,6 +646,12 @@ def run_ingest(run_id: str, project_dir: Path, source_files: list[Path], project
         else:
             trace(run_id, "GITHUB", f"GitHub publish warning: {git_result.get('error')}", "WARN")
 
+        project_meta = read_json(project_dir / "project.json", {}) or {}
+        project_meta["status"] = "FOUNDATION_READY"
+        project_meta["analysis_level"] = "FOUNDATION_ONLY"
+        project_meta["updated_at"] = now()
+        write_json(project_dir / "project.json", project_meta)
+
         with LOCK:
             run = RUNS[run_id]
             run["status"] = "PASS"
@@ -979,6 +985,139 @@ def start_deep_analysis(project_id: str) -> dict[str, Any]:
 @app.get("/api/health")
 def health() -> dict[str, Any]:
     return {"status": "ok", "mode": "PRIVATE_LOCAL", "data_root": str(DATA_ROOT)}
+
+
+@app.post("/api/projects")
+async def create_empty_project(
+    title: str = Form(...),
+    mode: str = Form("study-cycle"),
+    intent: str = Form(""),
+) -> JSONResponse:
+    clean_title = title.strip()
+    if not clean_title:
+        raise HTTPException(400, "Сначала задайте название проекта")
+
+    project_id = f"PRJ-{uuid.uuid4().hex[:10]}"
+    project_dir = PROJECTS_ROOT / project_id
+    for folder in ("sources", "kb", "runs", "deep"):
+        (project_dir / folder).mkdir(parents=True, exist_ok=True)
+
+    metadata = {
+        "project_id": project_id,
+        "title": clean_title,
+        "title_mode": "MANUAL",
+        "mode": mode,
+        "intent": intent,
+        "privacy": "PRIVATE_LOCAL",
+        "status": "PROJECT_CREATED",
+        "analysis_level": "NONE",
+        "source_count": 0,
+        "created_at": now(),
+        "updated_at": now(),
+    }
+    write_json(project_dir / "project.json", metadata)
+    write_json(project_dir / "kb" / "project_contract.json", {
+        "project_id": project_id,
+        "title": clean_title,
+        "contract_version": "1.0",
+        "folders": ["sources", "kb", "runs", "deep"],
+        "created_at": metadata["created_at"],
+        "status": "READY_FOR_SOURCES",
+    })
+    return JSONResponse(metadata)
+
+
+@app.post("/api/projects/{project_id}/sources")
+async def add_project_sources(
+    project_id: str,
+    files: list[UploadFile] = File(...),
+) -> JSONResponse:
+    project_dir = PROJECTS_ROOT / project_id
+    meta_path = project_dir / "project.json"
+    meta = read_json(meta_path, None)
+    if meta is None:
+        raise HTTPException(404, "Проект не найден")
+    if not files:
+        raise HTTPException(400, "Нет файлов")
+
+    sources_dir = project_dir / "sources"
+    sources_dir.mkdir(parents=True, exist_ok=True)
+    saved = []
+    for upload in files:
+        safe = Path(upload.filename or "source.bin").name
+        dest = sources_dir / safe
+        with dest.open("wb") as out:
+            shutil.copyfileobj(upload.file, out)
+        saved.append({
+            "filename": safe,
+            "size_bytes": dest.stat().st_size,
+            "extension": dest.suffix.lower(),
+            "sha256": sha256(dest),
+        })
+
+    all_files = [p for p in sources_dir.iterdir() if p.is_file()]
+    meta["source_count"] = len(all_files)
+    meta["status"] = "SOURCES_ATTACHED"
+    meta["updated_at"] = now()
+    write_json(meta_path, meta)
+    write_json(project_dir / "kb" / "source_manifest.json", {
+        "project_id": project_id,
+        "source_count": len(all_files),
+        "sources": [
+            {
+                "filename": p.name,
+                "size_bytes": p.stat().st_size,
+                "extension": p.suffix.lower(),
+                "sha256": sha256(p),
+            }
+            for p in all_files
+        ],
+        "updated_at": now(),
+    })
+    return JSONResponse({"project": meta, "added": saved})
+
+
+@app.post("/api/projects/{project_id}/foundation-analysis")
+def start_foundation_analysis(project_id: str) -> dict[str, Any]:
+    project_dir = PROJECTS_ROOT / project_id
+    meta = read_json(project_dir / "project.json", None)
+    if meta is None:
+        raise HTTPException(404, "Проект не найден")
+    source_files = [p for p in (project_dir / "sources").iterdir() if p.is_file()]
+    if not source_files:
+        raise HTTPException(400, "Сначала добавьте книги в проект")
+    active = [rid for rid, run in RUNS.items() if run.get("project_id")==project_id and run.get("status") in {"QUEUED","RUNNING"}]
+    if active:
+        raise HTTPException(409, f"У проекта уже идёт run: {active[0]}")
+
+    run_id = f"RUN-{uuid.uuid4().hex[:12]}"
+    RUNS[run_id] = {
+        "run_id": run_id,
+        "run_type": "FOUNDATION_ANALYSIS",
+        "project_id": project_id,
+        "project_title": meta.get("title"),
+        "status": "QUEUED",
+        "progress": 0,
+        "stage_index": -1,
+        "stage": "QUEUED",
+        "stage_label": "В очереди",
+        "detail": "Ожидание запуска",
+        "trace": [],
+        "metrics": {},
+        "created_at": now(),
+        "updated_at": now(),
+        "error": None,
+        "current_item": 0,
+        "current_total": 0,
+        "current_name": "",
+    }
+    persist_run_state(run_id)
+    threading.Thread(
+        target=run_ingest,
+        args=(run_id, project_dir, source_files, meta.get("title","Проект")),
+        daemon=True,
+    ).start()
+    return {"project_id":project_id,"run_id":run_id,"status":"QUEUED","run_type":"FOUNDATION_ANALYSIS"}
 
 
 @app.post("/api/projects/ingest")
