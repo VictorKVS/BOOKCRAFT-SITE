@@ -60,22 +60,35 @@ $pip = Join-Path $PSScriptRoot ".venv-alina\Scripts\pip.exe"
 Write-Host "Installing/checking backend dependencies..."
 & $pip install -r requirements-alina.txt
 
-# Reuse system llama-cpp-python when it already exists outside the ALINA venv.
-$venvLlama = & $python -c "import llama_cpp; print('OK')" 2>$null
-if (-not $venvLlama) {
-    $systemLlama = & python -c "import llama_cpp; print('OK')" 2>$null
-    if ($systemLlama) {
-        $cfg = Join-Path $PSScriptRoot ".venv-alina\pyvenv.cfg"
-        if (Test-Path $cfg) {
-            (Get-Content $cfg) -replace "include-system-site-packages = false","include-system-site-packages = true" | Set-Content $cfg -Encoding UTF8
-            Write-Host "Local LLM engine: linked system llama-cpp-python into .venv-alina." -ForegroundColor Green
+# Optional llama-cpp-python support for direct GGUF mode.
+# IMPORTANT: this check must never stop ALINA when Ollama is already available.
+if (-not $ollamaListening) {
+    $oldErrorActionPreference = $ErrorActionPreference
+    $ErrorActionPreference = "Continue"
+
+    & $python -c "import importlib.util,sys; sys.exit(0 if importlib.util.find_spec('llama_cpp') else 1)" *> $null
+    $venvHasLlama = ($LASTEXITCODE -eq 0)
+
+    if (-not $venvHasLlama) {
+        & python -c "import importlib.util,sys; sys.exit(0 if importlib.util.find_spec('llama_cpp') else 1)" *> $null
+        $systemHasLlama = ($LASTEXITCODE -eq 0)
+
+        if ($systemHasLlama) {
+            $cfg = Join-Path $PSScriptRoot ".venv-alina\pyvenv.cfg"
+            if (Test-Path $cfg) {
+                (Get-Content $cfg) -replace "include-system-site-packages = false","include-system-site-packages = true" | Set-Content $cfg -Encoding UTF8
+                Write-Host "Local LLM engine: linked system llama-cpp-python into .venv-alina." -ForegroundColor Green
+            }
+        } else {
+            Write-Host "Local LLM engine: llama-cpp-python not found. Direct GGUF mode unavailable." -ForegroundColor Yellow
         }
     } else {
-        Write-Host "Local LLM engine: llama-cpp-python not found in system Python or .venv-alina." -ForegroundColor Yellow
-        Write-Host "You can still use Ollama, or select a GGUF after installing llama-cpp-python." -ForegroundColor DarkYellow
+        Write-Host "Local LLM engine: llama-cpp-python is available in .venv-alina." -ForegroundColor Green
     }
+
+    $ErrorActionPreference = $oldErrorActionPreference
 } else {
-    Write-Host "Local LLM engine: llama-cpp-python is available in .venv-alina." -ForegroundColor Green
+    Write-Host "Local LLM engine: using Ollama; llama-cpp-python check skipped." -ForegroundColor Green
 }
 
 Write-Host "Starting ALINA backend on http://127.0.0.1:$portBackend ..."
