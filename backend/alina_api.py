@@ -790,6 +790,29 @@ def project_runs(project_id: str) -> JSONResponse:
     return JSONResponse(runs)
 
 
+@app.delete("/api/projects/{project_id}/runs/{run_id}")
+def delete_project_run(project_id: str, run_id: str) -> dict[str, Any]:
+    project_dir = PROJECTS_ROOT / project_id
+    if not project_dir.exists():
+        raise HTTPException(404, "Проект не найден")
+    active = RUNS.get(run_id)
+    if active and active.get("status") in {"QUEUED", "RUNNING"}:
+        raise HTTPException(409, "Нельзя удалить выполняющийся run")
+    removed = []
+    for candidate in [
+        project_dir / "runs" / f"{run_id}.state.json",
+        project_dir / "runs" / f"{run_id}.json",
+    ]:
+        if candidate.exists():
+            candidate.unlink()
+            removed.append(candidate.name)
+    with LOCK:
+        RUNS.pop(run_id, None)
+    if not removed:
+        raise HTTPException(404, "Run не найден")
+    return {"status": "DELETED", "project_id": project_id, "run_id": run_id, "files": removed}
+
+
 @app.delete("/api/projects/{project_id}")
 def delete_project(project_id: str) -> dict[str, Any]:
     project_dir = PROJECTS_ROOT / project_id
