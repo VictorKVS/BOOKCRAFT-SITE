@@ -276,7 +276,7 @@ export default function AlinaStudioPage() {
     if(projectId===project.project_id){
       setTitle(next.trim());
       setTitleTouched(true);
-    setSourceCount(project.source_count || 0);
+      setProjectMeta(prev=>prev ? {...prev,title:next.trim()} : prev);
     }
     await loadProjects();
   }
@@ -327,6 +327,7 @@ export default function AlinaStudioPage() {
   async function openLocalProject(project){
     setProjectId(project.project_id);
     setProjectMeta(project);
+    setSourceCount(project.source_count || 0);
     setTitle(project.title || "");
     setTitleTouched(true);
     const rr=await fetch(`http://127.0.0.1:8191/api/projects/${project.project_id}/runs`);
