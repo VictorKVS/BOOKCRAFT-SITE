@@ -1103,6 +1103,90 @@ def import_alice_benchmark(project_id: str) -> JSONResponse:
     return JSONResponse(imported)
 
 
+@app.post("/api/projects/{project_id}/import-alice-reference-analysis")
+def import_alice_reference_analysis(project_id: str) -> JSONResponse:
+    project_dir = PROJECTS_ROOT / project_id
+    if not project_dir.exists():
+        raise HTTPException(404, "Проект не найден")
+
+    meta = read_json(project_dir / "project.json", {}) or {}
+    source_manifest = read_json(project_dir / "kb" / "source_manifest.json", {}) or {}
+    probe = normalize_title(
+        str(meta.get("title","")) + " " +
+        " ".join(str(x.get("filename","")) for x in source_manifest.get("sources",[]))
+    )
+    if not any(token in probe for token in ("алиса","булычев","bulychev","841804")):
+        raise HTTPException(409, "Reference analysis доступен только для корпуса Алисы")
+
+    reference_root = ROOT / "projects" / "sto_let_tomu_vpered"
+    source_files = {
+        "canon_claims": reference_root / "canon" / "canon_claims.json",
+        "entity_registry": reference_root / "canon" / "entity_registry.json",
+        "event_store": reference_root / "canon" / "event_store.json",
+        "relation_store": reference_root / "canon" / "relation_store.json",
+        "knowledge_graph": reference_root / "canon" / "knowledge_graph.json",
+        "temporal_model": reference_root / "canon" / "temporal_model.json",
+        "state_store": reference_root / "canon" / "state_store.json",
+        "state_transition_store": reference_root / "canon" / "state_transition_store.json",
+        "causal_link_store": reference_root / "canon" / "causal_link_store.json",
+        "hypothesis_candidates": reference_root / "canon" / "hypothesis_candidates.json",
+        "prediction_run_manifest": reference_root / "canon" / "prediction_run_manifest.json",
+        "backtest_manifest": reference_root / "canon" / "backtest_manifest.json",
+        "quality_scorecard": reference_root / "reports" / "ALINA_QUALITY_SCORECARD.json",
+    }
+
+    missing = [name for name,path in source_files.items() if not path.exists()]
+    if missing:
+        raise HTTPException(500, "Reference analysis package incomplete: " + ", ".join(missing))
+
+    out_dir = project_dir / "kb" / "reference_analysis" / "sto_let_tomu_vpered"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    imported = {}
+    for name,path in source_files.items():
+        data = read_json(path, {}) or {}
+        write_json(out_dir / f"{name}.json", data)
+        imported[name] = {
+            "source": str(path.relative_to(ROOT)).replace("\\","/"),
+            "target": str((out_dir / f"{name}.json").relative_to(project_dir)).replace("\\","/"),
+        }
+
+    chunk_dir = reference_root / "evidence" / "chunk_claims_v2"
+    chunk_files = sorted(chunk_dir.glob("primary-*.json"))
+    target_chunks = out_dir / "chunk_claims_v2"
+    target_chunks.mkdir(parents=True, exist_ok=True)
+    for path in chunk_files:
+        shutil.copy2(path, target_chunks / path.name)
+
+    score = read_json(source_files["quality_scorecard"], {}) or {}
+    summary = {
+        "reference_id": "ALICE-STO-LET-TOMU-VPERED-359c692",
+        "status": "REFERENCE_ANALYSIS_IMPORTED",
+        "scope": "Сто лет тому вперёд",
+        "provenance_commit": "359c692",
+        "chunk_count": len(chunk_files),
+        "maturity": score.get("current_maturity"),
+        "prediction_maturity": score.get("prediction_learning_maturity"),
+        "pipeline_counts": score.get("pipeline_counts",{}),
+        "layer_status": score.get("layer_status",{}),
+        "files": imported,
+        "rule": "Reference analysis is trusted historical output and remains separate from current automated run.",
+        "imported_at": now(),
+    }
+    write_json(out_dir / "reference_summary.json", summary)
+
+    meta["reference_analysis"] = {
+        "id": summary["reference_id"],
+        "scope": summary["scope"],
+        "status": summary["status"],
+        "chunk_count": summary["chunk_count"],
+        "maturity": summary["maturity"],
+    }
+    meta["updated_at"] = now()
+    write_json(project_dir / "project.json", meta)
+
+    return JSONResponse(summary)
+
+
 @app.post("/api/projects/{project_id}/deep-analysis")
 async def start_deep_analysis(
     project_id: str,
