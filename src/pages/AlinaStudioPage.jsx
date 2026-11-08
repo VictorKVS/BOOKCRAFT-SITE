@@ -79,6 +79,7 @@ export default function AlinaStudioPage() {
   const [historyOpen,setHistoryOpen] = useState(null);
   const [deleteModal,setDeleteModal] = useState(null);
   const [deleteBusy,setDeleteBusy] = useState(false);
+  const [deepModel,setDeepModel] = useState(null);
 
   const activeMode = projectModes.find(x=>x[0]===mode);
   const isStudy = activeMode?.[3] === "STUDY";
@@ -109,6 +110,41 @@ export default function AlinaStudioPage() {
       .trim();
     if(list.length===1) return clean(list[0].name).slice(0,100);
     return `Цикл из ${list.length} книг`;
+  }
+
+  async function checkDeepModel(){
+    try{
+      const r=await fetch("http://127.0.0.1:8191/api/deep/model-status");
+      if(r.ok){
+        const data=await r.json();
+        setDeepModel(data);
+        return data;
+      }
+    }catch{}
+    const fallback={available:false,provider:"NONE"};
+    setDeepModel(fallback);
+    return fallback;
+  }
+
+  async function startDeepAnalysis(){
+    if(!projectId) return;
+    setApiError("");
+    const model=await checkDeepModel();
+    if(!model?.available){
+      setApiError("Глубокий анализ не запущен: локальная LLM не обнаружена. Нужен Ollama или локальный OpenAI-compatible server.");
+      return;
+    }
+    try{
+      const r=await fetch(`http://127.0.0.1:8191/api/projects/${projectId}/deep-analysis`,{method:"POST"});
+      if(!r.ok) throw new Error(await r.text());
+      const data=await r.json();
+      setRunId(data.run_id);
+      setRunState({...data,run_type:"DEEP_ANALYSIS"});
+      setRunDemo(true);
+      setPhase("running");
+    }catch(err){
+      setApiError("Не удалось запустить глубокий анализ: "+err.message);
+    }
   }
 
   async function loadProjects(){
@@ -205,7 +241,7 @@ export default function AlinaStudioPage() {
       setRunId(null);
       setRunState(latest);
     }
-    const names=["sources","structure","works","claims","entities","events","world","graph","conflicts","review_queue"];
+    const names=["sources","structure","works","claims","entities","events","world","graph","conflicts","review_queue","characters","relations","locations","technologies","organizations","time_anchors","deep_claims","open_threads","deep_graph"];
     const pairs=await Promise.all(names.map(async name=>{
       const r=await fetch(`http://127.0.0.1:8191/api/projects/${project.project_id}/kb/${name}`);
       return [name,r.ok?await r.json():null];
@@ -216,7 +252,7 @@ export default function AlinaStudioPage() {
     window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
   }
 
-  useEffect(()=>{ loadProjects(); },[]);
+  useEffect(()=>{ loadProjects(); checkDeepModel(); },[]);
 
   useEffect(()=>{
     if(!runId) return;
@@ -233,7 +269,7 @@ export default function AlinaStudioPage() {
         if(data.status==="PASS"){
           setPhase("ready");
           setRunDemo(false);
-          const names=["sources","structure","works","claims","entities","events","world","graph","conflicts","review_queue"];
+          const names=["sources","structure","works","claims","entities","events","world","graph","conflicts","review_queue","characters","relations","locations","technologies","organizations","time_anchors","deep_claims","open_threads","deep_graph"];
           const pairs=await Promise.all(names.map(async name=>{
             const r=await fetch(`http://127.0.0.1:8191/api/projects/${data.project_id}/kb/${name}`);
             return [name,r.ok?await r.json():null];
@@ -247,6 +283,13 @@ export default function AlinaStudioPage() {
             }
             loadProjects();
           }
+          return;
+        }
+        if(data.status==="NEEDS_MODEL"){
+          setPhase("ready");
+          setRunDemo(false);
+          setApiError(data.detail || "Локальная модель не найдена");
+          checkDeepModel();
           return;
         }
         if(data.status==="FAIL"){
@@ -466,7 +509,7 @@ export default function AlinaStudioPage() {
           </div>
           <div className="asLiveProgress"><i style={{width:`${effectiveProgress}%`}}/></div>
           <div className="asLiveMeta">
-            <span>STAGE {Math.max(effectiveStage,0)+1}/{liveStages.length}</span>
+            <span>{runState?.run_type==="DEEP_ANALYSIS" ? "DEEP SEMANTIC RUN" : `STAGE ${Math.max(effectiveStage,0)+1}/${liveStages.length}`}</span>
             <span>ACTIVE: {runState?.stage || ["SOURCE","SPLIT","EVIDENCE","ENTITIES","WORLD","CONFLICTS","FINALIZE"][effectiveStage]}</span>
             <span>PRIVATE LOCAL</span>
             {runState?.current_total > 0 && <span>TEXT: {runState.current_item}/{runState.current_total}</span>}
@@ -475,11 +518,16 @@ export default function AlinaStudioPage() {
             <small>СЕЙЧАС ОБРАБАТЫВАЕТСЯ</small>
             <b>{runState.current_name}</b>
           </div>}
-          <div className="asLiveSteps">
+          {runState?.run_type==="DEEP_ANALYSIS" ? <div className="asDeepLive">
+            <article><small>MODEL</small><b>{runState?.model_name || runState?.model?.model || "—"}</b></article>
+            <article><small>CHUNK</small><b>{runState?.current_total ? `${runState.current_item} / ${runState.current_total}` : "—"}</b></article>
+            <article><small>CHARS</small><b>{(runState?.chars_processed || 0).toLocaleString("ru-RU")}</b></article>
+            <article><small>SECTION</small><b>{runState?.current_name || "—"}</b></article>
+          </div> : <div className="asLiveSteps">
             {liveStages.map((x,i)=><button key={x[0]} className={i<effectiveStage?"done":i===effectiveStage?"active":""} disabled={Boolean(runId)} onClick={()=>setRunStage(i)}>
               <b>{i<runStage?"✓":String(i+1).padStart(2,"0")}</b><span>{x[0]}</span>
             </button>)}
-          </div>
+          </div>}
           <div className="asLiveControls">
             <span>{runId ? `RUN: ${runId}` : "Подключение к backend..."}</span>
             <span>{runState?.status || "STARTING"}</span>
@@ -503,11 +551,13 @@ export default function AlinaStudioPage() {
             <div>
               <small>ALINA KNOWLEDGE WORKSPACE</small>
               <h2>{title || "Новый проект"}</h2>
-              <p>Результат анализа, состояние БЗ и точки, где нужен человек.</p>
+              <p>{runState?.run_type==="DEEP_ANALYSIS" && runState?.status==="PASS" ? "Глубокий семантический анализ завершён." : "Первичный структурный слой готов; глубокий анализ запускается отдельно."}</p>
             </div>
             <div className="asWorkspaceActions">
               <button>Экспорт отчёта</button>
-              <button className="primary">Продолжить работу с миром →</button>
+              <button className="primary" onClick={startDeepAnalysis} disabled={!projectId || phase==="running"}>
+                {runState?.run_type==="DEEP_ANALYSIS" && phase==="running" ? "Глубокий анализ идёт…" : "Запустить глубокий анализ →"}
+              </button>
             </div>
           </div>
 
@@ -518,6 +568,16 @@ export default function AlinaStudioPage() {
             <button className={workspaceView==="sources"?"active":""} onClick={()=>setWorkspaceView("sources")}>Source Center</button>
             <button className={workspaceView==="forecast"?"active":""} onClick={()=>setWorkspaceView("forecast")}>Прогноз</button>
           </div>
+
+          <div className="asDeepStatus">
+            <div>
+              <small>DEEP ANALYSIS ENGINE</small>
+              <b>{deepModel?.available ? `LOCAL MODEL READY · ${deepModel.model}` : "LOCAL MODEL NOT FOUND"}</b>
+              <span>{deepModel?.available ? "Полный текст будет анализироваться локально chunk за chunk." : "Первичный разбор готов, но семантический слой требует локальную LLM."}</span>
+            </div>
+            <button onClick={checkDeepModel}>Проверить модель</button>
+          </div>
+          {apiError && <div className="asDeepError">{apiError}</div>}
 
           <div className="asRunReport">
             <article><small>ИСТОЧНИКИ</small><b>{files.length}</b><span>локальных файлов</span></article>
