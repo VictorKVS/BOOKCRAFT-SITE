@@ -92,6 +92,8 @@ export default function AlinaStudioPage() {
   const [creativeBusy,setCreativeBusy] = useState(false);
   const [analysisProfile,setAnalysisProfile] = useState("CANON_FULL");
   const [analysisDepth,setAnalysisDepth] = useState("FULL");
+  const [uiTrace,setUiTrace] = useState([]);
+  const [githubDebugStatus,setGithubDebugStatus] = useState("WAITING");
 
   const activeMode = projectModes.find(x=>x[0]===mode);
   const isStudy = activeMode?.[3] === "STUDY";
@@ -112,6 +114,96 @@ export default function AlinaStudioPage() {
   const effectiveLabel = runState?.stage_label || currentLive[0];
   const effectiveDetail = runState?.detail || currentLive[1];
 
+  function safeEndpoint(url){
+    try{
+      const u=new URL(url,window.location.origin);
+      return u.pathname;
+    }catch{
+      return String(url).split("?")[0].slice(0,160);
+    }
+  }
+
+  async function traceEvent(eventType,payload={},publish=true){
+    const event={
+      event_type:eventType,
+      action_id:payload.action_id || null,
+      button:payload.button || null,
+      project_id:projectId || payload.project_id || null,
+      project_code:projectMeta?.short_code || payload.project_code || null,
+      run_id:runId || payload.run_id || null,
+      workspace_view:workspaceView,
+      phase,
+      ...payload,
+      timestamp:new Date().toISOString()
+    };
+    setUiTrace(prev=>[...prev.slice(-299),event]);
+    try{
+      const form=new FormData();
+      form.append("event",eventType);
+      form.append("payload",JSON.stringify(event));
+      form.append("publish",publish ? "true" : "false");
+      const r=await window.fetch("http://127.0.0.1:8191/api/debug/trace",{method:"POST",body:form});
+      if(r.ok){
+        const data=await r.json();
+        if(publish && data.github?.status){
+          setGithubDebugStatus(data.github.status);
+        }
+      }else if(publish){
+        setGithubDebugStatus("WARN");
+      }
+    }catch{
+      if(publish) setGithubDebugStatus("WARN");
+    }
+  }
+
+  async function tracedFetch(url,options={}){
+    const method=(options.method || "GET").toUpperCase();
+    const endpoint=safeEndpoint(url);
+    const isPoll=endpoint.startsWith("/api/runs/");
+    const isDebug=endpoint.startsWith("/api/debug/trace");
+    const started=performance.now();
+    if(!isPoll && !isDebug){
+      traceEvent("API_START",{
+        action_id:`${method} ${endpoint}`,
+        method,endpoint,status:"START"
+      },false);
+    }
+    try{
+      const response=await window.fetch(url,options);
+      if(!isPoll && !isDebug){
+        traceEvent("API_END",{
+          action_id:`${method} ${endpoint}`,
+          method,endpoint,http_status:response.status,
+          status:response.ok?"PASS":"ERROR",
+          duration_ms:Math.round(performance.now()-started)
+        },method!=="GET");
+      }
+      return response;
+    }catch(err){
+      if(!isPoll && !isDebug){
+        traceEvent("API_END",{
+          action_id:`${method} ${endpoint}`,
+          method,endpoint,status:"ERROR",
+          result:String(err?.message || err),
+          duration_ms:Math.round(performance.now()-started)
+        },method!=="GET");
+      }
+      throw err;
+    }
+  }
+
+  function handleButtonTrace(e){
+    const button=e.target.closest?.("button");
+    if(!button || button.disabled) return;
+    const label=(button.getAttribute("data-trace") || button.textContent || "BUTTON")
+      .replace(/\s+/g," ").trim().slice(0,100);
+    traceEvent("BUTTON",{
+      action_id:`BUTTON:${label}`,
+      button:label,
+      status:"CLICK"
+    },true);
+  }
+
   function inferClientTitle(list){
     if(!list.length) return "";
     const clean = name => name
@@ -129,7 +221,7 @@ export default function AlinaStudioPage() {
     setBenchmarkBusy(true);
     setApiError("");
     try{
-      const r=await fetch(`http://127.0.0.1:8191/api/projects/${projectId}/import-alice-benchmark`,{method:"POST"});
+      const r=await tracedFetch(`http://127.0.0.1:8191/api/projects/${projectId}/import-alice-benchmark`,{method:"POST"});
       if(!r.ok) throw new Error(await r.text());
       const data=await r.json();
       setBenchmarkSeed(data);
@@ -151,7 +243,7 @@ export default function AlinaStudioPage() {
 
   async function checkDeepModel(){
     try{
-      const r=await fetch("http://127.0.0.1:8191/api/deep/model-status");
+      const r=await tracedFetch("http://127.0.0.1:8191/api/deep/model-status");
       if(r.ok){
         const data=await r.json();
         setDeepModel(data);
@@ -166,7 +258,7 @@ export default function AlinaStudioPage() {
   async function selectLocalGguf(){
     setApiError("");
     try{
-      const r=await fetch("http://127.0.0.1:8191/api/deep/select-gguf",{method:"POST"});
+      const r=await tracedFetch("http://127.0.0.1:8191/api/deep/select-gguf",{method:"POST"});
       if(!r.ok) throw new Error(await r.text());
       const data=await r.json();
       setDeepModel(data);
@@ -181,7 +273,7 @@ export default function AlinaStudioPage() {
 
   async function clearLocalModel(){
     try{
-      const r=await fetch("http://127.0.0.1:8191/api/deep/clear-model",{method:"POST"});
+      const r=await tracedFetch("http://127.0.0.1:8191/api/deep/clear-model",{method:"POST"});
       if(r.ok) setDeepModel(await r.json());
     }catch{}
   }
@@ -205,7 +297,7 @@ export default function AlinaStudioPage() {
         contradictions:true,
         forecast_inputs:true
       }));
-      const r=await fetch(`http://127.0.0.1:8191/api/projects/${projectId}/deep-analysis`,{method:"POST",body:form});
+      const r=await tracedFetch(`http://127.0.0.1:8191/api/projects/${projectId}/deep-analysis`,{method:"POST",body:form});
       if(!r.ok) throw new Error(await r.text());
       const data=await r.json();
 
@@ -224,11 +316,13 @@ export default function AlinaStudioPage() {
           detail:"Источники и параметры анализа не изменились — использована существующая семантическая БЗ.",
           metrics:{analysis_profile:data.analysis_profile,analysis_fingerprint:data.analysis_fingerprint}
         });
-        const pr=await fetch(`http://127.0.0.1:8191/api/projects/${projectId}`);
+        const pr=await tracedFetch(`http://127.0.0.1:8191/api/projects/${projectId}`);
         if(pr.ok) setProjectMeta(await pr.json());
+        traceEvent("SEQUENCE",{sequence:"ANALYSIS_FLOW",step:"DEEP_REUSED",status:"REUSED",analysis_profile:data.analysis_profile,kb_version:data.kb_version},true);
         return;
       }
 
+      traceEvent("SEQUENCE",{sequence:"ANALYSIS_FLOW",step:"DEEP_STARTED",status:"QUEUED",analysis_profile:data.analysis_profile,run_id:data.run_id},true);
       setRunId(data.run_id);
       setRunState({...data,run_type:"DEEP_ANALYSIS"});
       setRunDemo(true);
@@ -240,7 +334,7 @@ export default function AlinaStudioPage() {
 
   async function loadProjects(){
     try{
-      const r=await fetch("http://127.0.0.1:8191/api/projects");
+      const r=await tracedFetch("http://127.0.0.1:8191/api/projects");
       if(r.ok) setProjects(await r.json());
     }catch{
       // Backend may be offline while the page is opened.
@@ -251,7 +345,7 @@ export default function AlinaStudioPage() {
     if(historyOpen===projectId){ setHistoryOpen(null); return; }
     setHistoryOpen(projectId);
     if(projectHistory[projectId]) return;
-    const r=await fetch(`http://127.0.0.1:8191/api/projects/${projectId}/runs`);
+    const r=await tracedFetch(`http://127.0.0.1:8191/api/projects/${projectId}/runs`);
     if(r.ok){
       const data=await r.json();
       setProjectHistory(prev=>({...prev,[projectId]:data}));
@@ -259,7 +353,7 @@ export default function AlinaStudioPage() {
   }
 
   async function openProjectFolder(project, folder){
-    const r=await fetch(`http://127.0.0.1:8191/api/projects/${project.project_id}/open-folder/${folder}`,{method:"POST"});
+    const r=await tracedFetch(`http://127.0.0.1:8191/api/projects/${project.project_id}/open-folder/${folder}`,{method:"POST"});
     if(!r.ok) alert("Не удалось открыть папку: "+await r.text());
   }
 
@@ -268,7 +362,7 @@ export default function AlinaStudioPage() {
     if(next===null || !next.trim()) return;
     const form=new FormData();
     form.append("title",next.trim());
-    const r=await fetch(`http://127.0.0.1:8191/api/projects/${project.project_id}/title`,{method:"PATCH",body:form});
+    const r=await tracedFetch(`http://127.0.0.1:8191/api/projects/${project.project_id}/title`,{method:"PATCH",body:form});
     if(!r.ok){
       alert("Не удалось переименовать проект: "+await r.text());
       return;
@@ -284,7 +378,7 @@ export default function AlinaStudioPage() {
   async function performDeleteRun(projectIdValue, runIdValue){
     setDeleteBusy(true);
     try{
-      const r=await fetch(`http://127.0.0.1:8191/api/projects/${projectIdValue}/runs/${runIdValue}`,{method:"DELETE"});
+      const r=await tracedFetch(`http://127.0.0.1:8191/api/projects/${projectIdValue}/runs/${runIdValue}`,{method:"DELETE"});
       if(!r.ok) throw new Error(await r.text());
       setProjectHistory(prev=>({
         ...prev,
@@ -302,7 +396,7 @@ export default function AlinaStudioPage() {
   async function performDeleteProject(project){
     setDeleteBusy(true);
     try{
-      const r=await fetch(`http://127.0.0.1:8191/api/projects/${project.project_id}`,{method:"DELETE"});
+      const r=await tracedFetch(`http://127.0.0.1:8191/api/projects/${project.project_id}`,{method:"DELETE"});
       if(!r.ok) throw new Error(await r.text());
       if(projectId===project.project_id){
         setPhase("setup");
@@ -330,7 +424,7 @@ export default function AlinaStudioPage() {
     setSourceCount(project.source_count || 0);
     setTitle(project.title || "");
     setTitleTouched(true);
-    const rr=await fetch(`http://127.0.0.1:8191/api/projects/${project.project_id}/runs`);
+    const rr=await tracedFetch(`http://127.0.0.1:8191/api/projects/${project.project_id}/runs`);
     const runs=rr.ok?await rr.json():[];
     const latest=runs[0] || project.latest_run;
     if(latest){
@@ -339,7 +433,7 @@ export default function AlinaStudioPage() {
     }
     const names=["sources","structure","works","claims","entities","events","world","graph","conflicts","review_queue","characters","relations","locations","technologies","organizations","time_anchors","deep_claims","open_threads","deep_graph","benchmark_seed"];
     const pairs=await Promise.all(names.map(async name=>{
-      const r=await fetch(`http://127.0.0.1:8191/api/projects/${project.project_id}/kb/${name}`);
+      const r=await tracedFetch(`http://127.0.0.1:8191/api/projects/${project.project_id}/kb/${name}`);
       return [name,r.ok?await r.json():null];
     }));
     const loaded=Object.fromEntries(pairs);
@@ -358,7 +452,7 @@ export default function AlinaStudioPage() {
     let cancelled=false;
     const poll=async()=>{
       try{
-        const res=await fetch(`http://127.0.0.1:8191/api/runs/${runId}`);
+        const res=await tracedFetch(`http://127.0.0.1:8191/api/runs/${runId}`);
         if(!res.ok) throw new Error(`Backend status ${res.status}`);
         const data=await res.json();
         if(cancelled) return;
@@ -366,18 +460,19 @@ export default function AlinaStudioPage() {
         if(data.project_title && !titleTouched) setTitle(data.project_title);
         if(data.stage_index>=0) setRunStage(data.stage_index);
         if(data.status==="PASS"){
+          traceEvent("SEQUENCE",{sequence:data.run_type==="DEEP_ANALYSIS"?"ANALYSIS_FLOW":"PROJECT_FLOW",step:data.run_type==="DEEP_ANALYSIS"?"DEEP_COMPLETED":"FOUNDATION_COMPLETED",status:"PASS",run_id:data.run_id},true);
           setPhase("ready");
           setRunDemo(false);
           const names=["sources","structure","works","claims","entities","events","world","graph","conflicts","review_queue","characters","relations","locations","technologies","organizations","time_anchors","deep_claims","open_threads","deep_graph","benchmark_seed"];
           const pairs=await Promise.all(names.map(async name=>{
-            const r=await fetch(`http://127.0.0.1:8191/api/projects/${data.project_id}/kb/${name}`);
+            const r=await tracedFetch(`http://127.0.0.1:8191/api/projects/${data.project_id}/kb/${name}`);
             return [name,r.ok?await r.json():null];
           }));
           if(!cancelled) {
             const loaded=Object.fromEntries(pairs);
             setKbData(loaded);
             setBenchmarkSeed(loaded.benchmark_seed || null);
-            const pr=await fetch(`http://127.0.0.1:8191/api/projects/${data.project_id}`);
+            const pr=await tracedFetch(`http://127.0.0.1:8191/api/projects/${data.project_id}`);
             if(pr.ok){
               const meta=await pr.json();
               setTitle(meta.title || title);
@@ -423,7 +518,7 @@ export default function AlinaStudioPage() {
       form.append("title",clean);
       form.append("mode",mode);
       form.append("intent",intent);
-      const r=await fetch("http://127.0.0.1:8191/api/projects",{method:"POST",body:form});
+      const r=await tracedFetch("http://127.0.0.1:8191/api/projects",{method:"POST",body:form});
       if(!r.ok) throw new Error(await r.text());
       const data=await r.json();
       setProjectId(data.project_id);
@@ -433,6 +528,7 @@ export default function AlinaStudioPage() {
       setTitleTouched(true);
       setSourceCount(data.source_count || 0);
       setPhase("setup");
+      traceEvent("SEQUENCE",{sequence:"PROJECT_FLOW",step:"PROJECT_CREATED",status:"PASS",project_id:data.project_id,project_code:data.short_code},true);
       await loadProjects();
     }catch(err){
       setApiError("Не удалось создать проект: "+err.message);
@@ -455,11 +551,12 @@ export default function AlinaStudioPage() {
     try{
       const form=new FormData();
       files.forEach(file=>form.append("files",file,file.name));
-      const r=await fetch(`http://127.0.0.1:8191/api/projects/${projectId}/sources`,{method:"POST",body:form});
+      const r=await tracedFetch(`http://127.0.0.1:8191/api/projects/${projectId}/sources`,{method:"POST",body:form});
       if(!r.ok) throw new Error(await r.text());
       const data=await r.json();
       setSourceCount(data.project?.source_count || files.length);
       setProjectMeta(data.project || null);
+      traceEvent("SEQUENCE",{sequence:"PROJECT_FLOW",step:"SOURCES_ATTACHED",status:"PASS",source_count:data.project?.source_count || files.length,result:data.source_changed ? "SOURCE_SET_CHANGED" : "SOURCE_SET_REUSED"},true);
       await loadProjects();
     }catch(err){
       setApiError("Не удалось добавить книги в проект: "+err.message);
@@ -484,11 +581,11 @@ export default function AlinaStudioPage() {
     setRunStage(0);
     setPhase("running");
     try{
-      const res=await fetch(`http://127.0.0.1:8191/api/projects/${projectId}/foundation-analysis`,{method:"POST"});
+      const res=await tracedFetch(`http://127.0.0.1:8191/api/projects/${projectId}/foundation-analysis`,{method:"POST"});
       if(!res.ok) throw new Error(await res.text());
       const data=await res.json();
       if(data.status==="REUSED"){
-        const pr=await fetch(`http://127.0.0.1:8191/api/projects/${projectId}`);
+        const pr=await tracedFetch(`http://127.0.0.1:8191/api/projects/${projectId}`);
         if(pr.ok){
           const meta=await pr.json();
           setProjectMeta(meta);
@@ -503,8 +600,10 @@ export default function AlinaStudioPage() {
         setRunDemo(false);
         setPhase("ready");
         setApiError("");
+        traceEvent("SEQUENCE",{sequence:"PROJECT_FLOW",step:"FOUNDATION_REUSED",status:"REUSED",kb_version:data.kb_version},true);
         return;
       }
+      traceEvent("SEQUENCE",{sequence:"PROJECT_FLOW",step:"FOUNDATION_STARTED",status:"QUEUED",run_id:data.run_id},true);
       setRunId(data.run_id);
     }catch(err){
       setPhase("error");
@@ -554,7 +653,7 @@ export default function AlinaStudioPage() {
   }
 
   return (
-    <div className="asPage">
+    <div className="asPage" onClickCapture={handleButtonTrace}>
       <section className="asPrivacy">
         <div className="asPrivacyIcon">⌂</div>
         <div>
@@ -982,22 +1081,25 @@ export default function AlinaStudioPage() {
               </div>
               <div className="asTraceLog">
                 <div className="asTraceHead"><b>TRACE LOG</b><span>{traceLevel}</span></div>
-                <pre>{runState?.trace?.length ? runState.trace.map(e=>`[${e.timestamp}] [${e.stage}] [${e.status}] ${e.current && e.total ? `[${e.current}/${e.total}] ` : ""}${e.action}`).join("\n") : `[SYSTEM] Project opened in PRIVATE LOCAL MODE
-[INGEST] Waiting for local backend
-[POLICY] External research: ${externalResearch ? "ENABLED" : "DISABLED"}
-[POLICY] Git/public export: DISABLED`}</pre>
+                <pre>{[
+                  ...(runState?.trace || []).map(e=>({timestamp:e.timestamp,kind:e.stage,status:e.status,text:`${e.current && e.total ? `[${e.current}/${e.total}] ` : ""}${e.action}`})),
+                  ...uiTrace.map(e=>({timestamp:e.timestamp,kind:e.event_type,status:e.status || "INFO",text:e.button || e.action_id || e.step || e.endpoint || ""}))
+                ].sort((a,b)=>String(a.timestamp).localeCompare(String(b.timestamp))).slice(-300)
+                  .map(e=>`[${e.timestamp}] [${e.kind}] [${e.status}] ${e.text}`).join("\n") || `[SYSTEM] Project opened in PRIVATE LOCAL MODE
+[TRACE] UI/API tracing enabled
+[GITHUB] Safe debug publishing enabled`}</pre>
               </div>
             </div>
             <div className="asGithubTrace">
               <div>
                 <small>GITHUB SAFE EXPORT</small>
-                <b>{runState?.trace?.some(e=>e.stage==="GITHUB" && e.status==="PASS") ? "PUSHED" : runState?.trace?.some(e=>e.stage==="GITHUB" && e.status==="WARN") ? "WARNING" : "WAITING"}</b>
+                <b>{githubDebugStatus==="PUSHED" ? "PUSHED" : githubDebugStatus==="WARN" ? "WARNING" : githubDebugStatus==="NO_CHANGES" ? "SYNCED" : "WAITING"}</b>
               </div>
-              <span>В GitHub отправляется только безопасный run-report: метрики, сопоставление произведений, статусы и trace-summary. Текст книг не отправляется.</span>
+              <span>DEBUG MODE: кнопки, API, последовательности и статусы отправляются в safe trace GitHub. Текст книг, содержимое файлов и имена источников не публикуются.</span>
             </div>
             <div className="asTraceSchema">
               <b>Каждая запись трассы:</b>
-              <code>timestamp · run_id · stage · agent · action · input_ref · output_ref · status · duration_ms · error</code>
+              <code>timestamp · event_type · project_code · run_id · button/API · sequence.step · status · duration_ms · github</code>
             </div>
           </section>}
 
