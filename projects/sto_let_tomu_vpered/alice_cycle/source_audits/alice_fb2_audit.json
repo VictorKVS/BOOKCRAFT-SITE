@@ -1,0 +1,71 @@
+{
+  "source_file": "Bulychev_Kir_Ves_Kir_Bulychev_v_odnom_tome_(SI)_Litmir_club_841804_original_11b17.fb2",
+  "source_book_title": "Весь Кир Булычев в одном томе (СИ)",
+  "source_author": "Кир Булычев",
+  "file_size_bytes": 64807921,
+  "sha256": "a9343ec2d91aee21f6d4c0d3ff381f65b59d0d4777c927fcead45ad7e45fc824",
+  "alice_cycle_top_level_section": "ПРИКЛЮЧЕНИЯ АЛИСЫ (цикл)",
+  "alice_direct_sections": 39,
+  "manifest_total": 52,
+  "matched_works": 51,
+  "missing_from_source": [
+    "ALICE-029 Звёздный пёс"
+  ],
+  "metadata_anomalies": [
+    {
+      "manifest": "ALICE-022 Планета для тиранов",
+      "source_heading": "ПЛАНЕТА ДЛЯ ТИТАНОВ",
+      "status": "SOURCE_METADATA_CONFLICT",
+      "note": "External bibliographic verification identifies the work as «Планета для тиранов»; do not silently rewrite source heading."
+    },
+    {
+      "manifest": "ALICE-033 Королева пиратов на планете сказок",
+      "source_heading": "Королева пиратов на острове сказок",
+      "status": "TITLE_VARIANT_OR_SOURCE_METADATA_CONFLICT"
+    }
+  ],
+  "composite_sections": [
+    {
+      "title": "НЕПОСЕДА",
+      "children": [
+        "Заповедник сказок",
+        "Козлик Иван Иванович",
+        "Лиловый шар"
+      ]
+    },
+    {
+      "title": "ГАЙ-ДО",
+      "children": [
+        "Гай-до",
+        "Узники «Ямагири-Мару»",
+        "Конец Атлантиды",
+        "Город без памяти"
+      ]
+    },
+    {
+      "title": "АЛИСА И ЕЕ ДРУЗЬЯ В ЛАБИРИНТАХ ИСТОРИИ (сборник)",
+      "children": [
+        "Древние тайны",
+        "Пашка-троглодит",
+        "Чулан Синей Бороды",
+        "Драконозавр",
+        "Принцы в башне"
+      ]
+    },
+    {
+      "title": "ПОВЕСТИ ДЛЯ ДЕТЕЙ МЛАДШЕГО ВОЗРАСТА (сборник)",
+      "children": [
+        "Королева пиратов на острове сказок",
+        "Колдун и Снегурочка",
+        "Алиса на планете загадок",
+        "Алиса и дракон",
+        "Алиса и притворщики"
+      ]
+    }
+  ],
+  "ingest_policy": {
+    "upload_full_text_to_repo": false,
+    "reason": "Keep copyrighted source text local/user-provided; repository stores manifests, hashes, structure, evidence references and derived analysis.",
+    "next_step": "split Alice cycle section into per-work logical source units and map each to ALICE-001..052"
+  }
+}
