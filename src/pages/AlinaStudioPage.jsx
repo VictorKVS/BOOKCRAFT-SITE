@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import "./AlinaStudioPage.css";
 
 const projectModes = [
@@ -68,6 +68,11 @@ export default function AlinaStudioPage() {
   const [sourceQuery,setSourceQuery] = useState("");
   const [runDemo,setRunDemo] = useState(false);
   const [runStage,setRunStage] = useState(0);
+  const [projectId,setProjectId] = useState(null);
+  const [runId,setRunId] = useState(null);
+  const [runState,setRunState] = useState(null);
+  const [apiError,setApiError] = useState("");
+  const [kbData,setKbData] = useState({});
 
   const activeMode = projectModes.find(x=>x[0]===mode);
   const isStudy = activeMode?.[3] === "STUDY";
@@ -82,7 +87,74 @@ export default function AlinaStudioPage() {
     ["Поиск противоречий","Сверяю книги между собой и формирую review queue",94],
     ["Финализация БЗ","Сохраняю граф, индексы и отчёт анализа",100]
   ];
-  const currentLive = liveStages[Math.min(runStage, liveStages.length-1)];
+  const effectiveStage = runState?.stage_index >= 0 ? runState.stage_index : runStage;
+  const currentLive = liveStages[Math.min(Math.max(effectiveStage,0), liveStages.length-1)];
+  const effectiveProgress = runState?.progress ?? currentLive[2];
+  const effectiveLabel = runState?.stage_label || currentLive[0];
+  const effectiveDetail = runState?.detail || currentLive[1];
+
+  useEffect(()=>{
+    if(!runId) return;
+    let cancelled=false;
+    const poll=async()=>{
+      try{
+        const res=await fetch(`http://127.0.0.1:8191/api/runs/${runId}`);
+        if(!res.ok) throw new Error(`Backend status ${res.status}`);
+        const data=await res.json();
+        if(cancelled) return;
+        setRunState(data);
+        if(data.stage_index>=0) setRunStage(data.stage_index);
+        if(data.status==="PASS"){
+          setPhase("ready");
+          setRunDemo(false);
+          const names=["sources","structure","claims","entities","events","world","graph","conflicts","review_queue"];
+          const pairs=await Promise.all(names.map(async name=>{
+            const r=await fetch(`http://127.0.0.1:8191/api/projects/${data.project_id}/kb/${name}`);
+            return [name,r.ok?await r.json():null];
+          }));
+          if(!cancelled) setKbData(Object.fromEntries(pairs));
+          return;
+        }
+        if(data.status==="FAIL"){
+          setPhase("error");
+          setApiError(data.error || "Анализ завершился с ошибкой");
+          return;
+        }
+      }catch(err){
+        if(!cancelled) setApiError(`Нет связи с ALINA backend: ${err.message}`);
+      }
+      if(!cancelled) setTimeout(poll,700);
+    };
+    poll();
+    return()=>{cancelled=true};
+  },[runId]);
+
+  async function startAnalysis(){
+    setApiError("");
+    setKbData({});
+    setRunState(null);
+    setRunDemo(true);
+    setRunStage(0);
+    setPhase("running");
+    try{
+      const form=new FormData();
+      form.append("title",title || "Новый проект");
+      form.append("mode",mode);
+      form.append("intent",intent);
+      form.append("areas",JSON.stringify(Array.from(areas)));
+      form.append("external_research",String(externalResearch));
+      files.forEach(file=>form.append("files",file,file.name));
+      const res=await fetch("http://127.0.0.1:8191/api/projects/ingest",{method:"POST",body:form});
+      if(!res.ok) throw new Error(await res.text());
+      const data=await res.json();
+      setProjectId(data.project_id);
+      setRunId(data.run_id);
+    }catch(err){
+      setPhase("error");
+      setRunDemo(false);
+      setApiError(`Не удалось запустить анализ: ${err.message}. Запустите .\\START_ALINA.ps1`);
+    }
+  }
 
   function chooseMode(id){
     setMode(id);
@@ -253,51 +325,51 @@ export default function AlinaStudioPage() {
           <h2>{title || "Новый проект"}</h2>
           <p>{files.length ? `Локальных файлов: ${files.length}. Выбрано слоёв БЗ: ${areas.size}. Внешний поиск: ${externalResearch ? "разрешён" : "выключен"}.` : "Добавьте книгу или цикл для запуска локального разбора."}</p>
         </div>
-        <button disabled={!files.length} onClick={()=>{
-          setPhase("ready");
-          setRunDemo(true);
-          setRunStage(0);
-        }}>
+        <button disabled={!files.length || phase==="running"} onClick={startAnalysis}>
           {files.length ? (isStudy ? "Разобрать и построить базу знаний →" : "Подготовить мир проекта →") : "Сначала загрузите корпус"}
         </button>
       </section>
 
-      {phase==="ready" && <>
+      {phase!=="setup" && <>
         {runDemo && <section className="asLiveRun">
           <div className="asLiveRunHead">
             <div>
               <small>ALINA LIVE RUN</small>
-              <h3>{currentLive[0]}</h3>
-              <p>{currentLive[1]}</p>
+              <h3>{effectiveLabel}</h3>
+              <p>{effectiveDetail}</p>
             </div>
-            <strong>{currentLive[2]}%</strong>
+            <strong>{effectiveProgress}%</strong>
           </div>
-          <div className="asLiveProgress"><i style={{width:`${currentLive[2]}%`}}/></div>
+          <div className="asLiveProgress"><i style={{width:`${effectiveProgress}%`}}/></div>
           <div className="asLiveMeta">
-            <span>STAGE {runStage+1}/{liveStages.length}</span>
-            <span>ACTIVE: {["SOURCE","SPLIT","EVIDENCE","ENTITIES","WORLD","CONFLICTS","FINALIZE"][runStage]}</span>
+            <span>STAGE {Math.max(effectiveStage,0)+1}/{liveStages.length}</span>
+            <span>ACTIVE: {runState?.stage || ["SOURCE","SPLIT","EVIDENCE","ENTITIES","WORLD","CONFLICTS","FINALIZE"][effectiveStage]}</span>
             <span>PRIVATE LOCAL</span>
           </div>
           <div className="asLiveSteps">
-            {liveStages.map((x,i)=><button key={x[0]} className={i<runStage?"done":i===runStage?"active":""} onClick={()=>setRunStage(i)}>
+            {liveStages.map((x,i)=><button key={x[0]} className={i<effectiveStage?"done":i===effectiveStage?"active":""} disabled={Boolean(runId)} onClick={()=>setRunStage(i)}>
               <b>{i<runStage?"✓":String(i+1).padStart(2,"0")}</b><span>{x[0]}</span>
             </button>)}
           </div>
           <div className="asLiveControls">
-            <button disabled={runStage===0} onClick={()=>setRunStage(v=>Math.max(0,v-1))}>← Предыдущий этап</button>
-            <button disabled={runStage===liveStages.length-1} onClick={()=>setRunStage(v=>Math.min(liveStages.length-1,v+1))}>Следующий этап →</button>
+            <span>{runId ? `RUN: ${runId}` : "Подключение к backend..."}</span>
+            <span>{runState?.status || "STARTING"}</span>
           </div>
         </section>}
 
-        <section className="asReady">
+        {phase==="error" && <section className="asReady" style={{borderColor:"#7f1d1d"}}>
+          <span>!</span><div><b>ALINA остановлена</b><p>{apiError}</p></div>
+        </section>}
+
+        {phase==="ready" && <section className="asReady">
           <span>✓</span>
           <div>
             <b>Рабочее место базы знаний открыто</b>
             <p>Сейчас показан интерфейс результата. Когда подключим локальный backend, сюда будут поступать реальные объекты, метрики и evidence из ALINA AUTO CORPUS INGEST.</p>
           </div>
-        </section>
+        </section>}
 
-        <section className="asWorkspace">
+        {phase==="ready" && <section className="asWorkspace">
           <div className="asWorkspaceHead">
             <div>
               <small>ALINA KNOWLEDGE WORKSPACE</small>
@@ -320,11 +392,11 @@ export default function AlinaStudioPage() {
 
           <div className="asRunReport">
             <article><small>ИСТОЧНИКИ</small><b>{files.length}</b><span>локальных файлов</span></article>
-            <article><small>ПРОИЗВЕДЕНИЯ</small><b>—</b><span>после ingest</span></article>
-            <article><small>СУЩНОСТИ</small><b>—</b><span>персонажи / места / объекты</span></article>
-            <article><small>СОБЫТИЯ</small><b>—</b><span>после extraction</span></article>
-            <article><small>ПРОТИВОРЕЧИЯ</small><b>—</b><span>после cross-check</span></article>
-            <article><small>REVIEW</small><b>—</b><span>неуверенные выводы</span></article>
+            <article><small>ПРОИЗВЕДЕНИЯ</small><b>{runState?.metrics?.works ?? "—"}</b><span>структурных единиц</span></article>
+            <article><small>СУЩНОСТИ</small><b>{runState?.metrics?.entities ?? "—"}</b><span>первичный реестр</span></article>
+            <article><small>СОБЫТИЯ</small><b>{runState?.metrics?.events ?? "—"}</b><span>извлечено</span></article>
+            <article><small>ПРОТИВОРЕЧИЯ</small><b>{runState?.metrics?.conflicts ?? "—"}</b><span>структурный cross-check</span></article>
+            <article><small>REVIEW</small><b>{runState?.metrics?.review ?? "—"}</b><span>на проверку</span></article>
           </div>
 
 
@@ -405,10 +477,10 @@ export default function AlinaStudioPage() {
               </div>
             </div>
             <div className="asProcessKpis">
-              <article><small>RUN</small><b>WAITING_BACKEND</b></article>
-              <article><small>ACTIVE MODULE</small><b>—</b></article>
-              <article><small>QUEUE</small><b>0</b></article>
-              <article><small>ERRORS</small><b>0</b></article>
+              <article><small>RUN</small><b>{runState?.status || "IDLE"}</b></article>
+              <article><small>ACTIVE MODULE</small><b>{runState?.stage || "—"}</b></article>
+              <article><small>PROGRESS</small><b>{runState?.progress ?? 0}%</b></article>
+              <article><small>ERRORS</small><b>{runState?.error ? 1 : 0}</b></article>
               <article><small>ELAPSED</small><b>00:00:00</b></article>
             </div>
             <div className="asProcessLayout">
@@ -419,11 +491,10 @@ export default function AlinaStudioPage() {
               </div>
               <div className="asTraceLog">
                 <div className="asTraceHead"><b>TRACE LOG</b><span>{traceLevel}</span></div>
-                <pre>{`[SYSTEM] Project opened in PRIVATE LOCAL MODE
+                <pre>{runState?.trace?.length ? runState.trace.map(e=>`[${e.timestamp}] [${e.stage}] [${e.status}] ${e.action}`).join("\n") : `[SYSTEM] Project opened in PRIVATE LOCAL MODE
 [INGEST] Waiting for local backend
 [POLICY] External research: ${externalResearch ? "ENABLED" : "DISABLED"}
-[POLICY] Git/public export: DISABLED
-[TRACE] Detailed events will appear here in real time`}</pre>
+[POLICY] Git/public export: DISABLED`}</pre>
               </div>
             </div>
             <div className="asTraceSchema">
@@ -551,7 +622,7 @@ export default function AlinaStudioPage() {
               <span>SEARCH</span><i>→</i><span>READ</span><i>→</i><span>EXTRACT</span><i>→</i><span>VERIFY</span><i>→</i><span>CLASSIFY</span><i>→</i><span>ADD TO KB</span>
             </div>
           </section>}
-        </section>
+        </section>}
       </>}
     </div>
   );
