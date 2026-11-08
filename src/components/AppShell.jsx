@@ -3,6 +3,7 @@ import { useState } from "react";
 import SpectralAction from "./SpectralAction.jsx";
 
 const nav = [
+  ["/alina", "ALINA Studio"],
   ["/features", "Возможности"],
   ["/librarian", "Библиотекарь"],
   ["/examples", "Примеры"],
