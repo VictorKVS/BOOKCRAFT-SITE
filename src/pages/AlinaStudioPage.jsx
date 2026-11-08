@@ -80,6 +80,8 @@ export default function AlinaStudioPage() {
   const [deleteModal,setDeleteModal] = useState(null);
   const [deleteBusy,setDeleteBusy] = useState(false);
   const [deepModel,setDeepModel] = useState(null);
+  const [benchmarkSeed,setBenchmarkSeed] = useState(null);
+  const [benchmarkBusy,setBenchmarkBusy] = useState(false);
 
   const activeMode = projectModes.find(x=>x[0]===mode);
   const isStudy = activeMode?.[3] === "STUDY";
@@ -110,6 +112,31 @@ export default function AlinaStudioPage() {
       .trim();
     if(list.length===1) return clean(list[0].name).slice(0,100);
     return `Цикл из ${list.length} книг`;
+  }
+
+  async function importAliceBenchmark(){
+    if(!projectId) return;
+    setBenchmarkBusy(true);
+    setApiError("");
+    try{
+      const r=await fetch(`http://127.0.0.1:8191/api/projects/${projectId}/import-alice-benchmark`,{method:"POST"});
+      if(!r.ok) throw new Error(await r.text());
+      const data=await r.json();
+      setBenchmarkSeed(data);
+      setKbData(prev=>({...prev,benchmark_seed:data,works:{...(prev.works||{}),benchmark:{
+        seed_id:data.seed_id,
+        expected:data.cycle_expected,
+        verified_in_big_fb2:data.source_audit?.matched_works,
+        missing_from_big_fb2:data.source_audit?.missing_from_source,
+        separate_star_dog_source_present:data.current_project_expected_matches===52,
+        expected_current_total:data.current_project_expected_matches,
+        status:"MANUAL_VERIFIED_BENCHMARK"
+      }}}));
+    }catch(err){
+      setApiError("Не удалось импортировать эталон Алисы: "+err.message);
+    }finally{
+      setBenchmarkBusy(false);
+    }
   }
 
   async function checkDeepModel(){
@@ -264,12 +291,14 @@ export default function AlinaStudioPage() {
       setRunId(null);
       setRunState(latest);
     }
-    const names=["sources","structure","works","claims","entities","events","world","graph","conflicts","review_queue","characters","relations","locations","technologies","organizations","time_anchors","deep_claims","open_threads","deep_graph"];
+    const names=["sources","structure","works","claims","entities","events","world","graph","conflicts","review_queue","characters","relations","locations","technologies","organizations","time_anchors","deep_claims","open_threads","deep_graph","benchmark_seed"];
     const pairs=await Promise.all(names.map(async name=>{
       const r=await fetch(`http://127.0.0.1:8191/api/projects/${project.project_id}/kb/${name}`);
       return [name,r.ok?await r.json():null];
     }));
-    setKbData(Object.fromEntries(pairs));
+    const loaded=Object.fromEntries(pairs);
+    setKbData(loaded);
+    setBenchmarkSeed(loaded.benchmark_seed || null);
     setPhase("ready");
     setRunDemo(false);
     window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
@@ -292,13 +321,15 @@ export default function AlinaStudioPage() {
         if(data.status==="PASS"){
           setPhase("ready");
           setRunDemo(false);
-          const names=["sources","structure","works","claims","entities","events","world","graph","conflicts","review_queue","characters","relations","locations","technologies","organizations","time_anchors","deep_claims","open_threads","deep_graph"];
+          const names=["sources","structure","works","claims","entities","events","world","graph","conflicts","review_queue","characters","relations","locations","technologies","organizations","time_anchors","deep_claims","open_threads","deep_graph","benchmark_seed"];
           const pairs=await Promise.all(names.map(async name=>{
             const r=await fetch(`http://127.0.0.1:8191/api/projects/${data.project_id}/kb/${name}`);
             return [name,r.ok?await r.json():null];
           }));
           if(!cancelled) {
-            setKbData(Object.fromEntries(pairs));
+            const loaded=Object.fromEntries(pairs);
+            setKbData(loaded);
+            setBenchmarkSeed(loaded.benchmark_seed || null);
             const pr=await fetch(`http://127.0.0.1:8191/api/projects/${data.project_id}`);
             if(pr.ok){
               const meta=await pr.json();
@@ -592,6 +623,31 @@ export default function AlinaStudioPage() {
             <button className={workspaceView==="forecast"?"active":""} onClick={()=>setWorkspaceView("forecast")}>Прогноз</button>
           </div>
 
+          <div className="asBenchmarkPanel">
+            <div className="asBenchmarkHead">
+              <div>
+                <small>ALICE BENCHMARK SEED</small>
+                <b>{benchmarkSeed ? "MANUAL VERIFIED BENCHMARK · IMPORTED" : "Ранее выполненный разбор Алисы"}</b>
+                <span>{benchmarkSeed
+                  ? "Эталон подключён к текущей БЗ отдельно от автоматического run."
+                  : "Наш ранее проверенный разбор можно подмешать как seed/benchmark, не выдавая его за текущий Deep Run."}</span>
+              </div>
+              <button disabled={!projectId || benchmarkBusy} onClick={importAliceBenchmark}>
+                {benchmarkBusy ? "Импорт…" : benchmarkSeed ? "Обновить эталон" : "Вставить эталон Алисы"}
+              </button>
+            </div>
+            <div className="asBenchmarkMetrics">
+              <article><small>КАТАЛОГ</small><b>{benchmarkSeed?.cycle_expected ?? 52}</b><span>произведения</span></article>
+              <article><small>БОЛЬШОЙ FB2</small><b>{benchmarkSeed?.source_audit?.matched_works ?? 51}/52</b><span>ручной аудит</span></article>
+              <article><small>ОТДЕЛЬНЫЙ PDF</small><b>{benchmarkSeed?.current_project_expected_matches===52 ? "ЕСТЬ" : "ЗВЁЗДНЫЙ ПЁС"}</b><span>ALICE-029</span></article>
+              <article><small>DEEP BENCHMARK</small><b>{benchmarkSeed?.historical_deep_benchmark?.clean_chunks ?? 61}</b><span>chunks «Сто лет тому вперёд»</span></article>
+            </div>
+            {benchmarkSeed && <div className="asBenchmarkNote">
+              <span>FOUNDATION:</span>
+              <b>{benchmarkSeed.historical_deep_benchmark?.pipeline_metrics?.claims_total ?? 565} claims · {benchmarkSeed.historical_deep_benchmark?.pipeline_metrics?.entities ?? 46} entities · {benchmarkSeed.historical_deep_benchmark?.pipeline_metrics?.events ?? 19} events · {benchmarkSeed.historical_deep_benchmark?.pipeline_metrics?.graph_edges ?? 80} graph edges</b>
+            </div>}
+          </div>
+
           <div className="asDeepStatus">
             <div>
               <small>DEEP ANALYSIS ENGINE</small>
@@ -615,7 +671,7 @@ export default function AlinaStudioPage() {
 
           <div className="asRunReport">
             <article><small>ИСТОЧНИКИ</small><b>{files.length}</b><span>локальных файлов</span></article>
-            <article><small>ПРОИЗВЕДЕНИЯ</small><b>{runState?.metrics?.works ?? "—"}{runState?.metrics?.works_expected ? ` / ${runState.metrics.works_expected}` : ""}</b><span>{runState?.metrics?.works_review != null ? `review: ${runState.metrics.works_review} · missing: ${runState.metrics.works_missing ?? 0}` : "по каталогу"}</span></article>
+            <article><small>ПРОИЗВЕДЕНИЯ</small><b>{benchmarkSeed ? `${benchmarkSeed.current_project_expected_matches} / ${benchmarkSeed.cycle_expected}` : (runState?.metrics?.works ?? "—")}{!benchmarkSeed && runState?.metrics?.works_expected ? ` / ${runState.metrics.works_expected}` : ""}</b><span>{benchmarkSeed ? "BENCHMARK VERIFIED" : (runState?.metrics?.works_review != null ? `review: ${runState.metrics.works_review} · missing: ${runState.metrics.works_missing ?? 0}` : "по каталогу")}</span></article>
             <article><small>СТРУКТУРНЫЕ ОБЪЕКТЫ</small><b>{runState?.metrics?.entities ?? "—"}</b><span>первичный реестр заголовков</span></article>
             <article><small>СОБЫТИЯ</small><b>{runState?.metrics?.events ?? "—"}</b><span>извлечено</span></article>
             <article><small>ПРОТИВОРЕЧИЯ</small><b>{runState?.metrics?.conflicts ?? "—"}</b><span>структурный cross-check</span></article>
