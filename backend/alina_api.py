@@ -38,6 +38,65 @@ app.add_middleware(
 
 RUNS: dict[str, dict[str, Any]] = {}
 LOCK = threading.Lock()
+DEBUG_TRACE_LOCK = threading.Lock()
+DEBUG_TRACE_FILE = ROOT / "projects" / "sto_let_tomu_vpered" / "debug" / "alina_ui_trace.jsonl"
+
+def sanitize_debug_value(value: Any) -> Any:
+    if isinstance(value, dict):
+        allowed = {}
+        for key, item in value.items():
+            if key in {
+                "action_id","event_type","status","project_id","project_code","run_id",
+                "workspace_view","phase","method","endpoint","http_status","sequence",
+                "step","result","reason","source_count","kb_version","analysis_profile",
+                "product_type","product_id","button","duration_ms"
+            }:
+                allowed[key] = sanitize_debug_value(item)
+        return allowed
+    if isinstance(value, list):
+        return [sanitize_debug_value(x) for x in value[:20]]
+    if isinstance(value, (str,int,float,bool)) or value is None:
+        text = str(value) if isinstance(value, str) else value
+        if isinstance(text, str):
+            return text[:240]
+        return text
+    return str(value)[:240]
+
+
+def append_debug_trace(event: dict[str, Any]) -> dict[str, Any]:
+    safe = sanitize_debug_value(event)
+    record = {
+        "timestamp": now(),
+        **safe,
+        "privacy": "SAFE_DEBUG_NO_BOOK_TEXT_NO_SOURCE_FILENAMES",
+    }
+    DEBUG_TRACE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    line = json.dumps(record, ensure_ascii=False)
+    with DEBUG_TRACE_LOCK:
+        with DEBUG_TRACE_FILE.open("a", encoding="utf-8") as fh:
+            fh.write(line + "\n")
+    return record
+
+
+def publish_debug_trace_to_git() -> dict[str, Any]:
+    try:
+        rel = str(DEBUG_TRACE_FILE.relative_to(ROOT)).replace("\\", "/")
+        subprocess.run(["git","add","--",rel], cwd=ROOT, check=True, capture_output=True, text=True)
+        diff = subprocess.run(["git","diff","--cached","--quiet"], cwd=ROOT)
+        if diff.returncode == 0:
+            return {"status":"NO_CHANGES"}
+        subprocess.run(
+            ["git","commit","-m","debug(alina): append UI/API trace"],
+            cwd=ROOT, check=True, capture_output=True, text=True,
+        )
+        push = subprocess.run(
+            ["git","push","origin","alina-book-2"],
+            cwd=ROOT, check=True, capture_output=True, text=True,
+        )
+        return {"status":"PUSHED","detail":(push.stderr.strip() or push.stdout.strip())[:500]}
+    except Exception as exc:
+        return {"status":"WARN","error":str(exc)[:500]}
+
 
 STAGES = [
     ("SOURCE", "Подготовка источников", 8),
@@ -1118,6 +1177,40 @@ async def start_deep_analysis(
         "analysis_profile":profile,
         "analysis_fingerprint":analysis_key,
     }
+
+@app.post("/api/debug/trace")
+async def debug_trace_event(
+    event: str = Form(...),
+    payload: str = Form("{}"),
+    publish: bool = Form(True),
+) -> JSONResponse:
+    try:
+        data = json.loads(payload) if payload else {}
+    except Exception:
+        data = {}
+    record = append_debug_trace({
+        "event_type": event,
+        **(data if isinstance(data, dict) else {}),
+    })
+    git_result = {"status":"SKIPPED"}
+    if publish:
+        git_result = publish_debug_trace_to_git()
+    return JSONResponse({"status":"RECORDED","record":record,"github":git_result})
+
+
+@app.get("/api/debug/trace")
+def get_debug_trace(limit: int = 200) -> JSONResponse:
+    if not DEBUG_TRACE_FILE.exists():
+        return JSONResponse([])
+    lines = DEBUG_TRACE_FILE.read_text(encoding="utf-8").splitlines()
+    rows = []
+    for line in lines[-max(1,min(limit,1000)):]:
+        try:
+            rows.append(json.loads(line))
+        except Exception:
+            pass
+    return JSONResponse(rows)
+
 
 @app.get("/api/health")
 def health() -> dict[str, Any]:
