@@ -77,6 +77,8 @@ export default function AlinaStudioPage() {
   const [projects,setProjects] = useState([]);
   const [projectHistory,setProjectHistory] = useState({});
   const [historyOpen,setHistoryOpen] = useState(null);
+  const [deleteModal,setDeleteModal] = useState(null);
+  const [deleteBusy,setDeleteBusy] = useState(false);
 
   const activeMode = projectModes.find(x=>x[0]===mode);
   const isStudy = activeMode?.[3] === "STUDY";
@@ -146,37 +148,45 @@ export default function AlinaStudioPage() {
     await loadProjects();
   }
 
-  async function deleteRunHistory(projectIdValue, runIdValue){
-    if(!window.confirm(`Удалить запись истории ${runIdValue}? База знаний проекта останется.`)) return;
-    const r=await fetch(`http://127.0.0.1:8191/api/projects/${projectIdValue}/runs/${runIdValue}`,{method:"DELETE"});
-    if(!r.ok){
-      alert("Не удалось удалить run: "+await r.text());
-      return;
+  async function performDeleteRun(projectIdValue, runIdValue){
+    setDeleteBusy(true);
+    try{
+      const r=await fetch(`http://127.0.0.1:8191/api/projects/${projectIdValue}/runs/${runIdValue}`,{method:"DELETE"});
+      if(!r.ok) throw new Error(await r.text());
+      setProjectHistory(prev=>({
+        ...prev,
+        [projectIdValue]:(prev[projectIdValue] || []).filter(x=>x.run_id!==runIdValue)
+      }));
+      await loadProjects();
+      setDeleteModal(null);
+    }catch(err){
+      alert("Не удалось удалить run: "+err.message);
+    }finally{
+      setDeleteBusy(false);
     }
-    setProjectHistory(prev=>({
-      ...prev,
-      [projectIdValue]:(prev[projectIdValue] || []).filter(x=>x.run_id!==runIdValue)
-    }));
-    await loadProjects();
   }
 
-  async function deleteLocalProject(project){
-    if(!window.confirm(`Удалить локальный проект «${project.title}» вместе с его базой знаний и историей запусков?`)) return;
-    const r=await fetch(`http://127.0.0.1:8191/api/projects/${project.project_id}`,{method:"DELETE"});
-    if(!r.ok){
-      alert("Не удалось удалить проект: "+await r.text());
-      return;
+  async function performDeleteProject(project){
+    setDeleteBusy(true);
+    try{
+      const r=await fetch(`http://127.0.0.1:8191/api/projects/${project.project_id}`,{method:"DELETE"});
+      if(!r.ok) throw new Error(await r.text());
+      if(projectId===project.project_id){
+        setPhase("setup");
+        setProjectId(null);
+        setRunId(null);
+        setRunState(null);
+        setKbData({});
+      }
+      setProjectHistory(prev=>{const n={...prev}; delete n[project.project_id]; return n;});
+      setHistoryOpen(null);
+      await loadProjects();
+      setDeleteModal(null);
+    }catch(err){
+      alert("Не удалось удалить проект: "+err.message);
+    }finally{
+      setDeleteBusy(false);
     }
-    if(projectId===project.project_id){
-      setPhase("setup");
-      setProjectId(null);
-      setRunId(null);
-      setRunState(null);
-      setKbData({});
-    }
-    setProjectHistory(prev=>{const n={...prev}; delete n[project.project_id]; return n;});
-    setHistoryOpen(null);
-    await loadProjects();
   }
 
   async function openLocalProject(project){
@@ -297,8 +307,17 @@ export default function AlinaStudioPage() {
     e.target.value = "";
   }
 
-  function removeFile(key){
-    setFiles(prev=>prev.filter(f=>f.name+"-"+f.size!==key));
+  function requestRemoveFile(file){
+    setDeleteModal({type:"file",file,key:file.name+"-"+file.size});
+  }
+
+  function performRemoveFile(key){
+    setFiles(prev=>{
+      const next=prev.filter(f=>f.name+"-"+f.size!==key);
+      if(!titleTouched) setTitle(inferClientTitle(next));
+      return next;
+    });
+    setDeleteModal(null);
   }
 
   function toggleArea(a){
@@ -337,7 +356,7 @@ export default function AlinaStudioPage() {
               <button onClick={()=>openLocalProject(p)}>Открыть</button>
               <button onClick={()=>renameLocalProject(p)}>Переименовать</button>
               <button onClick={()=>toggleHistory(p.project_id)}>История</button>
-              <button className="danger" onClick={()=>deleteLocalProject(p)}>Удалить проект</button>
+              <button className="danger" onClick={()=>setDeleteModal({type:"project",project:p})}>Удалить проект</button>
             </div>
             {historyOpen===p.project_id && <div className="asHistory">
               {(projectHistory[p.project_id] || []).length===0 ? <span>История пока пуста.</span> :
@@ -346,7 +365,7 @@ export default function AlinaStudioPage() {
                   <span>{r.status} · {r.progress ?? 0}%</span>
                   <span>works {r.metrics?.works ?? "—"} / {r.metrics?.works_expected ?? "—"}</span>
                   <small>{r.updated_at || r.created_at}</small>
-                  <button className="danger" onClick={()=>deleteRunHistory(p.project_id,r.run_id)}>Удалить run</button>
+                  <button className="danger" onClick={()=>setDeleteModal({type:"run",project:p,run:r})}>Удалить run</button>
                 </div>)}
             </div>}
           </article>)}
@@ -405,7 +424,7 @@ export default function AlinaStudioPage() {
             const key=f.name+"-"+f.size;
             return <div key={key}>
               <span><b>{String(i+1).padStart(2,"0")}</b>{f.name}</span>
-              <span className="asFileRight"><small>{(f.size/1024/1024).toFixed(2)} MB</small><button onClick={()=>removeFile(key)}>×</button></span>
+              <span className="asFileRight"><small>{(f.size/1024/1024).toFixed(2)} MB</small><button className="asTrashBtn" title="Удалить файл" onClick={()=>requestRemoveFile(f)}>⌫</button></span>
             </div>;
           })}
         </div>}
@@ -769,6 +788,50 @@ export default function AlinaStudioPage() {
           </section>}
         </section>}
       </>}
+
+      {deleteModal && <div className="asModalBackdrop" onMouseDown={e=>{if(e.target===e.currentTarget && !deleteBusy)setDeleteModal(null)}}>
+        <section className="asDeleteModal" role="dialog" aria-modal="true" aria-label="Подтверждение удаления">
+          <div className="asDeleteIcon">⌫</div>
+          <small>ALINA · DELETE CONFIRMATION</small>
+
+          {deleteModal.type==="file" && <>
+            <h3>Удалить файл из нового проекта?</h3>
+            <p>Файл будет убран только из текущего списка загрузки. Исходный файл на компьютере не удаляется.</p>
+            <div className="asDeleteTarget">
+              <b>{deleteModal.file.name}</b>
+              <span>{(deleteModal.file.size/1024/1024).toFixed(2)} MB · локальный файл</span>
+            </div>
+          </>}
+
+          {deleteModal.type==="run" && <>
+            <h3>Удалить эту запись истории?</h3>
+            <p>Будет удалён только выбранный run. База знаний и остальные запуски проекта останутся.</p>
+            <div className="asDeleteTarget">
+              <b>{deleteModal.run.run_id}</b>
+              <span>{deleteModal.run.status} · {deleteModal.run.progress ?? 0}% · works {deleteModal.run.metrics?.works ?? "—"}/{deleteModal.run.metrics?.works_expected ?? "—"}</span>
+            </div>
+          </>}
+
+          {deleteModal.type==="project" && <>
+            <h3>Удалить проект целиком?</h3>
+            <p>Это удалит локальный проект, его загруженные копии книг, базу знаний, граф, review queue и историю запусков.</p>
+            <div className="asDeleteTarget danger">
+              <b>{deleteModal.project.title}</b>
+              <span>{deleteModal.project.run_count || 0} запуск(ов) · {deleteModal.project.project_id}</span>
+            </div>
+            <div className="asDeleteWarning">Исходные книги вне папки ALINA на вашем компьютере не удаляются.</div>
+          </>}
+
+          <div className="asModalActions">
+            <button className="secondary" disabled={deleteBusy} onClick={()=>setDeleteModal(null)}>Отмена</button>
+            <button className="danger" disabled={deleteBusy} onClick={()=>{
+              if(deleteModal.type==="file") performRemoveFile(deleteModal.key);
+              if(deleteModal.type==="run") performDeleteRun(deleteModal.project.project_id,deleteModal.run.run_id);
+              if(deleteModal.type==="project") performDeleteProject(deleteModal.project);
+            }}>{deleteBusy ? "Удаление…" : deleteModal.type==="project" ? "Удалить проект" : "Удалить"}</button>
+          </div>
+        </section>
+      </div>}
     </div>
   );
 }
