@@ -43,7 +43,44 @@ def load_model_config() -> dict[str, Any]:
 
 def detect_local_model() -> dict[str, Any]:
     config = load_model_config()
+    gguf_warning = None
     gguf_path = str(config.get("gguf_path") or "").strip()
+
+    # Prefer an explicitly configured local OpenAI-compatible server.
+    explicit = os.getenv("ALINA_LLM_BASE_URL", "").rstrip("/")
+    explicit_model = os.getenv("ALINA_LLM_MODEL", "").strip()
+    if explicit:
+        try:
+            json_request(explicit + "/models", timeout=3)
+            return {
+                "available": True,
+                "provider": "OPENAI_COMPAT_LOCAL",
+                "base_url": explicit,
+                "model": explicit_model or "local-model",
+            }
+        except Exception as exc:
+            gguf_warning = f"OpenAI-compatible endpoint unavailable: {exc}"
+
+    # Prefer Ollama when it is already running and has a model.
+    ollama = os.getenv("ALINA_OLLAMA_URL", "http://127.0.0.1:11434").rstrip("/")
+    try:
+        tags = json_request(ollama + "/api/tags", timeout=3)
+        models = [x.get("name") for x in tags.get("models", []) if x.get("name")]
+        preferred = os.getenv("ALINA_OLLAMA_MODEL", "").strip()
+        model = preferred if preferred in models else (models[0] if models else None)
+        if model:
+            return {
+                "available": True,
+                "provider": "OLLAMA",
+                "base_url": ollama,
+                "model": model,
+                "models": models,
+                "fallback_note": gguf_warning,
+            }
+    except Exception as exc:
+        gguf_warning = f"Ollama unavailable: {exc}"
+
+    # Fall back to a manually selected GGUF only after network-local providers.
     if gguf_path:
         path = Path(gguf_path)
         if path.exists() and path.suffix.lower() == ".gguf":
@@ -55,6 +92,7 @@ def detect_local_model() -> dict[str, Any]:
                     "model": path.name,
                     "model_path": str(path),
                     "configured": True,
+                    "fallback_note": gguf_warning,
                 }
             except Exception as exc:
                 return {
@@ -65,46 +103,14 @@ def detect_local_model() -> dict[str, Any]:
                     "configured": True,
                     "error": "GGUF выбран, но llama-cpp-python недоступен: " + str(exc),
                     "needs_package": "llama-cpp-python",
+                    "fallback_note": gguf_warning,
                 }
 
-    explicit = os.getenv("ALINA_LLM_BASE_URL", "").rstrip("/")
-    explicit_model = os.getenv("ALINA_LLM_MODEL", "").strip()
-    if explicit:
-        try:
-            json_request(explicit + "/models", timeout=3)
-            return {"available":True,"provider":"OPENAI_COMPAT_LOCAL","base_url":explicit,"model":explicit_model or "local-model"}
-        except Exception as exc:
-            return {"available":False,"provider":"OPENAI_COMPAT_LOCAL","error":str(exc)}
-
-    ollama = os.getenv("ALINA_OLLAMA_URL", "http://127.0.0.1:11434").rstrip("/")
-    try:
-        tags = json_request(ollama + "/api/tags", timeout=3)
-        models = [x.get("name") for x in tags.get("models",[]) if x.get("name")]
-        preferred = os.getenv("ALINA_OLLAMA_MODEL","").strip()
-        model = preferred if preferred in models else (models[0] if models else None)
-        if model:
-            return {"available":True,"provider":"OLLAMA","base_url":ollama,"model":model,"models":models}
-        return {"available":False,"provider":"OLLAMA","models":[]}
-    except Exception as exc:
-        return {"available":False,"provider":"NONE","error":str(exc)}
-
-
-def get_llama_cpp(model_info: dict[str, Any]):
-    global _LLAMA_INSTANCE, _LLAMA_PATH
-    model_path = model_info["model_path"]
-    with _LLAMA_LOCK:
-        if _LLAMA_INSTANCE is not None and _LLAMA_PATH == model_path:
-            return _LLAMA_INSTANCE
-        from llama_cpp import Llama
-        _LLAMA_INSTANCE = Llama(
-            model_path=model_path,
-            n_ctx=int(os.getenv("ALINA_LLAMA_CTX", "16384")),
-            n_gpu_layers=int(os.getenv("ALINA_LLAMA_GPU_LAYERS", "-1")),
-            verbose=False,
-        )
-        _LLAMA_PATH = model_path
-        return _LLAMA_INSTANCE
-
+    return {
+        "available": False,
+        "provider": "NONE",
+        "error": gguf_warning or "Local model not found",
+    }
 
 def extract_json(text: str) -> dict[str, Any]:
     text = text.strip()
