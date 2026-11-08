@@ -284,7 +284,12 @@ export default function AlinaStudioPage() {
             <span>STAGE {Math.max(effectiveStage,0)+1}/{liveStages.length}</span>
             <span>ACTIVE: {runState?.stage || ["SOURCE","SPLIT","EVIDENCE","ENTITIES","WORLD","CONFLICTS","FINALIZE"][effectiveStage]}</span>
             <span>PRIVATE LOCAL</span>
+            {runState?.current_total > 0 && <span>TEXT: {runState.current_item}/{runState.current_total}</span>}
           </div>
+          {runState?.current_name && <div className="asCurrentText">
+            <small>СЕЙЧАС ОБРАБАТЫВАЕТСЯ</small>
+            <b>{runState.current_name}</b>
+          </div>}
           <div className="asLiveSteps">
             {liveStages.map((x,i)=><button key={x[0]} className={i<effectiveStage?"done":i===effectiveStage?"active":""} disabled={Boolean(runId)} onClick={()=>setRunStage(i)}>
               <b>{i<runStage?"✓":String(i+1).padStart(2,"0")}</b><span>{x[0]}</span>
@@ -459,7 +464,7 @@ export default function AlinaStudioPage() {
               <article><small>ACTIVE MODULE</small><b>{runState?.stage || "—"}</b></article>
               <article><small>PROGRESS</small><b>{runState?.progress ?? 0}%</b></article>
               <article><small>ERRORS</small><b>{runState?.error ? 1 : 0}</b></article>
-              <article><small>ELAPSED</small><b>00:00:00</b></article>
+              <article><small>TEXT ITEM</small><b>{runState?.current_total ? `${runState.current_item}/${runState.current_total}` : "—"}</b></article>
             </div>
             <div className="asProcessLayout">
               <div className="asStageBoard">
@@ -469,11 +474,18 @@ export default function AlinaStudioPage() {
               </div>
               <div className="asTraceLog">
                 <div className="asTraceHead"><b>TRACE LOG</b><span>{traceLevel}</span></div>
-                <pre>{runState?.trace?.length ? runState.trace.map(e=>`[${e.timestamp}] [${e.stage}] [${e.status}] ${e.action}`).join("\n") : `[SYSTEM] Project opened in PRIVATE LOCAL MODE
+                <pre>{runState?.trace?.length ? runState.trace.map(e=>`[${e.timestamp}] [${e.stage}] [${e.status}] ${e.current && e.total ? `[${e.current}/${e.total}] ` : ""}${e.action}`).join("\n") : `[SYSTEM] Project opened in PRIVATE LOCAL MODE
 [INGEST] Waiting for local backend
 [POLICY] External research: ${externalResearch ? "ENABLED" : "DISABLED"}
 [POLICY] Git/public export: DISABLED`}</pre>
               </div>
+            </div>
+            <div className="asGithubTrace">
+              <div>
+                <small>GITHUB SAFE EXPORT</small>
+                <b>{runState?.trace?.some(e=>e.stage==="GITHUB" && e.status==="PASS") ? "PUSHED" : runState?.trace?.some(e=>e.stage==="GITHUB" && e.status==="WARN") ? "WARNING" : "WAITING"}</b>
+              </div>
+              <span>В GitHub отправляется только безопасный run-report: метрики, сопоставление произведений, статусы и trace-summary. Текст книг не отправляется.</span>
             </div>
             <div className="asTraceSchema">
               <b>Каждая запись трассы:</b>
