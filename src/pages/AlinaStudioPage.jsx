@@ -38,6 +38,20 @@ const authorPipeline = [
   ["07","WRITE","План → сцены → текст"]
 ];
 
+const kbTabs = [
+  ["summary","Обзор"],
+  ["works","Произведения"],
+  ["characters","Персонажи"],
+  ["events","События"],
+  ["timeline","Хронология"],
+  ["world","Мир"],
+  ["technology","Технологии"],
+  ["relations","Связи"],
+  ["conflicts","Противоречия"],
+  ["evidence","Доказательства"],
+  ["review","На проверку"]
+];
+
 export default function AlinaStudioPage() {
   const inputRef = useRef(null);
   const [mode,setMode] = useState("study-cycle");
@@ -47,6 +61,8 @@ export default function AlinaStudioPage() {
   const [areas,setAreas] = useState(new Set(["Хронология","Персонажи","События","Локации","Технологии","Отношения"]));
   const [phase,setPhase] = useState("setup");
   const [externalResearch,setExternalResearch] = useState(false);
+  const [kbTab,setKbTab] = useState("summary");
+  const [kbQuery,setKbQuery] = useState("");
 
   const activeMode = projectModes.find(x=>x[0]===mode);
   const isStudy = activeMode?.[3] === "STUDY";
@@ -227,13 +243,104 @@ export default function AlinaStudioPage() {
         </button>
       </section>
 
-      {phase==="ready" && <section className="asReady">
-        <span>✓</span>
-        <div>
-          <b>Проект подготовлен в PRIVATE LOCAL MODE</b>
-          <p>Следующий backend-узел должен принять выбранные файлы локально, прогнать ALINA AUTO CORPUS INGEST и вернуть сюда реальную структуру БЗ и прогресс разбора.</p>
-        </div>
-      </section>}
+      {phase==="ready" && <>
+        <section className="asReady">
+          <span>✓</span>
+          <div>
+            <b>Рабочее место базы знаний открыто</b>
+            <p>Сейчас показан интерфейс результата. Когда подключим локальный backend, сюда будут поступать реальные объекты, метрики и evidence из ALINA AUTO CORPUS INGEST.</p>
+          </div>
+        </section>
+
+        <section className="asWorkspace">
+          <div className="asWorkspaceHead">
+            <div>
+              <small>ALINA KNOWLEDGE WORKSPACE</small>
+              <h2>{title || "Новый проект"}</h2>
+              <p>Результат анализа, состояние БЗ и точки, где нужен человек.</p>
+            </div>
+            <div className="asWorkspaceActions">
+              <button>Экспорт отчёта</button>
+              <button className="primary">Продолжить работу с миром →</button>
+            </div>
+          </div>
+
+          <div className="asRunReport">
+            <article><small>ИСТОЧНИКИ</small><b>{files.length}</b><span>локальных файлов</span></article>
+            <article><small>ПРОИЗВЕДЕНИЯ</small><b>—</b><span>после ingest</span></article>
+            <article><small>СУЩНОСТИ</small><b>—</b><span>персонажи / места / объекты</span></article>
+            <article><small>СОБЫТИЯ</small><b>—</b><span>после extraction</span></article>
+            <article><small>ПРОТИВОРЕЧИЯ</small><b>—</b><span>после cross-check</span></article>
+            <article><small>REVIEW</small><b>—</b><span>неуверенные выводы</span></article>
+          </div>
+
+          <div className="asDonePanel">
+            <div>
+              <small>ЧТО СДЕЛАЛА ALINA</small>
+              <h3>Отчёт выполнения</h3>
+            </div>
+            <div className="asDoneGrid">
+              <span className="done">✓ Источники приняты</span>
+              <span>○ Определить произведения</span>
+              <span>○ Разделить на главы</span>
+              <span>○ Извлечь evidence</span>
+              <span>○ Построить сущности и связи</span>
+              <span>○ Собрать хронологию</span>
+              <span>○ Найти противоречия</span>
+              <span>○ Сформировать review queue</span>
+            </div>
+          </div>
+
+          <div className="asKbToolbar">
+            <div className="asKbTabs">
+              {kbTabs.map(([id,label])=><button key={id} className={kbTab===id?"active":""} onClick={()=>setKbTab(id)}>{label}</button>)}
+            </div>
+            <div className="asKbSearch"><span>⌕</span><input value={kbQuery} onChange={e=>setKbQuery(e.target.value)} placeholder="Поиск по базе знаний..."/></div>
+          </div>
+
+          <div className="asKbBody">
+            <aside className="asKbSide">
+              <b>Фильтры</b>
+              <label><input type="checkbox" defaultChecked/> Только подтверждённые</label>
+              <label><input type="checkbox"/> Только с конфликтами</label>
+              <label><input type="checkbox"/> Требует проверки</label>
+              <hr/>
+              <small>УВЕРЕННОСТЬ</small>
+              <button>Высокая</button>
+              <button>Средняя</button>
+              <button>Низкая</button>
+            </aside>
+
+            <section className="asKbContent">
+              <div className="asEmptyState">
+                <span>◇</span>
+                <h3>{kbTabs.find(x=>x[0]===kbTab)?.[1]}</h3>
+                <p>Здесь появятся реальные записи после локального анализа. Любую запись можно будет открыть, увидеть источник, связи, уровень уверенности и историю изменений.</p>
+                <div className="asObjectExample">
+                  <div><small>OBJECT</small><b>Персонаж / событие / технология</b></div>
+                  <div><small>CONFIDENCE</small><b>0.00–1.00</b></div>
+                  <div><small>PROVENANCE</small><b>Книга → глава → фрагмент</b></div>
+                  <div><small>STATUS</small><b>CANON / REVIEW / CONFLICT</b></div>
+                </div>
+              </div>
+            </section>
+
+            <aside className="asInspector">
+              <small>INSPECTOR</small>
+              <h3>Карточка объекта</h3>
+              <p>Выберите запись в БЗ.</p>
+              <div><span>Источник</span><b>—</b></div>
+              <div><span>Уверенность</span><b>—</b></div>
+              <div><span>Связей</span><b>—</b></div>
+              <div><span>Конфликтов</span><b>—</b></div>
+              <hr/>
+              <button>Подтвердить</button>
+              <button>Исправить</button>
+              <button>Пометить спорным</button>
+            </aside>
+          </div>
+        </section>
+      </>}
     </div>
   );
 }
