@@ -766,6 +766,7 @@ export default function AlinaStudioPage() {
             <span>{projectMeta?.short_code || "—"} · {projectId} · sources / kb / runs / deep / products готовы</span>
           </div>}
         </div>
+        {apiError && !projectId && <div className="asSetupError">{apiError}</div>}
       </section>
 
       <section className="asPanel">
