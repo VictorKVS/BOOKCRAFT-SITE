@@ -20,6 +20,8 @@ from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
+from backend.deep_analysis import detect_local_model, extract_units, chunk_units, analyze_chunk, merge_extractions
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA_ROOT = ROOT / ".alina-private"
 PROJECTS_ROOT = DATA_ROOT / "projects"
@@ -609,7 +611,7 @@ def run_ingest(run_id: str, project_dir: Path, source_files: list[Path], project
             "run_id": run_id,
             "completed_at": now(),
             "status": "PASS",
-            "analysis_level": "FOUNDATION_ONLY",
+            "analysis_level": meta.get("analysis_level", "FOUNDATION_ONLY"),
             "deep_semantic_analysis": False,
             "metrics": {
                 "sources": len(source_records),
@@ -657,6 +659,188 @@ def run_ingest(run_id: str, project_dir: Path, source_files: list[Path], project
             RUNS[run_id]["error"] = str(exc)
             RUNS[run_id]["updated_at"] = now()
         trace(run_id, RUNS[run_id].get("stage", "SYSTEM"), str(exc), "ERROR")
+
+
+def run_deep_analysis(run_id: str, project_dir: Path) -> None:
+    try:
+        model = detect_local_model()
+        with LOCK:
+            RUNS[run_id]["model"] = model
+            RUNS[run_id]["stage"] = "MODEL"
+            RUNS[run_id]["stage_label"] = "Проверка локальной LLM"
+            RUNS[run_id]["detail"] = "Ищу локальную модель для глубокого анализа"
+            RUNS[run_id]["status"] = "RUNNING"
+            RUNS[run_id]["progress"] = 1
+        persist_run_state(run_id)
+        trace(run_id, "MODEL", f"Provider: {model.get('provider')} / model: {model.get('model')}", "INFO")
+
+        if not model.get("available"):
+            with LOCK:
+                RUNS[run_id]["status"] = "NEEDS_MODEL"
+                RUNS[run_id]["detail"] = "Локальная LLM не обнаружена. Глубокий анализ не запускался."
+                RUNS[run_id]["progress"] = 0
+            persist_run_state(run_id)
+            trace(run_id, "MODEL", "Deep analysis остановлен: локальная модель не найдена", "WARN")
+            return
+
+        sources = read_json(project_dir / "kb" / "sources.json", []) or []
+        source_by_name = {x.get("filename"): x for x in sources}
+        source_paths = [p for p in (project_dir / "sources").iterdir() if p.is_file()]
+        all_chunks = []
+
+        with LOCK:
+            RUNS[run_id].update({
+                "stage":"CHUNKING","stage_label":"Подготовка полного текста","detail":"Разбиваю полный корпус на аналитические chunks","progress":3,
+            })
+        persist_run_state(run_id)
+
+        for file_index, path in enumerate(source_paths, start=1):
+            source = source_by_name.get(path.name, {})
+            source_id = source.get("source_id") or f"SRC-{file_index:04d}"
+            trace(run_id, "CHUNKING", f"Читаю полный текст: {path.name}", "RUNNING", current=file_index, total=len(source_paths), name=path.name)
+            units = extract_units(path)
+            chunks = chunk_units(source_id, path.name, units)
+            all_chunks.extend(chunks)
+            trace(run_id, "CHUNKING", f"{path.name}: units={len(units)}, chunks={len(chunks)}", "PASS")
+
+        deep_dir = project_dir / "deep"
+        chunk_dir = deep_dir / "chunks"
+        chunk_dir.mkdir(parents=True, exist_ok=True)
+        write_json(deep_dir / "chunk_index.json", [
+            {k:v for k,v in ch.items() if k != "text"} for ch in all_chunks
+        ])
+
+        total = len(all_chunks)
+        if total == 0:
+            raise RuntimeError("Не удалось получить текстовые chunks")
+
+        extractions = []
+        chars_processed = 0
+        started = time.perf_counter()
+
+        for idx, chunk in enumerate(all_chunks, start=1):
+            result_path = chunk_dir / f"{chunk['chunk_id']}.json"
+            with LOCK:
+                run = RUNS[run_id]
+                run["stage"] = "DEEP_TEXT"
+                run["stage_label"] = "Глубокий анализ текста"
+                run["detail"] = f"Модель анализирует chunk {idx}/{total}"
+                run["current_item"] = idx
+                run["current_total"] = total
+                run["current_name"] = chunk.get("section_title") or chunk["source_name"]
+                run["progress"] = min(92, 5 + int((idx - 1) / total * 87))
+                run["chars_processed"] = chars_processed
+                run["model_name"] = model.get("model")
+            persist_run_state(run_id)
+
+            if result_path.exists():
+                result = read_json(result_path, {}) or {}
+                trace(run_id, "DEEP_TEXT", f"RESUME {chunk['chunk_id']} — уже обработан", "INFO", current=idx, total=total, name=chunk.get("section_title"))
+            else:
+                t0 = time.perf_counter()
+                result = analyze_chunk(model, chunk)
+                result["_chunk"] = {k:v for k,v in chunk.items() if k != "text"}
+                result["_extractor"] = {"provider":model.get("provider"),"model":model.get("model")}
+                write_json(result_path, result)
+                elapsed = int((time.perf_counter() - t0) * 1000)
+                trace(
+                    run_id, "DEEP_TEXT",
+                    f"ANALYZED {chunk['chunk_id']} — chars={chunk['char_count']} — events={len(result.get('events',[]))} — characters={len(result.get('characters',[]))}",
+                    "PASS", current=idx, total=total, name=chunk.get("section_title"), duration_ms=elapsed,
+                )
+            if "_chunk" not in result:
+                result["_chunk"] = {k:v for k,v in chunk.items() if k != "text"}
+            extractions.append(result)
+            chars_processed += chunk["char_count"]
+
+        with LOCK:
+            RUNS[run_id].update({
+                "stage":"MERGE","stage_label":"Сборка семантической БЗ","detail":"Объединяю персонажей, события, связи и мир","progress":94,
+            })
+        persist_run_state(run_id)
+        merged = merge_extractions(extractions)
+
+        write_json(project_dir / "kb" / "characters.json", merged["characters"])
+        write_json(project_dir / "kb" / "events.json", merged["events"])
+        write_json(project_dir / "kb" / "relations.json", merged["relations"])
+        write_json(project_dir / "kb" / "locations.json", merged["locations"])
+        write_json(project_dir / "kb" / "technologies.json", merged["technologies"])
+        write_json(project_dir / "kb" / "organizations.json", merged["organizations"])
+        write_json(project_dir / "kb" / "time_anchors.json", merged["time_anchors"])
+        write_json(project_dir / "kb" / "deep_claims.json", merged["claims"])
+        write_json(project_dir / "kb" / "open_threads.json", merged["open_threads"])
+
+        graph_nodes = []
+        graph_edges = []
+        for idx, c in enumerate(merged["characters"], start=1):
+            graph_nodes.append({"id":f"CHAR-{idx:05d}","type":"CHARACTER","label":c.get("name"),"chunks":c.get("chunks",[])})
+        for idx, e in enumerate(merged["events"], start=1):
+            graph_nodes.append({"id":f"EVT-{idx:06d}","type":"EVENT","label":e.get("event",""),"chunk_id":e.get("chunk_id")})
+        for idx, rel in enumerate(merged["relations"], start=1):
+            graph_edges.append({"id":f"REL-{idx:06d}","source":rel.get("source"),"target":rel.get("target"),"type":rel.get("relation_type"),"chunk_id":rel.get("chunk_id")})
+        write_json(project_dir / "kb" / "deep_graph.json", {"nodes":graph_nodes,"edges":graph_edges})
+
+        metrics = {
+            "chunks":total,
+            "chars_processed":chars_processed,
+            "characters":len(merged["characters"]),
+            "events":len(merged["events"]),
+            "relations":len(merged["relations"]),
+            "locations":len(merged["locations"]),
+            "technologies":len(merged["technologies"]),
+            "time_anchors":len(merged["time_anchors"]),
+            "claims":len(merged["claims"]),
+            "open_threads":len(merged["open_threads"]),
+            "elapsed_seconds":round(time.perf_counter()-started, 1),
+        }
+        project_meta = read_json(project_dir / "project.json", {}) or {}
+        project_meta["analysis_level"] = "DEEP_SEMANTIC"
+        project_meta["deep_analysis_completed_at"] = now()
+        project_meta["deep_model"] = model.get("model")
+        project_meta["updated_at"] = now()
+        write_json(project_dir / "project.json", project_meta)
+
+        with LOCK:
+            RUNS[run_id].update({
+                "stage":"DEEP_FINALIZE","stage_label":"Глубокий анализ завершён","detail":"Семантическая база знаний построена",
+                "status":"PASS","progress":100,"metrics":metrics,"chars_processed":chars_processed,
+            })
+        persist_run_state(run_id)
+        trace(run_id, "DEEP_FINALIZE", f"PASS: chunks={total}, characters={metrics['characters']}, events={metrics['events']}, relations={metrics['relations']}", "PASS")
+
+    except Exception as exc:
+        with LOCK:
+            RUNS[run_id]["status"] = "FAIL"
+            RUNS[run_id]["error"] = str(exc)
+            RUNS[run_id]["detail"] = "Deep analysis failed"
+        persist_run_state(run_id)
+        trace(run_id, RUNS[run_id].get("stage","DEEP"), str(exc), "ERROR")
+
+
+@app.get("/api/deep/model-status")
+def deep_model_status() -> JSONResponse:
+    return JSONResponse(detect_local_model())
+
+
+@app.post("/api/projects/{project_id}/deep-analysis")
+def start_deep_analysis(project_id: str) -> dict[str, Any]:
+    project_dir = PROJECTS_ROOT / project_id
+    if not project_dir.exists():
+        raise HTTPException(404, "Проект не найден")
+    active = [rid for rid, run in RUNS.items() if run.get("project_id")==project_id and run.get("status") in {"QUEUED","RUNNING"}]
+    if active:
+        raise HTTPException(409, f"У проекта уже идёт run: {active[0]}")
+    meta = read_json(project_dir / "project.json", {}) or {}
+    run_id = f"DEEP-{uuid.uuid4().hex[:12]}"
+    RUNS[run_id] = {
+        "run_id":run_id,"run_type":"DEEP_ANALYSIS","project_id":project_id,"project_title":meta.get("title","Проект"),
+        "status":"QUEUED","progress":0,"stage_index":0,"stage":"QUEUED","stage_label":"Глубокий анализ в очереди",
+        "detail":"Ожидание запуска","trace":[],"metrics":{},"created_at":now(),"updated_at":now(),"error":None,
+        "current_item":0,"current_total":0,"current_name":"","chars_processed":0,
+    }
+    persist_run_state(run_id)
+    threading.Thread(target=run_deep_analysis,args=(run_id,project_dir),daemon=True).start()
+    return {"project_id":project_id,"run_id":run_id,"status":"QUEUED","run_type":"DEEP_ANALYSIS"}
 
 
 @app.get("/api/health")
@@ -738,7 +922,7 @@ def run_status(run_id: str) -> dict[str, Any]:
 
 @app.get("/api/projects/{project_id}/kb/{name}")
 def get_kb(project_id: str, name: str) -> JSONResponse:
-    allowed = {"sources", "structure", "works", "claims", "entities", "events", "world", "graph", "conflicts", "review_queue"}
+    allowed = {"sources","structure","works","claims","entities","events","world","graph","conflicts","review_queue","characters","relations","locations","technologies","organizations","time_anchors","deep_claims","open_threads","deep_graph"}
     if name not in allowed:
         raise HTTPException(404, "Неизвестный раздел БЗ")
     path = PROJECTS_ROOT / project_id / "kb" / f"{name}.json"
