@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 from difflib import SequenceMatcher
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -608,6 +609,8 @@ def run_ingest(run_id: str, project_dir: Path, source_files: list[Path], project
             "run_id": run_id,
             "completed_at": now(),
             "status": "PASS",
+            "analysis_level": "FOUNDATION_ONLY",
+            "deep_semantic_analysis": False,
             "metrics": {
                 "sources": len(source_records),
                 "sections": sum(p.get("section_count", 0) for p in parsed),
@@ -760,6 +763,13 @@ def list_projects() -> JSONResponse:
         latest = runs[0] if runs else None
         projects.append({
             **meta,
+            "analysis_level": "FOUNDATION_ONLY",
+            "folders": {
+                "project": str(project_dir),
+                "sources": str(project_dir / "sources"),
+                "knowledge_base": str(project_dir / "kb"),
+                "runs": str(project_dir / "runs"),
+            },
             "run_count": len(runs),
             "latest_run": {
                 "run_id": latest.get("run_id"),
@@ -772,6 +782,29 @@ def list_projects() -> JSONResponse:
         })
     projects.sort(key=lambda x: x.get("updated_at") or x.get("created_at") or "", reverse=True)
     return JSONResponse(projects)
+
+
+@app.post("/api/projects/{project_id}/open-folder/{folder_name}")
+def open_project_folder(project_id: str, folder_name: str) -> dict[str, Any]:
+    project_dir = PROJECTS_ROOT / project_id
+    folders = {
+        "project": project_dir,
+        "sources": project_dir / "sources",
+        "kb": project_dir / "kb",
+        "runs": project_dir / "runs",
+    }
+    target = folders.get(folder_name)
+    if target is None:
+        raise HTTPException(404, "Неизвестная папка")
+    target.mkdir(parents=True, exist_ok=True)
+    try:
+        if os.name == "nt":
+            os.startfile(str(target))
+        else:
+            subprocess.Popen(["xdg-open", str(target)])
+    except Exception as exc:
+        raise HTTPException(500, f"Не удалось открыть папку: {exc}")
+    return {"status": "OPENED", "folder": folder_name, "path": str(target)}
 
 
 @app.get("/api/projects/{project_id}/runs")
