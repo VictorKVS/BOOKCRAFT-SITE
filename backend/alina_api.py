@@ -5,6 +5,7 @@ from difflib import SequenceMatcher
 import json
 import re
 import shutil
+import subprocess
 import threading
 import time
 import uuid
@@ -206,9 +207,23 @@ def set_stage(run_id: str, index: int, detail: str) -> None:
             "detail": detail,
             "progress": progress,
             "status": "RUNNING",
+            "current_item": 0,
+            "current_total": 0,
+            "current_name": "",
             "updated_at": now(),
         })
     trace(run_id, code, detail, "RUNNING")
+
+
+def set_item_progress(run_id: str, current: int, total: int, name: str, action: str | None = None) -> None:
+    with LOCK:
+        run = RUNS[run_id]
+        run["current_item"] = current
+        run["current_total"] = total
+        run["current_name"] = name
+        run["updated_at"] = now()
+    if action:
+        trace(run_id, RUNS[run_id].get("stage", "TEXT"), action, "INFO", current=current, total=total, name=name)
 
 
 def parse_fb2(path: Path) -> dict[str, Any]:
@@ -325,6 +340,95 @@ def parse_source(path: Path) -> dict[str, Any]:
     raise RuntimeError(f"Неподдерживаемый формат: {ext}")
 
 
+def build_safe_run_report(project_dir: Path, run_id: str, project_title: str, manifest: dict[str, Any], work_match: dict[str, Any] | None, trace_events: list[dict[str, Any]]) -> tuple[Path, Path]:
+    export_dir = ROOT / "projects" / "sto_let_tomu_vpered" / "alice_cycle" / "run_reports"
+    export_dir.mkdir(parents=True, exist_ok=True)
+    safe_trace = [
+        {
+            "timestamp": e.get("timestamp"),
+            "stage": e.get("stage"),
+            "status": e.get("status"),
+            "action": e.get("action"),
+            "current": e.get("current"),
+            "total": e.get("total"),
+            "name": e.get("name"),
+        }
+        for e in trace_events[-500:]
+    ]
+    payload = {
+        "project_title": project_title,
+        "run_id": run_id,
+        "completed_at": manifest.get("completed_at"),
+        "status": manifest.get("status"),
+        "metrics": manifest.get("metrics"),
+        "works": {
+            "cycle": (work_match or {}).get("cycle"),
+            "expected": (work_match or {}).get("expected"),
+            "matched_count": (work_match or {}).get("matched_count"),
+            "review_count": (work_match or {}).get("review_count"),
+            "missing_count": (work_match or {}).get("missing_count"),
+            "matched": [
+                {
+                    "work_id": x.get("work_id"),
+                    "title": x.get("title"),
+                    "matched_heading": x.get("matched_heading"),
+                    "confidence": x.get("confidence"),
+                    "status": x.get("status"),
+                }
+                for x in (work_match or {}).get("matched", [])
+            ],
+            "review": (work_match or {}).get("review", []),
+            "missing": (work_match or {}).get("missing", []),
+        },
+        "trace_summary": safe_trace,
+        "privacy": "SAFE_DERIVED_ONLY_NO_SOURCE_TEXT",
+    }
+    json_path = export_dir / f"{run_id}.json"
+    md_path = export_dir / f"{run_id}.md"
+    write_json(json_path, payload)
+    md = [
+        f"# ALINA SAFE RUN REPORT — {run_id}",
+        "",
+        f"Project: **{project_title}**",
+        f"Status: **{manifest.get('status')}**",
+        "",
+        "## Metrics",
+        "",
+    ]
+    for k, v in (manifest.get("metrics") or {}).items():
+        md.append(f"- {k}: {v}")
+    md += [
+        "",
+        "## Work matching",
+        "",
+        f"- cycle: {(work_match or {}).get('cycle')}",
+        f"- matched: {(work_match or {}).get('matched_count')}",
+        f"- review: {(work_match or {}).get('review_count')}",
+        f"- missing: {(work_match or {}).get('missing_count')}",
+        "",
+        "## Privacy",
+        "",
+        "No source book text or private excerpts are included in this report.",
+    ]
+    md_path.write_text("\n".join(md), encoding="utf-8")
+    return json_path, md_path
+
+
+def git_publish_safe_report(run_id: str, files: list[Path]) -> dict[str, Any]:
+    rels = [str(p.relative_to(ROOT)).replace("\\", "/") for p in files]
+    try:
+        for rel in rels:
+            subprocess.run(["git", "add", "--", rel], cwd=ROOT, check=True, capture_output=True, text=True)
+        diff = subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=ROOT)
+        if diff.returncode == 0:
+            return {"status": "NO_CHANGES", "files": rels}
+        subprocess.run(["git", "commit", "-m", f"data(alina): publish safe run report {run_id}"], cwd=ROOT, check=True, capture_output=True, text=True)
+        push = subprocess.run(["git", "push", "origin", "alina-book-2"], cwd=ROOT, check=True, capture_output=True, text=True)
+        return {"status": "PUSHED", "files": rels, "detail": push.stderr.strip() or push.stdout.strip()}
+    except Exception as exc:
+        return {"status": "WARN", "files": rels, "error": str(exc)}
+
+
 def run_ingest(run_id: str, project_dir: Path, source_files: list[Path], project_title: str) -> None:
     try:
         set_stage(run_id, 0, "Проверяю файлы, форматы и контрольные суммы")
@@ -353,7 +457,17 @@ def run_ingest(run_id: str, project_dir: Path, source_files: list[Path], project
                 **data,
             }
             parsed.append(item)
-            trace(run_id, "SPLIT", f"Разобран {path.name}: {data.get('section_count', 0)} секций", duration_ms=int((time.perf_counter()-t0)*1000), file_index=idx, file_total=len(source_files))
+            total_sections = data.get("section_count", 0)
+            trace(run_id, "SPLIT", f"Разобран {path.name}: {total_sections} секций", duration_ms=int((time.perf_counter()-t0)*1000), file_index=idx, file_total=len(source_files))
+            for sec_idx, sec in enumerate(data.get("sections", [])[:2000], start=1):
+                if sec_idx == 1 or sec_idx % 25 == 0 or sec_idx == total_sections:
+                    set_item_progress(
+                        run_id,
+                        sec_idx,
+                        total_sections,
+                        sec.get("title", ""),
+                        f"TEXT section {sec_idx}/{total_sections}: {sec.get('title', '')}",
+                    )
         write_json(project_dir / "kb" / "structure.json", parsed)
 
         catalog = load_known_catalog(project_title, parsed)
@@ -367,6 +481,10 @@ def run_ingest(run_id: str, project_dir: Path, source_files: list[Path], project
                 f"Каталог {work_match.get('cycle')}: найдено {work_match['matched_count']} из {work_match['expected']} произведений",
                 output_ref="kb/works.json",
             )
+            for idx, w in enumerate(work_match.get("matched", []), start=1):
+                trace(run_id, "MATCH", f"{w['work_id']} → {w['matched_heading']} ({round(w['confidence']*100)}%)", "INFO", current=idx, total=work_match["matched_count"], name=w["title"])
+            for w in work_match.get("review", []):
+                trace(run_id, "MATCH", f"{w['work_id']} → REVIEW: {w.get('candidate_heading')} ({round(w['confidence']*100)}%)", "WARN", name=w["title"])
         else:
             write_json(project_dir / "kb" / "works.json", {
                 "catalog_id": None,
@@ -385,9 +503,13 @@ def run_ingest(run_id: str, project_dir: Path, source_files: list[Path], project
         for item in parsed:
             claims.append({"claim_id": f"CLM-{cid:06d}", "type": "SOURCE_STRUCTURE", "statement": f"{item['filename']} содержит {item.get('section_count', 0)} структурных секций", "source_id": item["source_id"], "confidence": 1.0, "status": "SOURCE_SUPPORTED"})
             cid += 1
-            for heading in item.get("headings", [])[:500]:
+            headings_for_claims = item.get("headings", [])[:500]
+            total_claim_headings = len(headings_for_claims)
+            for hidx, heading in enumerate(headings_for_claims, start=1):
                 claims.append({"claim_id": f"CLM-{cid:06d}", "type": "HEADING", "statement": heading, "source_id": item["source_id"], "confidence": 1.0, "status": "SOURCE_SUPPORTED"})
                 cid += 1
+                if hidx == 1 or hidx % 25 == 0 or hidx == total_claim_headings:
+                    set_item_progress(run_id, hidx, total_claim_headings, heading, f"CLAIM {hidx}/{total_claim_headings}: {heading}")
         write_json(project_dir / "kb" / "claims.json", claims)
         trace(run_id, "EVIDENCE", f"Создано утверждений: {len(claims)}", output_ref="kb/claims.json")
 
@@ -453,6 +575,19 @@ def run_ingest(run_id: str, project_dir: Path, source_files: list[Path], project
             ],
         }
         write_json(project_dir / "runs" / f"{run_id}.json", manifest)
+
+        with LOCK:
+            trace_snapshot = list(RUNS[run_id]["trace"])
+        safe_files = build_safe_run_report(project_dir, run_id, project_title, manifest, work_match, trace_snapshot)
+        trace(run_id, "GITHUB", "SAFE RUN REPORT сформирован без текста книг", "INFO", name=safe_files[0].name)
+        git_result = git_publish_safe_report(run_id, list(safe_files))
+        if git_result.get("status") == "PUSHED":
+            trace(run_id, "GITHUB", "SAFE RUN REPORT отправлен в GitHub/alina-book-2", "PASS")
+        elif git_result.get("status") == "NO_CHANGES":
+            trace(run_id, "GITHUB", "GitHub: изменений для отправки нет", "INFO")
+        else:
+            trace(run_id, "GITHUB", f"GitHub publish warning: {git_result.get('error')}", "WARN")
+
         with LOCK:
             run = RUNS[run_id]
             run["status"] = "PASS"
@@ -525,6 +660,9 @@ async def create_project(
         "created_at": now(),
         "updated_at": now(),
         "error": None,
+        "current_item": 0,
+        "current_total": 0,
+        "current_name": "",
     }
     threading.Thread(target=run_ingest, args=(run_id, project_dir, saved, title), daemon=True).start()
     return {"project_id": project_id, "run_id": run_id, "status": "QUEUED"}
