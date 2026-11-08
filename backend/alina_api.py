@@ -40,6 +40,8 @@ RUNS: dict[str, dict[str, Any]] = {}
 LOCK = threading.Lock()
 DEBUG_TRACE_LOCK = threading.Lock()
 DEBUG_GIT_LOCK = threading.Lock()
+DEBUG_GIT_STATE_LOCK = threading.Lock()
+DEBUG_GIT_STATE = {"status":"WAITING","updated_at":None,"error":None}
 DEBUG_TRACE_FILE = ROOT / "projects" / "sto_let_tomu_vpered" / "debug" / "alina_ui_trace.jsonl"
 
 def sanitize_debug_value(value: Any) -> Any:
@@ -98,6 +100,24 @@ def publish_debug_trace_to_git() -> dict[str, Any]:
             return {"status":"PUSHED","detail":(push.stderr.strip() or push.stdout.strip())[:500]}
         except Exception as exc:
             return {"status":"WARN","error":str(exc)[:500]}
+
+
+def publish_debug_trace_background() -> None:
+    with DEBUG_GIT_STATE_LOCK:
+        if DEBUG_GIT_STATE.get("status") == "PUBLISHING":
+            return
+        DEBUG_GIT_STATE["status"] = "PUBLISHING"
+        DEBUG_GIT_STATE["updated_at"] = now()
+        DEBUG_GIT_STATE["error"] = None
+
+    def worker() -> None:
+        result = publish_debug_trace_to_git()
+        with DEBUG_GIT_STATE_LOCK:
+            DEBUG_GIT_STATE["status"] = result.get("status","WARN")
+            DEBUG_GIT_STATE["updated_at"] = now()
+            DEBUG_GIT_STATE["error"] = result.get("error")
+
+    threading.Thread(target=worker, daemon=True).start()
 
 
 STAGES = [
@@ -1194,11 +1214,11 @@ async def debug_trace_event(
         "event_type": event,
         **(data if isinstance(data, dict) else {}),
     })
-    git_result = {"status":"SKIPPED"}
     if publish:
-        git_result = publish_debug_trace_to_git()
-    return JSONResponse({"status":"RECORDED","record":record,"github":git_result})
-
+        publish_debug_trace_background()
+    with DEBUG_GIT_STATE_LOCK:
+        git_state = dict(DEBUG_GIT_STATE)
+    return JSONResponse({"status":"RECORDED","record":record,"github":git_state})
 
 @app.get("/api/debug/trace")
 def get_debug_trace(limit: int = 200) -> JSONResponse:
@@ -1212,6 +1232,12 @@ def get_debug_trace(limit: int = 200) -> JSONResponse:
         except Exception:
             pass
     return JSONResponse(rows)
+
+
+@app.get("/api/debug/github-status")
+def debug_github_status() -> JSONResponse:
+    with DEBUG_GIT_STATE_LOCK:
+        return JSONResponse(dict(DEBUG_GIT_STATE))
 
 
 @app.get("/api/health")
