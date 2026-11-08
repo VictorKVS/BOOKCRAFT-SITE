@@ -8,6 +8,7 @@ $portBackend = 8191
 $portOllama = 11434
 
 function Stop-Port([int]$port) {
+    $attempted = @{}
     for ($attempt = 1; $attempt -le 8; $attempt++) {
         $connections = @(Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue)
         if (-not $connections -or $connections.Count -eq 0) {
@@ -15,14 +16,15 @@ function Stop-Port([int]$port) {
             return $true
         }
 
-        $pids = @($connections | Select-Object -ExpandProperty OwningProcess -Unique)
-        foreach ($p in $pids) {
-            if ($p) {
+        $ownerPids = @($connections | Select-Object -ExpandProperty OwningProcess -Unique)
+        foreach ($ownerPid in $ownerPids) {
+            if ($ownerPid -and -not $attempted.ContainsKey([string]$ownerPid)) {
+                $attempted[[string]$ownerPid] = $true
                 try {
-                    $proc = Get-CimInstance Win32_Process -Filter "ProcessId=$p" -ErrorAction SilentlyContinue
+                    $proc = Get-CimInstance Win32_Process -Filter "ProcessId=$ownerPid" -ErrorAction SilentlyContinue
                     $cmd = if ($proc) { $proc.CommandLine } else { "" }
-                    Write-Host "Stopping PID=$p on port $port $cmd" -ForegroundColor DarkYellow
-                    Stop-Process -Id $p -Force -ErrorAction SilentlyContinue
+                    Write-Host "Stopping PID=$ownerPid on port $port $cmd" -ForegroundColor DarkYellow
+                    Stop-Process -Id $ownerPid -Force -ErrorAction SilentlyContinue
                 } catch {}
             }
         }
@@ -34,9 +36,9 @@ function Stop-Port([int]$port) {
     if ($remaining.Count -gt 0) {
         Write-Host "Port $port is still occupied after cleanup:" -ForegroundColor Red
         foreach ($conn in $remaining) {
-            $pid = $conn.OwningProcess
-            $proc = Get-CimInstance Win32_Process -Filter "ProcessId=$pid" -ErrorAction SilentlyContinue
-            Write-Host "  PID=$pid  $($proc.Name)  $($proc.CommandLine)" -ForegroundColor Yellow
+            $ownerPid = $conn.OwningProcess
+            $proc = Get-CimInstance Win32_Process -Filter "ProcessId=$ownerPid" -ErrorAction SilentlyContinue
+            Write-Host "  PID=$ownerPid  $($proc.Name)  $($proc.CommandLine)" -ForegroundColor Yellow
         }
         return $false
     }
