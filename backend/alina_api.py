@@ -69,6 +69,68 @@ def sha256(path: Path) -> str:
     return h.hexdigest()
 
 
+def normalize_title(value: str) -> str:
+    value = value.casefold().replace("ё", "е")
+    value = re.sub(r"[«»„“”\"'.,:;!?()\[\]{}—–-]+", " ", value)
+    return re.sub(r"\s+", " ", value).strip()
+
+
+def load_known_catalog(title: str, parsed: list[dict[str, Any]]) -> dict[str, Any] | None:
+    headings = " ".join(h for item in parsed for h in item.get("headings", [])[:200])
+    probe = normalize_title(title + " " + headings)
+    alice_path = ROOT / "projects" / "sto_let_tomu_vpered" / "alice_cycle" / "alice_works_manifest.json"
+    if "алиса" in probe and alice_path.exists():
+        return json.loads(alice_path.read_text(encoding="utf-8"))
+    return None
+
+
+def match_catalog(catalog: dict[str, Any], parsed: list[dict[str, Any]]) -> dict[str, Any]:
+    heading_index: dict[str, list[dict[str, str]]] = {}
+    for item in parsed:
+        for heading in item.get("headings", []):
+            key = normalize_title(heading)
+            if key:
+                heading_index.setdefault(key, []).append({"heading": heading, "source_id": item["source_id"]})
+
+    matched = []
+    missing = []
+    for work in catalog.get("works", []):
+        candidates = [work.get("title", ""), *work.get("aliases", [])]
+        hits = []
+        for candidate in candidates:
+            key = normalize_title(candidate)
+            if key in heading_index:
+                hits.extend(heading_index[key])
+        if hits:
+            matched.append({
+                "work_id": work["work_id"],
+                "title": work["title"],
+                "publication_year": work.get("publication_year"),
+                "form": work.get("form"),
+                "matched_heading": hits[0]["heading"],
+                "source_id": hits[0]["source_id"],
+                "match_type": "TITLE_OR_ALIAS_EXACT",
+                "confidence": 1.0,
+                "status": "MATCHED",
+            })
+        else:
+            missing.append({
+                "work_id": work["work_id"],
+                "title": work["title"],
+                "status": "MISSING_OR_UNRESOLVED",
+            })
+
+    return {
+        "catalog_id": catalog.get("project_id"),
+        "cycle": catalog.get("cycle"),
+        "expected": catalog.get("catalog_count", len(catalog.get("works", []))),
+        "matched_count": len(matched),
+        "missing_count": len(missing),
+        "matched": matched,
+        "missing": missing,
+    }
+
+
 def trace(run_id: str, stage: str, action: str, status: str = "INFO", **extra: Any) -> None:
     with LOCK:
         run = RUNS[run_id]
@@ -212,7 +274,7 @@ def parse_source(path: Path) -> dict[str, Any]:
     raise RuntimeError(f"Неподдерживаемый формат: {ext}")
 
 
-def run_ingest(run_id: str, project_dir: Path, source_files: list[Path]) -> None:
+def run_ingest(run_id: str, project_dir: Path, source_files: list[Path], project_title: str) -> None:
     try:
         set_stage(run_id, 0, "Проверяю файлы, форматы и контрольные суммы")
         source_records = []
@@ -242,6 +304,29 @@ def run_ingest(run_id: str, project_dir: Path, source_files: list[Path]) -> None
             parsed.append(item)
             trace(run_id, "SPLIT", f"Разобран {path.name}: {data.get('section_count', 0)} секций", duration_ms=int((time.perf_counter()-t0)*1000), file_index=idx, file_total=len(source_files))
         write_json(project_dir / "kb" / "structure.json", parsed)
+
+        catalog = load_known_catalog(project_title, parsed)
+        work_match = None
+        if catalog:
+            work_match = match_catalog(catalog, parsed)
+            write_json(project_dir / "kb" / "works.json", work_match)
+            trace(
+                run_id,
+                "SPLIT",
+                f"Каталог {work_match.get('cycle')}: найдено {work_match['matched_count']} из {work_match['expected']} произведений",
+                output_ref="kb/works.json",
+            )
+        else:
+            write_json(project_dir / "kb" / "works.json", {
+                "catalog_id": None,
+                "cycle": None,
+                "expected": None,
+                "matched_count": 0,
+                "missing_count": 0,
+                "matched": [],
+                "missing": [],
+                "status": "NO_CATALOG_SELECTED",
+            })
 
         set_stage(run_id, 2, "Создаю доказуемые утверждения из структурных фактов")
         claims = []
@@ -300,7 +385,10 @@ def run_ingest(run_id: str, project_dir: Path, source_files: list[Path]) -> None
             "status": "PASS",
             "metrics": {
                 "sources": len(source_records),
-                "works": sum(max(1, p.get("section_count", 0)) for p in parsed),
+                "sections": sum(p.get("section_count", 0) for p in parsed),
+                "works": work_match["matched_count"] if work_match else 0,
+                "works_expected": work_match["expected"] if work_match else None,
+                "works_missing": work_match["missing_count"] if work_match else None,
                 "claims": len(claims),
                 "entities": len(entities),
                 "events": 0,
@@ -308,7 +396,7 @@ def run_ingest(run_id: str, project_dir: Path, source_files: list[Path]) -> None
                 "review": len(entities),
             },
             "outputs": [
-                "kb/sources.json", "kb/structure.json", "kb/claims.json", "kb/entities.json",
+                "kb/sources.json", "kb/structure.json", "kb/works.json", "kb/claims.json", "kb/entities.json",
                 "kb/events.json", "kb/world.json", "kb/graph.json", "kb/conflicts.json", "kb/review_queue.json",
             ],
         }
@@ -386,7 +474,7 @@ async def create_project(
         "updated_at": now(),
         "error": None,
     }
-    threading.Thread(target=run_ingest, args=(run_id, project_dir, saved), daemon=True).start()
+    threading.Thread(target=run_ingest, args=(run_id, project_dir, saved, title), daemon=True).start()
     return {"project_id": project_id, "run_id": run_id, "status": "QUEUED"}
 
 
@@ -401,7 +489,7 @@ def run_status(run_id: str) -> dict[str, Any]:
 
 @app.get("/api/projects/{project_id}/kb/{name}")
 def get_kb(project_id: str, name: str) -> JSONResponse:
-    allowed = {"sources", "structure", "claims", "entities", "events", "world", "graph", "conflicts", "review_queue"}
+    allowed = {"sources", "structure", "works", "claims", "entities", "events", "world", "graph", "conflicts", "review_queue"}
     if name not in allowed:
         raise HTTPException(404, "Неизвестный раздел БЗ")
     path = PROJECTS_ROOT / project_id / "kb" / f"{name}.json"
