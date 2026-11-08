@@ -19,6 +19,7 @@ import ScriptsPage from "./pages/ScriptsPage.jsx";
 import LongreadPage from "./pages/LongreadPage.jsx";
 import DemoShowcasePage from "./pages/DemoShowcasePage.jsx";
 import WriterLibrarianPage from "./pages/WriterLibrarianPage.jsx";
+import AlinaStudioPage from "./pages/AlinaStudioPage.jsx";
 
 export default function App() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
         <Route path="/images" element={<ImagesPage />} />
         <Route path="/analytics" element={<AnalyticsPage />} />
         <Route path="/librarian" element={<WriterLibrarianPage />} />
+        <Route path="/alina" element={<AlinaStudioPage />} />
         <Route path="/books" element={<BooksPage />} />
         <Route path="/scripts" element={<ScriptsPage />} />
         <Route path="/longread" element={<LongreadPage />} />
