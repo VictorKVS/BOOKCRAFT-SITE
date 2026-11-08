@@ -90,6 +90,8 @@ export default function AlinaStudioPage() {
   const [creativeType,setCreativeType] = useState("COMIC");
   const [creativeTitle,setCreativeTitle] = useState("");
   const [creativeBusy,setCreativeBusy] = useState(false);
+  const [analysisProfile,setAnalysisProfile] = useState("CANON_FULL");
+  const [analysisDepth,setAnalysisDepth] = useState("FULL");
 
   const activeMode = projectModes.find(x=>x[0]===mode);
   const isStudy = activeMode?.[3] === "STUDY";
@@ -189,66 +191,50 @@ export default function AlinaStudioPage() {
     setApiError("");
     const model=await checkDeepModel();
     if(!model?.available){
-      setApiError("Глубокий анализ не запущен: локальная LLM не обнаружена. Нужен Ollama или локальный OpenAI-compatible server.");
+      setApiError("Глубокий анализ не запущен: локальная LLM не обнаружена.");
       return;
     }
     try{
-      const r=await fetch(`http://127.0.0.1:8191/api/projects/${projectId}/deep-analysis`,{method:"POST"});
+      const form=new FormData();
+      form.append("profile",analysisProfile);
+      form.append("config",JSON.stringify({
+        depth:analysisDepth,
+        full_components:true,
+        evidence_required:true,
+        chronology:true,
+        contradictions:true,
+        forecast_inputs:true
+      }));
+      const r=await fetch(`http://127.0.0.1:8191/api/projects/${projectId}/deep-analysis`,{method:"POST",body:form});
       if(!r.ok) throw new Error(await r.text());
       const data=await r.json();
+
+      if(data.status==="NEEDS_MODEL"){
+        setApiError("Глубокий анализ не запущен: backend не нашёл локальную модель.");
+        return;
+      }
+      if(data.status==="REUSED"){
+        setRunId(null);
+        setRunDemo(false);
+        setPhase("ready");
+        setRunState({
+          run_type:"DEEP_ANALYSIS",
+          status:"REUSED",
+          progress:100,
+          detail:"Источники и параметры анализа не изменились — использована существующая семантическая БЗ.",
+          metrics:{analysis_profile:data.analysis_profile,analysis_fingerprint:data.analysis_fingerprint}
+        });
+        const pr=await fetch(`http://127.0.0.1:8191/api/projects/${projectId}`);
+        if(pr.ok) setProjectMeta(await pr.json());
+        return;
+      }
+
       setRunId(data.run_id);
       setRunState({...data,run_type:"DEEP_ANALYSIS"});
       setRunDemo(true);
       setPhase("running");
     }catch(err){
       setApiError("Не удалось запустить глубокий анализ: "+err.message);
-    }
-  }
-
-  async function loadProducts(projectIdValue){
-    if(!projectIdValue){ setProducts([]); return []; }
-    try{
-      const r=await fetch(`http://127.0.0.1:8191/api/projects/${projectIdValue}/products`);
-      if(r.ok){
-        const data=await r.json();
-        setProducts(data);
-        return data;
-      }
-    }catch{}
-    setProducts([]);
-    return [];
-  }
-
-  async function createCreativeProduct(){
-    if(!projectId) return;
-    const clean=(creativeTitle || "").trim();
-    if(!clean){
-      setApiError("Задайте название творческого продукта.");
-      return;
-    }
-    setCreativeBusy(true);
-    setApiError("");
-    try{
-      const form=new FormData();
-      form.append("product_type",creativeType);
-      form.append("title",clean);
-      form.append("profile",creativeType==="COMIC"?"COMIC_PREP":creativeType==="SHORT_VIDEO"||creativeType==="FILM"?"FILM_PREP":creativeType+"_PREP");
-      form.append("config",JSON.stringify({
-        reuse_kb:true,
-        source_policy:"UNCHANGED_SOURCES_REUSE",
-        rag:true,
-        prompt_compiler:true
-      }));
-      const r=await fetch(`http://127.0.0.1:8191/api/projects/${projectId}/products`,{method:"POST",body:form});
-      if(!r.ok) throw new Error(await r.text());
-      const data=await r.json();
-      setProducts(prev=>[...prev,data]);
-      setCreativeTitle("");
-      await loadProjects();
-    }catch(err){
-      setApiError("Не удалось создать продукт: "+err.message);
-    }finally{
-      setCreativeBusy(false);
     }
   }
 
@@ -786,7 +772,7 @@ export default function AlinaStudioPage() {
             <article><small>PROJECT</small><b>{projectMeta?.short_code || "—"}</b><span>{title}</span></article>
             <article><small>SOURCE SET</small><b>v{projectMeta?.source_set_version || 0}</b><span>{projectMeta?.source_count ?? sourceCount} source(s)</span></article>
             <article><small>FINGERPRINT</small><b>{projectMeta?.source_fingerprint ? projectMeta.source_fingerprint.slice(0,10)+"…" : "—"}</b><span>{projectMeta?.foundation_stale ? "KB stale" : "reusable"}</span></article>
-            <article><small>KNOWLEDGE BASE</small><b>v{projectMeta?.kb_version || 0}</b><span>{projectMeta?.analysis_level || "NONE"}</span></article>
+            <article><small>KNOWLEDGE BASE</small><b>v{projectMeta?.kb_version || 0}</b><span>{projectMeta?.active_analysis_profile || projectMeta?.analysis_level || "NONE"}</span></article>
             <article><small>PRODUCTS</small><b>{products.length}</b><span>creative outputs</span></article>
           </div>
 
@@ -828,10 +814,29 @@ export default function AlinaStudioPage() {
               {deepModel?.available && deepModel?.models?.length > 0 && <em>MODELS: {deepModel.models.join(" · ")}</em>}
               {deepModel?.model_path && <em>{deepModel.model_path}</em>}
             </div>
-            <div className="asDeepActions">
-              <button onClick={checkDeepModel}>Проверить</button>
-              <button onClick={selectLocalGguf}>Выбрать GGUF</button>
-              {deepModel?.configured && <button onClick={clearLocalModel}>Сбросить</button>}
+            <div className="asDeepControlBox">
+              <label>
+                <span>ПРОФИЛЬ АНАЛИЗА</span>
+                <select value={analysisProfile} onChange={e=>setAnalysisProfile(e.target.value)}>
+                  <option value="CANON_FULL">CANON_FULL — полный канон</option>
+                  <option value="CHARACTER_DEEP">CHARACTER_DEEP — персонажи</option>
+                  <option value="WORLD_TECH">WORLD_TECH — мир и технологии</option>
+                  <option value="COMIC_PREP">COMIC_PREP — подготовка комикса</option>
+                  <option value="FILM_PREP">FILM_PREP — подготовка фильма</option>
+                </select>
+              </label>
+              <label>
+                <span>ГЛУБИНА</span>
+                <select value={analysisDepth} onChange={e=>setAnalysisDepth(e.target.value)}>
+                  <option value="FULL">FULL</option>
+                  <option value="FOCUSED">FOCUSED</option>
+                </select>
+              </label>
+              <div className="asDeepActions">
+                <button onClick={checkDeepModel}>Проверить</button>
+                <button onClick={selectLocalGguf}>Выбрать GGUF</button>
+                {deepModel?.configured && <button onClick={clearLocalModel}>Сбросить</button>}
+              </div>
             </div>
           </div>
           {apiError && <div className="asDeepError">{apiError}</div>}
