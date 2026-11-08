@@ -1387,6 +1387,10 @@ def list_projects() -> JSONResponse:
         meta = read_json(project_dir / "project.json", {}) or {}
         if not meta:
             continue
+        if not meta.get("short_code"):
+            meta["short_code"] = next_project_short_code()
+            meta["updated_at"] = now()
+            write_json(project_dir / "project.json", meta)
         run_files = sorted((project_dir / "runs").glob("*.state.json")) if (project_dir / "runs").exists() else []
         runs = [read_json(p, {}) or {} for p in run_files]
         runs = [r for r in runs if r]
