@@ -88,7 +88,7 @@ def publish_debug_trace_to_git() -> dict[str, Any]:
             if diff.returncode == 0:
                 return {"status":"NO_CHANGES"}
             subprocess.run(
-                ["git","commit","-m","debug(alina): append UI/API trace"],
+                ["git","commit","-m","debug(alina): append UI/API trace","--",rel],
                 cwd=ROOT, check=True, capture_output=True, text=True,
             )
             push = subprocess.run(
