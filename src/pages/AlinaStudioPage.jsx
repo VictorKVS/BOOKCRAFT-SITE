@@ -113,6 +113,15 @@ export default function AlinaStudioPage() {
   const effectiveProgress = runState?.progress ?? currentLive[2];
   const effectiveLabel = runState?.stage_label || currentLive[0];
   const effectiveDetail = runState?.detail || currentLive[1];
+  const sequenceState = useMemo(()=>{
+    const latest={};
+    for(const e of uiTrace){
+      if(e.event_type==="SEQUENCE" && e.sequence){
+        latest[e.sequence]=e;
+      }
+    }
+    return latest;
+  },[uiTrace]);
 
   function safeEndpoint(url){
     try{
@@ -147,6 +156,16 @@ export default function AlinaStudioPage() {
         const data=await r.json();
         if(publish && data.github?.status){
           setGithubDebugStatus(data.github.status);
+          setUiTrace(prev=>[...prev.slice(-299),{
+            timestamp:new Date().toISOString(),
+            event_type:"SEQUENCE",
+            sequence:"GITHUB_FLOW",
+            step:data.github.status==="PUSHED"?"SAFE_TRACE_PUSHED":data.github.status,
+            status:data.github.status,
+            project_id:projectId,
+            project_code:projectMeta?.short_code || null,
+            run_id:runId
+          }]);
         }
       }else if(publish){
         setGithubDebugStatus("WARN");
@@ -1073,6 +1092,25 @@ export default function AlinaStudioPage() {
               <article><small>ERRORS</small><b>{runState?.error ? 1 : 0}</b></article>
               <article><small>TEXT ITEM</small><b>{runState?.current_total ? `${runState.current_item}/${runState.current_total}` : "—"}</b></article>
             </div>
+            <div className="asSequenceTrace">
+              {[
+                ["PROJECT_FLOW","PROJECT → SOURCES → FOUNDATION"],
+                ["ANALYSIS_FLOW","FOUNDATION → DEEP → KB"],
+                ["CREATIVE_FLOW","KB → PRODUCT → PROMPT/RAG"],
+                ["GITHUB_FLOW","UI/API → SAFE TRACE → GITHUB"]
+              ].map(([id,label])=>{
+                const e=sequenceState[id];
+                const status=id==="GITHUB_FLOW" ? githubDebugStatus : (e?.status || "WAITING");
+                const step=id==="GITHUB_FLOW" ? (githubDebugStatus==="PUSHED"?"SAFE TRACE PUSHED":"WAITING FOR TRACE") : (e?.step || "WAITING");
+                return <article key={id} className={String(status).toLowerCase()}>
+                  <small>{id}</small>
+                  <b>{label}</b>
+                  <span>{step}</span>
+                  <em>{status}</em>
+                </article>;
+              })}
+            </div>
+
             <div className="asProcessLayout">
               <div className="asStageBoard">
                 {studyPipeline.map(([n,name,desc],i)=><article key={name} className={i===0?"ready":""}>
