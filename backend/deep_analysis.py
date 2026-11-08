@@ -3,12 +3,19 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import threading
 import re
 import urllib.request
 import zipfile
 from pathlib import Path
 from typing import Any
 from xml.etree import ElementTree as ET
+
+ROOT = Path(__file__).resolve().parents[1]
+MODEL_CONFIG = ROOT / ".alina-private" / "model_config.json"
+_LLAMA_LOCK = threading.Lock()
+_LLAMA_INSTANCE = None
+_LLAMA_PATH = None
 
 SCHEMA_KEYS = ["characters","events","relations","locations","technologies","organizations","time_anchors","claims","open_threads"]
 
@@ -20,7 +27,46 @@ def json_request(url: str, payload: dict[str, Any] | None = None, timeout: int =
         return json.loads(response.read().decode("utf-8"))
 
 
+def save_model_config(data: dict[str, Any]) -> None:
+    MODEL_CONFIG.parent.mkdir(parents=True, exist_ok=True)
+    MODEL_CONFIG.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def load_model_config() -> dict[str, Any]:
+    if not MODEL_CONFIG.exists():
+        return {}
+    try:
+        return json.loads(MODEL_CONFIG.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
 def detect_local_model() -> dict[str, Any]:
+    config = load_model_config()
+    gguf_path = str(config.get("gguf_path") or "").strip()
+    if gguf_path:
+        path = Path(gguf_path)
+        if path.exists() and path.suffix.lower() == ".gguf":
+            try:
+                import llama_cpp  # noqa: F401
+                return {
+                    "available": True,
+                    "provider": "LLAMA_CPP",
+                    "model": path.name,
+                    "model_path": str(path),
+                    "configured": True,
+                }
+            except Exception as exc:
+                return {
+                    "available": False,
+                    "provider": "LLAMA_CPP",
+                    "model": path.name,
+                    "model_path": str(path),
+                    "configured": True,
+                    "error": "GGUF выбран, но llama-cpp-python недоступен: " + str(exc),
+                    "needs_package": "llama-cpp-python",
+                }
+
     explicit = os.getenv("ALINA_LLM_BASE_URL", "").rstrip("/")
     explicit_model = os.getenv("ALINA_LLM_MODEL", "").strip()
     if explicit:
@@ -29,6 +75,7 @@ def detect_local_model() -> dict[str, Any]:
             return {"available":True,"provider":"OPENAI_COMPAT_LOCAL","base_url":explicit,"model":explicit_model or "local-model"}
         except Exception as exc:
             return {"available":False,"provider":"OPENAI_COMPAT_LOCAL","error":str(exc)}
+
     ollama = os.getenv("ALINA_OLLAMA_URL", "http://127.0.0.1:11434").rstrip("/")
     try:
         tags = json_request(ollama + "/api/tags", timeout=3)
@@ -40,6 +87,23 @@ def detect_local_model() -> dict[str, Any]:
         return {"available":False,"provider":"OLLAMA","models":[]}
     except Exception as exc:
         return {"available":False,"provider":"NONE","error":str(exc)}
+
+
+def get_llama_cpp(model_info: dict[str, Any]):
+    global _LLAMA_INSTANCE, _LLAMA_PATH
+    model_path = model_info["model_path"]
+    with _LLAMA_LOCK:
+        if _LLAMA_INSTANCE is not None and _LLAMA_PATH == model_path:
+            return _LLAMA_INSTANCE
+        from llama_cpp import Llama
+        _LLAMA_INSTANCE = Llama(
+            model_path=model_path,
+            n_ctx=int(os.getenv("ALINA_LLAMA_CTX", "16384")),
+            n_gpu_layers=int(os.getenv("ALINA_LLAMA_GPU_LAYERS", "-1")),
+            verbose=False,
+        )
+        _LLAMA_PATH = model_path
+        return _LLAMA_INSTANCE
 
 
 def extract_json(text: str) -> dict[str, Any]:
@@ -84,6 +148,18 @@ def analyze_chunk(model_info: dict[str, Any], chunk: dict[str, Any]) -> dict[str
         + "\nChunk: " + chunk["chunk_id"]
         + "\nТЕКСТ:\n" + chunk["text"]
     )
+    if model_info["provider"] == "LLAMA_CPP":
+        llm = get_llama_cpp(model_info)
+        result = llm.create_chat_completion(
+            messages=[
+                {"role":"system","content":"Ты точный аналитик доказательств. Не выдумывай факты."},
+                {"role":"user","content":prompt},
+            ],
+            temperature=0.1,
+            max_tokens=int(os.getenv("ALINA_LLAMA_MAX_TOKENS", "4096")),
+        )
+        return extract_json(result["choices"][0]["message"]["content"])
+
     if model_info["provider"] == "OLLAMA":
         payload = {
             "model":model_info["model"],"stream":False,"format":"json",
