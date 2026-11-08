@@ -1,0 +1,113 @@
+{
+  "seed_id": "ALICE_BENCHMARK_SEED_V1",
+  "project": "Алиса Селезнёва — цикл",
+  "status": "MANUAL_VERIFIED_BENCHMARK",
+  "purpose": "Seed and benchmark for ALINA. Do not treat as output of current automated run.",
+  "provenance": {
+    "manifest": "projects/sto_let_tomu_vpered/alice_cycle/alice_works_manifest.json",
+    "fb2_audit": "projects/sto_let_tomu_vpered/alice_cycle/source_audits/alice_fb2_audit.json",
+    "star_dog": "projects/sto_let_tomu_vpered/alice_cycle/works/ALICE-029/README.md",
+    "prior_commits": [
+      "b592d11",
+      "9f3c52e",
+      "8f40220",
+      "d5ebcd4",
+      "2cfe8ae",
+      "ea331d3"
+    ]
+  },
+  "cycle": {
+    "catalog_count": 52,
+    "big_fb2_matched": 51,
+    "big_fb2_missing": [
+      "ALICE-029 Звёздный пёс"
+    ],
+    "separate_pdf_closes": [
+      "ALICE-029 Звёздный пёс"
+    ],
+    "expected_with_both_sources": 52,
+    "chronology_policy": {
+      "publication_order": "SEPARATE",
+      "external_proposed_chronology": "SEPARATE",
+      "alina_reconstructed_chronology": "SEPARATE",
+      "auto_reconcile": false
+    },
+    "metadata_anomalies": [
+      {
+        "work_id": "ALICE-022",
+        "canonical_title": "Планета для тиранов",
+        "source_heading": "ПЛАНЕТА ДЛЯ ТИТАНОВ",
+        "status": "SOURCE_METADATA_CONFLICT"
+      },
+      {
+        "work_id": "ALICE-033",
+        "canonical_title": "Королева пиратов на планете сказок",
+        "source_heading": "Королева пиратов на острове сказок",
+        "status": "TITLE_VARIANT_OR_SOURCE_METADATA_CONFLICT"
+      }
+    ]
+  },
+  "star_dog_anchors": {
+    "chronology": [
+      "Alice is preparing for a month-long space journey",
+      "Alice remains associated with school and young naturalists station",
+      "Professor Seleznev leads the expedition",
+      "Gennady Poloskov is captain/navigator",
+      "Alice is assistant/junior crew member",
+      "Narration places Alice in the late 21st century",
+      "A similar Pegasus expedition occurred three years earlier"
+    ],
+    "world_technology": [
+      "Star dog can move from point A to point B in one step regardless of distance",
+      "Moscow has advanced household/municipal technology",
+      "Garbage collector decomposes waste into molecules and converts it to fertilizer",
+      "KosmoZoo maintains extraterrestrial fauna",
+      "Galactic academic institutions and InterGalactic Police exist"
+    ]
+  },
+  "historical_deep_benchmark": {
+    "scope": "Сто лет тому вперёд / clean corpus benchmark only",
+    "corpus_boundary": {
+      "work": "Сто лет тому вперёд",
+      "paragraph_start": 0,
+      "paragraph_end": 3976,
+      "next_work": "Пленники астероида",
+      "next_work_start": 3977
+    },
+    "clean_chunks": 61,
+    "pipeline_metrics": {
+      "claims_total": 565,
+      "source_supported": 380,
+      "unsupported": 160,
+      "mentions": 237,
+      "terms": 62,
+      "evidence_critic_checked": 354,
+      "evidence_entailed": 150,
+      "evidence_partial": 35,
+      "evidence_rejected": 169,
+      "precision_gate_final": 120,
+      "canon_safe": 122,
+      "canon_accepted": 95,
+      "entities": 46,
+      "relations": 61,
+      "events": 19,
+      "graph_edges": 80,
+      "contradictions": 0,
+      "temporal_anchors": 95,
+      "state_observations": 61,
+      "state_transitions": 8,
+      "causal_links": 1,
+      "hypothesis_candidates": 2,
+      "promoted_hypotheses": 0,
+      "frozen_predictions": 0
+    },
+    "maturity": "TRUSTED_ANALYTICAL_FOUNDATION_READY",
+    "prediction_maturity": "NOT_YET_DATA_MATURE",
+    "notes": [
+      "Belief facts must not be promoted to world facts.",
+      "Textual sequence is not world-time.",
+      "Temporal adjacency is not causality.",
+      "Prediction must be frozen before future material."
+    ]
+  }
+}
