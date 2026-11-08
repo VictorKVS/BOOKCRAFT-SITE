@@ -131,6 +131,11 @@ export default function AlinaStudioPage() {
     }
   }
 
+  async function openProjectFolder(project, folder){
+    const r=await fetch(`http://127.0.0.1:8191/api/projects/${project.project_id}/open-folder/${folder}`,{method:"POST"});
+    if(!r.ok) alert("Не удалось открыть папку: "+await r.text());
+  }
+
   async function renameLocalProject(project){
     const next=window.prompt("Новое название проекта", project.title || "");
     if(next===null || !next.trim()) return;
@@ -351,6 +356,12 @@ export default function AlinaStudioPage() {
               <small>{p.title_mode==="AUTO"?"AUTO NAME":"MANUAL NAME"} · {p.project_id}</small>
               <b>{p.title}</b>
               <span>{p.latest_run ? `${p.latest_run.status} · запусков: ${p.run_count} · works: ${p.latest_run.metrics?.works ?? "—"}` : "Ещё не анализировался"}</span>
+              <div className="asProjectFolders">
+                <button onClick={()=>openProjectFolder(p,"sources")}>📁 Тексты</button>
+                <button onClick={()=>openProjectFolder(p,"kb")}>📁 База знаний</button>
+                <button onClick={()=>openProjectFolder(p,"runs")}>📁 История</button>
+                <em>{p.analysis_level==="FOUNDATION_ONLY"?"ПЕРВИЧНЫЙ РАЗБОР":"ГЛУБОКИЙ АНАЛИЗ"}</em>
+              </div>
             </div>
             <div className="asProjectActions">
               <button onClick={()=>openLocalProject(p)}>Открыть</button>
@@ -483,7 +494,7 @@ export default function AlinaStudioPage() {
           <span>✓</span>
           <div>
             <b>Рабочее место базы знаний открыто</b>
-            <p>Локальный backend завершил анализ. Ниже показаны реальные метрики run, структура корпуса и созданные артефакты БЗ.</p>
+            <p>Локальный backend завершил первый технический слой. Ниже реальные метрики структуры корпуса и первичной БЗ; персонажи, события, отношения, хронология, технологии и прогноз требуют отдельного глубокого анализа текста.</p>
           </div>
         </section>}
 
@@ -578,7 +589,7 @@ export default function AlinaStudioPage() {
                             </div>
                             <div className="asOverviewNext">
                               <b>Следующий слой ALINA</b>
-                              <span>Персонажи → события → отношения → хронология → технологии → противоречия канона → прогноз.</span>
+                              <span>ГЛУБОКИЙ АНАЛИЗ: полный текст → персонажи → события → отношения → хронология → технологии → причинность → противоречия → прогноз. Это уже не секундный этап.</span>
                             </div>
                           </div> : kbTab==="works" && kbData.works ? <div className="asWorksResult">
                             <div className="asWorksSummary">
