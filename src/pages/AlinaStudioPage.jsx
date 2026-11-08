@@ -126,6 +126,29 @@ export default function AlinaStudioPage() {
     return fallback;
   }
 
+  async function selectLocalGguf(){
+    setApiError("");
+    try{
+      const r=await fetch("http://127.0.0.1:8191/api/deep/select-gguf",{method:"POST"});
+      if(!r.ok) throw new Error(await r.text());
+      const data=await r.json();
+      setDeepModel(data);
+      if(data.status==="CANCELLED") return;
+      if(data.needs_package){
+        setApiError("Модель выбрана, но ALINA backend не видит llama-cpp-python. Установите его в .venv-alina или используйте Ollama.");
+      }
+    }catch(err){
+      setApiError("Не удалось выбрать GGUF-модель: "+err.message);
+    }
+  }
+
+  async function clearLocalModel(){
+    try{
+      const r=await fetch("http://127.0.0.1:8191/api/deep/clear-model",{method:"POST"});
+      if(r.ok) setDeepModel(await r.json());
+    }catch{}
+  }
+
   async function startDeepAnalysis(){
     if(!projectId) return;
     setApiError("");
@@ -572,10 +595,19 @@ export default function AlinaStudioPage() {
           <div className="asDeepStatus">
             <div>
               <small>DEEP ANALYSIS ENGINE</small>
-              <b>{deepModel?.available ? `LOCAL MODEL READY · ${deepModel.model}` : "LOCAL MODEL NOT FOUND"}</b>
-              <span>{deepModel?.available ? "Полный текст будет анализироваться локально chunk за chunk." : "Первичный разбор готов, но семантический слой требует локальную LLM."}</span>
+              <b>{deepModel?.available ? `LOCAL MODEL READY · ${deepModel.model}` : deepModel?.configured ? `GGUF CONFIGURED · ${deepModel.model}` : "LOCAL MODEL NOT FOUND"}</b>
+              <span>{deepModel?.available
+                ? `${deepModel.provider} · полный текст будет анализироваться локально chunk за chunk.`
+                : deepModel?.needs_package
+                  ? "GGUF выбран, но в .venv-alina не найден llama-cpp-python."
+                  : "Выберите локальную GGUF-модель или запустите Ollama."}</span>
+              {deepModel?.model_path && <em>{deepModel.model_path}</em>}
             </div>
-            <button onClick={checkDeepModel}>Проверить модель</button>
+            <div className="asDeepActions">
+              <button onClick={checkDeepModel}>Проверить</button>
+              <button onClick={selectLocalGguf}>Выбрать GGUF</button>
+              {deepModel?.configured && <button onClick={clearLocalModel}>Сбросить</button>}
+            </div>
           </div>
           {apiError && <div className="asDeepError">{apiError}</div>}
 
