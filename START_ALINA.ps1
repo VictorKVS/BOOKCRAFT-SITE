@@ -17,8 +17,20 @@ function Stop-Port([int]$port) {
     }
 }
 
+function Stop-OldAlinaBackend {
+    $old = Get-CimInstance Win32_Process -ErrorAction SilentlyContinue | Where-Object {
+        $_.CommandLine -and $_.CommandLine -match "backend\.alina_api:app"
+    }
+    foreach ($proc in $old) {
+        Write-Host "Stopping old ALINA backend PID=$($proc.ProcessId)" -ForegroundColor DarkYellow
+        Stop-Process -Id $proc.ProcessId -Force -ErrorAction SilentlyContinue
+    }
+    Start-Sleep -Milliseconds 700
+}
+
 Stop-Port $portFrontend
 Stop-Port $portBackend
+Stop-OldAlinaBackend
 
 # Local LLM for DEEP ANALYSIS
 $ollamaCmd = Get-Command ollama -ErrorAction SilentlyContinue
@@ -92,9 +104,42 @@ if (-not $ollamaListening) {
 }
 
 Write-Host "Starting ALINA backend on http://127.0.0.1:$portBackend ..."
-$backend = Start-Process -FilePath $python -ArgumentList "-m","uvicorn","backend.alina_api:app","--host","127.0.0.1","--port","$portBackend","--reload" -WorkingDirectory $PSScriptRoot -PassThru
+$backendLog = Join-Path $PSScriptRoot ".alina-private\backend.log"
+$backendErr = Join-Path $PSScriptRoot ".alina-private\backend-error.log"
+New-Item -ItemType Directory -Force -Path (Split-Path $backendLog) | Out-Null
+$backend = Start-Process -FilePath $python -ArgumentList "-m","uvicorn","backend.alina_api:app","--host","127.0.0.1","--port","$portBackend" -WorkingDirectory $PSScriptRoot -RedirectStandardOutput $backendLog -RedirectStandardError $backendErr -PassThru
 
-Start-Sleep -Seconds 2
+# Wait for exact backend revision and verify critical routes.
+$backendReady = $false
+for ($i = 0; $i -lt 20; $i++) {
+    Start-Sleep -Milliseconds 500
+    try {
+        $health = Invoke-RestMethod -Uri "http://127.0.0.1:$portBackend/api/health" -Method Get -TimeoutSec 2
+        $openapi = Invoke-RestMethod -Uri "http://127.0.0.1:$portBackend/openapi.json" -Method Get -TimeoutSec 2
+        $hasProjectsPost = $false
+        if ($openapi.paths.PSObject.Properties.Name -contains "/api/projects") {
+            $projectPath = $openapi.paths."/api/projects"
+            $hasProjectsPost = $null -ne $projectPath.post
+        }
+        if ($health.status -eq "ok" -and $hasProjectsPost) {
+            $backendReady = $true
+            Write-Host "Backend self-test: PASS (/api/projects POST available)" -ForegroundColor Green
+            break
+        }
+    } catch {}
+}
+
+if (-not $backendReady) {
+    Write-Host "Backend self-test: FAIL. Frontend will not start." -ForegroundColor Red
+    if (Test-Path $backendErr) {
+        Write-Host "--- backend-error.log ---" -ForegroundColor Yellow
+        Get-Content $backendErr -Tail 40
+    }
+    if ($backend -and -not $backend.HasExited) {
+        Stop-Process -Id $backend.Id -Force -ErrorAction SilentlyContinue
+    }
+    throw "ALINA backend route /api/projects POST is unavailable"
+}
 
 Write-Host "Starting BOOKCRAFT frontend on http://127.0.0.1:$portFrontend ..."
 npm run dev
