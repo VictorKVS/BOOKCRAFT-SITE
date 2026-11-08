@@ -4,6 +4,7 @@ import hashlib
 import json
 import os
 import threading
+import subprocess
 import re
 import urllib.request
 import zipfile
@@ -63,22 +64,56 @@ def detect_local_model() -> dict[str, Any]:
 
     # Prefer Ollama when it is already running and has a model.
     ollama = os.getenv("ALINA_OLLAMA_URL", "http://127.0.0.1:11434").rstrip("/")
+    http_error = None
+    models = []
     try:
         tags = json_request(ollama + "/api/tags", timeout=3)
         models = [x.get("name") for x in tags.get("models", []) if x.get("name")]
-        preferred = os.getenv("ALINA_OLLAMA_MODEL", "").strip()
-        model = preferred if preferred in models else (models[0] if models else None)
-        if model:
-            return {
-                "available": True,
-                "provider": "OLLAMA",
-                "base_url": ollama,
-                "model": model,
-                "models": models,
-                "fallback_note": gguf_warning,
-            }
     except Exception as exc:
-        gguf_warning = f"Ollama unavailable: {exc}"
+        http_error = str(exc)
+
+    # Windows/local fallback: use the Ollama CLI if Python HTTP probing fails.
+    if not models:
+        try:
+            proc = subprocess.run(
+                ["ollama", "list"],
+                capture_output=True,
+                text=True,
+                timeout=5,
+                check=False,
+            )
+            if proc.returncode == 0:
+                lines = [line.strip() for line in proc.stdout.splitlines() if line.strip()]
+                for line in lines[1:]:
+                    name = line.split()[0] if line.split() else ""
+                    if name:
+                        models.append(name)
+        except Exception as exc:
+            cli_error = str(exc)
+        else:
+            cli_error = None
+    else:
+        cli_error = None
+
+    if models:
+        preferred = os.getenv("ALINA_OLLAMA_MODEL", "").strip()
+        model = preferred if preferred in models else models[0]
+        return {
+            "available": True,
+            "provider": "OLLAMA",
+            "base_url": ollama,
+            "model": model,
+            "models": models,
+            "detection": "HTTP" if not http_error else "CLI_FALLBACK",
+            "http_error": http_error,
+            "fallback_note": gguf_warning,
+        }
+
+    gguf_warning = "Ollama unavailable"
+    if http_error:
+        gguf_warning += f"; HTTP: {http_error}"
+    if cli_error:
+        gguf_warning += f"; CLI: {cli_error}"
 
     # Fall back to a manually selected GGUF only after network-local providers.
     if gguf_path:
