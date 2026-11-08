@@ -855,6 +855,106 @@ def clear_gguf_model() -> JSONResponse:
     return JSONResponse({"status":"CLEARED", **detect_local_model()})
 
 
+@app.post("/api/projects/{project_id}/import-alice-benchmark")
+def import_alice_benchmark(project_id: str) -> JSONResponse:
+    project_dir = PROJECTS_ROOT / project_id
+    if not project_dir.exists():
+        raise HTTPException(404, "Проект не найден")
+
+    seed_path = ROOT / "projects" / "sto_let_tomu_vpered" / "alice_cycle" / "alice_benchmark_seed.json"
+    manifest_path = ROOT / "projects" / "sto_let_tomu_vpered" / "alice_cycle" / "alice_works_manifest.json"
+    audit_path = ROOT / "projects" / "sto_let_tomu_vpered" / "alice_cycle" / "source_audits" / "alice_fb2_audit.json"
+    if not seed_path.exists() or not manifest_path.exists() or not audit_path.exists():
+        raise HTTPException(500, "Эталонный пакет Алисы неполон в репозитории")
+
+    seed = read_json(seed_path, {}) or {}
+    manifest = read_json(manifest_path, {}) or {}
+    audit = read_json(audit_path, {}) or {}
+    project_meta = read_json(project_dir / "project.json", {}) or {}
+    sources = read_json(project_dir / "kb" / "sources.json", []) or []
+    source_names = [str(x.get("filename") or "") for x in sources]
+    source_probe = normalize_title(" ".join(source_names))
+
+    is_alice = (
+        "bulychev" in source_probe
+        or "булычев" in source_probe
+        or "841804" in source_probe
+        or "алиса" in normalize_title(project_meta.get("title",""))
+    )
+    if not is_alice:
+        raise HTTPException(409, "Проект не похож на корпус Алисы; benchmark не импортирован")
+
+    has_star_dog_pdf = any(
+        ("edition371535" in name.lower()) or ("звезд" in normalize_title(name) and "пес" in normalize_title(name))
+        for name in source_names
+    )
+    matched_ids = set()
+    missing = []
+    for work in manifest.get("works", []):
+        if work.get("work_id") == "ALICE-029":
+            if has_star_dog_pdf:
+                matched_ids.add("ALICE-029")
+            else:
+                missing.append({
+                    "work_id":"ALICE-029",
+                    "title":"Звёздный пёс",
+                    "status":"MISSING_FROM_CURRENT_PROJECT_BUT_PRESENT_IN_BENCHMARK_AS_SEPARATE_SOURCE"
+                })
+        else:
+            matched_ids.add(work.get("work_id"))
+
+    works_seed = []
+    for work in manifest.get("works", []):
+        status = "BENCHMARK_MATCHED" if work.get("work_id") in matched_ids else "BENCHMARK_MISSING"
+        works_seed.append({
+            "work_id":work.get("work_id"),
+            "title":work.get("title"),
+            "aliases":work.get("aliases",[]),
+            "publication_year":work.get("publication_year"),
+            "form":work.get("form"),
+            "status":status,
+            "source":"MANUAL_VERIFIED_BENCHMARK"
+        })
+
+    imported = {
+        "seed_id": seed.get("seed_id"),
+        "status":"IMPORTED",
+        "imported_at":now(),
+        "project_id":project_id,
+        "project_sources":source_names,
+        "benchmark_status":"MANUAL_VERIFIED_BENCHMARK",
+        "cycle_expected":manifest.get("catalog_count",52),
+        "current_project_expected_matches":52 if has_star_dog_pdf else 51,
+        "current_project_missing":missing,
+        "source_audit":audit,
+        "historical_deep_benchmark":seed.get("historical_deep_benchmark"),
+        "star_dog_anchors":seed.get("star_dog_anchors"),
+        "works":works_seed,
+        "rule":"Benchmark data is reference/seed only. Current automated runs remain separately traceable."
+    }
+
+    write_json(project_dir / "kb" / "benchmark_seed.json", imported)
+
+    current_works = read_json(project_dir / "kb" / "works.json", {}) or {}
+    current_works["benchmark"] = {
+        "seed_id":seed.get("seed_id"),
+        "expected":manifest.get("catalog_count",52),
+        "verified_in_big_fb2":audit.get("matched_works",51),
+        "missing_from_big_fb2":audit.get("missing_from_source",[]),
+        "separate_star_dog_source_present":has_star_dog_pdf,
+        "expected_current_total":52 if has_star_dog_pdf else 51,
+        "status":"MANUAL_VERIFIED_BENCHMARK"
+    }
+    write_json(project_dir / "kb" / "works.json", current_works)
+
+    project_meta["benchmark_seed"] = seed.get("seed_id")
+    project_meta["benchmark_status"] = "MANUAL_VERIFIED_BENCHMARK"
+    project_meta["updated_at"] = now()
+    write_json(project_dir / "project.json", project_meta)
+
+    return JSONResponse(imported)
+
+
 @app.post("/api/projects/{project_id}/deep-analysis")
 def start_deep_analysis(project_id: str) -> dict[str, Any]:
     project_dir = PROJECTS_ROOT / project_id
@@ -955,7 +1055,7 @@ def run_status(run_id: str) -> dict[str, Any]:
 
 @app.get("/api/projects/{project_id}/kb/{name}")
 def get_kb(project_id: str, name: str) -> JSONResponse:
-    allowed = {"sources","structure","works","claims","entities","events","world","graph","conflicts","review_queue","characters","relations","locations","technologies","organizations","time_anchors","deep_claims","open_threads","deep_graph"}
+    allowed = {"sources","structure","works","claims","entities","events","world","graph","conflicts","review_queue","characters","relations","locations","technologies","organizations","time_anchors","deep_claims","open_threads","deep_graph","benchmark_seed"}
     if name not in allowed:
         raise HTTPException(404, "Неизвестный раздел БЗ")
     path = PROJECTS_ROOT / project_id / "kb" / f"{name}.json"
