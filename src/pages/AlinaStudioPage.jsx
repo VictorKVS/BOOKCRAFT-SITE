@@ -55,7 +55,8 @@ const kbTabs = [
 export default function AlinaStudioPage() {
   const inputRef = useRef(null);
   const [mode,setMode] = useState("study-cycle");
-  const [title,setTitle] = useState("Алиса Селезнёва — цикл");
+  const [title,setTitle] = useState("");
+  const [titleTouched,setTitleTouched] = useState(false);
   const [intent,setIntent] = useState("Разложить цикл по произведениям, построить базу знаний, восстановить хронологию и мир, найти противоречия.");
   const [files,setFiles] = useState([]);
   const [areas,setAreas] = useState(new Set(["Хронология","Персонажи","События","Локации","Технологии","Отношения"]));
@@ -73,6 +74,9 @@ export default function AlinaStudioPage() {
   const [runState,setRunState] = useState(null);
   const [apiError,setApiError] = useState("");
   const [kbData,setKbData] = useState({});
+  const [projects,setProjects] = useState([]);
+  const [projectHistory,setProjectHistory] = useState({});
+  const [historyOpen,setHistoryOpen] = useState(null);
 
   const activeMode = projectModes.find(x=>x[0]===mode);
   const isStudy = activeMode?.[3] === "STUDY";
@@ -93,6 +97,81 @@ export default function AlinaStudioPage() {
   const effectiveLabel = runState?.stage_label || currentLive[0];
   const effectiveDetail = runState?.detail || currentLive[1];
 
+  function inferClientTitle(list){
+    if(!list.length) return "";
+    const clean = name => name
+      .replace(/\.[^.]+$/,"")
+      .replace(/[_-]+/g," ")
+      .replace(/\b(original|litmir|club|edition|fb2|pdf|docx|epub)\b/gi," ")
+      .replace(/\s+/g," ")
+      .trim();
+    if(list.length===1) return clean(list[0].name).slice(0,100);
+    return `Цикл из ${list.length} книг`;
+  }
+
+  async function loadProjects(){
+    try{
+      const r=await fetch("http://127.0.0.1:8191/api/projects");
+      if(r.ok) setProjects(await r.json());
+    }catch{
+      // Backend may be offline while the page is opened.
+    }
+  }
+
+  async function toggleHistory(projectId){
+    if(historyOpen===projectId){ setHistoryOpen(null); return; }
+    setHistoryOpen(projectId);
+    if(projectHistory[projectId]) return;
+    const r=await fetch(`http://127.0.0.1:8191/api/projects/${projectId}/runs`);
+    if(r.ok){
+      const data=await r.json();
+      setProjectHistory(prev=>({...prev,[projectId]:data}));
+    }
+  }
+
+  async function deleteLocalProject(project){
+    if(!window.confirm(`Удалить локальный проект «${project.title}» вместе с его базой знаний и историей запусков?`)) return;
+    const r=await fetch(`http://127.0.0.1:8191/api/projects/${project.project_id}`,{method:"DELETE"});
+    if(!r.ok){
+      alert("Не удалось удалить проект: "+await r.text());
+      return;
+    }
+    if(projectId===project.project_id){
+      setPhase("setup");
+      setProjectId(null);
+      setRunId(null);
+      setRunState(null);
+      setKbData({});
+    }
+    setProjectHistory(prev=>{const n={...prev}; delete n[project.project_id]; return n;});
+    setHistoryOpen(null);
+    await loadProjects();
+  }
+
+  async function openLocalProject(project){
+    setProjectId(project.project_id);
+    setTitle(project.title || "");
+    setTitleTouched(true);
+    const rr=await fetch(`http://127.0.0.1:8191/api/projects/${project.project_id}/runs`);
+    const runs=rr.ok?await rr.json():[];
+    const latest=runs[0] || project.latest_run;
+    if(latest){
+      setRunId(null);
+      setRunState(latest);
+    }
+    const names=["sources","structure","works","claims","entities","events","world","graph","conflicts","review_queue"];
+    const pairs=await Promise.all(names.map(async name=>{
+      const r=await fetch(`http://127.0.0.1:8191/api/projects/${project.project_id}/kb/${name}`);
+      return [name,r.ok?await r.json():null];
+    }));
+    setKbData(Object.fromEntries(pairs));
+    setPhase("ready");
+    setRunDemo(false);
+    window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
+  }
+
+  useEffect(()=>{ loadProjects(); },[]);
+
   useEffect(()=>{
     if(!runId) return;
     let cancelled=false;
@@ -103,6 +182,7 @@ export default function AlinaStudioPage() {
         const data=await res.json();
         if(cancelled) return;
         setRunState(data);
+        if(data.project_title && !titleTouched) setTitle(data.project_title);
         if(data.stage_index>=0) setRunStage(data.stage_index);
         if(data.status==="PASS"){
           setPhase("ready");
@@ -112,7 +192,15 @@ export default function AlinaStudioPage() {
             const r=await fetch(`http://127.0.0.1:8191/api/projects/${data.project_id}/kb/${name}`);
             return [name,r.ok?await r.json():null];
           }));
-          if(!cancelled) setKbData(Object.fromEntries(pairs));
+          if(!cancelled) {
+            setKbData(Object.fromEntries(pairs));
+            const pr=await fetch(`http://127.0.0.1:8191/api/projects/${data.project_id}`);
+            if(pr.ok){
+              const meta=await pr.json();
+              setTitle(meta.title || title);
+            }
+            loadProjects();
+          }
           return;
         }
         if(data.status==="FAIL"){
@@ -138,7 +226,7 @@ export default function AlinaStudioPage() {
     setPhase("running");
     try{
       const form=new FormData();
-      form.append("title",title || "Новый проект");
+      form.append("title",titleTouched ? title : "");
       form.append("mode",mode);
       form.append("intent",intent);
       form.append("areas",JSON.stringify(Array.from(areas)));
@@ -149,6 +237,7 @@ export default function AlinaStudioPage() {
       const data=await res.json();
       setProjectId(data.project_id);
       setRunId(data.run_id);
+      if(data.title && !titleTouched) setTitle(data.title);
     }catch(err){
       setPhase("error");
       setRunDemo(false);
@@ -170,7 +259,9 @@ export default function AlinaStudioPage() {
     setFiles(prev => {
       const map = new Map(prev.map(f=>[f.name+"-"+f.size,f]));
       next.forEach(f=>map.set(f.name+"-"+f.size,f));
-      return Array.from(map.values());
+      const merged=Array.from(map.values());
+      if(!titleTouched) setTitle(inferClientTitle(merged));
+      return merged;
     });
     e.target.value = "";
   }
@@ -198,6 +289,37 @@ export default function AlinaStudioPage() {
         <div className="asPrivacyState">LOCAL ONLY</div>
       </section>
 
+      <section className="asProjectManager">
+        <div className="asManagerHead">
+          <div><small>LOCAL PROJECT MANAGER</small><h2>Мои проекты</h2><p>Проекты, базы знаний и история запусков хранятся только локально.</p></div>
+          <button onClick={loadProjects}>↻ Обновить</button>
+        </div>
+        {projects.length===0 ? <div className="asNoProjects">Пока нет сохранённых проектов. Создайте первый ниже.</div> :
+        <div className="asProjectList">
+          {projects.map(p=><article key={p.project_id}>
+            <div className="asProjectMain">
+              <small>{p.title_mode==="AUTO"?"AUTO NAME":"MANUAL NAME"} · {p.project_id}</small>
+              <b>{p.title}</b>
+              <span>{p.latest_run ? `${p.latest_run.status} · запусков: ${p.run_count} · works: ${p.latest_run.metrics?.works ?? "—"}` : "Ещё не анализировался"}</span>
+            </div>
+            <div className="asProjectActions">
+              <button onClick={()=>openLocalProject(p)}>Открыть</button>
+              <button onClick={()=>toggleHistory(p.project_id)}>История</button>
+              <button className="danger" onClick={()=>deleteLocalProject(p)}>Удалить</button>
+            </div>
+            {historyOpen===p.project_id && <div className="asHistory">
+              {(projectHistory[p.project_id] || []).length===0 ? <span>История пока пуста.</span> :
+                (projectHistory[p.project_id] || []).map(r=><div key={r.run_id}>
+                  <b>{r.run_id}</b>
+                  <span>{r.status} · {r.progress ?? 0}%</span>
+                  <span>works {r.metrics?.works ?? "—"} / {r.metrics?.works_expected ?? "—"}</span>
+                  <small>{r.updated_at || r.created_at}</small>
+                </div>)}
+            </div>}
+          </article>)}
+        </div>}
+      </section>
+
       <section className="asHero asSimpleHero">
         <div>
           <span className="asEyebrow">FATHER · ALINA KNOWLEDGE FACTORY</span>
@@ -222,8 +344,8 @@ export default function AlinaStudioPage() {
           <span>Проект остаётся локальным</span>
         </div>
         <label className="asProjectName">
-          <span>Например: Алиса Селезнёва — цикл</span>
-          <input value={title} onChange={e=>setTitle(e.target.value)} placeholder="Введите название проекта"/>
+          <span>{titleTouched ? "Ручное название" : "ALINA предложит название по файлам, затем уточнит по распознанному циклу"}</span>
+          <input value={title} onChange={e=>{setTitle(e.target.value);setTitleTouched(true)}} placeholder="Можно оставить пустым — название определится автоматически"/>
         </label>
       </section>
 
@@ -264,7 +386,7 @@ export default function AlinaStudioPage() {
             ? `ALINA разберёт ${files.length} файл(а/ов), сопоставит произведения, создаст evidence, граф, хронологию, противоречия и review queue.`
             : "Сначала загрузите книгу или цикл книг."}</p>
         </div>
-        <button disabled={!files.length || !title.trim() || phase==="running"} onClick={startAnalysis}>
+        <button disabled={!files.length || phase==="running"} onClick={startAnalysis}>
           {phase==="running" ? "ALINA анализирует…" : "Создать базу знаний →"}
         </button>
       </section>
