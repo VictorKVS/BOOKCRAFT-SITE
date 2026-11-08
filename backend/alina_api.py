@@ -105,6 +105,32 @@ def sha256(path: Path) -> str:
     return h.hexdigest()
 
 
+def next_project_short_code() -> str:
+    used = []
+    for project_dir in PROJECTS_ROOT.iterdir():
+        if not project_dir.is_dir():
+            continue
+        meta = read_json(project_dir / "project.json", {}) or {}
+        code = str(meta.get("short_code") or "")
+        match = re.fullmatch(r"A(\d+)", code, re.I)
+        if match:
+            used.append(int(match.group(1)))
+    return f"A{(max(used) + 1) if used else 1}"
+
+
+def source_set_fingerprint(source_files: list[Path]) -> str:
+    rows = []
+    for path in sorted(source_files, key=lambda p: p.name.casefold()):
+        if path.is_file():
+            rows.append(f"{path.name}\t{sha256(path)}\t{path.stat().st_size}")
+    return hashlib.sha256("\n".join(rows).encode("utf-8")).hexdigest() if rows else ""
+
+
+def project_products(project_dir: Path) -> list[dict[str, Any]]:
+    path = project_dir / "products" / "index.json"
+    return read_json(path, []) or []
+
+
 def normalize_title(value: str) -> str:
     value = value.casefold().replace("ё", "е")
     value = re.sub(r"[«»„“”\"'.,:;!?()\[\]{}—–-]+", " ", value)
@@ -649,6 +675,10 @@ def run_ingest(run_id: str, project_dir: Path, source_files: list[Path], project
         project_meta = read_json(project_dir / "project.json", {}) or {}
         project_meta["status"] = "FOUNDATION_READY"
         project_meta["analysis_level"] = "FOUNDATION_ONLY"
+        project_meta["foundation_fingerprint"] = source_set_fingerprint(source_files)
+        project_meta["foundation_stale"] = False
+        project_meta["kb_version"] = int(project_meta.get("kb_version") or 0) + 1
+        project_meta["active_analysis_profile"] = "FOUNDATION"
         project_meta["updated_at"] = now()
         write_json(project_dir / "project.json", project_meta)
 
@@ -999,11 +1029,13 @@ async def create_empty_project(
 
     project_id = f"PRJ-{uuid.uuid4().hex[:10]}"
     project_dir = PROJECTS_ROOT / project_id
-    for folder in ("sources", "kb", "runs", "deep"):
+    for folder in ("sources", "kb", "runs", "deep", "products"):
         (project_dir / folder).mkdir(parents=True, exist_ok=True)
 
+    short_code = next_project_short_code()
     metadata = {
         "project_id": project_id,
+        "short_code": short_code,
         "title": clean_title,
         "title_mode": "MANUAL",
         "mode": mode,
@@ -1012,6 +1044,11 @@ async def create_empty_project(
         "status": "PROJECT_CREATED",
         "analysis_level": "NONE",
         "source_count": 0,
+        "source_set_version": 0,
+        "source_fingerprint": "",
+        "foundation_fingerprint": "",
+        "kb_version": 0,
+        "active_analysis_profile": None,
         "created_at": now(),
         "updated_at": now(),
     }
@@ -1020,7 +1057,8 @@ async def create_empty_project(
         "project_id": project_id,
         "title": clean_title,
         "contract_version": "1.0",
-        "folders": ["sources", "kb", "runs", "deep"],
+        "short_code": short_code,
+        "folders": ["sources", "kb", "runs", "deep", "products"],
         "created_at": metadata["created_at"],
         "status": "READY_FOR_SOURCES",
     })
@@ -1056,13 +1094,26 @@ async def add_project_sources(
         })
 
     all_files = [p for p in sources_dir.iterdir() if p.is_file()]
+    new_fingerprint = source_set_fingerprint(all_files)
+    old_fingerprint = str(meta.get("source_fingerprint") or "")
+    source_changed = new_fingerprint != old_fingerprint
+
     meta["source_count"] = len(all_files)
-    meta["status"] = "SOURCES_ATTACHED"
+    meta["source_fingerprint"] = new_fingerprint
+    if source_changed:
+        meta["source_set_version"] = int(meta.get("source_set_version") or 0) + 1
+        meta["foundation_stale"] = True
+        meta["status"] = "SOURCES_CHANGED" if old_fingerprint else "SOURCES_ATTACHED"
+    else:
+        meta["status"] = meta.get("status") or "SOURCES_ATTACHED"
     meta["updated_at"] = now()
     write_json(meta_path, meta)
     write_json(project_dir / "kb" / "source_manifest.json", {
         "project_id": project_id,
         "source_count": len(all_files),
+        "source_set_version": meta.get("source_set_version"),
+        "source_fingerprint": new_fingerprint,
+        "changed": source_changed,
         "sources": [
             {
                 "filename": p.name,
@@ -1074,7 +1125,7 @@ async def add_project_sources(
         ],
         "updated_at": now(),
     })
-    return JSONResponse({"project": meta, "added": saved})
+    return JSONResponse({"project": meta, "added": saved, "source_changed": source_changed, "source_fingerprint": new_fingerprint})
 
 
 @app.post("/api/projects/{project_id}/foundation-analysis")
@@ -1086,6 +1137,23 @@ def start_foundation_analysis(project_id: str) -> dict[str, Any]:
     source_files = [p for p in (project_dir / "sources").iterdir() if p.is_file()]
     if not source_files:
         raise HTTPException(400, "Сначала добавьте книги в проект")
+
+    current_fingerprint = source_set_fingerprint(source_files)
+    if (
+        current_fingerprint
+        and current_fingerprint == str(meta.get("foundation_fingerprint") or "")
+        and meta.get("analysis_level") in {"FOUNDATION_ONLY", "DEEP_SEMANTIC"}
+        and (project_dir / "kb" / "structure.json").exists()
+    ):
+        return {
+            "project_id": project_id,
+            "status": "REUSED",
+            "run_type": "FOUNDATION_ANALYSIS",
+            "reason": "SOURCE_SET_UNCHANGED",
+            "source_fingerprint": current_fingerprint,
+            "kb_version": meta.get("kb_version", 0),
+        }
+
     active = [rid for rid, run in RUNS.items() if run.get("project_id")==project_id and run.get("status") in {"QUEUED","RUNNING"}]
     if active:
         raise HTTPException(409, f"У проекта уже идёт run: {active[0]}")
@@ -1219,12 +1287,15 @@ def list_projects() -> JSONResponse:
         latest = runs[0] if runs else None
         projects.append({
             **meta,
-            "analysis_level": "FOUNDATION_ONLY",
+            "analysis_level": meta.get("analysis_level", "NONE"),
+            "product_count": len(project_products(project_dir)),
+            "products": project_products(project_dir),
             "folders": {
                 "project": str(project_dir),
                 "sources": str(project_dir / "sources"),
                 "knowledge_base": str(project_dir / "kb"),
                 "runs": str(project_dir / "runs"),
+                "products": str(project_dir / "products"),
             },
             "run_count": len(runs),
             "latest_run": {
@@ -1248,6 +1319,7 @@ def open_project_folder(project_id: str, folder_name: str) -> dict[str, Any]:
         "sources": project_dir / "sources",
         "kb": project_dir / "kb",
         "runs": project_dir / "runs",
+        "products": project_dir / "products",
     }
     target = folders.get(folder_name)
     if target is None:
@@ -1277,6 +1349,70 @@ def project_runs(project_id: str) -> JSONResponse:
                 runs.append(item)
     runs.sort(key=lambda x: x.get("created_at", ""), reverse=True)
     return JSONResponse(runs)
+
+
+@app.get("/api/projects/{project_id}/products")
+def list_project_products(project_id: str) -> JSONResponse:
+    project_dir = PROJECTS_ROOT / project_id
+    if not project_dir.exists():
+        raise HTTPException(404, "Проект не найден")
+    return JSONResponse(project_products(project_dir))
+
+
+@app.post("/api/projects/{project_id}/products")
+async def create_creative_product(
+    project_id: str,
+    product_type: str = Form(...),
+    title: str = Form(...),
+    profile: str = Form(""),
+    config: str = Form("{}"),
+) -> JSONResponse:
+    project_dir = PROJECTS_ROOT / project_id
+    meta = read_json(project_dir / "project.json", None)
+    if meta is None:
+        raise HTTPException(404, "Проект не найден")
+    if meta.get("analysis_level") not in {"FOUNDATION_ONLY", "DEEP_SEMANTIC"}:
+        raise HTTPException(409, "Сначала постройте базу знаний проекта")
+
+    products_dir = project_dir / "products"
+    products_dir.mkdir(parents=True, exist_ok=True)
+    products = project_products(project_dir)
+    type_prefix = {
+        "BOOK":"B", "COMIC":"C", "VISUAL_NOVEL":"VN", "SHORT_VIDEO":"V",
+        "FILM":"F", "GAME_SCENARIO":"G",
+    }.get(product_type.upper(), "P")
+    same_type = [p for p in products if str(p.get("product_id","")).startswith(type_prefix)]
+    product_id = f"{type_prefix}{len(same_type)+1}"
+    try:
+        parsed_config = json.loads(config)
+    except Exception:
+        parsed_config = {}
+
+    product = {
+        "product_id": product_id,
+        "project_id": project_id,
+        "project_short_code": meta.get("short_code"),
+        "type": product_type.upper(),
+        "title": title.strip() or product_id,
+        "profile": profile or f"{product_type.upper()}_PREP",
+        "source_kb_version": meta.get("kb_version", 0),
+        "source_fingerprint": meta.get("source_fingerprint", ""),
+        "status": "DRAFT",
+        "config": parsed_config,
+        "pipeline": [
+            "AUTHOR_INTENT","STORY_ARC","SCENES","VISUAL_BIBLE",
+            "PROMPT_PACK","RAG_CONTEXT","GENERATION","CONTINUITY_QC"
+        ],
+        "created_at": now(),
+        "updated_at": now(),
+    }
+    (products_dir / product_id).mkdir(parents=True, exist_ok=True)
+    write_json(products_dir / product_id / "product.json", product)
+    products.append(product)
+    write_json(products_dir / "index.json", products)
+    meta["updated_at"] = now()
+    write_json(project_dir / "project.json", meta)
+    return JSONResponse(product)
 
 
 @app.delete("/api/projects/{project_id}/runs/{run_id}")
