@@ -129,6 +129,37 @@ export default function AlinaStudioPage() {
     }
   }
 
+  async function renameLocalProject(project){
+    const next=window.prompt("Новое название проекта", project.title || "");
+    if(next===null || !next.trim()) return;
+    const form=new FormData();
+    form.append("title",next.trim());
+    const r=await fetch(`http://127.0.0.1:8191/api/projects/${project.project_id}/title`,{method:"PATCH",body:form});
+    if(!r.ok){
+      alert("Не удалось переименовать проект: "+await r.text());
+      return;
+    }
+    if(projectId===project.project_id){
+      setTitle(next.trim());
+      setTitleTouched(true);
+    }
+    await loadProjects();
+  }
+
+  async function deleteRunHistory(projectIdValue, runIdValue){
+    if(!window.confirm(`Удалить запись истории ${runIdValue}? База знаний проекта останется.`)) return;
+    const r=await fetch(`http://127.0.0.1:8191/api/projects/${projectIdValue}/runs/${runIdValue}`,{method:"DELETE"});
+    if(!r.ok){
+      alert("Не удалось удалить run: "+await r.text());
+      return;
+    }
+    setProjectHistory(prev=>({
+      ...prev,
+      [projectIdValue]:(prev[projectIdValue] || []).filter(x=>x.run_id!==runIdValue)
+    }));
+    await loadProjects();
+  }
+
   async function deleteLocalProject(project){
     if(!window.confirm(`Удалить локальный проект «${project.title}» вместе с его базой знаний и историей запусков?`)) return;
     const r=await fetch(`http://127.0.0.1:8191/api/projects/${project.project_id}`,{method:"DELETE"});
@@ -304,8 +335,9 @@ export default function AlinaStudioPage() {
             </div>
             <div className="asProjectActions">
               <button onClick={()=>openLocalProject(p)}>Открыть</button>
+              <button onClick={()=>renameLocalProject(p)}>Переименовать</button>
               <button onClick={()=>toggleHistory(p.project_id)}>История</button>
-              <button className="danger" onClick={()=>deleteLocalProject(p)}>Удалить</button>
+              <button className="danger" onClick={()=>deleteLocalProject(p)}>Удалить проект</button>
             </div>
             {historyOpen===p.project_id && <div className="asHistory">
               {(projectHistory[p.project_id] || []).length===0 ? <span>История пока пуста.</span> :
@@ -314,6 +346,7 @@ export default function AlinaStudioPage() {
                   <span>{r.status} · {r.progress ?? 0}%</span>
                   <span>works {r.metrics?.works ?? "—"} / {r.metrics?.works_expected ?? "—"}</span>
                   <small>{r.updated_at || r.created_at}</small>
+                  <button className="danger" onClick={()=>deleteRunHistory(p.project_id,r.run_id)}>Удалить run</button>
                 </div>)}
             </div>}
           </article>)}
