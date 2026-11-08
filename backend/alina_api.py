@@ -56,6 +56,37 @@ def slug(text: str) -> str:
     return s.strip("_")[:80] or "project"
 
 
+def infer_title_from_files(source_files: list[Path]) -> str:
+    if not source_files:
+        return "Новый проект"
+    stems = [re.sub(r"[_\\-]+", " ", p.stem).strip() for p in source_files]
+    if len(stems) == 1:
+        name = stems[0]
+        name = re.sub(r"\\b(original|litmir|club|edition|fb2|pdf|docx|epub)\\b", " ", name, flags=re.I)
+        name = re.sub(r"\\s+", " ", name).strip(" _-")
+        return name[:100] or "Новый проект"
+    common = stems[0]
+    for other in stems[1:]:
+        prefix = []
+        for a, c in zip(common.split(), other.split()):
+            if normalize_title(a) != normalize_title(c):
+                break
+            prefix.append(a)
+        common = " ".join(prefix)
+        if not common:
+            break
+    return (common or f"Цикл из {len(source_files)} книг")[:100]
+
+
+def read_json(path: Path, default: Any = None) -> Any:
+    if not path.exists():
+        return default
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return default
+
+
 def write_json(path: Path, data: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(path.suffix + ".tmp")
@@ -194,6 +225,7 @@ def trace(run_id: str, stage: str, action: str, status: str = "INFO", **extra: A
         }
         run["trace"].append(event)
         run["updated_at"] = event["timestamp"]
+    persist_run_state(run_id)
 
 
 def set_stage(run_id: str, index: int, detail: str) -> None:
@@ -212,6 +244,7 @@ def set_stage(run_id: str, index: int, detail: str) -> None:
             "current_name": "",
             "updated_at": now(),
         })
+    persist_run_state(run_id)
     trace(run_id, code, detail, "RUNNING")
 
 
@@ -429,6 +462,17 @@ def git_publish_safe_report(run_id: str, files: list[Path]) -> dict[str, Any]:
         return {"status": "WARN", "files": rels, "error": str(exc)}
 
 
+def persist_run_state(run_id: str) -> None:
+    with LOCK:
+        run = json.loads(json.dumps(RUNS.get(run_id, {}), ensure_ascii=False))
+    if not run:
+        return
+    project_id = run.get("project_id")
+    if not project_id:
+        return
+    write_json(PROJECTS_ROOT / project_id / "runs" / f"{run_id}.state.json", run)
+
+
 def run_ingest(run_id: str, project_dir: Path, source_files: list[Path], project_title: str) -> None:
     try:
         set_stage(run_id, 0, "Проверяю файлы, форматы и контрольные суммы")
@@ -474,6 +518,14 @@ def run_ingest(run_id: str, project_dir: Path, source_files: list[Path], project
         work_match = None
         if catalog:
             work_match = match_catalog(catalog, parsed)
+            project_meta = read_json(project_dir / "project.json", {}) or {}
+            if project_meta.get("title_mode") == "AUTO":
+                project_meta["title"] = f"{catalog.get('cycle', project_meta.get('title', 'Проект'))} — цикл"
+                project_meta["title_detected_from"] = "KNOWN_CATALOG"
+                project_meta["updated_at"] = now()
+                write_json(project_dir / "project.json", project_meta)
+                with LOCK:
+                    RUNS[run_id]["project_title"] = project_meta["title"]
             write_json(project_dir / "kb" / "works.json", work_match)
             trace(
                 run_id,
@@ -611,7 +663,7 @@ def health() -> dict[str, Any]:
 
 @app.post("/api/projects/ingest")
 async def create_project(
-    title: str = Form(...),
+    title: str = Form(""),
     mode: str = Form("study-cycle"),
     intent: str = Form(""),
     areas: str = Form("[]"),
@@ -634,9 +686,12 @@ async def create_project(
             shutil.copyfileobj(upload.file, out)
         saved.append(dest)
 
+    auto_title = infer_title_from_files(saved)
+    effective_title = title.strip() or auto_title
     metadata = {
         "project_id": project_id,
-        "title": title,
+        "title": effective_title,
+        "title_mode": "MANUAL" if title.strip() else "AUTO",
         "mode": mode,
         "intent": intent,
         "areas": json.loads(areas),
@@ -649,6 +704,7 @@ async def create_project(
     RUNS[run_id] = {
         "run_id": run_id,
         "project_id": project_id,
+        "project_title": effective_title,
         "status": "QUEUED",
         "progress": 0,
         "stage_index": -1,
@@ -664,8 +720,8 @@ async def create_project(
         "current_total": 0,
         "current_name": "",
     }
-    threading.Thread(target=run_ingest, args=(run_id, project_dir, saved, title), daemon=True).start()
-    return {"project_id": project_id, "run_id": run_id, "status": "QUEUED"}
+    threading.Thread(target=run_ingest, args=(run_id, project_dir, saved, effective_title), daemon=True).start()
+    return {"project_id": project_id, "run_id": run_id, "status": "QUEUED", "title": effective_title, "title_mode": metadata["title_mode"]}
 
 
 @app.get("/api/runs/{run_id}")
@@ -686,6 +742,84 @@ def get_kb(project_id: str, name: str) -> JSONResponse:
     if not path.exists():
         raise HTTPException(404, "Раздел ещё не создан")
     return JSONResponse(json.loads(path.read_text(encoding="utf-8")))
+
+
+@app.get("/api/projects")
+def list_projects() -> JSONResponse:
+    projects = []
+    for project_dir in PROJECTS_ROOT.iterdir():
+        if not project_dir.is_dir():
+            continue
+        meta = read_json(project_dir / "project.json", {}) or {}
+        if not meta:
+            continue
+        run_files = sorted((project_dir / "runs").glob("*.state.json")) if (project_dir / "runs").exists() else []
+        runs = [read_json(p, {}) or {} for p in run_files]
+        runs = [r for r in runs if r]
+        runs.sort(key=lambda x: x.get("created_at", ""), reverse=True)
+        latest = runs[0] if runs else None
+        projects.append({
+            **meta,
+            "run_count": len(runs),
+            "latest_run": {
+                "run_id": latest.get("run_id"),
+                "status": latest.get("status"),
+                "progress": latest.get("progress"),
+                "created_at": latest.get("created_at"),
+                "updated_at": latest.get("updated_at"),
+                "metrics": latest.get("metrics", {}),
+            } if latest else None,
+        })
+    projects.sort(key=lambda x: x.get("updated_at") or x.get("created_at") or "", reverse=True)
+    return JSONResponse(projects)
+
+
+@app.get("/api/projects/{project_id}/runs")
+def project_runs(project_id: str) -> JSONResponse:
+    project_dir = PROJECTS_ROOT / project_id
+    if not project_dir.exists():
+        raise HTTPException(404, "Проект не найден")
+    run_dir = project_dir / "runs"
+    runs = []
+    if run_dir.exists():
+        for path in run_dir.glob("*.state.json"):
+            item = read_json(path, {}) or {}
+            if item:
+                runs.append(item)
+    runs.sort(key=lambda x: x.get("created_at", ""), reverse=True)
+    return JSONResponse(runs)
+
+
+@app.delete("/api/projects/{project_id}")
+def delete_project(project_id: str) -> dict[str, Any]:
+    project_dir = PROJECTS_ROOT / project_id
+    if not project_dir.exists():
+        raise HTTPException(404, "Проект не найден")
+    active = [rid for rid, run in RUNS.items() if run.get("project_id") == project_id and run.get("status") in {"QUEUED", "RUNNING"}]
+    if active:
+        raise HTTPException(409, f"Проект сейчас выполняется: {', '.join(active)}")
+    shutil.rmtree(project_dir)
+    with LOCK:
+        for rid in [rid for rid, run in RUNS.items() if run.get("project_id") == project_id]:
+            RUNS.pop(rid, None)
+    return {"status": "DELETED", "project_id": project_id}
+
+
+@app.patch("/api/projects/{project_id}/title")
+async def rename_project(project_id: str, title: str = Form(...)) -> JSONResponse:
+    project_dir = PROJECTS_ROOT / project_id
+    path = project_dir / "project.json"
+    meta = read_json(path, None)
+    if meta is None:
+        raise HTTPException(404, "Проект не найден")
+    clean = title.strip()
+    if not clean:
+        raise HTTPException(400, "Название пустое")
+    meta["title"] = clean
+    meta["title_mode"] = "MANUAL"
+    meta["updated_at"] = now()
+    write_json(path, meta)
+    return JSONResponse(meta)
 
 
 @app.get("/api/projects/{project_id}")
