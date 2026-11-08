@@ -8,13 +8,39 @@ $portBackend = 8191
 $portOllama = 11434
 
 function Stop-Port([int]$port) {
-    $pids = @(Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique)
-    foreach ($p in $pids) {
-        if ($p) {
-            Write-Host "Stopping PID=$p on port $port"
-            Stop-Process -Id $p -Force -ErrorAction SilentlyContinue
+    for ($attempt = 1; $attempt -le 8; $attempt++) {
+        $connections = @(Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue)
+        if (-not $connections -or $connections.Count -eq 0) {
+            Write-Host "Port $port is free." -ForegroundColor DarkGreen
+            return $true
         }
+
+        $pids = @($connections | Select-Object -ExpandProperty OwningProcess -Unique)
+        foreach ($p in $pids) {
+            if ($p) {
+                try {
+                    $proc = Get-CimInstance Win32_Process -Filter "ProcessId=$p" -ErrorAction SilentlyContinue
+                    $cmd = if ($proc) { $proc.CommandLine } else { "" }
+                    Write-Host "Stopping PID=$p on port $port $cmd" -ForegroundColor DarkYellow
+                    Stop-Process -Id $p -Force -ErrorAction SilentlyContinue
+                } catch {}
+            }
+        }
+
+        Start-Sleep -Milliseconds 700
     }
+
+    $remaining = @(Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue)
+    if ($remaining.Count -gt 0) {
+        Write-Host "Port $port is still occupied after cleanup:" -ForegroundColor Red
+        foreach ($conn in $remaining) {
+            $pid = $conn.OwningProcess
+            $proc = Get-CimInstance Win32_Process -Filter "ProcessId=$pid" -ErrorAction SilentlyContinue
+            Write-Host "  PID=$pid  $($proc.Name)  $($proc.CommandLine)" -ForegroundColor Yellow
+        }
+        return $false
+    }
+    return $true
 }
 
 function Stop-OldAlinaBackend {
@@ -28,9 +54,14 @@ function Stop-OldAlinaBackend {
     Start-Sleep -Milliseconds 700
 }
 
-Stop-Port $portFrontend
-Stop-Port $portBackend
+Stop-Port $portFrontend | Out-Null
+$backendPortFree = Stop-Port $portBackend
 Stop-OldAlinaBackend
+$backendPortFree = Stop-Port $portBackend
+
+if (-not $backendPortFree) {
+    throw "Port $portBackend could not be released. ALINA backend cannot start safely."
+}
 
 # Local LLM for DEEP ANALYSIS
 $ollamaCmd = Get-Command ollama -ErrorAction SilentlyContinue
@@ -101,6 +132,11 @@ if (-not $ollamaListening) {
     $ErrorActionPreference = $oldErrorActionPreference
 } else {
     Write-Host "Local LLM engine: using Ollama; llama-cpp-python check skipped." -ForegroundColor Green
+}
+
+$backendPortFree = Stop-Port $portBackend
+if (-not $backendPortFree) {
+    throw "Port $portBackend is still occupied immediately before backend start."
 }
 
 Write-Host "Starting ALINA backend on http://127.0.0.1:$portBackend ..."
