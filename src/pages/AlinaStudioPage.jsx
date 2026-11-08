@@ -82,6 +82,9 @@ export default function AlinaStudioPage() {
   const [deepModel,setDeepModel] = useState(null);
   const [benchmarkSeed,setBenchmarkSeed] = useState(null);
   const [benchmarkBusy,setBenchmarkBusy] = useState(false);
+  const [sourceCount,setSourceCount] = useState(0);
+  const [sourceBusy,setSourceBusy] = useState(false);
+  const [projectBusy,setProjectBusy] = useState(false);
 
   const activeMode = projectModes.find(x=>x[0]===mode);
   const isStudy = activeMode?.[3] === "STUDY";
@@ -235,6 +238,7 @@ export default function AlinaStudioPage() {
     if(projectId===project.project_id){
       setTitle(next.trim());
       setTitleTouched(true);
+    setSourceCount(project.source_count || 0);
     }
     await loadProjects();
   }
@@ -360,7 +364,70 @@ export default function AlinaStudioPage() {
     return()=>{cancelled=true};
   },[runId]);
 
+  async function createProjectContract(){
+    const clean=title.trim();
+    if(!clean){
+      setApiError("Сначала задайте название проекта.");
+      return;
+    }
+    setProjectBusy(true);
+    setApiError("");
+    try{
+      const form=new FormData();
+      form.append("title",clean);
+      form.append("mode",mode);
+      form.append("intent",intent);
+      const r=await fetch("http://127.0.0.1:8191/api/projects",{method:"POST",body:form});
+      if(!r.ok) throw new Error(await r.text());
+      const data=await r.json();
+      setProjectId(data.project_id);
+      setTitle(data.title);
+      setTitleTouched(true);
+      setSourceCount(data.source_count || 0);
+      setPhase("setup");
+      await loadProjects();
+    }catch(err){
+      setApiError("Не удалось создать проект: "+err.message);
+    }finally{
+      setProjectBusy(false);
+    }
+  }
+
+  async function attachSourcesToProject(){
+    if(!projectId){
+      setApiError("Сначала создайте проект.");
+      return;
+    }
+    if(!files.length){
+      setApiError("Выберите хотя бы одну книгу.");
+      return;
+    }
+    setSourceBusy(true);
+    setApiError("");
+    try{
+      const form=new FormData();
+      files.forEach(file=>form.append("files",file,file.name));
+      const r=await fetch(`http://127.0.0.1:8191/api/projects/${projectId}/sources`,{method:"POST",body:form});
+      if(!r.ok) throw new Error(await r.text());
+      const data=await r.json();
+      setSourceCount(data.project?.source_count || files.length);
+      await loadProjects();
+    }catch(err){
+      setApiError("Не удалось добавить книги в проект: "+err.message);
+    }finally{
+      setSourceBusy(false);
+    }
+  }
+
   async function startAnalysis(){
+    if(!projectId){
+      setApiError("Сначала создайте проект.");
+      return;
+    }
+    if(sourceCount < 1){
+      setApiError("Сначала сохраните книги в проект.");
+      return;
+    }
     setApiError("");
     setKbData({});
     setRunState(null);
@@ -368,23 +435,14 @@ export default function AlinaStudioPage() {
     setRunStage(0);
     setPhase("running");
     try{
-      const form=new FormData();
-      form.append("title",titleTouched ? title : "");
-      form.append("mode",mode);
-      form.append("intent",intent);
-      form.append("areas",JSON.stringify(Array.from(areas)));
-      form.append("external_research",String(externalResearch));
-      files.forEach(file=>form.append("files",file,file.name));
-      const res=await fetch("http://127.0.0.1:8191/api/projects/ingest",{method:"POST",body:form});
+      const res=await fetch(`http://127.0.0.1:8191/api/projects/${projectId}/foundation-analysis`,{method:"POST"});
       if(!res.ok) throw new Error(await res.text());
       const data=await res.json();
-      setProjectId(data.project_id);
       setRunId(data.run_id);
-      if(data.title && !titleTouched) setTitle(data.title);
     }catch(err){
       setPhase("error");
       setRunDemo(false);
-      setApiError(`Не удалось запустить анализ: ${err.message}. Запустите .\\START_ALINA.ps1`);
+      setApiError("Не удалось запустить построение БЗ: "+err.message);
     }
   }
 
@@ -402,9 +460,7 @@ export default function AlinaStudioPage() {
     setFiles(prev => {
       const map = new Map(prev.map(f=>[f.name+"-"+f.size,f]));
       next.forEach(f=>map.set(f.name+"-"+f.size,f));
-      const merged=Array.from(map.values());
-      if(!titleTouched) setTitle(inferClientTitle(merged));
-      return merged;
+      return Array.from(map.values());
     });
     e.target.value = "";
   }
@@ -493,9 +549,9 @@ export default function AlinaStudioPage() {
       </section>
 
       <div className="asSimpleSteps">
-        <div className="active"><i>1</i><span>Название проекта</span></div>
-        <div className={files.length ? "active" : ""}><i>2</i><span>Загрузка книг</span></div>
-        <div className={phase==="ready" ? "active" : ""}><i>3</i><span>База знаний</span></div>
+        <div className={projectId ? "active done" : "active"}><i>1</i><span>Название и проект</span></div>
+        <div className={sourceCount>0 ? "active done" : projectId ? "active" : ""}><i>2</i><span>Книги проекта</span></div>
+        <div className={phase==="ready" ? "active done" : sourceCount>0 ? "active" : ""}><i>3</i><span>База знаний</span></div>
       </div>
 
       <section className="asPanel asSimpleProject">
@@ -504,9 +560,17 @@ export default function AlinaStudioPage() {
           <span>Проект остаётся локальным</span>
         </div>
         <label className="asProjectName">
-          <span>{titleTouched ? "Ручное название" : "ALINA предложит название по файлам, затем уточнит по распознанному циклу"}</span>
-          <input value={title} onChange={e=>{setTitle(e.target.value);setTitleTouched(true)}} placeholder="Можно оставить пустым — название определится автоматически"/>
+          <span>{projectId ? `PROJECT CONTRACT · ${projectId}` : "Название обязательно. Сначала создаём проект, потом добавляем книги."}</span>
+          <input disabled={Boolean(projectId)} value={title} onChange={e=>{setTitle(e.target.value);setTitleTouched(true)}} placeholder="Например: Алиса Селезнёва — цикл"/>
         </label>
+        <div className="asContractActions">
+          {!projectId ? <button className="primary" disabled={!title.trim() || projectBusy} onClick={createProjectContract}>
+            {projectBusy ? "Создаю проект…" : "Создать проект →"}
+          </button> : <div className="asContractReady">
+            <b>✓ Проект создан</b>
+            <span>{projectId} · папки sources / kb / runs / deep готовы</span>
+          </div>}
+        </div>
       </section>
 
       <section className="asPanel">
@@ -516,7 +580,7 @@ export default function AlinaStudioPage() {
         </div>
 
         <input ref={inputRef} className="asHidden" type="file" multiple accept=".fb2,.pdf,.epub,.docx,.txt" onChange={addFiles}/>
-        <button className="asDrop" onClick={()=>inputRef.current?.click()}>
+        <button className="asDrop" disabled={!projectId} onClick={()=>projectId && inputRef.current?.click()}>
           <b>＋ Добавить книгу или цикл книг</b>
           <span>Можно выбрать один файл, несколько книг или большой сборник.</span>
         </button>
@@ -536,17 +600,29 @@ export default function AlinaStudioPage() {
             </div>;
           })}
         </div>}
+
+        <div className="asSourceCommit">
+          <div>
+            <small>ИСТОЧНИКИ ПРОЕКТА</small>
+            <b>{sourceCount} файл(а/ов) сохранено в проекте</b>
+          </div>
+          <button disabled={!projectId || !files.length || sourceBusy} onClick={attachSourcesToProject}>
+            {sourceBusy ? "Сохраняю…" : "Сохранить книги в проект →"}
+          </button>
+        </div>
       </section>
 
       <section className="asLaunch asSimpleLaunch">
         <div>
           <small>ШАГ 3</small>
           <h2>Построить базу знаний</h2>
-          <p>{files.length
-            ? `ALINA разберёт ${files.length} файл(а/ов), сопоставит произведения, создаст evidence, граф, хронологию, противоречия и review queue.`
-            : "Сначала загрузите книгу или цикл книг."}</p>
+          <p>{!projectId
+            ? "Сначала создайте проект."
+            : sourceCount<1
+              ? "Проект создан. Теперь добавьте и сохраните книги."
+              : `В проекте сохранено ${sourceCount} источник(а/ов). Теперь можно строить первичную базу знаний.`}</p>
         </div>
-        <button disabled={!files.length || phase==="running"} onClick={startAnalysis}>
+        <button disabled={!projectId || sourceCount<1 || phase==="running"} onClick={startAnalysis}>
           {phase==="running" ? "ALINA анализирует…" : "Создать базу знаний →"}
         </button>
       </section>
