@@ -85,6 +85,11 @@ export default function AlinaStudioPage() {
   const [sourceCount,setSourceCount] = useState(0);
   const [sourceBusy,setSourceBusy] = useState(false);
   const [projectBusy,setProjectBusy] = useState(false);
+  const [projectMeta,setProjectMeta] = useState(null);
+  const [products,setProducts] = useState([]);
+  const [creativeType,setCreativeType] = useState("COMIC");
+  const [creativeTitle,setCreativeTitle] = useState("");
+  const [creativeBusy,setCreativeBusy] = useState(false);
 
   const activeMode = projectModes.find(x=>x[0]===mode);
   const isStudy = activeMode?.[3] === "STUDY";
@@ -200,6 +205,53 @@ export default function AlinaStudioPage() {
     }
   }
 
+  async function loadProducts(projectIdValue){
+    if(!projectIdValue){ setProducts([]); return []; }
+    try{
+      const r=await fetch(`http://127.0.0.1:8191/api/projects/${projectIdValue}/products`);
+      if(r.ok){
+        const data=await r.json();
+        setProducts(data);
+        return data;
+      }
+    }catch{}
+    setProducts([]);
+    return [];
+  }
+
+  async function createCreativeProduct(){
+    if(!projectId) return;
+    const clean=(creativeTitle || "").trim();
+    if(!clean){
+      setApiError("Задайте название творческого продукта.");
+      return;
+    }
+    setCreativeBusy(true);
+    setApiError("");
+    try{
+      const form=new FormData();
+      form.append("product_type",creativeType);
+      form.append("title",clean);
+      form.append("profile",creativeType==="COMIC"?"COMIC_PREP":creativeType==="SHORT_VIDEO"||creativeType==="FILM"?"FILM_PREP":creativeType+"_PREP");
+      form.append("config",JSON.stringify({
+        reuse_kb:true,
+        source_policy:"UNCHANGED_SOURCES_REUSE",
+        rag:true,
+        prompt_compiler:true
+      }));
+      const r=await fetch(`http://127.0.0.1:8191/api/projects/${projectId}/products`,{method:"POST",body:form});
+      if(!r.ok) throw new Error(await r.text());
+      const data=await r.json();
+      setProducts(prev=>[...prev,data]);
+      setCreativeTitle("");
+      await loadProjects();
+    }catch(err){
+      setApiError("Не удалось создать продукт: "+err.message);
+    }finally{
+      setCreativeBusy(false);
+    }
+  }
+
   async function loadProjects(){
     try{
       const r=await fetch("http://127.0.0.1:8191/api/projects");
@@ -272,6 +324,8 @@ export default function AlinaStudioPage() {
         setRunId(null);
         setRunState(null);
         setKbData({});
+        setProjectMeta(null);
+        setProducts([]);
       }
       setProjectHistory(prev=>{const n={...prev}; delete n[project.project_id]; return n;});
       setHistoryOpen(null);
@@ -286,6 +340,7 @@ export default function AlinaStudioPage() {
 
   async function openLocalProject(project){
     setProjectId(project.project_id);
+    setProjectMeta(project);
     setTitle(project.title || "");
     setTitleTouched(true);
     const rr=await fetch(`http://127.0.0.1:8191/api/projects/${project.project_id}/runs`);
@@ -303,6 +358,7 @@ export default function AlinaStudioPage() {
     const loaded=Object.fromEntries(pairs);
     setKbData(loaded);
     setBenchmarkSeed(loaded.benchmark_seed || null);
+    await loadProducts(project.project_id);
     setPhase("ready");
     setRunDemo(false);
     window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
@@ -338,7 +394,10 @@ export default function AlinaStudioPage() {
             if(pr.ok){
               const meta=await pr.json();
               setTitle(meta.title || title);
+              setProjectMeta(meta);
+              setSourceCount(meta.source_count || sourceCount);
             }
+            await loadProducts(data.project_id);
             loadProjects();
           }
           return;
@@ -381,6 +440,8 @@ export default function AlinaStudioPage() {
       if(!r.ok) throw new Error(await r.text());
       const data=await r.json();
       setProjectId(data.project_id);
+      setProjectMeta(data);
+      setProducts([]);
       setTitle(data.title);
       setTitleTouched(true);
       setSourceCount(data.source_count || 0);
@@ -411,6 +472,7 @@ export default function AlinaStudioPage() {
       if(!r.ok) throw new Error(await r.text());
       const data=await r.json();
       setSourceCount(data.project?.source_count || files.length);
+      setProjectMeta(data.project || null);
       await loadProjects();
     }catch(err){
       setApiError("Не удалось добавить книги в проект: "+err.message);
@@ -438,6 +500,24 @@ export default function AlinaStudioPage() {
       const res=await fetch(`http://127.0.0.1:8191/api/projects/${projectId}/foundation-analysis`,{method:"POST"});
       if(!res.ok) throw new Error(await res.text());
       const data=await res.json();
+      if(data.status==="REUSED"){
+        const pr=await fetch(`http://127.0.0.1:8191/api/projects/${projectId}`);
+        if(pr.ok){
+          const meta=await pr.json();
+          setProjectMeta(meta);
+        }
+        setRunState({
+          run_type:"FOUNDATION_REUSE",
+          status:"REUSED",
+          progress:100,
+          metrics:runState?.metrics || {},
+          detail:"Источники не изменились — первичный разбор повторно не выполнялся."
+        });
+        setRunDemo(false);
+        setPhase("ready");
+        setApiError("");
+        return;
+      }
       setRunId(data.run_id);
     }catch(err){
       setPhase("error");
@@ -506,13 +586,15 @@ export default function AlinaStudioPage() {
         <div className="asProjectList">
           {projects.map(p=><article key={p.project_id}>
             <div className="asProjectMain">
-              <small>{p.title_mode==="AUTO"?"AUTO NAME":"MANUAL NAME"} · {p.project_id}</small>
-              <b>{p.title}</b>
-              <span>{p.latest_run ? `${p.latest_run.status} · запусков: ${p.run_count} · works: ${p.latest_run.metrics?.works ?? "—"}` : "Ещё не анализировался"}</span>
+              <small>{p.short_code || "—"} · {p.project_id}</small>
+              <b>{p.short_code ? `${p.short_code} — ${p.title}` : p.title}</b>
+              <span>Sources: {p.source_count || 0} · Source Set v{p.source_set_version || 0} · KB v{p.kb_version || 0} · Products: {p.product_count || 0}</span>
+              <span>{p.latest_run ? `${p.latest_run.status} · runs: ${p.run_count} · works: ${p.latest_run.metrics?.works ?? "—"}` : "Ещё не анализировался"}</span>
               <div className="asProjectFolders">
                 <button onClick={()=>openProjectFolder(p,"sources")}>📁 Тексты</button>
                 <button onClick={()=>openProjectFolder(p,"kb")}>📁 База знаний</button>
                 <button onClick={()=>openProjectFolder(p,"runs")}>📁 История</button>
+                <button onClick={()=>openProjectFolder(p,"products")}>📁 Products</button>
                 <em>{p.analysis_level==="FOUNDATION_ONLY"?"ПЕРВИЧНЫЙ РАЗБОР":"ГЛУБОКИЙ АНАЛИЗ"}</em>
               </div>
             </div>
@@ -568,7 +650,7 @@ export default function AlinaStudioPage() {
             {projectBusy ? "Создаю проект…" : "Создать проект →"}
           </button> : <div className="asContractReady">
             <b>✓ Проект создан</b>
-            <span>{projectId} · папки sources / kb / runs / deep готовы</span>
+            <span>{projectMeta?.short_code || "—"} · {projectId} · sources / kb / runs / deep / products готовы</span>
           </div>}
         </div>
       </section>
@@ -680,7 +762,7 @@ export default function AlinaStudioPage() {
           <div className="asWorkspaceHead">
             <div>
               <small>ALINA KNOWLEDGE WORKSPACE</small>
-              <h2>{title || "Новый проект"}</h2>
+              <h2>{projectMeta?.short_code ? `${projectMeta.short_code} — ${title}` : (title || "Новый проект")}</h2>
               <p>{runState?.run_type==="DEEP_ANALYSIS" && runState?.status==="PASS" ? "Глубокий семантический анализ завершён." : "Первичный структурный слой готов; глубокий анализ запускается отдельно."}</p>
             </div>
             <div className="asWorkspaceActions">
@@ -697,6 +779,15 @@ export default function AlinaStudioPage() {
             <button className={workspaceView==="graph"?"active":""} onClick={()=>setWorkspaceView("graph")}>Graph Lab</button>
             <button className={workspaceView==="sources"?"active":""} onClick={()=>setWorkspaceView("sources")}>Source Center</button>
             <button className={workspaceView==="forecast"?"active":""} onClick={()=>setWorkspaceView("forecast")}>Прогноз</button>
+            <button className={workspaceView==="creative"?"active":""} onClick={()=>setWorkspaceView("creative")}>Creative Studio</button>
+          </div>
+
+          <div className="asProjectArchitecture">
+            <article><small>PROJECT</small><b>{projectMeta?.short_code || "—"}</b><span>{title}</span></article>
+            <article><small>SOURCE SET</small><b>v{projectMeta?.source_set_version || 0}</b><span>{projectMeta?.source_count ?? sourceCount} source(s)</span></article>
+            <article><small>FINGERPRINT</small><b>{projectMeta?.source_fingerprint ? projectMeta.source_fingerprint.slice(0,10)+"…" : "—"}</b><span>{projectMeta?.foundation_stale ? "KB stale" : "reusable"}</span></article>
+            <article><small>KNOWLEDGE BASE</small><b>v{projectMeta?.kb_version || 0}</b><span>{projectMeta?.analysis_level || "NONE"}</span></article>
+            <article><small>PRODUCTS</small><b>{products.length}</b><span>creative outputs</span></article>
           </div>
 
           <div className="asBenchmarkPanel">
@@ -931,6 +1022,57 @@ export default function AlinaStudioPage() {
               <article><small>CONFLICTS</small><b>—</b><span>Противоречивые рёбра</span></article>
               <article><small>PROVENANCE</small><b>—</b><span>Источник доказательства</span></article>
             </div>
+          </section>}
+
+          {workspaceView==="creative" && <section className="asCreativeStudio">
+            <div className="asCreativeHead">
+              <div>
+                <small>CREATIVE STUDIO</small>
+                <h3>Продукты поверх одной базы знаний</h3>
+                <p>Источники и канон не перечитываются заново. Меняется только творческий профиль и зависимые слои.</p>
+              </div>
+              <span>KB v{projectMeta?.kb_version || 0}</span>
+            </div>
+
+            <div className="asCreativeModes">
+              {[
+                ["BOOK","Книга / продолжение"],
+                ["COMIC","Комикс"],
+                ["VISUAL_NOVEL","Visual Novel"],
+                ["SHORT_VIDEO","Короткое видео"],
+                ["FILM","Фильм / серия"],
+                ["GAME_SCENARIO","Игровой сценарий"]
+              ].map(([id,label])=><button key={id} className={creativeType===id?"active":""} onClick={()=>setCreativeType(id)}>{label}</button>)}
+            </div>
+
+            <div className="asCreativeCreate">
+              <div>
+                <small>НОВЫЙ ПРОДУКТ</small>
+                <input value={creativeTitle} onChange={e=>setCreativeTitle(e.target.value)} placeholder={creativeType==="COMIC"?"Например: Комикс — Сто лет тому вперёд":"Название продукта"}/>
+              </div>
+              <button disabled={!creativeTitle.trim() || creativeBusy} onClick={createCreativeProduct}>
+                {creativeBusy ? "Создаю…" : "Создать продукт →"}
+              </button>
+            </div>
+
+            <div className="asCreativePipeline">
+              <span>CANON KB</span><i>→</i><span>AUTHOR INTENT</span><i>→</i><span>STORY</span><i>→</i><span>SCENES</span><i>→</i>
+              <span>VISUAL BIBLE</span><i>→</i><span>PROMPT PACK</span><i>→</i><span>RAG</span><i>→</i><span>GENERATION</span>
+            </div>
+
+            <div className="asProductList">
+              {products.length===0 ? <div className="asNoProducts">Творческих продуктов пока нет.</div> :
+                products.map(p=><article key={p.product_id}>
+                  <div><small>{p.product_id} · {p.type}</small><b>{p.title}</b><span>{p.profile} · source KB v{p.source_kb_version}</span></div>
+                  <em>{p.status}</em>
+                </article>)}
+            </div>
+
+            {creativeType==="COMIC" && <div className="asComicFactory">
+              <small>COMIC FACTORY</small>
+              <b>SCENE → PANELS → CAMERA → CHARACTER STATE → CONTINUITY → PROMPT → RAG → IMAGE</b>
+              <p>Для каждого кадра будут храниться поза, взгляд, эмоция, действие, взаимодействие, костюм, props, локация, камера, свет, continuity, prompt и ссылки на RAG-контекст.</p>
+            </div>}
           </section>}
 
           {workspaceView==="forecast" && <section className="asForecastLab">
