@@ -15,3 +15,7 @@ projects/*/sources/*
 __pycache__/
 **/__pycache__/
 *.pyc
+
+# ALINA private local runtime
+.alina-private/
+.venv-alina/
