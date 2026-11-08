@@ -107,7 +107,7 @@ export default function AlinaStudioPage() {
         if(data.status==="PASS"){
           setPhase("ready");
           setRunDemo(false);
-          const names=["sources","structure","claims","entities","events","world","graph","conflicts","review_queue"];
+          const names=["sources","structure","works","claims","entities","events","world","graph","conflicts","review_queue"];
           const pairs=await Promise.all(names.map(async name=>{
             const r=await fetch(`http://127.0.0.1:8191/api/projects/${data.project_id}/kb/${name}`);
             return [name,r.ok?await r.json():null];
@@ -365,7 +365,7 @@ export default function AlinaStudioPage() {
           <span>✓</span>
           <div>
             <b>Рабочее место базы знаний открыто</b>
-            <p>Сейчас показан интерфейс результата. Когда подключим локальный backend, сюда будут поступать реальные объекты, метрики и evidence из ALINA AUTO CORPUS INGEST.</p>
+            <p>Локальный backend завершил анализ. Ниже показаны реальные метрики run, структура корпуса и созданные артефакты БЗ.</p>
           </div>
         </section>}
 
@@ -392,8 +392,8 @@ export default function AlinaStudioPage() {
 
           <div className="asRunReport">
             <article><small>ИСТОЧНИКИ</small><b>{files.length}</b><span>локальных файлов</span></article>
-            <article><small>ПРОИЗВЕДЕНИЯ</small><b>{runState?.metrics?.works ?? "—"}</b><span>структурных единиц</span></article>
-            <article><small>СУЩНОСТИ</small><b>{runState?.metrics?.entities ?? "—"}</b><span>первичный реестр</span></article>
+            <article><small>ПРОИЗВЕДЕНИЯ</small><b>{runState?.metrics?.works ?? "—"}{runState?.metrics?.works_expected ? ` / ${runState.metrics.works_expected}` : ""}</b><span>{runState?.metrics?.works_missing != null ? `не найдено: ${runState.metrics.works_missing}` : "по каталогу"}</span></article>
+            <article><small>СТРУКТУРНЫЕ ОБЪЕКТЫ</small><b>{runState?.metrics?.entities ?? "—"}</b><span>первичный реестр заголовков</span></article>
             <article><small>СОБЫТИЯ</small><b>{runState?.metrics?.events ?? "—"}</b><span>извлечено</span></article>
             <article><small>ПРОТИВОРЕЧИЯ</small><b>{runState?.metrics?.conflicts ?? "—"}</b><span>структурный cross-check</span></article>
             <article><small>REVIEW</small><b>{runState?.metrics?.review ?? "—"}</b><span>на проверку</span></article>
@@ -407,14 +407,20 @@ export default function AlinaStudioPage() {
                           <h3>Отчёт выполнения</h3>
                         </div>
                         <div className="asDoneGrid">
-                          <span className="done">✓ Источники приняты</span>
-                          <span>○ Определить произведения</span>
-                          <span>○ Разделить на главы</span>
-                          <span>○ Извлечь evidence</span>
-                          <span>○ Построить сущности и связи</span>
-                          <span>○ Собрать хронологию</span>
-                          <span>○ Найти противоречия</span>
-                          <span>○ Сформировать review queue</span>
+                          {[
+                            ["Источники приняты","SOURCE"],
+                            ["Произведения сопоставлены","SPLIT"],
+                            ["Структура корпуса разобрана","SPLIT"],
+                            ["Evidence первого слоя создан","EVIDENCE"],
+                            ["Первичный реестр построен","ENTITIES"],
+                            ["World/Graph foundation создан","WORLD"],
+                            ["Структурные противоречия проверены","CONFLICTS"],
+                            ["Review queue сформирована","FINALIZE"]
+                          ].map(([label,stage],i)=>{
+                            const order={SOURCE:0,SPLIT:1,EVIDENCE:2,ENTITIES:3,WORLD:4,CONFLICTS:5,FINALIZE:6};
+                            const done=runState?.status==="PASS" || (runState?.stage_index ?? -1)>=order[stage];
+                            return <span key={label} className={done?"done":""}>{done?"✓":"○"} {label}</span>;
+                          })}
                         </div>
                       </div>
             
@@ -439,7 +445,20 @@ export default function AlinaStudioPage() {
                         </aside>
             
                         <section className="asKbContent">
-                          <div className="asEmptyState">
+                          {kbTab==="works" && kbData.works ? <div className="asWorksResult">
+                            <div className="asWorksSummary">
+                              <b>{kbData.works.cycle || "Каталог произведений"}</b>
+                              <span>Найдено {kbData.works.matched_count ?? 0} из {kbData.works.expected ?? "—"} · не найдено {kbData.works.missing_count ?? 0}</span>
+                            </div>
+                            <div className="asWorksList">
+                              {(kbData.works.matched || []).map(w=><article key={w.work_id}>
+                                <span>{w.work_id}</span><b>{w.title}</b><small>{w.publication_year || "—"} · {w.form || "—"}</small><em>MATCHED</em>
+                              </article>)}
+                              {(kbData.works.missing || []).map(w=><article key={w.work_id} className="missing">
+                                <span>{w.work_id}</span><b>{w.title}</b><small>Источник не сопоставлен</small><em>REVIEW</em>
+                              </article>)}
+                            </div>
+                          </div> : <div className="asEmptyState">
                             <span>◇</span>
                             <h3>{kbTabs.find(x=>x[0]===kbTab)?.[1]}</h3>
                             <p>Здесь появятся реальные записи после локального анализа. Любую запись можно будет открыть, увидеть источник, связи, уровень уверенности и историю изменений.</p>
@@ -449,7 +468,7 @@ export default function AlinaStudioPage() {
                               <div><small>PROVENANCE</small><b>Книга → глава → фрагмент</b></div>
                               <div><small>STATUS</small><b>CANON / REVIEW / CONFLICT</b></div>
                             </div>
-                          </div>
+                          </div>}
                         </section>
             
                         <aside className="asInspector">
