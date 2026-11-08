@@ -131,6 +131,19 @@ def project_products(project_dir: Path) -> list[dict[str, Any]]:
     return read_json(path, []) or []
 
 
+def analysis_fingerprint(source_fingerprint: str, profile: str, config: dict[str, Any], model: dict[str, Any]) -> str:
+    payload = {
+        "source_fingerprint": source_fingerprint,
+        "profile": profile,
+        "config": config,
+        "provider": model.get("provider"),
+        "model": model.get("model"),
+        "engine_version": "DEEP_V2",
+    }
+    raw = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(raw.encode("utf-8")).hexdigest()
+
+
 def normalize_title(value: str) -> str:
     value = value.casefold().replace("ё", "е")
     value = re.sub(r"[«»„“”\"'.,:;!?()\[\]{}—–-]+", " ", value)
@@ -698,7 +711,7 @@ def run_ingest(run_id: str, project_dir: Path, source_files: list[Path], project
         trace(run_id, RUNS[run_id].get("stage", "SYSTEM"), str(exc), "ERROR")
 
 
-def run_deep_analysis(run_id: str, project_dir: Path) -> None:
+def run_deep_analysis(run_id: str, project_dir: Path, analysis_key: str, profile: str, analysis_config: dict[str, Any]) -> None:
     try:
         model = detect_local_model()
         with LOCK:
@@ -741,15 +754,27 @@ def run_deep_analysis(run_id: str, project_dir: Path) -> None:
             trace(run_id, "CHUNKING", f"{path.name}: units={len(units)}, chunks={len(chunks)}", "PASS")
 
         deep_dir = project_dir / "deep"
-        chunk_dir = deep_dir / "chunks"
+        common_dir = deep_dir / "source_cache"
+        run_dir = deep_dir / "analysis_runs" / analysis_key
+        chunk_dir = run_dir / "chunks"
+        common_dir.mkdir(parents=True, exist_ok=True)
         chunk_dir.mkdir(parents=True, exist_ok=True)
-        write_json(deep_dir / "chunk_index.json", [
+        write_json(common_dir / "chunk_index.json", [
             {k:v for k,v in ch.items() if k != "text"} for ch in all_chunks
         ])
 
         total = len(all_chunks)
         if total == 0:
             raise RuntimeError("Не удалось получить текстовые chunks")
+
+        write_json(run_dir / "analysis_contract.json", {
+            "analysis_fingerprint": analysis_key,
+            "profile": profile,
+            "config": analysis_config,
+            "model": {"provider": model.get("provider"), "model": model.get("model")},
+            "source_fingerprint": (read_json(project_dir / "project.json", {}) or {}).get("source_fingerprint"),
+            "created_at": now(),
+        })
 
         extractions = []
         chars_processed = 0
@@ -777,7 +802,7 @@ def run_deep_analysis(run_id: str, project_dir: Path) -> None:
                 t0 = time.perf_counter()
                 result = analyze_chunk(model, chunk)
                 result["_chunk"] = {k:v for k,v in chunk.items() if k != "text"}
-                result["_extractor"] = {"provider":model.get("provider"),"model":model.get("model")}
+                result["_extractor"] = {"provider":model.get("provider"),"model":model.get("model"),"profile":profile,"analysis_fingerprint":analysis_key}
                 write_json(result_path, result)
                 elapsed = int((time.perf_counter() - t0) * 1000)
                 trace(
@@ -829,11 +854,17 @@ def run_deep_analysis(run_id: str, project_dir: Path) -> None:
             "claims":len(merged["claims"]),
             "open_threads":len(merged["open_threads"]),
             "elapsed_seconds":round(time.perf_counter()-started, 1),
+            "analysis_profile":profile,
+            "analysis_fingerprint":analysis_key,
         }
         project_meta = read_json(project_dir / "project.json", {}) or {}
         project_meta["analysis_level"] = "DEEP_SEMANTIC"
         project_meta["deep_analysis_completed_at"] = now()
         project_meta["deep_model"] = model.get("model")
+        project_meta["active_analysis_profile"] = profile
+        project_meta["active_analysis_fingerprint"] = analysis_key
+        project_meta["analysis_config"] = analysis_config
+        project_meta["kb_version"] = int(project_meta.get("kb_version") or 0) + 1
         project_meta["updated_at"] = now()
         write_json(project_dir / "project.json", project_meta)
 
@@ -992,25 +1023,101 @@ def import_alice_benchmark(project_id: str) -> JSONResponse:
 
 
 @app.post("/api/projects/{project_id}/deep-analysis")
-def start_deep_analysis(project_id: str) -> dict[str, Any]:
+async def start_deep_analysis(
+    project_id: str,
+    profile: str = Form("CANON_FULL"),
+    config: str = Form("{}"),
+) -> dict[str, Any]:
     project_dir = PROJECTS_ROOT / project_id
     if not project_dir.exists():
         raise HTTPException(404, "Проект не найден")
+
     active = [rid for rid, run in RUNS.items() if run.get("project_id")==project_id and run.get("status") in {"QUEUED","RUNNING"}]
     if active:
         raise HTTPException(409, f"У проекта уже идёт run: {active[0]}")
+
     meta = read_json(project_dir / "project.json", {}) or {}
+    if meta.get("foundation_stale"):
+        raise HTTPException(409, "Источники изменились. Сначала обновите первичную БЗ.")
+    if not meta.get("foundation_fingerprint"):
+        raise HTTPException(409, "Сначала выполните первичный разбор источников.")
+
+    try:
+        analysis_config = json.loads(config) if config else {}
+    except Exception:
+        raise HTTPException(400, "Некорректный JSON параметров анализа")
+
+    model = detect_local_model()
+    if not model.get("available"):
+        return {
+            "project_id": project_id,
+            "status": "NEEDS_MODEL",
+            "run_type": "DEEP_ANALYSIS",
+            "model": model,
+        }
+
+    analysis_key = analysis_fingerprint(
+        str(meta.get("source_fingerprint") or ""),
+        profile,
+        analysis_config,
+        model,
+    )
+
+    if (
+        analysis_key == str(meta.get("active_analysis_fingerprint") or "")
+        and meta.get("analysis_level") == "DEEP_SEMANTIC"
+        and (project_dir / "kb" / "characters.json").exists()
+    ):
+        return {
+            "project_id": project_id,
+            "status": "REUSED",
+            "run_type": "DEEP_ANALYSIS",
+            "reason": "SOURCE_AND_ANALYSIS_PARAMETERS_UNCHANGED",
+            "analysis_profile": profile,
+            "analysis_fingerprint": analysis_key,
+            "kb_version": meta.get("kb_version", 0),
+            "model": model.get("model"),
+        }
+
     run_id = f"DEEP-{uuid.uuid4().hex[:12]}"
     RUNS[run_id] = {
-        "run_id":run_id,"run_type":"DEEP_ANALYSIS","project_id":project_id,"project_title":meta.get("title","Проект"),
-        "status":"QUEUED","progress":0,"stage_index":0,"stage":"QUEUED","stage_label":"Глубокий анализ в очереди",
-        "detail":"Ожидание запуска","trace":[],"metrics":{},"created_at":now(),"updated_at":now(),"error":None,
-        "current_item":0,"current_total":0,"current_name":"","chars_processed":0,
+        "run_id":run_id,
+        "run_type":"DEEP_ANALYSIS",
+        "project_id":project_id,
+        "project_title":meta.get("title","Проект"),
+        "analysis_profile":profile,
+        "analysis_config":analysis_config,
+        "analysis_fingerprint":analysis_key,
+        "status":"QUEUED",
+        "progress":0,
+        "stage_index":0,
+        "stage":"QUEUED",
+        "stage_label":"Глубокий анализ в очереди",
+        "detail":"Ожидание запуска",
+        "trace":[],
+        "metrics":{},
+        "created_at":now(),
+        "updated_at":now(),
+        "error":None,
+        "current_item":0,
+        "current_total":0,
+        "current_name":"",
+        "chars_processed":0,
     }
     persist_run_state(run_id)
-    threading.Thread(target=run_deep_analysis,args=(run_id,project_dir),daemon=True).start()
-    return {"project_id":project_id,"run_id":run_id,"status":"QUEUED","run_type":"DEEP_ANALYSIS"}
-
+    threading.Thread(
+        target=run_deep_analysis,
+        args=(run_id,project_dir,analysis_key,profile,analysis_config),
+        daemon=True,
+    ).start()
+    return {
+        "project_id":project_id,
+        "run_id":run_id,
+        "status":"QUEUED",
+        "run_type":"DEEP_ANALYSIS",
+        "analysis_profile":profile,
+        "analysis_fingerprint":analysis_key,
+    }
 
 @app.get("/api/health")
 def health() -> dict[str, Any]:
