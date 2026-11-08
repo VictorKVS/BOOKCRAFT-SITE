@@ -439,7 +439,6 @@ export default function AlinaStudioPage() {
               <span>SEARCH</span><i>→</i><span>READ</span><i>→</i><span>EXTRACT</span><i>→</i><span>VERIFY</span><i>→</i><span>CLASSIFY</span><i>→</i><span>ADD TO KB</span>
             </div>
           </section>}
-</div>
         </section>
       </>}
     </div>
