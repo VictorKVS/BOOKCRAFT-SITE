@@ -403,11 +403,16 @@
       "aliases": [
         "Звездный пес"
       ],
-      "corpus_status": "NOT_INGESTED",
-      "source_file": null,
+      "corpus_status": "INGEST_SOURCE_AVAILABLE",
+      "source_file": "edition371535.pdf",
       "internal_chronology": null,
       "chronology_confidence": null,
-      "notes": []
+      "notes": [
+        "User-provided PDF source available.",
+        "AST edition 2023; source states first publication was in 2001.",
+        "Source text explicitly places Alice in the late 21st century.",
+        "Source mentions a Pegasus animal-collection expedition analogous to one three years earlier."
+      ]
     },
     {
       "work_id": "ALICE-030",
