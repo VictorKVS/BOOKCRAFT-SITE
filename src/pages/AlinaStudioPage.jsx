@@ -350,7 +350,7 @@ export default function AlinaStudioPage() {
                           <button>Исправить</button>
                           <button>Пометить спорным</button>
                         </aside>
-                      
+                      </div>
           </>}
 
           {workspaceView==="process" && <section className="asProcessBoard">
