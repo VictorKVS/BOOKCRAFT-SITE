@@ -1624,6 +1624,52 @@ def load_known_catalog(title: str, parsed: list[dict[str, Any]]) -> dict[str, An
     return None
 
 
+def enrich_existing_work_catalog(works: dict[str, Any]) -> dict[str, Any]:
+    if works.get("object_schema") == "CORPUS_OBJECT_V1":
+        return works
+
+    catalog_id = works.get("catalog_id")
+    catalog = None
+    if catalog_id == "ALICE_CYCLE_CORPUS":
+        path = ROOT / "projects" / "sto_let_tomu_vpered" / "alice_cycle" / "alice_works_manifest.json"
+        if path.exists():
+            catalog = read_json(path,{}) or {}
+    if not catalog:
+        return works
+
+    by_id = {w.get("work_id"):w for w in catalog.get("works",[]) if w.get("work_id")}
+    for bucket,status_default in (("matched","FOUND_IN_CORPUS"),("review","POSSIBLE_MATCH_REVIEW"),("missing","MISSING_FROM_CORPUS")):
+        upgraded=[]
+        for row in works.get(bucket,[]) or []:
+            base = by_id.get(row.get("work_id"),{})
+            upgraded.append({
+                **row,
+                "object_id":row.get("work_id"),
+                "object_type":"LITERARY_WORK",
+                "author":catalog.get("author"),
+                "date":str(base.get("publication_year")) if base.get("publication_year") else row.get("date"),
+                "publication_year":base.get("publication_year",row.get("publication_year")),
+                "form":base.get("form",row.get("form")),
+                "aliases":base.get("aliases",row.get("aliases",[])),
+                "semantic_order":base.get("semantic_order",row.get("semantic_order")),
+                "catalog_basis":catalog.get("catalog_basis"),
+                "corpus_status":base.get("corpus_status",row.get("corpus_status")),
+                "reference_source_file":base.get("source_file",row.get("reference_source_file")),
+                "internal_chronology":base.get("internal_chronology",row.get("internal_chronology")),
+                "chronology_confidence":base.get("chronology_confidence",row.get("chronology_confidence")),
+                "notes":base.get("notes",row.get("notes",[])),
+                "completeness_status":row.get("completeness_status") or status_default,
+                "authority_status":row.get("authority_status") or "AUTHORITY_SOURCE_PENDING",
+                "version_status":row.get("version_status") or "VERSION_NOT_VERIFIED",
+            })
+        works[bucket]=upgraded
+
+    works["author"]=catalog.get("author")
+    works["catalog_basis"]=catalog.get("catalog_basis")
+    works["object_schema"]="CORPUS_OBJECT_V1"
+    return works
+
+
 def match_catalog(catalog: dict[str, Any], parsed: list[dict[str, Any]]) -> dict[str, Any]:
     source_titles: list[dict[str, str]] = []
     for item in parsed:
@@ -3285,7 +3331,13 @@ def get_kb(project_id: str, name: str) -> JSONResponse:
     path = PROJECTS_ROOT / project_id / "kb" / f"{name}.json"
     if not path.exists():
         raise HTTPException(404, "Раздел ещё не создан")
-    return JSONResponse(json.loads(path.read_text(encoding="utf-8")))
+    data = read_json(path,{}) or {}
+    if name == "works":
+        upgraded = enrich_existing_work_catalog(data)
+        if upgraded != data or upgraded.get("object_schema") == "CORPUS_OBJECT_V1":
+            write_json(path, upgraded)
+        data = upgraded
+    return JSONResponse(data)
 
 
 @app.get("/api/projects")
