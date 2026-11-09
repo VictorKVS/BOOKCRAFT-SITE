@@ -475,6 +475,30 @@ export default function AlinaStudioPage() {
     }
   }
 
+  async function runResearchAuto(workId){
+    if(!projectId || !workId) return;
+    setResearchBusy(true);
+    setResearchAction("AUTO");
+    setApiError("");
+    try{
+      const r=await tracedFetch(`http://127.0.0.1:8191/api/projects/${projectId}/research/${workId}/auto`,{method:"POST"});
+      if(!r.ok) throw new Error(await r.text());
+      const data=await r.json();
+      await loadResearchDashboard(projectId);
+      traceEvent("SEQUENCE",{
+        sequence:"RESEARCH_FLOW",
+        step:`${workId}:AUTO`,
+        status:data.status || "PASS",
+        result:(data.executed || []).map(x=>`${x.task_id}:${x.status}`).join(",").slice(0,220)
+      },true);
+    }catch(err){
+      setApiError(`Research AUTO ${workId}: ${err.message}`);
+    }finally{
+      setResearchBusy(false);
+      setResearchAction("");
+    }
+  }
+
   async function loadProjects(){
     try{
       const r=await tracedFetch("http://127.0.0.1:8191/api/projects");
@@ -1339,14 +1363,24 @@ export default function AlinaStudioPage() {
                       <div><small>{p.work_id}</small><h4>{p.work_title}</h4><span>{p.research_profile} · Source Set v{p.source_set_version}</span></div>
                       <div className="asResearchProgramActions">
                         <em>{p.program_status}</em>
+                        <button disabled={researchBusy} onClick={()=>runResearchAuto(p.work_id)}>
+                          {researchBusy && researchAction==="AUTO" ? "Автомат выполняет…" : "Автозапуск доступного"}
+                        </button>
                         <button disabled={researchBusy} onClick={()=>runNextResearchTask(p.work_id)}>
-                          {researchBusy && researchAction==="NEXT" ? "Выполняю…" : "Запустить следующую →"}
+                          {researchBusy && researchAction==="NEXT" ? "Выполняю…" : "Следующая задача →"}
                         </button>
                       </div>
                     </div>
                     <div className="asResearchProgress">
                       <div><i style={{width:`${p.summary?.completion_pct || 0}%`}}></i></div>
                       <span>{p.summary?.completion_pct || 0}%</span>
+                    </div>
+                    <div className="asResearchRunSummary">
+                      <span>RUN HISTORY: {(p.execution_history || []).length}</span>
+                      <span>PASS: {p.summary?.pass || 0}</span>
+                      <span>REVIEW: {p.summary?.review || 0}</span>
+                      <span>BLOCKED: {p.summary?.blocked || 0}</span>
+                      <span>FAILED: {p.summary?.failed || 0}</span>
                     </div>
                     <div className="asTaskGrid">
                       {(p.tasks || []).map(t=><article key={t.task_id} className={String(t.status || "").toLowerCase()}>
