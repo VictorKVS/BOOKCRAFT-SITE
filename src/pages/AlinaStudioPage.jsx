@@ -68,7 +68,7 @@ export default function AlinaStudioPage() {
   const [externalResearch,setExternalResearch] = useState(false);
   const [kbTab,setKbTab] = useState("summary");
   const [kbQuery,setKbQuery] = useState("");
-  const [workspaceView,setWorkspaceView] = useState("knowledge");
+  const [workspaceView,setWorkspaceView] = useState("dashboard");
   const [traceLevel,setTraceLevel] = useState("INFO");
   const [sourceQuery,setSourceQuery] = useState("");
   const [runDemo,setRunDemo] = useState(false);
@@ -111,6 +111,8 @@ export default function AlinaStudioPage() {
   const [selectedCorpusObject,setSelectedCorpusObject] = useState(null);
   const [sourceIntel,setSourceIntel] = useState(null);
   const [sourceIntelBusy,setSourceIntelBusy] = useState(false);
+  const [commandCenter,setCommandCenter] = useState(null);
+  const [reportBusy,setReportBusy] = useState(false);
 
   const activeMode = projectModes.find(x=>x[0]===mode);
   const isStudy = activeMode?.[3] === "STUDY";
@@ -648,6 +650,48 @@ export default function AlinaStudioPage() {
     }
   }
 
+  async function loadCommandCenter(projectIdValue){
+    if(!projectIdValue) return null;
+    try{
+      const r=await tracedFetch(`http://127.0.0.1:8191/api/projects/${projectIdValue}/command-center`);
+      if(!r.ok) return null;
+      const data=await r.json();
+      setCommandCenter(data);
+      return data;
+    }catch{
+      return null;
+    }
+  }
+
+  async function exportProjectReport(){
+    if(!projectId) return;
+    setReportBusy(true);
+    try{
+      const r=await tracedFetch(`http://127.0.0.1:8191/api/projects/${projectId}/report`);
+      if(!r.ok) throw new Error(await r.text());
+      const data=await r.json();
+      const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json;charset=utf-8"});
+      const url=URL.createObjectURL(blob);
+      const a=document.createElement("a");
+      a.href=url;
+      a.download=`${projectMeta?.short_code || "ALINA"}_project_report.json`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      await loadCommandCenter(projectId);
+    }catch(err){
+      setApiError("Экспорт отчёта: "+err.message);
+    }finally{
+      setReportBusy(false);
+    }
+  }
+
+  function openCommandTarget(target){
+    if(!target) return;
+    setWorkspaceView(target);
+  }
+
   async function loadProjectState(projectIdValue){
     try{
       const [sr,er]=await Promise.all([
@@ -662,6 +706,7 @@ export default function AlinaStudioPage() {
         setSourceCount(state.source_set?.count || 0);
       }
       setProjectEvents(events || []);
+      await loadCommandCenter(projectIdValue);
       return state;
     }catch{
       return null;
@@ -683,6 +728,7 @@ export default function AlinaStudioPage() {
   async function openLocalProject(project){
     setProjectId(project.project_id);
     setFiles([]);
+    setWorkspaceView("dashboard");
     const detailResponse=await tracedFetch(`http://127.0.0.1:8191/api/projects/${project.project_id}`);
     const detail=detailResponse.ok ? await detailResponse.json() : project;
     setProjectMeta(detail);
@@ -1295,7 +1341,7 @@ export default function AlinaStudioPage() {
               <p>{runState?.run_type==="DEEP_ANALYSIS" && runState?.status==="PASS" ? "Глубокий семантический анализ завершён." : "Корпус подготовлен. Research Complex выполняет исследовательские задачи по произведениям и строит evidence-weighted граф."}</p>
             </div>
             <div className="asWorkspaceActions">
-              <button>Экспорт отчёта</button>
+              <button onClick={exportProjectReport} disabled={reportBusy}>{reportBusy ? "Формирую отчёт…" : "Экспорт отчёта"}</button>
               <button className="primary" onClick={startDeepAnalysis} disabled={!projectId || phase==="running"}>
                 {runState?.run_type==="DEEP_ANALYSIS" && phase==="running" ? "Глубокий анализ идёт…" : "Запустить глубокий анализ →"}
               </button>
@@ -1303,6 +1349,7 @@ export default function AlinaStudioPage() {
           </div>
 
           <div className="asWorkspaceNav">
+            <button className={workspaceView==="dashboard"?"active":""} onClick={()=>setWorkspaceView("dashboard")}>Dashboard</button>
             <button className={workspaceView==="knowledge"?"active":""} onClick={()=>setWorkspaceView("knowledge")}>База знаний</button>
             <button className={workspaceView==="research"?"active":""} onClick={()=>setWorkspaceView("research")}>Research Complex</button>
             <button className={workspaceView==="process"?"active":""} onClick={()=>setWorkspaceView("process")}>Процесс / Trace</button>
@@ -1417,6 +1464,81 @@ export default function AlinaStudioPage() {
             <article><small>REVIEW</small><b>{runState?.metrics?.review ?? "—"}</b><span>на проверку</span></article>
           </div>
 
+
+          {workspaceView==="dashboard" && <section className="asCommandCenter">
+            <div className="asCommandHero">
+              <div>
+                <small>PROJECT COMMAND CENTER</small>
+                <h3>{commandCenter?.project?.code || projectMeta?.short_code || "—"} · {commandCenter?.project?.title || title}</h3>
+                <p>Единая оперативная картина проекта: доверие к корпусу, производственный поток, проблемы и следующий шаг.</p>
+              </div>
+              <div className={`asHealth ${(commandCenter?.health || "REVIEW").toLowerCase()}`}>
+                <small>PROJECT HEALTH</small>
+                <b>{commandCenter?.health || "REVIEW"}</b>
+              </div>
+            </div>
+
+            <div className="asCommandNext">
+              <div>
+                <small>РЕКОМЕНДОВАННОЕ ДЕЙСТВИЕ</small>
+                <b>{commandCenter?.next_action?.label || "Обновить состояние проекта"}</b>
+              </div>
+              <button onClick={()=>openCommandTarget(commandCenter?.next_action?.target || "research")}>Перейти →</button>
+            </div>
+
+            <div className="asCommandKpis">
+              <article><small>SOURCES</small><b>{commandCenter?.kpis?.sources ?? 0}</b><span>в проекте</span></article>
+              <article><small>CORPUS</small><b>{commandCenter?.kpis?.works_matched ?? 0}/{commandCenter?.kpis?.works_expected ?? "—"}</b><span>идентифицировано</span></article>
+              <article><small>VERIFIED</small><b>{commandCenter?.kpis?.corpus_verified ?? 0}</b><span>metadata verified</span></article>
+              <article><small>RESEARCH READY</small><b>{commandCenter?.kpis?.research_ready ?? 0}/{commandCenter?.kpis?.research_works ?? 0}</b><span>произведений</span></article>
+              <article><small>PASS</small><b>{commandCenter?.kpis?.pass_tasks ?? 0}</b><span>research tasks</span></article>
+              <article><small>REVIEW / FAIL</small><b>{commandCenter?.kpis?.review_tasks ?? 0} / {commandCenter?.kpis?.failed_tasks ?? 0}</b><span>требуют внимания</span></article>
+            </div>
+
+            <div className="asPipelineBoard">
+              <div className="asCommandSectionHead"><b>ПРОИЗВОДСТВЕННЫЙ КОНВЕЙЕР</b><span>overview → drill-down</span></div>
+              <div className="asPipelineStages">
+                {(commandCenter?.pipeline || []).map((p,i)=><button key={p.id} className={(p.status || "").toLowerCase()} onClick={()=>openCommandTarget(p.target)}>
+                  <small>{String(i+1).padStart(2,"0")} · {p.id}</small>
+                  <b>{p.label}</b>
+                  <span>{p.status} · {p.progress ?? 0}%</span>
+                  <i><em style={{width:`${Math.max(0,Math.min(100,p.progress || 0))}%`}}/></i>
+                </button>)}
+              </div>
+            </div>
+
+            <div className="asCommandGrid">
+              <section className="asAttentionPanel">
+                <div className="asCommandSectionHead"><b>ТРЕБУЕТ ВНИМАНИЯ</b><span>{commandCenter?.attention?.length || 0}</span></div>
+                {(commandCenter?.attention || []).length===0 ? <div className="asCommandEmpty">Критических блокеров нет.</div> :
+                  (commandCenter.attention || []).map((a,i)=><button key={i} className={(a.severity || "MEDIUM").toLowerCase()} onClick={()=>openCommandTarget(a.target)}>
+                    <span>{a.severity}</span>
+                    <div><b>{a.title}</b><small>{a.reason}</small></div>
+                    <em>Открыть →</em>
+                  </button>)}
+              </section>
+
+              <section className="asCurrentOperation">
+                <div className="asCommandSectionHead"><b>ТЕКУЩАЯ ОПЕРАЦИЯ</b><span>{commandCenter?.current_operation?.program_status || "IDLE"}</span></div>
+                <div><small>ОБЪЕКТ</small><b>{commandCenter?.current_operation?.work_id || "—"} · {commandCenter?.current_operation?.work_title || "нет активного"}</b></div>
+                <div><small>ЗАДАЧА</small><b>{commandCenter?.current_operation?.task_id || "—"} · {commandCenter?.current_operation?.task_name || "—"}</b></div>
+                <div><small>СТАТУС</small><b>{commandCenter?.current_operation?.task_status || commandCenter?.current_operation?.run?.status || "—"}</b></div>
+                <div><small>RUN</small><b>{commandCenter?.current_operation?.run?.stage || "—"} · {commandCenter?.current_operation?.run?.progress ?? 0}%</b></div>
+                {commandCenter?.current_operation?.run?.error && <p>{commandCenter.current_operation.run.error}</p>}
+                <button onClick={()=>setWorkspaceView("process")}>Открыть процесс / trace →</button>
+              </section>
+            </div>
+
+            <div className="asTrustPanel">
+              <div className="asCommandSectionHead"><b>TRUST & EVIDENCE</b><span>{commandCenter?.trust?.corpus_verification_status || "PENDING"}</span></div>
+              <div>
+                <article><small>YEARS VERIFIED</small><b>{commandCenter?.trust?.publication_year_matches ?? 0}/{commandCenter?.trust?.works_expected ?? 0}</b></article>
+                <article><small>OFFICIAL FULL TEXT</small><b>{commandCenter?.trust?.official_full_text_verified ?? 0}</b></article>
+                <article><small>PUBLISHER EDITIONS</small><b>{commandCenter?.trust?.publisher_editions_verified ?? 0}</b></article>
+                <article><small>REPORT</small><b>ALINA_PROJECT_REPORT_V1</b></article>
+              </div>
+            </div>
+          </section>}
 
           {workspaceView==="knowledge" && <>
                       <div className="asDonePanel">
