@@ -758,8 +758,15 @@ export default function AlinaStudioPage() {
           return;
         }
         if(data.status==="FAIL"){
-          setPhase("error");
-          setApiError(data.error || "Анализ завершился с ошибкой");
+          setRunDemo(false);
+          if(data.run_type==="DEEP_ANALYSIS"){
+            setPhase("ready");
+            setApiError((data.error || "Глубокий анализ прерван") + " · Сохранён checkpoint. Повторный запуск продолжит с последнего успешно обработанного chunk.");
+            setWorkspaceView("process");
+          }else{
+            setPhase("error");
+            setApiError(data.error || "Анализ завершился с ошибкой");
+          }
           return;
         }
       }catch(err){
@@ -1229,6 +1236,15 @@ export default function AlinaStudioPage() {
               <button onClick={()=>setWorkspaceView("research")}>Открыть Research Complex →</button>
             </>;
           })()}
+        </section>}
+
+        {phase==="ready" && apiError && <section className="asRecoverableError">
+          <div>
+            <small>RECOVERABLE ANALYSIS ERROR</small>
+            <b>Глубокий анализ прерван, данные не потеряны</b>
+            <span>{apiError}</span>
+          </div>
+          <button onClick={startDeepAnalysis}>Продолжить глубокий анализ →</button>
         </section>}
 
         {phase==="ready" && <section className="asWorkspace">
