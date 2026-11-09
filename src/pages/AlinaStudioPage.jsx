@@ -108,6 +108,7 @@ export default function AlinaStudioPage() {
   const [researchBusy,setResearchBusy] = useState(false);
   const [researchAction,setResearchAction] = useState("");
   const [researchGraph,setResearchGraph] = useState(null);
+  const [selectedCorpusObject,setSelectedCorpusObject] = useState(null);
 
   const activeMode = projectModes.find(x=>x[0]===mode);
   const isStudy = activeMode?.[3] === "STUDY";
@@ -649,6 +650,7 @@ export default function AlinaStudioPage() {
     const detail=detailResponse.ok ? await detailResponse.json() : project;
     setProjectMeta(detail);
     setProjectState(detail.project_state || null);
+    setSelectedCorpusObject(null);
     setSavedSources(detail.saved_sources || detail.project_state?.source_set?.sources || []);
     setReferenceAnalysis(detail.reference_analysis || null);
     setSourceCount(detail.project_state?.source_set?.count ?? detail.source_count ?? 0);
@@ -1445,13 +1447,32 @@ export default function AlinaStudioPage() {
                               <span>Найдено {kbData.works.matched_count ?? 0} из {kbData.works.expected ?? "—"} · review {kbData.works.review_count ?? 0} · не найдено {kbData.works.missing_count ?? 0}</span>
                             </div>
                             <div className="asWorksList">
-                              {(kbData.works.matched || []).map(w=><article key={w.work_id}>
+                              {(kbData.works.matched || []).map(w=><article
+                                key={w.work_id}
+                                role="button"
+                                tabIndex={0}
+                                className={selectedCorpusObject?.work_id===w.work_id ? "selected" : ""}
+                                onClick={()=>setSelectedCorpusObject({...w,cycle:kbData.works.cycle,catalog_author:kbData.works.author})}
+                                onKeyDown={e=>{if(e.key==="Enter")setSelectedCorpusObject({...w,cycle:kbData.works.cycle,catalog_author:kbData.works.author})}}
+                              >
                                 <span>{w.work_id}</span><b>{w.title}</b><small>{w.publication_year || "—"} · {w.form || "—"}</small><em>MATCHED</em>
                               </article>)}
-                              {(kbData.works.review || []).map(w=><article key={w.work_id} className="review">
+                              {(kbData.works.review || []).map(w=><article
+                                key={w.work_id}
+                                role="button"
+                                tabIndex={0}
+                                className={`review ${selectedCorpusObject?.work_id===w.work_id ? "selected" : ""}`}
+                                onClick={()=>setSelectedCorpusObject({...w,cycle:kbData.works.cycle,catalog_author:kbData.works.author})}
+                              >
                                 <span>{w.work_id}</span><b>{w.title}</b><small>Похоже на: {w.candidate_heading} · {Math.round((w.confidence || 0)*100)}%</small><em>REVIEW</em>
                               </article>)}
-                              {(kbData.works.missing || []).map(w=><article key={w.work_id} className="missing">
+                              {(kbData.works.missing || []).map(w=><article
+                                key={w.work_id}
+                                role="button"
+                                tabIndex={0}
+                                className={`missing ${selectedCorpusObject?.work_id===w.work_id ? "selected" : ""}`}
+                                onClick={()=>setSelectedCorpusObject({...w,cycle:kbData.works.cycle,catalog_author:kbData.works.author})}
+                              >
                                 <span>{w.work_id}</span><b>{w.title}</b><small>Источник не сопоставлен</small><em>REVIEW</em>
                               </article>)}
                             </div>
@@ -1469,17 +1490,35 @@ export default function AlinaStudioPage() {
                         </section>
             
                         <aside className="asInspector">
-                          <small>INSPECTOR</small>
-                          <h3>Карточка объекта</h3>
-                          <p>Выберите запись в БЗ.</p>
-                          <div><span>Источник</span><b>—</b></div>
-                          <div><span>Уверенность</span><b>—</b></div>
-                          <div><span>Связей</span><b>—</b></div>
-                          <div><span>Конфликтов</span><b>—</b></div>
-                          <hr/>
-                          <button>Подтвердить</button>
-                          <button>Исправить</button>
-                          <button>Пометить спорным</button>
+                          <small>INSPECTOR · CORPUS OBJECT</small>
+                          <h3>{selectedCorpusObject?.title || "Карточка объекта"}</h3>
+                          {!selectedCorpusObject ? <p>Выберите произведение или документ в списке.</p> : <>
+                            <p>{selectedCorpusObject.object_type || "CORPUS_OBJECT"} · {selectedCorpusObject.work_id || selectedCorpusObject.object_id}</p>
+                            <div><span>Дата / год</span><b>{selectedCorpusObject.date || selectedCorpusObject.publication_year || "НЕ УСТАНОВЛЕНО"}</b></div>
+                            <div><span>Автор / орган</span><b>{selectedCorpusObject.author || selectedCorpusObject.catalog_author || selectedCorpusObject.issuing_authority || "НЕ УСТАНОВЛЕНО"}</b></div>
+                            <div><span>Тип</span><b>{selectedCorpusObject.form || selectedCorpusObject.document_type || selectedCorpusObject.object_type || "—"}</b></div>
+                            <div><span>Цикл / набор</span><b>{selectedCorpusObject.cycle || "—"}</b></div>
+                            <div><span>Порядок</span><b>{selectedCorpusObject.semantic_order ?? "—"}</b></div>
+                            <div><span>Идентификация</span><b>{selectedCorpusObject.status || "—"} · {selectedCorpusObject.confidence!=null ? Math.round(selectedCorpusObject.confidence*100)+"%" : "—"}</b></div>
+                            <div><span>Полнота</span><b>{selectedCorpusObject.completeness_status || "COMPLETENESS_NOT_VERIFIED"}</b></div>
+                            <div><span>Версия / редакция</span><b>{selectedCorpusObject.version_status || "VERSION_NOT_VERIFIED"}</b></div>
+                            <div><span>Авторитетность</span><b>{selectedCorpusObject.authority_status || "AUTHORITY_SOURCE_PENDING"}</b></div>
+                            <div><span>Источник корпуса</span><b>{selectedCorpusObject.source_id || selectedCorpusObject.reference_source_file || "—"}</b></div>
+                            <div><span>Заголовок в источнике</span><b>{selectedCorpusObject.matched_heading || selectedCorpusObject.candidate_heading || "—"}</b></div>
+                            <div><span>Основа каталога</span><b>{selectedCorpusObject.catalog_basis || kbData.works?.catalog_basis || "—"}</b></div>
+                            {(selectedCorpusObject.aliases || []).length>0 && <div className="asInspectorWide">
+                              <span>Алиасы / варианты названия</span>
+                              <b>{selectedCorpusObject.aliases.join(" · ")}</b>
+                            </div>}
+                            {(selectedCorpusObject.notes || []).length>0 && <div className="asInspectorWide">
+                              <span>Примечания</span>
+                              <b>{selectedCorpusObject.notes.join(" · ")}</b>
+                            </div>}
+                            <hr/>
+                            <button onClick={()=>{setWorkspaceView("research");setSelectedResearchWork(selectedCorpusObject.work_id)}}>Открыть исследование</button>
+                            <button disabled>Сравнить версии — Corpus Lab</button>
+                            <button disabled>Официальные источники — ожидают проверки</button>
+                          </>}
                         </aside>
                       </div>
           </>}
