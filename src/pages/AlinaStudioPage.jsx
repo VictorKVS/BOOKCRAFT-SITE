@@ -1490,6 +1490,7 @@ export default function AlinaStudioPage() {
               <article><small>SOURCES</small><b>{commandCenter?.kpis?.sources ?? 0}</b><span>в проекте</span></article>
               <article><small>CORPUS</small><b>{commandCenter?.kpis?.works_matched ?? 0}/{commandCenter?.kpis?.works_expected ?? "—"}</b><span>идентифицировано</span></article>
               <article><small>VERIFIED</small><b>{commandCenter?.kpis?.corpus_verified ?? 0}</b><span>metadata verified</span></article>
+              <article><small>TEXT ANALYSIS</small><b>{commandCenter?.kpis?.text_analysis_trusted ?? 0}/{commandCenter?.kpis?.text_analysis_extracted ?? 0}</b><span>trusted / extracted</span></article>
               <article><small>RESEARCH READY</small><b>{commandCenter?.kpis?.research_ready ?? 0}/{commandCenter?.kpis?.research_works ?? 0}</b><span>произведений</span></article>
               <article><small>PASS</small><b>{commandCenter?.kpis?.pass_tasks ?? 0}</b><span>research tasks</span></article>
               <article><small>REVIEW / FAIL</small><b>{commandCenter?.kpis?.review_tasks ?? 0} / {commandCenter?.kpis?.failed_tasks ?? 0}</b><span>требуют внимания</span></article>
