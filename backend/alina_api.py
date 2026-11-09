@@ -262,7 +262,8 @@ def build_work_research_program(project_dir: Path, meta: dict[str, Any], work: d
             "name": raw.get("name"),
             "status": "BLOCKED" if blocked else "PLANNED",
             "progress": 0,
-            "depends_on": [],
+            "depends_on": list(raw.get("depends_on", [])),
+            "executor": raw.get("executor", "WORK_SCOPED_SEMANTIC_V1"),
             "inputs": [],
             "outputs": [],
             "evidence_required": True,
@@ -408,6 +409,239 @@ def research_dashboard(project_dir: Path) -> dict[str, Any]:
         "programs": programs,
         "continuity": read_json(project_dir / "research" / "continuity_program.json", {}) or {},
     }
+
+
+def recalc_research_program(program: dict[str, Any]) -> dict[str, Any]:
+    tasks = program.get("tasks", [])
+    by_id = {t.get("task_id"): t for t in tasks}
+    terminal_ok = {"PASS", "REUSED"}
+
+    for task in tasks:
+        if task.get("status") in {"PASS","REUSED","RUNNING","FAILED","REVIEW"}:
+            continue
+        deps = task.get("depends_on", [])
+        if not deps:
+            if task.get("status") == "PLANNED":
+                task["status"] = "READY"
+                task["blockers"] = []
+            continue
+        unmet = [d for d in deps if (by_id.get(d) or {}).get("status") not in terminal_ok]
+        if unmet:
+            task["status"] = "BLOCKED"
+            task["blockers"] = [f"DEPENDENCY:{d}" for d in unmet]
+        else:
+            if task.get("executor") == "WORK_SCOPED_SEMANTIC_V1":
+                task["status"] = "READY"
+                task["blockers"] = []
+            else:
+                task["status"] = "READY"
+                task["blockers"] = []
+
+    counts = {k:0 for k in ("planned","ready","running","pass","review","blocked","failed","reused","skipped")}
+    for task in tasks:
+        key = str(task.get("status","PLANNED")).lower()
+        if key in counts:
+            counts[key] += 1
+    finished_equiv = counts["pass"] + counts["reused"] + 0.5 * counts["review"]
+    summary = program.setdefault("summary", {})
+    summary.update({
+        "total": len(tasks),
+        **counts,
+        "completion_pct": round((finished_equiv / max(1,len(tasks))) * 100),
+    })
+
+    r30 = by_id.get("R30")
+    if r30 and r30.get("status") in terminal_ok:
+        program["program_status"] = "RESEARCH_READY"
+    elif counts["running"]:
+        program["program_status"] = "RUNNING"
+    elif counts["failed"]:
+        program["program_status"] = "FAILED"
+    elif counts["review"]:
+        program["program_status"] = "REVIEW"
+    elif counts["blocked"] == len(tasks):
+        program["program_status"] = "BLOCKED"
+    else:
+        program["program_status"] = "ACTIVE"
+    program["updated_at"] = now()
+    return program
+
+
+def sync_research_index(project_dir: Path, program: dict[str, Any]) -> None:
+    index_path = project_dir / "research" / "research_index.json"
+    index = read_json(index_path, {}) or {}
+    for row in index.get("programs", []):
+        if row.get("work_id") == program.get("work_id"):
+            row["program_status"] = program.get("program_status")
+            row["summary"] = program.get("summary")
+    index["ready_to_start"] = sum(
+        1 for row in index.get("programs", [])
+        if row.get("program_status") in {"PLANNED","ACTIVE","REVIEW"}
+    )
+    index["blocked"] = sum(
+        1 for row in index.get("programs", [])
+        if row.get("program_status") == "BLOCKED"
+    )
+    index["updated_at"] = now()
+    write_json(index_path, index)
+
+
+def execute_research_task(project_dir: Path, work_id: str, task_id: str) -> dict[str, Any]:
+    program_path = project_dir / "research" / work_id / "research_program.json"
+    program = read_json(program_path, None)
+    if program is None:
+        raise HTTPException(404, "Исследовательская программа произведения не найдена")
+
+    program = recalc_research_program(program)
+    tasks = {t.get("task_id"): t for t in program.get("tasks", [])}
+    task = tasks.get(task_id)
+    if task is None:
+        raise HTTPException(404, "Исследовательская задача не найдена")
+    if task.get("status") in {"PASS","REUSED"}:
+        return {"status":"REUSED","task":task,"program":program}
+    if task.get("status") == "BLOCKED":
+        raise HTTPException(409, "Задача заблокирована: " + ", ".join(task.get("blockers", [])))
+
+    started = time.perf_counter()
+    task["status"] = "RUNNING"
+    task["progress"] = 5
+    task["started_at"] = now()
+    task["last_run_id"] = f"RSR-{uuid.uuid4().hex[:10]}"
+    task["blockers"] = []
+    program["program_status"] = "RUNNING"
+    write_json(program_path, program)
+
+    try:
+        if task_id == "R01":
+            meta = read_json(project_dir / "project.json", {}) or {}
+            manifest = read_json(project_dir / "kb" / "source_manifest.json", {}) or {}
+            works = read_json(project_dir / "kb" / "works.json", {}) or {}
+            matched = next((w for w in works.get("matched", []) if w.get("work_id") == work_id), None)
+            review = next((w for w in works.get("review", []) if w.get("work_id") == work_id), None)
+            item = matched or review
+            if not item or not meta.get("source_fingerprint") or not manifest.get("source_fingerprint"):
+                raise RuntimeError("SOURCE_IDENTITY_INCOMPLETE")
+            result = {
+                "task_id":"R01",
+                "work_id":work_id,
+                "source_fingerprint":meta.get("source_fingerprint"),
+                "source_set_version":meta.get("source_set_version"),
+                "work_match_status":item.get("status"),
+                "work_match_confidence":item.get("confidence"),
+                "matched_heading":item.get("matched_heading") or item.get("candidate_heading"),
+                "source_manifest_count":manifest.get("source_count"),
+                "result":"PASS" if matched else "REVIEW",
+                "created_at":now(),
+            }
+            out = project_dir / "research" / work_id / "outputs" / "R01_source_integrity.json"
+            write_json(out, result)
+            task["outputs"] = [str(out.relative_to(project_dir)).replace("\\","/")]
+            task["metrics"].update({
+                "items_found": 1,
+                "items_accepted": 1 if matched else 0,
+                "items_review": 0 if matched else 1,
+                "evidence_coverage": 1.0,
+            })
+            task["status"] = "PASS" if matched else "REVIEW"
+            task["quality_gate"] = task["status"]
+
+        elif task_id == "R02":
+            structure = read_json(project_dir / "kb" / "structure.json", []) or []
+            works = read_json(project_dir / "kb" / "works.json", {}) or {}
+            match = next((w for w in works.get("matched", []) if w.get("work_id") == work_id), None)
+            if not match:
+                raise RuntimeError("WORK_BOUNDARY_NOT_TRUSTED")
+            source_id = match.get("source_id")
+            source_struct = next((x for x in structure if x.get("source_id") == source_id), None)
+            if not source_struct:
+                raise RuntimeError("SOURCE_STRUCTURE_NOT_FOUND")
+            result = {
+                "task_id":"R02",
+                "work_id":work_id,
+                "matched_heading":match.get("matched_heading"),
+                "source_id":source_id,
+                "source_format":source_struct.get("format"),
+                "source_section_count":source_struct.get("section_count",0),
+                "boundary_status":"FOUNDATION_MATCHED_WORK",
+                "note":"Current foundation confirms work identity inside source. Exact work-scoped paragraph boundary requires semantic slicer for full deep execution.",
+                "result":"PASS",
+                "created_at":now(),
+            }
+            out = project_dir / "research" / work_id / "outputs" / "R02_structural_map.json"
+            write_json(out, result)
+            task["outputs"] = [str(out.relative_to(project_dir)).replace("\\","/")]
+            task["metrics"].update({
+                "items_found": int(source_struct.get("section_count",0)),
+                "items_accepted": 1,
+                "items_review": 0,
+                "evidence_coverage": 1.0,
+            })
+            task["status"] = "PASS"
+            task["quality_gate"] = "PASS"
+
+        elif task_id == "R30":
+            prereq = [tasks.get(f"R{i:02d}") for i in range(1,30)]
+            bad = [x.get("task_id") for x in prereq if not x or x.get("status") not in {"PASS","REUSED"}]
+            if bad:
+                task["status"] = "BLOCKED"
+                task["quality_gate"] = "BLOCKED"
+                task["blockers"] = [f"NOT_PASS:{x}" for x in bad]
+            else:
+                result = {
+                    "task_id":"R30",
+                    "work_id":work_id,
+                    "quality_gate":"PASS",
+                    "research_ready":True,
+                    "completed_tasks":29,
+                    "created_at":now(),
+                }
+                out = project_dir / "research" / work_id / "outputs" / "R30_quality_gate.json"
+                write_json(out, result)
+                task["outputs"] = [str(out.relative_to(project_dir)).replace("\\","/")]
+                task["metrics"].update({"items_found":29,"items_accepted":29,"items_review":0,"evidence_coverage":1.0})
+                task["status"] = "PASS"
+                task["quality_gate"] = "PASS"
+
+        else:
+            # The legacy Deep Engine is corpus-wide. Do not fake a per-work PASS.
+            task["status"] = "BLOCKED"
+            task["progress"] = 0
+            task["quality_gate"] = "BLOCKED"
+            task["blockers"] = ["WORK_SCOPED_SEMANTIC_ENGINE_REQUIRED"]
+            task["executor_note"] = (
+                "Task contract exists, but current semantic engine is corpus-wide. "
+                "A work-scoped slicer/evidence executor must be connected before this task can run."
+            )
+
+    except Exception as exc:
+        task["status"] = "FAILED"
+        task["quality_gate"] = "FAILED"
+        task["blockers"] = [str(exc)[:200]]
+
+    task["finished_at"] = now()
+    task["duration_ms"] = int((time.perf_counter()-started)*1000)
+    if task.get("status") in {"PASS","REUSED","REVIEW"}:
+        task["progress"] = 100 if task.get("status") in {"PASS","REUSED"} else max(task.get("progress",0),50)
+
+    program = recalc_research_program(program)
+    write_json(program_path, program)
+    sync_research_index(project_dir, program)
+    return {"status":task.get("status"),"task":task,"program":program}
+
+
+def execute_next_research_task(project_dir: Path, work_id: str) -> dict[str, Any]:
+    program_path = project_dir / "research" / work_id / "research_program.json"
+    program = read_json(program_path, None)
+    if program is None:
+        raise HTTPException(404, "Исследовательская программа произведения не найдена")
+    program = recalc_research_program(program)
+    write_json(program_path, program)
+    sync_research_index(project_dir, program)
+
+    for task in program.get("tasks", []):
+        if task.get("status") == "READY":
+            return execute_research_task(project_dir, work_id, task.get("task_id"))
+    return {"status":"NO_READY_TASKS","program":program}
 
 
 def normalize_title(value: str) -> str:
@@ -2025,6 +2259,22 @@ def get_work_research_program(project_id: str, work_id: str) -> JSONResponse:
     if not path.exists():
         raise HTTPException(404, "Исследовательская программа произведения не найдена")
     return JSONResponse(read_json(path, {}) or {})
+
+
+@app.post("/api/projects/{project_id}/research/{work_id}/tasks/{task_id}/run")
+def run_work_research_task(project_id: str, work_id: str, task_id: str) -> JSONResponse:
+    project_dir = PROJECTS_ROOT / project_id
+    if not project_dir.exists():
+        raise HTTPException(404, "Проект не найден")
+    return JSONResponse(execute_research_task(project_dir, work_id, task_id))
+
+
+@app.post("/api/projects/{project_id}/research/{work_id}/next")
+def run_next_work_research_task(project_id: str, work_id: str) -> JSONResponse:
+    project_dir = PROJECTS_ROOT / project_id
+    if not project_dir.exists():
+        raise HTTPException(404, "Проект не найден")
+    return JSONResponse(execute_next_research_task(project_dir, work_id))
 
 
 @app.post("/api/projects/{project_id}/research/rebuild")
