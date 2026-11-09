@@ -768,6 +768,15 @@ def run_work_semantic_extraction(project_dir: Path, work_id: str, research_run_i
         }
         write_json(project_dir / "research" / work_id / "runs" / f"{research_run_id}.json", run_record)
 
+        # Continue dependency-ordered execution automatically after the long semantic stage.
+        refreshed = read_json(program_path, {}) or {}
+        if refreshed.get("auto_mode"):
+            threading.Thread(
+                target=execute_research_auto,
+                args=(project_dir, work_id, 30),
+                daemon=True,
+            ).start()
+
     except Exception as exc:
         task["status"] = "FAILED"
         task["quality_gate"] = "FAILED"
@@ -1221,6 +1230,12 @@ def execute_next_research_task(project_dir: Path, work_id: str) -> dict[str, Any
 
 
 def execute_research_auto(project_dir: Path, work_id: str, max_steps: int = 30) -> dict[str, Any]:
+    program_path = project_dir / "research" / work_id / "research_program.json"
+    program = read_json(program_path, {}) or {}
+    program["auto_mode"] = True
+    program["auto_updated_at"] = now()
+    write_json(program_path, program)
+
     executed = []
     for _ in range(max(1,min(max_steps,30))):
         result = execute_next_research_task(project_dir, work_id)
