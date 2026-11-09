@@ -7,181 +7,373 @@
       "task_id": "R01",
       "name": "Source integrity",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [],
+      "executor": "DETERMINISTIC_V1"
     },
     {
       "task_id": "R02",
       "name": "Structural map",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R01"
+      ],
+      "executor": "DETERMINISTIC_V1"
     },
     {
       "task_id": "R03",
       "name": "Claim extraction",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R02"
+      ],
+      "executor": "WORK_SCOPED_SEMANTIC_V1"
     },
     {
       "task_id": "R04",
       "name": "Evidence verification",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R03"
+      ],
+      "executor": "WORK_SCOPED_SEMANTIC_V1"
     },
     {
       "task_id": "R05",
       "name": "Narrative-mode classification",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R03",
+        "R04"
+      ],
+      "executor": "WORK_SCOPED_SEMANTIC_V1"
     },
     {
       "task_id": "R06",
       "name": "Canon admission",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R04",
+        "R05"
+      ],
+      "executor": "WORK_SCOPED_SEMANTIC_V1"
     },
     {
       "task_id": "R07",
       "name": "Entity registry",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R03",
+        "R04"
+      ],
+      "executor": "WORK_SCOPED_SEMANTIC_V1"
     },
     {
       "task_id": "R08",
       "name": "Character identity resolution",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R07"
+      ],
+      "executor": "WORK_SCOPED_SEMANTIC_V1"
     },
     {
       "task_id": "R09",
       "name": "Character profile",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R08",
+        "R06"
+      ],
+      "executor": "WORK_SCOPED_SEMANTIC_V1"
     },
     {
       "task_id": "R10",
       "name": "Character goals and motives",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R09"
+      ],
+      "executor": "WORK_SCOPED_SEMANTIC_V1"
     },
     {
       "task_id": "R11",
       "name": "Character knowledge model",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R09"
+      ],
+      "executor": "WORK_SCOPED_SEMANTIC_V1"
     },
     {
       "task_id": "R12",
       "name": "Character state evolution",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R09",
+        "R11"
+      ],
+      "executor": "WORK_SCOPED_SEMANTIC_V1"
     },
     {
       "task_id": "R13",
       "name": "Relationship graph",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R08",
+        "R09"
+      ],
+      "executor": "WORK_SCOPED_SEMANTIC_V1"
     },
     {
       "task_id": "R14",
       "name": "Event extraction",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R03",
+        "R04",
+        "R07"
+      ],
+      "executor": "WORK_SCOPED_SEMANTIC_V1"
     },
     {
       "task_id": "R15",
       "name": "Event ordering",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R14"
+      ],
+      "executor": "WORK_SCOPED_SEMANTIC_V1"
     },
     {
       "task_id": "R16",
       "name": "Temporal model",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R15"
+      ],
+      "executor": "WORK_SCOPED_SEMANTIC_V1"
     },
     {
       "task_id": "R17",
       "name": "Location registry",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R03",
+        "R04"
+      ],
+      "executor": "WORK_SCOPED_SEMANTIC_V1"
     },
     {
       "task_id": "R18",
       "name": "Movement and travel",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R14",
+        "R16",
+        "R17"
+      ],
+      "executor": "WORK_SCOPED_SEMANTIC_V1"
     },
     {
       "task_id": "R19",
       "name": "World rules",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R03",
+        "R04"
+      ],
+      "executor": "WORK_SCOPED_SEMANTIC_V1"
     },
     {
       "task_id": "R20",
       "name": "Technology registry",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R03",
+        "R04"
+      ],
+      "executor": "WORK_SCOPED_SEMANTIC_V1"
     },
     {
       "task_id": "R21",
       "name": "Technology capability model",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R20"
+      ],
+      "executor": "WORK_SCOPED_SEMANTIC_V1"
     },
     {
       "task_id": "R22",
       "name": "Organizations and institutions",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R03",
+        "R04",
+        "R07"
+      ],
+      "executor": "WORK_SCOPED_SEMANTIC_V1"
     },
     {
       "task_id": "R23",
       "name": "Objects and artifacts",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R03",
+        "R04",
+        "R07"
+      ],
+      "executor": "WORK_SCOPED_SEMANTIC_V1"
     },
     {
       "task_id": "R24",
       "name": "Causal links",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R14",
+        "R15"
+      ],
+      "executor": "WORK_SCOPED_SEMANTIC_V1"
     },
     {
       "task_id": "R25",
       "name": "Contradiction analysis",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R06",
+        "R16",
+        "R24"
+      ],
+      "executor": "WORK_SCOPED_SEMANTIC_V1"
     },
     {
       "task_id": "R26",
       "name": "Open threads and unresolved questions",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R06",
+        "R14"
+      ],
+      "executor": "WORK_SCOPED_SEMANTIC_V1"
     },
     {
       "task_id": "R27",
       "name": "Themes and narrative functions",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R06",
+        "R14"
+      ],
+      "executor": "WORK_SCOPED_SEMANTIC_V1"
     },
     {
       "task_id": "R28",
       "name": "Sceneability / visual analysis",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R09",
+        "R14",
+        "R17",
+        "R23"
+      ],
+      "executor": "WORK_SCOPED_SEMANTIC_V1"
     },
     {
       "task_id": "R29",
       "name": "Forecast inputs",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R12",
+        "R16",
+        "R24",
+        "R26"
+      ],
+      "executor": "WORK_SCOPED_SEMANTIC_V1"
     },
     {
       "task_id": "R30",
       "name": "Work research quality gate",
       "status": "PLANNED",
-      "progress": 0
+      "progress": 0,
+      "depends_on": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R07",
+        "R08",
+        "R09",
+        "R10",
+        "R11",
+        "R12",
+        "R13",
+        "R14",
+        "R15",
+        "R16",
+        "R17",
+        "R18",
+        "R19",
+        "R20",
+        "R21",
+        "R22",
+        "R23",
+        "R24",
+        "R25",
+        "R26",
+        "R27",
+        "R28",
+        "R29"
+      ],
+      "executor": "DETERMINISTIC_V1"
     }
-  ]
+  ],
+  "statuses": [
+    "PLANNED",
+    "READY",
+    "RUNNING",
+    "PASS",
+    "REVIEW",
+    "BLOCKED",
+    "FAILED",
+    "REUSED",
+    "SKIPPED"
+  ],
+  "execution_policy": {
+    "max_parallel_per_work": 1,
+    "default_mode": "DEPENDENCY_ORDER",
+    "preserve_pass_on_resume": true,
+    "no_fake_pass": true,
+    "semantic_tasks_require_work_scoped_evidence": true
+  }
 }
