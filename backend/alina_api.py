@@ -413,6 +413,8 @@ def build_project_command_center(project_dir: Path) -> dict[str, Any]:
         {"id":"CREATIVE","label":"Creative","status":"PASS" if state.get("products",{}).get("count",0) else "NOT_STARTED","progress":100 if state.get("products",{}).get("count",0) else 0,"target":"creative"},
     ]
 
+    latest_pilot = read_json(project_dir / "pilot_runs" / "latest.json", {}) or {}
+
     report = {
         "schema_version":"1.0",
         "project":{"id":state.get("project_id"),"code":state.get("project_code"),"title":state.get("title"),"status":state.get("status")},
@@ -452,6 +454,17 @@ def build_project_command_center(project_dir: Path) -> dict[str, Any]:
             "official_full_text_verified":corpus_summary.get("official_full_text_verified",0),
             "publisher_editions_verified":corpus_summary.get("publisher_editions_verified",0),
         },
+        "pilot":{
+            "pilot_id":latest_pilot.get("pilot_id"),
+            "work_id":latest_pilot.get("work_id"),
+            "work_title":latest_pilot.get("work_title"),
+            "status":latest_pilot.get("status"),
+            "text_analysis_status":(latest_pilot.get("text_analysis") or {}).get("status"),
+            "research_program_status":(latest_pilot.get("research") or {}).get("program_status"),
+            "ready_for_continuity":(latest_pilot.get("quality") or {}).get("ready_for_continuity"),
+            "first_attention":(latest_pilot.get("research") or {}).get("first_attention"),
+            "note":latest_pilot.get("note"),
+        } if latest_pilot else {},
         "recent_events":read_project_events(project_dir,limit=12),
         "generated_at":now(),
     }
@@ -4692,6 +4705,7 @@ def get_project_report(project_id: str) -> JSONResponse:
         "attention":command.get("attention"),
         "current_operation":command.get("current_operation"),
         "trust":command.get("trust"),
+        "pilot":command.get("pilot"),
         "recent_events":command.get("recent_events"),
         "project_state":rebuild_project_state(project_dir),
     }
