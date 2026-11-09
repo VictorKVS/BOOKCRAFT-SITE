@@ -2229,6 +2229,172 @@ def execute_research_auto(project_dir: Path, work_id: str, max_steps: int = 30) 
     }
 
 
+def build_pilot_report(project_dir: Path, work_id: str, pilot_id: str, status: str, started_at: str, note: str | None = None) -> dict[str, Any]:
+    program_path = project_dir / "research" / work_id / "research_program.json"
+    program = recalc_research_program(read_json(program_path,{}) or {})
+    write_json(program_path,program)
+    sync_research_index(project_dir,program)
+    text_analysis = build_text_analysis_factory_package(project_dir,work_id)
+
+    tasks=[]
+    for task in program.get("tasks",[]) or []:
+        tasks.append({
+            "task_id":task.get("task_id"),
+            "name":task.get("name"),
+            "executor":task.get("executor"),
+            "status":task.get("status"),
+            "quality_gate":task.get("quality_gate"),
+            "progress":task.get("progress"),
+            "blockers":task.get("blockers",[]),
+            "outputs":task.get("outputs",[]),
+        })
+
+    summary=program.get("summary",{}) or {}
+    first_attention=next((x for x in tasks if x.get("status") in {"FAILED","REVIEW","BLOCKED"}),None)
+    report={
+        "schema_version":"1.0",
+        "pilot_id":pilot_id,
+        "project_id":program.get("project_id"),
+        "project_code":program.get("project_code"),
+        "work_id":work_id,
+        "work_title":program.get("work_title"),
+        "status":status,
+        "started_at":started_at,
+        "updated_at":now(),
+        "note":note,
+        "text_analysis":{
+            "status":text_analysis.get("status"),
+            "stage_statuses":text_analysis.get("stage_statuses"),
+            "metrics":text_analysis.get("metrics"),
+            "blockers":text_analysis.get("blockers",[]),
+        },
+        "research":{
+            "program_status":program.get("program_status"),
+            "summary":summary,
+            "tasks":tasks,
+            "first_attention":first_attention,
+            "research_ready":program.get("program_status")=="RESEARCH_READY",
+        },
+        "quality":{
+            "r30":next((x for x in tasks if x.get("task_id")=="R30"),None),
+            "text_analysis_trusted":text_analysis.get("status")=="TRUSTED",
+            "ready_for_continuity":program.get("program_status")=="RESEARCH_READY" and text_analysis.get("status")=="TRUSTED",
+        },
+    }
+    pilot_dir=project_dir / "pilot_runs" / pilot_id
+    pilot_dir.mkdir(parents=True,exist_ok=True)
+    write_json(pilot_dir / "pilot_report.json",report)
+    write_json(project_dir / "pilot_runs" / "latest.json",report)
+    return report
+
+
+def run_work_golden_path(project_dir: Path, work_id: str, pilot_id: str) -> None:
+    started_at=now()
+    pilot_dir=project_dir / "pilot_runs" / pilot_id
+    pilot_dir.mkdir(parents=True,exist_ok=True)
+    write_json(pilot_dir / "state.json",{
+        "pilot_id":pilot_id,"work_id":work_id,"status":"RUNNING","started_at":started_at,"updated_at":now()
+    })
+    record_project_event(project_dir,"PILOT_RUN_STARTED",status="RUNNING",details={"pilot_id":pilot_id,"work_id":work_id})
+
+    try:
+        max_cycles=1800
+        idle_cycles=0
+        last_signature=None
+
+        for _ in range(max_cycles):
+            program_path=project_dir / "research" / work_id / "research_program.json"
+            program=read_json(program_path,{}) or {}
+            program=recalc_research_program(program)
+            write_json(program_path,program)
+            sync_research_index(project_dir,program)
+
+            tasks=program.get("tasks",[]) or []
+            signature="|".join(f"{t.get('task_id')}:{t.get('status')}:{t.get('progress')}" for t in tasks)
+
+            if program.get("program_status")=="RESEARCH_READY":
+                report=build_pilot_report(project_dir,work_id,pilot_id,"PASS",started_at,"R30 passed; work is ready for continuity.")
+                write_json(pilot_dir / "state.json",{
+                    "pilot_id":pilot_id,"work_id":work_id,"status":"PASS","started_at":started_at,"updated_at":now(),
+                    "report":"pilot_report.json"
+                })
+                record_project_event(project_dir,"PILOT_RUN_FINISHED",status="PASS",details={"pilot_id":pilot_id,"work_id":work_id})
+                return
+
+            failed=next((t for t in tasks if t.get("status")=="FAILED"),None)
+            if failed:
+                report=build_pilot_report(project_dir,work_id,pilot_id,"FAILED",started_at,f"Stopped at {failed.get('task_id')}: FAILED")
+                write_json(pilot_dir / "state.json",{
+                    "pilot_id":pilot_id,"work_id":work_id,"status":"FAILED","started_at":started_at,"updated_at":now(),
+                    "task_id":failed.get("task_id"),"blockers":failed.get("blockers",[]),"report":"pilot_report.json"
+                })
+                record_project_event(project_dir,"PILOT_RUN_FINISHED",status="FAILED",details={
+                    "pilot_id":pilot_id,"work_id":work_id,"task_id":failed.get("task_id"),"blockers":failed.get("blockers",[])
+                })
+                return
+
+            running=next((t for t in tasks if t.get("status")=="RUNNING"),None)
+            if running:
+                write_json(pilot_dir / "state.json",{
+                    "pilot_id":pilot_id,"work_id":work_id,"status":"RUNNING","started_at":started_at,"updated_at":now(),
+                    "task_id":running.get("task_id"),"task_name":running.get("name"),"progress":running.get("progress",0)
+                })
+                time.sleep(2)
+                continue
+
+            ready=next((t for t in tasks if t.get("status")=="READY"),None)
+            if ready:
+                result=execute_research_task(project_dir,work_id,ready.get("task_id"))
+                write_json(pilot_dir / "state.json",{
+                    "pilot_id":pilot_id,"work_id":work_id,"status":"RUNNING","started_at":started_at,"updated_at":now(),
+                    "task_id":ready.get("task_id"),"last_result":result.get("status")
+                })
+                time.sleep(0.2)
+                continue
+
+            review=next((t for t in tasks if t.get("status")=="REVIEW"),None)
+            if review:
+                build_pilot_report(project_dir,work_id,pilot_id,"REVIEW",started_at,f"Stopped at {review.get('task_id')}: human/semantic review required.")
+                write_json(pilot_dir / "state.json",{
+                    "pilot_id":pilot_id,"work_id":work_id,"status":"REVIEW","started_at":started_at,"updated_at":now(),
+                    "task_id":review.get("task_id"),"blockers":review.get("blockers",[]),"report":"pilot_report.json"
+                })
+                record_project_event(project_dir,"PILOT_RUN_FINISHED",status="REVIEW",details={
+                    "pilot_id":pilot_id,"work_id":work_id,"task_id":review.get("task_id"),"blockers":review.get("blockers",[])
+                })
+                return
+
+            if signature==last_signature:
+                idle_cycles+=1
+            else:
+                idle_cycles=0
+                last_signature=signature
+            if idle_cycles>=5:
+                build_pilot_report(project_dir,work_id,pilot_id,"BLOCKED",started_at,"No runnable task and no active task.")
+                write_json(pilot_dir / "state.json",{
+                    "pilot_id":pilot_id,"work_id":work_id,"status":"BLOCKED","started_at":started_at,"updated_at":now(),
+                    "report":"pilot_report.json"
+                })
+                record_project_event(project_dir,"PILOT_RUN_FINISHED",status="BLOCKED",details={"pilot_id":pilot_id,"work_id":work_id})
+                return
+            time.sleep(1)
+
+        build_pilot_report(project_dir,work_id,pilot_id,"FAILED",started_at,"Pilot safety cycle limit reached.")
+        write_json(pilot_dir / "state.json",{
+            "pilot_id":pilot_id,"work_id":work_id,"status":"FAILED","started_at":started_at,"updated_at":now(),
+            "error":"PILOT_CYCLE_LIMIT","report":"pilot_report.json"
+        })
+    except Exception as exc:
+        build_pilot_report(project_dir,work_id,pilot_id,"FAILED",started_at,str(exc)[:300])
+        write_json(pilot_dir / "state.json",{
+            "pilot_id":pilot_id,"work_id":work_id,"status":"FAILED","started_at":started_at,"updated_at":now(),
+            "error":str(exc)[:300],"report":"pilot_report.json"
+        })
+        record_project_event(project_dir,"PILOT_RUN_FINISHED",status="FAILED",details={
+            "pilot_id":pilot_id,"work_id":work_id,"error":str(exc)[:240]
+        })
+
+
 def normalize_title(value: str) -> str:
     value = value.casefold().replace("ё", "е")
     value = re.sub(r"[«»„“”\"'.,:;!?()\[\]{}—–-]+", " ", value)
@@ -4279,6 +4445,42 @@ def run_work_research_auto(project_id: str, work_id: str, max_steps: int = 30) -
     if not project_dir.exists():
         raise HTTPException(404, "Проект не найден")
     return JSONResponse(execute_research_auto(project_dir, work_id, max_steps=max_steps))
+
+
+@app.post("/api/projects/{project_id}/research/{work_id}/pilot")
+def start_work_pilot(project_id: str, work_id: str) -> JSONResponse:
+    project_dir=PROJECTS_ROOT / project_id
+    if not project_dir.exists():
+        raise HTTPException(404,"Проект не найден")
+    program_path=project_dir / "research" / work_id / "research_program.json"
+    if not program_path.exists():
+        raise HTTPException(404,"Исследовательская программа произведения не найдена")
+    latest=read_json(project_dir / "pilot_runs" / "latest.json",{}) or {}
+    latest_state=read_json(project_dir / "pilot_runs" / str(latest.get("pilot_id","")) / "state.json",{}) if latest.get("pilot_id") else {}
+    if latest_state and latest_state.get("status")=="RUNNING" and latest_state.get("work_id")==work_id:
+        return JSONResponse(latest_state)
+    pilot_id=f"PILOT-{work_id}-{uuid.uuid4().hex[:8]}"
+    threading.Thread(target=run_work_golden_path,args=(project_dir,work_id,pilot_id),daemon=True).start()
+    return JSONResponse({"pilot_id":pilot_id,"work_id":work_id,"status":"QUEUED"})
+
+
+@app.get("/api/projects/{project_id}/research/{work_id}/pilot/latest")
+def get_work_pilot(project_id: str, work_id: str) -> JSONResponse:
+    project_dir=PROJECTS_ROOT / project_id
+    root=project_dir / "pilot_runs"
+    if not root.exists():
+        raise HTTPException(404,"Pilot run ещё не запускался")
+    candidates=[]
+    for p in root.glob("PILOT-*/state.json"):
+        item=read_json(p,{}) or {}
+        if item.get("work_id")==work_id:
+            candidates.append((item.get("updated_at",""),item,p.parent))
+    if not candidates:
+        raise HTTPException(404,"Pilot run для произведения ещё не запускался")
+    candidates.sort(key=lambda x:x[0],reverse=True)
+    _,state,pilot_dir=candidates[0]
+    report=read_json(pilot_dir / "pilot_report.json",None)
+    return JSONResponse({"state":state,"report":report})
 
 
 @app.get("/api/projects/{project_id}/research/{work_id}/graph")
