@@ -1456,7 +1456,7 @@ export default function AlinaStudioPage() {
           {apiError && <div className="asDeepError">{apiError}</div>}
 
           <div className="asRunReport">
-            <article><small>ИСТОЧНИКИ</small><b>{files.length}</b><span>локальных файлов</span></article>
+            <article><small>ИСТОЧНИКИ</small><b>{projectState?.source_set?.count ?? savedSources.length}</b><span>в Source Set проекта</span></article>
             <article><small>ПРОИЗВЕДЕНИЯ</small><b>{benchmarkSeed ? `${benchmarkSeed.current_project_expected_matches} / ${benchmarkSeed.cycle_expected}` : (runState?.metrics?.works ?? "—")}{!benchmarkSeed && runState?.metrics?.works_expected ? ` / ${runState.metrics.works_expected}` : ""}</b><span>{benchmarkSeed ? "BENCHMARK VERIFIED" : (runState?.metrics?.works_review != null ? `review: ${runState.metrics.works_review} · missing: ${runState.metrics.works_missing ?? 0}` : "по каталогу")}</span></article>
             <article><small>СТРУКТУРНЫЕ ОБЪЕКТЫ</small><b>{runState?.metrics?.entities ?? "—"}</b><span>первичный реестр заголовков</span></article>
             <article><small>СОБЫТИЯ</small><b>{runState?.metrics?.events ?? "—"}</b><span>извлечено</span></article>
