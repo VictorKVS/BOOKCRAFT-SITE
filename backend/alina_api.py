@@ -2272,6 +2272,23 @@ def run_deep_analysis(run_id: str, project_dir: Path, analysis_key: str, profile
             "created_at": now(),
         })
 
+        checkpoint_path = run_dir / "checkpoint.json"
+        checkpoint = read_json(checkpoint_path, {}) or {
+            "analysis_fingerprint":analysis_key,
+            "run_id":run_id,
+            "status":"RUNNING",
+            "total_chunks":total,
+            "completed_chunks":0,
+            "last_attempted":None,
+            "last_completed":None,
+            "updated_at":now(),
+        }
+        checkpoint["run_id"] = run_id
+        checkpoint["status"] = "RUNNING"
+        checkpoint["total_chunks"] = total
+        checkpoint["updated_at"] = now()
+        write_json(checkpoint_path, checkpoint)
+
         extractions = []
         chars_processed = 0
         started = time.perf_counter()
@@ -2290,6 +2307,17 @@ def run_deep_analysis(run_id: str, project_dir: Path, analysis_key: str, profile
                 run["chars_processed"] = chars_processed
                 run["model_name"] = model.get("model")
             persist_run_state(run_id)
+
+            checkpoint.update({
+                "status":"RUNNING",
+                "current_index":idx,
+                "current_total":total,
+                "last_attempted":chunk["chunk_id"],
+                "current_section":chunk.get("section_title") or chunk["source_name"],
+                "completed_chunks":sum(1 for p in chunk_dir.glob("*.json")),
+                "updated_at":now(),
+            })
+            write_json(checkpoint_path, checkpoint)
 
             if result_path.exists():
                 result = read_json(result_path, {}) or {}
@@ -2310,6 +2338,14 @@ def run_deep_analysis(run_id: str, project_dir: Path, analysis_key: str, profile
                 result["_chunk"] = {k:v for k,v in chunk.items() if k != "text"}
             extractions.append(result)
             chars_processed += chunk["char_count"]
+            checkpoint.update({
+                "status":"RUNNING",
+                "last_completed":chunk["chunk_id"],
+                "completed_chunks":sum(1 for p in chunk_dir.glob("*.json")),
+                "chars_processed":chars_processed,
+                "updated_at":now(),
+            })
+            write_json(checkpoint_path, checkpoint)
 
         with LOCK:
             RUNS[run_id].update({
@@ -2370,6 +2406,21 @@ def run_deep_analysis(run_id: str, project_dir: Path, analysis_key: str, profile
                 "status":"PASS","progress":100,"metrics":metrics,"chars_processed":chars_processed,
             })
         persist_run_state(run_id)
+        checkpoint.update({
+            "status":"PASS",
+            "completed_chunks":total,
+            "last_completed":all_chunks[-1]["chunk_id"] if all_chunks else None,
+            "chars_processed":chars_processed,
+            "metrics":metrics,
+            "updated_at":now(),
+        })
+        write_json(checkpoint_path, checkpoint)
+        record_project_event(project_dir,"DEEP_ANALYSIS_FINISHED",status="PASS",details={
+            "run_id":run_id,
+            "analysis_key":analysis_key,
+            "profile":profile,
+            "metrics":metrics,
+        })
         trace(run_id, "DEEP_FINALIZE", f"PASS: chunks={total}, characters={metrics['characters']}, events={metrics['events']}, relations={metrics['relations']}", "PASS")
 
     except Exception as exc:
@@ -2378,6 +2429,26 @@ def run_deep_analysis(run_id: str, project_dir: Path, analysis_key: str, profile
             RUNS[run_id]["error"] = str(exc)
             RUNS[run_id]["detail"] = "Deep analysis failed"
         persist_run_state(run_id)
+        try:
+            cp_path = locals().get("checkpoint_path")
+            cp = locals().get("checkpoint", {}) or {}
+            if cp_path:
+                cp.update({
+                    "status":"FAIL",
+                    "error":str(exc)[:1000],
+                    "failed_at":now(),
+                    "completed_chunks":sum(1 for p in locals().get("chunk_dir", Path()).glob("*.json")) if locals().get("chunk_dir") else 0,
+                    "updated_at":now(),
+                })
+                write_json(cp_path, cp)
+        except Exception:
+            pass
+        record_project_event(project_dir,"DEEP_ANALYSIS_FINISHED",status="FAIL",details={
+            "run_id":run_id,
+            "analysis_key":analysis_key,
+            "profile":profile,
+            "error":str(exc)[:500],
+        })
         trace(run_id, RUNS[run_id].get("stage","DEEP"), str(exc), "ERROR")
 
 
