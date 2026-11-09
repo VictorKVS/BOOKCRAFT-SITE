@@ -104,6 +104,7 @@ export default function AlinaStudioPage() {
   const [selectedResearchWork,setSelectedResearchWork] = useState(null);
   const [researchBusy,setResearchBusy] = useState(false);
   const [researchAction,setResearchAction] = useState("");
+  const [researchGraph,setResearchGraph] = useState(null);
 
   const activeMode = projectModes.find(x=>x[0]===mode);
   const isStudy = activeMode?.[3] === "STUDY";
@@ -420,11 +421,33 @@ export default function AlinaStudioPage() {
       if(r.ok){
         const data=await r.json();
         setResearchDashboard(data);
-        if(!selectedResearchWork && data.programs?.length) setSelectedResearchWork(data.programs[0].work_id);
+        if(!selectedResearchWork && data.programs?.length){
+          setSelectedResearchWork(data.programs[0].work_id);
+          loadResearchGraph(data.programs[0].work_id);
+        } else if(selectedResearchWork){
+          loadResearchGraph(selectedResearchWork);
+        }
         return data;
       }
     }catch{}
     setResearchDashboard(null);
+    return null;
+  }
+
+  async function loadResearchGraph(workId){
+    if(!projectId || !workId){
+      setResearchGraph(null);
+      return null;
+    }
+    try{
+      const r=await tracedFetch(`http://127.0.0.1:8191/api/projects/${projectId}/research/${workId}/graph`);
+      if(r.ok){
+        const data=await r.json();
+        setResearchGraph(data);
+        return data;
+      }
+    }catch{}
+    setResearchGraph(null);
     return null;
   }
 
@@ -438,6 +461,7 @@ export default function AlinaStudioPage() {
       if(!r.ok) throw new Error(await r.text());
       const data=await r.json();
       await loadResearchDashboard(projectId);
+      await loadResearchGraph(workId);
       traceEvent("SEQUENCE",{
         sequence:"RESEARCH_FLOW",
         step:`${workId}:${taskId}`,
@@ -462,6 +486,7 @@ export default function AlinaStudioPage() {
       if(!r.ok) throw new Error(await r.text());
       const data=await r.json();
       await loadResearchDashboard(projectId);
+      await loadResearchGraph(workId);
       traceEvent("SEQUENCE",{
         sequence:"RESEARCH_FLOW",
         step:`${workId}:NEXT`,
@@ -486,6 +511,7 @@ export default function AlinaStudioPage() {
       if(!r.ok) throw new Error(await r.text());
       const data=await r.json();
       await loadResearchDashboard(projectId);
+      await loadResearchGraph(workId);
       traceEvent("SEQUENCE",{
         sequence:"RESEARCH_FLOW",
         step:`${workId}:AUTO`,
@@ -981,7 +1007,7 @@ export default function AlinaStudioPage() {
       <div className="asSimpleSteps">
         <div className={projectId ? "active done" : "active"}><i>1</i><span>Название и проект</span></div>
         <div className={sourceCount>0 ? "active done" : projectId ? "active" : ""}><i>2</i><span>Книги проекта</span></div>
-        <div className={phase==="ready" ? "active done" : sourceCount>0 ? "active" : ""}><i>3</i><span>База знаний</span></div>
+        <div className={phase==="ready" ? "active done" : sourceCount>0 ? "active" : ""}><i>3</i><span>Исследовательский комплекс</span></div>
       </div>
 
       <section className="asPanel asSimpleProject">
@@ -1062,10 +1088,10 @@ export default function AlinaStudioPage() {
             ? "Сначала создайте проект."
             : sourceCount<1
               ? "Проект создан. Теперь добавьте и сохраните книги."
-              : `В проекте сохранено ${sourceCount} источник(а/ов). Теперь можно строить первичную базу знаний.`}</p>
+              : `В проекте сохранено ${sourceCount} источник(а/ов). Сначала ALINA подготовит структуру корпуса, затем автоматически запустит Research Complex по произведениям.`}</p>
         </div>
         <button disabled={!projectId || sourceCount<1 || phase==="running"} onClick={startAnalysis}>
-          {phase==="running" ? "ALINA анализирует…" : "Создать базу знаний →"}
+          {phase==="running" ? "ALINA готовит корпус…" : "Запустить исследовательский комплекс →"}
         </button>
       </section>
 
@@ -1123,7 +1149,7 @@ export default function AlinaStudioPage() {
             <div>
               <small>ALINA KNOWLEDGE WORKSPACE</small>
               <h2>{projectMeta?.short_code ? `${projectMeta.short_code} — ${title}` : (title || "Новый проект")}</h2>
-              <p>{runState?.run_type==="DEEP_ANALYSIS" && runState?.status==="PASS" ? "Глубокий семантический анализ завершён." : "Первичный структурный слой готов; глубокий анализ запускается отдельно."}</p>
+              <p>{runState?.run_type==="DEEP_ANALYSIS" && runState?.status==="PASS" ? "Глубокий семантический анализ завершён." : "Корпус подготовлен. Research Complex выполняет исследовательские задачи по произведениям и строит evidence-weighted граф."}</p>
             </div>
             <div className="asWorkspaceActions">
               <button>Экспорт отчёта</button>
@@ -1373,7 +1399,7 @@ export default function AlinaStudioPage() {
                   {(researchDashboard?.programs || []).map(p=><button
                     key={p.work_id}
                     className={selectedResearchWork===p.work_id?"active":""}
-                    onClick={()=>setSelectedResearchWork(p.work_id)}
+                    onClick={()=>{setSelectedResearchWork(p.work_id);loadResearchGraph(p.work_id)}}
                   >
                     <small>{p.work_id}</small>
                     <b>{p.work_title}</b>
@@ -1430,6 +1456,25 @@ export default function AlinaStudioPage() {
                 })()}
               </div>
             </div>
+
+            {researchGraph && <div className="asResearchGraphSummary">
+              <div className="asResearchGraphHead">
+                <div>
+                  <small>EVIDENCE-WEIGHTED GRAPH</small>
+                  <b>{selectedResearchWork}</b>
+                  <span>Узлы и связи формируются из work-scoped анализа с весами evidence/confidence.</span>
+                </div>
+                <div className="asResearchGraphKpis">
+                  <article><small>NODES</small><b>{researchGraph.node_count || 0}</b></article>
+                  <article><small>EDGES</small><b>{researchGraph.edge_count || 0}</b></article>
+                </div>
+              </div>
+              <div className="asResearchTopNodes">
+                {(researchGraph.nodes || []).slice().sort((a,b)=>(b.weight||0)-(a.weight||0)).slice(0,12).map(n=>
+                  <span key={n.id}><b>{n.label}</b><em>{n.type} · w={Number(n.weight||0).toFixed(2)}</em></span>
+                )}
+              </div>
+            </div>}
 
             <div className="asContinuityGate">
               <div>
