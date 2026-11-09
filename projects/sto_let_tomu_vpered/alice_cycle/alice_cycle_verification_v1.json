@@ -1,0 +1,1735 @@
+{
+  "schema_version": "1.0",
+  "package_id": "ALICE-CYCLE-VERIFICATION-2026-11-09",
+  "project_id": "A1",
+  "cycle": "Алиса Селезнёва",
+  "author": "Кир Булычёв",
+  "verification_date": "2026-11-09",
+  "status": "VERIFIED_CATALOG_METADATA_WITH_EDITION_GAPS",
+  "summary": {
+    "works_expected": 52,
+    "works_verified_in_secondary_cycle_catalog": 52,
+    "publication_year_matches": 52,
+    "publication_year_conflicts": 0,
+    "official_full_text_verified": 0,
+    "publisher_editions_verified": 1,
+    "local_corpus_edition_fully_verified": 1,
+    "chronology_official": false
+  },
+  "chronology": {
+    "official_chronology_exists": false,
+    "external_reconstruction_status": "SECONDARY_HYPOTHESIS_ONLY",
+    "rule": "Do not promote external reconstructed chronology to canon. Preserve contradictions."
+  },
+  "works": [
+    {
+      "work_id": "ALICE-001",
+      "title": "Девочка, с которой ничего не случится",
+      "aliases": [
+        "Девочка, с которой ничего не случится (рассказы о жизни маленькой девочки в XXI веке, записанные её отцом)"
+      ],
+      "form": "повесть",
+      "semantic_order": 1,
+      "manifest_publication_year": 1965,
+      "external_catalog_publication_year": 1965,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "SUPPORTED_BY_CATALOG_OR_LOCAL_METADATA",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-002",
+      "title": "Ржавый фельдмаршал",
+      "aliases": [
+        "Остров ржавого генерала",
+        "Остров ржавого лейтенанта"
+      ],
+      "form": "повесть",
+      "semantic_order": 2,
+      "manifest_publication_year": 1968,
+      "external_catalog_publication_year": 1968,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "SUPPORTED_BY_CATALOG_OR_LOCAL_METADATA",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-003",
+      "title": "Путешествие Алисы",
+      "aliases": [
+        "Тайна третьей планеты",
+        "Девочка с Земли"
+      ],
+      "form": "повесть",
+      "semantic_order": 3,
+      "manifest_publication_year": 1974,
+      "external_catalog_publication_year": 1974,
+      "year_match": true,
+      "written_year": 1971,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "SUPPORTED_BY_CATALOG_OR_LOCAL_METADATA",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-004",
+      "title": "День рождения Алисы",
+      "aliases": [],
+      "form": "повесть",
+      "semantic_order": 4,
+      "manifest_publication_year": 1974,
+      "external_catalog_publication_year": 1974,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-005",
+      "title": "Сто лет тому вперёд",
+      "aliases": [
+        "Гостья из будущего",
+        "Алиса в прошлом"
+      ],
+      "form": "повесть",
+      "semantic_order": 5,
+      "manifest_publication_year": 1978,
+      "external_catalog_publication_year": 1978,
+      "year_match": true,
+      "written_year": 1975,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "SUPPORTED_BY_CATALOG_OR_LOCAL_METADATA",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-006",
+      "title": "Пленники астероида",
+      "aliases": [],
+      "form": "повесть",
+      "semantic_order": 6,
+      "manifest_publication_year": 1984,
+      "external_catalog_publication_year": 1984,
+      "year_match": true,
+      "written_year": 1983,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-007",
+      "title": "Заповедник сказок",
+      "aliases": [],
+      "form": "повесть",
+      "semantic_order": 7,
+      "manifest_publication_year": 1985,
+      "external_catalog_publication_year": 1985,
+      "year_match": true,
+      "written_year": 1980,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-008",
+      "title": "Козлик Иван Иванович",
+      "aliases": [],
+      "form": "повесть",
+      "semantic_order": 8,
+      "manifest_publication_year": 1985,
+      "external_catalog_publication_year": 1985,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-009",
+      "title": "Лиловый шар",
+      "aliases": [],
+      "form": "повесть",
+      "semantic_order": 9,
+      "manifest_publication_year": 1984,
+      "external_catalog_publication_year": 1984,
+      "year_match": true,
+      "written_year": 1982,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-010",
+      "title": "Миллион приключений",
+      "aliases": [],
+      "form": "повесть",
+      "semantic_order": 10,
+      "manifest_publication_year": 1982,
+      "external_catalog_publication_year": 1982,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-011",
+      "title": "Гай-до",
+      "aliases": [],
+      "form": "повесть",
+      "semantic_order": 11,
+      "manifest_publication_year": 1986,
+      "external_catalog_publication_year": 1986,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-012",
+      "title": "Узники «Ямагири-мару»",
+      "aliases": [],
+      "form": "повесть",
+      "semantic_order": 12,
+      "manifest_publication_year": 1987,
+      "external_catalog_publication_year": 1987,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-013",
+      "title": "Конец Атлантиды",
+      "aliases": [],
+      "form": "повесть",
+      "semantic_order": 13,
+      "manifest_publication_year": 1987,
+      "external_catalog_publication_year": 1987,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-014",
+      "title": "Город без памяти",
+      "aliases": [
+        "Алиса в стране забвения"
+      ],
+      "form": "повесть",
+      "semantic_order": 14,
+      "manifest_publication_year": 1988,
+      "external_catalog_publication_year": 1988,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "SUPPORTED_BY_CATALOG_OR_LOCAL_METADATA",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-015",
+      "title": "Гость в кувшине",
+      "aliases": [],
+      "form": "повесть",
+      "semantic_order": 15,
+      "manifest_publication_year": 1996,
+      "external_catalog_publication_year": 1996,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-016",
+      "title": "Подземная лодка",
+      "aliases": [],
+      "form": "повесть",
+      "semantic_order": 16,
+      "manifest_publication_year": 1989,
+      "external_catalog_publication_year": 1989,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-017",
+      "title": "Алиса и крестоносцы",
+      "aliases": [],
+      "form": "повесть",
+      "semantic_order": 17,
+      "manifest_publication_year": 1994,
+      "external_catalog_publication_year": 1994,
+      "year_match": true,
+      "written_year": 1993,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-018",
+      "title": "Золотой медвежонок",
+      "aliases": [],
+      "form": "повесть",
+      "semantic_order": 18,
+      "manifest_publication_year": 1993,
+      "external_catalog_publication_year": 1993,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-019",
+      "title": "Война с лилипутами",
+      "aliases": [],
+      "form": "повесть",
+      "semantic_order": 19,
+      "manifest_publication_year": 1992,
+      "external_catalog_publication_year": 1992,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-020",
+      "title": "Излучатель доброты",
+      "aliases": [],
+      "form": "повесть",
+      "semantic_order": 20,
+      "manifest_publication_year": 1996,
+      "external_catalog_publication_year": 1996,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-021",
+      "title": "Сыщик Алиса",
+      "aliases": [],
+      "form": "повесть",
+      "semantic_order": 21,
+      "manifest_publication_year": 1996,
+      "external_catalog_publication_year": 1996,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-022",
+      "title": "Планета для тиранов",
+      "aliases": [
+        "Планета для Наполеонов",
+        "Планета для Наполеона"
+      ],
+      "form": "повесть",
+      "semantic_order": 22,
+      "manifest_publication_year": 1997,
+      "external_catalog_publication_year": 1997,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "SUPPORTED_BY_CATALOG_OR_LOCAL_METADATA",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-023",
+      "title": "Опасные сказки",
+      "aliases": [],
+      "form": "повесть",
+      "semantic_order": 23,
+      "manifest_publication_year": 1997,
+      "external_catalog_publication_year": 1997,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-024",
+      "title": "Дети динозавров",
+      "aliases": [
+        "Совет динозавров"
+      ],
+      "form": "повесть",
+      "semantic_order": 24,
+      "manifest_publication_year": 1996,
+      "external_catalog_publication_year": 1996,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "SUPPORTED_BY_CATALOG_OR_LOCAL_METADATA",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-025",
+      "title": "Привидений не бывает",
+      "aliases": [],
+      "form": "повесть",
+      "semantic_order": 25,
+      "manifest_publication_year": 1996,
+      "external_catalog_publication_year": 1996,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-026",
+      "title": "Алиса и чудовище",
+      "aliases": [],
+      "form": "повесть",
+      "semantic_order": 26,
+      "manifest_publication_year": 1999,
+      "external_catalog_publication_year": 1999,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-027",
+      "title": "Секрет чёрного камня",
+      "aliases": [
+        "Секрет черного камня"
+      ],
+      "form": "повесть",
+      "semantic_order": 27,
+      "manifest_publication_year": 1999,
+      "external_catalog_publication_year": 1999,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "SUPPORTED_BY_CATALOG_OR_LOCAL_METADATA",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-028",
+      "title": "Вампир Полумракс",
+      "aliases": [],
+      "form": "повесть",
+      "semantic_order": 28,
+      "manifest_publication_year": 2001,
+      "external_catalog_publication_year": 2001,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-029",
+      "title": "Звёздный пёс",
+      "aliases": [
+        "Звездный пес"
+      ],
+      "form": "повесть",
+      "semantic_order": 29,
+      "manifest_publication_year": 2001,
+      "external_catalog_publication_year": 2001,
+      "year_match": true,
+      "written_year": 2000,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "SUPPORTED_BY_CATALOG_OR_LOCAL_METADATA",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "PUBLISHER_EDITION_VERIFIED",
+      "local_source_status": "LOCAL_PDF_MATCHES_KNOWN_AST_2023_EDITION_METADATA",
+      "notes": [
+        "User-provided PDF source available.",
+        "AST edition 2023; source states first publication was in 2001.",
+        "Source text explicitly places Alice in the late 21st century.",
+        "Source mentions a Pegasus animal-collection expedition analogous to one three years earlier."
+      ]
+    },
+    {
+      "work_id": "ALICE-030",
+      "title": "Сапфировый венец",
+      "aliases": [
+        "Алиса и сапфировый венец",
+        "Корона в пещере",
+        "Пленники пещеры"
+      ],
+      "form": "повесть",
+      "semantic_order": 30,
+      "manifest_publication_year": 2001,
+      "external_catalog_publication_year": 2001,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "SUPPORTED_BY_CATALOG_OR_LOCAL_METADATA",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-031",
+      "title": "Заколдованный король",
+      "aliases": [
+        "Алиса и заколдованный король"
+      ],
+      "form": "повесть",
+      "semantic_order": 31,
+      "manifest_publication_year": 2001,
+      "external_catalog_publication_year": 2001,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "SUPPORTED_BY_CATALOG_OR_LOCAL_METADATA",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-032",
+      "title": "Алиса и Алисия",
+      "aliases": [],
+      "form": "повесть",
+      "semantic_order": 32,
+      "manifest_publication_year": 2003,
+      "external_catalog_publication_year": 2003,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-033",
+      "title": "Королева пиратов на планете сказок",
+      "aliases": [
+        "Алиса Селезнёва и Королева пиратов на Планете сказок"
+      ],
+      "form": "повесть",
+      "semantic_order": 33,
+      "manifest_publication_year": 1997,
+      "external_catalog_publication_year": 1997,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "SUPPORTED_BY_CATALOG_OR_LOCAL_METADATA",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-034",
+      "title": "Колдун и Снегурочка",
+      "aliases": [
+        "Алиса и Снегурочка",
+        "Алиса Селезнёва и Снегурочка"
+      ],
+      "form": "повесть",
+      "semantic_order": 34,
+      "manifest_publication_year": 1998,
+      "external_catalog_publication_year": 1998,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "SUPPORTED_BY_CATALOG_OR_LOCAL_METADATA",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-035",
+      "title": "Алиса на планете загадок",
+      "aliases": [
+        "Алиса Селезнёва на планете Загадок"
+      ],
+      "form": "повесть",
+      "semantic_order": 35,
+      "manifest_publication_year": 1999,
+      "external_catalog_publication_year": 1999,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "SUPPORTED_BY_CATALOG_OR_LOCAL_METADATA",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-036",
+      "title": "Алиса и дракон",
+      "aliases": [
+        "Алиса Селезнёва и дракон"
+      ],
+      "form": "повесть",
+      "semantic_order": 36,
+      "manifest_publication_year": 1999,
+      "external_catalog_publication_year": 1999,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "SUPPORTED_BY_CATALOG_OR_LOCAL_METADATA",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-037",
+      "title": "Алиса и притворщики",
+      "aliases": [],
+      "form": "повесть",
+      "semantic_order": 37,
+      "manifest_publication_year": 1999,
+      "external_catalog_publication_year": 1999,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-038",
+      "title": "Алиса на живой планете",
+      "aliases": [
+        "Насморк и лопата"
+      ],
+      "form": "повесть",
+      "semantic_order": 38,
+      "manifest_publication_year": 2000,
+      "external_catalog_publication_year": 2000,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "SUPPORTED_BY_CATALOG_OR_LOCAL_METADATA",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-039",
+      "title": "Второгодники",
+      "aliases": [],
+      "form": "рассказ",
+      "semantic_order": 39,
+      "manifest_publication_year": 1986,
+      "external_catalog_publication_year": 1986,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-040",
+      "title": "Это ты, Алиса?",
+      "aliases": [
+        "Может, это не Алиса?"
+      ],
+      "form": "рассказ",
+      "semantic_order": 40,
+      "manifest_publication_year": 1986,
+      "external_catalog_publication_year": 1986,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "SUPPORTED_BY_CATALOG_OR_LOCAL_METADATA",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-041",
+      "title": "Настоящее кино",
+      "aliases": [],
+      "form": "рассказ",
+      "semantic_order": 41,
+      "manifest_publication_year": 1993,
+      "external_catalog_publication_year": 1993,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-042",
+      "title": "Клад Наполеона",
+      "aliases": [],
+      "form": "рассказ",
+      "semantic_order": 42,
+      "manifest_publication_year": 1991,
+      "external_catalog_publication_year": 1991,
+      "year_match": true,
+      "written_year": 1983,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-043",
+      "title": "Чудовище у родника",
+      "aliases": [],
+      "form": "рассказ",
+      "semantic_order": 43,
+      "manifest_publication_year": 1987,
+      "external_catalog_publication_year": 1987,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-044",
+      "title": "Вокруг света за три часа",
+      "aliases": [
+        "Вокруг света в три часа"
+      ],
+      "form": "рассказ",
+      "semantic_order": 44,
+      "manifest_publication_year": 1985,
+      "external_catalog_publication_year": 1985,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "SUPPORTED_BY_CATALOG_OR_LOCAL_METADATA",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-045",
+      "title": "Это вам не яблочный компот!",
+      "aliases": [],
+      "form": "рассказ",
+      "semantic_order": 45,
+      "manifest_publication_year": 1986,
+      "external_catalog_publication_year": 1986,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-046",
+      "title": "Алиса в Гусляре",
+      "aliases": [
+        "переработан в «Алиса в стране фантазий»"
+      ],
+      "form": "рассказ",
+      "semantic_order": 46,
+      "manifest_publication_year": 2000,
+      "external_catalog_publication_year": 2000,
+      "year_match": true,
+      "written_year": 1999,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "SUPPORTED_BY_CATALOG_OR_LOCAL_METADATA",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": [
+        "Later reworked into «Алиса в стране фантазий»."
+      ]
+    },
+    {
+      "work_id": "ALICE-047",
+      "title": "Уроды и красавцы",
+      "aliases": [
+        "Приключения Алисы"
+      ],
+      "form": "рассказ",
+      "semantic_order": 47,
+      "manifest_publication_year": 2002,
+      "external_catalog_publication_year": 2002,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "SUPPORTED_BY_CATALOG_OR_LOCAL_METADATA",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-048",
+      "title": "Древние тайны",
+      "aliases": [],
+      "form": "повесть",
+      "semantic_order": 48,
+      "manifest_publication_year": 1999,
+      "external_catalog_publication_year": 1999,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-049",
+      "title": "Пашка-троглодит",
+      "aliases": [
+        "Пашка троглодит"
+      ],
+      "form": "повесть",
+      "semantic_order": 49,
+      "manifest_publication_year": 1998,
+      "external_catalog_publication_year": 1998,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "SUPPORTED_BY_CATALOG_OR_LOCAL_METADATA",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-050",
+      "title": "Чулан Синей Бороды",
+      "aliases": [],
+      "form": "повесть",
+      "semantic_order": 50,
+      "manifest_publication_year": 1999,
+      "external_catalog_publication_year": 1999,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-051",
+      "title": "Драконозавр",
+      "aliases": [],
+      "form": "повесть",
+      "semantic_order": 51,
+      "manifest_publication_year": 2001,
+      "external_catalog_publication_year": 2001,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    },
+    {
+      "work_id": "ALICE-052",
+      "title": "Принцы в башне",
+      "aliases": [],
+      "form": "повесть",
+      "semantic_order": 52,
+      "manifest_publication_year": 2002,
+      "external_catalog_publication_year": 2002,
+      "year_match": true,
+      "written_year": null,
+      "cycle_membership": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "title_verification": {
+        "status": "VERIFIED_SECONDARY_BIBLIOGRAPHIC",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "aliases_verification": {
+        "status": "NO_ALIASES_IN_LOCAL_MANIFEST",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "publication_year_verification": {
+        "status": "MATCH",
+        "source_id": "SRC-FANTLAB-CYCLE"
+      },
+      "official_text_status": "NOT_VERIFIED",
+      "edition_status": "NOT_EXHAUSTIVELY_VERIFIED",
+      "local_source_status": "LOCAL_CORPUS_COPY_UNVERIFIED_EDITION",
+      "notes": []
+    }
+  ],
+  "global_findings": [
+    {
+      "id": "F-001",
+      "type": "CYCLE_MEMBERSHIP",
+      "status": "SUPPORTED",
+      "statement": "The 52-item semantic list in the local manifest matches the published FantLab semantic-order list."
+    },
+    {
+      "id": "F-002",
+      "type": "LOCAL_TITLE_CONFLICT",
+      "status": "CONFIRMED",
+      "work_id": "ALICE-022",
+      "statement": "Canonical catalog title is «Планета для тиранов»; local source heading «ПЛАНЕТА ДЛЯ ТИТАНОВ» should remain a source-metadata conflict, not replace canonical title."
+    },
+    {
+      "id": "F-003",
+      "type": "LOCAL_TITLE_CONFLICT",
+      "status": "CONFIRMED",
+      "work_id": "ALICE-033",
+      "statement": "Canonical catalog title is «Королева пиратов на планете сказок»; local source variant «...на острове сказок» should remain a source variant/conflict."
+    },
+    {
+      "id": "F-004",
+      "type": "CHRONOLOGY",
+      "status": "CONFIRMED_NON_OFFICIAL",
+      "statement": "No official internal chronology is established; external chronology is approximate and can contradict the books."
+    },
+    {
+      "id": "F-005",
+      "type": "EDITION",
+      "status": "VERIFIED",
+      "work_id": "ALICE-029",
+      "statement": "AST 2023 edition verified: ISBN 978-5-17-153424-0; publisher page confirms 192 pages. Bibliographic data states first edition in 2001."
+    }
+  ],
+  "verification_policy": {
+    "secondary_catalog": "May verify cycle membership/title/year, but not official text identity.",
+    "publisher_page": "Strong evidence for a specific edition and ISBN.",
+    "national_library_catalog": "Authoritative bibliographic evidence for held/published editions; full-text availability does not automatically establish equivalence to local text.",
+    "local_copy": "Must be text-compared before edition identity/completeness is promoted to VERIFIED."
+  }
+}
