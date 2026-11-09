@@ -99,6 +99,8 @@ export default function AlinaStudioPage() {
   const [adminSettings,setAdminSettings] = useState({github_debug_trace:false,local_trace:true});
   const [adminVisible,setAdminVisible] = useState(false);
   const [adminBusy,setAdminBusy] = useState(false);
+  const [researchDashboard,setResearchDashboard] = useState(null);
+  const [selectedResearchWork,setSelectedResearchWork] = useState(null);
 
   const activeMode = projectModes.find(x=>x[0]===mode);
   const isStudy = activeMode?.[3] === "STUDY";
@@ -402,6 +404,25 @@ export default function AlinaStudioPage() {
     }
   }
 
+  async function loadResearchDashboard(projectIdValue){
+    if(!projectIdValue){
+      setResearchDashboard(null);
+      setSelectedResearchWork(null);
+      return null;
+    }
+    try{
+      const r=await tracedFetch(`http://127.0.0.1:8191/api/projects/${projectIdValue}/research`);
+      if(r.ok){
+        const data=await r.json();
+        setResearchDashboard(data);
+        if(!selectedResearchWork && data.programs?.length) setSelectedResearchWork(data.programs[0].work_id);
+        return data;
+      }
+    }catch{}
+    setResearchDashboard(null);
+    return null;
+  }
+
   async function loadProjects(){
     try{
       const r=await tracedFetch("http://127.0.0.1:8191/api/projects");
@@ -476,6 +497,8 @@ export default function AlinaStudioPage() {
         setKbData({});
         setProjectMeta(null);
         setProducts([]);
+        setResearchDashboard(null);
+        setSelectedResearchWork(null);
       }
       setProjectHistory(prev=>{const n={...prev}; delete n[project.project_id]; return n;});
       setHistoryOpen(null);
@@ -511,6 +534,7 @@ export default function AlinaStudioPage() {
     setKbData(loaded);
     setBenchmarkSeed(loaded.benchmark_seed || null);
     await loadProducts(project.project_id);
+    await loadResearchDashboard(project.project_id);
     setPhase("ready");
     setRunDemo(false);
     window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
@@ -569,6 +593,7 @@ export default function AlinaStudioPage() {
               setSourceCount(meta.source_count || sourceCount);
             }
             await loadProducts(data.project_id);
+            await loadResearchDashboard(data.project_id);
             loadProjects();
           }
           return;
@@ -1006,6 +1031,7 @@ export default function AlinaStudioPage() {
 
           <div className="asWorkspaceNav">
             <button className={workspaceView==="knowledge"?"active":""} onClick={()=>setWorkspaceView("knowledge")}>База знаний</button>
+            <button className={workspaceView==="research"?"active":""} onClick={()=>setWorkspaceView("research")}>Research Complex</button>
             <button className={workspaceView==="process"?"active":""} onClick={()=>setWorkspaceView("process")}>Процесс / Trace</button>
             <button className={workspaceView==="graph"?"active":""} onClick={()=>setWorkspaceView("graph")}>Graph Lab</button>
             <button className={workspaceView==="sources"?"active":""} onClick={()=>setWorkspaceView("sources")}>Source Center</button>
@@ -1216,6 +1242,85 @@ export default function AlinaStudioPage() {
                         </aside>
                       </div>
           </>}
+
+          {workspaceView==="research" && <section className="asResearchComplex">
+            <div className="asResearchHead">
+              <div>
+                <small>WORK-LEVEL RESEARCH FACTORY</small>
+                <h3>Исследовательский комплекс произведений</h3>
+                <p>Каждое произведение получает до 30 контролируемых задач. Межкнижный Continuity Engine остаётся заблокированным до прохождения R30.</p>
+              </div>
+              <button onClick={()=>loadResearchDashboard(projectId)}>↻ Обновить</button>
+            </div>
+
+            <div className="asResearchKpis">
+              <article><small>ПРОИЗВЕДЕНИЙ</small><b>{researchDashboard?.totals?.works ?? 0}</b></article>
+              <article><small>RESEARCH READY</small><b>{researchDashboard?.totals?.research_ready ?? 0}</b></article>
+              <article><small>BLOCKED</small><b>{researchDashboard?.totals?.blocked ?? 0}</b></article>
+              <article><small>PASS TASKS</small><b>{researchDashboard?.totals?.pass_tasks ?? 0}</b></article>
+              <article><small>REVIEW</small><b>{researchDashboard?.totals?.review_tasks ?? 0}</b></article>
+              <article><small>FAILED</small><b>{researchDashboard?.totals?.failed_tasks ?? 0}</b></article>
+            </div>
+
+            <div className="asResearchLayout">
+              <aside className="asResearchWorks">
+                <div className="asResearchPaneTitle"><b>ПРОИЗВЕДЕНИЯ</b><span>{researchDashboard?.programs?.length || 0}</span></div>
+                <div className="asResearchWorkList">
+                  {(researchDashboard?.programs || []).map(p=><button
+                    key={p.work_id}
+                    className={selectedResearchWork===p.work_id?"active":""}
+                    onClick={()=>setSelectedResearchWork(p.work_id)}
+                  >
+                    <small>{p.work_id}</small>
+                    <b>{p.work_title}</b>
+                    <span>{p.program_status} · {p.summary?.completion_pct || 0}%</span>
+                  </button>)}
+                </div>
+              </aside>
+
+              <div className="asResearchTasks">
+                {(()=>{
+                  const p=(researchDashboard?.programs || []).find(x=>x.work_id===selectedResearchWork);
+                  if(!p) return <div className="asResearchEmpty">Research Program ещё не сформирован. Он создаётся автоматически после Foundation.</div>;
+                  return <>
+                    <div className="asResearchProgramHead">
+                      <div><small>{p.work_id}</small><h4>{p.work_title}</h4><span>{p.research_profile} · Source Set v{p.source_set_version}</span></div>
+                      <em>{p.program_status}</em>
+                    </div>
+                    <div className="asResearchProgress">
+                      <div><i style={{width:`${p.summary?.completion_pct || 0}%`}}></i></div>
+                      <span>{p.summary?.completion_pct || 0}%</span>
+                    </div>
+                    <div className="asTaskGrid">
+                      {(p.tasks || []).map(t=><article key={t.task_id} className={String(t.status || "").toLowerCase()}>
+                        <div className="asTaskTop"><small>{t.task_id}</small><em>{t.status}</em></div>
+                        <b>{t.name}</b>
+                        <div className="asTaskBar"><i style={{width:`${t.progress || 0}%`}}></i></div>
+                        <span>{t.quality_gate || "NOT_CHECKED"}</span>
+                        {(t.blockers || []).length>0 && <strong>{t.blockers.join(" · ")}</strong>}
+                      </article>)}
+                    </div>
+                  </>;
+                })()}
+              </div>
+            </div>
+
+            <div className="asContinuityGate">
+              <div>
+                <small>CYCLE CONTINUITY ENGINE</small>
+                <b>{researchDashboard?.continuity?.program_status || "BLOCKED"}</b>
+                <span>{researchDashboard?.continuity?.reason || "Ожидает готовности исследовательских программ произведений."}</span>
+              </div>
+              <div>
+                <small>WORKS READY</small>
+                <b>{researchDashboard?.continuity?.work_programs_ready || 0} / {researchDashboard?.continuity?.work_programs_total || 0}</b>
+              </div>
+              <div>
+                <small>CYCLE TASKS</small>
+                <b>{researchDashboard?.continuity?.summary?.total || 30}</b>
+              </div>
+            </div>
+          </section>}
 
           {workspaceView==="process" && <section className="asProcessBoard">
             <div className="asProcessTop">
