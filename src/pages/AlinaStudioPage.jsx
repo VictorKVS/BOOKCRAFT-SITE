@@ -710,6 +710,7 @@ export default function AlinaStudioPage() {
             }
             await loadProducts(data.project_id);
             await loadResearchDashboard(data.project_id);
+            if(data.run_type!=="DEEP_ANALYSIS") setWorkspaceView("research");
             loadProjects();
           }
           return;
@@ -832,6 +833,8 @@ export default function AlinaStudioPage() {
         setRunDemo(false);
         setPhase("ready");
         setApiError("");
+        await loadResearchDashboard(projectId);
+        setWorkspaceView("research");
         traceEvent("SEQUENCE",{sequence:"PROJECT_FLOW",step:"FOUNDATION_REUSED",status:"REUSED",kb_version:data.kb_version},true);
         return;
       }
@@ -1083,7 +1086,7 @@ export default function AlinaStudioPage() {
       <section className="asLaunch asSimpleLaunch">
         <div>
           <small>ШАГ 3</small>
-          <h2>Построить базу знаний</h2>
+          <h2>Подготовить корпус и запустить исследование</h2>
           <p>{!projectId
             ? "Сначала создайте проект."
             : sourceCount<1
@@ -1139,9 +1142,36 @@ export default function AlinaStudioPage() {
         {phase==="ready" && <section className="asReady">
           <span>✓</span>
           <div>
-            <b>Рабочее место базы знаний открыто</b>
-            <p>Локальный backend завершил первый технический слой. Ниже реальные метрики структуры корпуса и первичной БЗ; персонажи, события, отношения, хронология, технологии и прогноз требуют отдельного глубокого анализа текста.</p>
+            <b>Foundation завершён — Research Complex запущен</b>
+            <p>Структура корпуса готова. Теперь ALINA последовательно исследует произведения по R01–R30, проверяет evidence и строит взвешенные графы узлов и связей.</p>
           </div>
+        </section>}
+
+        {phase==="ready" && researchDashboard && <section className="asResearchNow">
+          {(()=>{
+            const programs=researchDashboard.programs || [];
+            const running=programs.find(p=>p.program_status==="RUNNING");
+            const active=running || programs.find(p=>["ACTIVE","REVIEW"].includes(p.program_status)) || programs[0];
+            const task=active?.tasks?.find(t=>t.status==="RUNNING") || active?.tasks?.find(t=>t.status==="READY");
+            return <>
+              <div>
+                <small>RESEARCH STATUS</small>
+                <b>{running ? "ИССЛЕДОВАНИЕ ВЫПОЛНЯЕТСЯ" : active ? active.program_status : "ОЖИДАНИЕ"}</b>
+                <span>{active ? `${active.work_id} · ${active.work_title}` : "Исследовательские программы ещё не сформированы"}</span>
+              </div>
+              <div>
+                <small>ТЕКУЩАЯ ЗАДАЧА</small>
+                <b>{task ? `${task.task_id} · ${task.name}` : "—"}</b>
+                <span>{task ? `${task.progress || 0}% · ${task.quality_gate || "NOT_CHECKED"}` : ""}</span>
+              </div>
+              <div>
+                <small>ПО ЦИКЛУ</small>
+                <b>{researchDashboard.totals?.research_ready || 0} / {researchDashboard.totals?.works || 0}</b>
+                <span>произведений RESEARCH_READY</span>
+              </div>
+              <button onClick={()=>setWorkspaceView("research")}>Открыть Research Complex →</button>
+            </>;
+          })()}
         </section>}
 
         {phase==="ready" && <section className="asWorkspace">
