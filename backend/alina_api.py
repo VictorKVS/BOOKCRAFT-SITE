@@ -43,6 +43,24 @@ DEBUG_GIT_LOCK = threading.Lock()
 DEBUG_GIT_STATE_LOCK = threading.Lock()
 DEBUG_GIT_STATE = {"status":"WAITING","updated_at":None,"error":None}
 DEBUG_TRACE_FILE = ROOT / "projects" / "sto_let_tomu_vpered" / "debug" / "alina_ui_trace.jsonl"
+ADMIN_SETTINGS_FILE = DATA_ROOT / "admin_settings.json"
+DEFAULT_ADMIN_SETTINGS = {
+    "github_debug_trace": False,
+    "local_trace": True,
+    "updated_at": None,
+}
+
+def load_admin_settings() -> dict[str, Any]:
+    current = read_json(ADMIN_SETTINGS_FILE, {}) or {}
+    merged = {**DEFAULT_ADMIN_SETTINGS, **current}
+    return merged
+
+
+def save_admin_settings(settings: dict[str, Any]) -> dict[str, Any]:
+    merged = {**DEFAULT_ADMIN_SETTINGS, **settings, "updated_at": now()}
+    write_json(ADMIN_SETTINGS_FILE, merged)
+    return merged
+
 
 def sanitize_debug_value(value: Any) -> Any:
     if isinstance(value, dict):
@@ -1288,21 +1306,68 @@ async def start_deep_analysis(
 async def debug_trace_event(
     event: str = Form(...),
     payload: str = Form("{}"),
-    publish: bool = Form(True),
 ) -> JSONResponse:
     try:
         data = json.loads(payload) if payload else {}
     except Exception:
         data = {}
-    record = append_debug_trace({
-        "event_type": event,
-        **(data if isinstance(data, dict) else {}),
-    })
-    if publish:
+
+    settings = load_admin_settings()
+    record = None
+    if settings.get("local_trace", True):
+        record = append_debug_trace({
+            "event_type": event,
+            **(data if isinstance(data, dict) else {}),
+        })
+
+    if settings.get("github_debug_trace", False):
         publish_debug_trace_background()
+    else:
+        with DEBUG_GIT_STATE_LOCK:
+            DEBUG_GIT_STATE["status"] = "DISABLED"
+            DEBUG_GIT_STATE["updated_at"] = now()
+            DEBUG_GIT_STATE["error"] = None
+
     with DEBUG_GIT_STATE_LOCK:
         git_state = dict(DEBUG_GIT_STATE)
-    return JSONResponse({"status":"RECORDED","record":record,"github":git_state})
+
+    return JSONResponse({
+        "status":"RECORDED" if record else "LOCAL_TRACE_DISABLED",
+        "record":record,
+        "github":git_state,
+        "admin_settings":settings,
+    })
+
+@app.get("/api/admin/settings")
+def get_admin_settings() -> JSONResponse:
+    return JSONResponse(load_admin_settings())
+
+
+@app.patch("/api/admin/settings")
+async def update_admin_settings(
+    github_debug_trace: bool | None = Form(None),
+    local_trace: bool | None = Form(None),
+) -> JSONResponse:
+    settings = load_admin_settings()
+    if github_debug_trace is not None:
+        settings["github_debug_trace"] = github_debug_trace
+    if local_trace is not None:
+        settings["local_trace"] = local_trace
+    saved = save_admin_settings(settings)
+
+    if not saved.get("github_debug_trace", False):
+        with DEBUG_GIT_STATE_LOCK:
+            DEBUG_GIT_STATE["status"] = "DISABLED"
+            DEBUG_GIT_STATE["updated_at"] = now()
+            DEBUG_GIT_STATE["error"] = None
+
+    append_debug_trace({
+        "event_type":"ADMIN_SETTINGS",
+        "status":"PASS",
+        "result":"GITHUB_TRACE_ON" if saved.get("github_debug_trace") else "GITHUB_TRACE_OFF",
+    })
+    return JSONResponse(saved)
+
 
 @app.get("/api/debug/trace")
 def get_debug_trace(limit: int = 200) -> JSONResponse:
@@ -1320,8 +1385,13 @@ def get_debug_trace(limit: int = 200) -> JSONResponse:
 
 @app.get("/api/debug/github-status")
 def debug_github_status() -> JSONResponse:
+    settings = load_admin_settings()
     with DEBUG_GIT_STATE_LOCK:
-        return JSONResponse(dict(DEBUG_GIT_STATE))
+        state = dict(DEBUG_GIT_STATE)
+    state["enabled"] = bool(settings.get("github_debug_trace", False))
+    if not state["enabled"]:
+        state["status"] = "DISABLED"
+    return JSONResponse(state)
 
 
 @app.get("/api/health")
