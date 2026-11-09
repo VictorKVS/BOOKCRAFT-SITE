@@ -96,6 +96,9 @@ export default function AlinaStudioPage() {
   const [analysisDepth,setAnalysisDepth] = useState("FULL");
   const [uiTrace,setUiTrace] = useState([]);
   const [githubDebugStatus,setGithubDebugStatus] = useState("WAITING");
+  const [adminSettings,setAdminSettings] = useState({github_debug_trace:false,local_trace:true});
+  const [adminVisible,setAdminVisible] = useState(false);
+  const [adminBusy,setAdminBusy] = useState(false);
 
   const activeMode = projectModes.find(x=>x[0]===mode);
   const isStudy = activeMode?.[3] === "STUDY";
@@ -125,6 +128,44 @@ export default function AlinaStudioPage() {
     return latest;
   },[uiTrace]);
 
+  async function loadAdminSettings(){
+    try{
+      const r=await window.fetch("http://127.0.0.1:8191/api/admin/settings");
+      if(r.ok){
+        const data=await r.json();
+        setAdminSettings(data);
+        if(!data.github_debug_trace) setGithubDebugStatus("DISABLED");
+        return data;
+      }
+    }catch{}
+    return null;
+  }
+
+  async function updateAdminSetting(key,value){
+    setAdminBusy(true);
+    try{
+      const form=new FormData();
+      form.append(key,String(value));
+      const r=await window.fetch("http://127.0.0.1:8191/api/admin/settings",{method:"PATCH",body:form});
+      if(!r.ok) throw new Error(await r.text());
+      const data=await r.json();
+      setAdminSettings(data);
+      if(!data.github_debug_trace) setGithubDebugStatus("DISABLED");
+      else setGithubDebugStatus("WAITING");
+      setUiTrace(prev=>[...prev.slice(-299),{
+        timestamp:new Date().toISOString(),
+        event_type:"ADMIN_SETTINGS",
+        status:"PASS",
+        action_id:key,
+        result:value ? "ON":"OFF"
+      }]);
+    }catch(err){
+      setApiError("Не удалось изменить настройку администрирования: "+err.message);
+    }finally{
+      setAdminBusy(false);
+    }
+  }
+
   function safeEndpoint(url){
     try{
       const u=new URL(url,window.location.origin);
@@ -152,18 +193,16 @@ export default function AlinaStudioPage() {
       const form=new FormData();
       form.append("event",eventType);
       form.append("payload",JSON.stringify(event));
-      form.append("publish",publish ? "true" : "false");
       const r=await window.fetch("http://127.0.0.1:8191/api/debug/trace",{method:"POST",body:form});
       if(r.ok){
         const data=await r.json();
-        if(publish && data.github?.status){
-          setGithubDebugStatus(data.github.status);
-        }
-      }else if(publish){
+        if(data.admin_settings) setAdminSettings(data.admin_settings);
+        if(data.github?.status) setGithubDebugStatus(data.github.status);
+      }else if(adminSettings.github_debug_trace){
         setGithubDebugStatus("WARN");
       }
     }catch{
-      if(publish) setGithubDebugStatus("WARN");
+      if(adminSettings.github_debug_trace) setGithubDebugStatus("WARN");
     }
   }
 
@@ -477,7 +516,7 @@ export default function AlinaStudioPage() {
     window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
   }
 
-  useEffect(()=>{ loadProjects(); checkDeepModel(); },[]);
+  useEffect(()=>{ loadProjects(); checkDeepModel(); loadAdminSettings(); },[]);
 
   useEffect(()=>{
     let cancelled=false;
@@ -486,8 +525,8 @@ export default function AlinaStudioPage() {
         const r=await window.fetch("http://127.0.0.1:8191/api/debug/github-status");
         if(r.ok){
           const data=await r.json();
-          if(!cancelled && data.status){
-            setGithubDebugStatus(data.status);
+          if(!cancelled){
+            setGithubDebugStatus(data.enabled ? (data.status || "WAITING") : "DISABLED");
           }
         }
       }catch{}
@@ -716,7 +755,10 @@ export default function AlinaStudioPage() {
       <section className="asProjectManager">
         <div className="asManagerHead">
           <div><small>LOCAL PROJECT MANAGER</small><h2>Мои проекты</h2><p>Проекты, базы знаний и история запусков хранятся только локально.</p></div>
-          <button onClick={loadProjects}>↻ Обновить</button>
+          <div className="asManagerTools">
+            <button onClick={()=>setAdminVisible(v=>!v)}>⚙ Администрирование</button>
+            <button onClick={loadProjects}>↻ Обновить</button>
+          </div>
         </div>
         {projects.length===0 ? <div className="asNoProjects">Пока нет сохранённых проектов. Создайте первый ниже.</div> :
         <div className="asProjectList">
@@ -753,6 +795,58 @@ export default function AlinaStudioPage() {
           </article>)}
         </div>}
       </section>
+
+      {adminVisible && <section className="asAdminPanel">
+        <div className="asAdminHead">
+          <div>
+            <small>SYSTEM ADMINISTRATION</small>
+            <h2>Администрирование</h2>
+            <p>Управление наблюдаемостью и отладочными интеграциями ALINA.</p>
+          </div>
+          <button onClick={()=>setAdminVisible(false)}>Закрыть</button>
+        </div>
+
+        <div className="asAdminGrid">
+          <article>
+            <div>
+              <small>LOCAL TRACE</small>
+              <b>Локальная трассировка</b>
+              <span>Кнопки, API и последовательности сохраняются локально для диагностики.</span>
+            </div>
+            <button
+              className={adminSettings.local_trace ? "toggle on":"toggle"}
+              disabled={adminBusy}
+              onClick={()=>updateAdminSetting("local_trace",!adminSettings.local_trace)}
+            ><i></i><em>{adminSettings.local_trace ? "ON":"OFF"}</em></button>
+          </article>
+
+          <article className={adminSettings.github_debug_trace ? "github-on":""}>
+            <div>
+              <small>GITHUB DEBUG TRACE</small>
+              <b>Публикация трассировки в GitHub</b>
+              <span>Нужна только при совместной отладке. Можно отключить одной кнопкой.</span>
+            </div>
+            <button
+              className={adminSettings.github_debug_trace ? "toggle on":"toggle"}
+              disabled={adminBusy}
+              onClick={()=>updateAdminSetting("github_debug_trace",!adminSettings.github_debug_trace)}
+            ><i></i><em>{adminSettings.github_debug_trace ? "ON":"OFF"}</em></button>
+          </article>
+        </div>
+
+        <div className="asAdminStatus">
+          <div><small>GITHUB STATUS</small><b>{adminSettings.github_debug_trace ? githubDebugStatus : "DISABLED"}</b></div>
+          <div><small>TRACE FILE</small><b>projects/.../debug/alina_ui_trace.jsonl</b></div>
+          <div><small>PRIVACY</small><b>SAFE DEBUG ONLY</b></div>
+        </div>
+
+        <div className="asAdminPolicy">
+          <b>Что разрешено отправлять:</b>
+          <span>кнопка · API endpoint · статус · длительность · project/run ID · этап последовательности.</span>
+          <b>Что запрещено:</b>
+          <span>тексты книг · фрагменты · содержимое БЗ · имена исходных файлов · приватные prompts.</span>
+        </div>
+      </section>}
 
       <section className="asHero asSimpleHero">
         <div>
@@ -917,6 +1011,7 @@ export default function AlinaStudioPage() {
             <button className={workspaceView==="sources"?"active":""} onClick={()=>setWorkspaceView("sources")}>Source Center</button>
             <button className={workspaceView==="forecast"?"active":""} onClick={()=>setWorkspaceView("forecast")}>Прогноз</button>
             <button className={workspaceView==="creative"?"active":""} onClick={()=>setWorkspaceView("creative")}>Creative Studio</button>
+            <button onClick={()=>setAdminVisible(true)}>Администрирование</button>
           </div>
 
           <div className="asProjectArchitecture">
@@ -1176,9 +1271,9 @@ export default function AlinaStudioPage() {
             <div className="asGithubTrace">
               <div>
                 <small>GITHUB SAFE EXPORT</small>
-                <b>{githubDebugStatus==="PUSHED" ? "PUSHED" : githubDebugStatus==="WARN" ? "WARNING" : githubDebugStatus==="NO_CHANGES" ? "SYNCED" : "WAITING"}</b>
+                <b>{!adminSettings.github_debug_trace ? "DISABLED" : githubDebugStatus==="PUSHED" ? "PUSHED" : githubDebugStatus==="PUBLISHING" ? "PUBLISHING" : githubDebugStatus==="WARN" ? "WARNING" : githubDebugStatus==="NO_CHANGES" ? "SYNCED" : "WAITING"}</b>
               </div>
-              <span>DEBUG MODE: кнопки, API, последовательности и статусы отправляются в safe trace GitHub. Текст книг, содержимое файлов и имена источников не публикуются.</span>
+              <span>{adminSettings.github_debug_trace ? "DEBUG MODE: safe trace публикуется в GitHub." : "GitHub trace отключён в Администрировании. Локальная трассировка работает отдельно."} Текст книг, содержимое файлов и имена источников не публикуются.</span>
             </div>
             <div className="asTraceSchema">
               <b>Каждая запись трассы:</b>
