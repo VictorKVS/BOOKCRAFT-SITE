@@ -717,8 +717,6 @@ def run_work_semantic_extraction(project_dir: Path, work_id: str, research_run_i
                 "time_anchors":len(merged.get("time_anchors",[])),
                 "claims":len(merged.get("claims",[])),
                 "open_threads":len(merged.get("open_threads",[])),
-                "graph_nodes":weighted_graph.get("node_count",0),
-                "graph_edges":weighted_graph.get("edge_count",0),
                 "elapsed_seconds":round(time.perf_counter()-started,1),
             },
             "created_at":now(),
@@ -727,6 +725,9 @@ def run_work_semantic_extraction(project_dir: Path, work_id: str, research_run_i
         for key in ("characters","events","relations","locations","technologies","organizations","time_anchors","claims","open_threads"):
             write_json(outputs_dir / f"R03_{key}.json", merged.get(key,[]))
         weighted_graph = build_weighted_research_graph(project_dir, work_id)
+        package["metrics"]["graph_nodes"] = weighted_graph.get("node_count",0)
+        package["metrics"]["graph_edges"] = weighted_graph.get("edge_count",0)
+        write_json(outputs_dir / "R03_semantic_package.json", package)
 
         task["status"] = "PASS"
         task["quality_gate"] = "PASS"
@@ -3068,6 +3069,17 @@ def run_work_research_auto(project_id: str, work_id: str, max_steps: int = 30) -
     if not project_dir.exists():
         raise HTTPException(404, "Проект не найден")
     return JSONResponse(execute_research_auto(project_dir, work_id, max_steps=max_steps))
+
+
+@app.get("/api/projects/{project_id}/research/{work_id}/graph")
+def get_work_research_graph(project_id: str, work_id: str) -> JSONResponse:
+    project_dir = PROJECTS_ROOT / project_id
+    if not project_dir.exists():
+        raise HTTPException(404, "Проект не найден")
+    path = project_dir / "research" / work_id / "outputs" / "research_graph.json"
+    if not path.exists():
+        raise HTTPException(404, "Research graph ещё не построен")
+    return JSONResponse(read_json(path, {}) or {})
 
 
 @app.post("/api/projects/{project_id}/research/rebuild")
