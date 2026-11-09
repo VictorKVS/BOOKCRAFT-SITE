@@ -1,0 +1,185 @@
+{
+  "schema_version": "1.0",
+  "package_id": "OSINT-PACKAGE-EXAMPLE",
+  "mode": "SIMULATED_OSINT",
+  "simulation": true,
+  "request": {
+    "request_id": "REQ-0001",
+    "project_id": "A1",
+    "object_id": "ALICE-005",
+    "object_type": "LITERARY_WORK",
+    "title_hint": "Сто лет тому вперёд",
+    "author_hint": "Кир Булычёв",
+    "date_hint": "1978",
+    "file_fingerprint": null,
+    "questions": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4",
+      "Q5",
+      "Q6",
+      "Q7",
+      "Q8",
+      "Q9",
+      "Q10",
+      "Q11",
+      "Q12",
+      "Q13",
+      "Q14",
+      "Q15"
+    ],
+    "requested_outputs": [
+      "IDENTITY",
+      "AUTHORITY",
+      "VERSIONS",
+      "COMPLETENESS",
+      "COMPARISON_TARGETS"
+    ],
+    "priority": "NORMAL"
+  },
+  "object": {
+    "object_id": "ALICE-005",
+    "object_type": "LITERARY_WORK",
+    "canonical_title": "Сто лет тому вперёд",
+    "alternate_titles": [
+      "Гостья из будущего",
+      "Алиса в прошлом"
+    ],
+    "author": "Кир Булычёв",
+    "issuing_authority": null,
+    "document_number": null,
+    "identifiers": [
+      "ALICE-005"
+    ],
+    "date": "1978",
+    "publication_date": null,
+    "adoption_date": null,
+    "effective_from": null,
+    "effective_to": null,
+    "form": "повесть",
+    "language": "ru",
+    "cycle_or_collection": "Алиса Селезнёва",
+    "sequence_number": 5,
+    "description": null
+  },
+  "identity": {
+    "status": "IDENTIFIED",
+    "confidence": 0.99,
+    "match_basis": [
+      "TITLE",
+      "AUTHOR",
+      "CYCLE",
+      "LOCAL_CATALOG"
+    ],
+    "competing_candidates": [],
+    "identity_evidence_ids": []
+  },
+  "authority": {
+    "authority_status": "NOT_FOUND",
+    "preferred_source_id": null,
+    "issuing_body": null,
+    "official_record_id": null,
+    "official_url": null,
+    "verification_date": null,
+    "verification_notes": "SIMULATED_OSINT: external authority verification not performed."
+  },
+  "bibliography": {
+    "first_publication_year": 1978,
+    "first_publication_date": null,
+    "publisher": null,
+    "place": null,
+    "isbn": null,
+    "issn": null,
+    "series": "Алиса Селезнёва",
+    "volume": null,
+    "edition": null,
+    "pages": null,
+    "catalog_records": [],
+    "library_records": []
+  },
+  "versions": [],
+  "texts": [],
+  "completeness": {
+    "status": "UNKNOWN",
+    "confidence": 0,
+    "expected_structure": null,
+    "observed_structure": null,
+    "missing_sections": [],
+    "extra_sections": [],
+    "basis": "NOT_CHECKED_EXTERNAL"
+  },
+  "comparison": {
+    "local_text_id": null,
+    "reference_text_id": null,
+    "reference_version_id": null,
+    "comparison_status": "REFERENCE_PENDING",
+    "comparison_priority": "NORMAL",
+    "comparison_reason": "Need a trusted reference version before textual comparison.",
+    "expected_diff_type": null,
+    "requires_text_download": true
+  },
+  "relations": [
+    {
+      "source_object_id": "ALICE-005",
+      "relation_type": "PART_OF_CYCLE",
+      "target_object_id": "ALICE_CYCLE_CORPUS",
+      "confidence": 1,
+      "evidence_ids": []
+    }
+  ],
+  "sources": [],
+  "evidence": [],
+  "questions": [],
+  "findings": [
+    {
+      "finding_id": "F-001",
+      "type": "IDENTITY",
+      "statement": "Object identified as 'Сто лет тому вперёд' in the Alice Selezneva cycle.",
+      "confidence": 0.99,
+      "evidence_ids": [],
+      "impact": "HIGH"
+    }
+  ],
+  "risks": [
+    {
+      "risk_id": "RISK-001",
+      "type": "NO_OFFICIAL_SOURCE",
+      "severity": "MEDIUM",
+      "description": "No real authoritative external source was verified in simulation mode.",
+      "affected_fields": [
+        "authority",
+        "versions",
+        "completeness"
+      ],
+      "mitigation": "Run OFFICIAL_DIRECT or LIVE_OSINT when required."
+    }
+  ],
+  "unresolved": [
+    {
+      "unresolved_id": "U-001",
+      "question": "Which authoritative version should be used for comparison?",
+      "reason": "SIMULATED_OSINT",
+      "required_action": "OFFICIAL_DIRECT_OR_LIVE_OSINT",
+      "blocking": true,
+      "priority": "HIGH"
+    }
+  ],
+  "recommendations": [
+    "FIND_AUTHORITATIVE_REFERENCE",
+    "RUN_TEXT_COMPARISON",
+    "KEEP_LOCAL_SOURCE_UNCHANGED"
+  ],
+  "quality": {
+    "identity_confidence": 0.99,
+    "authority_confidence": 0,
+    "completeness_confidence": 0,
+    "version_confidence": 0,
+    "source_coverage": 0,
+    "evidence_coverage": 0,
+    "unresolved_count": 1,
+    "blocking_count": 1,
+    "package_status": "REVIEW"
+  },
+  "generated_at": null
+}
