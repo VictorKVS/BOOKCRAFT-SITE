@@ -9,7 +9,8 @@
       "status": "PLANNED",
       "progress": 0,
       "depends_on": [],
-      "executor": "DETERMINISTIC_V1"
+      "executor": "DETERMINISTIC_V1",
+      "research_question": "Что является точным источником этого произведения, где его границы и насколько надёжно оно идентифицировано?"
     },
     {
       "task_id": "R02",
@@ -19,7 +20,8 @@
       "depends_on": [
         "R01"
       ],
-      "executor": "DETERMINISTIC_V1"
+      "executor": "DETERMINISTIC_V1",
+      "research_question": "Какова внутренняя структура произведения: разделы, главы, сцены и последовательность текстовых блоков?"
     },
     {
       "task_id": "R03",
@@ -29,7 +31,8 @@
       "depends_on": [
         "R02"
       ],
-      "executor": "WORK_SCOPED_SEMANTIC_V1"
+      "executor": "WORK_SCOPED_SEMANTIC_V1",
+      "research_question": "Какие атомарные факты и утверждения прямо извлекаются из текста произведения?"
     },
     {
       "task_id": "R04",
@@ -39,7 +42,8 @@
       "depends_on": [
         "R03"
       ],
-      "executor": "WORK_SCOPED_SEMANTIC_V1"
+      "executor": "WORK_SCOPED_SEMANTIC_V1",
+      "research_question": "Какие извлечённые утверждения действительно подтверждаются точными evidence-фрагментами источника?"
     },
     {
       "task_id": "R05",
@@ -50,7 +54,8 @@
         "R03",
         "R04"
       ],
-      "executor": "WORK_SCOPED_SEMANTIC_V1"
+      "executor": "WORK_SCOPED_SEMANTIC_V1",
+      "research_question": "Какие утверждения являются фактами рассказчика, речью, мнением, воспоминанием, сном, предположением или неопределённостью?"
     },
     {
       "task_id": "R06",
@@ -61,7 +66,8 @@
         "R04",
         "R05"
       ],
-      "executor": "WORK_SCOPED_SEMANTIC_V1"
+      "executor": "WORK_SCOPED_SEMANTIC_V1",
+      "research_question": "Какие подтверждённые утверждения можно допустить в рабочий канон произведения?"
     },
     {
       "task_id": "R07",
@@ -72,7 +78,8 @@
         "R03",
         "R04"
       ],
-      "executor": "WORK_SCOPED_SEMANTIC_V1"
+      "executor": "WORK_SCOPED_SEMANTIC_V1",
+      "research_question": "Какие сущности существуют в произведении и какими evidence они подтверждаются?"
     },
     {
       "task_id": "R08",
@@ -82,7 +89,8 @@
       "depends_on": [
         "R07"
       ],
-      "executor": "WORK_SCOPED_SEMANTIC_V1"
+      "executor": "WORK_SCOPED_SEMANTIC_V1",
+      "research_question": "Какие имена и алиасы относятся к одной сущности, а какие необходимо различать?"
     },
     {
       "task_id": "R09",
@@ -93,7 +101,8 @@
         "R08",
         "R06"
       ],
-      "executor": "WORK_SCOPED_SEMANTIC_V1"
+      "executor": "WORK_SCOPED_SEMANTIC_V1",
+      "research_question": "Что достоверно известно о каждом персонаже: роль, возраст, статус, свойства, способности и принадлежности?"
     },
     {
       "task_id": "R10",
@@ -103,7 +112,8 @@
       "depends_on": [
         "R09"
       ],
-      "executor": "WORK_SCOPED_SEMANTIC_V1"
+      "executor": "WORK_SCOPED_SEMANTIC_V1",
+      "research_question": "Каковы цели, мотивы, намерения, страхи и стимулы персонажей и насколько они подтверждены текстом?"
     },
     {
       "task_id": "R11",
@@ -113,7 +123,8 @@
       "depends_on": [
         "R09"
       ],
-      "executor": "WORK_SCOPED_SEMANTIC_V1"
+      "executor": "WORK_SCOPED_SEMANTIC_V1",
+      "research_question": "Что каждый персонаж знает, считает истинным, не знает, узнаёт или понимает ошибочно?"
     },
     {
       "task_id": "R12",
@@ -124,7 +135,8 @@
         "R09",
         "R11"
       ],
-      "executor": "WORK_SCOPED_SEMANTIC_V1"
+      "executor": "WORK_SCOPED_SEMANTIC_V1",
+      "research_question": "Как меняется физическое, эмоциональное, социальное и информационное состояние персонажей?"
     },
     {
       "task_id": "R13",
@@ -135,7 +147,8 @@
         "R08",
         "R09"
       ],
-      "executor": "WORK_SCOPED_SEMANTIC_V1"
+      "executor": "WORK_SCOPED_SEMANTIC_V1",
+      "research_question": "Какие отношения связывают персонажей и как меняются сила, тип и состояние этих отношений?"
     },
     {
       "task_id": "R14",
@@ -147,7 +160,8 @@
         "R04",
         "R07"
       ],
-      "executor": "WORK_SCOPED_SEMANTIC_V1"
+      "executor": "WORK_SCOPED_SEMANTIC_V1",
+      "research_question": "Какие значимые события происходят, кто в них участвует, где и при каких обстоятельствах?"
     },
     {
       "task_id": "R15",
@@ -157,7 +171,8 @@
       "depends_on": [
         "R14"
       ],
-      "executor": "WORK_SCOPED_SEMANTIC_V1"
+      "executor": "WORK_SCOPED_SEMANTIC_V1",
+      "research_question": "В каком надёжном порядке происходят события и какие варианты порядка остаются неопределёнными?"
     },
     {
       "task_id": "R16",
@@ -167,7 +182,8 @@
       "depends_on": [
         "R15"
       ],
-      "executor": "WORK_SCOPED_SEMANTIC_V1"
+      "executor": "WORK_SCOPED_SEMANTIC_V1",
+      "research_question": "Какие даты, длительности, относительные временные якоря и возрастные признаки задаёт текст?"
     },
     {
       "task_id": "R17",
@@ -178,7 +194,8 @@
         "R03",
         "R04"
       ],
-      "executor": "WORK_SCOPED_SEMANTIC_V1"
+      "executor": "WORK_SCOPED_SEMANTIC_V1",
+      "research_question": "Какие локации существуют и какие пространственные отношения между ними подтверждены?"
     },
     {
       "task_id": "R18",
@@ -190,7 +207,8 @@
         "R16",
         "R17"
       ],
-      "executor": "WORK_SCOPED_SEMANTIC_V1"
+      "executor": "WORK_SCOPED_SEMANTIC_V1",
+      "research_question": "Кто, откуда, куда и каким способом перемещается, сколько это занимает и нет ли пространственных конфликтов?"
     },
     {
       "task_id": "R19",
@@ -201,7 +219,8 @@
         "R03",
         "R04"
       ],
-      "executor": "WORK_SCOPED_SEMANTIC_V1"
+      "executor": "WORK_SCOPED_SEMANTIC_V1",
+      "research_question": "Какие физические, социальные, институциональные и фантастические правила действуют в мире?"
     },
     {
       "task_id": "R20",
@@ -212,7 +231,8 @@
         "R03",
         "R04"
       ],
-      "executor": "WORK_SCOPED_SEMANTIC_V1"
+      "executor": "WORK_SCOPED_SEMANTIC_V1",
+      "research_question": "Какие технологии, устройства, транспорт, медицина, связь, ИИ и роботы присутствуют?"
     },
     {
       "task_id": "R21",
@@ -222,7 +242,8 @@
       "depends_on": [
         "R20"
       ],
-      "executor": "WORK_SCOPED_SEMANTIC_V1"
+      "executor": "WORK_SCOPED_SEMANTIC_V1",
+      "research_question": "Каковы возможности, ограничения, зависимости и пользователи каждой технологии?"
     },
     {
       "task_id": "R22",
@@ -234,7 +255,8 @@
         "R04",
         "R07"
       ],
-      "executor": "WORK_SCOPED_SEMANTIC_V1"
+      "executor": "WORK_SCOPED_SEMANTIC_V1",
+      "research_question": "Какие организации и институты действуют, каковы их функции, структура и полномочия?"
     },
     {
       "task_id": "R23",
@@ -246,7 +268,8 @@
         "R04",
         "R07"
       ],
-      "executor": "WORK_SCOPED_SEMANTIC_V1"
+      "executor": "WORK_SCOPED_SEMANTIC_V1",
+      "research_question": "Какие предметы и артефакты сюжетно значимы, кому принадлежат и как меняется их состояние?"
     },
     {
       "task_id": "R24",
@@ -257,7 +280,8 @@
         "R14",
         "R15"
       ],
-      "executor": "WORK_SCOPED_SEMANTIC_V1"
+      "executor": "WORK_SCOPED_SEMANTIC_V1",
+      "research_question": "Какие причинно-следственные связи прямо подтверждаются текстом и что является лишь временной последовательностью?"
     },
     {
       "task_id": "R25",
@@ -269,7 +293,8 @@
         "R16",
         "R24"
       ],
-      "executor": "WORK_SCOPED_SEMANTIC_V1"
+      "executor": "WORK_SCOPED_SEMANTIC_V1",
+      "research_question": "Какие внутренние противоречия, несогласованные факты и неоднозначности есть внутри произведения?"
     },
     {
       "task_id": "R26",
@@ -280,7 +305,8 @@
         "R06",
         "R14"
       ],
-      "executor": "WORK_SCOPED_SEMANTIC_V1"
+      "executor": "WORK_SCOPED_SEMANTIC_V1",
+      "research_question": "Какие сюжетные линии, тайны и вопросы остаются открытыми к концу произведения?"
     },
     {
       "task_id": "R27",
@@ -291,7 +317,8 @@
         "R06",
         "R14"
       ],
-      "executor": "WORK_SCOPED_SEMANTIC_V1"
+      "executor": "WORK_SCOPED_SEMANTIC_V1",
+      "research_question": "Какие темы, мотивы и драматургические функции можно аналитически выделить отдельно от фактического канона?"
     },
     {
       "task_id": "R28",
@@ -304,7 +331,8 @@
         "R17",
         "R23"
       ],
-      "executor": "WORK_SCOPED_SEMANTIC_V1"
+      "executor": "WORK_SCOPED_SEMANTIC_V1",
+      "research_question": "Какие сцены пригодны для визуализации: участники, действия, взаимодействия, позы, объекты, камера и continuity?"
     },
     {
       "task_id": "R29",
@@ -317,7 +345,8 @@
         "R24",
         "R26"
       ],
-      "executor": "WORK_SCOPED_SEMANTIC_V1"
+      "executor": "WORK_SCOPED_SEMANTIC_V1",
+      "research_question": "Какие незавершённые состояния и evidence-backed факторы допустимо передать в гипотезы и прогноз?"
     },
     {
       "task_id": "R30",
@@ -355,7 +384,8 @@
         "R28",
         "R29"
       ],
-      "executor": "DETERMINISTIC_V1"
+      "executor": "DETERMINISTIC_V1",
+      "research_question": "Достаточно ли полно, доказуемо и непротиворечиво исследовано произведение для межкнижного анализа?"
     }
   ],
   "statuses": [
