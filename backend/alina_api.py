@@ -2532,6 +2532,7 @@ async def create_empty_project(
     title: str = Form(...),
     mode: str = Form("study-cycle"),
     intent: str = Form(""),
+    description: str = Form(""),
 ) -> JSONResponse:
     clean_title = title.strip()
     if not clean_title:
@@ -2550,6 +2551,7 @@ async def create_empty_project(
         "title_mode": "MANUAL",
         "mode": mode,
         "intent": intent,
+        "description": description.strip() or intent.strip(),
         "privacy": "PRIVATE_LOCAL",
         "status": "PROJECT_CREATED",
         "analysis_level": "NONE",
@@ -2566,7 +2568,8 @@ async def create_empty_project(
     write_json(project_dir / "kb" / "project_contract.json", {
         "project_id": project_id,
         "title": clean_title,
-        "contract_version": "1.0",
+        "description": description.strip() or intent.strip(),
+        "contract_version": "1.1",
         "short_code": short_code,
         "folders": ["sources", "kb", "runs", "deep", "products", "research"],
         "created_at": metadata["created_at"],
@@ -2799,6 +2802,8 @@ def list_projects() -> JSONResponse:
         runs = [r for r in runs if r]
         runs.sort(key=lambda x: x.get("created_at", ""), reverse=True)
         latest = runs[0] if runs else None
+        if not meta.get("description"):
+            meta["description"] = str(meta.get("intent") or "").strip()
         projects.append({
             **meta,
             "analysis_level": meta.get("analysis_level", "NONE"),
@@ -3017,6 +3022,19 @@ def delete_project(project_id: str) -> dict[str, Any]:
         for rid in [rid for rid, run in RUNS.items() if run.get("project_id") == project_id]:
             RUNS.pop(rid, None)
     return {"status": "DELETED", "project_id": project_id}
+
+
+@app.patch("/api/projects/{project_id}/description")
+async def update_project_description(project_id: str, description: str = Form(...)) -> JSONResponse:
+    project_dir = PROJECTS_ROOT / project_id
+    path = project_dir / "project.json"
+    meta = read_json(path, None)
+    if meta is None:
+        raise HTTPException(404, "Проект не найден")
+    meta["description"] = description.strip()[:500]
+    meta["updated_at"] = now()
+    write_json(path, meta)
+    return JSONResponse(meta)
 
 
 @app.patch("/api/projects/{project_id}/title")
