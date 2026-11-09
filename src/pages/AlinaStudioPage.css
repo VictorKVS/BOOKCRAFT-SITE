@@ -153,3 +153,7 @@
 
 
 .asResearchRunSummary{display:flex;gap:6px;flex-wrap:wrap;margin:-2px 0 9px}.asResearchRunSummary span{font-size:6px;letter-spacing:.05em;color:#7890a4;border:1px solid #263d50;background:#091722;border-radius:999px;padding:4px 6px}
+
+
+.asProjectDescription{margin:4px 0 7px;color:#8ea4b6;font-size:9px;line-height:1.45;max-width:760px}
+.asProjectDescriptionField{display:block;margin-top:10px}.asProjectDescriptionField>span{display:block;font-size:9px;color:#7890a5;margin-bottom:6px}.asProjectDescriptionField textarea{box-sizing:border-box;width:100%;min-height:72px;resize:vertical;background:#071420;border:1px solid #2c4a62;color:#fff;border-radius:12px;padding:11px 12px;font-size:11px;line-height:1.45;outline:none}.asProjectDescriptionField textarea:focus{border-color:#67e8f9}.asProjectDescriptionField textarea:disabled{opacity:.78;cursor:not-allowed;background:#0a1825}.asProjectDescriptionField small{display:block;margin-top:4px;text-align:right;color:#536d82;font-size:7px}
