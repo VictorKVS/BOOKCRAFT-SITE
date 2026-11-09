@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "report_id": "ALICE-CORPUS-DISCREPANCIES-2026-11-09",
+  "discrepancies": [
+    {
+      "id": "D-001",
+      "work_id": "ALICE-022",
+      "severity": "MEDIUM",
+      "local": "ПЛАНЕТА ДЛЯ ТИТАНОВ",
+      "verified_catalog": "Планета для тиранов",
+      "classification": "SOURCE_METADATA_CONFLICT",
+      "action": "Keep canonical title; preserve local heading as observed variant/conflict."
+    },
+    {
+      "id": "D-002",
+      "work_id": "ALICE-033",
+      "severity": "MEDIUM",
+      "local": "Королева пиратов на острове сказок",
+      "verified_catalog": "Королева пиратов на планете сказок",
+      "classification": "SOURCE_TITLE_VARIANT_OR_CONFLICT",
+      "action": "Keep canonical title; preserve source variant and compare actual text boundary."
+    },
+    {
+      "id": "D-003",
+      "work_id": "CYCLE",
+      "severity": "HIGH",
+      "local": "Any single inferred chronology",
+      "verified_catalog": "No official internal chronology",
+      "classification": "CHRONOLOGY_NON_OFFICIAL",
+      "action": "Store publication order, external proposed chronology and ALINA reconstruction separately."
+    }
+  ]
+}
