@@ -1624,6 +1624,104 @@ def load_known_catalog(title: str, parsed: list[dict[str, Any]]) -> dict[str, An
     return None
 
 
+def load_source_intelligence_config() -> dict[str, Any]:
+    path = ROOT / "projects" / "sto_let_tomu_vpered" / "research" / "source_intelligence_modes_v1.json"
+    return read_json(path, {"default_mode":"SIMULATED_OSINT","modes":{}}) or {}
+
+
+def simulate_osint_result(project_dir: Path, object_id: str) -> dict[str, Any]:
+    works = enrich_existing_work_catalog(read_json(project_dir / "kb" / "works.json", {}) or {})
+    candidates = []
+    for bucket in ("matched","review","missing"):
+        candidates.extend(works.get(bucket,[]) or [])
+    obj = next((x for x in candidates if x.get("object_id") == object_id or x.get("work_id") == object_id), None)
+    if obj is None:
+        raise HTTPException(404, "Объект корпуса не найден")
+
+    local_source = None
+    source_id = obj.get("source_id")
+    if source_id:
+        sources = read_json(project_dir / "kb" / "sources.json", []) or []
+        local_source = next((x for x in sources if x.get("source_id") == source_id), None)
+
+    questions = [
+        {"id":"Q1","question":"Что это за объект?","answer":obj.get("object_type") or "LITERARY_WORK","status":"SIMULATED"},
+        {"id":"Q2","question":"Каково каноническое название?","answer":obj.get("title"),"status":"SIMULATED_FROM_CATALOG"},
+        {"id":"Q3","question":"Кто автор / орган?","answer":obj.get("author") or obj.get("issuing_authority"),"status":"SIMULATED_FROM_CATALOG"},
+        {"id":"Q4","question":"Какова дата публикации / принятия?","answer":obj.get("date") or obj.get("publication_year"),"status":"SIMULATED_FROM_CATALOG"},
+        {"id":"Q5","question":"Какие стабильные идентификаторы известны?","answer":[obj.get("object_id") or obj.get("work_id")],"status":"SIMULATED_LOCAL_ID"},
+        {"id":"Q6","question":"Какие алиасы/варианты названия известны?","answer":obj.get("aliases",[]),"status":"SIMULATED_FROM_CATALOG"},
+        {"id":"Q7","question":"К какому циклу/набору относится?","answer":works.get("cycle"),"status":"SIMULATED_FROM_CATALOG"},
+        {"id":"Q8","question":"Какие версии/редакции известны?","answer":[],"status":"NOT_DISCOVERED_IN_SIMULATION"},
+        {"id":"Q9","question":"Какой источник является авторитетным?","answer":None,"status":"AUTHORITY_SOURCE_PENDING"},
+        {"id":"Q10","question":"Доступен ли авторитетный полный текст?","answer":False,"status":"NOT_CHECKED_EXTERNAL"},
+        {"id":"Q11","question":"Полон ли локальный текст?","answer":obj.get("completeness_status"),"status":"LOCAL_CORPUS_ONLY"},
+        {"id":"Q12","question":"Какая известная версия лучше всего совпадает?","answer":None,"status":"VERSION_NOT_VERIFIED"},
+        {"id":"Q13","question":"Есть ли другие варианты текста?","answer":False,"status":"NOT_DISCOVERED_IN_SIMULATION"},
+        {"id":"Q14","question":"Что использовать как эталон сравнения?","answer":None,"status":"REFERENCE_TARGET_PENDING"},
+        {"id":"Q15","question":"Какие вопросы остались?","answer":[
+            "AUTHORITATIVE_SOURCE_REQUIRED",
+            "VERSION_COMPARISON_PENDING"
+        ],"status":"OPEN"},
+    ]
+
+    result = {
+        "schema_version":"1.0",
+        "mode":"SIMULATED_OSINT",
+        "simulation":True,
+        "object_id":obj.get("object_id") or obj.get("work_id"),
+        "object_type":obj.get("object_type"),
+        "identification":{
+            "title":obj.get("title"),
+            "status":obj.get("status"),
+            "confidence":obj.get("confidence"),
+            "matched_heading":obj.get("matched_heading") or obj.get("candidate_heading"),
+        },
+        "canonical_metadata":{
+            "title":obj.get("title"),
+            "author":obj.get("author"),
+            "date":obj.get("date") or obj.get("publication_year"),
+            "form":obj.get("form"),
+            "aliases":obj.get("aliases",[]),
+            "cycle":works.get("cycle"),
+            "semantic_order":obj.get("semantic_order"),
+        },
+        "local_source":{
+            "source_id":source_id,
+            "filename":local_source.get("filename") if local_source else None,
+            "sha256":local_source.get("sha256") if local_source else None,
+            "size_bytes":local_source.get("size_bytes") if local_source else None,
+        },
+        "authority_sources":[],
+        "authority_status":"AUTHORITY_SOURCE_PENDING",
+        "versions":[],
+        "version_status":"VERSION_NOT_VERIFIED",
+        "completeness":{
+            "status":obj.get("completeness_status") or "COMPLETENESS_NOT_VERIFIED",
+            "basis":"LOCAL_CORPUS_MATCH_ONLY",
+        },
+        "comparison_targets":[],
+        "questions":questions,
+        "unresolved":[
+            "AUTHORITATIVE_SOURCE_REQUIRED",
+            "OFFICIAL_OR_BIBLIOGRAPHIC_REFERENCE_REQUIRED",
+            "VERSION_COMPARISON_PENDING",
+        ],
+        "confidence":obj.get("confidence"),
+        "generated_at":now(),
+        "warning":"SIMULATED_OSINT: no external search or official-source verification was performed.",
+    }
+
+    out = project_dir / "source_intelligence" / str(result["object_id"]) / "osint_result.json"
+    write_json(out,result)
+    record_project_event(project_dir,"SOURCE_INTELLIGENCE_SIMULATED",details={
+        "object_id":result["object_id"],
+        "mode":"SIMULATED_OSINT",
+        "unresolved":result["unresolved"],
+    })
+    return result
+
+
 def enrich_existing_work_catalog(works: dict[str, Any]) -> dict[str, Any]:
     if works.get("object_schema") == "CORPUS_OBJECT_V1":
         return works
@@ -3070,7 +3168,7 @@ async def create_empty_project(
 
     project_id = f"PRJ-{uuid.uuid4().hex[:10]}"
     project_dir = PROJECTS_ROOT / project_id
-    for folder in ("sources", "kb", "runs", "deep", "products", "research"):
+    for folder in ("sources", "kb", "runs", "deep", "products", "research", "source_intelligence"):
         (project_dir / folder).mkdir(parents=True, exist_ok=True)
 
     short_code = next_project_short_code()
@@ -3101,7 +3199,7 @@ async def create_empty_project(
         "description": description.strip() or intent.strip(),
         "contract_version": "1.2",
         "short_code": short_code,
-        "folders": ["sources", "kb", "runs", "deep", "products", "research"],
+        "folders": ["sources", "kb", "runs", "deep", "products", "research", "source_intelligence"],
         "service_files": ["project_state.json","project_events.jsonl"],
         "created_at": metadata["created_at"],
         "status": "READY_FOR_SOURCES",
@@ -3323,6 +3421,27 @@ def run_status(run_id: str) -> dict[str, Any]:
         return json.loads(json.dumps(run, ensure_ascii=False))
 
 
+@app.get("/api/source-intelligence/config")
+def get_source_intelligence_config() -> JSONResponse:
+    return JSONResponse(load_source_intelligence_config())
+
+
+@app.post("/api/projects/{project_id}/source-intelligence/{object_id}/simulate")
+def simulate_source_intelligence(project_id: str, object_id: str) -> JSONResponse:
+    project_dir = PROJECTS_ROOT / project_id
+    if not project_dir.exists():
+        raise HTTPException(404, "Проект не найден")
+    return JSONResponse(simulate_osint_result(project_dir, object_id))
+
+
+@app.get("/api/projects/{project_id}/source-intelligence/{object_id}")
+def get_source_intelligence(project_id: str, object_id: str) -> JSONResponse:
+    path = PROJECTS_ROOT / project_id / "source_intelligence" / object_id / "osint_result.json"
+    if not path.exists():
+        raise HTTPException(404, "Source Intelligence result ещё не создан")
+    return JSONResponse(read_json(path,{}) or {})
+
+
 @app.get("/api/projects/{project_id}/kb/{name}")
 def get_kb(project_id: str, name: str) -> JSONResponse:
     allowed = {"sources","structure","works","claims","entities","events","world","graph","conflicts","review_queue","characters","relations","locations","technologies","organizations","time_anchors","deep_claims","open_threads","deep_graph","benchmark_seed"}
@@ -3399,6 +3518,7 @@ def open_project_folder(project_id: str, folder_name: str) -> dict[str, Any]:
         "runs": project_dir / "runs",
         "products": project_dir / "products",
         "research": project_dir / "research",
+        "source_intelligence": project_dir / "source_intelligence",
     }
     target = folders.get(folder_name)
     if target is None:
