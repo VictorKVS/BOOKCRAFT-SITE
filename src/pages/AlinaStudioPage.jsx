@@ -101,6 +101,8 @@ export default function AlinaStudioPage() {
   const [adminBusy,setAdminBusy] = useState(false);
   const [researchDashboard,setResearchDashboard] = useState(null);
   const [selectedResearchWork,setSelectedResearchWork] = useState(null);
+  const [researchBusy,setResearchBusy] = useState(false);
+  const [researchAction,setResearchAction] = useState("");
 
   const activeMode = projectModes.find(x=>x[0]===mode);
   const isStudy = activeMode?.[3] === "STUDY";
@@ -423,6 +425,54 @@ export default function AlinaStudioPage() {
     }catch{}
     setResearchDashboard(null);
     return null;
+  }
+
+  async function runResearchTask(workId,taskId){
+    if(!projectId || !workId || !taskId) return;
+    setResearchBusy(true);
+    setResearchAction(taskId);
+    setApiError("");
+    try{
+      const r=await tracedFetch(`http://127.0.0.1:8191/api/projects/${projectId}/research/${workId}/tasks/${taskId}/run`,{method:"POST"});
+      if(!r.ok) throw new Error(await r.text());
+      const data=await r.json();
+      await loadResearchDashboard(projectId);
+      traceEvent("SEQUENCE",{
+        sequence:"RESEARCH_FLOW",
+        step:`${workId}:${taskId}`,
+        status:data.status || "PASS",
+        result:data.task?.quality_gate || data.status
+      },true);
+    }catch(err){
+      setApiError(`Research ${workId}/${taskId}: ${err.message}`);
+    }finally{
+      setResearchBusy(false);
+      setResearchAction("");
+    }
+  }
+
+  async function runNextResearchTask(workId){
+    if(!projectId || !workId) return;
+    setResearchBusy(true);
+    setResearchAction("NEXT");
+    setApiError("");
+    try{
+      const r=await tracedFetch(`http://127.0.0.1:8191/api/projects/${projectId}/research/${workId}/next`,{method:"POST"});
+      if(!r.ok) throw new Error(await r.text());
+      const data=await r.json();
+      await loadResearchDashboard(projectId);
+      traceEvent("SEQUENCE",{
+        sequence:"RESEARCH_FLOW",
+        step:`${workId}:NEXT`,
+        status:data.status || "PASS",
+        result:data.task?.task_id || "NO_READY_TASKS"
+      },true);
+    }catch(err){
+      setApiError(`Research ${workId}: ${err.message}`);
+    }finally{
+      setResearchBusy(false);
+      setResearchAction("");
+    }
   }
 
   async function loadProjects(){
@@ -1287,7 +1337,12 @@ export default function AlinaStudioPage() {
                   return <>
                     <div className="asResearchProgramHead">
                       <div><small>{p.work_id}</small><h4>{p.work_title}</h4><span>{p.research_profile} · Source Set v{p.source_set_version}</span></div>
-                      <em>{p.program_status}</em>
+                      <div className="asResearchProgramActions">
+                        <em>{p.program_status}</em>
+                        <button disabled={researchBusy} onClick={()=>runNextResearchTask(p.work_id)}>
+                          {researchBusy && researchAction==="NEXT" ? "Выполняю…" : "Запустить следующую →"}
+                        </button>
+                      </div>
                     </div>
                     <div className="asResearchProgress">
                       <div><i style={{width:`${p.summary?.completion_pct || 0}%`}}></i></div>
@@ -1299,7 +1354,14 @@ export default function AlinaStudioPage() {
                         <b>{t.name}</b>
                         <div className="asTaskBar"><i style={{width:`${t.progress || 0}%`}}></i></div>
                         <span>{t.quality_gate || "NOT_CHECKED"}</span>
+                        {(t.depends_on || []).length>0 && <small className="asTaskDeps">depends: {t.depends_on.join(" · ")}</small>}
                         {(t.blockers || []).length>0 && <strong>{t.blockers.join(" · ")}</strong>}
+                        <button
+                          disabled={researchBusy || ["PASS","REUSED"].includes(t.status)}
+                          onClick={()=>runResearchTask(p.work_id,t.task_id)}
+                        >
+                          {researchBusy && researchAction===t.task_id ? "Выполняю…" : ["PASS","REUSED"].includes(t.status) ? "Готово" : "Запустить"}
+                        </button>
                       </article>)}
                     </div>
                   </>;
