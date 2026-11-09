@@ -150,3 +150,6 @@
 
 .asResearchProgramActions{display:flex;gap:7px;align-items:center;flex-wrap:wrap;justify-content:flex-end}.asResearchProgramActions button{border:1px solid #2f5870;background:#0b2230;color:#bde8f2;border-radius:8px;padding:7px 9px;font-size:7px;font-weight:700;cursor:pointer}.asResearchProgramActions button:disabled{opacity:.45;cursor:wait}
 .asTaskDeps{display:block!important;margin-top:5px!important;color:#647b8e!important;font-size:6px!important;line-height:1.35}.asTaskGrid article>button{margin-top:8px;width:100%;border:1px solid #2c475c;background:#0b1c29;color:#a8bdcc;border-radius:7px;padding:6px 7px;font-size:7px;font-weight:700;cursor:pointer}.asTaskGrid article>button:hover:not(:disabled){border-color:#38bdf8;color:#dff8ff}.asTaskGrid article>button:disabled{opacity:.4;cursor:not-allowed}.asTaskGrid article.pass>button,.asTaskGrid article.reused>button{border-color:rgba(34,197,94,.25);color:#86efac}
+
+
+.asResearchRunSummary{display:flex;gap:6px;flex-wrap:wrap;margin:-2px 0 9px}.asResearchRunSummary span{font-size:6px;letter-spacing:.05em;color:#7890a4;border:1px solid #263d50;background:#091722;border-radius:999px;padding:4px 6px}
