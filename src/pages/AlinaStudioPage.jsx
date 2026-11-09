@@ -113,6 +113,8 @@ export default function AlinaStudioPage() {
   const [sourceIntelBusy,setSourceIntelBusy] = useState(false);
   const [commandCenter,setCommandCenter] = useState(null);
   const [reportBusy,setReportBusy] = useState(false);
+  const [pilotState,setPilotState] = useState(null);
+  const [pilotBusy,setPilotBusy] = useState(false);
 
   const activeMode = projectModes.find(x=>x[0]===mode);
   const isStudy = activeMode?.[3] === "STUDY";
@@ -433,8 +435,10 @@ export default function AlinaStudioPage() {
         if(!selectedResearchWork && data.programs?.length){
           setSelectedResearchWork(data.programs[0].work_id);
           loadResearchGraph(data.programs[0].work_id);
+          loadPilot(data.programs[0].work_id);
         } else if(selectedResearchWork){
           loadResearchGraph(selectedResearchWork);
+          loadPilot(selectedResearchWork);
         }
         return data;
       }
@@ -530,6 +534,38 @@ export default function AlinaStudioPage() {
     }finally{
       setResearchBusy(false);
       setResearchAction("");
+    }
+  }
+
+  async function loadPilot(workId){
+    if(!projectId || !workId){ setPilotState(null); return null; }
+    try{
+      const r=await tracedFetch(`http://127.0.0.1:8191/api/projects/${projectId}/research/${workId}/pilot/latest`);
+      if(!r.ok){ setPilotState(null); return null; }
+      const data=await r.json();
+      setPilotState(data);
+      return data;
+    }catch{
+      setPilotState(null);
+      return null;
+    }
+  }
+
+  async function runGoldenPath(workId){
+    if(!projectId || !workId) return;
+    setPilotBusy(true);
+    setApiError("");
+    try{
+      const r=await tracedFetch(`http://127.0.0.1:8191/api/projects/${projectId}/research/${workId}/pilot`,{method:"POST"});
+      if(!r.ok) throw new Error(await r.text());
+      const data=await r.json();
+      setPilotState({state:data,report:null});
+      traceEvent("SEQUENCE",{sequence:"PILOT_FLOW",step:`${workId}:START`,status:data.status || "QUEUED"},true);
+      await loadResearchDashboard(projectId);
+    }catch(err){
+      setApiError(`Pilot ${workId}: ${err.message}`);
+    }finally{
+      setPilotBusy(false);
     }
   }
 
@@ -1733,7 +1769,7 @@ export default function AlinaStudioPage() {
                   {(researchDashboard?.programs || []).map(p=><button
                     key={p.work_id}
                     className={selectedResearchWork===p.work_id?"active":""}
-                    onClick={()=>{setSelectedResearchWork(p.work_id);loadResearchGraph(p.work_id)}}
+                    onClick={()=>{setSelectedResearchWork(p.work_id);loadResearchGraph(p.work_id);loadPilot(p.work_id)}}
                   >
                     <small>{p.work_id}</small>
                     <b>{p.work_title}</b>
@@ -1751,6 +1787,9 @@ export default function AlinaStudioPage() {
                       <div><small>{p.work_id}</small><h4>{p.work_title}</h4><span>{p.research_profile} · Source Set v{p.source_set_version}</span></div>
                       <div className="asResearchProgramActions">
                         <em>{p.program_status}</em>
+                        <button disabled={pilotBusy || p.program_status==="RUNNING"} onClick={()=>runGoldenPath(p.work_id)}>
+                          {pilotBusy ? "Golden Path запускается…" : "Golden Path"}
+                        </button>
                         <button disabled={researchBusy || p.program_status==="RUNNING"} onClick={()=>runResearchAuto(p.work_id)}>
                           {researchBusy && researchAction==="AUTO" ? "Автомат выполняет…" : "Автозапуск доступного"}
                         </button>
@@ -1770,6 +1809,19 @@ export default function AlinaStudioPage() {
                       <span>BLOCKED: {p.summary?.blocked || 0}</span>
                       <span>FAILED: {p.summary?.failed || 0}</span>
                     </div>
+                    {pilotState?.state?.work_id===p.work_id && <div className={`asPilotStatus ${String(pilotState.state.status || "").toLowerCase()}`}>
+                      <div>
+                        <small>GOLDEN PATH PILOT</small>
+                        <b>{pilotState.state.status || "—"}</b>
+                        <span>{pilotState.state.task_id ? `${pilotState.state.task_id} · ${pilotState.state.task_name || ""}` : (pilotState.report?.note || "Контрольный прогон одной книги")}</span>
+                      </div>
+                      <div>
+                        <small>TEXT ANALYSIS</small>
+                        <b>{pilotState.report?.text_analysis?.status || "—"}</b>
+                        <span>{pilotState.report?.quality?.ready_for_continuity ? "READY FOR CONTINUITY" : "проверяется"}</span>
+                      </div>
+                      <button onClick={()=>loadPilot(p.work_id)}>Обновить статус</button>
+                    </div>}
                     <div className="asTaskGrid">
                       {(p.tasks || []).map(t=><article key={t.task_id} className={String(t.status || "").toLowerCase()}>
                         <div className="asTaskTop"><small>{t.task_id}</small><em>{t.status}</em></div>
