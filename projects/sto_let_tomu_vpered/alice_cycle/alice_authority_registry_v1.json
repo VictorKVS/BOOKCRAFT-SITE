@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0",
+  "registry_id": "ALICE-AUTHORITY-REGISTRY-V1",
+  "sources": [
+    {
+      "source_id": "SRC-FANTLAB-CYCLE",
+      "type": "BIBLIOGRAPHIC_REFERENCE",
+      "title": "Кир Булычев «Алиса Селезнёва»",
+      "organization": "Лаборатория Фантастики (FantLab)",
+      "url": "https://fantlab.ru/work10879",
+      "authority_rank": 70,
+      "supports": [
+        "cycle_membership",
+        "semantic_order",
+        "titles",
+        "aliases",
+        "publication_years",
+        "edition_index"
+      ],
+      "limitations": [
+        "Not an official publisher or rights-holder source",
+        "Internal chronology is explicitly non-official"
+      ]
+    },
+    {
+      "source_id": "SRC-RSL-DEV-S-ZEMLI-2015",
+      "type": "OFFICIAL_LIBRARY_CATALOG",
+      "title": "РГБ: Девочка с Земли, 2014 edition",
+      "organization": "Российская государственная библиотека",
+      "url": "https://search.rsl.ru/ru/record/01007888073",
+      "authority_rank": 90,
+      "supports": [
+        "edition_metadata",
+        "ISBN",
+        "contents",
+        "no-abbreviation note"
+      ]
+    },
+    {
+      "source_id": "SRC-RSL-PUTESHESTVIE-2010",
+      "type": "OFFICIAL_LIBRARY_CATALOG",
+      "title": "РГБ: Путешествие Алисы, 2010 edition",
+      "organization": "Российская государственная библиотека",
+      "url": "https://search.rsl.ru/ru/record/01004833446",
+      "authority_rank": 90,
+      "supports": [
+        "edition_metadata",
+        "ISBN",
+        "contents",
+        "full_access_record"
+      ]
+    },
+    {
+      "source_id": "SRC-RSL-DEV-NICHEGO-2015",
+      "type": "OFFICIAL_LIBRARY_CATALOG",
+      "title": "РГБ: Девочка, с которой ничего не случится, 2015 edition",
+      "organization": "Российская государственная библиотека",
+      "url": "https://search.rsl.ru/ru/record/01007988643",
+      "authority_rank": 90,
+      "supports": [
+        "edition_metadata",
+        "ISBN",
+        "full_access_record"
+      ]
+    },
+    {
+      "source_id": "SRC-AST-ZVEZDNY-PES",
+      "type": "PUBLISHER_PRIMARY",
+      "title": "АСТ: Звёздный пёс",
+      "organization": "Издательство АСТ",
+      "url": "https://ast.ru/book/zvezdnyy-pes-869821/",
+      "authority_rank": 100,
+      "supports": [
+        "edition_metadata",
+        "ISBN",
+        "publisher",
+        "pages"
+      ]
+    },
+    {
+      "source_id": "SRC-AST-DEV-S-ZEMLI",
+      "type": "PUBLISHER_PRIMARY",
+      "title": "АСТ: Девочка с Земли",
+      "organization": "Издательство АСТ",
+      "url": "https://ast.ru/book/devochka-s-zemli-843467/",
+      "authority_rank": 100,
+      "supports": [
+        "edition_metadata",
+        "ISBN",
+        "contents"
+      ]
+    },
+    {
+      "source_id": "SRC-AST-TAYNA-3",
+      "type": "PUBLISHER_PRIMARY",
+      "title": "АСТ: Тайна Третьей планеты. Повести и рассказы",
+      "organization": "Издательство АСТ",
+      "url": "https://ast.ru/book/tayna-tretey-planety-povesti-i-rasskazy-837053/",
+      "authority_rank": 100,
+      "supports": [
+        "edition_metadata",
+        "ISBN",
+        "publisher",
+        "pages"
+      ]
+    },
+    {
+      "source_id": "SRC-EKSMO-STO-LET-2024",
+      "type": "PUBLISHER_EDITION_EVIDENCE",
+      "title": "Сто лет тому вперед, Эксмо 2024",
+      "organization": "Эксмо",
+      "url": "https://fantlab.ru/edition417812.pdf",
+      "authority_rank": 85,
+      "supports": [
+        "edition_imprint",
+        "ISBN",
+        "text_sample/full-edition mirror"
+      ],
+      "limitations": [
+        "Retrieved via FantLab-hosted PDF mirror rather than publisher domain"
+      ]
+    }
+  ]
+}
