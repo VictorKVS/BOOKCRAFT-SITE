@@ -718,6 +718,17 @@ def recalc_research_program(program: dict[str, Any]) -> dict[str, Any]:
     by_id = {t.get("task_id"): t for t in tasks}
     terminal_ok = {"PASS", "REUSED"}
 
+    # Keep already-created project programs aligned with the current executor catalog.
+    catalog = load_research_task_catalog()
+    executor_by_id = {x.get("task_id"):x.get("executor") for x in catalog.get("tasks",[]) if x.get("task_id")}
+    for task in tasks:
+        if executor_by_id.get(task.get("task_id")):
+            task["executor"] = executor_by_id[task.get("task_id")]
+        if task.get("status") == "BLOCKED" and task.get("blockers") == ["TASK_EXECUTOR_NOT_CONNECTED"]:
+            task["status"] = "PLANNED"
+            task["blockers"] = []
+            task.pop("executor_note", None)
+
     for task in tasks:
         if task.get("status") in {"PASS","REUSED","RUNNING","FAILED","REVIEW"}:
             continue
