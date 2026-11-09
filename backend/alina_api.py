@@ -1302,6 +1302,294 @@ def execute_verified_registry_task(
         task["blockers"]=["REGISTRY_EVIDENCE_REQUIRES_REVIEW"]
 
 
+
+def save_research_output(project_dir: Path, work_id: str, task: dict[str, Any], filename: str, payload: dict[str, Any], *, status: str = "PASS", blockers: list[str] | None = None, metrics: dict[str, Any] | None = None) -> None:
+    out = project_dir / "research" / work_id / "outputs" / filename
+    write_json(out, payload)
+    task["outputs"] = [str(out.relative_to(project_dir)).replace("\\","/")]
+    task["status"] = status
+    task["quality_gate"] = status
+    task["blockers"] = blockers or []
+    if metrics:
+        task["metrics"].update(metrics)
+
+
+def execute_r05_narrative_mode(project_dir: Path, work_id: str, task: dict[str, Any]) -> None:
+    outputs = project_dir / "research" / work_id / "outputs"
+    evidence = read_json(outputs / "R04_evidence_verification.json", {}) or {}
+    claims = [x for x in evidence.get("claims",[]) if (x.get("evidence_verification") or {}).get("verdict") == "VERIFIED_EXACT"]
+
+    def classify(raw: str) -> str:
+        t = normalize_title(str(raw or ""))
+        if any(x in t for x in ("belief","мнение","считает","убежден","убеждение")):
+            return "CHARACTER_BELIEF"
+        if any(x in t for x in ("speech","dialog","реплика","речь","говорит")):
+            return "CHARACTER_SPEECH"
+        if any(x in t for x in ("memory","воспомин","remember")):
+            return "MEMORY"
+        if any(x in t for x in ("dream","сон")):
+            return "DREAM"
+        if any(x in t for x in ("hypothesis","предполож","гипотез")):
+            return "HYPOTHESIS"
+        if any(x in t for x in ("uncertain","неопредел","возможно","possible")):
+            return "UNCERTAINTY"
+        if any(x in t for x in ("fact","факт","event","событ","description","описан")):
+            return "NARRATOR_FACT"
+        return "UNCLASSIFIED"
+
+    rows=[]; unclassified=0
+    for claim in claims:
+        mode=classify(claim.get("type"))
+        if mode=="UNCLASSIFIED": unclassified+=1
+        rows.append({
+            "statement":claim.get("statement"),
+            "source_type":claim.get("type"),
+            "narrative_mode":mode,
+            "chunk_id":claim.get("chunk_id"),
+            "evidence":claim.get("evidence"),
+            "confidence":claim.get("confidence"),
+        })
+    coverage=(len(rows)-unclassified)/max(1,len(rows))
+    status="PASS" if rows and coverage>=0.90 else "REVIEW"
+    save_research_output(project_dir,work_id,task,"R05_narrative_modes.json",{
+        "schema_version":"1.0","task_id":"R05","work_id":work_id,
+        "classified_count":len(rows)-unclassified,"unclassified_count":unclassified,
+        "classification_coverage":round(coverage,4),"items":rows,"created_at":now(),
+    },status=status,blockers=[] if status=="PASS" else ["NARRATIVE_MODE_CLASSIFICATION_REQUIRES_REVIEW"],metrics={
+        "items_found":len(rows),"items_accepted":len(rows)-unclassified,"items_review":unclassified,
+        "evidence_coverage":round(coverage,4),
+    })
+
+
+def execute_r06_canon_admission(project_dir: Path, work_id: str, task: dict[str, Any]) -> None:
+    outputs=project_dir / "research" / work_id / "outputs"
+    modes=read_json(outputs / "R05_narrative_modes.json",{}) or {}
+    accepted=[]; excluded=[]; review=[]
+    for item in modes.get("items",[]) or []:
+        mode=item.get("narrative_mode")
+        if mode=="NARRATOR_FACT":
+            accepted.append({**item,"canon_status":"ACCEPTED_SOURCE_FACT"})
+        elif mode in {"CHARACTER_BELIEF","CHARACTER_SPEECH","MEMORY","DREAM","HYPOTHESIS"}:
+            excluded.append({**item,"canon_status":"CONTEXT_ONLY"})
+        else:
+            review.append({**item,"canon_status":"REVIEW"})
+    status="PASS" if accepted and not review else "REVIEW"
+    save_research_output(project_dir,work_id,task,"R06_canon_admission.json",{
+        "schema_version":"1.0","task_id":"R06","work_id":work_id,
+        "accepted":accepted,"context_only":excluded,"review":review,
+        "rule":"Only evidence-verified narrator facts are automatically admitted; belief/speech/memory/dream/hypothesis remain contextual.",
+        "created_at":now(),
+    },status=status,blockers=[] if status=="PASS" else ["CANON_REVIEW_ITEMS_PRESENT"],metrics={
+        "items_found":len(accepted)+len(excluded)+len(review),"items_accepted":len(accepted),
+        "items_review":len(review),"evidence_coverage":round(len(accepted)/max(1,len(accepted)+len(review)),4),
+    })
+
+
+def execute_r08_identity_resolution(project_dir: Path, work_id: str, task: dict[str, Any]) -> None:
+    reg=read_json(project_dir / "research" / work_id / "outputs" / "R07_entity_registry.json",{}) or {}
+    accepted=reg.get("accepted",[]) or []
+    alias_map={}; collisions=[]
+    entities=[]
+    for item in accepted:
+        canonical=str(item.get("name") or "").strip()
+        aliases=[canonical,*list(item.get("aliases") or [])]
+        normalized=[]
+        for alias in aliases:
+            key=normalize_title(str(alias))
+            if not key: continue
+            normalized.append(key)
+            previous=alias_map.get(key)
+            if previous and previous!=canonical:
+                collisions.append({"alias":alias,"entity_a":previous,"entity_b":canonical})
+            else:
+                alias_map[key]=canonical
+        entities.append({"canonical_name":canonical,"aliases":sorted(set(aliases)),"normalized_aliases":sorted(set(normalized)),"chunks":item.get("chunks",[])})
+    status="PASS" if entities and not collisions else "REVIEW"
+    save_research_output(project_dir,work_id,task,"R08_character_identity.json",{
+        "schema_version":"1.0","task_id":"R08","work_id":work_id,
+        "entities":entities,"alias_collisions":collisions,"created_at":now(),
+    },status=status,blockers=[] if status=="PASS" else ["ALIAS_COLLISIONS_OR_EMPTY_REGISTRY"],metrics={
+        "items_found":len(entities),"items_accepted":len(entities)-len(collisions),"items_review":len(collisions),
+        "evidence_coverage":reg.get("evidence_coverage",0.0),
+    })
+
+
+def execute_r09_character_profiles(project_dir: Path, work_id: str, task: dict[str, Any]) -> None:
+    reg=read_json(project_dir / "research" / work_id / "outputs" / "R07_entity_registry.json",{}) or {}
+    identity=read_json(project_dir / "research" / work_id / "outputs" / "R08_character_identity.json",{}) or {}
+    accepted=reg.get("accepted",[]) or []
+    profiles=[]
+    for item in accepted:
+        profiles.append({
+            "name":item.get("name"),"aliases":item.get("aliases",[]),"roles":item.get("roles",[]),
+            "observed_traits":item.get("observed_traits",[]),"knowledge":item.get("knowledge",[]),
+            "goals":item.get("goals",[]),"emotions":item.get("emotions",[]),"actions":item.get("actions",[]),
+            "evidence":item.get("evidence",[]),"chunks":item.get("chunks",[]),
+        })
+    status="PASS" if profiles and not identity.get("alias_collisions") else "REVIEW"
+    save_research_output(project_dir,work_id,task,"R09_character_profiles.json",{
+        "schema_version":"1.0","task_id":"R09","work_id":work_id,
+        "profiles":profiles,"profile_policy":"Only fields already extracted from source and admitted by evidence-gated R07 are included.",
+        "created_at":now(),
+    },status=status,blockers=[] if status=="PASS" else ["CHARACTER_IDENTITY_REVIEW_REQUIRED"],metrics={
+        "items_found":len(profiles),"items_accepted":len(profiles) if status=="PASS" else 0,
+        "items_review":0 if status=="PASS" else len(profiles),"evidence_coverage":reg.get("evidence_coverage",0.0),
+    })
+
+
+def execute_character_field_task(project_dir: Path, work_id: str, task: dict[str, Any], field: str, filename: str, label: str) -> None:
+    profiles=read_json(project_dir / "research" / work_id / "outputs" / "R09_character_profiles.json",{}) or {}
+    rows=[]
+    for profile in profiles.get("profiles",[]) or []:
+        values=profile.get(field,[]) or []
+        if values:
+            rows.append({"character":profile.get("name"),label:values,"evidence":profile.get("evidence",[]),"chunks":profile.get("chunks",[])})
+    status="PASS" if rows else "REVIEW"
+    save_research_output(project_dir,work_id,task,filename,{
+        "schema_version":"1.0","task_id":task.get("task_id"),"work_id":work_id,"items":rows,
+        "policy":"Directly reuses evidence-gated character fields extracted by Text Analysis Factory; no new inference.",
+        "created_at":now(),
+    },status=status,blockers=[] if status=="PASS" else [f"NO_{field.upper()}_EXTRACTED"],metrics={
+        "items_found":len(rows),"items_accepted":len(rows) if status=="PASS" else 0,
+        "items_review":0 if status=="PASS" else len(rows),"evidence_coverage":1.0 if rows else 0.0,
+    })
+
+
+def execute_r12_character_states(project_dir: Path, work_id: str, task: dict[str, Any]) -> None:
+    profiles=read_json(project_dir / "research" / work_id / "outputs" / "R09_character_profiles.json",{}) or {}
+    rows=[]
+    for p in profiles.get("profiles",[]) or []:
+        observations=[]
+        for emotion in p.get("emotions",[]) or []:
+            observations.append({"state_type":"EMOTION","value":emotion})
+        for action in p.get("actions",[]) or []:
+            observations.append({"state_type":"ACTION_OBSERVATION","value":action})
+        if observations:
+            rows.append({"character":p.get("name"),"observations":observations,"chunks":p.get("chunks",[]),"evidence":p.get("evidence",[])})
+    status="REVIEW" if rows else "REVIEW"
+    save_research_output(project_dir,work_id,task,"R12_character_state_evolution.json",{
+        "schema_version":"1.0","task_id":"R12","work_id":work_id,"characters":rows,
+        "note":"Observed emotions/actions are extracted; ordering into a true state-transition model still requires semantic review.",
+        "created_at":now(),
+    },status=status,blockers=["STATE_TRANSITION_SEMANTIC_REVIEW_REQUIRED"],metrics={
+        "items_found":len(rows),"items_accepted":0,"items_review":len(rows),"evidence_coverage":1.0 if rows else 0.0,
+    })
+
+
+def execute_r15_event_order(project_dir: Path, work_id: str, task: dict[str, Any]) -> None:
+    reg=read_json(project_dir / "research" / work_id / "outputs" / "R14_event_registry.json",{}) or {}
+    events=reg.get("accepted",[]) or []
+    def key(item):
+        cid=str(item.get("chunk_id") or "")
+        nums=re.findall(r"(\d+)",cid)
+        return int(nums[-1]) if nums else 10**9
+    ordered=sorted(events,key=key)
+    rows=[{"narrative_order":i+1,"event":x.get("event"),"chunk_id":x.get("chunk_id"),"time_expression":x.get("time_expression"),"participants":x.get("participants",[]),"location":x.get("location")} for i,x in enumerate(ordered)]
+    status="PASS" if rows else "REVIEW"
+    save_research_output(project_dir,work_id,task,"R15_event_order.json",{
+        "schema_version":"1.0","task_id":"R15","work_id":work_id,"ordering_type":"SOURCE_NARRATIVE_ORDER",
+        "events":rows,"warning":"Narrative/source order is not automatically world chronology.","created_at":now(),
+    },status=status,blockers=[] if status=="PASS" else ["NO_TRUSTED_EVENTS"],metrics={
+        "items_found":len(rows),"items_accepted":len(rows) if status=="PASS" else 0,"items_review":0 if status=="PASS" else len(rows),
+        "evidence_coverage":reg.get("evidence_coverage",0.0),
+    })
+
+
+def execute_r16_temporal_model(project_dir: Path, work_id: str, task: dict[str, Any]) -> None:
+    outputs=project_dir / "research" / work_id / "outputs"
+    anchors=read_json(outputs / "R03_time_anchors.json",[]) or []
+    chunks,_=build_work_scoped_chunks(project_dir,work_id)
+    chunk_map={x.get("chunk_id"):x.get("text","") for x in chunks}
+    accepted=[]; review=[]
+    for a in anchors:
+        evidence=str(a.get("evidence") or "")
+        chunk=chunk_map.get(a.get("chunk_id"),"")
+        exact=bool(evidence and normalize_evidence_text(evidence) in normalize_evidence_text(chunk))
+        row={**a,"evidence_verified":exact}
+        (accepted if exact else review).append(row)
+    status="PASS" if accepted and not review else "REVIEW"
+    save_research_output(project_dir,work_id,task,"R16_temporal_model.json",{
+        "schema_version":"1.0","task_id":"R16","work_id":work_id,"anchors":accepted,"review":review,
+        "policy":"normalized_guess remains a guess; evidence verification does not make normalization canonical.","created_at":now(),
+    },status=status,blockers=[] if status=="PASS" else ["TEMPORAL_ANCHORS_REQUIRE_REVIEW"],metrics={
+        "items_found":len(anchors),"items_accepted":len(accepted),"items_review":len(review),
+        "evidence_coverage":round(len(accepted)/max(1,len(anchors)),4),
+    })
+
+
+def execute_r21_technology_capabilities(project_dir: Path, work_id: str, task: dict[str, Any]) -> None:
+    reg=read_json(project_dir / "research" / work_id / "outputs" / "R20_technology_registry.json",{}) or {}
+    rows=[]
+    for tech in reg.get("accepted",[]) or []:
+        rows.append({"technology":tech.get("name"),"facts":tech.get("facts",[]),"limitations":tech.get("limitations",[]),"evidence":tech.get("evidence"),"chunk_id":tech.get("chunk_id")})
+    status="PASS" if rows else "REVIEW"
+    save_research_output(project_dir,work_id,task,"R21_technology_capabilities.json",{
+        "schema_version":"1.0","task_id":"R21","work_id":work_id,"technologies":rows,
+        "policy":"Capabilities are limited to extracted facts and explicit limitations; no extrapolation.","created_at":now(),
+    },status=status,blockers=[] if status=="PASS" else ["NO_TRUSTED_TECHNOLOGIES"],metrics={
+        "items_found":len(rows),"items_accepted":len(rows) if status=="PASS" else 0,"items_review":0 if status=="PASS" else len(rows),
+        "evidence_coverage":reg.get("evidence_coverage",0.0),
+    })
+
+
+def execute_r26_open_threads(project_dir: Path, work_id: str, task: dict[str, Any]) -> None:
+    outputs=project_dir / "research" / work_id / "outputs"
+    source=read_json(outputs / "R03_open_threads.json",[]) or []
+    chunks,_=build_work_scoped_chunks(project_dir,work_id)
+    chunk_map={x.get("chunk_id"):x.get("text","") for x in chunks}
+    accepted=[]; review=[]
+    for item in source:
+        evidence=str(item.get("evidence") or "")
+        exact=bool(evidence and normalize_evidence_text(evidence) in normalize_evidence_text(chunk_map.get(item.get("chunk_id"),"")))
+        row={**item,"evidence_verified":exact}
+        (accepted if exact else review).append(row)
+    status="PASS" if accepted and not review else "REVIEW"
+    save_research_output(project_dir,work_id,task,"R26_open_threads.json",{
+        "schema_version":"1.0","task_id":"R26","work_id":work_id,"accepted":accepted,"review":review,"created_at":now(),
+    },status=status,blockers=[] if status=="PASS" else ["OPEN_THREADS_REQUIRE_REVIEW"],metrics={
+        "items_found":len(source),"items_accepted":len(accepted),"items_review":len(review),
+        "evidence_coverage":round(len(accepted)/max(1,len(source)),4),
+    })
+
+
+def execute_r28_sceneability(project_dir: Path, work_id: str, task: dict[str, Any]) -> None:
+    outputs=project_dir / "research" / work_id / "outputs"
+    events=read_json(outputs / "R14_event_registry.json",{}) or {}
+    scenes=[]
+    for idx,event in enumerate(events.get("accepted",[]) or [],start=1):
+        scenes.append({
+            "scene_id":f"{work_id}-SCN-{idx:04d}","event":event.get("event"),"participants":event.get("participants",[]),
+            "location":event.get("location"),"time_expression":event.get("time_expression"),
+            "causes":event.get("causes",[]),"consequences":event.get("consequences",[]),
+            "chunk_id":event.get("chunk_id"),"evidence":event.get("evidence"),
+            "visual_status":"SCENE_CANDIDATE_NEEDS_CAMERA_AND_POSE_ENRICHMENT",
+        })
+    status="PASS" if scenes else "REVIEW"
+    save_research_output(project_dir,work_id,task,"R28_sceneability.json",{
+        "schema_version":"1.0","task_id":"R28","work_id":work_id,"scenes":scenes,
+        "note":"This stage creates evidence-grounded scene candidates; detailed pose/camera continuity belongs to Visual Analysis enrichment.","created_at":now(),
+    },status=status,blockers=[] if status=="PASS" else ["NO_TRUSTED_EVENTS_FOR_SCENES"],metrics={
+        "items_found":len(scenes),"items_accepted":len(scenes) if status=="PASS" else 0,"items_review":0 if status=="PASS" else len(scenes),
+        "evidence_coverage":events.get("evidence_coverage",0.0),
+    })
+
+
+def execute_semantic_review_stub(project_dir: Path, work_id: str, task: dict[str, Any], filename: str, inputs: list[str], candidate_payload: dict[str, Any] | None = None) -> None:
+    outputs=project_dir / "research" / work_id / "outputs"
+    available=[name for name in inputs if (outputs / name).exists()]
+    payload={
+        "schema_version":"1.0","task_id":task.get("task_id"),"work_id":work_id,
+        "executor":"SEMANTIC_REVIEW_V1","input_artifacts":available,
+        "candidate":candidate_payload or {},
+        "status":"REVIEW",
+        "reason":"A structured downstream artifact exists, but this analytical task requires a dedicated semantic executor or human review before PASS.",
+        "created_at":now(),
+    }
+    save_research_output(project_dir,work_id,task,filename,payload,status="REVIEW",blockers=["DEDICATED_SEMANTIC_REVIEW_REQUIRED"],metrics={
+        "items_found":len(available),"items_accepted":0,"items_review":len(available),"evidence_coverage":1.0 if available else 0.0,
+    })
+
+
 def build_weighted_research_graph(project_dir: Path, work_id: str) -> dict[str, Any]:
     outputs = project_dir / "research" / work_id / "outputs"
     chars = read_json(outputs / "R03_characters.json", []) or []
@@ -1700,6 +1988,66 @@ def execute_research_task(project_dir: Path, work_id: str, task_id: str) -> dict
                 "R03_organizations.json", "R22_organization_registry.json", "ORGANIZATION_REGISTRY"
             )
 
+        elif task_id == "R05":
+            execute_r05_narrative_mode(project_dir, work_id, task)
+
+        elif task_id == "R06":
+            execute_r06_canon_admission(project_dir, work_id, task)
+
+        elif task_id == "R08":
+            execute_r08_identity_resolution(project_dir, work_id, task)
+
+        elif task_id == "R09":
+            execute_r09_character_profiles(project_dir, work_id, task)
+
+        elif task_id == "R10":
+            execute_character_field_task(project_dir, work_id, task, "goals", "R10_character_goals.json", "goals")
+
+        elif task_id == "R11":
+            execute_character_field_task(project_dir, work_id, task, "knowledge", "R11_character_knowledge.json", "knowledge")
+
+        elif task_id == "R12":
+            execute_r12_character_states(project_dir, work_id, task)
+
+        elif task_id == "R13":
+            execute_verified_registry_task(project_dir, work_id, task, "R03_relations.json", "R13_relationship_graph.json", "RELATIONSHIP_REGISTRY")
+
+        elif task_id == "R15":
+            execute_r15_event_order(project_dir, work_id, task)
+
+        elif task_id == "R16":
+            execute_r16_temporal_model(project_dir, work_id, task)
+
+        elif task_id == "R18":
+            execute_semantic_review_stub(project_dir,work_id,task,"R18_movement_travel.json",["R14_event_registry.json","R15_event_order.json","R16_temporal_model.json","R17_location_registry.json"])
+
+        elif task_id == "R19":
+            execute_semantic_review_stub(project_dir,work_id,task,"R19_world_rules.json",["R06_canon_admission.json","R03_claims.json"])
+
+        elif task_id == "R21":
+            execute_r21_technology_capabilities(project_dir, work_id, task)
+
+        elif task_id == "R23":
+            execute_semantic_review_stub(project_dir,work_id,task,"R23_objects_artifacts.json",["R03_claims.json","R07_entity_registry.json"])
+
+        elif task_id == "R24":
+            execute_semantic_review_stub(project_dir,work_id,task,"R24_causal_links.json",["R14_event_registry.json","R15_event_order.json","R03_events.json"])
+
+        elif task_id == "R25":
+            execute_semantic_review_stub(project_dir,work_id,task,"R25_contradictions.json",["R06_canon_admission.json","R16_temporal_model.json","R24_causal_links.json"])
+
+        elif task_id == "R26":
+            execute_r26_open_threads(project_dir, work_id, task)
+
+        elif task_id == "R27":
+            execute_semantic_review_stub(project_dir,work_id,task,"R27_themes_narrative_functions.json",["R06_canon_admission.json","R14_event_registry.json"])
+
+        elif task_id == "R28":
+            execute_r28_sceneability(project_dir, work_id, task)
+
+        elif task_id == "R29":
+            execute_semantic_review_stub(project_dir,work_id,task,"R29_forecast_inputs.json",["R12_character_state_evolution.json","R16_temporal_model.json","R24_causal_links.json","R26_open_threads.json"])
+
         elif task_id == "R30":
             prereq = [tasks.get(f"R{i:02d}") for i in range(1,30)]
             bad = [x.get("task_id") for x in prereq if not x or x.get("status") not in {"PASS","REUSED"}]
@@ -1766,7 +2114,7 @@ def execute_research_task(project_dir: Path, work_id: str, task_id: str) -> dict
     if task.get("status") in {"PASS","REUSED","REVIEW"}:
         task["progress"] = 100 if task.get("status") in {"PASS","REUSED"} else max(task.get("progress",0),50)
 
-    if task_id in {"R01","R02","R04","R07","R14","R17","R20","R22","R30"}:
+    if task_id in {"R01","R02","R04","R05","R06","R07","R08","R09","R10","R11","R12","R13","R14","R15","R16","R17","R18","R19","R20","R21","R22","R23","R24","R25","R26","R27","R28","R29","R30"}:
         build_text_analysis_factory_package(project_dir, work_id)
 
     program = recalc_research_program(program)
