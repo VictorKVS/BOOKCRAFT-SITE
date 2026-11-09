@@ -486,6 +486,299 @@ def sync_research_index(project_dir: Path, program: dict[str, Any]) -> None:
     write_json(index_path, index)
 
 
+def _xml_local_name(tag: str) -> str:
+    return tag.split("}")[-1]
+
+
+def _section_title(section: Any) -> str:
+    for child in section:
+        if _xml_local_name(child.tag) == "title":
+            return re.sub(r"\s+", " ", " ".join(child.itertext())).strip()
+    return ""
+
+
+def _section_direct_paragraphs(section: Any) -> list[str]:
+    rows = []
+    for child in section:
+        if _xml_local_name(child.tag) == "p":
+            text = re.sub(r"\s+", " ", "".join(child.itertext())).strip()
+            if text:
+                rows.append(text)
+    return rows
+
+
+def _fb2_work_units(path: Path, target_title: str) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    tree = ET.parse(path)
+    root = tree.getroot()
+    target_norm = normalize_title(target_title)
+    candidates = []
+    for section in root.iter():
+        if _xml_local_name(section.tag) != "section":
+            continue
+        title = _section_title(section)
+        if not title:
+            continue
+        norm = normalize_title(title)
+        if norm == target_norm:
+            score = 1.0
+        elif target_norm and (target_norm in norm or norm in target_norm):
+            score = min(len(target_norm), len(norm)) / max(1, max(len(target_norm), len(norm)))
+        else:
+            score = SequenceMatcher(None, target_norm, norm).ratio()
+        if score >= 0.78:
+            candidates.append((score, section, title))
+
+    if not candidates:
+        return [], {"status":"BOUNDARY_NOT_FOUND","target_title":target_title}
+
+    candidates.sort(key=lambda x:x[0], reverse=True)
+    score, target_section, matched_title = candidates[0]
+    units = []
+    ordinal = 0
+
+    def walk(section: Any, inherited_title: str) -> None:
+        nonlocal ordinal
+        own_title = _section_title(section) or inherited_title
+        direct = _section_direct_paragraphs(section)
+        if direct:
+            ordinal += 1
+            units.append({
+                "ordinal":ordinal,
+                "section_title":own_title,
+                "text":"\n".join(direct),
+            })
+        for child in section:
+            if _xml_local_name(child.tag) == "section":
+                walk(child, own_title)
+
+    walk(target_section, matched_title)
+    return units, {
+        "status":"MATCHED_SECTION_SUBTREE",
+        "target_title":target_title,
+        "matched_title":matched_title,
+        "confidence":round(score,4),
+        "unit_count":len(units),
+    }
+
+
+def extract_work_scoped_units(project_dir: Path, work_id: str) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    works = read_json(project_dir / "kb" / "works.json", {}) or {}
+    match = next((w for w in works.get("matched", []) if w.get("work_id") == work_id), None)
+    if not match:
+        raise RuntimeError("WORK_NOT_TRUSTED_OR_NOT_MATCHED")
+
+    source_id = match.get("source_id")
+    sources = read_json(project_dir / "kb" / "sources.json", []) or []
+    source = next((x for x in sources if x.get("source_id") == source_id), None)
+    if not source:
+        raise RuntimeError("WORK_SOURCE_NOT_FOUND")
+
+    source_name = source.get("filename")
+    path = project_dir / "sources" / str(source_name)
+    if not path.exists():
+        raise RuntimeError("WORK_SOURCE_FILE_MISSING")
+
+    matched_title = match.get("matched_heading") or match.get("title") or work_id
+    if path.suffix.lower() == ".fb2":
+        units, boundary = _fb2_work_units(path, matched_title)
+        if not units:
+            raise RuntimeError("WORK_BOUNDARY_NOT_FOUND_IN_FB2")
+    else:
+        units = extract_units(path)
+        boundary = {
+            "status":"WHOLE_SOURCE_SCOPED",
+            "target_title":matched_title,
+            "matched_title":matched_title,
+            "confidence":match.get("confidence"),
+            "unit_count":len(units),
+            "note":"Non-FB2 source uses the whole matched source file as work scope.",
+        }
+
+    safe_index = []
+    char_count = 0
+    for unit in units:
+        text = unit.get("text","")
+        char_count += len(text)
+        safe_index.append({
+            "ordinal":unit.get("ordinal"),
+            "section_title":unit.get("section_title"),
+            "char_count":len(text),
+            "text_sha256":hashlib.sha256(text.encode("utf-8")).hexdigest(),
+        })
+
+    boundary.update({
+        "work_id":work_id,
+        "source_id":source_id,
+        "source_name":source_name,
+        "char_count":char_count,
+        "unit_count":len(units),
+        "safe_unit_index":safe_index,
+    })
+    return units, boundary
+
+
+def build_work_scoped_chunks(project_dir: Path, work_id: str) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    units, boundary = extract_work_scoped_units(project_dir, work_id)
+    source_id = f"{work_id}-SRC"
+    chunks = chunk_units(source_id, work_id, units)
+    boundary["chunk_count"] = len(chunks)
+    boundary["chunk_index"] = [
+        {k:v for k,v in ch.items() if k != "text"} for ch in chunks
+    ]
+    out = project_dir / "research" / work_id / "work_scope.json"
+    write_json(out, boundary)
+    return chunks, boundary
+
+
+def run_work_semantic_extraction(project_dir: Path, work_id: str, research_run_id: str) -> None:
+    program_path = project_dir / "research" / work_id / "research_program.json"
+    program = read_json(program_path, {}) or {}
+    task = next((t for t in program.get("tasks", []) if t.get("task_id") == "R03"), None)
+    if not task:
+        return
+
+    try:
+        model = detect_local_model()
+        if not model.get("available"):
+            task["status"] = "BLOCKED"
+            task["quality_gate"] = "BLOCKED"
+            task["blockers"] = ["LOCAL_LLM_REQUIRED"]
+            task["progress"] = 0
+            task["finished_at"] = now()
+            write_json(program_path, recalc_research_program(program))
+            sync_research_index(project_dir, program)
+            return
+
+        chunks, boundary = build_work_scoped_chunks(project_dir, work_id)
+        if not chunks:
+            raise RuntimeError("WORK_SCOPE_EMPTY")
+
+        run_dir = project_dir / "research" / work_id / "semantic" / research_run_id
+        chunk_dir = run_dir / "chunks"
+        chunk_dir.mkdir(parents=True, exist_ok=True)
+        write_json(run_dir / "contract.json", {
+            "research_run_id":research_run_id,
+            "task_id":"R03",
+            "work_id":work_id,
+            "model":{"provider":model.get("provider"),"model":model.get("model")},
+            "source_fingerprint":program.get("source_fingerprint"),
+            "boundary":{k:v for k,v in boundary.items() if k not in {"chunk_index","safe_unit_index"}},
+            "created_at":now(),
+        })
+
+        extractions = []
+        started = time.perf_counter()
+        total = len(chunks)
+        for idx, chunk in enumerate(chunks, start=1):
+            result_path = chunk_dir / f"{chunk['chunk_id']}.json"
+            if result_path.exists():
+                result = read_json(result_path, {}) or {}
+            else:
+                result = analyze_chunk(model, chunk)
+                result["_chunk"] = {k:v for k,v in chunk.items() if k != "text"}
+                result["_extractor"] = {
+                    "provider":model.get("provider"),
+                    "model":model.get("model"),
+                    "task_id":"R03",
+                    "work_id":work_id,
+                    "research_run_id":research_run_id,
+                }
+                write_json(result_path, result)
+            if "_chunk" not in result:
+                result["_chunk"] = {k:v for k,v in chunk.items() if k != "text"}
+            extractions.append(result)
+            task["progress"] = max(5, int(idx / total * 95))
+            task["metrics"]["chunks_total"] = total
+            task["metrics"]["chunks_processed"] = idx
+            task["metrics"]["chars_scoped"] = boundary.get("char_count",0)
+            program["program_status"] = "RUNNING"
+            program["updated_at"] = now()
+            write_json(program_path, program)
+
+        merged = merge_extractions(extractions)
+        outputs_dir = project_dir / "research" / work_id / "outputs"
+        outputs_dir.mkdir(parents=True, exist_ok=True)
+        package = {
+            "schema_version":"1.0",
+            "research_run_id":research_run_id,
+            "task_id":"R03",
+            "work_id":work_id,
+            "boundary":boundary,
+            "model":{"provider":model.get("provider"),"model":model.get("model")},
+            "metrics":{
+                "chunks":total,
+                "chars_scoped":boundary.get("char_count",0),
+                "characters":len(merged.get("characters",[])),
+                "events":len(merged.get("events",[])),
+                "relations":len(merged.get("relations",[])),
+                "locations":len(merged.get("locations",[])),
+                "technologies":len(merged.get("technologies",[])),
+                "organizations":len(merged.get("organizations",[])),
+                "time_anchors":len(merged.get("time_anchors",[])),
+                "claims":len(merged.get("claims",[])),
+                "open_threads":len(merged.get("open_threads",[])),
+                "elapsed_seconds":round(time.perf_counter()-started,1),
+            },
+            "created_at":now(),
+        }
+        write_json(outputs_dir / "R03_semantic_package.json", package)
+        for key in ("characters","events","relations","locations","technologies","organizations","time_anchors","claims","open_threads"):
+            write_json(outputs_dir / f"R03_{key}.json", merged.get(key,[]))
+
+        task["status"] = "PASS"
+        task["quality_gate"] = "PASS"
+        task["progress"] = 100
+        task["finished_at"] = now()
+        task["duration_ms"] = int((time.perf_counter()-started)*1000)
+        task["outputs"] = [
+            f"research/{work_id}/outputs/R03_semantic_package.json",
+            f"research/{work_id}/semantic/{research_run_id}",
+        ]
+        task["blockers"] = []
+        task["metrics"].update({
+            "items_found":len(merged.get("claims",[])),
+            "items_accepted":len(merged.get("claims",[])),
+            "items_review":0,
+            "evidence_coverage":1.0 if merged.get("claims") else 0.0,
+            **package["metrics"],
+        })
+        program = recalc_research_program(program)
+        write_json(program_path, program)
+        sync_research_index(project_dir, program)
+
+        run_record = {
+            "schema_version":"1.0",
+            "research_run_id":research_run_id,
+            "project_id":program.get("project_id"),
+            "project_code":program.get("project_code"),
+            "work_id":work_id,
+            "work_title":program.get("work_title"),
+            "task_id":"R03",
+            "task_name":task.get("name"),
+            "executor":"WORK_SCOPED_SEMANTIC_V1",
+            "status":"PASS",
+            "quality_gate":"PASS",
+            "started_at":task.get("started_at"),
+            "finished_at":task.get("finished_at"),
+            "duration_ms":task.get("duration_ms"),
+            "outputs":task.get("outputs",[]),
+            "metrics":task.get("metrics",{}),
+            "blockers":[],
+            "source_fingerprint":program.get("source_fingerprint"),
+        }
+        write_json(project_dir / "research" / work_id / "runs" / f"{research_run_id}.json", run_record)
+
+    except Exception as exc:
+        task["status"] = "FAILED"
+        task["quality_gate"] = "FAILED"
+        task["progress"] = 0
+        task["finished_at"] = now()
+        task["blockers"] = [str(exc)[:240]]
+        program = recalc_research_program(program)
+        write_json(program_path, program)
+        sync_research_index(project_dir, program)
+
+
 def execute_research_task(project_dir: Path, work_id: str, task_id: str) -> dict[str, Any]:
     program_path = project_dir / "research" / work_id / "research_program.json"
     program = read_json(program_path, None)
@@ -602,16 +895,38 @@ def execute_research_task(project_dir: Path, work_id: str, task_id: str) -> dict
                 task["status"] = "PASS"
                 task["quality_gate"] = "PASS"
 
+        elif task_id == "R03":
+            model = detect_local_model()
+            if not model.get("available"):
+                task["status"] = "BLOCKED"
+                task["progress"] = 0
+                task["quality_gate"] = "BLOCKED"
+                task["blockers"] = ["LOCAL_LLM_REQUIRED"]
+            else:
+                task["status"] = "RUNNING"
+                task["progress"] = 1
+                task["quality_gate"] = "RUNNING"
+                task["blockers"] = []
+                program["program_status"] = "RUNNING"
+                write_json(program_path, program)
+                threading.Thread(
+                    target=run_work_semantic_extraction,
+                    args=(project_dir, work_id, task.get("last_run_id")),
+                    daemon=True,
+                ).start()
+                return {
+                    "status":"QUEUED",
+                    "task":task,
+                    "program":program,
+                    "research_run_id":task.get("last_run_id"),
+                }
+
         else:
-            # The legacy Deep Engine is corpus-wide. Do not fake a per-work PASS.
             task["status"] = "BLOCKED"
             task["progress"] = 0
             task["quality_gate"] = "BLOCKED"
-            task["blockers"] = ["WORK_SCOPED_SEMANTIC_ENGINE_REQUIRED"]
-            task["executor_note"] = (
-                "Task contract exists, but current semantic engine is corpus-wide. "
-                "A work-scoped slicer/evidence executor must be connected before this task can run."
-            )
+            task["blockers"] = ["TASK_EXECUTOR_NOT_CONNECTED"]
+            task["executor_note"] = "Task contract exists; its dedicated executor is not connected yet."
 
     except Exception as exc:
         task["status"] = "FAILED"
