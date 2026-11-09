@@ -668,12 +668,25 @@ export default function AlinaStudioPage() {
     }
   }
 
+  async function ensureAliceVerifiedCorpus(projectIdValue, projectLike){
+    const probe=((projectLike?.title || "")+" "+(projectLike?.description || "")).toLowerCase();
+    if(!probe.includes("алиса")) return null;
+    try{
+      const r=await tracedFetch(`http://127.0.0.1:8191/api/projects/${projectIdValue}/source-intelligence/import-alice-verified-corpus`,{method:"POST"});
+      if(!r.ok) return null;
+      return await r.json();
+    }catch{
+      return null;
+    }
+  }
+
   async function openLocalProject(project){
     setProjectId(project.project_id);
     setFiles([]);
     const detailResponse=await tracedFetch(`http://127.0.0.1:8191/api/projects/${project.project_id}`);
     const detail=detailResponse.ok ? await detailResponse.json() : project;
     setProjectMeta(detail);
+    await ensureAliceVerifiedCorpus(project.project_id, detail);
     setProjectState(detail.project_state || null);
     setSelectedCorpusObject(null);
     setSavedSources(detail.saved_sources || detail.project_state?.source_set?.sources || []);
@@ -1305,6 +1318,7 @@ export default function AlinaStudioPage() {
             <div><small>SOURCES</small><b>{projectState.source_set?.count || 0}</b><span>Source Set v{projectState.source_set?.version || 0}</span></div>
             <div><small>WORKS</small><b>{projectState.knowledge_base?.works_matched || 0}</b><span>из {projectState.knowledge_base?.works_expected ?? "—"}</span></div>
             <div><small>RESEARCH</small><b>{projectState.research?.totals?.pass_tasks || 0} PASS</b><span>{projectState.research?.totals?.running || 0} running</span></div>
+            <div><small>CORPUS VERIFY</small><b>{projectState.corpus_verification?.status || "PENDING"}</b><span>{projectState.corpus_verification?.summary?.publication_year_matches ?? 0}/{projectState.corpus_verification?.summary?.works_expected ?? 0} years matched</span></div>
             <div><small>EVENTS</small><b>{projectEvents.length}</b><span>{projectState.last_event?.event_type || "—"}</span></div>
           </div>}
 
