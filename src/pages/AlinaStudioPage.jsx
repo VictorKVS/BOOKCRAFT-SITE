@@ -637,6 +637,18 @@ export default function AlinaStudioPage() {
   },[]);
 
   useEffect(()=>{
+    if(!projectId || !researchDashboard?.programs?.some(p=>p.program_status==="RUNNING")) return;
+    let cancelled=false;
+    const pollResearch=async()=>{
+      if(cancelled) return;
+      await loadResearchDashboard(projectId);
+      if(!cancelled) setTimeout(pollResearch,1200);
+    };
+    const timer=setTimeout(pollResearch,1200);
+    return()=>{cancelled=true; clearTimeout(timer);};
+  },[projectId,researchDashboard?.programs?.map(p=>p.program_status).join("|")]);
+
+  useEffect(()=>{
     if(!runId) return;
     let cancelled=false;
     const poll=async()=>{
