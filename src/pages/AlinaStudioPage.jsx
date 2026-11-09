@@ -109,6 +109,8 @@ export default function AlinaStudioPage() {
   const [researchAction,setResearchAction] = useState("");
   const [researchGraph,setResearchGraph] = useState(null);
   const [selectedCorpusObject,setSelectedCorpusObject] = useState(null);
+  const [sourceIntel,setSourceIntel] = useState(null);
+  const [sourceIntelBusy,setSourceIntelBusy] = useState(false);
 
   const activeMode = projectModes.find(x=>x[0]===mode);
   const isStudy = activeMode?.[3] === "STUDY";
@@ -437,6 +439,29 @@ export default function AlinaStudioPage() {
     }catch{}
     setResearchDashboard(null);
     return null;
+  }
+
+  async function simulateSourceIntelligence(objectId){
+    if(!projectId || !objectId) return;
+    setSourceIntelBusy(true);
+    setApiError("");
+    try{
+      const r=await tracedFetch(`http://127.0.0.1:8191/api/projects/${projectId}/source-intelligence/${objectId}/simulate`,{method:"POST"});
+      if(!r.ok) throw new Error(await r.text());
+      const data=await r.json();
+      setSourceIntel(data);
+      await loadProjectState(projectId);
+      traceEvent("SEQUENCE",{
+        sequence:"SOURCE_INTELLIGENCE",
+        step:objectId,
+        status:"PASS",
+        result:"SIMULATED_OSINT"
+      },true);
+    }catch(err){
+      setApiError("Source Intelligence: "+err.message);
+    }finally{
+      setSourceIntelBusy(false);
+    }
   }
 
   async function loadResearchGraph(workId){
@@ -1452,8 +1477,8 @@ export default function AlinaStudioPage() {
                                 role="button"
                                 tabIndex={0}
                                 className={selectedCorpusObject?.work_id===w.work_id ? "selected" : ""}
-                                onClick={()=>setSelectedCorpusObject({...w,cycle:kbData.works.cycle,catalog_author:kbData.works.author})}
-                                onKeyDown={e=>{if(e.key==="Enter")setSelectedCorpusObject({...w,cycle:kbData.works.cycle,catalog_author:kbData.works.author})}}
+                                onClick={()=>{setSelectedCorpusObject({...w,cycle:kbData.works.cycle,catalog_author:kbData.works.author});setSourceIntel(null)}}
+                                onKeyDown={e=>{if(e.key==="Enter"){setSelectedCorpusObject({...w,cycle:kbData.works.cycle,catalog_author:kbData.works.author});setSourceIntel(null)}}}
                               >
                                 <span>{w.work_id}</span><b>{w.title}</b><small>{w.publication_year || "—"} · {w.form || "—"}</small><em>MATCHED</em>
                               </article>)}
@@ -1462,7 +1487,7 @@ export default function AlinaStudioPage() {
                                 role="button"
                                 tabIndex={0}
                                 className={`review ${selectedCorpusObject?.work_id===w.work_id ? "selected" : ""}`}
-                                onClick={()=>setSelectedCorpusObject({...w,cycle:kbData.works.cycle,catalog_author:kbData.works.author})}
+                                onClick={()=>{setSelectedCorpusObject({...w,cycle:kbData.works.cycle,catalog_author:kbData.works.author});setSourceIntel(null)}}
                               >
                                 <span>{w.work_id}</span><b>{w.title}</b><small>Похоже на: {w.candidate_heading} · {Math.round((w.confidence || 0)*100)}%</small><em>REVIEW</em>
                               </article>)}
@@ -1471,7 +1496,7 @@ export default function AlinaStudioPage() {
                                 role="button"
                                 tabIndex={0}
                                 className={`missing ${selectedCorpusObject?.work_id===w.work_id ? "selected" : ""}`}
-                                onClick={()=>setSelectedCorpusObject({...w,cycle:kbData.works.cycle,catalog_author:kbData.works.author})}
+                                onClick={()=>{setSelectedCorpusObject({...w,cycle:kbData.works.cycle,catalog_author:kbData.works.author});setSourceIntel(null)}}
                               >
                                 <span>{w.work_id}</span><b>{w.title}</b><small>Источник не сопоставлен</small><em>REVIEW</em>
                               </article>)}
@@ -1515,9 +1540,31 @@ export default function AlinaStudioPage() {
                               <b>{selectedCorpusObject.notes.join(" · ")}</b>
                             </div>}
                             <hr/>
+                            <button onClick={()=>simulateSourceIntelligence(selectedCorpusObject.object_id || selectedCorpusObject.work_id)} disabled={sourceIntelBusy}>
+                              {sourceIntelBusy ? "OSINT работает…" : "Отправить в OSINT · имитация"}
+                            </button>
                             <button onClick={()=>{setWorkspaceView("research");setSelectedResearchWork(selectedCorpusObject.work_id)}}>Открыть исследование</button>
                             <button disabled>Сравнить версии — Corpus Lab</button>
-                            <button disabled>Официальные источники — ожидают проверки</button>
+                            <button disabled>OFFICIAL DIRECT — по необходимости</button>
+                            {sourceIntel && <div className="asSourceIntelResult">
+                              <small>SIMULATED OSINT RESULT</small>
+                              <b>{sourceIntel.identification?.title}</b>
+                              <span>{sourceIntel.warning}</span>
+                              <div className="asSourceIntelKpis">
+                                <em>IDENTITY {sourceIntel.identification?.confidence!=null ? Math.round(sourceIntel.identification.confidence*100)+"%" : "—"}</em>
+                                <em>{sourceIntel.completeness?.status || "—"}</em>
+                                <em>{sourceIntel.version_status || "—"}</em>
+                                <em>{sourceIntel.authority_status || "—"}</em>
+                              </div>
+                              <div className="asSourceIntelQuestions">
+                                {(sourceIntel.questions || []).map(q=><div key={q.id}>
+                                  <span>{q.id}</span>
+                                  <b>{q.question}</b>
+                                  <em>{Array.isArray(q.answer) ? (q.answer.join(" · ") || "—") : String(q.answer ?? "—")}</em>
+                                  <small>{q.status}</small>
+                                </div>)}
+                              </div>
+                            </div>}
                           </>}
                         </aside>
                       </div>
