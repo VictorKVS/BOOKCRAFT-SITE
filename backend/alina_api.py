@@ -876,6 +876,102 @@ def execute_r04_evidence_verification(project_dir: Path, work_id: str, task: dic
         task["blockers"] = ["EVIDENCE_COVERAGE_OR_REJECTIONS_REQUIRE_REVIEW"]
 
 
+def extract_object_evidence(item: dict[str, Any]) -> list[tuple[str | None, str]]:
+    evidence = item.get("evidence")
+    rows = []
+    if isinstance(evidence, list):
+        for e in evidence:
+            if isinstance(e, dict):
+                rows.append((e.get("chunk_id") or item.get("chunk_id"), str(e.get("text") or e.get("evidence") or "")))
+            elif e:
+                rows.append((item.get("chunk_id"), str(e)))
+    elif isinstance(evidence, dict):
+        rows.append((evidence.get("chunk_id") or item.get("chunk_id"), str(evidence.get("text") or evidence.get("evidence") or "")))
+    elif evidence:
+        rows.append((item.get("chunk_id"), str(evidence)))
+    return [(cid, txt.strip()) for cid,txt in rows if txt.strip()]
+
+
+def execute_verified_registry_task(
+    project_dir: Path,
+    work_id: str,
+    task: dict[str, Any],
+    source_file: str,
+    output_file: str,
+    registry_type: str,
+) -> None:
+    source = read_json(project_dir / "research" / work_id / "outputs" / source_file, []) or []
+    chunks, _ = build_work_scoped_chunks(project_dir, work_id)
+    chunk_map = {ch.get("chunk_id"): ch.get("text","") for ch in chunks}
+
+    accepted = []
+    review = []
+    rejected = []
+    for idx,item in enumerate(source, start=1):
+        evidence_rows = extract_object_evidence(item)
+        exact = False
+        best = 0.0
+        for chunk_id,evidence in evidence_rows:
+            chunk_text = chunk_map.get(chunk_id, "")
+            ne = normalize_evidence_text(evidence)
+            nc = normalize_evidence_text(chunk_text)
+            if ne and ne in nc:
+                exact = True
+                best = 1.0
+                break
+            e_tokens=set(ne.split())
+            c_tokens=set(nc.split())
+            overlap=len(e_tokens & c_tokens)/max(1,len(e_tokens))
+            best=max(best,overlap)
+
+        record={**item,"research_evidence":{"verified":exact,"match_score":round(best,4)}}
+        if exact:
+            accepted.append(record)
+        elif best >= 0.85:
+            review.append(record)
+        else:
+            rejected.append(record)
+        task["progress"] = int(idx / max(1,len(source)) * 95)
+
+    result = {
+        "schema_version":"1.0",
+        "task_id":task.get("task_id"),
+        "work_id":work_id,
+        "registry_type":registry_type,
+        "total":len(source),
+        "accepted_count":len(accepted),
+        "review_count":len(review),
+        "rejected_count":len(rejected),
+        "evidence_coverage":round(len(accepted)/max(1,len(source)),4),
+        "accepted":accepted,
+        "review":review,
+        "rejected":rejected,
+        "created_at":now(),
+    }
+    out=project_dir / "research" / work_id / "outputs" / output_file
+    write_json(out,result)
+    task["outputs"]=[str(out.relative_to(project_dir)).replace("\\","/")]
+    task["metrics"].update({
+        "items_found":len(source),
+        "items_accepted":len(accepted),
+        "items_review":len(review),
+        "items_rejected":len(rejected),
+        "evidence_coverage":result["evidence_coverage"],
+    })
+    if not source:
+        task["status"]="REVIEW"
+        task["quality_gate"]="REVIEW"
+        task["blockers"]=["NO_ITEMS_EXTRACTED"]
+    elif len(rejected)==0 and result["evidence_coverage"] >= 0.80:
+        task["status"]="PASS"
+        task["quality_gate"]="PASS"
+        task["blockers"]=[]
+    else:
+        task["status"]="REVIEW"
+        task["quality_gate"]="REVIEW"
+        task["blockers"]=["REGISTRY_EVIDENCE_REQUIRES_REVIEW"]
+
+
 def execute_research_task(project_dir: Path, work_id: str, task_id: str) -> dict[str, Any]:
     program_path = project_dir / "research" / work_id / "research_program.json"
     program = read_json(program_path, None)
@@ -971,6 +1067,36 @@ def execute_research_task(project_dir: Path, work_id: str, task_id: str) -> dict
 
         elif task_id == "R04":
             execute_r04_evidence_verification(project_dir, work_id, task)
+
+        elif task_id == "R07":
+            execute_verified_registry_task(
+                project_dir, work_id, task,
+                "R03_characters.json", "R07_entity_registry.json", "CHARACTER_ENTITY_REGISTRY"
+            )
+
+        elif task_id == "R14":
+            execute_verified_registry_task(
+                project_dir, work_id, task,
+                "R03_events.json", "R14_event_registry.json", "EVENT_REGISTRY"
+            )
+
+        elif task_id == "R17":
+            execute_verified_registry_task(
+                project_dir, work_id, task,
+                "R03_locations.json", "R17_location_registry.json", "LOCATION_REGISTRY"
+            )
+
+        elif task_id == "R20":
+            execute_verified_registry_task(
+                project_dir, work_id, task,
+                "R03_technologies.json", "R20_technology_registry.json", "TECHNOLOGY_REGISTRY"
+            )
+
+        elif task_id == "R22":
+            execute_verified_registry_task(
+                project_dir, work_id, task,
+                "R03_organizations.json", "R22_organization_registry.json", "ORGANIZATION_REGISTRY"
+            )
 
         elif task_id == "R30":
             prereq = [tasks.get(f"R{i:02d}") for i in range(1,30)]
