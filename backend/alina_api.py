@@ -921,6 +921,14 @@ def run_work_semantic_extraction(project_dir: Path, work_id: str, research_run_i
             "source_fingerprint":program.get("source_fingerprint"),
         }
         write_json(project_dir / "research" / work_id / "runs" / f"{research_run_id}.json", run_record)
+        record_project_event(project_dir,"RESEARCH_TASK_FINISHED",status="PASS",details={
+            "work_id":work_id,
+            "task_id":"R03",
+            "research_run_id":research_run_id,
+            "quality_gate":"PASS",
+            "metrics":task.get("metrics",{}),
+            "outputs":task.get("outputs",[]),
+        })
 
         # Continue dependency-ordered execution automatically after the long semantic stage.
         refreshed = read_json(program_path, {}) or {}
@@ -940,6 +948,12 @@ def run_work_semantic_extraction(project_dir: Path, work_id: str, research_run_i
         program = recalc_research_program(program)
         write_json(program_path, program)
         sync_research_index(project_dir, program)
+        record_project_event(project_dir,"RESEARCH_TASK_FINISHED",status="FAILED",details={
+            "work_id":work_id,
+            "task_id":"R03",
+            "research_run_id":research_run_id,
+            "error":str(exc)[:240],
+        })
 
 
 def normalize_evidence_text(value: str) -> str:
@@ -1266,6 +1280,7 @@ def project_research_scheduler(project_dir: Path) -> None:
         if program.get("program_status") == "BLOCKED":
             continue
 
+        record_project_event(project_dir,"WORK_RESEARCH_STARTED",status="RUNNING",details={"work_id":work_id})
         execute_research_auto(project_dir, work_id, 30)
 
         # Do not run multiple LLM work analyses concurrently.
@@ -1276,7 +1291,14 @@ def project_research_scheduler(project_dir: Path) -> None:
             time.sleep(1)
 
         current = read_json(program_path, {}) or {}
-        build_weighted_research_graph(project_dir, work_id)
+        graph = build_weighted_research_graph(project_dir, work_id)
+        record_project_event(project_dir,"WORK_RESEARCH_UPDATED",status=current.get("program_status") or "PASS",details={
+            "work_id":work_id,
+            "program_status":current.get("program_status"),
+            "completion_pct":(current.get("summary") or {}).get("completion_pct",0),
+            "graph_nodes":graph.get("node_count",0),
+            "graph_edges":graph.get("edge_count",0),
+        })
 
         # Stop on review/failed/blocking condition; preserve evidence for human inspection.
         if current.get("program_status") in {"FAILED","REVIEW"}:
@@ -1311,6 +1333,12 @@ def execute_research_task(project_dir: Path, work_id: str, task_id: str) -> dict
     task["blockers"] = []
     program["program_status"] = "RUNNING"
     write_json(program_path, program)
+    record_project_event(project_dir,"RESEARCH_TASK_STARTED",status="RUNNING",details={
+        "work_id":work_id,
+        "task_id":task_id,
+        "research_run_id":task.get("last_run_id"),
+        "task_name":task.get("name"),
+    })
 
     try:
         if task_id == "R01":
@@ -1516,6 +1544,15 @@ def execute_research_task(project_dir: Path, work_id: str, task_id: str) -> dict
     })
     program["execution_history"] = history[-200:]
     write_json(program_path, program)
+    record_project_event(project_dir,"RESEARCH_TASK_FINISHED",status=task.get("status") or "PASS",details={
+        "work_id":work_id,
+        "task_id":task_id,
+        "research_run_id":task.get("last_run_id"),
+        "quality_gate":task.get("quality_gate"),
+        "duration_ms":task.get("duration_ms"),
+        "outputs":task.get("outputs",[]),
+        "blockers":task.get("blockers",[]),
+    })
 
     return {"status":task.get("status"),"task":task,"program":program,"run":run_record}
 
@@ -1940,7 +1977,11 @@ def persist_run_state(run_id: str) -> None:
     project_id = run.get("project_id")
     if not project_id:
         return
-    write_json(PROJECTS_ROOT / project_id / "runs" / f"{run_id}.state.json", run)
+    project_dir = PROJECTS_ROOT / project_id
+    write_json(project_dir / "runs" / f"{run_id}.state.json", run)
+    if (project_dir / "project.json").exists():
+        with PROJECT_STATE_LOCK:
+            rebuild_project_state(project_dir)
 
 
 def run_ingest(run_id: str, project_dir: Path, source_files: list[Path], project_title: str) -> None:
@@ -2164,6 +2205,9 @@ def run_ingest(run_id: str, project_dir: Path, source_files: list[Path], project
 
 
 def run_deep_analysis(run_id: str, project_dir: Path, analysis_key: str, profile: str, analysis_config: dict[str, Any]) -> None:
+    record_project_event(project_dir,"DEEP_ANALYSIS_STARTED",status="RUNNING",details={
+        "run_id":run_id,"analysis_key":analysis_key,"profile":profile
+    })
     try:
         model = detect_local_model()
         with LOCK:
@@ -3145,8 +3189,11 @@ def list_projects() -> JSONResponse:
         latest = runs[0] if runs else None
         if not meta.get("description"):
             meta["description"] = str(meta.get("intent") or "").strip()
+        state = rebuild_project_state(project_dir)
         projects.append({
             **meta,
+            "project_state": state,
+            "source_count": state.get("source_set",{}).get("count", meta.get("source_count",0)),
             "analysis_level": meta.get("analysis_level", "NONE"),
             "product_count": len(project_products(project_dir)),
             "products": project_products(project_dir),
