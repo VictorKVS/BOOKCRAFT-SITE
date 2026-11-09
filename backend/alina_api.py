@@ -717,6 +717,8 @@ def run_work_semantic_extraction(project_dir: Path, work_id: str, research_run_i
                 "time_anchors":len(merged.get("time_anchors",[])),
                 "claims":len(merged.get("claims",[])),
                 "open_threads":len(merged.get("open_threads",[])),
+                "graph_nodes":weighted_graph.get("node_count",0),
+                "graph_edges":weighted_graph.get("edge_count",0),
                 "elapsed_seconds":round(time.perf_counter()-started,1),
             },
             "created_at":now(),
@@ -724,6 +726,7 @@ def run_work_semantic_extraction(project_dir: Path, work_id: str, research_run_i
         write_json(outputs_dir / "R03_semantic_package.json", package)
         for key in ("characters","events","relations","locations","technologies","organizations","time_anchors","claims","open_threads"):
             write_json(outputs_dir / f"R03_{key}.json", merged.get(key,[]))
+        weighted_graph = build_weighted_research_graph(project_dir, work_id)
 
         task["status"] = "PASS"
         task["quality_gate"] = "PASS"
@@ -979,6 +982,158 @@ def execute_verified_registry_task(
         task["status"]="REVIEW"
         task["quality_gate"]="REVIEW"
         task["blockers"]=["REGISTRY_EVIDENCE_REQUIRES_REVIEW"]
+
+
+def build_weighted_research_graph(project_dir: Path, work_id: str) -> dict[str, Any]:
+    outputs = project_dir / "research" / work_id / "outputs"
+    chars = read_json(outputs / "R03_characters.json", []) or []
+    events = read_json(outputs / "R03_events.json", []) or []
+    relations = read_json(outputs / "R03_relations.json", []) or []
+    locations = read_json(outputs / "R03_locations.json", []) or []
+    technologies = read_json(outputs / "R03_technologies.json", []) or []
+    organizations = read_json(outputs / "R03_organizations.json", []) or []
+
+    nodes = []
+    edges = []
+    node_index = {}
+
+    def evidence_weight(item: dict[str, Any]) -> float:
+        ev = extract_object_evidence(item)
+        if not ev:
+            return 0.35
+        return min(1.0, 0.6 + 0.1 * len(ev))
+
+    def add_node(kind: str, label: str, item: dict[str, Any]) -> str | None:
+        clean = str(label or "").strip()
+        if not clean:
+            return None
+        key = (kind, normalize_title(clean))
+        if key in node_index:
+            node = node_index[key]
+            node["mentions"] += 1
+            node["weight"] = round(min(1.0, node["weight"] + 0.04), 4)
+            return node["id"]
+        node_id = f"{kind[:3].upper()}-{len(nodes)+1:05d}"
+        node = {
+            "id":node_id,
+            "type":kind,
+            "label":clean,
+            "weight":round(evidence_weight(item),4),
+            "mentions":1,
+            "confidence":float(item.get("confidence") or 0.5),
+            "chunk_id":item.get("chunk_id"),
+        }
+        nodes.append(node)
+        node_index[key] = node
+        return node_id
+
+    for item in chars:
+        add_node("CHARACTER", item.get("name"), item)
+    for item in events:
+        add_node("EVENT", item.get("event"), item)
+    for item in locations:
+        add_node("LOCATION", item.get("name"), item)
+    for item in technologies:
+        add_node("TECHNOLOGY", item.get("name"), item)
+    for item in organizations:
+        add_node("ORGANIZATION", item.get("name"), item)
+
+    def lookup(kind: str, label: str) -> str | None:
+        node = node_index.get((kind, normalize_title(str(label or ""))))
+        return node.get("id") if node else None
+
+    for rel in relations:
+        source = lookup("CHARACTER", rel.get("source"))
+        target = lookup("CHARACTER", rel.get("target"))
+        if source and target:
+            edges.append({
+                "id":f"EDGE-{len(edges)+1:06d}",
+                "source":source,
+                "target":target,
+                "type":rel.get("relation_type") or "RELATED",
+                "weight":round(evidence_weight(rel),4),
+                "confidence":float(rel.get("confidence") or 0.5),
+                "chunk_id":rel.get("chunk_id"),
+                "evidence":str(rel.get("evidence") or "")[:500],
+            })
+
+    for event in events:
+        event_id = lookup("EVENT", event.get("event"))
+        if not event_id:
+            continue
+        for participant in event.get("participants", []) or []:
+            char_id = lookup("CHARACTER", participant)
+            if char_id:
+                edges.append({
+                    "id":f"EDGE-{len(edges)+1:06d}",
+                    "source":char_id,
+                    "target":event_id,
+                    "type":"PARTICIPATES_IN",
+                    "weight":round(evidence_weight(event),4),
+                    "confidence":float(event.get("confidence") or 0.5),
+                    "chunk_id":event.get("chunk_id"),
+                })
+        loc_id = lookup("LOCATION", event.get("location"))
+        if event_id and loc_id:
+            edges.append({
+                "id":f"EDGE-{len(edges)+1:06d}",
+                "source":event_id,
+                "target":loc_id,
+                "type":"OCCURS_AT",
+                "weight":round(evidence_weight(event),4),
+                "confidence":float(event.get("confidence") or 0.5),
+                "chunk_id":event.get("chunk_id"),
+            })
+
+    graph = {
+        "schema_version":"1.0",
+        "graph_type":"EVIDENCE_WEIGHTED_RESEARCH_GRAPH",
+        "work_id":work_id,
+        "node_count":len(nodes),
+        "edge_count":len(edges),
+        "weight_semantics":{
+            "node_weight":"evidence presence + repeated mentions, capped at 1.0",
+            "edge_weight":"evidence strength for extracted relation/event link",
+            "confidence":"extractor confidence when available; otherwise conservative default 0.5",
+        },
+        "nodes":nodes,
+        "edges":edges,
+        "created_at":now(),
+    }
+    write_json(outputs / "research_graph.json", graph)
+    return graph
+
+
+def project_research_scheduler(project_dir: Path) -> None:
+    index = read_json(project_dir / "research" / "research_index.json", {}) or {}
+    for row in index.get("programs", []):
+        work_id = row.get("work_id")
+        if not work_id:
+            continue
+        program_path = project_dir / "research" / work_id / "research_program.json"
+        program = read_json(program_path, {}) or {}
+        if program.get("program_status") == "BLOCKED":
+            continue
+
+        execute_research_auto(project_dir, work_id, 30)
+
+        # Do not run multiple LLM work analyses concurrently.
+        for _ in range(60 * 60):
+            current = read_json(program_path, {}) or {}
+            if current.get("program_status") != "RUNNING":
+                break
+            time.sleep(1)
+
+        current = read_json(program_path, {}) or {}
+        build_weighted_research_graph(project_dir, work_id)
+
+        # Stop on review/failed/blocking condition; preserve evidence for human inspection.
+        if current.get("program_status") in {"FAILED","REVIEW"}:
+            continue
+
+
+def start_project_research_scheduler(project_dir: Path) -> None:
+    threading.Thread(target=project_research_scheduler, args=(project_dir,), daemon=True).start()
 
 
 def execute_research_task(project_dir: Path, work_id: str, task_id: str) -> dict[str, Any]:
@@ -1782,7 +1937,7 @@ def run_ingest(run_id: str, project_dir: Path, source_files: list[Path], project
             "run_id": run_id,
             "completed_at": now(),
             "status": "PASS",
-            "analysis_level": meta.get("analysis_level", "FOUNDATION_ONLY"),
+            "analysis_level": project_meta_for_research.get("analysis_level", "FOUNDATION_ONLY"),
             "deep_semantic_analysis": False,
             "metrics": {
                 "sources": len(source_records),
@@ -1825,6 +1980,10 @@ def run_ingest(run_id: str, project_dir: Path, source_files: list[Path], project
         project_meta["active_analysis_profile"] = "FOUNDATION"
         project_meta["updated_at"] = now()
         write_json(project_dir / "project.json", project_meta)
+
+        # Foundation prepares the corpus. Research is the real analytical stage.
+        start_project_research_scheduler(project_dir)
+        trace(run_id, "RESEARCH", "Автоматическая исследовательская очередь запущена после Foundation", "PASS", output_ref="research/research_index.json")
 
         with LOCK:
             run = RUNS[run_id]
