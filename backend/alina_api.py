@@ -243,6 +243,173 @@ def analysis_fingerprint(source_fingerprint: str, profile: str, config: dict[str
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
 
+def load_research_task_catalog() -> dict[str, Any]:
+    path = ROOT / "projects" / "sto_let_tomu_vpered" / "research" / "work_research_task_catalog_v1.json"
+    return read_json(path, {"catalog_id":"ALINA_WORK_RESEARCH_V1","task_limit":30,"tasks":[]}) or {}
+
+
+def load_cycle_continuity_catalog() -> dict[str, Any]:
+    path = ROOT / "projects" / "sto_let_tomu_vpered" / "research" / "cycle_continuity_task_catalog_v1.json"
+    return read_json(path, {"catalog_id":"ALINA_CYCLE_CONTINUITY_V1","task_limit":30,"tasks":[]}) or {}
+
+
+def build_work_research_program(project_dir: Path, meta: dict[str, Any], work: dict[str, Any], blocked: bool = False) -> dict[str, Any]:
+    catalog = load_research_task_catalog()
+    tasks = []
+    for raw in catalog.get("tasks", [])[:30]:
+        task = {
+            "task_id": raw.get("task_id"),
+            "name": raw.get("name"),
+            "status": "BLOCKED" if blocked else "PLANNED",
+            "progress": 0,
+            "depends_on": [],
+            "inputs": [],
+            "outputs": [],
+            "evidence_required": True,
+            "metrics": {
+                "items_found": 0,
+                "items_accepted": 0,
+                "items_review": 0,
+                "evidence_coverage": 0.0,
+            },
+            "last_run_id": None,
+            "started_at": None,
+            "finished_at": None,
+            "duration_ms": None,
+            "blockers": ["WORK_BOUNDARY_REVIEW_REQUIRED"] if blocked else [],
+            "quality_gate": "NOT_CHECKED",
+        }
+        tasks.append(task)
+
+    work_id = work.get("work_id") or slug(str(work.get("title") or "work"))
+    program = {
+        "schema_version": "1.0",
+        "project_id": meta.get("project_id"),
+        "project_code": meta.get("short_code"),
+        "work_id": work_id,
+        "work_title": work.get("title") or work.get("candidate_heading") or work_id,
+        "program_status": "BLOCKED" if blocked else "PLANNED",
+        "created_at": now(),
+        "updated_at": now(),
+        "source_set_version": meta.get("source_set_version", 0),
+        "source_fingerprint": meta.get("source_fingerprint", ""),
+        "research_profile": "LITERARY_FULL_V1",
+        "task_limit": 30,
+        "summary": {
+            "total": len(tasks),
+            "planned": 0 if blocked else len(tasks),
+            "running": 0,
+            "pass": 0,
+            "review": 0,
+            "blocked": len(tasks) if blocked else 0,
+            "failed": 0,
+            "reused": 0,
+            "completion_pct": 0,
+        },
+        "source_match": {
+            "status": work.get("status"),
+            "matched_heading": work.get("matched_heading") or work.get("candidate_heading"),
+            "confidence": work.get("confidence"),
+        },
+        "tasks": tasks,
+    }
+    path = project_dir / "research" / work_id / "research_program.json"
+    write_json(path, program)
+    return program
+
+
+def initialize_project_research_complex(project_dir: Path, meta: dict[str, Any], work_match: dict[str, Any] | None) -> dict[str, Any]:
+    research_root = project_dir / "research"
+    research_root.mkdir(parents=True, exist_ok=True)
+    programs = []
+
+    if work_match:
+        for work in work_match.get("matched", []):
+            programs.append(build_work_research_program(project_dir, meta, work, blocked=False))
+        for work in work_match.get("review", []):
+            programs.append(build_work_research_program(project_dir, meta, work, blocked=True))
+
+    index = {
+        "schema_version": "1.0",
+        "project_id": meta.get("project_id"),
+        "project_code": meta.get("short_code"),
+        "status": "RESEARCH_COMPLEX_INITIALIZED",
+        "task_limit_per_work": 30,
+        "work_count": len(programs),
+        "ready_to_start": sum(1 for p in programs if p.get("program_status") == "PLANNED"),
+        "blocked": sum(1 for p in programs if p.get("program_status") == "BLOCKED"),
+        "programs": [
+            {
+                "work_id": p.get("work_id"),
+                "work_title": p.get("work_title"),
+                "program_status": p.get("program_status"),
+                "summary": p.get("summary"),
+                "path": f"research/{p.get('work_id')}/research_program.json",
+            }
+            for p in programs
+        ],
+        "updated_at": now(),
+    }
+    write_json(research_root / "research_index.json", index)
+
+    cycle_catalog = load_cycle_continuity_catalog()
+    cycle_tasks = []
+    for raw in cycle_catalog.get("tasks", [])[:30]:
+        cycle_tasks.append({
+            "task_id": raw.get("task_id"),
+            "name": raw.get("name"),
+            "status": "BLOCKED",
+            "progress": 0,
+            "blockers": ["WORK_RESEARCH_R30_NOT_READY"],
+            "quality_gate": "NOT_CHECKED",
+        })
+    continuity = {
+        "schema_version": "1.0",
+        "project_id": meta.get("project_id"),
+        "project_code": meta.get("short_code"),
+        "program_status": "BLOCKED",
+        "reason": "Cycle analysis starts only after eligible works pass R30.",
+        "work_programs_total": len(programs),
+        "work_programs_ready": 0,
+        "task_limit": 30,
+        "summary": {
+            "total": len(cycle_tasks),
+            "pass": 0,
+            "blocked": len(cycle_tasks),
+            "completion_pct": 0,
+        },
+        "tasks": cycle_tasks,
+        "updated_at": now(),
+    }
+    write_json(research_root / "continuity_program.json", continuity)
+    return {"index": index, "continuity": continuity}
+
+
+def research_dashboard(project_dir: Path) -> dict[str, Any]:
+    index = read_json(project_dir / "research" / "research_index.json", {}) or {}
+    programs = []
+    for row in index.get("programs", []):
+        work_id = row.get("work_id")
+        program = read_json(project_dir / "research" / str(work_id) / "research_program.json", {}) or {}
+        if program:
+            programs.append(program)
+    totals = {
+        "works": len(programs),
+        "research_ready": sum(1 for p in programs if p.get("program_status") == "RESEARCH_READY"),
+        "running": sum(1 for p in programs if p.get("program_status") == "RUNNING"),
+        "blocked": sum(1 for p in programs if p.get("program_status") == "BLOCKED"),
+        "pass_tasks": sum(int((p.get("summary") or {}).get("pass",0)) for p in programs),
+        "review_tasks": sum(int((p.get("summary") or {}).get("review",0)) for p in programs),
+        "failed_tasks": sum(int((p.get("summary") or {}).get("failed",0)) for p in programs),
+    }
+    return {
+        "index": index,
+        "totals": totals,
+        "programs": programs,
+        "continuity": read_json(project_dir / "research" / "continuity_program.json", {}) or {},
+    }
+
+
 def normalize_title(value: str) -> str:
     value = value.casefold().replace("ё", "е")
     value = re.sub(r"[«»„“”\"'.,:;!?()\[\]{}—–-]+", " ", value)
@@ -690,6 +857,16 @@ def run_ingest(run_id: str, project_dir: Path, source_files: list[Path], project
                 "missing": [],
                 "status": "NO_CATALOG_SELECTED",
             })
+
+        project_meta_for_research = read_json(project_dir / "project.json", {}) or {}
+        research_init = initialize_project_research_complex(project_dir, project_meta_for_research, work_match)
+        trace(
+            run_id,
+            "RESEARCH",
+            f"Research Complex: произведений={research_init['index'].get('work_count',0)}, задач до 30 на произведение",
+            "PASS",
+            output_ref="research/research_index.json",
+        )
 
         set_stage(run_id, 2, "Создаю доказуемые утверждения из структурных фактов")
         claims = []
@@ -1417,7 +1594,7 @@ async def create_empty_project(
 
     project_id = f"PRJ-{uuid.uuid4().hex[:10]}"
     project_dir = PROJECTS_ROOT / project_id
-    for folder in ("sources", "kb", "runs", "deep", "products"):
+    for folder in ("sources", "kb", "runs", "deep", "products", "research"):
         (project_dir / folder).mkdir(parents=True, exist_ok=True)
 
     short_code = next_project_short_code()
@@ -1446,7 +1623,7 @@ async def create_empty_project(
         "title": clean_title,
         "contract_version": "1.0",
         "short_code": short_code,
-        "folders": ["sources", "kb", "runs", "deep", "products"],
+        "folders": ["sources", "kb", "runs", "deep", "products", "research"],
         "created_at": metadata["created_at"],
         "status": "READY_FOR_SOURCES",
     })
@@ -1712,6 +1889,7 @@ def open_project_folder(project_id: str, folder_name: str) -> dict[str, Any]:
         "kb": project_dir / "kb",
         "runs": project_dir / "runs",
         "products": project_dir / "products",
+        "research": project_dir / "research",
     }
     target = folders.get(folder_name)
     if target is None:
@@ -1741,6 +1919,33 @@ def project_runs(project_id: str) -> JSONResponse:
                 runs.append(item)
     runs.sort(key=lambda x: x.get("created_at", ""), reverse=True)
     return JSONResponse(runs)
+
+
+@app.get("/api/projects/{project_id}/research")
+def get_project_research_dashboard(project_id: str) -> JSONResponse:
+    project_dir = PROJECTS_ROOT / project_id
+    if not project_dir.exists():
+        raise HTTPException(404, "Проект не найден")
+    return JSONResponse(research_dashboard(project_dir))
+
+
+@app.get("/api/projects/{project_id}/research/{work_id}")
+def get_work_research_program(project_id: str, work_id: str) -> JSONResponse:
+    path = PROJECTS_ROOT / project_id / "research" / work_id / "research_program.json"
+    if not path.exists():
+        raise HTTPException(404, "Исследовательская программа произведения не найдена")
+    return JSONResponse(read_json(path, {}) or {})
+
+
+@app.post("/api/projects/{project_id}/research/rebuild")
+def rebuild_project_research_complex(project_id: str) -> JSONResponse:
+    project_dir = PROJECTS_ROOT / project_id
+    meta = read_json(project_dir / "project.json", None)
+    if meta is None:
+        raise HTTPException(404, "Проект не найден")
+    works = read_json(project_dir / "kb" / "works.json", {}) or {}
+    result = initialize_project_research_complex(project_dir, meta, works)
+    return JSONResponse(result)
 
 
 @app.get("/api/projects/{project_id}/products")
