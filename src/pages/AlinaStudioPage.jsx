@@ -60,6 +60,9 @@ export default function AlinaStudioPage() {
   const [intent,setIntent] = useState("Разложить цикл по произведениям, построить базу знаний, восстановить хронологию и мир, найти противоречия.");
   const [description,setDescription] = useState("");
   const [files,setFiles] = useState([]);
+  const [savedSources,setSavedSources] = useState([]);
+  const [projectState,setProjectState] = useState(null);
+  const [projectEvents,setProjectEvents] = useState([]);
   const [areas,setAreas] = useState(new Set(["Хронология","Персонажи","События","Локации","Технологии","Отношения"]));
   const [phase,setPhase] = useState("setup");
   const [externalResearch,setExternalResearch] = useState(false);
@@ -110,6 +113,7 @@ export default function AlinaStudioPage() {
   const isStudy = activeMode?.[3] === "STUDY";
   const pipeline = isStudy ? studyPipeline : authorPipeline;
   const size = useMemo(() => files.reduce((s,f)=>s+f.size,0),[files]);
+  const savedSize = useMemo(() => savedSources.reduce((s,f)=>s+(f.size_bytes || 0),0),[savedSources]);
   const liveStages = [
     ["Подготовка источников","Проверяю файлы, форматы и контрольные суммы",8],
     ["Разделение корпуса","Ищу произведения, сборники, главы и секции",23],
@@ -602,6 +606,10 @@ export default function AlinaStudioPage() {
         setProducts([]);
         setResearchDashboard(null);
         setSelectedResearchWork(null);
+        setProjectState(null);
+        setProjectEvents([]);
+        setSavedSources([]);
+        setFiles([]);
       }
       setProjectHistory(prev=>{const n={...prev}; delete n[project.project_id]; return n;});
       setHistoryOpen(null);
@@ -614,13 +622,38 @@ export default function AlinaStudioPage() {
     }
   }
 
+  async function loadProjectState(projectIdValue){
+    try{
+      const [sr,er]=await Promise.all([
+        tracedFetch(`http://127.0.0.1:8191/api/projects/${projectIdValue}/state`),
+        tracedFetch(`http://127.0.0.1:8191/api/projects/${projectIdValue}/events?limit=100`)
+      ]);
+      const state=sr.ok?await sr.json():null;
+      const events=er.ok?await er.json():[];
+      if(state){
+        setProjectState(state);
+        setSavedSources(state.source_set?.sources || []);
+        setSourceCount(state.source_set?.count || 0);
+      }
+      setProjectEvents(events || []);
+      return state;
+    }catch{
+      return null;
+    }
+  }
+
   async function openLocalProject(project){
     setProjectId(project.project_id);
-    setProjectMeta(project);
-    setReferenceAnalysis(project.reference_analysis || null);
-    setSourceCount(project.source_count || 0);
-    setTitle(project.title || "");
-    setDescription(project.description || project.intent || "");
+    setFiles([]);
+    const detailResponse=await tracedFetch(`http://127.0.0.1:8191/api/projects/${project.project_id}`);
+    const detail=detailResponse.ok ? await detailResponse.json() : project;
+    setProjectMeta(detail);
+    setProjectState(detail.project_state || null);
+    setSavedSources(detail.saved_sources || detail.project_state?.source_set?.sources || []);
+    setReferenceAnalysis(detail.reference_analysis || null);
+    setSourceCount(detail.project_state?.source_set?.count ?? detail.source_count ?? 0);
+    setTitle(detail.title || "");
+    setDescription(detail.description || detail.intent || "");
     setTitleTouched(true);
     const rr=await tracedFetch(`http://127.0.0.1:8191/api/projects/${project.project_id}/runs`);
     const runs=rr.ok?await rr.json():[];
@@ -639,6 +672,7 @@ export default function AlinaStudioPage() {
     setBenchmarkSeed(loaded.benchmark_seed || null);
     await loadProducts(project.project_id);
     await loadResearchDashboard(project.project_id);
+    await loadProjectState(project.project_id);
     setPhase("ready");
     setRunDemo(false);
     window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
@@ -710,6 +744,7 @@ export default function AlinaStudioPage() {
             }
             await loadProducts(data.project_id);
             await loadResearchDashboard(data.project_id);
+            await loadProjectState(data.project_id);
             if(data.run_type!=="DEEP_ANALYSIS") setWorkspaceView("research");
             loadProjects();
           }
@@ -755,6 +790,9 @@ export default function AlinaStudioPage() {
       const data=await r.json();
       setProjectId(data.project_id);
       setProjectMeta(data);
+      setProjectState(data.project_state || null);
+      setSavedSources([]);
+      setProjectEvents([]);
       setProducts([]);
       setTitle(data.title);
       setDescription(data.description || "");
@@ -787,9 +825,13 @@ export default function AlinaStudioPage() {
       const r=await tracedFetch(`http://127.0.0.1:8191/api/projects/${projectId}/sources`,{method:"POST",body:form});
       if(!r.ok) throw new Error(await r.text());
       const data=await r.json();
-      setSourceCount(data.project?.source_count || files.length);
+      setSourceCount(data.project_state?.source_set?.count ?? data.project?.source_count ?? files.length);
       setProjectMeta(data.project || null);
-      traceEvent("SEQUENCE",{sequence:"PROJECT_FLOW",step:"SOURCES_ATTACHED",status:"PASS",source_count:data.project?.source_count || files.length,result:data.source_changed ? "SOURCE_SET_CHANGED" : "SOURCE_SET_REUSED"},true);
+      setProjectState(data.project_state || null);
+      setSavedSources(data.project_state?.source_set?.sources || []);
+      setFiles([]);
+      await loadProjectState(projectId);
+      traceEvent("SEQUENCE",{sequence:"PROJECT_FLOW",step:"SOURCES_ATTACHED",status:"PASS",source_count:data.project_state?.source_set?.count ?? data.project?.source_count ?? files.length,result:data.source_changed ? "SOURCE_SET_CHANGED" : "SOURCE_SET_REUSED"},true);
       await loadProjects();
     }catch(err){
       setApiError("Не удалось добавить книги в проект: "+err.message);
@@ -1057,10 +1099,25 @@ export default function AlinaStudioPage() {
         </button>
 
         <div className="asFileSummary">
-          <article><small>КНИГ / ФАЙЛОВ</small><b>{files.length}</b></article>
-          <article><small>ОБЪЁМ</small><b>{size ? (size/1024/1024).toFixed(1)+" MB" : "0 MB"}</b></article>
+          <article><small>СОХРАНЕНО</small><b>{savedSources.length}</b></article>
+          <article><small>В ПРОЕКТЕ</small><b>{savedSize ? (savedSize/1024/1024).toFixed(1)+" MB" : "0 MB"}</b></article>
+          <article><small>ДОБАВИТЬ</small><b>{files.length}</b></article>
           <article><small>ХРАНЕНИЕ</small><b>LOCAL ONLY</b></article>
         </div>
+
+        {savedSources.length > 0 && <div className="asSavedSources">
+          <div className="asSavedSourcesHead">
+            <b>Сохранённые материалы проекта</b>
+            <span>Источник: project_state.json</span>
+          </div>
+          {savedSources.map((f,i)=><div key={(f.sha256 || f.filename)+"-"+i}>
+            <span><b>{String(i+1).padStart(2,"0")}</b>{f.filename}</span>
+            <span className="asFileRight">
+              <small>{((f.size_bytes || 0)/1024/1024).toFixed(2)} MB · {String(f.extension || "").replace(".","").toUpperCase()}</small>
+              <em>СОХРАНЁН</em>
+            </span>
+          </div>)}
+        </div>}
 
         {files.length > 0 && <div className="asFiles">
           {files.map((f,i)=>{
@@ -1075,7 +1132,7 @@ export default function AlinaStudioPage() {
         <div className="asSourceCommit">
           <div>
             <small>ИСТОЧНИКИ ПРОЕКТА</small>
-            <b>{sourceCount} файл(а/ов) сохранено в проекте</b>
+            <b>{sourceCount} файл(а/ов) зарегистрировано в project_state.json</b>
           </div>
           <button disabled={!projectId || !files.length || sourceBusy} onClick={attachSourcesToProject}>
             {sourceBusy ? "Сохраняю…" : "Сохранить книги в проект →"}
@@ -1199,6 +1256,14 @@ export default function AlinaStudioPage() {
             <button className={workspaceView==="creative"?"active":""} onClick={()=>setWorkspaceView("creative")}>Creative Studio</button>
             <button onClick={()=>setAdminVisible(true)}>Администрирование</button>
           </div>
+
+          {projectState && <div className="asProjectStateStrip">
+            <div><small>PROJECT STATE</small><b>v{projectState.schema_version || "1.0"}</b><span>{projectState.status || "—"}</span></div>
+            <div><small>SOURCES</small><b>{projectState.source_set?.count || 0}</b><span>Source Set v{projectState.source_set?.version || 0}</span></div>
+            <div><small>WORKS</small><b>{projectState.knowledge_base?.works_matched || 0}</b><span>из {projectState.knowledge_base?.works_expected ?? "—"}</span></div>
+            <div><small>RESEARCH</small><b>{projectState.research?.totals?.pass_tasks || 0} PASS</b><span>{projectState.research?.totals?.running || 0} running</span></div>
+            <div><small>EVENTS</small><b>{projectEvents.length}</b><span>{projectState.last_event?.event_type || "—"}</span></div>
+          </div>}
 
           <div className="asProjectArchitecture">
             <article><small>PROJECT</small><b>{projectMeta?.short_code || "—"}</b><span>{title}</span></article>
