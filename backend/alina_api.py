@@ -260,6 +260,7 @@ def build_work_research_program(project_dir: Path, meta: dict[str, Any], work: d
         task = {
             "task_id": raw.get("task_id"),
             "name": raw.get("name"),
+            "research_question": raw.get("research_question", ""),
             "status": "BLOCKED" if blocked else "PLANNED",
             "progress": 0,
             "depends_on": list(raw.get("depends_on", [])),
