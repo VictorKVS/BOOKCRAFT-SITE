@@ -164,3 +164,7 @@
 
 
 .asTaskQuestion{margin:6px 0 0;color:#7891a4;font-size:7px;line-height:1.4;min-height:28px}
+
+
+.asResearchNow{display:grid;grid-template-columns:1.3fr 1.6fr .8fr auto;gap:9px;align-items:center;margin:10px 0 14px;border:1px solid #2d5b63;background:linear-gradient(135deg,#0a2025,#0b1926);border-radius:13px;padding:11px 12px}.asResearchNow>div{min-width:0}.asResearchNow small{display:block;color:#67e8f9;font-size:7px;letter-spacing:.1em}.asResearchNow b{display:block;margin-top:4px;font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.asResearchNow span{display:block;margin-top:3px;color:#7f98a7;font-size:7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.asResearchNow button{border:1px solid #3a6370;background:#0d2630;color:#d7f8ff;border-radius:9px;padding:8px 10px;font-size:8px;font-weight:700;cursor:pointer;white-space:nowrap}
+@media(max-width:900px){.asResearchNow{grid-template-columns:1fr 1fr}.asResearchNow button{grid-column:1/-1;justify-self:start}}@media(max-width:600px){.asResearchNow{grid-template-columns:1fr}}
