@@ -1,0 +1,187 @@
+{
+  "schema_version": "1.0",
+  "catalog_id": "ALINA_CYCLE_CONTINUITY_V1",
+  "task_limit": 30,
+  "tasks": [
+    {
+      "task_id": "C01",
+      "name": "Work admission",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C02",
+      "name": "Entity merge",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C03",
+      "name": "Character biography continuity",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C04",
+      "name": "Character knowledge continuity",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C05",
+      "name": "Character state continuity",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C06",
+      "name": "Relationship continuity",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C07",
+      "name": "Global event merge",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C08",
+      "name": "Chronology reconstruction",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C09",
+      "name": "Age consistency",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C10",
+      "name": "Location continuity",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C11",
+      "name": "Travel continuity",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C12",
+      "name": "Technology continuity",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C13",
+      "name": "Object continuity",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C14",
+      "name": "Organization continuity",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C15",
+      "name": "World-rule continuity",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C16",
+      "name": "Terminology continuity",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C17",
+      "name": "Internal contradiction aggregation",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C18",
+      "name": "Cross-work contradiction detection",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C19",
+      "name": "Retcon candidate detection",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C20",
+      "name": "Continuity drift candidate detection",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C21",
+      "name": "Source edition variant detection",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C22",
+      "name": "Contradiction classification",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C23",
+      "name": "Explanation generation",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C24",
+      "name": "Evidence comparison matrix",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C25",
+      "name": "Canon stability scoring",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C26",
+      "name": "Best-fit chronology",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C27",
+      "name": "Best-fit world model",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C28",
+      "name": "Continuity impact analysis",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C29",
+      "name": "Human review queue",
+      "status": "PLANNED",
+      "progress": 0
+    },
+    {
+      "task_id": "C30",
+      "name": "Cycle continuity quality gate",
+      "status": "PLANNED",
+      "progress": 0
+    }
+  ]
+}
