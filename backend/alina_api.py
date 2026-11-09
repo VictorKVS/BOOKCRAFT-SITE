@@ -275,6 +275,10 @@ def rebuild_project_state(project_dir: Path, last_event: dict[str, Any] | None =
             "totals":research.get("totals",{}),
             "continuity_status":(research.get("continuity") or {}).get("program_status"),
         },
+        "corpus_verification": read_json(
+            project_dir / "source_intelligence" / "cycle" / "verified_corpus_summary.json",
+            {}
+        ) or {},
         "runs":{
             "count":len(runs),
             "latest":{
@@ -1627,6 +1631,59 @@ def load_known_catalog(title: str, parsed: list[dict[str, Any]]) -> dict[str, An
 def load_source_intelligence_config() -> dict[str, Any]:
     path = ROOT / "projects" / "sto_let_tomu_vpered" / "research" / "source_intelligence_modes_v1.json"
     return read_json(path, {"default_mode":"SIMULATED_OSINT","modes":{}}) or {}
+
+
+def import_alice_verified_corpus(project_dir: Path) -> dict[str, Any]:
+    meta = read_json(project_dir / "project.json", {}) or {}
+    probe = normalize_title(str(meta.get("title") or "") + " " + str(meta.get("description") or ""))
+    works = read_json(project_dir / "kb" / "works.json", {}) or {}
+    is_alice = (
+        "алиса" in probe
+        or works.get("catalog_id") == "ALICE_CYCLE_CORPUS"
+        or works.get("cycle") == "Алиса Селезнёва"
+    )
+    if not is_alice:
+        raise HTTPException(409, "Verified Alice corpus package доступен только для проекта цикла Алисы")
+
+    source_root = ROOT / "projects" / "sto_let_tomu_vpered" / "alice_cycle"
+    package_files = {
+        "verification":"alice_cycle_verification_v1.json",
+        "authority_registry":"alice_authority_registry_v1.json",
+        "edition_registry":"alice_edition_registry_v1.json",
+        "discrepancies":"alice_discrepancies_v1.json",
+    }
+    target_root = project_dir / "source_intelligence" / "cycle"
+    target_root.mkdir(parents=True, exist_ok=True)
+    copied={}
+    for key,name in package_files.items():
+        src=source_root / name
+        if not src.exists():
+            raise HTTPException(500, f"Verified corpus package incomplete: {name}")
+        data=read_json(src,{}) or {}
+        dst=target_root / name
+        write_json(dst,data)
+        copied[key]=str(dst.relative_to(project_dir)).replace("\\","/")
+
+    verification=read_json(target_root / "alice_cycle_verification_v1.json",{}) or {}
+    summary={
+        "package_id":verification.get("package_id"),
+        "status":verification.get("status"),
+        "cycle":verification.get("cycle"),
+        "author":verification.get("author"),
+        "verification_date":verification.get("verification_date"),
+        "summary":verification.get("summary",{}),
+        "files":copied,
+        "imported_at":now(),
+    }
+    write_json(target_root / "verified_corpus_summary.json",summary)
+    record_project_event(project_dir,"VERIFIED_CORPUS_IMPORTED",details={
+        "package_id":summary.get("package_id"),
+        "status":summary.get("status"),
+        "works_expected":summary.get("summary",{}).get("works_expected"),
+        "publication_year_matches":summary.get("summary",{}).get("publication_year_matches"),
+        "discrepancies":3,
+    })
+    return summary
 
 
 def simulate_osint_result(project_dir: Path, object_id: str) -> dict[str, Any]:
@@ -3424,6 +3481,14 @@ def run_status(run_id: str) -> dict[str, Any]:
 @app.get("/api/source-intelligence/config")
 def get_source_intelligence_config() -> JSONResponse:
     return JSONResponse(load_source_intelligence_config())
+
+
+@app.post("/api/projects/{project_id}/source-intelligence/import-alice-verified-corpus")
+def import_verified_alice_corpus(project_id: str) -> JSONResponse:
+    project_dir = PROJECTS_ROOT / project_id
+    if not project_dir.exists():
+        raise HTTPException(404, "Проект не найден")
+    return JSONResponse(import_alice_verified_corpus(project_dir))
 
 
 @app.post("/api/projects/{project_id}/source-intelligence/{object_id}/simulate")
