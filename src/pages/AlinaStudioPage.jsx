@@ -58,6 +58,7 @@ export default function AlinaStudioPage() {
   const [title,setTitle] = useState("");
   const [titleTouched,setTitleTouched] = useState(false);
   const [intent,setIntent] = useState("Разложить цикл по произведениям, построить базу знаний, восстановить хронологию и мир, найти противоречия.");
+  const [description,setDescription] = useState("");
   const [files,setFiles] = useState([]);
   const [areas,setAreas] = useState(new Set(["Хронология","Персонажи","События","Локации","Технологии","Отношения"]));
   const [phase,setPhase] = useState("setup");
@@ -593,6 +594,7 @@ export default function AlinaStudioPage() {
     setReferenceAnalysis(project.reference_analysis || null);
     setSourceCount(project.source_count || 0);
     setTitle(project.title || "");
+    setDescription(project.description || project.intent || "");
     setTitleTouched(true);
     const rr=await tracedFetch(`http://127.0.0.1:8191/api/projects/${project.project_id}/runs`);
     const runs=rr.ok?await rr.json():[];
@@ -720,6 +722,7 @@ export default function AlinaStudioPage() {
       form.append("title",clean);
       form.append("mode",mode);
       form.append("intent",intent);
+      form.append("description",description.trim() || intent);
       const r=await tracedFetch("http://127.0.0.1:8191/api/projects",{method:"POST",body:form});
       if(!r.ok) throw new Error(await r.text());
       const data=await r.json();
@@ -727,6 +730,7 @@ export default function AlinaStudioPage() {
       setProjectMeta(data);
       setProducts([]);
       setTitle(data.title);
+      setDescription(data.description || "");
       setTitleTouched(true);
       setSourceCount(data.source_count || 0);
       setPhase("setup");
@@ -879,6 +883,7 @@ export default function AlinaStudioPage() {
             <div className="asProjectMain">
               <small>{p.short_code || "—"} · {p.project_id}</small>
               <b>{p.short_code ? `${p.short_code} — ${p.title}` : p.title}</b>
+              <p className="asProjectDescription">{p.description || p.intent || "Описание проекта пока не задано."}</p>
               <span>Sources: {p.source_count || 0} · Source Set v{p.source_set_version || 0} · KB v{p.kb_version || 0} · Products: {p.product_count || 0}</span>
               <span>{p.latest_run ? `${p.latest_run.status} · runs: ${p.run_count} · works: ${p.latest_run.metrics?.works ?? "—"}` : "Ещё не анализировался"}</span>
               <div className="asProjectFolders">
@@ -987,6 +992,17 @@ export default function AlinaStudioPage() {
         <label className="asProjectName">
           <span>{projectId ? `PROJECT CONTRACT · ${projectId}` : "Название обязательно. Сначала создаём проект, потом добавляем книги."}</span>
           <input disabled={Boolean(projectId)} value={title} onChange={e=>{setTitle(e.target.value);setTitleTouched(true)}} placeholder="Например: Алиса Селезнёва — цикл"/>
+        </label>
+        <label className="asProjectDescriptionField">
+          <span>Краткое описание проекта</span>
+          <textarea
+            disabled={Boolean(projectId)}
+            value={description}
+            onChange={e=>setDescription(e.target.value)}
+            maxLength={500}
+            placeholder="Например: Исследование цикла об Алисе Селезнёвой: произведения, персонажи, хронология, технологии, противоречия и восстановление единой модели мира."
+          />
+          <small>{description.length}/500</small>
         </label>
         <div className="asContractActions">
           {!projectId ? <button className="primary" disabled={!title.trim() || projectBusy} onClick={createProjectContract}>
