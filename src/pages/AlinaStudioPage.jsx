@@ -280,6 +280,8 @@ export default function AlinaStudioPage() {
       setProjectMeta(prev=>prev ? {...prev,reference_analysis:{
         id:data.reference_id,scope:data.scope,status:data.status,chunk_count:data.chunk_count,maturity:data.maturity
       }} : prev);
+      await loadResearchDashboard(projectId);
+      setSelectedResearchWork("ALICE-005");
       traceEvent("SEQUENCE",{sequence:"ANALYSIS_FLOW",step:"REFERENCE_ANALYSIS_IMPORTED",status:"PASS",result:data.reference_id},true);
     }catch(err){
       setApiError("Не удалось подключить старый анализ Алисы: "+err.message);
