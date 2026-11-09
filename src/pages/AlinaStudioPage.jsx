@@ -1375,10 +1375,10 @@ export default function AlinaStudioPage() {
                       <div><small>{p.work_id}</small><h4>{p.work_title}</h4><span>{p.research_profile} · Source Set v{p.source_set_version}</span></div>
                       <div className="asResearchProgramActions">
                         <em>{p.program_status}</em>
-                        <button disabled={researchBusy} onClick={()=>runResearchAuto(p.work_id)}>
+                        <button disabled={researchBusy || p.program_status==="RUNNING"} onClick={()=>runResearchAuto(p.work_id)}>
                           {researchBusy && researchAction==="AUTO" ? "Автомат выполняет…" : "Автозапуск доступного"}
                         </button>
-                        <button disabled={researchBusy} onClick={()=>runNextResearchTask(p.work_id)}>
+                        <button disabled={researchBusy || p.program_status==="RUNNING"} onClick={()=>runNextResearchTask(p.work_id)}>
                           {researchBusy && researchAction==="NEXT" ? "Выполняю…" : "Следующая задача →"}
                         </button>
                       </div>
@@ -1403,10 +1403,10 @@ export default function AlinaStudioPage() {
                         {(t.depends_on || []).length>0 && <small className="asTaskDeps">depends: {t.depends_on.join(" · ")}</small>}
                         {(t.blockers || []).length>0 && <strong>{t.blockers.join(" · ")}</strong>}
                         <button
-                          disabled={researchBusy || ["PASS","REUSED"].includes(t.status)}
+                          disabled={researchBusy || ["PASS","REUSED","RUNNING","BLOCKED"].includes(t.status)}
                           onClick={()=>runResearchTask(p.work_id,t.task_id)}
                         >
-                          {researchBusy && researchAction===t.task_id ? "Выполняю…" : ["PASS","REUSED"].includes(t.status) ? "Готово" : "Запустить"}
+                          {researchBusy && researchAction===t.task_id ? "Выполняю…" : t.status==="RUNNING" ? "Выполняется…" : ["PASS","REUSED"].includes(t.status) ? "Готово" : t.status==="BLOCKED" ? "Заблокировано" : "Запустить"}
                         </button>
                       </article>)}
                     </div>
