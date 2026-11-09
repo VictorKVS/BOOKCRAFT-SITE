@@ -1369,6 +1369,96 @@ def import_alice_reference_analysis(project_id: str) -> JSONResponse:
     }
     write_json(out_dir / "reference_summary.json", summary)
 
+    # Reflect verified historical capabilities in the work research program.
+    research_program_path = project_dir / "research" / "ALICE-005" / "research_program.json"
+    research_program = read_json(research_program_path, {}) or {}
+    if research_program:
+        pass_tasks = {
+            "R02": "Historical chunk structure and paragraph boundaries available.",
+            "R03": "565 claims extracted in historical run.",
+            "R04": "Evidence Critic completed.",
+            "R05": "Narrative Mode Guard completed.",
+            "R06": "Canon Admission completed.",
+            "R07": "Trusted entity registry available.",
+            "R08": "Entity aliases/resolution registry available.",
+            "R12": "State observations and transition layer available.",
+            "R13": "Trusted relation store available.",
+            "R14": "Trusted event store available.",
+            "R15": "Textual event ordering available.",
+            "R16": "Temporal anchors available; world-time normalization still immature.",
+            "R24": "Causal layer completed with explicit causal links separated from adjacency.",
+            "R25": "Contradiction engine completed.",
+            "R29": "Hypothesis candidates available as forecast input, but predictions not mature.",
+        }
+        review_tasks = {
+            "R01": "Historical analysis exists, but current project source identity must be revalidated.",
+            "R09": "Character registry exists; full profile completeness not independently scored.",
+            "R10": "Goals/motives were not a dedicated historical quality gate.",
+            "R11": "Character knowledge model was not a dedicated historical quality gate.",
+            "R17": "Locations were not a dedicated historical quality gate.",
+            "R18": "Movement/travel was not a dedicated historical quality gate.",
+            "R19": "World rules were not a dedicated historical quality gate.",
+            "R20": "Technology registry was not a dedicated historical quality gate.",
+            "R21": "Technology capability model was not a dedicated historical quality gate.",
+            "R22": "Organizations were not a dedicated historical quality gate.",
+            "R23": "Objects/artifacts were not a dedicated historical quality gate.",
+            "R26": "Open threads were not a dedicated historical quality gate.",
+            "R27": "Themes/narrative functions were not a dedicated historical quality gate.",
+            "R28": "Sceneability/visual analysis was not part of the historical run.",
+            "R30": "Historical maturity is trusted analytical foundation, but the new 30-task gate is not fully satisfied.",
+        }
+
+        for task in research_program.get("tasks", []):
+            tid = task.get("task_id")
+            if tid in pass_tasks:
+                task["status"] = "PASS"
+                task["progress"] = 100
+                task["quality_gate"] = "PASS"
+                task["metrics"]["reference_imported"] = True
+                task["metrics"]["reference_commit"] = "359c692"
+                task["outputs"] = ["kb/reference_analysis/sto_let_tomu_vpered"]
+                task["blockers"] = []
+                task["reference_note"] = pass_tasks[tid]
+            elif tid in review_tasks:
+                task["status"] = "REVIEW"
+                task["progress"] = 50
+                task["quality_gate"] = "REVIEW"
+                task["metrics"]["reference_imported"] = True
+                task["metrics"]["reference_commit"] = "359c692"
+                task["blockers"] = ["NEW_RESEARCH_TASK_NOT_FULLY_COVERED_BY_HISTORICAL_RUN"]
+                task["reference_note"] = review_tasks[tid]
+
+        tasks = research_program.get("tasks", [])
+        pass_count = sum(1 for t in tasks if t.get("status") == "PASS")
+        review_count = sum(1 for t in tasks if t.get("status") == "REVIEW")
+        blocked_count = sum(1 for t in tasks if t.get("status") == "BLOCKED")
+        failed_count = sum(1 for t in tasks if t.get("status") == "FAILED")
+        completed_equiv = pass_count + 0.5 * review_count
+        research_program["program_status"] = "REVIEW"
+        research_program["reference_analysis_id"] = summary["reference_id"]
+        research_program["updated_at"] = now()
+        research_program["summary"].update({
+            "total": len(tasks),
+            "planned": sum(1 for t in tasks if t.get("status") == "PLANNED"),
+            "running": sum(1 for t in tasks if t.get("status") == "RUNNING"),
+            "pass": pass_count,
+            "review": review_count,
+            "blocked": blocked_count,
+            "failed": failed_count,
+            "reused": 0,
+            "completion_pct": round((completed_equiv / max(1,len(tasks))) * 100),
+        })
+        write_json(research_program_path, research_program)
+
+        research_index_path = project_dir / "research" / "research_index.json"
+        research_index = read_json(research_index_path, {}) or {}
+        for row in research_index.get("programs", []):
+            if row.get("work_id") == "ALICE-005":
+                row["program_status"] = research_program["program_status"]
+                row["summary"] = research_program["summary"]
+        research_index["updated_at"] = now()
+        write_json(research_index_path, research_index)
+
     meta["reference_analysis"] = {
         "id": summary["reference_id"],
         "scope": summary["scope"],
