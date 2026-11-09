@@ -1440,6 +1440,7 @@ export default function AlinaStudioPage() {
                       {(p.tasks || []).map(t=><article key={t.task_id} className={String(t.status || "").toLowerCase()}>
                         <div className="asTaskTop"><small>{t.task_id}</small><em>{t.status}</em></div>
                         <b>{t.name}</b>
+                        {t.research_question && <p className="asTaskQuestion">{t.research_question}</p>}
                         <div className="asTaskBar"><i style={{width:`${t.progress || 0}%`}}></i></div>
                         <span>{t.quality_gate || "NOT_CHECKED"}</span>
                         {(t.depends_on || []).length>0 && <small className="asTaskDeps">depends: {t.depends_on.join(" · ")}</small>}
