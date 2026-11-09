@@ -41,6 +41,7 @@ LOCK = threading.Lock()
 DEBUG_TRACE_LOCK = threading.Lock()
 DEBUG_GIT_LOCK = threading.Lock()
 DEBUG_GIT_STATE_LOCK = threading.Lock()
+PROJECT_STATE_LOCK = threading.RLock()
 DEBUG_GIT_STATE = {"status":"WAITING","updated_at":None,"error":None}
 DEBUG_TRACE_FILE = ROOT / "projects" / "sto_let_tomu_vpered" / "debug" / "alina_ui_trace.jsonl"
 ADMIN_SETTINGS_FILE = DATA_ROOT / "admin_settings.json"
@@ -194,6 +195,154 @@ def write_json(path: Path, data: Any) -> None:
     tmp = path.with_suffix(path.suffix + ".tmp")
     tmp.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
     tmp.replace(path)
+
+
+def project_state_path(project_dir: Path) -> Path:
+    return project_dir / "project_state.json"
+
+
+def project_events_path(project_dir: Path) -> Path:
+    return project_dir / "project_events.jsonl"
+
+
+def scan_project_sources(project_dir: Path) -> list[dict[str, Any]]:
+    sources_dir = project_dir / "sources"
+    if not sources_dir.exists():
+        return []
+    rows = []
+    manifest = read_json(project_dir / "kb" / "source_manifest.json", {}) or {}
+    manifest_by_name = {str(x.get("filename")): x for x in manifest.get("sources", []) if x.get("filename")}
+    for path in sorted((p for p in sources_dir.iterdir() if p.is_file()), key=lambda p:p.name.casefold()):
+        known = manifest_by_name.get(path.name, {})
+        rows.append({
+            "filename": path.name,
+            "size_bytes": path.stat().st_size,
+            "extension": path.suffix.lower(),
+            "sha256": known.get("sha256") or sha256(path),
+            "status": "AVAILABLE",
+            "added_at": known.get("added_at"),
+        })
+    return rows
+
+
+def rebuild_project_state(project_dir: Path, last_event: dict[str, Any] | None = None) -> dict[str, Any]:
+    meta = read_json(project_dir / "project.json", {}) or {}
+    sources = scan_project_sources(project_dir)
+    works = read_json(project_dir / "kb" / "works.json", {}) or {}
+    research = research_dashboard(project_dir) if (project_dir / "research" / "research_index.json").exists() else {
+        "totals":{"works":0,"research_ready":0,"running":0,"blocked":0,"pass_tasks":0,"review_tasks":0,"failed_tasks":0},
+        "programs":[],
+        "continuity":{},
+    }
+    products = project_products(project_dir)
+
+    run_files = sorted((project_dir / "runs").glob("*.state.json")) if (project_dir / "runs").exists() else []
+    runs = [read_json(p,{}) or {} for p in run_files]
+    runs = [r for r in runs if r]
+    runs.sort(key=lambda x:x.get("created_at",""), reverse=True)
+    latest_run = runs[0] if runs else None
+
+    state = {
+        "schema_version":"1.0",
+        "project_id":meta.get("project_id"),
+        "project_code":meta.get("short_code"),
+        "title":meta.get("title"),
+        "description":meta.get("description") or meta.get("intent") or "",
+        "mode":meta.get("mode"),
+        "intent":meta.get("intent"),
+        "privacy":meta.get("privacy","PRIVATE_LOCAL"),
+        "status":meta.get("status","PROJECT_CREATED"),
+        "analysis_level":meta.get("analysis_level","NONE"),
+        "active_analysis_profile":meta.get("active_analysis_profile"),
+        "source_set":{
+            "version":meta.get("source_set_version",0),
+            "fingerprint":meta.get("source_fingerprint",""),
+            "foundation_fingerprint":meta.get("foundation_fingerprint",""),
+            "foundation_stale":bool(meta.get("foundation_stale",False)),
+            "count":len(sources),
+            "sources":sources,
+        },
+        "knowledge_base":{
+            "version":meta.get("kb_version",0),
+            "foundation_ready":meta.get("analysis_level") in {"FOUNDATION_ONLY","DEEP_SEMANTIC"},
+            "works_matched":works.get("matched_count",0),
+            "works_expected":works.get("expected"),
+            "works_review":works.get("review_count",0),
+            "works_missing":works.get("missing_count",0),
+        },
+        "research":{
+            "status":(research.get("index") or {}).get("status"),
+            "totals":research.get("totals",{}),
+            "continuity_status":(research.get("continuity") or {}).get("program_status"),
+        },
+        "runs":{
+            "count":len(runs),
+            "latest":{
+                "run_id":latest_run.get("run_id"),
+                "run_type":latest_run.get("run_type"),
+                "status":latest_run.get("status"),
+                "progress":latest_run.get("progress"),
+                "stage":latest_run.get("stage"),
+                "updated_at":latest_run.get("updated_at"),
+                "error":latest_run.get("error"),
+            } if latest_run else None,
+        },
+        "products":{
+            "count":len(products),
+            "items":[
+                {
+                    "product_id":p.get("product_id"),
+                    "type":p.get("type"),
+                    "title":p.get("title"),
+                    "status":p.get("status"),
+                    "updated_at":p.get("updated_at"),
+                } for p in products
+            ],
+        },
+        "last_event":last_event,
+        "created_at":meta.get("created_at"),
+        "updated_at":now(),
+    }
+    write_json(project_state_path(project_dir), state)
+    return state
+
+
+def record_project_event(
+    project_dir: Path,
+    event_type: str,
+    *,
+    status: str = "PASS",
+    actor: str = "ALINA",
+    details: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    with PROJECT_STATE_LOCK:
+        event = {
+            "event_id":f"EVT-{uuid.uuid4().hex[:12]}",
+            "timestamp":now(),
+            "event_type":event_type,
+            "status":status,
+            "actor":actor,
+            "details":details or {},
+        }
+        path = project_events_path(project_dir)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with path.open("a",encoding="utf-8") as fh:
+            fh.write(json.dumps(event,ensure_ascii=False)+"\n")
+        rebuild_project_state(project_dir,last_event=event)
+        return event
+
+
+def read_project_events(project_dir: Path, limit: int = 200) -> list[dict[str, Any]]:
+    path = project_events_path(project_dir)
+    if not path.exists():
+        return []
+    rows=[]
+    for line in path.read_text(encoding="utf-8").splitlines()[-max(1,min(limit,2000)):]:
+        try:
+            rows.append(json.loads(line))
+        except Exception:
+            pass
+    return rows
 
 
 def sha256(path: Path) -> str:
@@ -1983,8 +2132,18 @@ def run_ingest(run_id: str, project_dir: Path, source_files: list[Path], project
         project_meta["updated_at"] = now()
         write_json(project_dir / "project.json", project_meta)
 
+        record_project_event(project_dir,"FOUNDATION_COMPLETED",details={
+            "run_id":run_id,
+            "kb_version":project_meta.get("kb_version"),
+            "analysis_level":project_meta.get("analysis_level"),
+            "metrics":manifest.get("metrics",{}),
+        })
+
         # Foundation prepares the corpus. Research is the real analytical stage.
         start_project_research_scheduler(project_dir)
+        record_project_event(project_dir,"RESEARCH_SCHEDULER_STARTED",status="RUNNING",details={
+            "work_count":research_init["index"].get("work_count",0)
+        })
         trace(run_id, "RESEARCH", "Автоматическая исследовательская очередь запущена после Foundation", "PASS", output_ref="research/research_index.json")
 
         with LOCK:
@@ -2001,6 +2160,7 @@ def run_ingest(run_id: str, project_dir: Path, source_files: list[Path], project
             RUNS[run_id]["error"] = str(exc)
             RUNS[run_id]["updated_at"] = now()
         trace(run_id, RUNS[run_id].get("stage", "SYSTEM"), str(exc), "ERROR")
+        record_project_event(project_dir,"FOUNDATION_FAILED",status="FAIL",details={"run_id":run_id,"error":str(exc)[:500]})
 
 
 def run_deep_analysis(run_id: str, project_dir: Path, analysis_key: str, profile: str, analysis_config: dict[str, Any]) -> None:
@@ -2730,13 +2890,17 @@ async def create_empty_project(
         "project_id": project_id,
         "title": clean_title,
         "description": description.strip() or intent.strip(),
-        "contract_version": "1.1",
+        "contract_version": "1.2",
         "short_code": short_code,
         "folders": ["sources", "kb", "runs", "deep", "products", "research"],
+        "service_files": ["project_state.json","project_events.jsonl"],
         "created_at": metadata["created_at"],
         "status": "READY_FOR_SOURCES",
     })
-    return JSONResponse(metadata)
+    record_project_event(project_dir,"PROJECT_CREATED",details={
+        "project_id":project_id,"short_code":short_code,"title":clean_title,"mode":mode
+    })
+    return JSONResponse({**metadata,"project_state":read_json(project_state_path(project_dir),{})})
 
 
 @app.post("/api/projects/{project_id}/sources")
@@ -2794,12 +2958,27 @@ async def add_project_sources(
                 "size_bytes": p.stat().st_size,
                 "extension": p.suffix.lower(),
                 "sha256": sha256(p),
+                "added_at": now(),
             }
             for p in all_files
         ],
         "updated_at": now(),
     })
-    return JSONResponse({"project": meta, "added": saved, "source_changed": source_changed, "source_fingerprint": new_fingerprint})
+    event = record_project_event(project_dir,"SOURCES_ATTACHED",details={
+        "added":[{"filename":x.get("filename"),"size_bytes":x.get("size_bytes"),"sha256":x.get("sha256")} for x in saved],
+        "source_count":len(all_files),
+        "source_set_version":meta.get("source_set_version"),
+        "source_fingerprint":new_fingerprint,
+        "source_changed":source_changed,
+    })
+    return JSONResponse({
+        "project": meta,
+        "added": saved,
+        "source_changed": source_changed,
+        "source_fingerprint": new_fingerprint,
+        "project_state": read_json(project_state_path(project_dir),{}),
+        "event":event,
+    })
 
 
 @app.post("/api/projects/{project_id}/foundation-analysis")
@@ -2854,6 +3033,7 @@ def start_foundation_analysis(project_id: str) -> dict[str, Any]:
         "current_name": "",
     }
     persist_run_state(run_id)
+    record_project_event(project_dir,"FOUNDATION_QUEUED",status="QUEUED",details={"run_id":run_id})
     threading.Thread(
         target=run_ingest,
         args=(run_id, project_dir, source_files, meta.get("title","Проект")),
@@ -3155,6 +3335,9 @@ async def create_creative_product(
     write_json(products_dir / "index.json", products)
     meta["updated_at"] = now()
     write_json(project_dir / "project.json", meta)
+    record_project_event(project_dir,"PRODUCT_CREATED",details={
+        "product_id":product_id,"type":product.get("type"),"title":product.get("title")
+    })
     return JSONResponse(product)
 
 
@@ -3206,6 +3389,7 @@ async def update_project_description(project_id: str, description: str = Form(..
     meta["description"] = description.strip()[:500]
     meta["updated_at"] = now()
     write_json(path, meta)
+    record_project_event(project_dir,"PROJECT_DESCRIPTION_UPDATED",details={"description":meta.get("description","")[:500]})
     return JSONResponse(meta)
 
 
@@ -3223,12 +3407,36 @@ async def rename_project(project_id: str, title: str = Form(...)) -> JSONRespons
     meta["title_mode"] = "MANUAL"
     meta["updated_at"] = now()
     write_json(path, meta)
+    record_project_event(project_dir,"PROJECT_TITLE_UPDATED",details={"title":clean})
     return JSONResponse(meta)
 
 
 @app.get("/api/projects/{project_id}")
 def get_project(project_id: str) -> JSONResponse:
-    path = PROJECTS_ROOT / project_id / "project.json"
+    project_dir = PROJECTS_ROOT / project_id
+    path = project_dir / "project.json"
     if not path.exists():
         raise HTTPException(404, "Проект не найден")
-    return JSONResponse(json.loads(path.read_text(encoding="utf-8")))
+    meta = read_json(path,{}) or {}
+    state = rebuild_project_state(project_dir)
+    return JSONResponse({
+        **meta,
+        "saved_sources":state.get("source_set",{}).get("sources",[]),
+        "project_state":state,
+    })
+
+
+@app.get("/api/projects/{project_id}/state")
+def get_project_state(project_id: str) -> JSONResponse:
+    project_dir = PROJECTS_ROOT / project_id
+    if not (project_dir / "project.json").exists():
+        raise HTTPException(404, "Проект не найден")
+    return JSONResponse(rebuild_project_state(project_dir))
+
+
+@app.get("/api/projects/{project_id}/events")
+def get_project_events(project_id: str, limit: int = 200) -> JSONResponse:
+    project_dir = PROJECTS_ROOT / project_id
+    if not (project_dir / "project.json").exists():
+        raise HTTPException(404, "Проект не найден")
+    return JSONResponse(read_project_events(project_dir,limit=limit))
