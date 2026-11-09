@@ -323,6 +323,15 @@ def build_project_command_center(project_dir: Path) -> dict[str, Any]:
     factory_packages = []
     research_root = project_dir / "research"
     if research_root.exists():
+        # Backfill first-class Text Analysis packages from already completed R03/R04 outputs.
+        for work_dir in research_root.iterdir():
+            if not work_dir.is_dir():
+                continue
+            if (work_dir / "outputs" / "R03_semantic_package.json").exists():
+                try:
+                    build_text_analysis_factory_package(project_dir, work_dir.name)
+                except Exception:
+                    pass
         for p in research_root.glob("*/text_analysis/text_analysis_package.json"):
             item = read_json(p,{}) or {}
             if item:
@@ -3870,6 +3879,15 @@ def get_project_research_dashboard(project_id: str) -> JSONResponse:
     if not project_dir.exists():
         raise HTTPException(404, "Проект не найден")
     return JSONResponse(research_dashboard(project_dir))
+
+
+@app.get("/api/projects/{project_id}/research/{work_id}/text-analysis")
+def get_work_text_analysis(project_id: str, work_id: str) -> JSONResponse:
+    project_dir = PROJECTS_ROOT / project_id
+    if not project_dir.exists():
+        raise HTTPException(404, "Проект не найден")
+    package = build_text_analysis_factory_package(project_dir, work_id)
+    return JSONResponse(package)
 
 
 @app.get("/api/projects/{project_id}/research/{work_id}")
