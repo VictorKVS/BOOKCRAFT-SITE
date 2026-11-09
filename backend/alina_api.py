@@ -320,6 +320,17 @@ def build_project_command_center(project_dir: Path) -> dict[str, Any]:
     corpus = state.get("corpus_verification") or {}
     corpus_summary = corpus.get("summary", {}) or {}
 
+    factory_packages = []
+    research_root = project_dir / "research"
+    if research_root.exists():
+        for p in research_root.glob("*/text_analysis/text_analysis_package.json"):
+            item = read_json(p,{}) or {}
+            if item:
+                factory_packages.append(item)
+    factory_extracted = sum(1 for x in factory_packages if x.get("status") in {"EXTRACTED","EVIDENCE_REVIEW","EVIDENCE_VERIFIED","TRUSTED"})
+    factory_trusted = sum(1 for x in factory_packages if x.get("status") == "TRUSTED")
+    factory_review = sum(1 for x in factory_packages if x.get("status") in {"EVIDENCE_REVIEW","EVIDENCE_VERIFIED"})
+
     attention = []
     if state.get("source_set",{}).get("foundation_stale"):
         attention.append({
@@ -335,6 +346,12 @@ def build_project_command_center(project_dir: Path) -> dict[str, Any]:
         attention.append({
             "severity":"MEDIUM","type":"CORPUS_VERIFICATION_PENDING","title":"Корпус ещё не верифицирован",
             "reason":"Нет итогового Corpus Verification package.","action":"VERIFY_CORPUS","target":"sources"
+        })
+    if factory_review > 0:
+        attention.append({
+            "severity":"MEDIUM","type":"TEXT_ANALYSIS_REVIEW","title":"Фабрика разбора текста требует проверки",
+            "reason":f"{factory_review} work(s) извлечены, но ещё не имеют TRUSTED Text Analysis Package.",
+            "action":"OPEN_TEXT_ANALYSIS","target":"research"
         })
     if int(totals.get("review_tasks") or 0) > 0:
         attention.append({
@@ -380,6 +397,7 @@ def build_project_command_center(project_dir: Path) -> dict[str, Any]:
     pipeline = [
         {"id":"SOURCE","label":"Источники","status":"PASS" if state.get("source_set",{}).get("count",0) else "NOT_STARTED","progress":100 if state.get("source_set",{}).get("count",0) else 0,"target":"sources"},
         {"id":"CORPUS","label":"Corpus Verify","status":"PASS" if corpus else "REVIEW","progress":100 if corpus else 0,"target":"sources"},
+        {"id":"TEXT_ANALYSIS","label":"Text Analysis","status":"PASS" if factory_packages and factory_trusted == len(factory_packages) else ("REVIEW" if factory_review else ("RUNNING" if any(x.get("status")=="RUNNING" for x in factory_packages) else ("PLANNED" if totals.get("works") else "NOT_STARTED"))),"progress":round(factory_trusted/max(1,int(totals.get("works") or len(factory_packages) or 1))*100),"target":"research"},
         {"id":"RESEARCH","label":"Research","status":"RUNNING" if int(totals.get("running") or 0)>0 else ("REVIEW" if int(totals.get("review_tasks") or 0)>0 else ("PASS" if totals.get("works") and totals.get("research_ready")==totals.get("works") else "PLANNED")),"progress":round((int(totals.get("research_ready") or 0)/max(1,int(totals.get("works") or 0)))*100),"target":"research"},
         {"id":"CONTINUITY","label":"Continuity","status":state.get("research",{}).get("continuity_status") or "BLOCKED","progress":0,"target":"graph"},
         {"id":"FORECAST","label":"Forecast","status":"NOT_STARTED","progress":0,"target":"forecast"},
@@ -396,6 +414,9 @@ def build_project_command_center(project_dir: Path) -> dict[str, Any]:
             "works_matched":state.get("knowledge_base",{}).get("works_matched",0),
             "works_expected":state.get("knowledge_base",{}).get("works_expected"),
             "corpus_verified":corpus_summary.get("works_verified_in_secondary_cycle_catalog",0),
+            "text_analysis_extracted":factory_extracted,
+            "text_analysis_trusted":factory_trusted,
+            "text_analysis_review":factory_review,
             "research_ready":totals.get("research_ready",0),
             "research_works":totals.get("works",0),
             "pass_tasks":totals.get("pass_tasks",0),
@@ -1000,6 +1021,7 @@ def run_work_semantic_extraction(project_dir: Path, work_id: str, research_run_i
         package["metrics"]["graph_nodes"] = weighted_graph.get("node_count",0)
         package["metrics"]["graph_edges"] = weighted_graph.get("edge_count",0)
         write_json(outputs_dir / "R03_semantic_package.json", package)
+        build_text_analysis_factory_package(project_dir, work_id)
 
         task["status"] = "PASS"
         task["quality_gate"] = "PASS"
@@ -1391,6 +1413,112 @@ def build_weighted_research_graph(project_dir: Path, work_id: str) -> dict[str, 
     return graph
 
 
+def build_text_analysis_factory_package(project_dir: Path, work_id: str) -> dict[str, Any]:
+    work_root = project_dir / "research" / work_id
+    outputs = work_root / "outputs"
+    factory_dir = work_root / "text_analysis"
+    factory_dir.mkdir(parents=True, exist_ok=True)
+
+    program = read_json(work_root / "research_program.json", {}) or {}
+    task_by_id = {t.get("task_id"):t for t in program.get("tasks",[])}
+
+    semantic = read_json(outputs / "R03_semantic_package.json", {}) or {}
+    evidence = read_json(outputs / "R04_evidence_verification.json", {}) or {}
+    graph = read_json(outputs / "research_graph.json", {}) or {}
+
+    registries = {
+        "entities": read_json(outputs / "R07_entity_registry.json", {}) or {},
+        "events": read_json(outputs / "R14_event_registry.json", {}) or {},
+        "locations": read_json(outputs / "R17_location_registry.json", {}) or {},
+        "technologies": read_json(outputs / "R20_technology_registry.json", {}) or {},
+        "organizations": read_json(outputs / "R22_organization_registry.json", {}) or {},
+    }
+
+    stage_statuses = {
+        "TA01_SCOPE": "PASS" if (work_root / "work_scope.json").exists() else ("PASS" if task_by_id.get("R02",{}).get("status") in {"PASS","REUSED"} else "NOT_STARTED"),
+        "TA02_CHUNK": "PASS" if semantic.get("metrics",{}).get("chunks") else "NOT_STARTED",
+        "TA03_EXTRACT": "PASS" if semantic else ("RUNNING" if task_by_id.get("R03",{}).get("status") == "RUNNING" else "NOT_STARTED"),
+        "TA04_EVIDENCE": task_by_id.get("R04",{}).get("quality_gate") or ("PASS" if evidence else "NOT_STARTED"),
+        "TA05_REGISTRIES": "PASS" if all(task_by_id.get(x,{}).get("status") in {"PASS","REUSED"} for x in ("R07","R14","R17","R20","R22")) else "PARTIAL",
+        "TA06_GRAPH": "PASS" if graph.get("node_count") is not None else ("PASS" if (outputs / "research_graph.json").exists() else "NOT_STARTED"),
+        "TA07_PACKAGE": "PASS",
+    }
+
+    blockers = []
+    if not semantic:
+        status = "RUNNING" if task_by_id.get("R03",{}).get("status") == "RUNNING" else "NOT_STARTED"
+    elif not evidence:
+        status = "EXTRACTED"
+    elif task_by_id.get("R04",{}).get("status") != "PASS":
+        status = "EVIDENCE_REVIEW"
+        blockers.append("R04_EVIDENCE_NOT_PASS")
+    else:
+        required = ("R07","R14","R17","R20","R22")
+        missing = [x for x in required if task_by_id.get(x,{}).get("status") not in {"PASS","REUSED"}]
+        if missing:
+            status = "EVIDENCE_VERIFIED"
+            blockers.extend([f"REGISTRY_NOT_TRUSTED:{x}" for x in missing])
+        else:
+            status = "TRUSTED"
+
+    artifacts = []
+    for name in (
+        "R03_semantic_package.json","R03_claims.json","R03_characters.json","R03_events.json",
+        "R03_relations.json","R03_locations.json","R03_technologies.json","R03_organizations.json",
+        "R03_time_anchors.json","R03_open_threads.json","R04_evidence_verification.json",
+        "R07_entity_registry.json","R14_event_registry.json","R17_location_registry.json",
+        "R20_technology_registry.json","R22_organization_registry.json","research_graph.json"
+    ):
+        if (outputs / name).exists():
+            artifacts.append(f"research/{work_id}/outputs/{name}")
+
+    reg_metrics = {}
+    for key,value in registries.items():
+        reg_metrics[key] = {
+            "total":value.get("total",0),
+            "accepted":value.get("accepted_count",0),
+            "review":value.get("review_count",0),
+            "rejected":value.get("rejected_count",0),
+            "evidence_coverage":value.get("evidence_coverage",0.0),
+        }
+
+    package = {
+        "schema_version":"1.0",
+        "factory_id":"ALINA_TEXT_ANALYSIS_FACTORY_V1",
+        "work_id":work_id,
+        "work_title":program.get("work_title"),
+        "source_fingerprint":program.get("source_fingerprint"),
+        "research_run_id":semantic.get("research_run_id"),
+        "status":status,
+        "stage_statuses":stage_statuses,
+        "boundary":semantic.get("boundary") or read_json(work_root / "work_scope.json", {}) or {},
+        "model":semantic.get("model") or {},
+        "metrics":{
+            **(semantic.get("metrics") or {}),
+            "evidence_claims_total":evidence.get("claims_total",0),
+            "evidence_verified_exact":evidence.get("verified_exact",0),
+            "evidence_review":evidence.get("review_near_match",0),
+            "evidence_rejected":evidence.get("rejected",0),
+            "evidence_coverage":evidence.get("evidence_coverage",0.0),
+            "registries":reg_metrics,
+            "graph_nodes":graph.get("node_count", semantic.get("metrics",{}).get("graph_nodes",0)),
+            "graph_edges":graph.get("edge_count", semantic.get("metrics",{}).get("graph_edges",0)),
+        },
+        "artifacts":artifacts,
+        "quality":{
+            "semantic_extraction":task_by_id.get("R03",{}).get("quality_gate","NOT_CHECKED"),
+            "evidence_verification":task_by_id.get("R04",{}).get("quality_gate","NOT_CHECKED"),
+            "trusted_registries":sum(1 for x in ("R07","R14","R17","R20","R22") if task_by_id.get(x,{}).get("status") in {"PASS","REUSED"}),
+            "required_registries":5,
+        },
+        "blockers":blockers,
+        "created_at":semantic.get("created_at") or now(),
+        "updated_at":now(),
+    }
+    write_json(factory_dir / "text_analysis_package.json", package)
+    return package
+
+
 def project_research_scheduler(project_dir: Path) -> None:
     index = read_json(project_dir / "research" / "research_index.json", {}) or {}
     for row in index.get("programs", []):
@@ -1628,6 +1756,9 @@ def execute_research_task(project_dir: Path, work_id: str, task_id: str) -> dict
     task["duration_ms"] = int((time.perf_counter()-started)*1000)
     if task.get("status") in {"PASS","REUSED","REVIEW"}:
         task["progress"] = 100 if task.get("status") in {"PASS","REUSED"} else max(task.get("progress",0),50)
+
+    if task_id in {"R01","R02","R04","R07","R14","R17","R20","R22","R30"}:
+        build_text_analysis_factory_package(project_dir, work_id)
 
     program = recalc_research_program(program)
     write_json(program_path, program)
