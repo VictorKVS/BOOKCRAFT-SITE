@@ -311,6 +311,124 @@ def rebuild_project_state(project_dir: Path, last_event: dict[str, Any] | None =
     return state
 
 
+def build_project_command_center(project_dir: Path) -> dict[str, Any]:
+    state = rebuild_project_state(project_dir)
+    research = research_dashboard(project_dir) if (project_dir / "research" / "research_index.json").exists() else {"totals":{},"programs":[]}
+    totals = research.get("totals", {}) or {}
+    programs = research.get("programs", []) or []
+    latest_run = (state.get("runs") or {}).get("latest") or {}
+    corpus = state.get("corpus_verification") or {}
+    corpus_summary = corpus.get("summary", {}) or {}
+
+    attention = []
+    if state.get("source_set",{}).get("foundation_stale"):
+        attention.append({
+            "severity":"HIGH","type":"STALE_FOUNDATION","title":"База знаний устарела относительно источников",
+            "reason":"Source Set изменился после Foundation.","action":"REBUILD_FOUNDATION","target":"knowledge"
+        })
+    if latest_run.get("status") == "FAIL":
+        attention.append({
+            "severity":"HIGH","type":"RUN_FAILED","title":"Последний анализ завершился ошибкой",
+            "reason":latest_run.get("error") or "Неизвестная ошибка","action":"RESUME_OR_RETRY","target":"process"
+        })
+    if not corpus:
+        attention.append({
+            "severity":"MEDIUM","type":"CORPUS_VERIFICATION_PENDING","title":"Корпус ещё не верифицирован",
+            "reason":"Нет итогового Corpus Verification package.","action":"VERIFY_CORPUS","target":"sources"
+        })
+    if int(totals.get("review_tasks") or 0) > 0:
+        attention.append({
+            "severity":"MEDIUM","type":"RESEARCH_REVIEW","title":"Есть исследовательские задачи на проверке",
+            "reason":f"{totals.get('review_tasks',0)} task(s) имеют статус REVIEW.","action":"OPEN_RESEARCH_REVIEW","target":"research"
+        })
+    if int(totals.get("failed_tasks") or 0) > 0:
+        attention.append({
+            "severity":"HIGH","type":"RESEARCH_FAILED","title":"Есть упавшие исследовательские задачи",
+            "reason":f"{totals.get('failed_tasks',0)} task(s) имеют статус FAILED.","action":"OPEN_RESEARCH_FAILED","target":"research"
+        })
+
+    active_program = next((p for p in programs if p.get("program_status") == "RUNNING"), None)
+    if not active_program:
+        active_program = next((p for p in programs if p.get("program_status") in {"REVIEW","BLOCKED","PLANNED"}), None)
+
+    current_task = None
+    if active_program:
+        tasks = active_program.get("tasks", []) or []
+        current_task = next((t for t in tasks if t.get("status") == "RUNNING"), None)
+        if not current_task:
+            current_task = next((t for t in tasks if t.get("status") in {"REVIEW","FAILED","READY","BLOCKED","PLANNED"}), None)
+
+    overall = "READY"
+    if any(x.get("severity") == "HIGH" for x in attention):
+        overall = "BLOCKED"
+    elif attention:
+        overall = "REVIEW"
+    elif int(totals.get("running") or 0) > 0:
+        overall = "RUNNING"
+
+    if latest_run.get("status") == "FAIL":
+        next_action = {"id":"RESUME_DEEP","label":"Продолжить анализ с checkpoint","target":"process"}
+    elif int(totals.get("review_tasks") or 0) > 0:
+        next_action = {"id":"OPEN_REVIEW","label":"Разобрать задачи REVIEW","target":"research"}
+    elif not corpus:
+        next_action = {"id":"VERIFY_CORPUS","label":"Завершить проверку корпуса","target":"sources"}
+    elif int(totals.get("research_ready") or 0) < int(totals.get("works") or 0):
+        next_action = {"id":"CONTINUE_RESEARCH","label":"Продолжить Research Complex","target":"research"}
+    else:
+        next_action = {"id":"OPEN_RESULTS","label":"Открыть результаты исследования","target":"knowledge"}
+
+    pipeline = [
+        {"id":"SOURCE","label":"Источники","status":"PASS" if state.get("source_set",{}).get("count",0) else "NOT_STARTED","progress":100 if state.get("source_set",{}).get("count",0) else 0,"target":"sources"},
+        {"id":"CORPUS","label":"Corpus Verify","status":"PASS" if corpus else "REVIEW","progress":100 if corpus else 0,"target":"sources"},
+        {"id":"RESEARCH","label":"Research","status":"RUNNING" if int(totals.get("running") or 0)>0 else ("REVIEW" if int(totals.get("review_tasks") or 0)>0 else ("PASS" if totals.get("works") and totals.get("research_ready")==totals.get("works") else "PLANNED")),"progress":round((int(totals.get("research_ready") or 0)/max(1,int(totals.get("works") or 0)))*100),"target":"research"},
+        {"id":"CONTINUITY","label":"Continuity","status":state.get("research",{}).get("continuity_status") or "BLOCKED","progress":0,"target":"graph"},
+        {"id":"FORECAST","label":"Forecast","status":"NOT_STARTED","progress":0,"target":"forecast"},
+        {"id":"CREATIVE","label":"Creative","status":"PASS" if state.get("products",{}).get("count",0) else "NOT_STARTED","progress":100 if state.get("products",{}).get("count",0) else 0,"target":"creative"},
+    ]
+
+    report = {
+        "schema_version":"1.0",
+        "project":{"id":state.get("project_id"),"code":state.get("project_code"),"title":state.get("title"),"status":state.get("status")},
+        "health":overall,
+        "next_action":next_action,
+        "kpis":{
+            "sources":state.get("source_set",{}).get("count",0),
+            "works_matched":state.get("knowledge_base",{}).get("works_matched",0),
+            "works_expected":state.get("knowledge_base",{}).get("works_expected"),
+            "corpus_verified":corpus_summary.get("works_verified_in_secondary_cycle_catalog",0),
+            "research_ready":totals.get("research_ready",0),
+            "research_works":totals.get("works",0),
+            "pass_tasks":totals.get("pass_tasks",0),
+            "review_tasks":totals.get("review_tasks",0),
+            "failed_tasks":totals.get("failed_tasks",0),
+            "products":state.get("products",{}).get("count",0),
+        },
+        "pipeline":pipeline,
+        "attention":attention,
+        "current_operation":{
+            "work_id":active_program.get("work_id") if active_program else None,
+            "work_title":active_program.get("work_title") if active_program else None,
+            "program_status":active_program.get("program_status") if active_program else None,
+            "task_id":current_task.get("task_id") if current_task else None,
+            "task_name":current_task.get("name") if current_task else None,
+            "task_status":current_task.get("status") if current_task else None,
+            "task_progress":current_task.get("progress") if current_task else None,
+            "run":latest_run,
+        },
+        "trust":{
+            "corpus_verification_status":corpus.get("status") if corpus else "PENDING",
+            "publication_year_matches":corpus_summary.get("publication_year_matches",0),
+            "works_expected":corpus_summary.get("works_expected",0),
+            "official_full_text_verified":corpus_summary.get("official_full_text_verified",0),
+            "publisher_editions_verified":corpus_summary.get("publisher_editions_verified",0),
+        },
+        "recent_events":read_project_events(project_dir,limit=12),
+        "generated_at":now(),
+    }
+    write_json(project_dir / "command_center.json", report)
+    return report
+
+
 def record_project_event(
     project_dir: Path,
     event_type: str,
@@ -3835,6 +3953,42 @@ def get_project_state(project_id: str) -> JSONResponse:
     if not (project_dir / "project.json").exists():
         raise HTTPException(404, "Проект не найден")
     return JSONResponse(rebuild_project_state(project_dir))
+
+
+@app.get("/api/projects/{project_id}/command-center")
+def get_project_command_center(project_id: str) -> JSONResponse:
+    project_dir = PROJECTS_ROOT / project_id
+    if not (project_dir / "project.json").exists():
+        raise HTTPException(404, "Проект не найден")
+    return JSONResponse(build_project_command_center(project_dir))
+
+
+@app.get("/api/projects/{project_id}/report")
+def get_project_report(project_id: str) -> JSONResponse:
+    project_dir = PROJECTS_ROOT / project_id
+    if not (project_dir / "project.json").exists():
+        raise HTTPException(404, "Проект не найден")
+    command = build_project_command_center(project_dir)
+    report = {
+        "report_schema":"ALINA_PROJECT_REPORT_V1",
+        "generated_at":now(),
+        "executive_summary":{
+            "project":command.get("project"),
+            "health":command.get("health"),
+            "next_action":command.get("next_action"),
+        },
+        "kpis":command.get("kpis"),
+        "pipeline":command.get("pipeline"),
+        "attention":command.get("attention"),
+        "current_operation":command.get("current_operation"),
+        "trust":command.get("trust"),
+        "recent_events":command.get("recent_events"),
+        "project_state":rebuild_project_state(project_dir),
+    }
+    reports_dir=project_dir / "reports"
+    reports_dir.mkdir(parents=True,exist_ok=True)
+    write_json(reports_dir / "latest_project_report.json", report)
+    return JSONResponse(report)
 
 
 @app.get("/api/projects/{project_id}/events")
