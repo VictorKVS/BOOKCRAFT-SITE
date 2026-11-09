@@ -626,7 +626,42 @@ def execute_research_task(project_dir: Path, work_id: str, task_id: str) -> dict
     program = recalc_research_program(program)
     write_json(program_path, program)
     sync_research_index(project_dir, program)
-    return {"status":task.get("status"),"task":task,"program":program}
+
+    run_record = {
+        "schema_version":"1.0",
+        "research_run_id":task.get("last_run_id"),
+        "project_id":program.get("project_id"),
+        "project_code":program.get("project_code"),
+        "work_id":work_id,
+        "work_title":program.get("work_title"),
+        "task_id":task_id,
+        "task_name":task.get("name"),
+        "executor":task.get("executor"),
+        "status":task.get("status"),
+        "quality_gate":task.get("quality_gate"),
+        "started_at":task.get("started_at"),
+        "finished_at":task.get("finished_at"),
+        "duration_ms":task.get("duration_ms"),
+        "outputs":task.get("outputs",[]),
+        "metrics":task.get("metrics",{}),
+        "blockers":task.get("blockers",[]),
+        "source_fingerprint":program.get("source_fingerprint"),
+    }
+    run_path = project_dir / "research" / work_id / "runs" / f"{task.get('last_run_id')}.json"
+    write_json(run_path, run_record)
+    history = program.setdefault("execution_history", [])
+    history.append({
+        "research_run_id":task.get("last_run_id"),
+        "task_id":task_id,
+        "status":task.get("status"),
+        "finished_at":task.get("finished_at"),
+        "duration_ms":task.get("duration_ms"),
+        "run_file":str(run_path.relative_to(project_dir)).replace("\\","/"),
+    })
+    program["execution_history"] = history[-200:]
+    write_json(program_path, program)
+
+    return {"status":task.get("status"),"task":task,"program":program,"run":run_record}
 
 
 def execute_next_research_task(project_dir: Path, work_id: str) -> dict[str, Any]:
@@ -642,6 +677,36 @@ def execute_next_research_task(project_dir: Path, work_id: str) -> dict[str, Any
         if task.get("status") == "READY":
             return execute_research_task(project_dir, work_id, task.get("task_id"))
     return {"status":"NO_READY_TASKS","program":program}
+
+
+def execute_research_auto(project_dir: Path, work_id: str, max_steps: int = 30) -> dict[str, Any]:
+    executed = []
+    for _ in range(max(1,min(max_steps,30))):
+        result = execute_next_research_task(project_dir, work_id)
+        status = result.get("status")
+        if status == "NO_READY_TASKS":
+            break
+        task = result.get("task") or {}
+        executed.append({
+            "task_id":task.get("task_id"),
+            "status":task.get("status"),
+            "quality_gate":task.get("quality_gate"),
+            "blockers":task.get("blockers",[]),
+        })
+        if task.get("status") in {"FAILED"}:
+            break
+
+    program = read_json(project_dir / "research" / work_id / "research_program.json", {}) or {}
+    return {
+        "status":"AUTO_STOPPED" if not executed or (executed[-1].get("status") == "BLOCKED") else "AUTO_PROGRESS",
+        "executed":executed,
+        "program":program,
+        "stop_reason": (
+            executed[-1].get("blockers",[]) if executed and executed[-1].get("status") == "BLOCKED"
+            else ["NO_READY_TASKS"] if not any(t.get("status") == "READY" for t in program.get("tasks",[]))
+            else []
+        ),
+    }
 
 
 def normalize_title(value: str) -> str:
@@ -2275,6 +2340,14 @@ def run_next_work_research_task(project_id: str, work_id: str) -> JSONResponse:
     if not project_dir.exists():
         raise HTTPException(404, "Проект не найден")
     return JSONResponse(execute_next_research_task(project_dir, work_id))
+
+
+@app.post("/api/projects/{project_id}/research/{work_id}/auto")
+def run_work_research_auto(project_id: str, work_id: str, max_steps: int = 30) -> JSONResponse:
+    project_dir = PROJECTS_ROOT / project_id
+    if not project_dir.exists():
+        raise HTTPException(404, "Проект не найден")
+    return JSONResponse(execute_research_auto(project_dir, work_id, max_steps=max_steps))
 
 
 @app.post("/api/projects/{project_id}/research/rebuild")
