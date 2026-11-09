@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "registry_id": "ALICE-EDITION-REGISTRY-V1",
+  "verified_editions": [
+    {
+      "edition_id": "ED-ALICE-029-AST-2023",
+      "work_id": "ALICE-029",
+      "title": "Звёздный пёс",
+      "publisher": "АСТ",
+      "year": 2023,
+      "isbn": "978-5-17-153424-0",
+      "pages": 192,
+      "source_ids": [
+        "SRC-AST-ZVEZDNY-PES"
+      ],
+      "status": "PUBLISHER_VERIFIED"
+    },
+    {
+      "edition_id": "ED-ALICE-005-EKSMO-2024",
+      "work_id": "ALICE-005",
+      "title": "Алиса Селезнева. Сто лет тому вперед",
+      "publisher": "Эксмо",
+      "year": 2024,
+      "isbn": "978-5-04-191772-2",
+      "pages": 320,
+      "source_ids": [
+        "SRC-EKSMO-STO-LET-2024"
+      ],
+      "status": "EDITION_IMPRINT_VERIFIED"
+    },
+    {
+      "edition_id": "ED-ALICE-EARLY-AST-2021",
+      "work_ids": [
+        "ALICE-033",
+        "ALICE-034",
+        "ALICE-035",
+        "ALICE-036"
+      ],
+      "title": "Тайна Третьей планеты. Повести и рассказы",
+      "publisher": "АСТ",
+      "year": 2021,
+      "isbn": "978-5-17-108999-3",
+      "pages": 416,
+      "source_ids": [
+        "SRC-AST-TAYNA-3"
+      ],
+      "status": "PUBLISHER_VERIFIED_COLLECTION"
+    }
+  ],
+  "note": "This registry is intentionally not exhaustive. Only editions with retrieved evidence are promoted here."
+}
