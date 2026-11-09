@@ -7,6 +7,9 @@ import threading
 import subprocess
 import re
 import urllib.request
+import urllib.error
+import socket
+import time
 import zipfile
 from pathlib import Path
 from typing import Any
@@ -21,11 +24,70 @@ _LLAMA_PATH = None
 SCHEMA_KEYS = ["characters","events","relations","locations","technologies","organizations","time_anchors","claims","open_threads"]
 
 
-def json_request(url: str, payload: dict[str, Any] | None = None, timeout: int = 600) -> Any:
+def json_request(
+    url: str,
+    payload: dict[str, Any] | None = None,
+    timeout: int = 600,
+    retries: int | None = None,
+) -> Any:
+    retries = int(os.getenv("ALINA_LLM_HTTP_RETRIES", str(retries if retries is not None else 5)))
     body = None if payload is None else json.dumps(payload, ensure_ascii=False).encode("utf-8")
-    req = urllib.request.Request(url, data=body, headers={"Content-Type":"application/json"}, method="GET" if body is None else "POST")
-    with urllib.request.urlopen(req, timeout=timeout) as response:
-        return json.loads(response.read().decode("utf-8"))
+    last_error = None
+
+    for attempt in range(1, max(1, retries) + 1):
+        req = urllib.request.Request(
+            url,
+            data=body,
+            headers={
+                "Content-Type":"application/json",
+                "Connection":"close",
+                "User-Agent":"ALINA-LOCAL/1.0",
+            },
+            method="GET" if body is None else "POST",
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as response:
+                raw = response.read().decode("utf-8")
+                return json.loads(raw)
+        except urllib.error.HTTPError as exc:
+            # 4xx usually indicates a bad request/model/payload and retrying is useless.
+            last_error = exc
+            if 400 <= getattr(exc, "code", 0) < 500 and getattr(exc, "code", 0) not in {408, 409, 429}:
+                raise
+        except (
+            urllib.error.URLError,
+            ConnectionResetError,
+            ConnectionAbortedError,
+            ConnectionRefusedError,
+            TimeoutError,
+            socket.timeout,
+            OSError,
+        ) as exc:
+            last_error = exc
+
+        if attempt >= max(1, retries):
+            break
+
+        delay = min(20.0, 1.5 * (2 ** (attempt - 1)))
+        time.sleep(delay)
+
+        # Best-effort health probe for Ollama/local HTTP provider.
+        if "/api/" in url:
+            try:
+                base = url.split("/api/")[0]
+                health_req = urllib.request.Request(
+                    base + "/api/tags",
+                    headers={"Connection":"close","User-Agent":"ALINA-LOCAL/1.0"},
+                    method="GET",
+                )
+                with urllib.request.urlopen(health_req, timeout=5) as response:
+                    response.read(64)
+            except Exception:
+                pass
+
+    raise RuntimeError(
+        f"LOCAL_LLM_HTTP_FAILED after {max(1,retries)} attempt(s): {last_error}"
+    ) from last_error
 
 
 def save_model_config(data: dict[str, Any]) -> None:
