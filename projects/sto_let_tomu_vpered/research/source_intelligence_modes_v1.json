@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "default_mode": "SIMULATED_OSINT",
+  "modes": {
+    "SIMULATED_OSINT": {
+      "enabled": true,
+      "external_network": false,
+      "may_unlock_downstream": true,
+      "authority_claims": "SIMULATED_ONLY"
+    },
+    "OFFICIAL_DIRECT": {
+      "enabled": false,
+      "external_network": true,
+      "requires_known_authority_source": true,
+      "authority_claims": "REAL_PROVENANCE_REQUIRED"
+    },
+    "LIVE_OSINT": {
+      "enabled": false,
+      "external_network": true,
+      "requires_search_connector": true,
+      "authority_claims": "REAL_PROVENANCE_REQUIRED"
+    }
+  },
+  "question_set": [
+    "Q1",
+    "Q2",
+    "Q3",
+    "Q4",
+    "Q5",
+    "Q6",
+    "Q7",
+    "Q8",
+    "Q9",
+    "Q10",
+    "Q11",
+    "Q12",
+    "Q13",
+    "Q14",
+    "Q15"
+  ]
+}
